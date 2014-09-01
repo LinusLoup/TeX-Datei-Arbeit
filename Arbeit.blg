@@ -1,0 +1,62 @@
+This is BibTeX, Version 0.99d (TeX Live 2013)
+Capacity: max_strings=35307, hash_size=35307, hash_prime=30011
+The top-level auxiliary file: Arbeit.aux
+The style file: alphadin.bst
+Reallocated singl_function (elt_size=4) to 100 items from 50.
+Reallocated singl_function (elt_size=4) to 100 items from 50.
+Reallocated wiz_functions (elt_size=4) to 6000 items from 3000.
+Reallocated singl_function (elt_size=4) to 100 items from 50.
+Reallocated singl_function (elt_size=4) to 100 items from 50.
+Database file #1: Arbeit.bib
+Warning--empty number in BarCar
+Warning--empty note in BarCar
+Warning--empty number in BraeLook
+Warning--empty note in BraeLook
+Warning--empty number in StarkePDE
+Warning--empty note in StarkePDE
+Warning--empty number in StarkeVar
+Warning--empty note in StarkeVar
+Warning--empty number in EPS
+Warning--empty note in EPS
+You've used 12 entries,
+            4793 wiz_defined-function locations,
+            966 strings with 7832 characters,
+and the built_in function-call counts, 6779 in all, are:
+= -- 689
+> -- 181
+< -- 146
++ -- 171
+- -- 60
+* -- 450
+:= -- 1132
+add.period$ -- 13
+call.type$ -- 12
+change.case$ -- 58
+chr.to.int$ -- 12
+cite$ -- 22
+duplicate$ -- 206
+empty$ -- 562
+format.name$ -- 122
+if$ -- 1401
+int.to.chr$ -- 1
+int.to.str$ -- 0
+missing$ -- 40
+newline$ -- 76
+num.names$ -- 36
+pop$ -- 91
+preamble$ -- 1
+purify$ -- 82
+quote$ -- 0
+skip$ -- 380
+stack$ -- 0
+substring$ -- 388
+swap$ -- 41
+text.length$ -- 35
+text.prefix$ -- 7
+top$ -- 0
+type$ -- 121
+warning$ -- 10
+while$ -- 58
+width$ -- 13
+write$ -- 162
+(There were 10 warnings)
