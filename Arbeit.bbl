@@ -44,6 +44,12 @@
 \newblock {In: }\emph{{Math. Models Methods Appl. Sci.}} 2 (1992), Nr. 4, S.
   483--487
 
+\bibitem[KO88]{KikOden}
+\textsc{Kikuchi}, N. ; \textsc{Oden}, J.T.:
+\newblock \emph{Contact Problems in Elasticity: A Study of Variational
+  Inequalities and Finite Element Methods}.
+\newblock SIAM, 1988
+
 \bibitem[KZ11]{KorZou}
 \textsc{Kornhuber}, Ralf ; \textsc{Zou}, Qingsong:
 \newblock Efficient and reliable hierarchical error estimates for the

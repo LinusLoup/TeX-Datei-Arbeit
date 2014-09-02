@@ -19,13 +19,66 @@
 
 \subsection{Variationsformulierung für das Hindernisprobleme}
 
+\subsection{Existenz und Eindeutigkeit der Lösung}
+
+\begin{itemize}
+\item Kapitel 3 in \cite{KikOden} mit Theorem 3.1-3.4 (Beweis vgl. NPDE I von Stephan Seite 39).
+\end{itemize}
+
 \subsection{Lösung des Hindernisproblems mittels FEM}
+
+\begin{itemize}
+\item Analog zum vorherigen Kapitel kann man auch im $\R^n$ Existenz und Eindeutigkeit der Lösung unter bestimmten Voraussetzungen zeigen. (vgl. Vug Skript Kapitel 2) $\Ra$ Beachte hierfür auch den Fixpunktsatz von Brouwer.
+\end{itemize}
+
+\section{Einführung in die Strukturmechanik}
+
+\begin{itemize}
+\item Beschreibung der Kinematik: Referenz- bzw. Ausgangskonfiguration, Deformationsgradient, Verzerrungsmaße (Konti-Buch)
+\item Lineararisierung der Verzerrungsmaße für unseren Fall (kleine Deformationen) mittels "Taylor" (siehe auch Gateaux-Ableitung - Seite 24 Konti Skript):
+\[
+	\bs \eps = \frac 1 2 (\nabla \bs u + \nabla^T \bs u)
+\]
+\item Kinetik: Kräftegleichgewicht und äußere Kontaktlast
+\item Konzepte für ebene Spannungs- bzw. Verzerrungszustände
+\item Konstitutive Modelle (vor allem Materialgesetze) $\Ra$ Hier vor allem Hooke:
+\[
+	\bs \sigma = \mcal C \bs \eps = 2 \mu \bs \eps + \lambda (\tr \bs \eps) \bs I \, ,
+\]
+wobei $\lambda,\mu$ die Lamé-Konstanten sind (Materialabhängige Parameter). $\Ra$ Hier noch mal den Zusammengang von Konstanten zu $E,\nu$ aufzeigen.
+\item falls Tensorrechnungen konkret benötigt werden, können diese im Anhang dargelegt werden
+\end{itemize}
 
 \section{Kontaktprobleme}
 
 \subsection{Mathematische Modellierung von Kontaktproblemen}
 
+\begin{itemize}
+\item Starke Formulierung (s. Wriggers Paper) für Kontaktproblem mit Signorini-Kontakt (ohne Reibung).
+\begin{align}
+\div \bs \sigma + \bs b &= \bs 0 \text{ in } \Omega\\
+\bs \sigma  - \mcal C \bs \eps & = \bs 0 \text{ in } \Omega\\
+\bs \sigma \cdot \bs n &= \bs t  \text{ auf } \Gamma_N \\
+\bs u &= \bs 0 \text{ auf } \Gamma_D \\
+(\bs u \circ \chi - \bs u) \cdot \bs n_c + g& \ge 0 \text{ auf } \Gamma_C
+\end{align}
+sowie auf $\Gamma_C$ muss $\sigma_n \le 0$ (Normalenkraft $\sigma_n = \bs n\cdot ( \bs \sigma \cdot \bs n)$), $\bs \sigma_t = \bs 0$ (keine Tangentialkraft, da keine Reibung – $\bs \sigma_t = \bs \sigma \cdot \bs n - \sigma_n \bs n$) und $((\bs u \circ \chi - \bs u) \cdot \bs n_c + g)\sigma_n = 0$, d.h. wenn kein Kontakt ist, ist die Normalkraft in den Punkten Null, also herrscht Kräftegleichgewicht.
+\item Anreißen von Kontaktproblem mit Tresca-Reibung (vgl. Numerik für Kontaktmechanik von Stephan und Vug von Starke) $\Ra$ Herleitung der Variationsungleichung durch Ableitung nicht mehr möglich, da Reibungspotential nicht mehr differenzierbar.
+\end{itemize}
+
 \subsection{Variationsformulierung für Kontaktprobleme}
+
+\begin{itemize}
+\item Minimierung von Energiefunktional (vgl. \cite{KikOden} Seite 112 unten) mit $\boldsymbol{u}: \Omega\ra \R^3$:
+\begin{align*}
+	E(u)& = \frac 1 2 a(u,u)-f(u) \text{ mit } \\
+	 a(u,u) &= \int_\Omega {\mcal C} \bs\eps (\bs u): \bs\eps(\bs u) \, d\Omega , \, f(u) = \int_\Omega \bs b \cdot \bs u \, d\Omega + \int_{\Gamma_N} \bs t \cdot \bs u \, d\Gamma
+\end{align*}
+unter der Nebenbedingung $\bs n \cdot \bs u - g \le 0$ auf $\Gamma_C$  (siehe Vug Skript), bzw. $(\bs u\circ \chi - \bs u)\cdot \bs n_c + g \ge 0$ auf $\Gamma_C$ (etwas allgemeiner, vgl. Wriggers Paper).
+\item Herleitung auch über starke Formulierung möglich, vgl. Stephan – Kontaktprobleme.
+\item Herleitung der Variationsformulierung: Finde $\bs u \in K$: $a(\bs u,\bs v-\bs u) \ge f(\bs v-\bs u) \, \forall \, \bs v \in K$ (s. auch Wriggers Paper) analog zum Hindernisproblem (nicht mehr ausführlich, wenn oben schon ausführlich).
+\item \cite{KikOden} Seite 113 für Bedingung für die Eindeutigkeit und Existenz der Lösung des Problems (hierfür wird Korn's Ungleichung benötigt $\Ra$ vielleicht Anhang?).
+\end{itemize}
 
 \subsection{Lösung des Kontaktproblems mittels FEM}
 

@@ -8,26 +8,28 @@
 \BOOKMARK [2][-]{subsection.2.3.1}{A posteriori Fehlersch\344tzer}{section.2.3}% 8
 \BOOKMARK [1][-]{section.2.4}{Ein Hindernisproblem}{chapter.2}% 9
 \BOOKMARK [2][-]{subsection.2.4.1}{Variationsformulierung f\374r das Hindernisprobleme}{section.2.4}% 10
-\BOOKMARK [2][-]{subsection.2.4.2}{L\366sung des Hindernisproblems mittels FEM}{section.2.4}% 11
-\BOOKMARK [1][-]{section.2.5}{Kontaktprobleme}{chapter.2}% 12
-\BOOKMARK [2][-]{subsection.2.5.1}{Mathematische Modellierung von Kontaktproblemen}{section.2.5}% 13
-\BOOKMARK [2][-]{subsection.2.5.2}{Variationsformulierung f\374r Kontaktprobleme}{section.2.5}% 14
-\BOOKMARK [2][-]{subsection.2.5.3}{L\366sung des Kontaktproblems mittels FEM}{section.2.5}% 15
-\BOOKMARK [0][-]{chapter.3}{Ein hierarchischer Fehlersch\344tzer f\374r Hindernisprobleme}{}% 16
-\BOOKMARK [1][-]{section.3.1}{Herleitung eines a posteriori hierarchischen Fehlersch\344tzers}{chapter.3}% 17
-\BOOKMARK [2][-]{subsection.3.1.1}{Diskretisierung}{section.3.1}% 18
-\BOOKMARK [2][-]{subsection.3.1.2}{Lokaler Anteil des Fehlersch\344tzers}{section.3.1}% 19
-\BOOKMARK [2][-]{subsection.3.1.3}{Oszillationsterme}{section.3.1}% 20
-\BOOKMARK [2][-]{subsection.3.1.4}{Zuverl\344ssigkeit des Fehlersch\344tzers}{section.3.1}% 21
-\BOOKMARK [2][-]{subsection.3.1.5}{Effektivit\344t des Fehlersch\344tzers}{section.3.1}% 22
-\BOOKMARK [1][-]{section.3.2}{Ein adaptiver Algorithmus}{chapter.3}% 23
-\BOOKMARK [1][-]{section.3.3}{Erf\374llung einer Saturationseigenschaft}{chapter.3}% 24
-\BOOKMARK [0][-]{chapter.4}{\334bertragung des Fehlersch\344tzers auf Kontaktprobleme}{}% 25
-\BOOKMARK [0][-]{chapter.5}{Implementierung des Fehlersch\344tzers in Matlab}{}% 26
-\BOOKMARK [0][-]{chapter.6}{Validierung}{}% 27
-\BOOKMARK [1][-]{section.6.1}{Numerisches Beispiel zum Hindernisproblem}{chapter.6}% 28
-\BOOKMARK [1][-]{section.6.2}{Numerisches Beispiel zum Kontaktproblem}{chapter.6}% 29
-\BOOKMARK [0][-]{chapter.7}{Zusammenfassung und Ausblick}{}% 30
-\BOOKMARK [0][-]{chapter.7}{Literaturverzeichnis}{}% 31
-\BOOKMARK [0][-]{appendix.A}{Quellcode}{}% 32
-\BOOKMARK [1][-]{section.A.1}{Implementierung des Fehlersch\344tzers f\374r das Hindernisproblem}{appendix.A}% 33
+\BOOKMARK [2][-]{subsection.2.4.2}{Existenz und Eindeutigkeit der L\366sung}{section.2.4}% 11
+\BOOKMARK [2][-]{subsection.2.4.3}{L\366sung des Hindernisproblems mittels FEM}{section.2.4}% 12
+\BOOKMARK [1][-]{section.2.5}{Einf\374hrung in die Strukturmechanik}{chapter.2}% 13
+\BOOKMARK [1][-]{section.2.6}{Kontaktprobleme}{chapter.2}% 14
+\BOOKMARK [2][-]{subsection.2.6.1}{Mathematische Modellierung von Kontaktproblemen}{section.2.6}% 15
+\BOOKMARK [2][-]{subsection.2.6.2}{Variationsformulierung f\374r Kontaktprobleme}{section.2.6}% 16
+\BOOKMARK [2][-]{subsection.2.6.3}{L\366sung des Kontaktproblems mittels FEM}{section.2.6}% 17
+\BOOKMARK [0][-]{chapter.3}{Ein hierarchischer Fehlersch\344tzer f\374r Hindernisprobleme}{}% 18
+\BOOKMARK [1][-]{section.3.1}{Herleitung eines a posteriori hierarchischen Fehlersch\344tzers}{chapter.3}% 19
+\BOOKMARK [2][-]{subsection.3.1.1}{Diskretisierung}{section.3.1}% 20
+\BOOKMARK [2][-]{subsection.3.1.2}{Lokaler Anteil des Fehlersch\344tzers}{section.3.1}% 21
+\BOOKMARK [2][-]{subsection.3.1.3}{Oszillationsterme}{section.3.1}% 22
+\BOOKMARK [2][-]{subsection.3.1.4}{Zuverl\344ssigkeit des Fehlersch\344tzers}{section.3.1}% 23
+\BOOKMARK [2][-]{subsection.3.1.5}{Effektivit\344t des Fehlersch\344tzers}{section.3.1}% 24
+\BOOKMARK [1][-]{section.3.2}{Ein adaptiver Algorithmus}{chapter.3}% 25
+\BOOKMARK [1][-]{section.3.3}{Erf\374llung einer Saturationseigenschaft}{chapter.3}% 26
+\BOOKMARK [0][-]{chapter.4}{\334bertragung des Fehlersch\344tzers auf Kontaktprobleme}{}% 27
+\BOOKMARK [0][-]{chapter.5}{Implementierung des Fehlersch\344tzers in Matlab}{}% 28
+\BOOKMARK [0][-]{chapter.6}{Validierung}{}% 29
+\BOOKMARK [1][-]{section.6.1}{Numerisches Beispiel zum Hindernisproblem}{chapter.6}% 30
+\BOOKMARK [1][-]{section.6.2}{Numerisches Beispiel zum Kontaktproblem}{chapter.6}% 31
+\BOOKMARK [0][-]{chapter.7}{Zusammenfassung und Ausblick}{}% 32
+\BOOKMARK [0][-]{chapter.7}{Literaturverzeichnis}{}% 33
+\BOOKMARK [0][-]{appendix.A}{Quellcode}{}% 34
+\BOOKMARK [1][-]{section.A.1}{Implementierung des Fehlersch\344tzers f\374r das Hindernisproblem}{appendix.A}% 35
