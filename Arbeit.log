@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.1415926-2.5-1.40.14 (TeX Live 2013) (format=pdflatex 2014.5.6)  2 SEP 2014 15:37
+This is pdfTeX, Version 3.1415926-2.5-1.40.14 (TeX Live 2013) (format=pdflatex 2014.5.6)  3 SEP 2014 18:20
 entering extended mode
  \write18 enabled.
  file:line:error style messages enabled.
@@ -344,6 +344,30 @@ File: babel.def 2014/03/24 3.9k Babel common definitions
 \l@nswissgerman = a dialect from \language\l@ngerman 
 Package babel Info: Making " an active character on input line 88.
 )))
+(/usr/local/texlive/2013/texmf-dist/tex/latex/graphics/graphicx.sty
+Package: graphicx 1999/02/16 v1.0f Enhanced LaTeX Graphics (DPC,SPQR)
+
+(/usr/local/texlive/2013/texmf-dist/tex/latex/graphics/keyval.sty
+Package: keyval 1999/03/16 v1.13 key=value parser (DPC)
+\KV@toks@=\toks28
+)
+(/usr/local/texlive/2013/texmf-dist/tex/latex/graphics/graphics.sty
+Package: graphics 2009/02/05 v1.0o Standard LaTeX Graphics (DPC,SPQR)
+
+(/usr/local/texlive/2013/texmf-dist/tex/latex/graphics/trig.sty
+Package: trig 1999/03/16 v1.09 sin cos tan (DPC)
+)
+(/usr/local/texlive/2013/texmf-dist/tex/latex/latexconfig/graphics.cfg
+File: graphics.cfg 2010/04/23 v1.9 graphics configuration of TeX Live
+)
+Package graphics Info: Driver file: dvips.def on input line 91.
+
+(/usr/local/texlive/2013/texmf-dist/tex/latex/graphics/dvips.def
+File: dvips.def 1999/02/16 v3.0i Driver-dependant file (DPC,SPQR)
+))
+\Gin@req@height=\dimen113
+\Gin@req@width=\dimen114
+)
 (/usr/local/texlive/2013/texmf-dist/tex/latex/pstricks/pstricks.sty
 Package: pstricks 2013/12/12 v0.60 LaTeX wrapper for `PSTricks' (RN,HV)
 
@@ -359,12 +383,11 @@ File: pst-xkey.tex 2005/11/25 v1.6 PSTricks specialization of xkeyval (HA)
 Package: xkeyval 2012/10/14 v2.6b package option processing (HA)
 
 (/usr/local/texlive/2013/texmf-dist/tex/generic/xkeyval/xkeyval.tex
-\XKV@toks=\toks28
-\XKV@tempa@toks=\toks29
+\XKV@toks=\toks29
+\XKV@tempa@toks=\toks30
 \XKV@depth=\count101
 File: xkeyval.tex 2012/10/14 v2.6b key=value parser (HA)
-
-(/usr/local/texlive/2013/texmf-dist/tex/generic/xkeyval/keyval.tex))))
+)))
 (/usr/local/texlive/2013/texmf-dist/tex/generic/pstricks/pst-fp.tex
 `pst-fp' v0.05, 2010/01/17 (hv)
 \pstFP@xs=\count102
@@ -379,32 +402,32 @@ File: xkeyval.tex 2012/10/14 v2.6b key=value parser (HA)
 )
 (/usr/local/texlive/2013/texmf-dist/tex/generic/pgf/utilities/pgfutil-common.te
 x
-\pgfutil@everybye=\toks30
-\pgfutil@tempdima=\dimen113
-\pgfutil@tempdimb=\dimen114
+\pgfutil@everybye=\toks31
+\pgfutil@tempdima=\dimen115
+\pgfutil@tempdimb=\dimen116
 
 (/usr/local/texlive/2013/texmf-dist/tex/generic/pgf/utilities/pgfutil-common-li
 sts.tex))
 (/usr/local/texlive/2013/texmf-dist/tex/generic/pgf/utilities/pgfkeys.code.tex
-\pgfkeys@pathtoks=\toks31
-\pgfkeys@temptoks=\toks32
+\pgfkeys@pathtoks=\toks32
+\pgfkeys@temptoks=\toks33
 
 (/usr/local/texlive/2013/texmf-dist/tex/generic/pgf/utilities/pgfkeysfiltered.c
 ode.tex
-\pgfkeys@tmptoks=\toks33
+\pgfkeys@tmptoks=\toks34
 ))
 (/usr/local/texlive/2013/texmf-dist/tex/generic/pgf/utilities/pgffor.code.tex
 (/usr/local/texlive/2013/texmf-dist/tex/generic/pgf/math/pgfmath.code.tex
 (/usr/local/texlive/2013/texmf-dist/tex/generic/pgf/math/pgfmathcalc.code.tex
 (/usr/local/texlive/2013/texmf-dist/tex/generic/pgf/math/pgfmathutil.code.tex
-\pgf@x=\dimen115
-\pgf@xa=\dimen116
-\pgf@xb=\dimen117
-\pgf@xc=\dimen118
-\pgf@y=\dimen119
-\pgf@ya=\dimen120
-\pgf@yb=\dimen121
-\pgf@yc=\dimen122
+\pgf@x=\dimen117
+\pgf@xa=\dimen118
+\pgf@xb=\dimen119
+\pgf@xc=\dimen120
+\pgf@y=\dimen121
+\pgf@ya=\dimen122
+\pgf@yb=\dimen123
+\pgf@yc=\dimen124
 \c@pgf@counta=\count111
 \c@pgf@countb=\count112
 \c@pgf@countc=\count113
@@ -413,12 +436,12 @@ ode.tex
 \pgfutil@tempcntb=\count116
 )
 (/usr/local/texlive/2013/texmf-dist/tex/generic/pgf/math/pgfmathparser.code.tex
-\pgfmath@dimen=\dimen123
+\pgfmath@dimen=\dimen125
 \pgfmath@count=\count117
 \pgfmath@box=\box28
-\pgfmath@toks=\toks34
-\pgfmath@stack@operand=\toks35
-\pgfmath@stack@operation=\toks36
+\pgfmath@toks=\toks35
+\pgfmath@stack@operand=\toks36
+\pgfmath@stack@operation=\toks37
 )
 (/usr/local/texlive/2013/texmf-dist/tex/generic/pgf/math/pgfmathfunctions.code.
 tex
@@ -441,24 +464,24 @@ erarithmetics.code.tex)))
 (/usr/local/texlive/2013/texmf-dist/tex/generic/pgf/math/pgfmathfloat.code.tex
 \c@pgfmathroundto@lastzeros=\count118
 ))
-\pgffor@iter=\dimen124
-\pgffor@skip=\dimen125
-\pgffor@stack=\toks37
-\pgffor@toks=\toks38
+\pgffor@iter=\dimen126
+\pgffor@skip=\dimen127
+\pgffor@stack=\toks38
+\pgffor@toks=\toks39
 )
 \psLoopIndex=\count119
 
 `PSTricks' v2.53a  <2014/03/30> (tvz)
-\pst@dima=\dimen126
-\pst@dimb=\dimen127
-\pst@dimc=\dimen128
-\pst@dimd=\dimen129
-\pst@dimg=\dimen130
-\pst@dimh=\dimen131
-\pst@dimm=\dimen132
-\pst@dimn=\dimen133
-\pst@dimo=\dimen134
-\pst@dimp=\dimen135
+\pst@dima=\dimen128
+\pst@dimb=\dimen129
+\pst@dimc=\dimen130
+\pst@dimd=\dimen131
+\pst@dimg=\dimen132
+\pst@dimh=\dimen133
+\pst@dimm=\dimen134
+\pst@dimn=\dimen135
+\pst@dimo=\dimen136
+\pst@dimp=\dimen137
 \pst@hbox=\box29
 \pst@ibox=\box30
 \pst@boxg=\box31
@@ -473,26 +496,26 @@ erarithmetics.code.tex)))
 \pst@cnto=\count128
 \pst@cntp=\count129
 \@zero=\count130
-\pst@toks=\toks39
+\pst@toks=\toks40
 (/usr/local/texlive/2013/texmf-dist/tex/generic/pstricks/pstricks.con)
-\psunit=\dimen136
-\psxunit=\dimen137
-\psyunit=\dimen138
+\psunit=\dimen138
+\psxunit=\dimen139
+\psyunit=\dimen140
 \pst@C@@rType=\count131
-\pslinewidth=\dimen139
-\psk@startLW=\dimen140
-\psk@endLW=\dimen141
-\pst@customdefs=\toks40
-\pslinearc=\dimen142
-\pst@symbolStep=\dimen143
-\pst@symbolWidth=\dimen144
-\pst@symbolLinewidth=\dimen145
-\everypsbox=\toks41
-\psframesep=\dimen146
-\pslabelsep=\dimen147
-\sh@wgridXunit=\dimen148
-\sh@wgridYunit=\dimen149
-\pst@shift=\dimen150
+\pslinewidth=\dimen141
+\psk@startLW=\dimen142
+\psk@endLW=\dimen143
+\pst@customdefs=\toks41
+\pslinearc=\dimen144
+\pst@symbolStep=\dimen145
+\pst@symbolWidth=\dimen146
+\pst@symbolLinewidth=\dimen147
+\everypsbox=\toks42
+\psframesep=\dimen148
+\pslabelsep=\dimen149
+\sh@wgridXunit=\dimen150
+\sh@wgridYunit=\dimen151
+\pst@shift=\dimen152
 )
 File: pstricks.tex 2014/03/30 v2.53a `PSTricks' (tvz,hv)
 
@@ -519,7 +542,6 @@ Package: ltxcmds 2011/11/09 v1.22 LaTeX kernel commands for general use (HO)
 \Gread@gobject=\count132
 )
 Package xcolor Info: Model `cmy' substituted by `cmy0' on input line 1337.
-Package xcolor Info: Model `hsb' substituted by `rgb' on input line 1341.
 Package xcolor Info: Model `RGB' extended on input line 1353.
 Package xcolor Info: Model `HTML' substituted by `rgb' on input line 1355.
 Package xcolor Info: Model `Hsb' substituted by `hsb' on input line 1356.
@@ -545,7 +567,7 @@ Package: multido 2004/05/17 package wrapper for PSTricks `multido.tex', (HV/RN)
  v1.42, 2010/05/14 <tvz>
 \multido@count=\count133
 \multidocount=\count134
-\multido@stuff=\toks42
+\multido@stuff=\toks43
 )
 File: multido.tex 2010/05/14 v1.42 `multido' (tvz,hv)
 )
@@ -553,26 +575,26 @@ Package: pst-plot 2011/04/13 package wrapper for pst-plot.tex (hv)
 
 (/usr/local/texlive/2013/texmf-dist/tex/generic/pst-plot/pst-plot.tex
  v1.61, 2014/03/12 (tvz,hv)
-\pstRadUnit=\dimen151
-\pstRadUnitInv=\dimen152
+\pstRadUnit=\dimen153
+\pstRadUnitInv=\dimen154
 \pst@linecnt=\count135
 \RCD@file=\read1
-\psxlabelsep=\dimen153
-\psylabelsep=\dimen154
-\psk@subticksize=\dimen155
-\pst@xticksizeA=\dimen156
-\pst@xticksizeB=\dimen157
-\pst@xticksizeC=\dimen158
-\pst@yticksizeA=\dimen159
-\pst@yticksizeB=\dimen160
-\pst@yticksizeC=\dimen161
+\psxlabelsep=\dimen155
+\psylabelsep=\dimen156
+\psk@subticksize=\dimen157
+\pst@xticksizeA=\dimen158
+\pst@xticksizeB=\dimen159
+\pst@xticksizeC=\dimen160
+\pst@yticksizeA=\dimen161
+\pst@yticksizeB=\dimen162
+\pst@yticksizeC=\dimen163
 \@digitcounter=\count136
-\psk@llx=\dimen162
-\psk@lly=\dimen163
-\psk@urx=\dimen164
-\psk@ury=\dimen165
-\pst@xunit=\dimen166
-\pst@yunit=\dimen167
+\psk@llx=\dimen164
+\psk@lly=\dimen165
+\psk@urx=\dimen166
+\psk@ury=\dimen167
+\pst@xunit=\dimen168
+\pst@yunit=\dimen169
 )
 File: pst-plot.tex 2014/03/12 1.61 `pst-plot' (tvz,hv)
 )
@@ -669,15 +691,15 @@ hv)
 
 (/usr/local/texlive/2013/texmf-dist/tex/generic/pstricks-add/pstricks-add.tex
 `pstricks-add' v3.65, 2014/01/21 (dr,hv)
-\psparallelogramsep=\dimen168
-\pshooklength=\dimen169
-\pshookwidth=\dimen170
+\psparallelogramsep=\dimen170
+\pshooklength=\dimen171
+\pshookwidth=\dimen172
 \pst@cntC=\count148
-\chart@ColorIndex=\dimen171
-\chart@ColorStep=\dimen172
-\pst@chartHeight=\dimen173
-\pst@chartStackDepth=\dimen174
-\pst@chartStackWidth=\dimen175
+\chart@ColorIndex=\dimen173
+\chart@ColorStep=\dimen174
+\pst@chartHeight=\dimen175
+\pst@chartStackDepth=\dimen176
+\pst@chartStackWidth=\dimen177
 \chart@Toggle=\count149
 \psVectorCtr=\count150
 )
@@ -695,16 +717,16 @@ Package: pst-3dplot 2010/01/01 package wrapper for pst-3dplot.tex (hv)
 (/usr/local/texlive/2013/texmf-dist/tex/generic/pst-node/pst-node.tex)
 (/usr/local/texlive/2013/texmf-dist/tex/generic/multido/multido.tex
  v1.42, 2010/05/14 <tvz>) `PST-3dplot' v2.00, 2014/03/26 (HV,DL)
-\pst@dimf=\dimen176
+\pst@dimf=\dimen178
 \pst@cntx=\count151
 \pst@cnty=\count152
 \pst@cntz=\count153
-\pst@dimx=\dimen177
-\pst@dimy=\dimen178
-\pst@dimz=\dimen179
-\pst@dx=\dimen180
-\pst@dy=\dimen181
-\pszunit=\dimen182
+\pst@dimx=\dimen179
+\pst@dimy=\dimen180
+\pst@dimz=\dimen181
+\pst@dx=\dimen182
+\pst@dy=\dimen183
+\pszunit=\dimen184
 )
 File: pst-3dplot.tex 2014/03/26 v2.00 `PST-3dplot' (hv)
 )
@@ -764,7 +786,7 @@ Package: auxhook 2011/03/04 v1.3 Hooks for auxiliary files (HO)
 (/usr/local/texlive/2013/texmf-dist/tex/latex/oberdiek/kvoptions.sty
 Package: kvoptions 2011/06/30 v3.11 Key value format for package options (HO)
 )
-\@linkdim=\dimen183
+\@linkdim=\dimen185
 \Hy@linkcounter=\count154
 \Hy@pagecounter=\count155
 
@@ -792,10 +814,10 @@ Package hyperref Info: Bookmarks ON on input line 4688.
 Package: url 2013/09/16  ver 3.4  Verb mode for urls, etc.
 )
 LaTeX Info: Redefining \url on input line 5041.
-\XeTeXLinkMargin=\dimen184
+\XeTeXLinkMargin=\dimen186
 \Fld@menulength=\count158
-\Field@Width=\dimen185
-\Fld@charsize=\dimen186
+\Field@Width=\dimen187
+\Fld@charsize=\dimen188
 Package hyperref Info: Hyper figures OFF on input line 6295.
 Package hyperref Info: Link nesting OFF on input line 6300.
 Package hyperref Info: Hyper index ON on input line 6303.
@@ -850,8 +872,8 @@ Package: mathtools 2013/02/12 v1.13 mathematical typesetting tools
 Package: calc 2007/08/22 v4.3 Infix arithmetic (KKT,FJ)
 \calc@Acount=\count164
 \calc@Bcount=\count165
-\calc@Adimen=\dimen187
-\calc@Bdimen=\dimen188
+\calc@Adimen=\dimen189
+\calc@Bdimen=\dimen190
 \calc@Askip=\skip61
 \calc@Bskip=\skip62
 LaTeX Info: Redefining \setlength on input line 76.
@@ -865,14 +887,14 @@ Package: mhsetup 2010/01/21 v1.2a programming setup (MH)
 LaTeX Info: Thecontrolsequence`\['isalreadyrobust on input line 129.
 LaTeX Info: Thecontrolsequence`\]'isalreadyrobust on input line 129.
 \g_MT_multlinerow_int=\count167
-\l_MT_multwidth_dim=\dimen189
+\l_MT_multwidth_dim=\dimen191
 \origjot=\skip64
-\l_MT_shortvdotswithinadjustabove_dim=\dimen190
-\l_MT_shortvdotswithinadjustbelow_dim=\dimen191
-\l_MT_above_intertext_sep=\dimen192
-\l_MT_below_intertext_sep=\dimen193
-\l_MT_above_shortintertext_sep=\dimen194
-\l_MT_below_shortintertext_sep=\dimen195
+\l_MT_shortvdotswithinadjustabove_dim=\dimen192
+\l_MT_shortvdotswithinadjustbelow_dim=\dimen193
+\l_MT_above_intertext_sep=\dimen194
+\l_MT_below_intertext_sep=\dimen195
+\l_MT_above_shortintertext_sep=\dimen196
+\l_MT_below_shortintertext_sep=\dimen197
 )
 (/usr/local/texlive/2013/texmf-dist/tex/generic/xypic/xy.sty
 (/usr/local/texlive/2013/texmf-dist/tex/generic/xypic/xy.tex Bootstrap'ing:
@@ -885,51 +907,51 @@ catcodes, docmode,
  Xy-pic is free software: see the User's Guide for details.
 
 Loading kernel: messages; fonts; allocations: state,
-\X@c=\dimen196
-\Y@c=\dimen197
-\U@c=\dimen198
-\D@c=\dimen199
-\L@c=\dimen200
-\R@c=\dimen201
-\Edge@c=\toks43
-\X@p=\dimen202
-\Y@p=\dimen203
-\U@p=\dimen204
-\D@p=\dimen205
-\L@p=\dimen206
-\R@p=\dimen207
-\Edge@p=\toks44
-\X@origin=\dimen208
-\Y@origin=\dimen209
-\X@xbase=\dimen210
-\Y@xbase=\dimen211
-\X@ybase=\dimen212
-\Y@ybase=\dimen213
-\X@min=\dimen214
-\Y@min=\dimen215
-\X@max=\dimen216
-\Y@max=\dimen217
+\X@c=\dimen198
+\Y@c=\dimen199
+\U@c=\dimen200
+\D@c=\dimen201
+\L@c=\dimen202
+\R@c=\dimen203
+\Edge@c=\toks44
+\X@p=\dimen204
+\Y@p=\dimen205
+\U@p=\dimen206
+\D@p=\dimen207
+\L@p=\dimen208
+\R@p=\dimen209
+\Edge@p=\toks45
+\X@origin=\dimen210
+\Y@origin=\dimen211
+\X@xbase=\dimen212
+\Y@xbase=\dimen213
+\X@ybase=\dimen214
+\Y@ybase=\dimen215
+\X@min=\dimen216
+\Y@min=\dimen217
+\X@max=\dimen218
+\Y@max=\dimen219
 \lastobjectbox@=\box35
 \zerodotbox@=\box36
-\almostz@=\dimen218
+\almostz@=\dimen220
  direction,
-\d@X=\dimen219
-\d@Y=\dimen220
+\d@X=\dimen221
+\d@Y=\dimen222
 \K@=\count168
 \KK@=\count169
 \Direction=\count170
-\K@dXdY=\dimen221
-\K@dYdX=\dimen222
+\K@dXdY=\dimen223
+\K@dYdX=\dimen224
 \xyread@=\read2
 \xywrite@=\write5
 \csp@=\count171
-\quotPTK@=\dimen223
+\quotPTK@=\dimen225
 
 utility macros; pictures: \xy, positions,
-\swaptoks@@=\toks45
+\swaptoks@@=\toks46
 \connectobjectbox@@=\box37
  objects,
-\styletoks@=\toks46
+\styletoks@=\toks47
  decorations;
 kernel objects: directionals, circles, text; options; algorithms: directions,
 edges, connections;  Xy-pic loaded)
@@ -1205,7 +1227,7 @@ LaTeX Info: Redefining \genfrac on input line 121.
 \eqbinoffset=\muskip18
 \eqdelimoffset=\muskip19
 \eqindentstep=\dimen291
-\eqstyle=\toks47
+\eqstyle=\toks48
 \eqbreakdepth=\count303
 \eqinterlinepenalty=\count304
 \intereqpenalty=\count305
@@ -1246,9 +1268,9 @@ LaTeX Info: Redefining \genfrac on input line 121.
 \mathindent=\dimen309
 \eq@final@linecount=\count312
 \eq@wdR=\dimen310
-\EQ@continue=\toks48
+\EQ@continue=\toks49
 \lr@level=\count313
-\GRP@queue=\toks49
+\GRP@queue=\toks50
 \GRP@box=\box60
 \GRP@wholebox=\box61
 \darraycolsep=\skip85
@@ -1283,23 +1305,14 @@ LaTeX Font Info:    ... okay on input line 125.
 LaTeX Font Info:    Checking defaults for PD1/pdf/m/n on input line 125.
 LaTeX Font Info:    ... okay on input line 125.
 
-(/usr/local/texlive/2013/texmf-dist/tex/latex/graphics/graphics.sty
-Package: graphics 2009/02/05 v1.0o Standard LaTeX Graphics (DPC,SPQR)
-
-(/usr/local/texlive/2013/texmf-dist/tex/latex/graphics/trig.sty
-Package: trig 1999/03/16 v1.09 sin cos tan (DPC)
-)
-(/usr/local/texlive/2013/texmf-dist/tex/latex/latexconfig/graphics.cfg
-File: graphics.cfg 2010/04/23 v1.9 graphics configuration of TeX Live
-)
-Package graphics Info: Driver file: pdftex.def on input line 91.
-)
 (/usr/local/texlive/2013/texmf-dist/tex/latex/oberdiek/epstopdf-base.sty
 Package: epstopdf-base 2010/02/09 v2.5 Base part for package epstopdf
 
 (/usr/local/texlive/2013/texmf-dist/tex/latex/oberdiek/grfext.sty
 Package: grfext 2010/08/19 v1.1 Manage graphics extensions (HO)
 )
+Package epstopdf-base Info: Redefining graphics rule for `.eps' on input line 4
+34.
 Package grfext Info: Graphics extension search list:
 (grfext)             [.png,.pdf,.jpg,.mps,.jpeg,.jbig2,.jb2,.PNG,.PDF,.JPG,.JPE
 G,.JBIG2,.JB2,.eps]
@@ -1316,12 +1329,12 @@ e
 \scratchbox=\box62
 \nofMPsegments=\count318
 \nofMParguments=\count319
-\everyMPshowfont=\toks50
+\everyMPshowfont=\toks51
 \MPscratchCnt=\count320
 \MPscratchDim=\dimen312
 \MPnumerator=\count321
 \makeMPintoPDFobject=\count322
-\everyMPtoPDFconversion=\toks51
+\everyMPtoPDFconversion=\toks52
 )
 \AtBeginShipoutBox=\box63
 Package hyperref Info: Link coloring OFF on input line 125.
@@ -1338,65 +1351,55 @@ LaTeX Info: Redefining \pageref on input line 125.
 LaTeX Info: Redefining \nameref on input line 125.
 
 (./Arbeit.out) (./Arbeit.out)
+\@o Info:    Checking defaults for PD1/pdf/m/n on input line 138.
+LaTeX Font Info:    ... okay on input line 138.
+\AtBeginShipoutBox=\box63
+Package hyperref Info: Link coloring OFF on input line 138.
+
+(/usr/local/texlive/2013/texmf-dist/tex/latex/hyperref/nameref.sty
+Package: nameref 2012/10/27 v2.43 Cross-referencing by name of section
+
+(/usr/local/texlive/2013/texmf-dist/tex/generic/oberdiek/gettitlestring.sty
+Package: gettitlestring 2010/12/03 v1.4 Cleanup title references (HO)
+)
+\c@section@level=\count317
+)
+LaTeX Info: Redefining \ref on input line 138.
+LaTeX Info: Redefining \pageref on input line 138.
+LaTeX Info: Redefining \nameref on input line 138.
+
+(./Arbeit.out) (./Arbeit.out)
 \@outlinefile=\write7
 \openout7 = `Arbeit.out'.
 
 
-(/usr/local/texlive/2013/texmf-dist/tex/latex/graphics/graphicx.sty
-Package: graphicx 1999/02/16 v1.0f Enhanced LaTeX Graphics (DPC,SPQR)
-\Gin@req@height=\dimen313
-\Gin@req@width=\dimen314
-)
-LaTeX Font Info:    Try loading font information for U+msa on input line 125.
 
-(/usr/local/texlive/2013/texmf-dist/tex/latex/amsfonts/umsa.fd
-File: umsa.fd 2013/01/14 v3.01 AMS symbols A
-)
-LaTeX Font Info:    Try loading font information for U+msb on input line 125.
+Package hyperref Warning: Rerun to get /PageLabels entry.
 
-(/usr/local/texlive/2013/texmf-dist/tex/latex/amsfonts/umsb.fd
-File: umsb.fd 2013/01/14 v3.01 AMS symbols B
-)
-Package xypdf Info: Line width: 0.43799pt on input line 125.
+./Arbeit.tex:145: Undefined control sequence.
+\\IncludeGraphics ...@empty \@for\@type:=\bmpsize 
+                                                  @types\do {\ifx \@found\@e...
+l.145  \IncludeGraphics{luh_logo3.pdf}
+                                      \\
+? 
+./Arbeit.tex:145: Emergency stop.
+\\IncludeGraphics ...@empty \@for\@type:=\bmpsize 
+                                                  @types\do {\ifx \@found\@e...
+l.145  \IncludeGraphics{luh_logo3.pdf}
+                                      \\
+End of file on the terminal!
 
-<luh_logo3.pdf, id=143, 711.37767pt x 205.2468pt>
-File: luh_logo3.pdf Graphic file (type pdf)
- <use luh_logo3.pdf>
-Package pdftex.def Info: luh_logo3.pdf used on input line 132.
-(pdftex.def)             Requested size: 192.05609pt x 55.4111pt.
-Package babel Info: Redefining ngerman shorthand "|
-(babel)             in language  on input line 150.
-Package babel Info: Redefining ngerman shorthand "~
-(babel)             in language  on input line 150.
-Package babel Info: Redefining ngerman shorthand "|
-(babel)             in language  on input line 150.
-Package babel Info: Redefining ngerman shorthand "~
-(babel)             in language  on input line 150.
- [1
-Non-PDF special ignored!
-Non-PDF special ignored!
-Non-PDF special ignored!
-Non-PDF special ignored!
-Non-PDF special ignored!
-Non-PDF special ignored!
-Non-PDF special ignored!
-Non-PDF special ignored!
-Non-PDF special ignored!
-Non-PDF special ignored!
-Non-PDF special ignored!
-Non-PDF special ignored!
-
-
-Non-PDF special ignored!
-Non-PDF special ignored!
-Non-PDF special ignored!
-Non-PDF special ignored!
-
-
-{/usr/local/texlive/2013/texmf-var/fonts/map/pdftex/updmap/pdftex.map} <./luh_l
-ogo3.pdf>] (./Arbeit.toc
-Package babel Info: Redefining ngerman shorthand "|
-(babel)             in language  on input line 30.
+ 
+Here is how much of TeX's memory you used:
+ 23885 strings out of 493309
+ 409453 string characters out of 6137843
+ 577653 words of memory out of 5000000
+ 26919 multiletter control sequences out of 15000+600000
+ 5389 words of font info for 24 fonts, out of 8000000 for 9000
+ 957 hyphenation exceptions out of 8191
+ 44i,1n,54p,10401b,85s stack positions out of 5000i,500n,10000p,200000b,80000s
+No pages of output.
+ line 30.
 Package babel Info: Redefining ngerman shorthand "~
 (babel)             in language  on input line 30.
 Package babel Info: Redefining ngerman shorthand "|
@@ -1495,33 +1498,25 @@ Package babel Info: Redefining ngerman shorthand "|
 Package babel Info: Redefining ngerman shorthand "~
 (babel)             in language  on input line 10.
 Package babel Info: Redefining ngerman shorthand "|
-(babel)             in language  on input line 12.
+(babel)             in language  on input line 17.
 Package babel Info: Redefining ngerman shorthand "~
-(babel)             in language  on input line 12.
+(babel)             in language  on input line 17.
 Package babel Info: Redefining ngerman shorthand "|
-(babel)             in language  on input line 14.
+(babel)             in language  on input line 26.
 Package babel Info: Redefining ngerman shorthand "~
-(babel)             in language  on input line 14.
-Package babel Info: Redefining ngerman shorthand "|
-(babel)             in language  on input line 16.
-Package babel Info: Redefining ngerman shorthand "~
-(babel)             in language  on input line 16.
-Package babel Info: Redefining ngerman shorthand "|
-(babel)             in language  on input line 18.
-Package babel Info: Redefining ngerman shorthand "~
-(babel)             in language  on input line 18.
-Package babel Info: Redefining ngerman shorthand "|
-(babel)             in language  on input line 20.
-Package babel Info: Redefining ngerman shorthand "~
-(babel)             in language  on input line 20.
-Package babel Info: Redefining ngerman shorthand "|
-(babel)             in language  on input line 22.
-Package babel Info: Redefining ngerman shorthand "~
-(babel)             in language  on input line 22.
+(babel)             in language  on input line 26.
 Package babel Info: Redefining ngerman shorthand "|
 (babel)             in language  on input line 28.
 Package babel Info: Redefining ngerman shorthand "~
 (babel)             in language  on input line 28.
+Package babel Info: Redefining ngerman shorthand "|
+(babel)             in language  on input line 30.
+Package babel Info: Redefining ngerman shorthand "~
+(babel)             in language  on input line 30.
+Package babel Info: Redefining ngerman shorthand "|
+(babel)             in language  on input line 32.
+Package babel Info: Redefining ngerman shorthand "~
+(babel)             in language  on input line 32.
 Package babel Info: Redefining ngerman shorthand "|
 (babel)             in language  on input line 34.
 Package babel Info: Redefining ngerman shorthand "~
@@ -1538,23 +1533,27 @@ Package babel Info: Redefining ngerman shorthand "~
 
 ]
 Package babel Info: Redefining ngerman shorthand "|
-(babel)             in language  on input line 52.
+(babel)             in language  on input line 40.
 Package babel Info: Redefining ngerman shorthand "~
-(babel)             in language  on input line 52.
+(babel)             in language  on input line 40.
 Package babel Info: Redefining ngerman shorthand "|
-(babel)             in language  on input line 54.
+(babel)             in language  on input line 46.
 Package babel Info: Redefining ngerman shorthand "~
-(babel)             in language  on input line 54.
+(babel)             in language  on input line 46.
+Package babel Info: Redefining ngerman shorthand "|
+(babel)             in language  on input line 64.
+Package babel Info: Redefining ngerman shorthand "~
+(babel)             in language  on input line 64.
+Package babel Info: Redefining ngerman shorthand "|
+(babel)             in language  on input line 66.
+Package babel Info: Redefining ngerman shorthand "~
+(babel)             in language  on input line 66.
 
-Overfull \hbox (22.13235pt too wide) in paragraph at lines 57--58
+Overfull \hbox (22.13235pt too wide) in paragraph at lines 69--70
 []\OT1/cmr/m/n/10.95 Starke For-mu-lie-rung (s. Wrig-gers Pa-per) f[]ur Kon-tak
 t-pro-blem mit Signorini-
  []
 
-Package babel Info: Redefining ngerman shorthand "|
-(babel)             in language  on input line 69.
-Package babel Info: Redefining ngerman shorthand "~
-(babel)             in language  on input line 69.
 
 Package Fancyhdr Warning: \headheight is too small (12.0pt): 
  Make it at least 13.59999pt.
@@ -1571,9 +1570,13 @@ Package babel Info: Redefining ngerman shorthand "~
 (babel)             in language  on input line 76.
 [8]
 Package babel Info: Redefining ngerman shorthand "|
-(babel)             in language  on input line 83.
+(babel)             in language  on input line 81.
 Package babel Info: Redefining ngerman shorthand "~
-(babel)             in language  on input line 83.
+(babel)             in language  on input line 81.
+Package babel Info: Redefining ngerman shorthand "|
+(babel)             in language  on input line 95.
+Package babel Info: Redefining ngerman shorthand "~
+(babel)             in language  on input line 95.
 
 
 Package Fancyhdr Warning: \headheight is too small (12.0pt): 
@@ -1582,14 +1585,33 @@ Package Fancyhdr Warning: \headheight is too small (12.0pt):
  This may cause the page layout to be inconsistent, however.
 
 Package babel Info: Redefining ngerman shorthand "|
-(babel)             in language  on input line 85.
+(babel)             in language  on input line 101.
 Package babel Info: Redefining ngerman shorthand "~
-(babel)             in language  on input line 85.
+(babel)             in language  on input line 101.
 Package babel Info: Redefining ngerman shorthand "|
-(babel)             in language  on input line 85.
+(babel)             in language  on input line 101.
 Package babel Info: Redefining ngerman shorthand "~
-(babel)             in language  on input line 85.
-[9]) (./Kapitel03.tex
+(babel)             in language  on input line 101.
+[9]
+Overfull \hbox (9.21545pt too wide) in paragraph at lines 106--106
+[] 
+ []
+
+
+Package Fancyhdr Warning: \headheight is too small (12.0pt): 
+ Make it at least 13.59999pt.
+ We now make it that large for the rest of the document.
+ This may cause the page layout to be inconsistent, however.
+
+Package babel Info: Redefining ngerman shorthand "|
+(babel)             in language  on input line 114.
+Package babel Info: Redefining ngerman shorthand "~
+(babel)             in language  on input line 114.
+Package babel Info: Redefining ngerman shorthand "|
+(babel)             in language  on input line 114.
+Package babel Info: Redefining ngerman shorthand "~
+(babel)             in language  on input line 114.
+[10]) (./Kapitel03.tex
 Kapitel 3.
 Package babel Info: Redefining ngerman shorthand "|
 (babel)             in language  on input line 1.
@@ -1640,7 +1662,7 @@ Package babel Info: Redefining ngerman shorthand "|
 (babel)             in language  on input line 24.
 Package babel Info: Redefining ngerman shorthand "~
 (babel)             in language  on input line 24.
-[10
+[11
 
 ]) (./Kapitel04.tex
 Kapitel 4.
@@ -1656,7 +1678,7 @@ Package babel Info: Redefining ngerman shorthand "|
 (babel)             in language  on input line 5.
 Package babel Info: Redefining ngerman shorthand "~
 (babel)             in language  on input line 5.
-[11
+[12
 
 ]) (./Kapitel05.tex
 Kapitel 5.
@@ -1672,7 +1694,7 @@ Package babel Info: Redefining ngerman shorthand "|
 (babel)             in language  on input line 9.
 Package babel Info: Redefining ngerman shorthand "~
 (babel)             in language  on input line 9.
-[12
+[13
 
 ]) (./Kapitel06.tex
 Kapitel 6.
@@ -1696,7 +1718,7 @@ Package babel Info: Redefining ngerman shorthand "|
 (babel)             in language  on input line 12.
 Package babel Info: Redefining ngerman shorthand "~
 (babel)             in language  on input line 12.
-[13
+[14
 
 ]) (./Kapitel07.tex
 Kapitel 7.
@@ -1712,7 +1734,7 @@ Package babel Info: Redefining ngerman shorthand "|
 (babel)             in language  on input line 9.
 Package babel Info: Redefining ngerman shorthand "~
 (babel)             in language  on input line 9.
-[14
+[15
 
 ])
 Package babel Info: Redefining ngerman shorthand "|
@@ -1728,7 +1750,7 @@ Package babel Info: Redefining ngerman shorthand "|
 (babel)             in language  on input line 78.
 Package babel Info: Redefining ngerman shorthand "~
 (babel)             in language  on input line 78.
- [15
+ [16
 
 ])
 
@@ -1745,7 +1767,7 @@ Package babel Info: Redefining ngerman shorthand "|
 (babel)             in language  on input line 210.
 Package babel Info: Redefining ngerman shorthand "~
 (babel)             in language  on input line 210.
-[16] (./Kapitel08.tex
+[17] (./Kapitel08.tex
 Anhang A.
 Package babel Info: Redefining ngerman shorthand "|
 (babel)             in language  on input line 2.
@@ -1764,7 +1786,7 @@ Package babel Info: Redefining ngerman shorthand "|
 (babel)             in language  on input line 214.
 Package babel Info: Redefining ngerman shorthand "~
 (babel)             in language  on input line 214.
- [17
+ [18
 
 ]
 Package atveryend Info: Empty hook `BeforeClearDocument' on input line 215.
@@ -1777,10 +1799,10 @@ Package rerunfilecheck Info: File `Arbeit.out' has not changed.
 Package atveryend Info: Empty hook `AtVeryVeryEnd' on input line 215.
  ) 
 Here is how much of TeX's memory you used:
- 24426 strings out of 493308
- 416073 string characters out of 6137817
- 583953 words of memory out of 5000000
- 27325 multiletter control sequences out of 15000+600000
+ 24459 strings out of 493308
+ 416595 string characters out of 6137817
+ 585851 words of memory out of 5000000
+ 27354 multiletter control sequences out of 15000+600000
  15929 words of font info for 61 fonts, out of 8000000 for 9000
  957 hyphenation exceptions out of 8191
  44i,12n,54p,10403b,501s stack positions out of 5000i,500n,10000p,200000b,80000s
@@ -1792,18 +1814,20 @@ Here is how much of TeX's memory you used:
 usr/local/texlive/2013/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi6.pfb></us
 r/local/texlive/2013/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi8.pfb></usr/
 local/texlive/2013/texmf-dist/fonts/type1/public/amsfonts/cm/cmmib10.pfb></usr/
-local/texlive/2013/texmf-dist/fonts/type1/public/amsfonts/cm/cmr10.pfb></usr/lo
-cal/texlive/2013/texmf-dist/fonts/type1/public/amsfonts/cm/cmr12.pfb></usr/loca
-l/texlive/2013/texmf-dist/fonts/type1/public/amsfonts/cm/cmr17.pfb></usr/local/
-texlive/2013/texmf-dist/fonts/type1/public/amsfonts/cm/cmr8.pfb></usr/local/tex
-live/2013/texmf-dist/fonts/type1/public/amsfonts/cm/cmsl10.pfb></usr/local/texl
-ive/2013/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy10.pfb></usr/local/texli
-ve/2013/texmf-dist/fonts/type1/public/amsfonts/cm/cmti10.pfb></usr/local/texliv
-e/2013/texmf-dist/fonts/type1/public/amsfonts/symbols/msbm10.pfb>
-Output written on Arbeit.pdf (17 pages, 610426 bytes).
+local/texlive/2013/texmf-dist/fonts/type1/public/amsfonts/cmextra/cmmib8.pfb></
+usr/local/texlive/2013/texmf-dist/fonts/type1/public/amsfonts/cm/cmr10.pfb></us
+r/local/texlive/2013/texmf-dist/fonts/type1/public/amsfonts/cm/cmr12.pfb></usr/
+local/texlive/2013/texmf-dist/fonts/type1/public/amsfonts/cm/cmr17.pfb></usr/lo
+cal/texlive/2013/texmf-dist/fonts/type1/public/amsfonts/cm/cmr8.pfb></usr/local
+/texlive/2013/texmf-dist/fonts/type1/public/amsfonts/cm/cmsl10.pfb></usr/local/
+texlive/2013/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy10.pfb></usr/local/t
+exlive/2013/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy8.pfb></usr/local/tex
+live/2013/texmf-dist/fonts/type1/public/amsfonts/cm/cmti10.pfb></usr/local/texl
+ive/2013/texmf-dist/fonts/type1/public/amsfonts/symbols/msbm10.pfb>
+Output written on Arbeit.pdf (18 pages, 633618 bytes).
 PDF statistics:
- 370 PDF objects out of 1000 (max. 8388607)
- 327 compressed objects within 4 object streams
- 72 named destinations out of 1000 (max. 500000)
+ 384 PDF objects out of 1000 (max. 8388607)
+ 338 compressed objects within 4 object streams
+ 73 named destinations out of 1000 (max. 500000)
  286 words of extra memory for PDF output out of 10000 (max. 10000000)
 
