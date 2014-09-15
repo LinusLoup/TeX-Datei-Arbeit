@@ -31,6 +31,10 @@
 %\usepackage{bbold}
 %\usepackage[active]{preview}
 \usepackage{stackrel}
+\usepackage[makeroom]{cancel}
+\usepackage[section]{algorithm}
+\usepackage{algorithmicx}
+\usepackage{algpseudocode}
 
 
 % Theoreme
@@ -40,9 +44,9 @@
 \newtheorem{theorem}[satz]{Theorem}
 \newtheorem{kor}[satz]{Korollar}
 \theoremstyle{definition}
-\newtheorem*{defi}{Definition}
+\newtheorem{defi}[satz]{Definition}
 \newtheorem{bemdef}[satz]{Bemerkungen und Definitionen}
-\theoremstyle{remark}
+%\theoremstyle{remark}
 \newtheorem{bem}[satz]{Bemerkung}
 \newtheorem*{bem*}{Bemerkung}
 \newtheorem*{folge}{Folgerung}
@@ -82,6 +86,7 @@
 \renewcommand{\d}{\,\mathrm{d}}
 \newcommand{\lra}{\Longrightarrow}
 \newcommand{\Ra}{\Rightarrow}
+\newcommand{\la}{\leftarrow}
 \newcommand{\La}{\Leftarrow}
 \newcommand{\ra}{\rightarrow}
 \newcommand{\Lra}{\Leftrightarrow}
@@ -101,6 +106,11 @@
 \newcommand{\eps}{\varepsilon}
 \newcommand{\bs}{\boldsymbol}
 \newcommand{\tr}{\textnormal{tr }}
+\newcommand{\sign}{\textnormal{sign}}
+
+\renewcommand{\(}{\left(}
+\renewcommand{\)}{\right)}
+
 
 
 % Gleichung nummerieren
@@ -208,6 +218,15 @@ Zweitprüfer: Prof. Dr. Peter Wriggers
 \bibliographystyle{alphadin}
 \bibliography{Arbeit}
 \newpage
+
+\pagestyle{fancy}{
+	\rhead{}
+	\lhead{\sl\thechapter. \nameofchapter}
+	%\renewcommand{\headrulewidth}{0.4pt}
+	\renewcommand{\headheight}{14pt}
+	\renewcommand{\footrulewidth}{0.4pt}
+	\cfoot{\thepage}
+}
 
 \input{Kapitel08}
 

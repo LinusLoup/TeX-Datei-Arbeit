@@ -1,25 +1,95 @@
-\newchapter{Ein hierarchischer Fehlerschätzer für Hindernisprobleme}
+\newchapter{Variationsungleichungen}
+
+\section{Ein Hindernisproblem}
 
 \begin{itemize}
-\item Herleitung des Fehlerschätzers bei Hindernisproblemen (s. Mainpaper)
-\item Vergleich Hindernisprobleme zu Kontaktproblemen $\ra$ warum gerade dieser Fehlerschätzer bei Hindernis- bzw. Kontaktproblemen
+\item Hindernisproblem: Auslenkung $u$ einer Membran $\Omega$ unter Krafteinwirkung $f$, wobei die Membran durch ein Hindernis $\phi$ behindert wird. Mathematische modelliert bedeutet dies:
+\begin{align}\label{eq:Hindernis}
+\min J(u) = \frac 1 2 a(u,u)-(f,u) \text{ s.t. } u \in K
+\end{align}
+mit $K := \{u \in H^1(\Omega) \with u\ge \phi$ fast überall$\}$. Neu ist also, dass die Lösung $u$ nicht mehr in ganz $H^1(\Omega)$ liegt, sondern in einer Teilmenge.
 \end{itemize}
 
-\section{Herleitung eines a posteriori hierarchischen Fehlerschätzers}
+\subsection{Variationsformulierung für das Hindernisproblem}
 
-\subsection{Diskretisierung}
+\begin{itemize}
+\item Das Hindernisproblem zur Herleitung einer Variationsungleichung
+\[
+	a(u,v-u) \ge f(v-u) \, \forall \, v \in K
+\]
+benutzen. Hierfür die Minimierungsaufgabe \eqref{eq:Hindernis} unter Nebenbedingung optimieren. (Hierfür noch einmal in Nichtlineare Optimierung schauen.)
+\item Hier als Bemerkung vllt noch einmal anführen, dass die Variationsungleichung äquivalent zu der starken Formulierung
+\begin{align*}
+	-\Delta u -f&\ge 0 \\
+	u-\phi &\ge 0 \\
+	(u-\phi) (-\Delta u &- f) = 0
+\end{align*}
+ist. Beweis hierfür im Stephan-Skript (analog umzuschreiben).
+\end{itemize}
 
-\subsection{Lokaler Anteil des Fehlerschätzers}
+\subsection{Existenz und Eindeutigkeit der Lösung}
 
-\subsection{Oszillationsterme}
+\begin{itemize}
+\item Kapitel 3 in \cite{KikOden} mit Theorem 3.1-3.4 (\textbf{Beweis vgl. NPDE I von Stephan Seite 39}, auch in Solution of Variational Inequalities in Mechanics (Theorem 1.1 Seite 4))
+\end{itemize}
 
-\subsection{Zuverlässigkeit des Fehlerschätzers}
+\subsection{Lösung des Hindernisproblems mittels FEM}
 
-\subsection{Effektivität des Fehlerschätzers}
+\begin{itemize}
+\item Analog zum vorherigen Kapitel kann man auch im $\R^n$ Existenz und Eindeutigkeit der Lösung unter bestimmten Voraussetzungen zeigen. (vgl. Vug Skript Kapitel 2) $\Ra$ Beachte hierfür auch den Fixpunktsatz von Brouwer.
+\end{itemize}
 
-\section{Ein adaptiver Algorithmus}
 
-\section{Erfüllung einer Saturationseigenschaft}
+\section{Kontaktprobleme}
+
+\subsection{Mathematische Modellierung von Kontaktproblemen}
+
+\begin{itemize}
+\item Starke Formulierung (s. Wriggers Paper) für Kontaktproblem mit Signorini-Kontakt (ohne Reibung).
+\begin{align}
+\div \bs \sigma + \bs b &= \bs 0 \text{ in } \Omega\\
+\bs \sigma  - \mcal C \bs \eps & = \bs 0 \text{ in } \Omega\\
+\bs \sigma \cdot \bs n &= \bs t  \text{ auf } \Gamma_N \\
+\bs u &= \bs 0 \text{ auf } \Gamma_D \\
+(\bs u \circ \chi - \bs u) \cdot \bs n_c + g& \ge 0 \text{ auf } \Gamma_C
+\end{align}
+sowie auf $\Gamma_C$ muss $\sigma_n \le 0$ (Normalenkraft $\sigma_n = \bs n\cdot ( \bs \sigma \cdot \bs n)$), $\bs \sigma_t = \bs 0$ (keine Tangentialkraft, da keine Reibung – $\bs \sigma_t = \bs \sigma \cdot \bs n - \sigma_n \bs n$) und $((\bs u \circ \chi - \bs u) \cdot \bs n_c + g)\sigma_n = 0$, d.h. wenn kein Kontakt ist, ist die Normalkraft in den Punkten Null, also herrscht Kräftegleichgewicht.
+\item Anreißen von Kontaktproblem mit Tresca-Reibung (vgl. Numerik für Kontaktmechanik von Stephan und Vug von Starke) $\Ra$ Herleitung der Variationsungleichung durch Ableitung nicht mehr möglich, da Reibungspotential nicht mehr differenzierbar.
+\end{itemize}
+
+\subsection{Variationsformulierung für Kontaktprobleme}
+
+\begin{itemize}
+\item Minimierung von Energiefunktional (vgl. \cite{KikOden} Seite 112 unten) mit $\boldsymbol{u}: \Omega\ra \R^3$:
+\begin{align*}
+	E(u)& = \frac 1 2 a(u,u)-f(u) \text{ mit } \\
+	 a(u,u) &= \int_\Omega {\mcal C} \bs\eps (\bs u): \bs\eps(\bs u) \, d\Omega , \, f(u) = \int_\Omega \bs b \cdot \bs u \, d\Omega + \int_{\Gamma_N} \bs t \cdot \bs u \, d\Gamma
+\end{align*}
+unter der Nebenbedingung $\bs n \cdot \bs u - g \le 0$ auf $\Gamma_C$  (siehe Vug Skript), bzw. $(\bs u\circ \chi - \bs u)\cdot \bs n_c + g \ge 0$ auf $\Gamma_C$ (etwas allgemeiner, vgl. Wriggers Paper).
+\item Herleitung auch über starke Formulierung möglich, vgl. Stephan – Kontaktprobleme.
+\item Herleitung der Variationsformulierung: Finde $\bs u \in K$: $a(\bs u,\bs v-\bs u) \ge f(\bs v-\bs u) \, \forall \, \bs v \in K$ (s. auch Wriggers Paper) analog zum Hindernisproblem (nicht mehr ausführlich, wenn oben schon ausführlich).
+\item \cite{KikOden} Seite 113 für Bedingung für die Eindeutigkeit und Existenz der Lösung des Problems (hierfür wird Korn's Ungleichung benötigt $\Ra$ vielleicht Anhang?).
+\end{itemize}
+
+\subsection{Lösung des Kontaktproblems mittels FEM}
+
+\begin{itemize}
+\item Beschreibe das diskrete Problem, was man bekommt mit: Finde $\bs x^* \in \R^N$ mit $B\bs x^* \ge c$, so dass
+\begin{align*}
+	(A\bs x^* - \bs b)^T (\bs x - \bs x^*) \ge 0 \, \forall \bs x\in \R^N \text{ mit } B\bs x \ge \bs c \, ,
+\end{align*}
+wobei
+\begin{align*}
+A &= \left[\int_\Omega \mcal C \bs \eps (\bs \Psi_j):\bs \eps(\bs \Psi_i) \, d\Omega\right]_{1 \le i,j\le N} , \,  \bs b = \left[ \int_\Omega \bs b \cdot \bs\Psi_i \, d\Omega + \int_{\Gamma_N} \bs t \cdot \bs\Psi_i \, ds\right]_{1\le i \le N} \\
+B & = [(\bs \Psi_j(\chi(\bs x_i))-\bs \Psi_j(\bs x_i))\cdot \bs n_c(\bs x_i)]_{\bs x_i \in \Gamma_c, 1\le j \le N} , \, c = [-g(\bs x_i)]_{\bs x_i \in \Gamma_c}
+\end{align*}
+Dieses Problem ist (wie vorher schon gezeigt) äquivalent zu einem quadratischen Problem
+\begin{align*}
+\min_{\bs x\in \R^N} \frac 1 2 \bs x^T A \bs x - \bs b^T \bs x \text{ s.t. } B\bs x \ge \bs c \, ,
+\end{align*}
+d.h. Lösbarkeit des quadratischen Programms sollte auch gezeigt sein (vgl. Vug Skript oder auch nichtlineare Optimierung).
+\end{itemize}
+
 
 \newpage
 

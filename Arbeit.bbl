@@ -56,6 +56,12 @@
   discretization error of elliptic obstacle problems.
 \newblock {In: }\emph{Mathematics of Computation} 80 (2011), Nr. 273, S. 69--88
 
+\bibitem[NW06]{NocWri}
+\textsc{Nocedal}, {Jorge} ; \textsc{Wright}, {Stephen J.}:
+\newblock \emph{Numerical Optimization}.
+\newblock 2. ed.
+\newblock New York, NY : Springer, 2006
+
 \bibitem[Sta08]{StarkePDE}
 \textsc{Starke}, Gerhard:
 \newblock Numerik partieller Differentialgleichungen / IFAM - Universität
@@ -74,6 +80,12 @@
 \newblock Numerik partieller Differentialgleichungen I / IFAM - Universität
   Hannover.
 \newblock 2012. --
+\newblock Vorlesungsskript
+
+\bibitem[Wal11]{Walker}
+\textsc{Walker}, Christoph:
+\newblock Partielle Differentialgleichungen / IFAM - Universität Hannover.
+\newblock 2011. --
 \newblock Vorlesungsskript
 
 \bibitem[Zou11]{Zou}

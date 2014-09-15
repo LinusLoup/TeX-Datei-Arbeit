@@ -8,7 +8,6 @@ Reallocated wiz_functions (elt_size=4) to 6000 items from 3000.
 Reallocated singl_function (elt_size=4) to 100 items from 50.
 Reallocated singl_function (elt_size=4) to 100 items from 50.
 Database file #1: Arbeit.bib
-Warning--I didn't find a database entry for "NikOden"
 Warning--empty number in BarCar
 Warning--empty note in BarCar
 Warning--empty number in BraeLook
@@ -19,45 +18,47 @@ Warning--empty number in StarkeVar
 Warning--empty note in StarkeVar
 Warning--empty number in EPS
 Warning--empty note in EPS
-You've used 13 entries,
+Warning--empty number in Walker
+Warning--empty note in Walker
+You've used 15 entries,
             4793 wiz_defined-function locations,
-            974 strings with 7986 characters,
-and the built_in function-call counts, 7269 in all, are:
-= -- 733
-> -- 200
-< -- 156
-+ -- 185
-- -- 66
-* -- 479
-:= -- 1222
-add.period$ -- 14
-call.type$ -- 13
-change.case$ -- 63
-chr.to.int$ -- 13
-cite$ -- 23
-duplicate$ -- 223
-empty$ -- 602
-format.name$ -- 133
-if$ -- 1499
+            984 strings with 8138 characters,
+and the built_in function-call counts, 8311 in all, are:
+= -- 840
+> -- 227
+< -- 187
++ -- 220
+- -- 74
+* -- 534
+:= -- 1399
+add.period$ -- 17
+call.type$ -- 15
+change.case$ -- 72
+chr.to.int$ -- 15
+cite$ -- 27
+duplicate$ -- 254
+empty$ -- 688
+format.name$ -- 150
+if$ -- 1711
 int.to.chr$ -- 1
 int.to.str$ -- 0
-missing$ -- 44
-newline$ -- 81
-num.names$ -- 39
-pop$ -- 99
+missing$ -- 48
+newline$ -- 93
+num.names$ -- 45
+pop$ -- 114
 preamble$ -- 1
-purify$ -- 89
+purify$ -- 102
 quote$ -- 0
-skip$ -- 408
+skip$ -- 478
 stack$ -- 0
-substring$ -- 408
-swap$ -- 44
-text.length$ -- 37
-text.prefix$ -- 7
+substring$ -- 459
+swap$ -- 48
+text.length$ -- 41
+text.prefix$ -- 8
 top$ -- 0
-type$ -- 127
-warning$ -- 10
-while$ -- 63
-width$ -- 14
-write$ -- 173
-(There were 11 warnings)
+type$ -- 144
+warning$ -- 12
+while$ -- 71
+width$ -- 16
+write$ -- 200
+(There were 12 warnings)
