@@ -1,0 +1,55 @@
+\newchapter{Grundlagen}
+\label{sec:Grundlagen}
+
+\begin{itemize}
+\item FEM $\ra$ einleitend ansprechen, dass analytische nicht immer lösbar
+\item Fehlerschätzer $\ra$ alle aufführen (s. Braess) $\ra$ damit verbundene adaptive Verfeinerungsstrategien (wie arbeitet Matlab mit Verfeinerung und welche Verfeinerungen gibt es?)
+\item mathematisches Modell für Hindernisprobleme / Kontaktprobleme
+\end{itemize}
+
+\section{Variationsformulierung}
+
+\begin{itemize}
+\item Was ist eine schwache Form einer PDE? Am Standardbeispiel $\Delta u = f$ in $\Omega, u = g$ auf $\partial \Omega$. (Herleitung auch über das Funktional $\ra$ auch für später beim Hindernisproblem wichtig)
+\item Warum gibt es eine Lösung? (Lax-Milgram $\ra$ auch Riesz aufführen, da in dem Beweis der Existenz und Eindeutigkeit von $a(u,v-u)\ge f(v-u)$ erwähnt wird)
+\end{itemize}
+
+\section{Finite Elemente Methode}
+
+\begin{itemize}
+\item Was ist Galerkin-Approximation und warum gibt es eine Lösung (hier ist Lax-Milgram auch anwendbar (warum?))
+\item Der für uns verwendete Finite Element Raum wird eingeführt (lineare Funktionen).
+\item Was ist eine Triangulierung (vgl. Braess auf Seite 58)?
+\item local-global node ordering zur Effizienzsteigerung
+\end{itemize}
+
+\section{Adaptive Verfeinerungsstrategien}
+
+\subsection{A posteriori Fehlerschätzer}
+
+
+\section{Einführung in die Strukturmechanik}
+
+\begin{itemize}
+\item Beschreibung der Kinematik: Referenz- bzw. Ausgangskonfiguration, Deformationsgradient, Verzerrungsmaße (Konti-Buch)
+\item Lineararisierung der Verzerrungsmaße für unseren Fall (kleine Deformationen) mittels "Taylor" (siehe auch Gateaux-Ableitung - Seite 24 Konti Skript):
+\[
+	\bs \eps = \frac 1 2 (\nabla \bs u + \nabla^T \bs u)
+\]
+\item Kinetik: Kräftegleichgewicht und äußere Kontaktlast
+\item Konzepte für ebene Spannungs- bzw. Verzerrungszustände
+\item Konstitutive Modelle (vor allem Materialgesetze) $\Ra$ Hier vor allem Hooke:
+\[
+	\bs \sigma = \mcal C \bs \eps = 2 \mu \bs \eps + \lambda (\tr \bs \eps) \bs I \, ,
+\]
+wobei $\lambda,\mu$ die Lamé-Konstanten sind (Materialabhängige Parameter). $\Ra$ Hier noch mal den Zusammengang von Konstanten zu $E,\nu$ aufzeigen.
+\item falls Tensorrechnungen konkret benötigt werden, können diese im Anhang dargelegt werden
+\end{itemize}
+
+
+\newpage
+
+%%% Local Variables: 
+%%% mode: latex
+%%% TeX-master: "Skript"
+%%% End: 
