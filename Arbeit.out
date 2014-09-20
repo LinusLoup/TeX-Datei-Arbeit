@@ -32,10 +32,13 @@
 \BOOKMARK [1][-]{section.6.2}{Numerisches Beispiel zum Kontaktproblem}{chapter.6}% 32
 \BOOKMARK [0][-]{chapter.7}{Zusammenfassung und Ausblick}{}% 33
 \BOOKMARK [0][-]{chapter.7}{Literaturverzeichnis}{}% 34
-\BOOKMARK [0][-]{appendix.A}{Sobolev-R\344ume}{}% 35
-\BOOKMARK [0][-]{appendix.B}{Optimierung}{}% 36
-\BOOKMARK [1][-]{section.B.1}{Quadratische Programmierung}{appendix.B}% 37
-\BOOKMARK [1][-]{section.B.2}{Active Set-Methode f\374r konvexe QPs}{appendix.B}% 38
-\BOOKMARK [1][-]{section.B.3}{Algorithmus}{appendix.B}% 39
-\BOOKMARK [0][-]{appendix.C}{Quellcode}{}% 40
-\BOOKMARK [1][-]{section.C.1}{Implementierung des Fehlersch\344tzers f\374r das Hindernisproblem}{appendix.C}% 41
+\BOOKMARK [0][-]{appendix.A}{Funktionalanalysis}{}% 35
+\BOOKMARK [1][-]{section.A.1}{Sobolev-R\344ume}{appendix.A}% 36
+\BOOKMARK [1][-]{section.A.2}{Optimalit\344tskriterien}{appendix.A}% 37
+\BOOKMARK [0][-]{appendix.B}{Optimierung}{}% 38
+\BOOKMARK [1][-]{section.B.1}{Quadratische Programmierung}{appendix.B}% 39
+\BOOKMARK [1][-]{section.B.2}{Active Set-Methode f\374r konvexe QPs}{appendix.B}% 40
+\BOOKMARK [1][-]{section.B.3}{Algorithmus}{appendix.B}% 41
+\BOOKMARK [0][-]{appendix.C}{Quellcode}{}% 42
+\BOOKMARK [1][-]{section.C.1}{Implementierung des Fehlersch\344tzers f\374r das Hindernisproblem}{appendix.C}% 43
+\BOOKMARK [0][-]{section.C.1}{Index}{}% 44

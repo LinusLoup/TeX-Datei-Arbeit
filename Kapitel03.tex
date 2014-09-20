@@ -3,12 +3,13 @@
 \section{Ein Hindernisproblem}
 
 \begin{itemize}
-\item Hindernisproblem: Auslenkung $u$ einer Membran $\Omega$ unter Krafteinwirkung $f$, wobei die Membran durch ein Hindernis $\phi$ behindert wird. Mathematische modelliert bedeutet dies:
+\item Hindernisproblem: Auslenkung $u$ einer Membran $\Omega$ unter Krafteinwirkung $f$, wobei die Membran durch ein Hindernis $\psi$ behindert wird. Mathematische modelliert bedeutet dies:
 \begin{align}\label{eq:Hindernis}
-\min J(u) = \frac 1 2 a(u,u)-(f,u) \text{ s.t. } u \in K
+\min_{u\in K} J(u) = \frac 1 2 a(u,u)-(f,u)
 \end{align}
-mit $K := \{u \in H^1(\Omega) \with u\ge \phi$ fast überall$\}$. Neu ist also, dass die Lösung $u$ nicht mehr in ganz $H^1(\Omega)$ liegt, sondern in einer Teilmenge.
+mit $K := \{u \in H^1_0(\Omega) \with u\ge \psi$ fast überall$\}$. $J(u)$ gibt wieder die Energie, die in der Membran gespeichert wird an. Neu ist also, dass die Lösung $u$ nicht mehr in ganz $H^1_0(\Omega)$ liegt, sondern in einer Teilmenge.
 \end{itemize}
+
 
 \subsection{Variationsformulierung für das Hindernisproblem}
 
@@ -21,8 +22,8 @@ benutzen. Hierfür die Minimierungsaufgabe \eqref{eq:Hindernis} unter Nebenbedin
 \item Hier als Bemerkung vllt noch einmal anführen, dass die Variationsungleichung äquivalent zu der starken Formulierung
 \begin{align*}
 	-\Delta u -f&\ge 0 \\
-	u-\phi &\ge 0 \\
-	(u-\phi) (-\Delta u &- f) = 0
+	u-\psi &\ge 0 \\
+	(u-\psi) (-\Delta u &- f) = 0
 \end{align*}
 ist. Beweis hierfür im Stephan-Skript (analog umzuschreiben).
 \end{itemize}

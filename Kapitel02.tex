@@ -1,22 +1,60 @@
 \newchapter{Grundlagen}
 \label{sec:Grundlagen}
 
-\begin{itemize}
-\item FEM $\ra$ einleitend ansprechen, dass analytische nicht immer lösbar
-\item Fehlerschätzer $\ra$ alle aufführen (s. Braess) $\ra$ damit verbundene adaptive Verfeinerungsstrategien (wie arbeitet Matlab mit Verfeinerung und welche Verfeinerungen gibt es?)
-\item mathematisches Modell für Hindernisprobleme / Kontaktprobleme
-\end{itemize}
+In diesem Kapitel wollen wir uns mit grundlegender Theorie beschäftigen, die nicht im Anhang aufgeführt ist, zum Verständnis von den darauffolgenden Kapiteln jedoch notwendig ist.
 
 \section{Variationsformulierung}
 
 \begin{itemize}
 \item Was ist eine schwache Form einer PDE? Am Standardbeispiel $\Delta u = f$ in $\Omega, u = g$ auf $\partial \Omega$. (Herleitung auch über das Funktional $\ra$ auch für später beim Hindernisproblem wichtig)
+\item Hierbei ist $u = 0$ als Nebenbedingung im weiteren gewählt, da man dieses Problem durch Wahl der richtigen Lösung auf $u = g$ (vgl. \cite{BraeFEM} S. 35). Analog kann dies später auch an der starken Formulierung für das Hindernisproblem demonstriert werden, weshalb im folgenden immer $u \in H^1_0(\Omega)$ verwendet wird.
 \item Warum gibt es eine Lösung? (Lax-Milgram $\ra$ auch Riesz aufführen, da in dem Beweis der Existenz und Eindeutigkeit von $a(u,v-u)\ge f(v-u)$ erwähnt wird)
 \end{itemize}
+
+Stichpunkte für die Formulierung:
+
+\begin{itemize}
+\item Betrachte als Modellproblem Ausrenkung $u: \Omega \ra \R$ einer in $\Omega \subset \R^d$ eingespannten Membran unter Kraft $f$
+\item mathematisch beschrieben wird dies durch das \textit{\idx{Dirichlet-Problem}}
+\begin{align}\label{eq:2.1}
+\begin{aligned}
+	-\Delta u &= f \text{ in } \Omega \, ,\\
+	u & = g \text{ auf } \partial \Omega \, ,
+\end{aligned}
+\end{align}
+\item in der Praxis $d = 2,3$ übliche Dimensionen
+\item Richtiger Punkt: \begin{notation} 
+der Einfachheit halber sei im Folgenden $d = 2$ und $\Omega \subset \R^2$ ein durch ein Polygonzug berandetes Gebiet, den Rand $\partial \Omega$ bezeichnen wir mit $\Gamma$.
+\end{notation}
+\item allgemeiner berandete Gebiete können durch polygonale beliebig genau approximiert werden
+\item Transformation: Sei $u_0: \Omega \ra \R$ eine zulässige Funktion, d.h. deren Regularität für \eqref{eq:2.1} ausreichend ist, und für die $u_0 = g$ auf $\Gamma$ gilt. Dann gilt für 
+$\tilde u = u-u_0$
+\begin{align}\label{eq:2.2}
+\begin{aligned}
+	-\Delta \tilde u &= \tilde f \text{ in } \Omega \, ,\\
+	\tilde u & = 0 \text{ auf } \Gamma 
+\end{aligned}
+\end{align}
+mit $\tilde f = f-\Delta u_0$.
+\item $\Ra$ wir beschränken uns auf das \textit{homogene Dirichlet-Problem}\index{Dirichlet-Problem!homogenes} \eqref{eq:2.2}, d.h. sei $g\equiv 0$ in \eqref{eq:2.1}
+\item Sei im Folgenden $H^1_0 (\Omega)$ wie in Bemerkung \ref{bem:A.8} der Raum der schwach differenzierbaren Funktionen, die am Rand $\Gamma$ verschwinden im Sinne der Spur.
+\item für $v \in H^1_0(\Omega)$ gilt dann mit \eqref{eq:2.1}
+\begin{align*}
+	\int_\Omega -\Delta u \cdot v \, dx = \int_\Omega f v \, dx \, .
+\end{align*}
+Betrachte also \eqref{eq:2.1} im Mittel über das ganze Gebiet $\Omega$. Durch Anwenden der 1. Green'schen Formel (bzw. Satz von Gauß) ergibt sich
+\begin{align}
+\notag	& \int_\Omega \nabla u \cdot \nabla v \, dx -\underbrace{\int_\Gamma v \partial_\nu u \, ds}_{=0, \text{ da } v|_\Gamma = 0} = \int_\Omega f v \, dx \, \\
+\label{eq:2.3}	\Llra & \qquad \int_\Omega \nabla u \cdot \nabla v \, dx =\int_\Omega f v \, dx
+\end{align}
+\end{itemize}
+
+
 
 \section{Finite Elemente Methode}
 
 \begin{itemize}
+\item FEM $\ra$ einleitend ansprechen, dass analytische nicht immer lösbar
 \item Was ist Galerkin-Approximation und warum gibt es eine Lösung (hier ist Lax-Milgram auch anwendbar (warum?))
 \item Der für uns verwendete Finite Element Raum wird eingeführt (lineare Funktionen).
 \item Was ist eine Triangulierung (vgl. Braess auf Seite 58)?
@@ -27,6 +65,9 @@
 
 \subsection{A posteriori Fehlerschätzer}
 
+\begin{itemize}
+\item Fehlerschätzer $\ra$ alle aufführen (s. Braess) $\ra$ damit verbundene adaptive Verfeinerungsstrategien (wie arbeitet Matlab mit Verfeinerung und welche Verfeinerungen gibt es?)
+\end{itemize}
 
 \section{Einführung in die Strukturmechanik}
 

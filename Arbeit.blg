@@ -20,45 +20,45 @@ Warning--empty number in EPS
 Warning--empty note in EPS
 Warning--empty number in Walker
 Warning--empty note in Walker
-You've used 15 entries,
+You've used 16 entries,
             4793 wiz_defined-function locations,
-            984 strings with 8138 characters,
-and the built_in function-call counts, 8311 in all, are:
-= -- 840
-> -- 227
-< -- 187
-+ -- 220
-- -- 74
-* -- 534
-:= -- 1399
-add.period$ -- 17
-call.type$ -- 15
-change.case$ -- 72
-chr.to.int$ -- 15
-cite$ -- 27
-duplicate$ -- 254
-empty$ -- 688
-format.name$ -- 150
-if$ -- 1711
+            990 strings with 8248 characters,
+and the built_in function-call counts, 8871 in all, are:
+= -- 889
+> -- 252
+< -- 199
++ -- 238
+- -- 83
+* -- 573
+:= -- 1506
+add.period$ -- 18
+call.type$ -- 16
+change.case$ -- 78
+chr.to.int$ -- 16
+cite$ -- 28
+duplicate$ -- 272
+empty$ -- 729
+format.name$ -- 166
+if$ -- 1818
 int.to.chr$ -- 1
 int.to.str$ -- 0
-missing$ -- 48
-newline$ -- 93
-num.names$ -- 45
-pop$ -- 114
+missing$ -- 52
+newline$ -- 98
+num.names$ -- 48
+pop$ -- 123
 preamble$ -- 1
-purify$ -- 102
+purify$ -- 110
 quote$ -- 0
-skip$ -- 478
+skip$ -- 506
 stack$ -- 0
-substring$ -- 459
-swap$ -- 48
-text.length$ -- 41
+substring$ -- 480
+swap$ -- 52
+text.length$ -- 44
 text.prefix$ -- 8
 top$ -- 0
-type$ -- 144
+type$ -- 150
 warning$ -- 12
-while$ -- 71
-width$ -- 16
-write$ -- 200
+while$ -- 77
+width$ -- 17
+write$ -- 211
 (There were 12 warnings)

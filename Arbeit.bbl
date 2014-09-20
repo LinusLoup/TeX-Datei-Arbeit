@@ -38,6 +38,11 @@
 \newblock Adaptive finite elements for elastic bodies in contact.
 \newblock {In: }\emph{SIAM J. Sci. Comput.} 20 (1999), Nr. 5, S. 1605--1626
 
+\bibitem[GRT09]{GopRieTam}
+\textsc{Göpfert}, A. ; \textsc{Riedrich}, T.  ; \textsc{Tammer}, C.:
+\newblock \emph{Angewandte Funktionalanalysis}.
+\newblock Vieweg und Teubner, 2009
+
 \bibitem[{Joh}92]{JohnObs}
 \textsc{{Johnson}}, Claes:
 \newblock {Adaptive finite element methods for the obstacle problem.}

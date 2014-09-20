@@ -1,6 +1,8 @@
 \appendix
 
-\newchapter{Sobolev-Räume}
+\newchapter{Funktionalanalysis}
+
+\section{Sobolev-Räume}
 
 Sei im Weiteren $\emptyset \not= \Omega \subset \R^n$. Wir definieren den Sobolev-Raum allgemein wie folgt (vgl. \cite{BraeFEM} Kaptitel II, \S 2 und \cite{Walker} Kapitel 6).
 
@@ -90,9 +92,51 @@ wobei
 Der Raum $H^m_0(\Omega)$ ist die Vervollständigung von $\mcal D(\Omega)$ bzgl. der Norm $\norm\cdot_m$.
 \end{defi}
 
-\begin{bem}
+\begin{bem}\label{bem:A.8}
 Die Funktionen $u \in H^m_0(\Omega)$ können als die Funktionen $u \in H^m(\Omega)$ mit $u = 0$ auf $\partial \Omega$ aufgefasst werden.
 \end{bem}
+
+
+
+\section{Optimalitätskriterien}
+
+Zunächst definieren wir einen verallgemeinerten Begriff der Richtungsableitung, der auch auf unendlich dimensionalen Vektorräumen existiert.
+
+\begin{defi}\label{def:Gateaux-Ableitung}
+Es seien $V$ ein Vektorraum, $M\subset V$ und $W$ ein normierter Raum, sowie $F: M \ra W$ eine Abbildung, $x_0 \in M$ und $v \in V$. Dann heißt $F$ \textit{\idx{Gâteaux-differenzierbar}} (bzw. in Richtung $v$ an der Stelle $x_0$ differenzierbar), falls es ein $\eps >0$ mit $[x_0-\eps v, x_0 + \eps v] \subset M$ gibt und der Grenzwert
+\begin{align}\label{eq:A.1}
+	\mscr D_v F (x_0) :=\frac\partial{\partial t} F(x_0+tv)\Big|_{t=0} := \lim_{t\ra 0} \frac{F(x_0+tv)-F(x_0)}t
+\end{align}
+in $W$ existiert. $\mscr D_vF(x_0)$ heißt dann \textit{\idx{Gâteaux-Ableitung}} von $F$ an der Stelle $x_0$ in Richtung $v$.
+
+Falls wir nur $[x_0,x_0 + \eps v] \subset M$ voraussetzen, so können wir in \eqref{eq:A.1} $\lim_{t\ra 0}$ durch $\lim_{t \ra + 0}$ ersetzen. Dann nennen wir \eqref{eq:A.1} die \textit{rechtsseitige Gâteaux-Ableitung}\index{Gâteaux-Ableitung!rechtsseitig} und bezeichnen diese mit $\mscr D^+_v F(x_0)$.
+\end{defi}
+
+Für die Variationsrechnung sind folgende zwei Sätze für uns von besonderer Bedeutung.
+
+\begin{satz}
+\textnormal{(Charakterisierungssatz der konvexen Optimierung)} Es seien $M \subset V$ eine konvexe Menge, $V$ ein Vektorraum und $F : M \ra \R$ ein konvexes Funktional. Dann gilt für $x_0, x \in M$:
+
+$x_0$ ist Lösung von $\min\limits_{x \in M} F(x)$ genau dann, wenn für alle $x \in M$ gilt
+\[
+	\mscr D^+_{x-x_0} F(x_0) \ge 0 \, .
+\]
+\end{satz}
+
+\begin{proof}
+Siehe \cite{GopRieTam}, Kapitel 3.3.3, Satz 3.34.
+\end{proof}
+
+\begin{satz}
+Es sei $U\subset V$ ein (Unter-)Vektorraum, $V$ ein Vektorraum und $F: U \ra \R$ eine \idx{Gâteaux-differenzierbar}e konvexe Funktion. Dann ist $x_0 \in U$ genau dann Lösung von $\min\limits_{x \in U} F(x)$, wenn für alle $u \in U$ gilt
+\[
+	\mscr D_u F(x_0) = 0 \, .
+\]
+\end{satz}
+
+\begin{proof}
+Siehe \cite{GopRieTam}, Kapitel 3.3.3, Satz 3.35.
+\end{proof}
 
 \newchapter{Optimierung}
 

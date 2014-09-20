@@ -22,6 +22,7 @@
 \usepackage{hyperref}
 \usepackage[mathscr]{euscript}
 \usepackage{makeidx}
+%\usepackage{multind}
 \usepackage{fancyhdr}
 \usepackage{mathtools}
 \usepackage[cmtip,arrow]{xy}
@@ -46,13 +47,13 @@
 \theoremstyle{definition}
 \newtheorem{defi}[satz]{Definition}
 \newtheorem{bemdef}[satz]{Bemerkungen und Definitionen}
-%\theoremstyle{remark}
+\newtheorem{bsp}[satz]{Beispiel}
+\newtheorem*{bsp*}{Beispiel}
 \newtheorem{bem}[satz]{Bemerkung}
+\theoremstyle{remark}
 \newtheorem*{bem*}{Bemerkung}
 \newtheorem*{folge}{Folgerung}
 \newtheorem*{einschr}{Einschränkung}
-\newtheorem{bsp}[satz]{Beispiel}
-\newtheorem*{bsp*}{Beispiel}
 \newtheorem*{erinnerung}{Erinnerung}
 \newtheorem*{notation}{Notation}
 \newtheorem*{vor}{Voraussetzungen}
@@ -103,6 +104,7 @@
 \renewcommand{\epsilon}{\varepsilon}
 \newcommand{\dom}{\operatorname{dom}}
 \newcommand{\mcal}{\mathcal}
+\newcommand{\mscr}{\mathscr}
 \newcommand{\eps}{\varepsilon}
 \newcommand{\bs}{\boldsymbol}
 \newcommand{\tr}{\textnormal{tr }}
@@ -122,7 +124,7 @@
 
 % Index
 \newcommand{\idx}[1]{\index{#1}#1}
-\makeindex
+\makeindex{}
 
 \newcommand{\nameofchapter}{}
 \newcommand{\newchapter}[1]{\chapter{#1}
@@ -229,6 +231,9 @@ Zweitprüfer: Prof. Dr. Peter Wriggers
 }
 
 \input{Kapitel08}
+
+\addcontentsline{toc}{chapter}{Index}
+\printindex
 
 \backmatter
 \end{document}
