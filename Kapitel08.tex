@@ -6,7 +6,7 @@
 
 Sei im Weiteren $\emptyset \not= \Omega \subset \R^n$. Wir definieren den Sobolev-Raum allgemein wie folgt (vgl. \cite{BraeFEM} Kaptitel II, \S 2 und \cite{Walker} Kapitel 6).
 
-\begin{defi}
+\begin{defi}\label{def:A.1}
   Seien $1\leq p\leq\infty$ und $m\in\N$. Die Menge
   \[
   W_p^m(\Omega):=\left(
@@ -30,7 +30,7 @@ Sei im Weiteren $\emptyset \not= \Omega \subset \R^n$. Wir definieren den Sobole
   wobei $\norm{u}_{L_p} := \norm{u}_{L_p(\Omega)} =\norm{u}_{W^0_p}$.
 \end{defi}
 
-\begin{defi}
+\begin{defi}\label{def:A.2}
 Der Raum
 \[
 	\mcal D(\Omega) := C_c^\infty (\Omega)= \{ \varphi \in C^\infty(\Omega) \with \supp (\varphi) \subset\subset \Omega \}
@@ -38,14 +38,14 @@ Der Raum
 heißt der \textit{\idx{Raum der Testfunktionen}}, wobei $K\subset\subset \Omega :\Lra  \bar K \subset \Omega$ kompakt.
 \end{defi}
 
-\begin{bem}
+\begin{bem}\label{bem:A.3}
  Seien $u\in W_p^m(\Omega)$, $\varphi\in\D(\Omega)$ und $\alpha\in\N^n$ mit $\abs\alpha\leq m$. Dann  bezeichnen wir $v = \partial^\alpha u$ als \textit{\idx{schwache Ableitung}} von $u$, wenn gilt
     \[
       \int_\Omega v\cdot\varphi \, d x=(-1)^{\abs\alpha}\int_\Omega u\cdot\partial^\alpha\varphi \,  d x\, .
     \]
 \end{bem}
 
-\begin{bsp}
+\begin{bsp}\label{bsp:A.4}
 Es sei $\Omega = (-1,1) \subset \R$ und $u (x) = \abs x \in L_2(\Omega)$. Betrachten wir $v (x) = \sign (x)$, so ergibt sich für $\varphi \in \mcal D(\Omega)$
 \begin{align*}
 	\int_\Omega v \cdot \varphi \, dx & = \int_{-1}^0 -1 \cdot \varphi(x) \, dx + \int_0^1 1\cdot \varphi(x) \, dx  \\
@@ -61,7 +61,7 @@ ist und somit $u$ nicht zweimal schwach ableitbar ist, d.h. $u \not \in W^2_2(\O
 
 Wir wollen in der Theorie der Finiten Elemente Methode vor allem Sobolev-Räume über dem Raum $L_2(\Omega)$ betrachten, daher ist folgender Satz essentiell.
 
-\begin{satz}
+\begin{satz}\label{satz:A.5}
 Es seien $1\le p \le \infty$ und $m \in \N$. Dann gilt:
 \begin{enumerate}[\rm (a)]
 \item $W_p^m(\Omega)$ ist ein Banachraum.
@@ -76,7 +76,7 @@ wobei
 \end{enumerate}
 \end{satz}
 
-\begin{bem}
+\begin{bem}\label{bem:A.6}
 \begin{enumerate}[(a)]
 \item Die Norm auf $H^m(\Omega)$ ergibt sich analog zur Norm des allgemeinen Sobolev-Raumes durch das Skalarprodukt, d.h. $\norm{u}_m: = \norm u_{H^m(\Omega)} := \norm u_{W^m_2}$.
 \item Analog dazu definieren wir die Halbnorm $\abs\cdot_m$ auf $H^m$ wie folgt:
@@ -88,7 +88,7 @@ wobei
 \end{enumerate}
 \end{bem}
 
-\begin{defi}
+\begin{defi}\label{def:A.7}
 Der Raum $H^m_0(\Omega)$ ist die Vervollständigung von $\mcal D(\Omega)$ bzgl. der Norm $\norm\cdot_m$.
 \end{defi}
 
@@ -105,7 +105,7 @@ Zunächst definieren wir einen verallgemeinerten Begriff der Richtungsableitung,
 \begin{defi}\label{def:Gateaux-Ableitung}
 Es seien $V$ ein Vektorraum, $M\subset V$ und $W$ ein normierter Raum, sowie $F: M \ra W$ eine Abbildung, $x_0 \in M$ und $v \in V$. Dann heißt $F$ \textit{\idx{Gâteaux-differenzierbar}} (bzw. in Richtung $v$ an der Stelle $x_0$ differenzierbar), falls es ein $\eps >0$ mit $[x_0-\eps v, x_0 + \eps v] \subset M$ gibt und der Grenzwert
 \begin{align}\label{eq:A.1}
-	\mscr D_v F (x_0) :=\frac\partial{\partial t} F(x_0+tv)\Big|_{t=0} := \lim_{t\ra 0} \frac{F(x_0+tv)-F(x_0)}t
+	\mscr D_v F (x_0) :=\frac d{d t} F(x_0+tv)\Big|_{t=0} := \lim_{t\ra 0} \frac{F(x_0+tv)-F(x_0)}t
 \end{align}
 in $W$ existiert. $\mscr D_vF(x_0)$ heißt dann \textit{\idx{Gâteaux-Ableitung}} von $F$ an der Stelle $x_0$ in Richtung $v$.
 
@@ -114,7 +114,7 @@ Falls wir nur $[x_0,x_0 + \eps v] \subset M$ voraussetzen, so können wir in \eq
 
 Für die Variationsrechnung sind folgende zwei Sätze für uns von besonderer Bedeutung.
 
-\begin{satz}
+\begin{satz}\label{satz:A.10}
 \textnormal{(Charakterisierungssatz der konvexen Optimierung)} Es seien $M \subset V$ eine konvexe Menge, $V$ ein Vektorraum und $F : M \ra \R$ ein konvexes Funktional. Dann gilt für $x_0, x \in M$:
 
 $x_0$ ist Lösung von $\min\limits_{x \in M} F(x)$ genau dann, wenn für alle $x \in M$ gilt

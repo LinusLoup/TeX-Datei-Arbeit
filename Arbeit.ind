@@ -1,20 +1,37 @@
 \begin{theindex}
 
-  \item G\IeC {\^a}teaux-Ableitung, \hyperpage{21}
-    \subitem rechtsseitig, \hyperpage{21}
-  \item G\IeC {\^a}teaux-differenzierbar, \hyperpage{21}
+  \item Bilinearform
+    \subitem elliptisch, \hyperpage{9}
+    \subitem koerziv, \hyperpage{9}
+    \subitem stetig, \hyperpage{9}
 
   \indexspace
 
-  \item Lebesgue-Raum, \hyperpage{19}
+  \item Dirichlet-Problem, \hyperpage{7}
+    \subitem homogenes, \hyperpage{8}
 
   \indexspace
 
-  \item Raum der Testfunktionen, \hyperpage{19}
+  \item G\IeC {\^a}teaux-Ableitung, \hyperpage{22}
+    \subitem rechtsseitig, \hyperpage{22}
+  \item G\IeC {\^a}teaux-differenzierbar, \hyperpage{22}
 
   \indexspace
 
-  \item schwache Ableitung, \hyperpage{19}
-  \item Sobolev-Raum, \hyperpage{19}
+  \item homogenen Dirichlet-Problem, \hyperpage{8}
+
+  \indexspace
+
+  \item Lebesgue-Raum, \hyperpage{20}
+
+  \indexspace
+
+  \item Raum der Testfunktionen, \hyperpage{20}
+
+  \indexspace
+
+  \item schwache Ableitung, \hyperpage{20}
+  \item schwache L\IeC {\"o}sung, \hyperpage{8}
+  \item Sobolev-Raum, \hyperpage{20}
 
 \end{theindex}

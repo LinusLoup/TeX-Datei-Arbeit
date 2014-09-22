@@ -5,11 +5,6 @@ In diesem Kapitel wollen wir uns mit grundlegender Theorie beschäftigen, die ni
 
 \section{Variationsformulierung}
 
-\begin{itemize}
-\item Was ist eine schwache Form einer PDE? Am Standardbeispiel $\Delta u = f$ in $\Omega, u = g$ auf $\partial \Omega$. (Herleitung auch über das Funktional $\ra$ auch für später beim Hindernisproblem wichtig)
-\item Hierbei ist $u = 0$ als Nebenbedingung im weiteren gewählt, da man dieses Problem durch Wahl der richtigen Lösung auf $u = g$ (vgl. \cite{BraeFEM} S. 35). Analog kann dies später auch an der starken Formulierung für das Hindernisproblem demonstriert werden, weshalb im folgenden immer $u \in H^1_0(\Omega)$ verwendet wird.
-\item Warum gibt es eine Lösung? (Lax-Milgram $\ra$ auch Riesz aufführen, da in dem Beweis der Existenz und Eindeutigkeit von $a(u,v-u)\ge f(v-u)$ erwähnt wird)
-\end{itemize}
 
 Stichpunkte für die Formulierung:
 
@@ -45,9 +40,214 @@ mit $\tilde f = f-\Delta u_0$.
 Betrachte also \eqref{eq:2.1} im Mittel über das ganze Gebiet $\Omega$. Durch Anwenden der 1. Green'schen Formel (bzw. Satz von Gauß) ergibt sich
 \begin{align}
 \notag	& \int_\Omega \nabla u \cdot \nabla v \, dx -\underbrace{\int_\Gamma v \partial_\nu u \, ds}_{=0, \text{ da } v|_\Gamma = 0} = \int_\Omega f v \, dx \, \\
-\label{eq:2.3}	\Llra & \qquad \int_\Omega \nabla u \cdot \nabla v \, dx =\int_\Omega f v \, dx
+\label{eq:2.3}	\Llra & \quad \qquad \int_\Omega \nabla u \cdot \nabla v \, dx =\int_\Omega f v \, dx
 \end{align}
+\item kurz geschrieben ist \eqref{eq:2.3} mit der Notation aus Satz \ref{satz:A.5} (b) 
+\[
+	(\nabla u, \nabla v)_0 = (f,v)_0 \, .
+\]
+\item wir definieren die Bilinearform $a: (H^1_0(\Omega))^2 \ra \R, a(u,v) := (\nabla u, \nabla v)_0$ und $(f,v):=(f,v)_0$.
+\begin{defi}
+Eine Funktion $u \in H^1_0(\Omega)$ heißt \textit{\idx{schwache Lösung}} vom \idx{homogenen Dirichlet-Problem}
+\begin{align}\label{eq:DP}\tag{DP}
+\begin{aligned}
+	-\Delta  u &=  f \text{ in } \Omega \, ,\\
+	 u & = 0 \text{ auf } \Gamma \, ,
+\end{aligned}
+\end{align}
+wenn die Gleichung
+\begin{align}\label{eq:2.4}
+	a(u,v) = (f,v)\quad \forall \, v \in H^1_0(\Omega) 
+\end{align}
+gilt.
+\end{defi}
+\item Wir betrachten im folgenden alle Hilberträume über $\R$.
+\item Frage nach der Existenz und Eindeutigkeit einer schwachen Lösung für \eqref{eq:DP} $\Ra$ hierfür wird ein Hilbertraum benötigt (nachher im Beweis ersichtlich) $\ra$ Lösung liefert der Satz von Lax-Milgram.
+\item zuvor noch eine Definition.
+\begin{defi}
+Sei $H$ ein Hilbertraum. Die Bilinearform  $a : H\times H \ra \R$ heißt \textit{stetig}\index{Bilinearform!stetig}, falls mit einem $c>0$
+\[
+	\abs{a(u,v)} \le c \, \norm{u}_H   \norm{v}_H \quad \forall \, u,v \in H
+\]
+gilt. Sie heißt $H$-\textit{elliptisch} (oder kurz \textit{elliptisch} oder \textit{koerziv})\index{Bilinearform!koerziv}\index{Bilinearform!elliptisch}, falls es ein $\alpha > 0$ gibt, so dass
+\[
+	a(v,v) \ge \alpha \, \norm{v}_H^2 \quad \forall \, v \in H 
+\]
+gilt.
+\end{defi}
+\item Bevor Existenz der Lösung gezeigt, betrachte Funktional $J(v) = \frac 1 2 a(v,v)-F(v)$ genauer
+\item 
+\begin{lemma}\label{lem:2.3}
+Es sei $H$ ein Hilbertraum. Das Funktional
+\[
+	J: H \ra \R \, , \quad J(v) := \frac 1 2 a(v,v) - F(v) \, ,
+\]
+wobei $a: H\times H \ra \R$ eine stetige bilineare koerzive und $F: H\ra \R$ eine lineare Abbildung ist, ist konvex.
+\end{lemma}
+
+\begin{proof}
+Es seien $u,v \in H$, dann gilt $u + t(v-u) = (1-t)u + tv \in H$ (dies gilt auch, wenn wir den Satz auf eine konvexe Teilmenge $M \subset H$ beschränken). Damit folgt mit $t \in [0,1]$
+\begin{align*}
+	J((1-t)u+tv)  = & \frac 1 2 a((1-t)u+tv,(1-t)u+tv) - F((1-t)u+tv) \\
+	= &(1-t) \, J(u) + t \, J(v) +  \frac 1 2 a((1-t)u+tv,(1-t)u+tv) \\
+	 & - \frac 1 2(1-t) \, a(u,u)-\frac 1 2 t \, a(v,v) \\
+	= & (1-t) \, J(u) + t \, J(v)  + \frac 1 2 a(u,u) + t \, a(u,v-u)  \\
+	&+ \frac {t^2} 2 a(v-u,v-u) - \frac 12 (1-t)\, a(u,u) -\frac 1 2 t \, a(v,v) \\
+	= & (1-t) \, J(u) + t \, J(v) + \frac {t^2} 2 a(v-u,v-u)  \\
+	 &\underbrace{+ t \, a(u,v)  - \frac 12 t\, a(u,u) -\frac 1 2 t \, a(v,v) }_{=  -\frac 1 2 t\, a(v-u,v-u)}\\
+	= &  (1-t) \, J(u) + t \, J(v) - \frac {1} 2 \underbrace{t \, (1-t)}_{\ge 0} \,\underbrace{ a(v-u,v-u) }_{\ge \alpha  \norm{v-u}_H^2 \ge 0} \\
+	\le &   (1-t) \, J(u) + t \, J(v) \, .% \qedhere
+\end{align*}
+Daraus folgt die Behauptung.
+\end{proof}
+\item \begin{lemma} \label{lem:2.4}
+Sei $H$ ein Hilbertraum. Das Funktional $J: H \ra \R, J(v) =\frac 1 2 a(v,v)-F(v)$ aus Lemma \ref{lem:2.3} ist Gâteaux-differenzierbar $($s. Definition \ref{def:Gateaux-Ableitung}$)$.
+\end{lemma}
+
+\begin{proof}
+Wir rechnen einfach nach, dass der Grenzwert des Differenzenquotienten existiert und verwenden dabei die Bilinearität von $a$ und Linearität von $F$. Seien $u,v \in H$, dann gilt
+\begin{align*}
+	\mscr D_v J(u) & = \lim_{t\ra 0} \frac{J(u+tv)-J(u)}t \\ 
+	&= \lim_{t\ra 0} \frac{J(u) + t \, (a(u,v)-F(v)) + \frac {t^2}2 a(v,v)-J(u)}t \\
+	& =  \lim_{t\ra 0}  (a(u,v)-F(v)) + \frac {t}2 a(v,v) \\
+	& = a(u,v)-F(v) < \infty\, ,
+\end{align*}
+da $a$ und $F$ jeweils stetig sind und daher durch $\norm u_H,\norm v_H$ beschränkt sind. Damit folgt die Behauptung.
+\end{proof}
+\item 
+\begin{theorem}\label{theorem:Lax-Milgram}\textnormal{(Lax-Milgram)}
+Es sei $H$ ein Hilbertraum und  $a : H \times H \ra \R$ eine symmetrische, in $H$ stetige, koerzive Bilinearform. Weiter sei $F:H\ra \R$ ein stetiges lineares Funktional, d.h.
+\[
+	\abs{F(v)} \le c \, \norm{v}_H \quad \forall \, v \in H
+\]
+mit einer Konstante $c >0$. Dann gibt es eine eindeutige Lösung $u \in H$, für die
+\[
+	a(u,v) = F(v) \quad \forall \, v \in H \, .
+\]
+gilt. Diese minimiert den Ausdruck
+\[
+	J(v) = \frac 1 2 a(v,v) - F(v)
+\]
+unter allen $v \in H$.
+\end{theorem}
+
+\begin{proof}
+(i) Zunächst zeigen wir die Äquivalenz der beiden oberen Probleme.
+
+"`$\Ra$"' Es sei $u\in H$, so dass $a(u,v) = F(v) \, \forall \, v \in H$. Für $t>0$ und $v\in H$ gilt dann
+\begin{align*}
+	J(u+tv) & = \frac 1 2 a(u+tv,u+tv) -F(u+tv) \\
+	& = \frac 1 2 a(u,u) + t \, a(u,v) + \frac {t^2} 2 a(v,v)-F(u)-t \, F(v) \\
+	& = \frac 1 2 a(u,u)-F(u) + t\, (\underbrace{a(u,v)-F(v)}_{=0}) + \frac{t^2}2 \underbrace{a(v,v)}_{\parbox{1.2cm}{\scriptsize$\ge 0$, da $a$ koerziv}} \\
+	& > \frac 1 2 a(u,u) - F(u) = J(u) \, ,
+\end{align*}
+also ist $u = \arg\min\limits_{v\in H} J(v)$.
+
+"`$\La$"' Es sei $u \in H$ das Minimum von dem Problem
+\[
+	\min_{v\in H} J(v) = \frac 1 2 a(v,v) -F(v) \, .
+\]
+Da $J:H\ra \R$ nach Lemma \ref{lem:2.3} ein konvexes Funktional ist und $J$ nach Lemma \ref{lem:2.4} Gâteaux-differenzierbar, gilt mit Satz \ref{satz:A.10} für alle $v \in H$
+\begin{align*}
+	0& = \mscr D_vJ(u) = \frac d{dt} J(u+tv)\Big|_{t=0} \\
+	& = \frac d{dt}(J(u) + t \, (a(u,v)-F(v))+\frac{t^2}2 a(v,v))\Big|_{t=0} \\
+	& = a(u,v)-F(v) + t \, a(v,v) \Big|_{t=0} = a(u,v)-F(v)
+\end{align*}
+(ii) Eindeutigkeit: Es seien $u,\tilde u \in H$ Lösungen der Variationsungleichung, d.h.
+\begin{align*}
+	a(u,v) = F(v) \, \wedge \, a(\tilde u,v) = F(v) \quad \forall \, v \in H \, .
+\end{align*}
+Damit folgt durch Subtraktion der beiden Gleichungen für alle $v \in H$
+\begin{align}\label{eq:2.5}
+	a(u,v) = a(\tilde u,v) \Llra a(u-\tilde u,v) = 0 \, .
+\end{align}
+Da $H$ ein Vektorraum ist, gilt auch $u-\tilde u \in H$. Ersetzen wir also in \eqref{eq:2.5} $v = u-\tilde u$, dann ergibt sich
+\begin{align*}
+	&0 = a(u-\tilde u,u-\tilde u) \stackrel{\scriptsize a\text{ koerziv}}\ge \underbrace{\alpha}_{>0} \norm{u-\tilde u}_H^2 \ge 0 
+	\lra\norm{u-\tilde u}_H^2 = 0 \, ,
+\end{align*}
+also folgt $u = \tilde u$.
+
+(iii) Existenz: Die Existenz einer Lösung weisen wir über das Funktional nach.
+\begin{align*}
+	J(v) & = \frac 1 2 a(v,v)-F(v) \stackrel[\scriptsize F \text{ linear}]{\scriptsize a \text{ koerziv}}\ge \frac 1 2 \alpha \norm v_H^2 - c \norm v_H \\
+	& = \frac 1 2 \alpha \(\norm v_H^2 - \frac{2c}\alpha \norm v_H\) = \frac 1 2 \alpha\(\norm v_H - \frac c\alpha\)^2 - \frac {c^2}{2\alpha} \\
+	& \ge - \frac{c^2}{2\alpha}
+\end{align*}
+Folglich ist $J$ nach unten beschränkt. Sei $\eta := \inf \{J(v)\with v \in H\}$ und $(v_n)_{n\in\N}$ eine Folge mit $J(v_n) \ra\eta$ für $n\ra \infty$. Dann folgt mit der Koerzivität von $a$
+\begin{align*}
+	\alpha \norm{v_n-v_m}^2_H  \le & a(v_n-v_m,v_n-v_m) \\
+	 = &a(v_n,v_n)+a(v_m,v_m)-a(v_n,v_m)-a(v_m,v_n) \\
+	=& 2a(v_n,v_n)+2a(v_m,v_m) \underbrace{-a(v_n,v_n+v_m)-a(v_m,v_n+v_m)}_{=-a(v_n+v_m,v_n+v_m)} \\
+	=& 2a(v_n,v_n)-4F(v_n)+2a(v_m,v_m)-4F(v_m) \\
+	& -a(v_n+v_m,v_n+v_m)+4F(v_n+v_m) \\
+	= & 4 J(v_n) + 4J(v_m) - 4 a\(\frac{v_n+v_m}2,\frac{v_n+v_m}2\)+8F\(\frac{v_n+v_m}2\) \\
+	= & 4 J(v_n) + 4J(v_m) - 8 J\(\frac{v_n+v_m}2\) \\
+	\le &4 J(v_n) + 4J(v_m) - 8\eta  \xrightarrow[n,m\ra\infty]{} 4\eta+4\eta-8\eta = 0 \, ,
+\end{align*}
+d.h. $(v_n)_{n\in \N}$ ist eine Cauchy-Folge. Da $H$ ein Hilbertraum ist, gilt somit: $\exists \, u \in H : v_n \xrightarrow[n\ra \infty]{} u$ mit $J(u) = \eta$.
+\end{proof}
+
+\item
+\begin{satz}\textnormal{(\idx{Poincaré-Friedrich-Ungleichung})}\label{satz:2.6}
+Es sei $\Omega$ in einem $d$-dimensionalen Würfel der Kantenlänge $s>0$ enthalten. Dann gilt
+\[
+	\norm v_0 \le s \norm{\nabla v}_0 \quad \forall \, v \in H^1_0(\Omega) \, ,
+\]
+wobei $\norm\cdot_0$ die durch das Skalarprodukt $(\cdot,\cdot)_0$ induzierte Norm ist.
+\end{satz}
+
+\begin{proof}
+Der Beweis ist in \cite{BraeFEM} Kapitel II, \S1 Sobolev-Räume, Satz 1.5 oder \cite{StarkePDE} Satz 1.5 zu finden.
+\end{proof}
+
+\item Greifen wieder die Frage auf, ob das Problem \eqref{eq:2.4} mit $a:(H^1_0(\Omega))^2\ra \R, a(u,v) = (\nabla u,\nabla v)_0$ und $F:H^1_0(\Omega) \ra \R, F(v) := (f,v)$ eine eindeutige Lösung hat.
+\item Kann nun mit Theorem \ref{theorem:Lax-Milgram} beantwortet werden. Es seien $u,v \in H^1_0(\Omega)$, dann gilt
+\begin{align*}
+	 a(v,v) = & \int_\Omega \nabla v \nabla v \, dx = \norm{\nabla v}_0^2  \\
+	\ge& \frac{s^2+1}{(1+s)^2}\norm{\nabla v}_0^2  \stackrel{\scriptsize \text{Satz \ref{satz:2.6}}}\ge \frac 1{(1+s)^2} (\norm v_0^2 + \norm{\nabla v}_0^2) \\
+	= & \frac 1{(1+s)^2} \norm v_1^2 \, .
+\end{align*}
+Damit ist $a$ mit $\alpha :=  \frac 1{(1+s)^2}$ koerziv. Weiter rechnen wir nach:
+\begin{align*}
+	\abs{a(u,v)} = & \Abs{\int_\Omega \nabla u \nabla v \, dx} \le \sum_{i = 1}^d \int_\Omega\abs{\partial_i u}\abs{\partial_i v} \, dx \\
+	\stackrel{\scriptsize\text{CS}}\le & \sum_{i = 1}^d \(\int_\Omega \abs{\partial_i u}^2 \, dx\)^{\frac 12} \(\int_\Omega \abs{\partial_i v}^2 \, dx\)^{\frac 12} \\
+	\le & \(\sum_{i = 1}^d \int_\Omega \abs{\partial_i u}^2 \, dx\)^{\frac 12} \(\sum_{i=1}^d\int_\Omega \abs{\partial_i v}^2 \, dx\)^{\frac 12} \\
+	\le & \( \int_\Omega \abs{\nabla u}^2 \, dx + \int_\Omega u^2 \, dx\)^{\frac 12} \(\int_\Omega \abs{\nabla v}^2 \, dx+\int_\Omega v^2\, dx\)^{\frac 12} \\
+	= & \norm u_1 \, \norm v_1 \, ,
+\end{align*}
+d.h.  $a$ ist stetig mit $c := 1$. Die Symmetrie von $a$ ist trivial, also bleibt nur noch die Stetigkeit von $F$ zu zeigen. Es sei $v \in H^1_0(\Omega)$, dann gilt
+\begin{align*}
+	\abs{F(v)} &= \abs{(f,v)} =  \Abs{\int_\Omega fv \, dx} \stackrel{\scriptsize\text{CS}}\le\( \int_\Omega \abs{f}^2 \,dx\)^{\frac 12} \( \int_\Omega \abs v^2 \, dx\)^{\frac 12} \\
+	&\le  c \, \( \int_\Omega \abs{\nabla v}^2 +  \abs v^2 \, dx\)^{\frac 12} = c \, \norm v_1
+\end{align*}
+mit $0<c := \int_\Omega \abs f^2 \, dx < \infty$, wenn $f \in L_2(\Omega)$ ist. Damit ist $F$ ein stetiges lineares Funktional und somit existiert nach Theorem \ref{theorem:Lax-Milgram} eine Eindeutige Lösung $u \in H^1_0(\Omega)$ für die schwache Formulierung des homogenen Dirichlet-Problems. 
+
+\item \begin{bem*}
+Die Stetigkeit vom Funktional $F$ zeigt, welche Eigenschaft die Kraft $f$ aus dem Dirichlet-Problem wenigstens quadratisch integrierbar sein muss, damit es eine schwache Lösung geben kann.
+\end{bem*}
+
+\item \begin{bem*}
+\begin{enumerate}[(a)]
+\item Mit $H'$ bezeichnen wir den Dualraum zu einem Hilbertraum $H$.
+\item Den Dualraum zu $H^1(\Omega)$ bezeichnen wir mit $H^{-1}(\Omega)$.
+\end{enumerate}
+\end{bem*}
+\item Hier noch eine Folgerung aus dem Satz von Lax-Milgram:
+\begin{satz}\textnormal{(Riesz'scher Darstellungssatz)}
+Es sei $H$ ein Hilbertraum mit einem Skalarprodukt $(\cdot,\cdot)_H$. Es sei $F \in H'$, dann existiert genau ein $u \in H$, so dass
+\[
+	(u,v)_H = F(v) \quad \forall \, v \in H \, .
+\]
+\end{satz}
+
+\begin{proof}
+Dies ist eine direkte Folgerung aus dem Theorem \ref{theorem:Lax-Milgram}. Die Abbildung $(\cdot,\cdot)_H:H\times H \ra \R$ ist als Skalarprodukt bilinear, symmetrisch und positiv definit, damit auch bzgl. der auf $H$ durch das Skalarprodukt induzierten Norm $\norm v_H := \sqrt{(v,v)_H}$, koerziv. $F$ ist als Element des Dualraumes $H'$ eine lineare stetige Abbildung $F:H\ra\R$ und damit folgt mit $a(\cdot,\cdot) :=(\cdot,\cdot)_H$ aus dem Theorem von Lax-Milgram die Behauptung.
+\end{proof}
 \end{itemize}
+
+
+
 
 
 
