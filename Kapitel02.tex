@@ -252,6 +252,66 @@ Es sei $H$ ein Hilbertraum mit einem Skalarprodukt $(\cdot,\cdot)_H$. Es sei $F 
 \begin{proof}
 Dies ist eine direkte Folgerung aus dem Theorem \ref{theorem:Lax-Milgram}. Die Abbildung $(\cdot,\cdot)_H:H\times H \ra \R$ ist als Skalarprodukt bilinear, symmetrisch und positiv definit, damit auch bzgl. der auf $H$ durch das Skalarprodukt induzierten Norm $\norm v_H := \sqrt{(v,v)_H}$, koerziv. $F$ ist als Element des Dualraumes $H'$ eine lineare stetige Abbildung $F:H\ra\R$ und damit folgt mit $a(\cdot,\cdot) :=(\cdot,\cdot)_H$ aus dem Theorem von Lax-Milgram die Behauptung.
 \end{proof}
+
+\item \begin{kor}
+Es sei $H$ ein Hilbertraum mit Skalarprodukt $(\cdot,\cdot)_H$ und $a:H\times H\ra \R$ eine stetige koerzive Bilinearform. Dann existiert genau ein linearer Operator $A : H \ra H$, so dass gilt:
+\[
+	a(u,v)  = (Au,v)_H \quad \forall \, u , v \in H \, .
+\]
+\end{kor}
+
+\begin{proof}
+Es sei $u\in H$ fest, dann ist $L: H\ra \R, L(v) := a(u,v)$ eine lineare Abbildung, die stetig ist, da
+\[
+	\abs{L(v)} = \abs{a(u,v)} \stackrel{\scriptsize\text{stetig}}\le c \,  \norm{u}_H \norm v_H  = \tilde c\, \norm v_H
+\]
+mit $0<\tilde c := c \, \norm u_H$ gilt. Damit folgt nach dem Darstellungssatz von Riesz, dass es ein eindeutiges $l \in H$ gibt, so dass
+\[
+	a(u,v) = L(v) = (l,v)_H \quad \forall \, v \in H
+\]
+gilt. Da $u \in H$ jedoch beliebig ist, bleibt zu zeigen, dass es ein eindeutiges $A:H\ra H$ gibt, so dass $Au = l$ ist.
+
+Wir zeigen zunächst mithilfe der Bilinearform $a$, dass $A$ linear ist. Es gilt für $\lambda,\mu \in \R$ und $u,v \in H$
+\begin{align*}
+	(A(\lambda u + \mu v),w)_H &= a(\lambda u + \mu v, w) = \lambda a(u,w) + \mu a(v,w) \\
+	& = \lambda (Au,w)_H + \mu(Av,w)_H \\
+	& = (\lambda \, Au+\mu \, Av,w)_H
+\end{align*}
+für alle $w \in H$. Weiter gilt
+\[
+	\norm{Au}_H^2 = (Au,Au)_H = a(u,Au) \stackrel{\scriptsize \text{stetig}}\le c \, \norm u_H \norm{Au}_H \, ,
+\]
+d.h. $\norm{Au}_H \le c \, \norm u_H$ und damit ist nach \cite{Werner} Satz II.1.2 der Operator $A$ stetig.
+
+Betrachten wir den Kern von $A$, so ergibt sich
+\begin{align}\label{eq:2.6}
+	\ker A := \{ v \in H \with Av = 0\} = \{0\} \, ,
+\end{align}
+denn
+\[
+	\alpha \norm v_H^2 \stackrel{\scriptsize \text{koerziv}}\le a(v,v)  = (Av,v)_H \stackrel{\scriptsize \text{CS}}\le \norm{Av}_H \norm v_H 
+\]
+und damit gilt $\norm{Av}_H \ge \alpha \norm v_H$, d.h. $Av = 0 \Lra v = 0$. Dies impliziert, dass $A$ injektiv ist, denn mit $v_1,v_2\in H, Av_1 = Av_2$ folgt
+\[
+	0 = Av_1 - Av_2 = A(v_1-v_2) \ \stackrel{\scriptsize\eqref{eq:2.6}}\lra \ v_1 = v_2 \, .
+\]
+Weiter betrachten wir das Bild von $A$, d.h.
+\[
+	\im A := \{ v \in H \with \exists \, u \in H : Au = v \} \subset H\, .
+\]
+Sei $(v_n)_{n \in \N}$ eine Folge mit $v_k \in \im A $ für alle $k \in \N$. Dann folgt, dass für jedes $v_k$ ein $u_k \in H$ existiert mit $A u_k = v_k$. Es gelte, dass $Au_k = v_k \ra v \in H$ geht, dann folgt
+\begin{align*}
+	\alpha \, \norm{u_n -u_m}_H & \le \norm{A(u_n-u_m)}_H = \norm{Au_n-Au_m}_H \\
+	& = \norm{v_n-v_m}_H \xrightarrow[n,m\ra \infty]{} 0 \, ,
+\end{align*}
+d.h. $(u_n)_{n\in \N} \subset H$ ist eine Cauchy-Folge und konvergiert daher in $H$. Also existiert ein $u \in H$ mit $u_n \ra u$. Mit der Stetigkeit von $A$ folgt dann
+\[
+	v_n = A u_n \xrightarrow[n\ra \infty]{} Au = v\, ,
+\]
+d.h. $v \in \im A$ und damit ist $\im A$ abgeschlossen. 
+
+(i) Eindeutigkeit: Es seien $A_1,A_2 \in \mcal L(H,H)$ zwei lineare Operatoren mit $A_1u = l$ und $A_2 u = l$. 
+\end{proof}
 \end{itemize}
 
 

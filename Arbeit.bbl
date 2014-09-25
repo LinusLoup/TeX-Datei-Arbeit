@@ -93,6 +93,12 @@
 \newblock 2011. --
 \newblock Vorlesungsskript
 
+\bibitem[Wer11]{Werner}
+\textsc{Werner}, Dirk:
+\newblock \emph{Funktionalanalysis}.
+\newblock 7. Auflage.
+\newblock Springer, 2011
+
 \bibitem[Zou11]{Zou}
 \textsc{Zou}, Qingsong:
 \newblock Efficient and reliable hierarchical error estimates for an elliptic
