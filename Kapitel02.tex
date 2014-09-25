@@ -75,7 +75,9 @@ gilt. Sie heißt $H$-\textit{elliptisch} (oder kurz \textit{elliptisch} oder \te
 \]
 gilt.
 \end{defi}
+
 \item Bevor Existenz der Lösung gezeigt, betrachte Funktional $J(v) = \frac 1 2 a(v,v)-F(v)$ genauer
+
 \item 
 \begin{lemma}\label{lem:2.3}
 Es sei $H$ ein Hilbertraum. Das Funktional
@@ -221,7 +223,13 @@ d.h.  $a$ ist stetig mit $c := 1$. Die Symmetrie von $a$ ist trivial, also bleib
 	\abs{F(v)} &= \abs{(f,v)} =  \Abs{\int_\Omega fv \, dx} \stackrel{\scriptsize\text{CS}}\le\( \int_\Omega \abs{f}^2 \,dx\)^{\frac 12} \( \int_\Omega \abs v^2 \, dx\)^{\frac 12} \\
 	&\le  c \, \( \int_\Omega \abs{\nabla v}^2 +  \abs v^2 \, dx\)^{\frac 12} = c \, \norm v_1
 \end{align*}
-mit $0<c := \int_\Omega \abs f^2 \, dx < \infty$, wenn $f \in L_2(\Omega)$ ist. Damit ist $F$ ein stetiges lineares Funktional und somit existiert nach Theorem \ref{theorem:Lax-Milgram} eine Eindeutige Lösung $u \in H^1_0(\Omega)$ für die schwache Formulierung des homogenen Dirichlet-Problems. 
+mit $0<c := \int_\Omega \abs f^2 \, dx < \infty$, wenn $f \in L_2(\Omega)$ ist. Damit ist $F$ ein stetiges lineares Funktional und somit existiert nach Theorem \ref{theorem:Lax-Milgram} eine eindeutige Lösung $u \in H^1_0(\Omega)$ für die schwache Formulierung des homogenen Dirichlet-Problems. 
+
+\item Weiter minimiert die Lösung $u \in H^1_0(\Omega)$ das Funktional
+\begin{align*}
+	J(v) = \frac 12 \int_\Omega \nabla v\nabla v \, dx - \int_\Omega fv \, dx \, ,
+\end{align*}
+welches die gespeicherte Energie der durch die Kraft $f$ belasteten Membran $\Omega$ beschreibt.
 
 \item \begin{bem*}
 Die Stetigkeit vom Funktional $F$ zeigt, welche Eigenschaft die Kraft $f$ aus dem Dirichlet-Problem wenigstens quadratisch integrierbar sein muss, damit es eine schwache Lösung geben kann.

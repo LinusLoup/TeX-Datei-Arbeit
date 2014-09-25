@@ -5,33 +5,144 @@
 \begin{itemize}
 \item Hindernisproblem: Auslenkung $u$ einer Membran $\Omega$ unter Krafteinwirkung $f$, wobei die Membran durch ein Hindernis $\psi$ behindert wird. Mathematische modelliert bedeutet dies:
 \begin{align}\label{eq:Hindernis}
-\min_{u\in K} J(u) = \frac 1 2 a(u,u)-(f,u)
+\min_{v\in K} J(v) = \frac 1 2 a(v,v)-(f,v)
 \end{align}
-mit $K := \{u \in H^1_0(\Omega) \with u\ge \psi$ fast überall$\}$. $J(u)$ gibt wieder die Energie, die in der Membran gespeichert wird an. Neu ist also, dass die Lösung $u$ nicht mehr in ganz $H^1_0(\Omega)$ liegt, sondern in einer Teilmenge.
+mit $K := \{v \in H^1_0(\Omega) \with v\ge \psi$ fast überall in $\Omega\}$. 
+
+\item $J$ gibt wieder die in der Membran gespeicherte Energie an.
+\item wobei jetzt die Lösung nicht auf ganz $H^1_0(\Omega)$ gesucht ist, sondern in einer Teilmenge $K \subset H^1_0(\Omega)$.
+
+\item wir können auch hier eine Variationsformulierung, die äquivalent zu \eqref{eq:Hindernis} ist, herleiten
+
+%\item hierfür zunächst wieder etwas allgemeineres Energiefunktional $J: H \ra \R, J(v) = \frac 1 2 a(v,v)-F(v)$, wobei $H$ Hilbertraum
 \end{itemize}
 
 
 \subsection{Variationsformulierung für das Hindernisproblem}
 
 \begin{itemize}
-\item Das Hindernisproblem zur Herleitung einer Variationsungleichung
-\[
-	a(u,v-u) \ge f(v-u) \, \forall \, v \in K
-\]
-benutzen. Hierfür die Minimierungsaufgabe \eqref{eq:Hindernis} unter Nebenbedingung optimieren. (Hierfür noch einmal in Nichtlineare Optimierung schauen.)
-\item Hier als Bemerkung vllt noch einmal anführen, dass die Variationsungleichung äquivalent zu der starken Formulierung
+\item zeigen zunächst, dass $K$ konvex ist.
+\begin{lemma}
+Die Menge $K =  \{v \in H^1_0(\Omega) \with v\ge \psi\text{ fast überall in }\Omega\}$ ist eine konvexe Teilmenge von $H^1_0(\Omega)$.
+\end{lemma}
+
+\begin{proof}
+Es seien $u,v \in K$, d.h. $u \ge \psi$ und $v \ge \psi$ fast überall in $\Omega$. Dann gilt für $t \in [0,1]$
 \begin{align*}
+	(1-t) u + tv \ge (1-t)\psi + t \psi = \psi  \, ,
+\end{align*}
+somit ist $(1-t)u + tv \in K$, also $K$ konvex.
+\end{proof}
+
+\item \begin{satz}\label{satz:3.2}
+Es sei $K =   \{v \in H^1_0(\Omega) \with v\ge \psi\text{ fast überall in }\Omega\}$. Das Minimierungsproblem
+\begin{align}\label{eq:3.2}
+	\min_{v\in K} J(v) = \frac 1 2 a(v,v)-(f,v)
+\end{align}
+ist äquivalent zur Variationsungleichung: Finde $u \in K$, so dass
+\begin{align}\label{eq:3.3}
+	a(u,v-u) \ge (f,v-u) \quad \forall \, v \in K \, .
+\end{align}
+\end{satz}
+
+\begin{proof}
+Aus Lemma \ref{lem:2.3} folgt, dass $J$ konvex ist und damit gilt mit Satz \ref{satz:A.10}, dass $u \in K$ genau dann eine Lösung von \eqref{eq:3.2} ist, wenn
+\begin{align}\label{eq:3.4}
+	\mscr D_{v-u} J(u) \ge 0 \quad \forall \, v \in K 
+\end{align}
+gilt. Analog zu der berechneten Gâteaux-Ableitung von $J$ in Lemma \ref{lem:2.4}, gilt
+\[
+	\mscr D_{v-u} J(u) = \frac d{dt} J(u+t(v-u))\Big|_{t=0} = a(u,v-u) -(f,v-u)
+\]
+und damit folgt mit \eqref{eq:3.4} die Behauptung.
+\end{proof}
+
+\item \begin{bem}
+Wie man mit Satz \ref{satz:A.10} sehen kann, gilt analog zu Satz \ref{satz:3.2} auch allgemeiner: Es sei $K\subset H$ eine konvexe Teilmenge eines Hilbertraumes $H$. Dann ist
+\begin{align*}
+	\min_{v\in K} J(v) = \frac 1 2 a(v,v)-F(v)
+\end{align*}
+äquivalent zur Variationsungleichung: Finde $u \in K$, so dass
+\begin{align*}
+	a(u,v-u) \ge F(v-u) \quad \forall \, v \in K \, ,
+\end{align*}
+wobei $F :H\ra \R$ eine lineare stetige Abbildung ist.
+\end{bem}
+
+\item auch für das Hindernisproblem gibt es analog zum homogenen Dirichlet-Problem \eqref{eq:2.2} eine äquivalente starke Formulierung
+
+\item \begin{satz}\textnormal{(Starke Formulierung des Hindernisproblems)} Jede Lösung $u \in H^2(\Omega) \cap H^1_0(\Omega)$ des Problems
+\begin{align}\label{eq:3.5}
+\begin{aligned}
 	-\Delta u -f&\ge 0 \\
 	u-\psi &\ge 0 \\
 	(u-\psi) (-\Delta u &- f) = 0
+\end{aligned}
+\end{align}
+mit $\psi \in H^1(\Omega)$ erfüllt die Variationsungleichung \eqref{eq:3.3}. Umgekehrt ist jede Lösung $u\in H^2(\Omega) \cap K$ von \eqref{eq:3.3} auch eine Lösung von \eqref{eq:3.5}.
+\end{satz}
+
+\begin{proof}
+"`$\Ra$"' Sei $u \in H^2(\Omega) \cap H^1_0(\Omega)$ eine Lösung von \eqref{eq:3.5}, dann gilt für ein beliebiges $v \in K$
+\begin{align*}
+	\int_\Omega (-\Delta u - f) (v-u) \, dx & = \underbrace{- \int_\Omega \Delta u  (v-u) \, dx}_{\parbox{3.5cm}{\scriptsize$\stackrel{\text{Green}}= \int_\Omega \nabla u \nabla (v-u) \, dx$ \\ \text{ }\text{ } \text{ }\text{ } $ -\int_\Gamma \underbrace{(v-u)}_{=0} \partial_\nu u \, ds$}} - \int_\Omega  f (v-u) \, dx  \\
+	& = \int_\Omega \nabla u \nabla(v-u) \, dx - \int_\Omega f(v-u) \\
+	& = a(u,v-u) - (f,v-u) \, .
 \end{align*}
-ist. Beweis hierfür im Stephan-Skript (analog umzuschreiben).
+Mit $\Omega_0 := \{ x \in \Omega \with u = \psi\}$ folgt, dass $-\Delta u = f$ auf $\Omega_1 := \Omega \setminus \bar\Omega_0$ gelten muss.
+\begin{align*}
+	 \lra\,   \int_{\Omega = \Omega_0 \cup \Omega_1} \underbrace{(-\Delta u - f)}_{=0 \text{ auf } \Omega_1} (v-u) \, dx  = \int_{\Omega_0}\underbrace{ (-\Delta u - f)}_{\ge0} \underbrace{(v-\psi)}_{\ge 0} \, dx \ge 0
+\end{align*}
+Damit ist $u$ eine Lösung von \eqref{eq:3.3}
+\[
+	a(u,v-u) \ge (f,v-u) \quad \forall \, v \in K\, .
+\]
+"`$\La$"' Es sei $u \in H^2(\Omega) \cap K$ Lösung von \eqref{eq:3.3}. Weiter sei $v \in K$  beliebig, dann gilt
+\begin{align}\label{eq:3.6}
+\begin{aligned}
+	0 & \le a(u,v-u) - (f,v-u) \\
+	&= \int_\Omega \nabla u \nabla(v-u) \, dx - \int_\Omega f(v-u) \, dx \\
+	& \stackrel{\scriptsize\text{Green}}= \int_\Omega -\Delta u (v-u) \, dx - \int_\Omega f(v-u) \, dx \\
+	& = \int_\Omega (-\Delta u - f) (v-u) \, dx \, .
+\end{aligned}
+\end{align}
+Wir nehmen an, dass $-\Delta u -f < 0$ in einem Ball $B_{r_0} := B_{r_0} (x_0)\subset \Omega$ mit Radius $r_0$ um $x_0 \in \Omega$ gilt. Sei weiter $\chi \in C^\infty(\Omega)$ mit $\chi = 0$ auf $\Omega \setminus \bar B_{r_0}, \rho(r) := \(1-\frac r{r_0}\)^2 \chi >0$ und $v := u + \rho (r) \in K$, da $u\in K$ und $\rho (r) >0$. Dann gilt
+\[
+	\int_\Omega (-\Delta u - f) (v-u) \, dx = \int_{B_{r_0}} \underbrace{(-\Delta u - f)}_{< 0} \underbrace{\rho(r)}_{>0} \, dx < 0 \, ,
+\]
+was im Widerspruch zu \eqref{eq:3.6} steht. Also muss $-\Delta u - f \ge 0$ gelten.
+
+Nun nehmen wir an, dass $-\Delta u -f > 0$ und $u > \psi$ fast überall in einem Ball $B_{r_0}$ gilt. Wir betrachten $v:= u  + \eps \rho(r) (\psi - u) \in K$ mit $0< \eps\le 1$, dann folgt
+\[
+	\int_\Omega (-\Delta u - f) (v-u) \, dx = \eps \int_{B_{r_0}} \underbrace{(-\Delta u -f)}_{>0} \underbrace{\rho(r)}_{>0} \underbrace{(\psi-u)}_{<0} \, dx < 0 \, ,
+\]
+was wiederum im Widerspruch zu \eqref{eq:3.6} steht. Damit muss $u = \psi$ gelten, wenn $-\Delta u = f$ ist. Es folgt, dass $u \in H^2(\Omega) \cap K$ eine Lösung von \eqref{eq:3.5} ist.
+\end{proof}
 \end{itemize}
 
 \subsection{Existenz und Eindeutigkeit der Lösung}
 
 \begin{itemize}
 \item Kapitel 3 in \cite{KikOden} mit Theorem 3.1-3.4 (\textbf{Beweis vgl. NPDE I von Stephan Seite 39}, auch in Solution of Variational Inequalities in Mechanics (Theorem 1.1 Seite 4))
+
+\item für die Existenz und Eindeutigkeit der Lösung des Problems betrachten wir zunächst wieder das allgemeine reelle quadratische Funktional $J: H \ra \R, J(v) = \frac 1 2 a(v,v) - F(v)$.
+
+\item \begin{vor}
+Sei $H$ ein reeller Hilbertraum mit Skalarprodukt $(\cdot,\cdot)_H$ und der damit induzierten Norm $\norm\cdot_H$. Mit $H'$ bezeichnen wir den Dualraum zu $H$. Weiter sei vorausgesetzt:
+\begin{enumerate}[(a)]
+\item $a: H\times H \ra \R$ ist eine stetige koerzive Bilinearform,
+\item $F:H\ra\R$ ist ein stetiges lineares Funktional,
+\item $K\not = \emptyset$ ist eine abgeschlossene konvexe Teilmenge von $H$.
+\end{enumerate}
+\end{vor}
+
+\item \begin{theorem}\textnormal{(Existenz und Eindeutigkeit)}
+Unter den obigen Voraussetzungen hat die Variationsungleichung, finde $u\in K$, so dass
+\[
+	a(u,v-u) \ge F(v-u) \quad \forall \, v \in K
+\]
+ist, genau eine Lösung.
+\end{theorem}
 \end{itemize}
 
 \subsection{Lösung des Hindernisproblems mittels FEM}
