@@ -87,6 +87,12 @@
 \newblock 2012. --
 \newblock Vorlesungsskript
 
+\bibitem[Sto99]{Stoer}
+\textsc{Stoer}, Josef:
+\newblock \emph{Numerische Mathematik I}.
+\newblock 8. Auflage.
+\newblock Springer, 1999
+
 \bibitem[Wal11]{Walker}
 \textsc{Walker}, Christoph:
 \newblock Partielle Differentialgleichungen / IFAM - Universität Hannover.

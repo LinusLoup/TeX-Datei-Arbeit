@@ -3,6 +3,105 @@
 
 In diesem Kapitel wollen wir uns mit grundlegender Theorie beschäftigen, die nicht im Anhang aufgeführt ist, zum Verständnis von den darauffolgenden Kapiteln jedoch notwendig ist.
 
+\section{Hilberträume}
+
+\begin{itemize}
+\item benötigen in den Variationsformulierungen immer wieder Hilberträume, daher werden Eigenschaften dieser hier nochmal eingeführt
+\item \begin{defi}
+Ein \textit{\idx{Hilbertraum}} ist ein reeller oder komplexer Vektorraum $H$ mit Skalarprodukt $(\cdot, \cdot)_H$, der vollständig bzgl. der durch das Skalarprodukt induzierten Norm, $\norm v_H^2 \coloneqq{(v,v)_H}$ für alle $v \in H$, ist, d.h. in dem jede Cauchy-Folge konvergiert.
+\end{defi}
+
+\item Es sei in diesem Kapitel $H$ ein reeller Hlbertraum mit Skalarprodukt $(\cdot,\cdot)_H$ und der dazu induzierten Norm $\norm v_H^2 = (v,v)_H$ für alle $v \in H$.
+
+\item \begin{satz}[\idx{Approximationssatz}]
+Es sei $\emptyset\neq M\subset H$ konvex und abgeschlossen. Dann existiert für alle $v\in H$ ein $m_v\in M$ mit
+\[ 
+  	\norm{v-m_v}=\dist(v,M)\coloneqq \inf_{w\in M}\norm{v-w}\, .
+\]
+Wir nennen $P_M:H\ra M$ mit $v\mapsto m_v$ die \idx{Projektionen} auf $M$.
+\end{satz}
+
+\begin{proof}
+Der Beweis ist in \cite{Walker} Kapitel 7.1 Satz 7.2 zu finden.
+\end{proof}
+
+\item \begin{satz}[Charakterisierung der Projektionen]\label{satz:2.3}
+$\emptyset\neq M\subset H$ sei abgeschlossen und konvex und $v\in H$. Dann gilt:
+\[ 
+  	m_0=P_M(v)\quad\Longleftrightarrow\quad (m-m_0, v-m_0)_H\leq0 
+\]
+für alle $m\in M$.
+\end{satz}
+
+\begin{proof}
+ Es sei o.B.d.A. $0\in M$ und $m_0=0$.
+ 
+  "`$\Rightarrow$"' Wegen $0=P_M(x)$ muss $\norm{v-tm}_H\geq\norm v_H$ für $m\in M$ und $0\leq t\leq1$ sein. Dann ist
+\begin{align*}
+    	 \norm v^2_H\leq\norm v^2_H-2t(v, m)_H+t^2\norm m^2_H
+	\ \lra \ 0 \le - 2t (v,m)_H + \underbrace{t^2 \norm m_H^2}_{\ge 0} \, .
+ \end{align*}
+Damit ist $2(v, m)_H\leq0$.
+ 
+ "`$\La$"' Für alle $m\in M$ ist $(v, m)_H\leq0$. Es folgt
+\[ 
+	\norm v^2_H\leq\norm v^2_H+\norm m^2-2(v,m)_H=\norm{v-m}^2_H\, . 
+\]
+Wegen $0\in M$ ist $\dist(v,M)=\norm v^2_H$ und damit $0=P_M(v)$.
+\end{proof}
+
+\item \begin{satz}\label{satz:2.4}
+Es sei $\emptyset \not = M \subset H$ konvex und abgeschlossen. Dann gilt:
+\[
+	\norm{P_M(v)-P_M(w)}_H \le \norm{v-w}_H \quad \forall \, v,w \in H \, .
+\]
+\end{satz}
+
+\begin{proof}
+Da $P_M(v), P_M(w) \in M$ für alle $v,w \in H$ ist, folgt aus Satz \ref{satz:2.3}
+\begin{align}\label{eq:2.1}
+	(P_M(w)-P_M(v),v-P_M(v))_H  \le 0 \, , \\
+	(P_M(v)-P_M(w),w-P_M(w))_H \le 0 \, .\label{eq:2.2}
+\end{align}
+Addieren wir \eqref{eq:2.1} und \eqref{eq:2.2}, so erhalten wir
+\begin{align*}
+	0 &\ge (P_M(w)-P_M(v),v-P_M(v))_H + (P_M(v)-P_M(w),w-P_M(w))_H \\
+	& = (P_M(w)-P_M(v),v-w+P_M(w)-P_M(v))_H \\
+	& = \norm{P_M(w)-P_M(v)}_H^2-(P_M(w)-P_M(v),w-v)_H \\
+	&\stackrel{\scriptsize \text{CS}}\ge \norm{P_M(w)-P_M(v)}_H^2 - \norm{P_M(w)-P_M(v)}_H \, \norm{w-v}_H \, .
+\end{align*}
+Nach Umstellen der Ungleichung folgt die Behauptung.
+\end{proof}
+
+\item \begin{defi}
+Es sei $\emptyset\neq M\subset H$ und wir definieren das \textit{{orthogonale Komplement}}\index{orthogonales~Komplement} von $M$ durch
+\[
+	M^\perp\coloneqq\{v\in H\with v\perp M\}\coloneqq\{v\in H\with (v, m)_H=0\;\fa\,  m\in M\}\, .
+\]
+\end{defi}
+
+\item \begin{satz}
+ Es sei $M$ ein abgeschlossener Untervektorraum von $H$. Dann ist
+  \[
+  	H=M\oplus M^\perp\, , 
+  \]
+  d.h. jedes $v\in M$ hat eine eindeutige Zerlegung $v=v_M+v_{M^\perp}$ mit $v_M\in M$ und $v_{M^\perp}\in M^\perp$.
+\end{satz}
+
+\begin{proof}
+Der Beweis findet sich in \cite{Walker} Kapitel 7.1 Theorem 7.6.
+\end{proof}
+
+\item \begin{kor}\label{kor:2.6}
+Es sei $\emptyset \not = M \subset H$   ein Untervektorraum. Dann ist $\bar M = H$ genau dann, wenn $M^\perp = \{0\}$ ist.
+\end{kor}
+
+\begin{proof}
+Den Beweis können wir in \cite{Walker} Kapitel 7.1 Korollar 7.7 (iii) einsehen.
+\end{proof}
+\end{itemize}
+ 
+
 \section{Variationsformulierung}
 
 
@@ -253,7 +352,7 @@ Es sei $H$ ein Hilbertraum mit einem Skalarprodukt $(\cdot,\cdot)_H$. Es sei $F 
 Dies ist eine direkte Folgerung aus dem Theorem \ref{theorem:Lax-Milgram}. Die Abbildung $(\cdot,\cdot)_H:H\times H \ra \R$ ist als Skalarprodukt bilinear, symmetrisch und positiv definit, damit auch bzgl. der auf $H$ durch das Skalarprodukt induzierten Norm $\norm v_H := \sqrt{(v,v)_H}$, koerziv. $F$ ist als Element des Dualraumes $H'$ eine lineare stetige Abbildung $F:H\ra\R$ und damit folgt mit $a(\cdot,\cdot) :=(\cdot,\cdot)_H$ aus dem Theorem von Lax-Milgram die Behauptung.
 \end{proof}
 
-\item \begin{kor}
+\item \begin{kor}\label{kor:2.14}
 Es sei $H$ ein Hilbertraum mit Skalarprodukt $(\cdot,\cdot)_H$ und $a:H\times H\ra \R$ eine stetige koerzive Bilinearform. Dann existiert genau ein linearer Operator $A : H \ra H$, so dass gilt:
 \[
 	a(u,v)  = (Au,v)_H \quad \forall \, u , v \in H \, .
@@ -308,9 +407,21 @@ d.h. $(u_n)_{n\in \N} \subset H$ ist eine Cauchy-Folge und konvergiert daher in 
 \[
 	v_n = A u_n \xrightarrow[n\ra \infty]{} Au = v\, ,
 \]
-d.h. $v \in \im A$ und damit ist $\im A$ abgeschlossen. 
+d.h. $v \in \im A$ und damit ist $\im A$ abgeschlossen. Wir betrachten nun ein $v \in H$ mit $v \perp \im A \subset H$, dann gilt
+\[
+	(Au,v)_H = 0 \quad \forall \, u \in H \, .
+\]
+Damit folgt mit $u = v \in H$ oben eingesetzt
+\[
+	 0 = (Av,v)_H = a(v,v) \ge \alpha \, \norm v_H^2 \, \lra \, v = 0 \, .
+\]
+Also besteht der zu $\im A$ orthogonale Raum nur aus dem Nullelement und mit Korollar \ref{kor:2.6} gilt dann $\im A = \overline{\im A} = H$. Damit ist $A$ bijektiv.
 
-(i) Eindeutigkeit: Es seien $A_1,A_2 \in \mcal L(H,H)$ zwei lineare Operatoren mit $A_1u = l$ und $A_2 u = l$. 
+Es seien nun $0 \not = l\in H$ sowie $A_1,A_2 \in \mcal L(H,H)$ zwei lineare Operatoren mit $A_1u = l$ und $A_2 u = l$, die nach der obigen Weise konstruiert sind. Dann gilt
+\[
+	0 = A_1 u - A_2 u = (A_1 - A_2)u \, \lra \, A_1 = A_2 \, , 
+\]
+da $u \not = 0$ und die Summe zweier bijektiver linearer Operatoren wieder bijektiv ist, also ist ein so konstruierter Operator eindeutig.
 \end{proof}
 \end{itemize}
 

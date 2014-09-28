@@ -14,6 +14,8 @@ mit $K := \{v \in H^1_0(\Omega) \with v\ge \psi$ fast überall in $\Omega\}$.
 
 \item wir können auch hier eine Variationsformulierung, die äquivalent zu \eqref{eq:Hindernis} ist, herleiten
 
+\item zu Beginn noch eine Skizze von einem Hindernisproblem
+
 %\item hierfür zunächst wieder etwas allgemeineres Energiefunktional $J: H \ra \R, J(v) = \frac 1 2 a(v,v)-F(v)$, wobei $H$ Hilbertraum
 \end{itemize}
 
@@ -21,17 +23,19 @@ mit $K := \{v \in H^1_0(\Omega) \with v\ge \psi$ fast überall in $\Omega\}$.
 \subsection{Variationsformulierung für das Hindernisproblem}
 
 \begin{itemize}
-\item zeigen zunächst, dass $K$ konvex ist.
+\item zeigen zunächst, dass $K$ konvex und abgeschlossen ist.
 \begin{lemma}
-Die Menge $K =  \{v \in H^1_0(\Omega) \with v\ge \psi\text{ fast überall in }\Omega\}$ ist eine konvexe Teilmenge von $H^1_0(\Omega)$.
+Die Menge $K =  \{v \in H^1_0(\Omega) \with v\ge \psi\text{ fast überall in }\Omega\}$ ist eine konvexe abgeschlossene Teilmenge von $H^1_0(\Omega)$.
 \end{lemma}
 
 \begin{proof}
-Es seien $u,v \in K$, d.h. $u \ge \psi$ und $v \ge \psi$ fast überall in $\Omega$. Dann gilt für $t \in [0,1]$
+(i) Es seien $u,v \in K$, d.h. $u \ge \psi$ und $v \ge \psi$ fast überall in $\Omega$. Dann gilt für $t \in [0,1]$
 \begin{align*}
 	(1-t) u + tv \ge (1-t)\psi + t \psi = \psi  \, ,
 \end{align*}
 somit ist $(1-t)u + tv \in K$, also $K$ konvex.
+
+(ii) abgeschlossen fehlt noch
 \end{proof}
 
 \item \begin{satz}\label{satz:3.2}
@@ -138,12 +142,77 @@ Sei $H$ ein reeller Hilbertraum mit Skalarprodukt $(\cdot,\cdot)_H$ und der dami
 
 \item \begin{theorem}\textnormal{(Existenz und Eindeutigkeit)}
 Unter den obigen Voraussetzungen hat die Variationsungleichung, finde $u\in K$, so dass
-\[
+\begin{align}\label{eq:3.7}
 	a(u,v-u) \ge F(v-u) \quad \forall \, v \in K
-\]
+\end{align}
 ist, genau eine Lösung.
 \end{theorem}
+
+\begin{proof}
+(i) Eindeutigkeit: Es seien $u_1,u_2 \in K$ zwei Lösungen der Variationsungleichung \eqref{eq:3.7}, d.h.
+\begin{align}\label{eq:3.8}
+	a(u_1,v-u_1) \ge F(v-u_1) \quad \forall \, v \in K\, , \\
+	a(u_2,v-u_2) \ge F(v-u_2) \quad \forall \, v \in K\, . \label{eq:3.9}
+\end{align}
+Addieren wir \eqref{eq:3.8} und \eqref{eq:3.9} miteinander und setzen zuvor $v = u_2$ in \eqref{eq:3.8} und $v = u_1$ in \eqref{eq:3.9}, so erhalten wir
+\begin{align*}
+	0 & \le a(u_1,u_2-u_1) - F(u_2-u_1) + a(u_2,u_1-u_2) \underbrace{- F(u_1-u_2)}_{=F(u_2-u_1)}  \\
+	& = a(u_1,u_2-u_1)-a(u_2,u_2-u_1) = -a(u_2-u_1,u_2-u_1) \\
+	& \le -\alpha \norm{u_2-u_1}_H^2 \, .
+\end{align*}
+Also gilt $\norm{u_2-u_1}_H^2 \le 0 \Ra \norm{u_2-u_1}_H^2 = 0$ und damit folgt $u_1 = u_2$.
+
+(ii) Existenz: Aus dem Darstellungssatz von Riesz bzw. das Korollar \ref{kor:2.14} folgt, dass ein $A \in \mcal L(H,H), l \in H$ existiert, so dass
+\begin{align*}
+	a(u,v) &= (Au,v)_H \quad \forall \, u,v \in H\, , \\
+	F(v) &= (l,v)_H \qquad \forall \, v \in H \, .
+\end{align*}
+Damit gilt
+\begin{align*}
+	  F(v-u) - a(u,v-u) &= (l,v-u)_H - (Au,v-u)_H \\
+	 &=   (l-Au,v-u)_H \le 0 \, .
+\end{align*}
+Durch Multiplikation mit $\varrho > 0$ und Addition der Null erhalten wir das äquivalente Problem: Finde $u \in K$, so dass
+\begin{align}
+	(u-\varrho(Au-l)-u,v-u)_H \le 0 \quad \forall \, v \in K \, .
+\end{align}
+Nach Satz \ref{satz:2.3} ist $u$ damit das Bild der Projektion von $u-\varrho (Au-l)$ auf $K$, d.h.
+\[
+	u = P_K (u-\varrho (Au-l)) \,.
+\]
+Es bleibt zu zeigen, dass $W_\varrho : H \ra K, W_\varrho (v) \coloneqq P_K(v-\varrho (Av-l))$ einen Fixpunkt besitzt. Mit Anwendung von Satz \ref{satz:2.4} und der Koerzivität von $a$ rechnen wir nach, dass
+\begin{align*}
+	\norm{W_\varrho (v_1) - W_\varrho (v_2)}_H^2  & = \norm{ P_K (v_1-\varrho (Av_1-l))- P_K (v_2-\varrho (Av_2-l))  }_H^2 \\
+	& \le \norm{v_1-\varrho (Av_1-l)- (v_2-\varrho (Av_2-l))  }_H^2  \\
+	& = \norm{(v_1-v_2)-\varrho \, A(v_1-v_2)  }_H^2  \\
+	& = \norm{v_1-v_2}_H^2 + \varrho^2 \norm{A(v_1-v_2)}^2_H \\
+	& \ \ \, - \underbrace{ \varrho\, (A(v_1-v_2),v_1-v_2)_H - \varrho\, (v_1-v_2,A(v_1-v_2))_H}_{=2\varrho\, (A(v_1-v_2),v_1-v_2)_H  =2\varrho\, a(v_1-v_2,v_1-v_2)} \\
+	& \le \norm{v_1-v_2}_H^2 + \varrho^2\, \norm A^2 \norm{v_1-v_2}_H^2 - 2\varrho\alpha \, \norm{v_1-v_2}_H^2 \\
+	& = (1-2\varrho \alpha+\varrho^2 \, \norm A^2) \,\norm{v_1-v_2}_H^2
+\end{align*}
+mit $\norm A := \sup_{v \in H} \frac{\norm{Av}_H}{\norm v_H}$. Also ist die Abbildung $W_\varrho$  eine Kontraktion, wenn gilt
+\begin{align*}
+	1-2\varrho \alpha+\varrho^2 \, \norm A^2 < 1 \, \lra\, 0 < \varrho < \frac {2\alpha}{\norm A^2} \, .
+\end{align*}
+Nach dem Banach'scher Fixpunktsatz (vgl. \cite{Stoer} Satz 5.2.3) existiert für solch ein $\varrho$ ein $u \in H$ mit $u = W_\varrho (u) = P_K(u-\varrho (Au-l))$.
+
+Insgesamt gibt es also für das Problem \eqref{eq:3.7} genau eine  Lösung.
+\end{proof}
+
+\item \begin{kor}
+Das Problem \eqref{eq:Hindernis} hat eine eindeutige Lösung.
+\end{kor}
+
+\begin{proof}
+
+\end{proof}
 \end{itemize}
+
+
+
+
+
+
 
 \subsection{Lösung des Hindernisproblems mittels FEM}
 
