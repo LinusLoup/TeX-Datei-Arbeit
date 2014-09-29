@@ -87,7 +87,7 @@ Es sei $\emptyset\neq M\subset H$ und wir definieren das \textit{{orthogonale Ko
 \]
 \end{defi}
 
-\item \begin{satz}
+\item \begin{satz}\label{satz:2.6}
  Es sei $M$ ein abgeschlossener Untervektorraum von $H$. Dann ist
   \[
   	H=M\oplus M^\perp\, , 
@@ -104,7 +104,7 @@ Es sei $\emptyset \not = M \subset H$   ein Untervektorraum. Dann ist $\bar M = 
 \end{kor}
 
 \begin{proof}
-Den Beweis können wir in \cite{Walker} Kapitel 7.1 Korollar 7.7 (iii) einsehen.
+Man kann zeigen, dass $\overline{\spn M} = (M^\perp)^\perp =: M^{\perp\perp}$ ist und dann unter Verwendung von Satz \ref{satz:2.6} die Behauptung folgern. Den kompletten Beweis können wir in \cite{Walker} Kapitel 7.1 Korollar 7.7 (iii) einsehen.
 \end{proof}
 \end{itemize}
  
@@ -297,7 +297,7 @@ d.h. $(v_n)_{n\in \N}$ ist eine Cauchy-Folge. Da $H$ ein Hilbertraum ist, gilt s
 \end{proof}
 
 \item
-\begin{satz}\textnormal{(\idx{Poincaré-Friedrich-Ungleichung})}\label{satz:2.6}
+\begin{satz}\textnormal{(\idx{Poincaré-Friedrich-Ungleichung})}\label{satz:2.13}
 Es sei $\Omega$ in einem $d$-dimensionalen Würfel der Kantenlänge $s>0$ enthalten. Dann gilt
 \[
 	\norm v_0 \le s \norm{\nabla v}_0 \quad \forall \, v \in H^1_0(\Omega) \, ,
@@ -313,7 +313,7 @@ Der Beweis ist in \cite{BraeFEM} Kapitel II, \S1 Sobolev-Räume, Satz 1.5 oder \
 \item Kann nun mit Theorem \ref{theorem:Lax-Milgram} beantwortet werden. Es seien $u,v \in H^1_0(\Omega)$, dann gilt
 \begin{align*}
 	 a(v,v) = & \int_\Omega \nabla v \nabla v \, dx = \norm{\nabla v}_0^2  \\
-	\ge& \frac{s^2+1}{(1+s)^2}\norm{\nabla v}_0^2  \stackrel{\scriptsize \text{Satz \ref{satz:2.6}}}\ge \frac 1{(1+s)^2} (\norm v_0^2 + \norm{\nabla v}_0^2) \\
+	\ge& \frac{s^2+1}{(1+s)^2}\norm{\nabla v}_0^2  \stackrel{\scriptsize \text{Satz \ref{satz:2.13}}}\ge \frac 1{(1+s)^2} (\norm v_0^2 + \norm{\nabla v}_0^2) \\
 	= & \frac 1{(1+s)^2} \norm v_1^2 \, .
 \end{align*}
 Damit ist $a$ mit $\alpha :=  \frac 1{(1+s)^2}$ koerziv. Weiter rechnen wir nach:
@@ -441,10 +441,26 @@ da $u \not = 0$ und die Summe zweier bijektiver linearer Operatoren wieder bijek
 
 \begin{itemize}
 \item FEM $\ra$ einleitend ansprechen, dass analytische nicht immer lösbar
-\item Was ist Galerkin-Approximation und warum gibt es eine Lösung (hier ist Lax-Milgram auch anwendbar (warum?))
 \item Der für uns verwendete Finite Element Raum wird eingeführt (lineare Funktionen).
 \item Was ist eine Triangulierung (vgl. Braess auf Seite 58)?
 \item local-global node ordering zur Effizienzsteigerung
+
+\item Unter FEM verstehen wir das Galerkin-Verfahren
+\item Galerkin-Verfahren bedeutet, wir wollen die Variationsgleichung
+\[
+	a(u,v) = F(v) \quad \forall \, v \in H
+\]
+auf einem endlich dimensionalen Unterraum $V_h \subset H$ lösen, d.h. finde $u_h \in V_h$, so dass
+\[
+	a(u_h,v_h) = F(v_h) \quad \forall \, v_h \in V_h \, .
+\]
+\item \begin{satz}
+Das "`Galerkin-Problem"' hat eine eindeutige Lösung.
+\end{satz}
+
+da $V_h$ als Unterraum von $H$ auch ein Hilbertraum ist und die Eigenschaften von $a, F$ weiterhin erfüllt sind, gilt auch hier der Satz von Lax-Milgram, was die Eindeutigkeit und Existenz einer Lösung sichert.
+
+\item 
 \end{itemize}
 
 \section{Adaptive Verfeinerungsstrategien}

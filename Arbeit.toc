@@ -6,8 +6,8 @@
 \contentsline {section}{\numberline {2.1}Hilbertr\IeC {\"a}ume}{7}{section.2.1}
 \contentsline {section}{\numberline {2.2}Variationsformulierung}{9}{section.2.2}
 \contentsline {section}{\numberline {2.3}Finite Elemente Methode}{18}{section.2.3}
-\contentsline {section}{\numberline {2.4}Adaptive Verfeinerungsstrategien}{18}{section.2.4}
-\contentsline {subsection}{\numberline {2.4.1}A posteriori Fehlersch\IeC {\"a}tzer}{18}{subsection.2.4.1}
+\contentsline {section}{\numberline {2.4}Adaptive Verfeinerungsstrategien}{19}{section.2.4}
+\contentsline {subsection}{\numberline {2.4.1}A posteriori Fehlersch\IeC {\"a}tzer}{19}{subsection.2.4.1}
 \contentsline {section}{\numberline {2.5}Einf\IeC {\"u}hrung in die Strukturmechanik}{19}{section.2.5}
 \contentsline {chapter}{\numberline {3}Variationsungleichungen}{20}{chapter.3}
 \contentsline {section}{\numberline {3.1}Ein Hindernisproblem}{20}{section.3.1}

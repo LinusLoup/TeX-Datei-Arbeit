@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.14159265-2.6-1.40.15 (TeX Live 2014) (preloaded format=pdflatex 2014.9.25)  28 SEP 2014 21:12
+This is pdfTeX, Version 3.14159265-2.6-1.40.15 (TeX Live 2014) (preloaded format=pdflatex 2014.9.29)  29 SEP 2014 12:11
 entering extended mode
  \write18 enabled.
  file:line:error style messages enabled.
@@ -6,7 +6,7 @@ entering extended mode
 **Arbeit.tex
 (./Arbeit.tex
 LaTeX2e <2014/05/01>
-Babel <3.9k> and hyphenation patterns for 79 languages loaded.
+Babel <3.9l> and hyphenation patterns for 79 languages loaded.
 (/usr/local/texlive/2014/texmf-dist/tex/latex/base/book.cls
 Document Class: book 2007/10/19 v1.4h Standard LaTeX document class
 (/usr/local/texlive/2014/texmf-dist/tex/latex/base/bk11.clo
@@ -327,7 +327,7 @@ Package: enumerate 1999/03/05 v3.00 enumerate extensions (DPC)
 \@enLab=\toks27
 )
 (/usr/local/texlive/2014/texmf-dist/tex/generic/babel/babel.sty
-Package: babel 2014/03/24 3.9k The Babel package
+Package: babel 2014/09/25 3.9l The Babel package
 
 (/usr/local/texlive/2014/texmf-dist/tex/generic/babel-german/ngerman.ldf
 Language: ngerman 2013/12/13 v2.7 German support for babel (new orthography)
@@ -336,7 +336,7 @@ Language: ngerman 2013/12/13 v2.7 German support for babel (new orthography)
 Language: ngermanb 2013/12/13 v2.7 German support for babel (new orthography)
 
 (/usr/local/texlive/2014/texmf-dist/tex/generic/babel/babel.def
-File: babel.def 2014/03/24 3.9k Babel common definitions
+File: babel.def 2014/09/25 3.9l Babel common definitions
 \babel@savecnt=\count100
 \U@D=\dimen112
 )
@@ -1545,13 +1545,13 @@ Package Fancyhdr Warning: \headheight is too small (12.0pt):
  This may cause the page layout to be inconsistent, however.
 
 Package babel Info: Redefining ngerman shorthand "|
-(babel)             in language  on input line 91.
+(babel)             in language  on input line 90.
 Package babel Info: Redefining ngerman shorthand "~
-(babel)             in language  on input line 91.
+(babel)             in language  on input line 90.
 Package babel Info: Redefining ngerman shorthand "|
-(babel)             in language  on input line 91.
+(babel)             in language  on input line 90.
 Package babel Info: Redefining ngerman shorthand "~
-(babel)             in language  on input line 91.
+(babel)             in language  on input line 90.
 [8]
 Package babel Info: Redefining ngerman shorthand "|
 (babel)             in language  on input line 112.
@@ -1565,13 +1565,13 @@ Package Fancyhdr Warning: \headheight is too small (12.0pt):
  This may cause the page layout to be inconsistent, however.
 
 Package babel Info: Redefining ngerman shorthand "|
-(babel)             in language  on input line 138.
+(babel)             in language  on input line 133.
 Package babel Info: Redefining ngerman shorthand "~
-(babel)             in language  on input line 138.
+(babel)             in language  on input line 133.
 Package babel Info: Redefining ngerman shorthand "|
-(babel)             in language  on input line 138.
+(babel)             in language  on input line 133.
 Package babel Info: Redefining ngerman shorthand "~
-(babel)             in language  on input line 138.
+(babel)             in language  on input line 133.
 [9]
 
 Package Fancyhdr Warning: \headheight is too small (12.0pt): 
@@ -1781,18 +1781,6 @@ Package babel Info: Redefining ngerman shorthand "|
 (babel)             in language  on input line 440.
 Package babel Info: Redefining ngerman shorthand "~
 (babel)             in language  on input line 440.
-Package babel Info: Redefining ngerman shorthand "|
-(babel)             in language  on input line 450.
-Package babel Info: Redefining ngerman shorthand "~
-(babel)             in language  on input line 450.
-Package babel Info: Redefining ngerman shorthand "|
-(babel)             in language  on input line 452.
-Package babel Info: Redefining ngerman shorthand "~
-(babel)             in language  on input line 452.
-Package babel Info: Redefining ngerman shorthand "|
-(babel)             in language  on input line 458.
-Package babel Info: Redefining ngerman shorthand "~
-(babel)             in language  on input line 458.
 
 
 Package Fancyhdr Warning: \headheight is too small (12.0pt): 
@@ -1801,14 +1789,27 @@ Package Fancyhdr Warning: \headheight is too small (12.0pt):
  This may cause the page layout to be inconsistent, however.
 
 Package babel Info: Redefining ngerman shorthand "|
-(babel)             in language  on input line 462.
+(babel)             in language  on input line 464.
 Package babel Info: Redefining ngerman shorthand "~
-(babel)             in language  on input line 462.
+(babel)             in language  on input line 464.
 Package babel Info: Redefining ngerman shorthand "|
-(babel)             in language  on input line 462.
+(babel)             in language  on input line 464.
 Package babel Info: Redefining ngerman shorthand "~
-(babel)             in language  on input line 462.
+(babel)             in language  on input line 464.
 [18]
+Package babel Info: Redefining ngerman shorthand "|
+(babel)             in language  on input line 466.
+Package babel Info: Redefining ngerman shorthand "~
+(babel)             in language  on input line 466.
+Package babel Info: Redefining ngerman shorthand "|
+(babel)             in language  on input line 468.
+Package babel Info: Redefining ngerman shorthand "~
+(babel)             in language  on input line 468.
+Package babel Info: Redefining ngerman shorthand "|
+(babel)             in language  on input line 474.
+Package babel Info: Redefining ngerman shorthand "~
+(babel)             in language  on input line 474.
+
 
 Package Fancyhdr Warning: \headheight is too small (12.0pt): 
  Make it at least 13.59999pt.
@@ -1816,13 +1817,13 @@ Package Fancyhdr Warning: \headheight is too small (12.0pt):
  This may cause the page layout to be inconsistent, however.
 
 Package babel Info: Redefining ngerman shorthand "|
-(babel)             in language  on input line 477.
+(babel)             in language  on input line 493.
 Package babel Info: Redefining ngerman shorthand "~
-(babel)             in language  on input line 477.
+(babel)             in language  on input line 493.
 Package babel Info: Redefining ngerman shorthand "|
-(babel)             in language  on input line 477.
+(babel)             in language  on input line 493.
 Package babel Info: Redefining ngerman shorthand "~
-(babel)             in language  on input line 477.
+(babel)             in language  on input line 493.
 [19]) (./Kapitel03.tex
 Kapitel 3.
 Package babel Info: Redefining ngerman shorthand "|
@@ -2364,10 +2365,10 @@ LaTeX Warning: There were multiply-defined labels.
 Package atveryend Info: Empty hook `AtVeryVeryEnd' on input line 240.
  ) 
 Here is how much of TeX's memory you used:
- 25685 strings out of 493108
- 435145 string characters out of 6134847
- 610430 words of memory out of 5000000
- 28490 multiletter control sequences out of 15000+600000
+ 25690 strings out of 493107
+ 435194 string characters out of 6134834
+ 610477 words of memory out of 5000000
+ 28495 multiletter control sequences out of 15000+600000
  17374 words of font info for 68 fonts, out of 8000000 for 9000
  1141 hyphenation exceptions out of 8191
  44i,19n,54p,10378b,531s stack positions out of 5000i,500n,10000p,200000b,80000s
@@ -2394,10 +2395,10 @@ ve/2014/texmf-dist/fonts/type1/public/amsfonts/cm/cmti10.pfb></usr/local/texliv
 e/2014/texmf-dist/fonts/type1/public/amsfonts/euler/eusm10.pfb></usr/local/texl
 ive/2014/texmf-dist/fonts/type1/public/amsfonts/latxfont/line10.pfb></usr/local
 /texlive/2014/texmf-dist/fonts/type1/public/amsfonts/symbols/msbm10.pfb>
-Output written on Arbeit.pdf (44 pages, 796823 bytes).
+Output written on Arbeit.pdf (44 pages, 798560 bytes).
 PDF statistics:
- 781 PDF objects out of 1000 (max. 8388607)
- 700 compressed objects within 7 object streams
- 185 named destinations out of 1000 (max. 500000)
+ 784 PDF objects out of 1000 (max. 8388607)
+ 702 compressed objects within 8 object streams
+ 186 named destinations out of 1000 (max. 500000)
  366 words of extra memory for PDF output out of 10000 (max. 10000000)
 
