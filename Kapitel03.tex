@@ -24,7 +24,7 @@ mit $K := \{v \in H^1_0(\Omega) \with v\ge \psi$ fast überall in $\Omega\}$.
 
 \begin{itemize}
 \item zeigen zunächst, dass $K$ konvex und abgeschlossen ist.
-\begin{lemma}
+\begin{lemma}\label{lem:3.1}
 Die Menge $K =  \{v \in H^1_0(\Omega) \with v\ge \psi\text{ fast überall in }\Omega\}$ ist eine konvexe abgeschlossene Teilmenge von $H^1_0(\Omega)$.
 \end{lemma}
 
@@ -75,7 +75,7 @@ wobei $F :H\ra \R$ eine lineare stetige Abbildung ist.
 
 \item auch für das Hindernisproblem gibt es analog zum homogenen Dirichlet-Problem \eqref{eq:2.2} eine äquivalente starke Formulierung
 
-\item \begin{satz}\textnormal{(Starke Formulierung des Hindernisproblems)} Jede Lösung $u \in H^2(\Omega) \cap H^1_0(\Omega)$ des Problems
+\item \begin{satz}[Starke Formulierung des Hindernisproblems]\label{satz:3.4} Jede Lösung $u \in H^2(\Omega) \cap H^1_0(\Omega)$ des Problems
 \begin{align}\label{eq:3.5}
 \begin{aligned}
 	-\Delta u -f&\ge 0 \\
@@ -140,7 +140,7 @@ Sei $H$ ein reeller Hilbertraum mit Skalarprodukt $(\cdot,\cdot)_H$ und der dami
 \end{enumerate}
 \end{vor}
 
-\item \begin{theorem}\textnormal{(Existenz und Eindeutigkeit)}
+\item \begin{theorem}[Existenz und Eindeutigkeit]\label{theorem:3.5}
 Unter den obigen Voraussetzungen hat die Variationsungleichung, finde $u\in K$, so dass
 \begin{align}\label{eq:3.7}
 	a(u,v-u) \ge F(v-u) \quad \forall \, v \in K
@@ -204,8 +204,24 @@ Das Problem \eqref{eq:Hindernis} hat eine eindeutige Lösung.
 \end{kor}
 
 \begin{proof}
-
+Da laut Lemma \ref{lem:3.1} die Menge 
+\[
+	K=\{v \in H^1_0(\Omega) \with v \ge \psi \text{ fast überall in }\Omega\}
+\]
+abgeschlossen und konvex ist, $F(v) = (f,v)$ ein stetiges lineares Funktional und 
+\[
+	a(u,v) = \int_\Omega \nabla u \nabla v \, dx
+\]
+stetig bilinear und koerziv, sind die Voraussetzungen für Theorem \ref{theorem:3.5} erfüllt. Damit hat das Problem, finde $u \in K$, so dass
+\begin{align}\label{eq:3.11}
+	a(u,v-u) \ge (f,v-u) \quad \forall \, v \in K \, ,
+\end{align}
+genau eine Lösung. Nach Satz \ref{satz:3.2} ist \eqref{eq:Hindernis} äquivalent zu \eqref{eq:3.11} und damit folgt die Behauptung.
 \end{proof}
+
+\item \begin{bem}
+Insbesondere hat auch das Problem \eqref{eq:3.5} nach Satz \ref{satz:3.4} und Theorem \ref{theorem:3.5} eine eindeutige Lösung, wenn $u \in H^2(\Omega) \cap H^1_0(\Omega)$ ist.
+\end{bem}
 \end{itemize}
 
 
