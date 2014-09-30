@@ -11,11 +11,19 @@
 \indexentry{Bilinearform!koerziv|hyperpage}{11}
 \indexentry{Bilinearform!elliptisch|hyperpage}{11}
 \indexentry{Poincar\IeC {\'e}-Friedrich-Ungleichung|hyperpage}{15}
-\indexentry{Sobolev-Raum|hyperpage}{34}
-\indexentry{Lebesgue-Raum|hyperpage}{34}
-\indexentry{Raum der Testfunktionen|hyperpage}{34}
-\indexentry{schwache Ableitung|hyperpage}{34}
-\indexentry{G\IeC {\^a}teaux-differenzierbar|hyperpage}{36}
-\indexentry{G\IeC {\^a}teaux-Ableitung|hyperpage}{36}
-\indexentry{G\IeC {\^a}teaux-Ableitung!rechtsseitig|hyperpage}{36}
-\indexentry{G\IeC {\^a}teaux-differenzierbar|hyperpage}{36}
+\indexentry{Triangulierung|hyperpage}{20}
+\indexentry{Triangulierung!konform|hyperpage}{20}
+\indexentry{Triangulierung!zul\IeC {\"a}ssig|hyperpage}{20}
+\indexentry{Triangulierung!quasi-uniform|hyperpage}{21}
+\indexentry{Triangulierung!uniform|hyperpage}{21}
+\indexentry{nodale Basisfunktion|hyperpage}{22}
+\indexentry{nodale Basis|hyperpage}{22}
+\indexentry{Lagrange-Basis|hyperpage}{22}
+\indexentry{Sobolev-Raum|hyperpage}{38}
+\indexentry{Lebesgue-Raum|hyperpage}{38}
+\indexentry{Raum der Testfunktionen|hyperpage}{38}
+\indexentry{schwache Ableitung|hyperpage}{38}
+\indexentry{G\IeC {\^a}teaux-differenzierbar|hyperpage}{40}
+\indexentry{G\IeC {\^a}teaux-Ableitung|hyperpage}{40}
+\indexentry{G\IeC {\^a}teaux-Ableitung!rechtsseitig|hyperpage}{40}
+\indexentry{G\IeC {\^a}teaux-differenzierbar|hyperpage}{40}

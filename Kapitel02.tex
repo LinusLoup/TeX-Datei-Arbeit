@@ -441,27 +441,185 @@ da $u \not = 0$ und die Summe zweier bijektiver linearer Operatoren wieder bijek
 
 \begin{itemize}
 \item FEM $\ra$ einleitend ansprechen, dass analytische nicht immer lösbar
-\item Der für uns verwendete Finite Element Raum wird eingeführt (lineare Funktionen).
-\item Was ist eine Triangulierung (vgl. Braess auf Seite 58)?
-\item local-global node ordering zur Effizienzsteigerung
 
 \item Unter FEM verstehen wir das Galerkin-Verfahren
+
 \item Galerkin-Verfahren bedeutet, wir wollen die Variationsgleichung
 \[
 	a(u,v) = F(v) \quad \forall \, v \in H
 \]
 auf einem endlich dimensionalen Unterraum $V_h \subset H$ lösen, d.h. finde $u_h \in V_h$, so dass
-\[
+\begin{align}\label{eq:2.9}
 	a(u_h,v_h) = F(v_h) \quad \forall \, v_h \in V_h \, .
-\]
+\end{align}
 \item \begin{satz}
 Das "`Galerkin-Problem"' hat eine eindeutige Lösung.
 \end{satz}
 
 da $V_h$ als Unterraum von $H$ auch ein Hilbertraum ist und die Eigenschaften von $a, F$ weiterhin erfüllt sind, gilt auch hier der Satz von Lax-Milgram, was die Eindeutigkeit und Existenz einer Lösung sichert.
 
-\item 
+\item ist $\mcal B_h \coloneqq \{\phi_1,\ldots,\phi_N\}$ eine Basis von $V_h$, dann gilt für $u_h \in V_h$:
+\begin{align}\label{eq:2.10}
+	\exists! \, \bs\mu \in \R^N :  u_h(x) = \sum_{i = 1}^N \mu_i \,  \phi_i(x) \, .
+\end{align}
+
+\item da $F(\cdot),a(u,\cdot)$ linear sind und alle $v_h \in V_h$ analog zu oben darstellbar sind, ist \eqref{eq:2.9} äquivalent zum Problem
+\[
+	a(u_h,\phi_i) = F(\phi_i) \quad \forall \, i = 1, \ldots,N \, ,
+\]
+mit $u_h = \sum \mu_i \, \phi_i$ eingesetzt ergibt sich
+\[
+	a(u_h,\phi_i) = a \Big( \sum_{j = 1}^N \mu_j \,  \phi_j,\phi_i \Big) = \sum_{j = 1}^N \mu_j \, a(\phi_j,\phi_i) \, ,
+\]
+also
+\[
+	 \sum_{j = 1}^N \mu_j \, a(\phi_j,\phi_i) = F(\phi_i)\quad \forall \, i = 1, \ldots,N \, .
+\]
+Damit ergibt sich das LGS
+\[
+	A \bs \mu = \bs f 
+\]
+mit $A = [a(\phi_j,\phi_i)]_{i,j=1}^N, \bs \mu = [\mu_i]_{i=1}^N$ und $\bs f = [F(\phi_i)]_{i=1}^N$.
+
+\item \begin{bem*}
+Ist die Bilinearform $a$ symmetrisch, so ist es auch die Matrix $A$, denn
+\[
+	a_{ij} = a(\phi_i,\phi_j) = a(\phi_j,\phi_i)= a_{ji} \, .
+\]
+Außerdem folgt aus der Koerzivität von $a$, dass  mit $0 \not = v \in \R^N$ gilt
+\begin{align*}
+	v^T A v & = \sum_{i,j=1}^N v_i a_{ij} v_j  =  \sum_{i=1}^N v_i\sum_{j=1}^N \, a(\phi_i,\phi_j) \, v_j   \\
+	& = \sum_{i=1}^N v_i \, a\Big(\phi_i,\sum_{j=1}^Nv_j\phi_j\Big) =  a\Big(\sum_{i=1}^N v_i\phi_i,\sum_{j=1}^Nv_j\phi_j\Big) \\
+	& = a(v_h,v_h) \ge \alpha \norm{v_h}^2_H > 0 \, ,
+\end{align*}
+da $v_h \not = 0$ wegen $v \not = 0$. Damit ist $A$ also positiv definit.
+\end{bem*}
+
+\item in Ingenieurwissenschaften, insbesondere bei kontinuumsmechanischen Problemen, wird $A$ als Steifigkeitsmatrix bezeichnet.
+
+\item um eine Basis $\mcal B_h$ bzgl. $V_h$ beschreiben zu können, muss das Gebiet $\Omega$ in endliche Elemente zerlegt werden. $V_h$ wird dann bzgl. einer Zerlegung $\mcal T_h$ beschrieben.
+
+\item betrachte im weiteren (wie oben schon angesprochen) $\Omega$ als zweidimensionales Gebiet, das mit einem Polygonzug berandet ist.
+
+\item eine gebräuchliche Zerlegung $\mcal T_h$ kann durch Dreiecke oder auch Vierecke geschehen. Wir wollen hier nur Zerlegungen durch Dreiecke betrachten
+
+\item hierfür führen wir den Begriff der Triangulierung ein (vgl. \cite{BraeFEM} Seite 58 oder \cite{StarkePDE} Seite 19)
+\begin{defi}[Triangulierung]
+Es sei $\Omega \subset \R^2$ ein durch einen Polygonzug berandetes Gebiet. Dann heißt eine Zerlegung aus Dreiecken
+\[
+	\mcal T = \{T_1,T_2,\ldots,T_M\}
+\]
+\textit{\idx{Triangulierung}}, wenn gilt:
+\begin{enumerate}[(a)]
+\item Für alle Dreiecke $T \in \mcal T$ gilt: $T$ ist abgeschlossen.
+\item	Ganz $\Omega$ wird durch alle Dreiecke aus $\mcal T$ überdeckt, d.h. $\bar\Omega = \bigcup_{T\in \mcal T} T$.
+\item Der Schnitt zweier Dreiecke $T_i\cap T_j$ mit $i \not = j$ überlappt sich nicht, d.h. $\operatorname{int}(T_i)\cap \operatorname{int}(T_j) = \emptyset$.
+\end{enumerate}
+Wir nennen eine Triangulierung \textit{konform}\index{Triangulierung!konform} oder \textit{zulässig}\index{Triangulierung!zulässig}, wenn zusätzlich gilt:
+\begin{enumerate}[(d)]
+\item Für jede Kante $k$ eines Dreiecks $T \in \mcal T$ gilt entweder $k \subset \partial \Omega$ oder $k \subset \widetilde T$ für ein weiteres Dreieck $\widetilde T \in \mcal T$. 
+\end{enumerate}
+Der Radius des Umkreis eines Dreieckes $T$ wird mit $h$ bezeichnet und beschreibt die Größe eines Dreiecks. Wenn jedes Dreieck $T \in \mcal T$ höchstens einen Radius von $h$ hat, so schreiben wir $\mcal T_h$ statt $\mcal T$.
+\end{defi}
+
+\item[Skizze] von einer zulässigen und einer nicht zulässigen Triangulierung (hierbei eine Skizze mit hängenden Knoten machen)
+
+\item \begin{bem}
+natürlich auch im $\R^3$ analog mit Tetraedern definierbar
+\end{bem}
+
+\item vgl. wieder \cite{BraeFEM} Seite 58
+\begin{defi}[(quasi-) uniforme Zerlegung]
+Eine Familie von Zerlegungen $\{\mcal T_h\}$ heißt \textit{quasi-uniform}\index{Triangulierung!quasi-uniform}, wenn es eine Zahl $\kappa > 0$ gibt, so dass jedes $T \in \mcal T_h$ einen Kreis vom Radius
+\[
+	\rho_T \ge \frac{h_T}\kappa
+\]
+enthält, wobei $h_T$ der Radius des Dreiecks $T$ ist.
+
+Eine Familie von Zerlegungen $\{\mcal T_h\}$ heißt \textit{uniform}\index{Triangulierung!uniform}, wenn es eine Zahl $\kappa > 0$ gibt, so dass jedes $T \in \mcal T_h$ einen Kreis vom Radius
+\[
+	\rho_T \ge \frac{h}\kappa
+\]
+enthält, wobei $h := \max_{T \in \mcal T_h} h_T$ ist.
+\end{defi}
+
+\item[Skizze] Beispiele für eine quasiuniforme Zerlegung (vgl. \cite{BraeFEM} Seite 59) $\ra$ hier noch was zur Erklärung schreiben, wie im Braess
+
+\item \begin{bem}
+Wie man leicht sehen kann, ist jede uniforme Zerlegung auch quasi-uniform. Umgekehrt gilt dies nicht (s. Abbildung oben).
+
+Allerdings lassen uniforme Zerlegungen keine lokalen Verfeinerungen zu. Da dies für adaptive Verfeinerungsstrategien allerdings ausschlaggebend ist, gehen wir im Folgenden immer von einer quasi-uniformen Zerlegung $\mcal T_h$ aus.
+\end{bem}
+
+\item nun wollen wir uns Gedanken über unseren Ansatzraum $V_h$ machen.
+
+\item hierfür gibt es viele Möglichkeiten, vergleiche hierzu auch \cite{BraeFEM} Kapitel II, \S5, Tabelle 2, durch Konstruktion der Elemente
+
+\item wir wollen uns weitestgehend aber nur auf ein Element konzentrieren
+
+\item zuvor hierfür ein wichtiges Resultat; sei noch bemerkt, dass eine Fkt. $u$ auf $\Omega$ bei gegebener Zerlegung eine Eigenschaft stückweise hat, wenn sie auf jedem Element diese Eigenschaft besitzt.
+\begin{satz}
+Sei $k \ge 1$ und $\Omega\subset \R^2$ ein polygonales Gebiet. Eine stückweise beliebig oft differenzierbare Funktion $v : \bar \Omega \ra \R$ liegt in $H^k(\Omega)$ genau dann, wenn $v \in C^{k-1}(\bar\Omega)$ ist.
+\end{satz}
+
+\begin{proof}
+Der Beweis ist in \cite{BraeFEM} Kapitel II, \S5, Satz 5.2 zu finden.
+\end{proof}
+
+\item dies rechtfertigt, dass für unser Modellproblem \eqref{eq:2.4}, welches für $u,v \in H^1_0(\Omega)$ gestellt ist, auf einer Triangulierung $\mcal T_h$ ein Ansatzraum mit stetigen Funktionen $v \in C^0(\Omega)$ verwendet werden kann, also
+\[
+	V_h \coloneqq \{v \in C^0(\Omega) \with v|_T \in \mcal P_m \text{ für } T\in \mcal T_h, v|_{\partial \Omega} = 0\} \, ,
+\]
+wobei $\mcal P_m$ der Raum der Polynome vom Grad $m$ ist.
+
+\item wie diesen Raum $V_h$ aufspannen? $\ra $ die einfachste Möglichkeit solch einen Raum aufzuspannen sind nodale Basisfunktionen
+\begin{defi}[\idx{nodale Basisfunktion}]
+Zu einem Finiten Element Raum $V_h$ und einer gegebenen Zerlegung $\mcal T_h$ sei eine Menge von Punkten $P$ bekannt mit $\abs P = N$. Die Menge $\mcal B_h = \{\phi_1,\ldots,\phi_N\}$ mit $\phi_i \in \mcal P_m, i = 1,\ldots, N$, heißt \textit{\idx{nodale Basis}} (oder \textit{\idx{Lagrange-Basis}}), wenn
+\[
+	\phi_i (x_j) = \delta_{ij} = \begin{cases}
+							1, &  i = j \\
+							0 ,& i \not = j
+						\end{cases} %\qquad \forall \,\phi_i \in \mcal B_h, x_j \in P
+\]
+\end{defi}
+für alle $\phi_i \in \mcal B_h$ und $x_j \in P$ gilt.
+
+\item folgende Bemerkung erklärt die Anordnung der in der letzten Definition beschriebenen Punkte $P$ 
+\begin{bem}
+Sei $m \ge 0$. In einem Dreieck $T$ seien auf $m+1$ Linien $l = 1+2+\ldots+(m+1)$ Punkte $z_1,\ldots,z_l$ angeordnet (s. Skizze). Dann gibt es zu jedem $C^0(T)$ genau ein Polynom $p$ vom Grad $m$ mit der Eigenschaft
+\[
+	p(z_i) = f(z_i) \quad \forall \, i = 1,\ldots,m \, .
+\]
+
+\begin{proof}
+Der Beweis steht in \cite{BraeFEM} Kapitel II, \S 5, Bemerkung 5.4.
+\end{proof}
+\end{bem}
+
+\item[Skizze] Dreiecke für die nodalen Basen (linear, quadratisch, kubisch).
+
+\item damit lässt sich für $V_h$ mit einem beliebigen Polynomgrad $m$ eine eindeutige nodale Basis finden, die den Raum aufspannt.
+
+\item im weiteren wollen wir lineare Ansatzfunktionen verwenden. Wir bezeichnen, sofern nicht anders beschrieben, also im Folgenden $V_h$ mit
+\[
+	V_h \coloneqq \{v \in C^0(\Omega) \with v|_T \in \mcal P_1 \text{ für } T\in \mcal T_h, v|_{\partial \Omega} = 0\} \, .
+\]
+
+\item Beispiel, um zu sehen, dass auch für kleine Gitter der Rechenaufwand sehr hoch werden kann.
+\begin{bsp}
+
+\end{bsp}
+
+\item Abhilfe durch local-global node ordering zur Effizienzsteigerung (Erklärung)
+
+\item man kann zeigen, dass der Fehler von $h$ zwischen $u_h$ und $u$ (exakte Lösung) abhängt $\Ra$ Netzverfeinerung führt zur Konvergenz
+\item[$\Ra$] Überleitung zu adaptiven Verfahren
 \end{itemize}
+
+
+
+
+
 
 \section{Adaptive Verfeinerungsstrategien}
 

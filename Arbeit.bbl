@@ -7,6 +7,12 @@
   \providecommand{\doi}[1]{doi: #1}\else
   \providecommand{\doi}{doi: \begingroup \urlstyle{rm}\Url}\fi
 
+\bibitem[Alt12]{AltKonti}
+\textsc{Altenbach}, Holm:
+\newblock \emph{Kontinuumsmechanik}.
+\newblock 2. Auflage.
+\newblock Springer, 2012
+
 \bibitem[BCH05]{BarCar}
 \textsc{Bartels}, S. ; \textsc{Carstensen}, C.  ; \textsc{Hecht}, A.:
 \newblock 2D isoparametric FEM in MATLAB / Humboldt-Universität, Berlin.
