@@ -3,6 +3,8 @@
 
 In diesem Kapitel wollen wir uns mit grundlegender Theorie beschäftigen, die nicht im Anhang aufgeführt ist, zum Verständnis von den darauffolgenden Kapiteln jedoch notwendig ist.
 
+Dieses Kapitel basiert auf \cite{BraeFEM}, \cite{StarkePDE}, \cite{EPS}, \cite{Walker}, \cite{AltKonti}.
+
 \section{Hilberträume}
 
 \begin{itemize}
@@ -445,9 +447,9 @@ da $u \not = 0$ und die Summe zweier bijektiver linearer Operatoren wieder bijek
 \item Unter FEM verstehen wir das Galerkin-Verfahren
 
 \item Galerkin-Verfahren bedeutet, wir wollen die Variationsgleichung
-\[
+\begin{align}\label{eq:2.8}
 	a(u,v) = F(v) \quad \forall \, v \in H
-\]
+\end{align}
 auf einem endlich dimensionalen Unterraum $V_h \subset H$ lösen, d.h. finde $u_h \in V_h$, so dass
 \begin{align}\label{eq:2.9}
 	a(u_h,v_h) = F(v_h) \quad \forall \, v_h \in V_h \, .
@@ -628,9 +630,13 @@ ist und damit ergeben sich folgende Ableitungen.
 \begin{table}[htpb]
 \centering
 \begin{tabular}[c]{|c|c|c|c|c|c|c|c|c|}
-	\hline      & I & II & III & IV & V & VI & VII & VIII\\
-	\hline     $\partial_x \phi_5$ &-1 &0 &1& 0&0 &1 &0 &-1  \\     $\partial_y \phi_5$ & -1&0 & 0& -1& 0& 1& 1& 0\\
-	\hline\end{tabular}
+	\hline
+      & I & II & III & IV & V & VI & VII & VIII\\
+	\hline
+     $\partial_x \phi_5$ &-1 &0 &1& 0&0 &1 &0 &-1  \\
+     $\partial_y \phi_5$ & -1&0 & 0& -1& 0& 1& 1& 0\\
+	\hline
+\end{tabular}
 \caption{Ableitungen der nodalen Basisfunktion $\phi_5$.}
 \end{table}
 
@@ -672,10 +678,77 @@ Dieses Vorgehen müssten wir noch für die übrigen Basisfunktion analog durchf�
 \item Dann die Herleitung von der lokalen Steifigkeitsmatrix (Stephan NPDE Seite 13+14)
 \end{itemize}
 
+
+
+
+
 \subsection{A priori Fehlerabschätzung}
 
 \begin{itemize}
 \item man kann zeigen, dass der Fehler von $h$ zwischen $u_h$ und $u$ (exakte Lösung) abhängt $\Ra$ Netzverfeinerung führt zur Konvergenz
+
+\item \begin{lemma}
+Durch $\norm \cdot _E: H^1_0(\Omega) \ra \R, \norm v_E \coloneqq (a(v,v))^{\frac 1 2}$ mit einer stetigen koerziven Bilinearform $a$ wird eine Norm auf $H_0^1(\Omega)$ definiert.
+\end{lemma}
+
+\begin{proof}
+Aus der Stetigkeit und Koerzivität von $a$ folgt direkt
+\[
+	\alpha \, \norm{v}_1^2 \le \underbrace{a(v,v)}_{= \norm v_E^2} \le c \, \norm v_1^2 \, .
+\]
+Damit ist $\norm\cdot_E$ nach oben und unten durch die Norm auf $H^1(\Omega)$ beschränkt und somit eine zu dieser äquivalente Norm.
+\end{proof}
+
+\item \begin{bem*}
+\begin{enumerate}[(a)]
+\item Die Norm $\norm \cdot_E$ bezeichnen wir als \textit{\idx{Energie-Norm}}. Sie gibt für die von uns später in der Strukturmechanik betrachtete Bilinearform  die Verzerrungsenergie eines Kontinuums an.
+\item Für die Bilinearform
+\[
+	a(u,v) = \int_\Omega \nabla u \nabla v \, dx
+\]
+mit $u,v \in H^1_0(\Omega)$ gilt dann $\norm\cdot_E = \abs\cdot_1$ (s. Bemerkung \ref{bem:A.6}).
+\end{enumerate}
+\end{bem*}
+
+\item Galerkin ist Bestapproximation
+\begin{satz}
+Die \idx{Galerkin-Approximation} $u_h$ ist die beste Approximation von $u$ bzgl. der \idx{Energie-Norm}, also
+\[
+	\norm{u-u_h}_E = \inf_{v \in V_h} \norm{u-v}_E \, .
+\]
+\end{satz}
+
+\begin{proof}
+Zunächst betrachten wir die exakte und approximierte Variationsgleichung \eqref{eq:2.8} und \eqref{eq:2.9}, d.h.
+\begin{align}\label{eq:2.12}
+	a(u,v) &= F(v) \quad \ \, \forall \, v \in H \, , \\
+	\label{eq:2.13}
+	a(u_h,v_h) &= F(v_h) \quad \forall \, v_h \in V_h \, .
+\end{align}
+Da $V_h \subset H$ ist, gilt \eqref{eq:2.12} auch für alle $v_h\in V_h$. Ersetzen wir dies  in \eqref{eq:2.12} und subtrahieren \eqref{eq:2.12} und \eqref{eq:2.13}, so erhalten wir
+\begin{align}\label{eq:2.14}
+	a(u-u_h,v_h ) = 0 \quad \forall \, v_h \in V_h \, .
+\end{align}
+Damit rechnen wir für ein beliebiges $v \in V_h$ einfach nach:
+\begin{align*}
+	\norm{u-u_h}_E^2 & = a(u-u_h,u-u_h) \\
+	& = a(u-u_h, u-v+v-u_h) \\
+	& = a(u-u_h,u-v)+\underbrace{a(u-u_h,\underbrace{v-u_h}_{\in V_h})}_{=0\text{ wegen \eqref{eq:2.14}}} \\
+	& = a(u-u_h,u-v) \\
+	& \stackrel{\scriptsize\text{CS}}\le \norm{u-u_h}_E \norm{u-v}_E 
+\end{align*}
+und damit folgt nach Division $\norm{u-u_h}_E \le \norm{u-v}_E$, was zu zeigen war.
+\end{proof}
+
+\item \begin{bem*}
+Die Gleichung \eqref{eq:2.14} drückt aus, dass die Verbindung $u-u_h$ orthogonal zum Raum $V_h$ steht und wird daher auch \textit{\idx{Galerkin-Orthogonalität}} genannt.
+\end{bem*}
+
+\item
+\begin{satz}[Céa]
+
+\end{satz}
+
 \item[$\Ra$] Überleitung zu adaptiven Verfahren
 \end{itemize}
 

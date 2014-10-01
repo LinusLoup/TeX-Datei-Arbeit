@@ -16,49 +16,51 @@ Warning--empty number in StarkePDE
 Warning--empty note in StarkePDE
 Warning--empty number in StarkeVar
 Warning--empty note in StarkeVar
+Warning--empty number in EPSContact
+Warning--empty note in EPSContact
 Warning--empty number in EPS
 Warning--empty note in EPS
 Warning--empty number in Walker
 Warning--empty note in Walker
-You've used 19 entries,
+You've used 20 entries,
             4793 wiz_defined-function locations,
-            1005 strings with 8411 characters,
-and the built_in function-call counts, 10051 in all, are:
-= -- 992
-> -- 276
-< -- 221
-+ -- 260
-- -- 89
-* -- 630
-:= -- 1711
-add.period$ -- 24
-call.type$ -- 19
-change.case$ -- 90
+            1008 strings with 8489 characters,
+and the built_in function-call counts, 10534 in all, are:
+= -- 1045
+> -- 284
+< -- 232
++ -- 272
+- -- 92
+* -- 657
+:= -- 1788
+add.period$ -- 25
+call.type$ -- 20
+change.case$ -- 94
 chr.to.int$ -- 19
-cite$ -- 31
-duplicate$ -- 323
-empty$ -- 846
-format.name$ -- 184
-if$ -- 2065
-int.to.chr$ -- 1
+cite$ -- 34
+duplicate$ -- 337
+empty$ -- 892
+format.name$ -- 190
+if$ -- 2169
+int.to.chr$ -- 2
 int.to.str$ -- 0
 missing$ -- 64
-newline$ -- 116
-num.names$ -- 57
-pop$ -- 144
+newline$ -- 122
+num.names$ -- 60
+pop$ -- 152
 preamble$ -- 1
-purify$ -- 128
+purify$ -- 134
 quote$ -- 0
-skip$ -- 573
+skip$ -- 604
 stack$ -- 0
-substring$ -- 532
-swap$ -- 58
-text.length$ -- 50
-text.prefix$ -- 11
+substring$ -- 555
+swap$ -- 59
+text.length$ -- 52
+text.prefix$ -- 12
 top$ -- 0
-type$ -- 168
-warning$ -- 12
-while$ -- 86
-width$ -- 20
-write$ -- 250
-(There were 12 warnings)
+type$ -- 179
+warning$ -- 14
+while$ -- 89
+width$ -- 21
+write$ -- 264
+(There were 14 warnings)

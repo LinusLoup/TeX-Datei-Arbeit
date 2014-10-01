@@ -86,7 +86,14 @@
 \newblock 2011. --
 \newblock Vorlesungsskript
 
-\bibitem[Ste12]{EPS}
+\bibitem[Ste12a]{EPSContact}
+\textsc{Stephan}, Ernst~P.:
+\newblock Contact Problems – Numerical Analysis and Implementation / IFAM -
+  Universität Hannover.
+\newblock 2012. --
+\newblock Vorlesungsskript
+
+\bibitem[Ste12b]{EPS}
 \textsc{Stephan}, Ernst~P.:
 \newblock Numerik partieller Differentialgleichungen I / IFAM - Universität
   Hannover.
