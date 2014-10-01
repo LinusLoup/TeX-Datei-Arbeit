@@ -110,6 +110,16 @@
 \newcommand{\tr}{\textnormal{tr }}
 \newcommand{\sign}{\textnormal{sign}}
 
+\newcommand{\rz}[1]{%
+	\ensuremath{% stellt Mathe-Modus sicher
+		\mathord{% für richtige Abstände, siehe TeX Book
+			\mathrm{% aufrechte Buchstaben
+				#1%
+			}%
+		}%
+	}%
+}
+
 \renewcommand{\(}{\left(}
 \renewcommand{\)}{\right)}
 

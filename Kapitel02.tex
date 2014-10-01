@@ -607,11 +607,74 @@ Der Beweis steht in \cite{BraeFEM} Kapitel II, \S 5, Bemerkung 5.4.
 
 \item Beispiel, um zu sehen, dass auch für kleine Gitter der Rechenaufwand sehr hoch werden kann.
 \begin{bsp}
+Wir betrachten unser Variationsproblem \eqref{eq:2.9} auf $\Omega = [-1,1]^2$ mit $V_h$ wie oben eingeführt als den Raum der linearen Ansatzfunktionen auf einer Zerlegung $\mcal T_h$ wie unten aufgeführt.
 
+\underline{Skizze:} mit 8 Courant-Elementen, wie auf in http://www.math.uni-hamburg.de/home/struckmeier/numpde06/Kap2.pdf auf Seite 95
+
+Wir stellen für die nodale Basisfunktion $\phi_5$ die Einträge in der Steifigkeitsmatrix auf. Man rechnet leicht nach, dass
+\begin{align*}
+	\phi_5(x,y) = \begin{cases}
+					1-x-y , & \text{auf } \rz I \\
+					1+x, & \text{auf } \rz{III} \\
+					1-y, & \text{auf } \rz{IV} \\
+					1+x+y, & \text{auf } \rz{VI} \\
+					1+y, & \text{auf }\rz{VII}\\
+					1-x, & \text{auf }\rz{VIII} \\
+					0, & \text{sonst}
+				\end{cases}
+\end{align*}
+ist und damit ergeben sich folgende Ableitungen.
+
+\begin{table}[htpb]
+\centering
+\begin{tabular}[c]{|c|c|c|c|c|c|c|c|c|}
+	\hline      & I & II & III & IV & V & VI & VII & VIII\\
+	\hline     $\partial_x \phi_5$ &-1 &0 &1& 0&0 &1 &0 &-1  \\     $\partial_y \phi_5$ & -1&0 & 0& -1& 0& 1& 1& 0\\
+	\hline\end{tabular}
+\caption{Ableitungen der nodalen Basisfunktion $\phi_5$.}
+\end{table}
+
+Damit rechnen wir nach, dass gilt
+\begin{align*}
+	a(\phi_5,\phi_5) & = \int_\Omega \nabla \phi_5 \nabla \phi_5 \, dx dy \\
+	& = \int_{\rz I  \cup \ldots \cup \rz{VIII}} \underbrace{(\partial_x \phi_5)^2}_{\ge0}+ \underbrace{(\partial_y \phi_5)^2}_{\ge 0} \, dx dy \\
+	& = 2 \int_{\rz I \cup \rz{III} \cup \rz{IV}} {(\partial_x \phi_5)^2}+ {(\partial_y \phi_5)^2} \, dx dy \\
+	& = 2 \(\int_{\rz I \cup \rz{III}}\underbrace{(\partial_x \phi_5)^2}_{=1} \, dx dy + \int_{\rz I \cup \rz{IV}} \underbrace{(\partial_y \phi_5)^2}_{=1} \, dxdy\) \\
+	& = 2 (A(\rz I) + A(\rz{III}) + A(\rz{I}) + A(\rz{IV})) \\
+	& = 8 \cdot A(\rz I) = 8 \cdot \frac 1 2= 4 \, ,
+\end{align*}
+wobei verwendet wurde, dass die Dreiecke kongruent zueinander sind. Analog können wir auch die übrigen acht nodalen Basisfunktionen aufstellen und damit die Einträge der Steifigkeitsmatrix
+\begin{align*}
+	a(\phi_5,\phi_2) = a(\phi_5,\phi_4) = a(\phi_5,\phi_6) = a(\phi_5,\phi_8) &= -1 \, , \\
+	a(\phi_5,\phi_1) = a(\phi_5,\phi_3) = a(\phi_5,\phi_7) = a(\phi_5,\phi_9)& = 0
+\end{align*}
+berechnen. Damit ist der Einteil der Basisfunktion $\phi_5$ an der Steifigkeitsmatrix $A$ von der Form
+\[
+	\widetilde A = \begin{pmatrix}
+		0 & -1 & 0 \\
+		-1 & 4 & -1 \\
+		0 & -1 & 0
+	\end{pmatrix} \, .
+\]
+Hierbei müssen die Einträge aus $\widetilde A$ in die Matrix $A \in \R^{9 \times 9}$ an die richtige Stelle zugeordnet werden, wie durch die Formel $a_{ij} = a(\phi_i,\phi_j)$ beschrieben wird. Dabei nennen wir $\widetilde A$ lokale Steifigkeitsmatrix bzgl. des Knoten 5.
+
+Dieses Vorgehen müssten wir noch für die übrigen Basisfunktion analog durchführen, um die vollständige Steifigkeitsmatrix $A$ zu erhalten. Dies soll hier aber nicht weiter ausgeführt werden.
 \end{bsp}
 
-\item Abhilfe durch local-global node ordering zur Effizienzsteigerung (Erklärung)
+\item wie man schön erkennt, ist das Vorgehen aus dem obigen Beispiel sehr aufwendig. $\ra$ außerdem ist es schwer dieses zu verallgemeinern, damit man es gut implementieren kann, da die Ansatzfunktionen   auf das Gitter bezogen von individueller Form sind.
 
+\item Abhilfe durch local-global node ordering zur Effizienzsteigerung (Erklärung):
+
+\item hierbei ist die Idee die lokale Steifigkeitsmatrix für ein Element durch Transformation auf ein Referenzelement zu berechnen und somit die  Berechnung von lokalen Steifigkeitsmatrizen zu verallgemeinern
+
+\item[Skizze] vom Referenzelement (Stephan NPDE Seite 13)
+
+\item Dann die Herleitung von der lokalen Steifigkeitsmatrix (Stephan NPDE Seite 13+14)
+\end{itemize}
+
+\subsection{A priori Fehlerabschätzung}
+
+\begin{itemize}
 \item man kann zeigen, dass der Fehler von $h$ zwischen $u_h$ und $u$ (exakte Lösung) abhängt $\Ra$ Netzverfeinerung führt zur Konvergenz
 \item[$\Ra$] Überleitung zu adaptiven Verfahren
 \end{itemize}
