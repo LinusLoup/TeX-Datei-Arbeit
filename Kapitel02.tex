@@ -693,9 +693,9 @@ Durch $\norm \cdot _E: H^1_0(\Omega) \ra \R, \norm v_E \coloneqq (a(v,v))^{\frac
 
 \begin{proof}
 Aus der Stetigkeit und Koerzivität von $a$ folgt direkt
-\[
+\begin{align}\label{eq:2.12}
 	\alpha \, \norm{v}_1^2 \le \underbrace{a(v,v)}_{= \norm v_E^2} \le c \, \norm v_1^2 \, .
-\]
+\end{align}
 Damit ist $\norm\cdot_E$ nach oben und unten durch die Norm auf $H^1(\Omega)$ beschränkt und somit eine zu dieser äquivalente Norm.
 \end{proof}
 
@@ -711,7 +711,7 @@ mit $u,v \in H^1_0(\Omega)$ gilt dann $\norm\cdot_E = \abs\cdot_1$ (s. Bemerkung
 \end{bem*}
 
 \item Galerkin ist Bestapproximation
-\begin{satz}
+\begin{satz}\label{satz:2.26}
 Die \idx{Galerkin-Approximation} $u_h$ ist die beste Approximation von $u$ bzgl. der \idx{Energie-Norm}, also
 \[
 	\norm{u-u_h}_E = \inf_{v \in V_h} \norm{u-v}_E \, .
@@ -720,13 +720,13 @@ Die \idx{Galerkin-Approximation} $u_h$ ist die beste Approximation von $u$ bzgl.
 
 \begin{proof}
 Zunächst betrachten wir die exakte und approximierte Variationsgleichung \eqref{eq:2.8} und \eqref{eq:2.9}, d.h.
-\begin{align}\label{eq:2.12}
+\begin{align}\label{eq:2.13}
 	a(u,v) &= F(v) \quad \ \, \forall \, v \in H \, , \\
-	\label{eq:2.13}
+	\label{eq:2.14}
 	a(u_h,v_h) &= F(v_h) \quad \forall \, v_h \in V_h \, .
 \end{align}
-Da $V_h \subset H$ ist, gilt \eqref{eq:2.12} auch für alle $v_h\in V_h$. Ersetzen wir dies  in \eqref{eq:2.12} und subtrahieren \eqref{eq:2.12} und \eqref{eq:2.13}, so erhalten wir
-\begin{align}\label{eq:2.14}
+Da $V_h \subset H$ ist, gilt \eqref{eq:2.13} auch für alle $v_h\in V_h$. Ersetzen wir dies  in \eqref{eq:2.13} und subtrahieren \eqref{eq:2.13} und \eqref{eq:2.14}, so erhalten wir
+\begin{align}\label{eq:2.15}
 	a(u-u_h,v_h ) = 0 \quad \forall \, v_h \in V_h \, .
 \end{align}
 Damit rechnen wir für ein beliebiges $v \in V_h$ einfach nach:
@@ -741,13 +741,42 @@ und damit folgt nach Division $\norm{u-u_h}_E \le \norm{u-v}_E$, was zu zeigen w
 \end{proof}
 
 \item \begin{bem*}
-Die Gleichung \eqref{eq:2.14} drückt aus, dass die Verbindung $u-u_h$ orthogonal zum Raum $V_h$ steht und wird daher auch \textit{\idx{Galerkin-Orthogonalität}} genannt.
+Die Gleichung \eqref{eq:2.15} drückt aus, dass die Verbindung $u-u_h$ orthogonal zum Raum $V_h$ steht und wird daher auch \textit{\idx{Galerkin-Orthogonalität}} genannt.
 \end{bem*}
 
 \item
 \begin{satz}[Céa]
-
+Der Fehler der \idx{Galerkin-Approximation} $u_h$ hat in der $H^1$-Norm die Eigenschaft
+\[
+	\norm{u-u_h}_1 \le \tilde c \inf_{v\in V_h} \norm{u-v}_1 \, .
+\]
 \end{satz}
+
+\begin{proof}
+Aus \eqref{eq:2.12} und Satz \ref{satz:2.26} folgt
+\[
+	\norm{u-u_h}_1 \le \(\frac 1\alpha\)^{\frac 1 2} \norm{u-u_h}_E \le \(\frac 1\alpha\)^{\frac 1 2} \norm{u-v}_E \le \(\frac c\alpha\)^{\frac 1 2} \norm{u-v}_1  \, .
+\]
+Damit folgt die Behauptung mit $\tilde c :=  \sqrt{\frac c\alpha}$.
+\end{proof}
+
+\item vgl. \cite{BraeFEM} Satz 6.4
+\begin{theorem}[Approximationssatz]
+Es sei $k \ge 2$ und $\mcal T_h$ eine quasi-uniforme Triangulierung\index{Triangulierung!quasi-uniform} von $\Omega$. Dann gilt für die Interpolation $I_h$ auf die stetigen, stückweise durch Polynome vom Grad $k-1$ gegebenen Funktionen mit einer von $\Omega, \kappa$ und $k$ abhängigen Kontanten $c$ die a priori Fehlerabschätzung
+\[
+	\norm{u-I_hu}_m \le c h^{k-m} \abs{u}_k
+\]
+für $u \in H^k(\Omega)$ und $0\le k\le m$.
+\end{theorem}
+
+\begin{proof}
+Für den Beweis würden wir noch weitere Ausführungen über affine Transformationen benötigen, die wir hier nicht weiter aufführen wollen. Der komplette Beweis ist in \cite{BraeFEM} auf Seite 75ff einzusehen.
+\end{proof}
+
+\item
+\begin{kor}
+für lineare Elemente ...
+\end{kor}
 
 \item[$\Ra$] Überleitung zu adaptiven Verfahren
 \end{itemize}
