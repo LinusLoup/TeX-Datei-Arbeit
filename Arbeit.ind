@@ -29,9 +29,9 @@
 
   \indexspace
 
-  \item G\IeC {\^a}teaux-Ableitung, \hyperpage{48}
-    \subitem rechtsseitig, \hyperpage{48}
-  \item G\IeC {\^a}teaux-differenzierbar, \hyperpage{48}
+  \item G\IeC {\^a}teaux-Ableitung, \hyperpage{51}
+    \subitem rechtsseitig, \hyperpage{51}
+  \item G\IeC {\^a}teaux-differenzierbar, \hyperpage{51}
   \item Galerkin-Approximation, \hyperpage{25, 26}
   \item Galerkin-Orthogonalit\IeC {\"a}t, \hyperpage{26}
 
@@ -43,7 +43,7 @@
   \indexspace
 
   \item Lagrange-Basis, \hyperpage{22}
-  \item Lebesgue-Raum, \hyperpage{46}
+  \item Lebesgue-Raum, \hyperpage{49}
   \item lineares Komplementarit\IeC {\"a}tsproblem, \hyperpage{36}
 
   \indexspace
@@ -66,15 +66,15 @@
 
   \indexspace
 
-  \item Raum der Testfunktionen, \hyperpage{46}
-  \item reflexiver Raum, \hyperpage{49}
+  \item Raum der Testfunktionen, \hyperpage{49}
+  \item reflexiver Raum, \hyperpage{52}
   \item Riesz'scher Darstellungssatz, \hyperpage{16}
 
   \indexspace
 
-  \item schwache Ableitung, \hyperpage{46}
+  \item schwache Ableitung, \hyperpage{49}
   \item schwache L\IeC {\"o}sung, \hyperpage{10}
-  \item Sobolev-Raum, \hyperpage{46}
+  \item Sobolev-Raum, \hyperpage{49}
 
   \indexspace
 

@@ -421,7 +421,7 @@ stark in $V$ für alle $v \in W$ konvergiert.
 \end{vor}
 
 \item Konvergenz von $u_h$ gegen die exakte Lösung $u$.
-\begin{theorem}[Konvergenz]
+\begin{theorem}[a priori Konvergenz]
 Mit den obigen Voraussetzungen für $K$ und $(K_h)_h$ gilt für die Lösungen $u$ von \eqref{eq:3.7} und $u_h$ vom approximierten Problem: Finde $u_h \in K_h$, so dass
 \begin{align}\label{eq:3.23}
 	a(u_h,v_h-u_h) \ge F(v_h-u_h) \quad \forall \, v_h \in K_h \, , 
@@ -462,9 +462,61 @@ und damit können wir durch quadratischer Ergänzung folgern, dass es ein $c \in
 \]
 Mit den Voraussetzungen (i) für $(K_h)_h$ folgt direkt $u^* \in K$, außerdem ist $u^*$ nach Bemerkung \ref{bem:A.13} (e) eindeutig.
 
-Wir zeigen nun, dass $u^*$ eine Lösung von \eqref{eq:3.7} ist.
+Wir zeigen nun, dass $u^*$ eine Lösung von \eqref{eq:3.7} ist. Für die oben betrachtete Teilfolge gilt
+\begin{align}\label{eq:3.25}
+	a(u_{h_j},v_{h_j}-u_{h_j})\ge F(v_{h_j}-u_{h_j}) \quad \forall \, v_{h_j} \in K_{h_j} \, .
+\end{align}
+Sei $v \in W$ mit $v_{h_j} = I_{h_j} v$. Dann gilt $v_{h_j} = I_{h_j} v \ra v \in W$ für $h_j \ra 0$. Mit \eqref{eq:3.25} folgt
+\begin{align}
+	\notag a(u_{h_j},u_{h_j}) &\le a(u_{h_j},v_{h_j})-F(v_{h_j}-u_{h_j}) \\
+	\notag & = a(u_{h_j},I_{h_j} v)-F(v_{h_j}-u_{h_j}) \\
+	\label{eq:3.26} \lra \liminf_{h_j\ra 0} a(u_{h_j},u_{h_j}) & \le  a(u^*,v)-F(v-u^*) \, .
+\end{align}
+Weiter schätzen wir durch Bemerkung \ref{bem:A.13} (f) nach unten ab
+\begin{align}\label{eq:3.27}
+	\liminf_{h_j\ra 0} a(u_{h_j},u_{h_j}) = \liminf_{h_j\ra 0} \norm{u_{h_j}}_H^2 \ge \norm{u^*}_H^2 = a(u^*,u^*) \, .
+\end{align}
+Insgesamt folgt also mit \eqref{eq:3.26} und \eqref{eq:3.27}
+\[
+	a(u^*,u^*) \le \liminf_{h_j\ra 0} a(u_{h_j},u_{h_j}) \le   a(u^*,v)-F(v-u^*)
+\]
+und damit nach Umformung
+\[
+	a(u^*,v-u^*)\ge F(v-u^*) \quad \forall \, v \in W \, .
+\]
+Da $W$ dicht in $K$ liegt, d.h. $\overline W = K$, und $a, F$ stetig sind, erhalten wir
+\[
+	a(u^*,v-u^*)\ge F(v-u^*) \quad \forall \, v \in K 
+\]
+mit $u^*\in K$, also ist $u^*\eqqcolon u$ Lösung von \eqref{eq:3.7}. Da $u$ ein Häufungspunkt von $(u_h)_h$ bzgl. der schwachen Topologie von $H$ ist, konvergiert auch die Folge $(u_h)_h$ schwach gegen $u$.
+
+(iii) \underline{starke Konvergenz:} Aus der Koerzivität von $a$ folgt
+\begin{align}\label{eq:3.28}
+	\begin{aligned}
+		0 &\le \alpha \, \norm{u_h-u}_H^2 \le a(u_h-u,u_h-u) \\
+		& \le a(u_h,u_h)-a(u_h,u)-a(u,u_h)+a(u,u) \, ,
+	\end{aligned}
+\end{align}
+wobei $u_h$ Lösung vom approximierten Problem \eqref{eq:3.23} und $u$ Lösung vom exakten Problem \eqref{eq:3.7} ist. Es sei $v \in W$ mit $I_h v = v_h \in K_h$, dann folgt aus \eqref{eq:3.23}
+\begin{align}\label{eq:3.29}
+	a(u_h,u_h) \le a(u_h,I_h v) - F(I_h v-u_h) \quad \forall \, v \in W \, .
+\end{align}
+Da $u_h \rightharpoonup u$ in $H$ und $I_h v \ra v$ in $H$ für $h \ra 0$, folgt aus \eqref{eq:3.28} und \eqref{eq:3.29} unter Verwendung von Voraussetzungen (ii)
+\begin{align}\label{eq:3.30}
+	0 \le \alpha \lim_{h\ra 0} \norm{u_h-u}^2_H \le a(u,v-u)-F(v-u) \quad \forall \, v \in W \, .
+\end{align}
+Da $a$ und $F$ stetig sind und $W$ dicht in $K$ liegt, gilt \eqref{eq:3.30} auch für alle $v \in K$. Setzen wir dann also $v = u$ in \eqref{eq:3.30}, dann folgt die Behauptung $\lim_{h\ra 0} \norm{u_h - u }_H^2 = 0$. 
 \end{proof}
+
+\item damit führt die Netzverfeinerung also zur exakten Lösung der Variationsungleichung
+
+\item inwiefern adaptive Netzverfeinerung hier sinnvoll ist, wollen wir in Kapitel 4 betrachten
 \end{itemize}
+
+
+
+
+
 
 
 \section{Kontaktprobleme}
