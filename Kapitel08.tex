@@ -1,8 +1,10 @@
 \appendix
 
 \newchapter{Funktionalanalysis}
+\label{anhang:A}
 
 \section{Sobolev-Räume}
+\label{anhang:A.1}
 
 Sei im Weiteren $\emptyset \not= \Omega \subset \R^n$. Wir definieren den Sobolev-Raum allgemein wie folgt (vgl. \cite{BraeFEM} Kaptitel II, \S 2 und \cite{Walker} Kapitel 6).
 
@@ -99,6 +101,7 @@ Die Funktionen $u \in H^m_0(\Omega)$ können als die Funktionen $u \in H^m(\Omeg
 
 
 \section{Optimalitätskriterien}
+\label{anhang:A.2}
 
 Zunächst definieren wir einen verallgemeinerten Begriff der Richtungsableitung, der auch auf unendlich dimensionalen Vektorräumen existiert.
 
@@ -138,10 +141,13 @@ Es sei $U\subset V$ ein (Unter-)Vektorraum, $V$ ein Vektorraum und $F: U \ra \R$
 Siehe \cite{GopRieTam}, Kapitel 3.3.3, Satz 3.35.
 \end{proof}
 
-\newchapter{Optimierung}
 
+
+\newchapter{Optimierung}
+\label{anhang:B}
 
 \section{Quadratische Programmierung}
+\label{anhang:B.1}
 
 Um im folgenden die Idee des Algorithmus zu verstehen, führen wir zunächst grundlegende Begriffe ein. Ein quadratisches Problem mit Gleichungs- und Ungleichungsnebenbedingungen ist von der Form
 \begin{align}\label{eq:QP}
@@ -170,7 +176,7 @@ Damit ergeben sich –  vgl. \cite{NocWri}, Theorem 12.1 – mit der Menge der a
 \end{align}
 Hierbei ist $\bs x^*$ Lösung von \eqref{eq:QP} und erfüllt die LICQ-Bedingung; $\bs\lambda^*$ ist dazugehöriger optimaler Lagrange-Multiplikator. In \eqref{eq:KKT} wird die Komplementaritätsbedingung $\lambda^*_i c_i(\bs x^*) = 0$ impliziert durch $\lambda_i^* = 0 \, \forall \, i \not\in \mcal A(\bs x^*)$.
 
-\begin{theorem}\label{A.1}
+\begin{theorem}\label{theorem:B.1}
 Wenn $\bs x^*$ die Bedingungen \textnormal{\eqref{eq:KKT}} erfüllt mit $\lambda_i^*,i \in \mcal A(\bs x^*)$ und $G$ ist positiv semidefinit, dann ist $\bs x^*$ eine globale Lösung von \textnormal{\eqref{eq:QP}}.
 \end{theorem}
 
@@ -186,6 +192,7 @@ Daher ist im positiv semidefiniten Fall gesichert, dass ein optimaler Punkt auch
 
 
 \section{Active Set-Methode für konvexe QPs}
+\label{anhang:B.2}
 
 Wenn wir eine Lösung $\bs x^*$ für das Problem \eqref{eq:QP} kennen, so ist auch die Menge der aktiven Nebenbedingungen $\mcal A(x^*)$ bekannt und wir können \eqref{eq:QP} vereinfachen zum Optimierungsproblem
 \begin{align}\label{eq:active}
@@ -304,6 +311,7 @@ Da wir zeigen können, dass der erzielte Abstieg für $q$ durch das Weglassen ei
 
 
 \section{Algorithmus}
+\label{anhang:B.3}
 
 \begin{algorithm}[H]
 \caption{Active-Set-Methode für konvexe quadratische Probleme}
@@ -335,6 +343,7 @@ Gegeben sei ein zulässiger Startpunkt $\bs x_0$ für \eqref{eq:QP} und definier
 
 
 \newchapter{Quellcode}
+\label{anhang:C}
 
 \section{Implementierung des Fehlerschätzers für das Hindernisproblem}
 

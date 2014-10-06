@@ -25,11 +25,15 @@
 \indexentry{Galerkin-Orthogonalit\IeC {\"a}t|hyperpage}{26}
 \indexentry{Galerkin-Approximation|hyperpage}{26}
 \indexentry{Triangulierung!quasi-uniform|hyperpage}{26}
-\indexentry{Sobolev-Raum|hyperpage}{42}
-\indexentry{Lebesgue-Raum|hyperpage}{42}
-\indexentry{Raum der Testfunktionen|hyperpage}{42}
-\indexentry{schwache Ableitung|hyperpage}{42}
-\indexentry{G\IeC {\^a}teaux-differenzierbar|hyperpage}{44}
-\indexentry{G\IeC {\^a}teaux-Ableitung|hyperpage}{44}
-\indexentry{G\IeC {\^a}teaux-Ableitung!rechtsseitig|hyperpage}{44}
-\indexentry{G\IeC {\^a}teaux-differenzierbar|hyperpage}{44}
+\indexentry{Fixpunktsatz von Brouwer|hyperpage}{35}
+\indexentry{lineares Komplementarit\IeC {\"a}tsproblem|hyperpage}{36}
+\indexentry{quadratisches Programm|hyperpage}{37}
+\indexentry{Active-Set-Algorithmus|hyperpage}{38}
+\indexentry{Sobolev-Raum|hyperpage}{46}
+\indexentry{Lebesgue-Raum|hyperpage}{46}
+\indexentry{Raum der Testfunktionen|hyperpage}{46}
+\indexentry{schwache Ableitung|hyperpage}{46}
+\indexentry{G\IeC {\^a}teaux-differenzierbar|hyperpage}{48}
+\indexentry{G\IeC {\^a}teaux-Ableitung|hyperpage}{48}
+\indexentry{G\IeC {\^a}teaux-Ableitung!rechtsseitig|hyperpage}{48}
+\indexentry{G\IeC {\^a}teaux-differenzierbar|hyperpage}{48}

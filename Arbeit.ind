@@ -1,37 +1,79 @@
 \begin{theindex}
 
+  \item Approximationssatz, \hyperpage{7}
+
+  \indexspace
+
   \item Bilinearform
-    \subitem elliptisch, \hyperpage{9}
-    \subitem koerziv, \hyperpage{9}
-    \subitem stetig, \hyperpage{9}
+    \subitem elliptisch, \hyperpage{11}
+    \subitem koerziv, \hyperpage{11}
+    \subitem stetig, \hyperpage{11}
 
   \indexspace
 
-  \item Dirichlet-Problem, \hyperpage{7}
-    \subitem homogenes, \hyperpage{8}
+  \item Cauchy-Schwarz'sche Ungleichung, \hyperpage{7}
 
   \indexspace
 
-  \item G\IeC {\^a}teaux-Ableitung, \hyperpage{22}
-    \subitem rechtsseitig, \hyperpage{22}
-  \item G\IeC {\^a}teaux-differenzierbar, \hyperpage{22}
+  \item Dirichlet-Problem, \hyperpage{9}
+    \subitem homogenes, \hyperpage{10}
 
   \indexspace
 
-  \item homogenen Dirichlet-Problem, \hyperpage{8}
+  \item Energie-Norm, \hyperpage{25}
 
   \indexspace
 
-  \item Lebesgue-Raum, \hyperpage{20}
+  \item Fixpunktsatz von Brouwer, \hyperpage{35}
 
   \indexspace
 
-  \item Raum der Testfunktionen, \hyperpage{20}
+  \item G\IeC {\^a}teaux-Ableitung, \hyperpage{46}
+    \subitem rechtsseitig, \hyperpage{46}
+  \item G\IeC {\^a}teaux-differenzierbar, \hyperpage{46}
+  \item Galerkin-Approximation, \hyperpage{25, 26}
+  \item Galerkin-Orthogonalit\IeC {\"a}t, \hyperpage{26}
 
   \indexspace
 
-  \item schwache Ableitung, \hyperpage{20}
-  \item schwache L\IeC {\"o}sung, \hyperpage{8}
-  \item Sobolev-Raum, \hyperpage{20}
+  \item Hilbertraum, \hyperpage{7}
+  \item homogenen Dirichlet-Problem, \hyperpage{10}
+
+  \indexspace
+
+  \item Lagrange-Basis, \hyperpage{22}
+  \item Lebesgue-Raum, \hyperpage{44}
+
+  \indexspace
+
+  \item nodale Basis, \hyperpage{22}
+  \item nodale Basisfunktion, \hyperpage{22}
+
+  \indexspace
+
+  \item orthogonales~Komplement, \hyperpage{9}
+
+  \indexspace
+
+  \item Poincar\IeC {\'e}-Friedrich-Ungleichung, \hyperpage{15}
+  \item Projektionen, \hyperpage{7}
+
+  \indexspace
+
+  \item Raum der Testfunktionen, \hyperpage{44}
+
+  \indexspace
+
+  \item schwache Ableitung, \hyperpage{44}
+  \item schwache L\IeC {\"o}sung, \hyperpage{10}
+  \item Sobolev-Raum, \hyperpage{44}
+
+  \indexspace
+
+  \item Triangulierung, \hyperpage{20}
+    \subitem konform, \hyperpage{20}
+    \subitem quasi-uniform, \hyperpage{21}, \hyperpage{26}
+    \subitem uniform, \hyperpage{21}
+    \subitem zul\IeC {\"a}ssig, \hyperpage{20}
 
 \end{theindex}

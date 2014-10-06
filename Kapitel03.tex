@@ -20,6 +20,7 @@ mit $K := \{v \in H^1_0(\Omega) \with v\ge \psi$ fast überall in $\Omega\}$.
 \end{itemize}
 
 
+
 \subsection{Variationsformulierung für das Hindernisproblem}
 
 \begin{itemize}
@@ -124,11 +125,12 @@ was wiederum im Widerspruch zu \eqref{eq:3.6} steht. Damit muss $u = \psi$ gelte
 \end{proof}
 \end{itemize}
 
+
+
+
 \subsection{Existenz und Eindeutigkeit der Lösung}
 
 \begin{itemize}
-\item Kapitel 3 in \cite{KikOden} mit Theorem 3.1-3.4 (\textbf{Beweis vgl. NPDE I von Stephan Seite 39}, auch in Solution of Variational Inequalities in Mechanics (Theorem 1.1 Seite 4))
-
 \item für die Existenz und Eindeutigkeit der Lösung des Problems betrachten wir zunächst wieder das allgemeine reelle quadratische Funktional $J: H \ra \R, J(v) = \frac 1 2 a(v,v) - F(v)$.
 
 \item \begin{vor}
@@ -234,6 +236,163 @@ Insbesondere hat auch das Problem \eqref{eq:3.5} nach Satz \ref{satz:3.4} und Th
 
 \begin{itemize}
 \item Analog zum vorherigen Kapitel kann man auch im $\R^n$ Existenz und Eindeutigkeit der Lösung unter bestimmten Voraussetzungen zeigen. (vgl. Vug Skript Kapitel 2) $\Ra$ Beachte hierfür auch den Fixpunktsatz von Brouwer.
+
+\item zur Lösung mittels FEM betrachten wir die Variationsungleichung \eqref{eq:3.11} bzgl. eines endlich dimensionalen Unterraum
+\[
+	K_h \coloneqq \{v_h \in \mcal S_h \with v_h (p) \ge \psi(p) \, \forall \, p \in \mcal N \cap \Omega\}\, ,
+\]
+wobei $\mcal N$ die Knotenmenge bzgl. der Triangulierung $\mcal T_h$ bezeichne.
+
+\item damit ist \eqref{eq:3.11} in diskreter Form: Finde $u_h \in K_h$, so dass
+\begin{align}\label{eq:3.12}
+	a(u_h,v_h-u_h) \ge (f,v_h-u_h) \quad \forall \, v_h \in K_h \, .
+\end{align}
+
+\item vgl. \cite{Werner} Kapitel 4 Satz 7.15.
+\begin{satz}[\idx{Fixpunktsatz von Brouwer}]
+Es sei $K \not= \emptyset$ eine kompakte konvexe Teilmenge eines endlich dimensionalen normierten Raumes $H$ und $F: K \ra K$ sei stetig. Dann besitzt $F$ einen Fixpunkt $v \in K$.
+\end{satz}
+
+\begin{proof}
+Der Beweis ist in \cite{Werner} Kapitel 4 Satz 7.15 zu finden.
+\end{proof}
+
+\item \begin{theorem}[Existenz und Eindeutigkeit]
+Das Problem \eqref{eq:3.12} hat eine eindeutige Lösung $u_h \in K_h$.
+\end{theorem}
+
+\begin{proof}
+Der Beweis ist analog zu Theorem \ref{theorem:3.5} zu führen. Wir ersetzen lediglich $H$ durch $V_h$ und $K$ durch $K_h$ und verwenden im endlich dimensionalen Raum $V_h$ den Fixpunktsatz von Brouwer.
+\end{proof}
+
+\item \begin{bem*}
+In Kapitel 2.2 von \cite{StarkePDE} sind die Argumente bzgl. der Existenz und Eindeutigkeit einer Lösung von \eqref{eq:3.11} für den endlich dimensionalen Fall $K_h$ auch noch einmal im Einzelnen aufgeführt.
+\end{bem*}
+
+\item Es sei $\mcal B_h = \{\phi_1,\ldots,\phi_N\}$ eine modale Basis von $\mcal S_h$, d.h. analog zu \eqref{eq:2.10} können wir $u_h$ und $v_h$ mit Koordinaten $\mu_i,\nu_i, i = 1,\ldots,N$ bzgl. $\mcal B_h$ ausdrücken. Dann schreiben wir \eqref{eq:3.12} als
+\begin{align*}
+	\sum_{i = 1}^N\sum_{j=1}^N \mu_i \, a(\phi_i,\phi_j)\, (\nu_j-\mu_j) & \ge \sum_{j=1}^N  (f,\phi_j) \, (\nu_j-\mu_j)  \\
+	\Llra\quad \qquad  \qquad \qquad \bs \mu^T A (\bs \nu- \bs\mu) &  \ge \bs f^T (\bs \nu-\bs \mu)
+\end{align*}
+mit $A = [a(\phi_j,\phi_i)]_{i,j=1}^N, \bs \mu = [\mu_i]_{i=1}^N,\bs \nu = [\nu_i]_{i=1}^N$ und $\bs f = [(f,\phi_i)]_{i=1}^N$.
+
+\item Die Menge $K_h$ ist bzgl. $\mcal S_h$ äquivalent zu
+\begin{align}\label{eq:3.13}
+	K_{\mcal S} \coloneqq \{\bs \nu \in \R^N \with \nu_i \ge \psi(p_i) , p_i \in \mcal N \cap \Omega, i = 1,\ldots, N \} \, .
+\end{align}
+Im Folgenden schreiben wir $\bs \psi \coloneqq [\psi(p_i)]_{i=1}^N$ mit $p_i \in \mcal N\cap \Omega$.
+
+\item \begin{bem*}
+$K_{\mcal S}$ ist analog zu $K$ konvex und abgeschlossen.
+\end{bem*}
+
+\item Damit erhalten wir aus \eqref{eq:3.12} die diskrete Variationsungleichung: Finde $\bs\mu \in K_{\mcal S}$, so dass
+\begin{align}\label{eq:3.14}
+	(A\bs \mu-\bs f)^T (\bs \nu- \bs\mu) &  \ge 0 \quad \forall \, \bs \nu \in K_{\mcal S} \, .
+\end{align}
+
+\item \begin{satz}\label{satz:3.10}
+Das Problem \eqref{eq:3.14} ist äquivalent zum linearen Komplementaritätsproblem\index{lineares Komplementaritätsproblem}: Bestimme $\bs\mu \in K_{\mcal S}$, so dass
+\begin{align}\label{eq:3.15}
+	A\bs\mu - \bs f \ge \bs 0\quad\text{ und }\quad (A\bs\mu-\bs f)^T(\bs \mu - \bs\psi) = 0
+\end{align}
+gilt.
+\end{satz}
+
+\begin{proof}
+"`$\Ra$"' Sei $\bs \mu \in K_{\mcal S}$ Lösung von \eqref{eq:3.14}. Wir setzen $\bs\nu = \bs \mu +\bs e_i \ge \bs\psi$ mit einem beliebigen $i \in \{1,\ldots,N\}$, wobei $\bs e_i $ den $i$-te Einheitsvektor bezeichne. Dann gilt
+\[
+	0 \le (A\bs\mu - \bs f)^T (\bs\nu - \bs\mu) = (A\bs\mu - \bs f)^T \bs e_i = (A\bs \mu-\bs f)_i \, .
+\]
+Da $i$ beliebig war, folgt $A\bs\mu - \bs f\ge \bs 0$.
+
+Wir nun nehmen an, dass ein $i \in \{1,\ldots,N\}$ existiert, so dass $(A\bs\mu - \bs f)_i (\bs\mu-\bs\psi)_i >0$ ist. Weiter wählen wir
+\[
+	\bs\nu = \begin{pmatrix}
+				\mu_1 \\
+				\vdots \\
+				\mu_{i-1} \\
+				0 \\
+				\mu_{i+1}\\
+				\vdots \\
+				\mu_N
+			\end{pmatrix} + 
+			\begin{pmatrix}
+				0 \\
+				\vdots \\
+				0\\
+				\psi_i \\
+				0\\
+				\vdots \\
+				0
+			\end{pmatrix} \ge \bs\psi
+\]
+und damit folgt
+\begin{align*}
+	0 > (A\bs \mu - \bs f)_i (\bs\psi - \bs\mu)_i  = (A\bs\mu-\bs f)^T (\bs \nu-\bs \mu) \ge 0 \, ,
+\end{align*}
+was im Widerspruch zu \eqref{eq:3.14} steht, daraus folgt die Behauptung.
+
+"`$\La$"' Es sei $\bs \mu \in K_{\mcal S}$ Lösung von \eqref{eq:3.15}. Dann rechnen wir nach, dass für ein beliebiges $\bs\nu \in K_{\mcal S}$ gilt
+\begin{align*}
+	(A\bs \mu-\bs f)^T (\bs \nu- \bs\mu) & = (A\bs \mu-\bs f)^T (\bs \nu -\bs \psi + \bs\psi- \bs\mu) \\
+	& = \underbrace{(A\bs \mu-\bs f)^T}_{\ge \bs 0} \underbrace{(\bs \nu -\bs \psi)}_{\ge \bs 0} -\underbrace{(A\bs \mu-\bs f)^T (\bs\mu-\bs\psi)}_{=0} \\
+	& \ge 0\, . \qedhere
+\end{align*}
+\end{proof}
+
+\item das Problem \eqref{eq:3.14} ist äquivalent zu einem quadratischen Optimierungsproblem
+\begin{satz}[Äquivalenz zu quadratischem Programm]
+Das Problem \eqref{eq:3.14} ist äquivalent zum quadratischen Programm\index{quadratisches Programm}
+\begin{align}\label{eq:3.16}
+	\min_{\bs\nu \in \R^N} J(\bs\nu) = \frac 1 2 \bs \nu^T A \bs \nu - \bs f^T \bs \nu\quad \text{s.t.} \quad \bs \nu \ge \bs \psi \, .
+\end{align}
+\end{satz}
+
+\begin{proof}
+Wir zeigen zunächst die Äquivalenz von \eqref{eq:3.15} zu \eqref{eq:3.16} und dann folgt mit Satz \ref{satz:3.10} die Behauptung.
+
+"`$\Ra$"' Es sei $\bs\mu \in \R^N$ Lösung vom Problem \eqref{eq:3.15}. Dann folgt mit einem beliebigen $\bs\nu \in K_{\mcal S}$
+\begin{align*}
+	J(\bs\nu) - J(\bs\mu) & =  \frac 1 2 \bs \nu^T A \bs \nu - \bs f^T \bs \nu -  \frac 1 2 \bs \mu^T A \bs \mu + \bs f^T \bs \mu \\
+	& = \frac 1 2\underbrace{ (\bs\nu-\bs \mu)^T A(\bs\nu-\bs\mu) }_{\ge 0 \text{ wegen Bem. \ref{bem:2.17}}}+ \bs \mu^T A \bs \nu - \bs \mu ^TA \bs\mu - \bs f^T (\bs\nu-\bs\mu) \\
+	%& \ge (A\bs \mu - \bs f)^T(\bs\nu-\bs\mu) \\
+	& \ge (A\bs \mu - \bs f)^T(\bs\nu-\bs\psi+\bs\psi-\bs\mu) \\
+	& = \underbrace{(A\bs \mu - \bs f)^T}_{\ge 0} \underbrace{(\bs\nu-\bs\psi)}_{\ge 0}- \underbrace{(A\bs \mu - \bs f)^T(\bs\mu-\bs\psi) }_{=0}\\
+	&  \ge 0\, .
+\end{align*}
+Somit ist $\bs\mu \in K_{\mcal S}$ auch Lösung des quadratischen Programms \eqref{eq:3.16}.
+
+"`$\La$"' Sei $\bs\mu \in K_{\mcal S}$ Lösung von \eqref{eq:3.16}, dann gelten nach \cite{NocWri} Kapitel 12, Theorem 12.1 für die Lagrange-Funktion
+\[
+	\mcal L(\bs\nu,\bs\lambda) = J(\bs\nu)-\bs\lambda^T(\bs\nu-\bs\psi)
+\]
+die Karush-Kuhn-Tucker Bedingungen für den Optimalpunkt $(\bs \mu,\bs\lambda^*)$
+\begin{align}\label{eq:3.17}
+	\nabla_{\bs\nu} \mcal L(\bs\mu,\bs\lambda^*) = \nabla J(\bs\mu)-\lambda^* & = A\bs\mu-\bs f - \bs \lambda^* \stackrel != \bs 0 \, ,\\
+	\label{eq:3.18}
+	\bs\mu - \bs \psi & \ge \bs 0 \, , \\
+	\label{eq:3.19}
+	\bs \lambda^* & \ge \bs 0 \, , \\
+	\label{eq:3.20}
+	\lambda_i^* (\mu_i-\psi_i) & = 0 \qquad \forall \, i =1,\ldots,N \, .
+\end{align}
+Mit \eqref{eq:3.17} gilt also $\bs\lambda^* = A\bs\mu-\bs f$ und daher folgt aus \eqref{eq:3.19}
+\[
+	A\bs\mu - \bs f \ge\bs 0 \, .
+\]
+Aus \eqref{eq:3.20} folgt wegen $(A\bs\mu-\bs f)_i (\mu_i-\psi_i) = 0$ für alle $i = 1,\ldots,N$ direkt
+\[
+	(A\bs\mu - \bs f)^T (\bs \mu-\bs\psi) = 0\, .
+\]
+Also ist $\mu \in K_{\mcal S}$ auch Lösung von \eqref{eq:3.15}.
+\end{proof}
+
+\item \begin{bem}
+Das quadratische Programm \eqref{eq:3.16} hat mit den Voraussetzungen aus Bemerkung \ref{bem:2.17} eine globale Lösung $\bs\mu$, wenn diese die KKT-Bedingungen \eqref{eq:KKT} erfüllt (vgl. Theorem \ref{theorem:B.1}).
+\end{bem}
+
+\item mit dem im Anhang \ref{anhang:B.2} vorgestellten \idx{Active-Set-Algorithmus} kann ein solches quadratisches Programm gelöst werden
 \end{itemize}
 
 

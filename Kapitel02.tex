@@ -483,7 +483,7 @@ Damit ergibt sich das LGS
 \]
 mit $A = [a(\phi_j,\phi_i)]_{i,j=1}^N, \bs \mu = [\mu_i]_{i=1}^N$ und $\bs f = [F(\phi_i)]_{i=1}^N$.
 
-\item \begin{bem*}
+\item \begin{bem}\label{bem:2.17}
 Ist die Bilinearform $a$ symmetrisch, so ist es auch die Matrix $A$, denn
 \[
 	a_{ij} = a(\phi_i,\phi_j) = a(\phi_j,\phi_i)= a_{ji} \, .
@@ -495,7 +495,7 @@ Außerdem folgt aus der Koerzivität von $a$, dass  mit $0 \not = v \in \R^N$ gi
 	& = a(v_h,v_h) \ge \alpha \norm{v_h}^2_H > 0 \, ,
 \end{align*}
 da $v_h \not = 0$ wegen $v \not = 0$. Damit ist $A$ also positiv definit.
-\end{bem*}
+\end{bem}
 
 \item in Ingenieurwissenschaften, insbesondere bei kontinuumsmechanischen Problemen, wird $A$ als Steifigkeitsmatrix bezeichnet.
 
@@ -602,14 +602,16 @@ Der Beweis steht in \cite{BraeFEM} Kapitel II, \S 5, Bemerkung 5.4.
 
 \item damit lässt sich für $V_h$ mit einem beliebigen Polynomgrad $m$ eine eindeutige nodale Basis finden, die den Raum aufspannt.
 
-\item im weiteren wollen wir lineare Ansatzfunktionen verwenden. Wir bezeichnen, sofern nicht anders beschrieben, also im Folgenden $V_h$ mit
+\item im weiteren wollen wir lineare Ansatzfunktionen verwenden. Wir bezeichnen, sofern nicht anders beschrieben, also im Folgenden $\mcal S_h$ mit
 \[
-	V_h \coloneqq \{v \in C^0(\Omega) \with v|_T \in \mcal P_1 \text{ für } T\in \mcal T_h, v|_{\partial \Omega} = 0\} \, .
+	\mcal S_h \coloneqq \{v \in C^0(\Omega) \with v|_T \in \mcal P_1 \text{ für } T\in \mcal T_h, v|_{\partial \Omega} = 0\} \, .
 \]
+
+\item das Galerkin-Verfahren mit dem Ansatzraum $\mcal S_h$ wird Finite-Elemente-Methode genannt
 
 \item Beispiel, um zu sehen, dass auch für kleine Gitter der Rechenaufwand sehr hoch werden kann.
 \begin{bsp}
-Wir betrachten unser Variationsproblem \eqref{eq:2.9} auf $\Omega = [-1,1]^2$ mit $V_h$ wie oben eingeführt als den Raum der linearen Ansatzfunktionen auf einer Zerlegung $\mcal T_h$ wie unten aufgeführt.
+Wir betrachten unser Variationsproblem \eqref{eq:2.9} auf $\Omega = [-1,1]^2$ mit $\mcal S_h$ wie oben eingeführt als den Raum der linearen Ansatzfunktionen auf einer Zerlegung $\mcal T_h$ wie unten aufgeführt.
 
 \underline{Skizze:} mit 8 Courant-Elementen, wie auf in http://www.math.uni-hamburg.de/home/struckmeier/numpde06/Kap2.pdf auf Seite 95
 
@@ -745,7 +747,7 @@ Die Gleichung \eqref{eq:2.15} drückt aus, dass die Verbindung $u-u_h$ orthogona
 \end{bem*}
 
 \item
-\begin{satz}[Céa]
+\begin{satz}[Céa]\label{satz:2.27}
 Der Fehler der \idx{Galerkin-Approximation} $u_h$ hat in der $H^1$-Norm die Eigenschaft
 \[
 	\norm{u-u_h}_1 \le \tilde c \inf_{v\in V_h} \norm{u-v}_1 \, .
@@ -761,24 +763,45 @@ Damit folgt die Behauptung mit $\tilde c :=  \sqrt{\frac c\alpha}$.
 \end{proof}
 
 \item vgl. \cite{BraeFEM} Satz 6.4
-\begin{theorem}[Approximationssatz]
+\begin{theorem}[Approximationssatz]\label{theorem:2.28}
 Es sei $k \ge 2$ und $\mcal T_h$ eine quasi-uniforme Triangulierung\index{Triangulierung!quasi-uniform} von $\Omega$. Dann gilt für die Interpolation $I_h$ auf die stetigen, stückweise durch Polynome vom Grad $k-1$ gegebenen Funktionen mit einer von $\Omega, \kappa$ und $k$ abhängigen Kontanten $c$ die a priori Fehlerabschätzung
 \[
 	\norm{u-I_hu}_m \le c h^{k-m} \abs{u}_k
 \]
-für $u \in H^k(\Omega)$ und $0\le k\le m$.
+für $u \in H^k(\Omega)$ und $0\le m\le k$.
 \end{theorem}
 
 \begin{proof}
 Für den Beweis würden wir noch weitere Ausführungen über affine Transformationen benötigen, die wir hier nicht weiter aufführen wollen. Der komplette Beweis ist in \cite{BraeFEM} auf Seite 75ff einzusehen.
 \end{proof}
 
+\item für $k=2$ (lineare Polynome) und $m=1$ (Norm in $H^1$) gilt dann
+\[
+	\norm{u-I_hu}_1 \le c h \abs{u}_2
+\]
+für $u \in H^2(\Omega)$.
+
 \item
 \begin{kor}
-für lineare Elemente ...
+Für lineare $C^0$-Elemente gilt bzgl. der Galerkin-Approximation $u_h$ die a priori Fehlerschätzung für unser Modellproblem \eqref{eq:DP}
+\[
+	\norm{u-u_h}_1 \le \tilde c h \abs{u}_2 \, .
+\]
 \end{kor}
 
+\begin{proof}
+Mit Theorem \ref{theorem:2.28} und Satz \ref{satz:2.27} folgt
+\begin{align*}
+	\norm{u-u_h}_1& \le \(\frac {c_1}\alpha\)^{\frac 1 2} \inf_{v\in V_h} \norm{u-v}_1\\ 
+	& \le \(\frac {c_1}\alpha\)^{\frac 1 2}  \norm{u-I_h u}_1 \\
+	& \le \(\frac {c_1}\alpha\)^{\frac 1 2} c_2 h \abs{u}_2 \, .
+\end{align*}
+Mit $u\in H^2(\Omega)$ und $\tilde c := \(\frac {c_1}\alpha\)^{\frac 1 2} c_2 $ folgt dann die Behauptung.
+\end{proof}
+
 \item[$\Ra$] Überleitung zu adaptiven Verfahren
+
+\item durch Verfeinerung des Netzes (Verkleinerung von $h$) wird der Fehler zwischen der exakten Lösung $u$ und der Galerkin-Approximation $u_h$ linear kleiner $\Ra$ verfeinere das Netz hinreichend weit, um möglichst genaues Ergebnis zu erhalten
 \end{itemize}
 
 
@@ -788,11 +811,50 @@ für lineare Elemente ...
 
 \section{Adaptive Verfeinerungsstrategien}
 
+\begin{itemize}
+\item durch Netzverfeinerung erhält das numerische Problem mehr Informationen (mehr Punkte werden betrachtet)
+
+\item[$\Ra$]  größeres LGS, also langsamer zu Lösen; dies ist nicht vorteilhaft 
+
+\item Abhilfe: wir verfeinern nur Dreiecke bzw. Knoten, die einen großen lokalen Anteil am Gesamtfehler haben, d.h. an Stellen, wo der Fehler groß ist, erhöhen wir den Informationsgrad (mehr Punkte), um den Fehler zu Verfeinern
+
+\item die zu verfeinernden Knoten werden abhängig von der aktuellen Verfeinerung berechnet, d.h. adaptiv
+\end{itemize}
+
 \subsection{A posteriori Fehlerschätzer}
 
 \begin{itemize}
-\item Fehlerschätzer $\ra$ alle aufführen (s. Braess) $\ra$ damit verbundene adaptive Verfeinerungsstrategien (wie arbeitet Matlab mit Verfeinerung und welche Verfeinerungen gibt es?)
+\item für die zu verfeinernden Knoten muss der Fehler zwischen der Approximation $u_h$ und der (nicht unbedingt bekannten) exakten Lösung $u$ abschätzen
+
+\item hierfür a posteriori Schätzer zu benutzen $\ra$ ein Fehlerschätzer, der den Fehler im Schritt $n+1$ durch den Fehler im Schritt $n$ abschätzt.
+
+\item es gibt verschiedene Arten von Fehlerschätzern (vgl. \cite{BraeFEM} Kapitel III, \S 8, Seite 176)
+\begin{enumerate}[(a)]
+\item Residuale Schätzer
+\item Schätzung über ein lokales Neumann-Problem
+\item Schätzung über ein lokales Dirichlet-Problem
+\item Schätzung durch Mitteilung
+\item Hierarchische Schätzer
+\end{enumerate}
+
+\item wir wollen in dieser Arbeit nur hierarchische Schätzer betrachten
+
+\item daher: Idee von hierarchischem Schätzer erklären
 \end{itemize}
+
+
+\subsection{Verfeinerung des Netzes}
+
+\begin{itemize}
+\item wie kann ein Element verfeinert werden $\ra$ Algorithmus, damit auch auch die Triangulierung konform bzw. zulässig bleibt
+
+\item[$\Ra$] Regeln für die Zulässigkeit nötig: vgl. \cite{BraeFEM} Seite 96 unten Punkt 8.1 oder \cite{StarkePDE}
+\end{itemize}
+
+
+
+
+
 
 \section{Einführung in die Strukturmechanik}
 
