@@ -342,7 +342,7 @@ was im Widerspruch zu \eqref{eq:3.14} steht, daraus folgt die Behauptung.
 \end{proof}
 
 \item das Problem \eqref{eq:3.14} ist äquivalent zu einem quadratischen Optimierungsproblem
-\begin{satz}[Äquivalenz zu quadratischem Programm]
+\begin{satz}[Äquivalenz zu quadratischem Programm]\label{satz:3.11}
 Das Problem \eqref{eq:3.14} ist äquivalent zum quadratischen Programm\index{quadratisches Programm}
 \begin{align}\label{eq:3.16}
 	\min_{\bs\nu \in \R^N} J(\bs\nu) = \frac 1 2 \bs \nu^T A \bs \nu - \bs f^T \bs \nu\quad \text{s.t.} \quad \bs \nu \ge \bs \psi \, .
@@ -389,10 +389,81 @@ Also ist $\mu \in K_{\mcal S}$ auch Lösung von \eqref{eq:3.15}.
 \end{proof}
 
 \item \begin{bem}
-Das quadratische Programm \eqref{eq:3.16} hat mit den Voraussetzungen aus Bemerkung \ref{bem:2.17} eine globale Lösung $\bs\mu$, wenn diese die KKT-Bedingungen \eqref{eq:KKT} erfüllt (vgl. Theorem \ref{theorem:B.1}).
+Analog zu Satz \ref{satz:3.10} und \ref{satz:3.11} können wir auch zeigen, dass das quadratische Programm
+\begin{align}\label{eq:3.21}
+	\min_{\bs\nu \in \R^N} J(\bs\nu) = \frac 1 2 \bs \nu^T A \bs \nu - \bs f^T \bs \nu \quad \text{s.t.} \quad B\bs\nu \ge \bs \psi
+\end{align}
+mit $B \in \R^{M\times N}$ äquivalent ist zur Variationsungleichung: Finde $\bs\mu \in \R^N$ mit $B\bs\mu \ge \bs \psi$, so dass
+\begin{align}\label{eq:3.22}
+	(A\bs\mu - \bs f)^T (\bs\nu-\bs\mu) \ge 0 \quad \forall\, \bs\nu \in \R^N \text{ mit } B \bs \nu \ge \bs\psi \, .
+\end{align}
+\end{bem}
+
+
+\item \begin{bem}
+Die quadratischen Programme \eqref{eq:3.16} und \eqref{eq:3.21} hat mit den Voraussetzungen aus Bemerkung \ref{bem:2.17} eine globale Lösung $\bs\mu$, wenn diese die KKT-Bedingungen \eqref{eq:KKT} erfüllt (vgl. Theorem \ref{theorem:B.1}).
 \end{bem}
 
 \item mit dem im Anhang \ref{anhang:B.2} vorgestellten \idx{Active-Set-Algorithmus} kann ein solches quadratisches Programm gelöst werden
+
+\item es bleibt noch zu prüfen, ob sich die Lösung der Variationsungleichung für Netzverfeinerung an die exakte Lösung konvergiert
+
+\item \begin{vor}
+Gegeben sei ein Parameter $h \ra 0$. Weiter seien $(V_h)_h$ eine Familie aus abgeschlossenen Teilmengen von einem Hilbertraum $H, \emptyset \not= K \subset H$ eine konvexe abgeschlossene Teilmenge und $(K_h)_h$ eine Familie von abgeschlossenen konvexen nichtleeren Teilmengen von $H$, so dass $K_h \subset V_h$ für alle $h$, wobei gilt:
+\begin{enumerate}[(i)]
+\item wenn $(v_h)_h$ eine in $V$ beschränkte Folge mit $v_h \in K_h$ ist, dann folgt $v_h \ra v \in K$,
+\item es existiert ein $W \subset V$ mit $\overline W = K$ and ein $I_h: W \ra K_h$, so dass
+\[
+	\lim_{h\ra 0} I_h v = v
+\]
+stark in $V$ für alle $v \in W$ konvergiert.
+\end{enumerate}
+\end{vor}
+
+\item Konvergenz von $u_h$ gegen die exakte Lösung $u$.
+\begin{theorem}[Konvergenz]
+Mit den obigen Voraussetzungen für $K$ und $(K_h)_h$ gilt für die Lösungen $u$ von \eqref{eq:3.7} und $u_h$ vom approximierten Problem: Finde $u_h \in K_h$, so dass
+\begin{align}\label{eq:3.23}
+	a(u_h,v_h-u_h) \ge F(v_h-u_h) \quad \forall \, v_h \in K_h \, , 
+\end{align}
+der Zusammenhang
+\begin{align*}
+	\lim_{h\ra 0} \norm{u_h-u}_H  = 0 \, .
+\end{align*}
+\end{theorem}
+
+\begin{proof}
+(i) \underline{Abschätzung von $u_h$:} Es sei $u_h$ Lösung von \eqref{eq:3.23}, dann gilt nach einer Umformung für alle $v_h \in K_h$
+\begin{align*}
+	a(u_h,u_h) & \le a(u_h,v_h)-F(v_h-u_h) \\ 
+	& = (Au_h,v_h)_H - (f,v_h-u_h)_H \\
+	& \stackrel{\scriptsize\textnormal{CS}}\le \underbrace{\norm{Au_h}_H}_{\le\norm{A} \norm{u_h}_H} \, \norm{v_h}_H + \norm{f}_H\underbrace{\norm{v_h-u_h}_H}_{\le \norm{v_h}_H+\norm{u_h}_H} \\
+	& \le \norm A \, \norm{u_h}_H  \norm{v_h}_H + \norm f_H \, (\norm{v_h}_H+\norm{u_h}_H)  \, .
+\end{align*}
+Zusammen mit der Koerzivität folgt dann
+\begin{align}\label{eq:3.24}
+	\alpha \, \norm{u_h}^2_H \le \norm A \, \norm{u_h}_H  \norm{v_h}_H + \norm f_H \, (\norm{v_h}_H+\norm{u_h}_H) \, .
+\end{align}
+Wähle ein festes $v_0 \in W$, sodass $I_h v_0 = v_h \in K_h$ gilt. Aus Voraussetzungen (ii) folgt dann
+\[
+	\lim_{h\ra 0} I_h v_0 = v_0
+\]
+und daher muss $v_h$ beschränkt sein, d.h. es existiert ein $m \in \R: \norm{v_h}_H \le m$ für alle $h$. Zusammen mit \eqref{eq:3.24} gilt dann
+\begin{align*}
+	\norm{u_h}^2_H & \le \frac 1 \alpha (m \, \norm A \, \norm{u_h}_H + \norm f_H (m+\norm{u_h}_H)) \\
+	& = \underbrace{\(\frac m \alpha\, \norm A +  \norm f_H \)}_{\eqqcolon c_1} \norm{u_h}_H + \underbrace{\frac m\alpha\norm f_H}_{ \eqqcolon c_2} \\
+	& = c_1 \, \norm{u_h}_H + c_2
+\end{align*}
+und damit können wir durch quadratischer Ergänzung folgern, dass es ein $c \in \R$ gibt mit $\norm{u_h} \le c$ für alle $h$, d.h. $(u_h)_h$ ist gleichmäßig beschränkt.
+
+(ii) \underline{schwache Konvergenz:} Da $(u_h)_h$ in $H$ gleichmäßig beschränkt ist, folgt mit Bemerkung \ref{bem:A.13} (b), dass es eine schwach konvergente Teilfolge $(u_{h_j})_{h_j} \in K_{h_j}$ mit einem Grenzwert $u^*$ in $H$ gibt, d.h.
+\[
+	u_{h_j} \rightharpoonup u^* \in H \, .
+\]
+Mit den Voraussetzungen (i) für $(K_h)_h$ folgt direkt $u^* \in K$, außerdem ist $u^*$ nach Bemerkung \ref{bem:A.13} (e) eindeutig.
+
+Wir zeigen nun, dass $u^*$ eine Lösung von \eqref{eq:3.7} ist.
+\end{proof}
 \end{itemize}
 
 

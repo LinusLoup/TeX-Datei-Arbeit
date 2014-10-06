@@ -142,6 +142,78 @@ Siehe \cite{GopRieTam}, Kapitel 3.3.3, Satz 3.35.
 \end{proof}
 
 
+\section{Konvergenzbegriffe}
+\label{anhang:A.3}
+
+\begin{defi}\label{defi:A.12}
+Es sei $m\in \N, 1\leq p < \infty, 1 = \frac 1 p + \frac 1 {p'}$.
+\begin{enumerate}[(a)]
+\item Eine Folge $(u_j)$ in $L_p$ konvergiert schwach gegen $u \in L_p(\Omega)$
+\begin{align*}
+	&: \Longleftrightarrow u_j \rightharpoonup u \text{ in } L_p(\Omega) \\
+	& : \Longleftrightarrow \, \fa \, v \in L_{p'}(\Omega) : \int_\Omega u_j v \d x \longrightarrow \int_\Omega uv \d x \text{ in } \K \, .
+\end{align*}
+\item Eine Folge $(u_j) \in W^m_p(\Omega)$ konvergiert schwach gegen $u \in W_p^m (\Omega)$
+\begin{align*}
+	& : \Longleftrightarrow u_j \rightharpoonup u \text{ in } W_p^m(\Omega) \\
+	& : \Longleftrightarrow \partial^\alpha u_j \rightharpoonup \partial^\alpha u \text{ in } L_p(\Omega) \, \forall \, \abs\alpha \leq m \, .
+\end{align*}
+\end{enumerate}
+\end{defi}
+
+
+\begin{bem}
+\label{bem:A.13}
+Sei $1\leq p < \infty, m \in \N$, dann ist:
+\begin{enumerate}[(a)]
+\item Ist $u_j \ra u$ in $W^m_p(\Omega)$, dann folgt $u_j \rightharpoonup u$ in $W^m_p(\Omega)$, d.h. "`starke Konvergenz ist stärker als schwache Konvergenz"'.
+\begin{proof}
+$\fa \, v \in L_{p'}(\Omega), \abs \alpha \leq m$ gilt
+\[
+	\Abs{\int_\Omega (\partial^\alpha u_j - \partial^\alpha u) v \d x} \stackrel[\scriptsize\text{Hölder}]{}\leq \norm v_{L_{p'}(\Omega)} \norm{\partial^\alpha u_j -\partial^\alpha u }_{L_p(\Omega)} \longrightarrow 0 \, .\qedhere
+\]
+\end{proof}
+\item Sei $1 < p < \infty, (u_j)\subset W^m_p(\Omega)$ beschränkt (bzgl. $\norm{\, \cdot\, }_{W^m_p}$), dann folgt, dass eine Teilfolge $(u_{j'})$ und ein $u \in W^m_p(\Omega)$ existiert, so dass $u_{j'} \rightharpoonup u$ in $W^m_p(\Omega)$, d.h. "`beschränkte Folgen sind relativ schwach kompakt"'.
+\begin{proof}
+Vgl. \cite{Rudin}.
+\end{proof}
+\item Es sei $M\subset W^m_p(\Omega)$ konvex und abgeschlossen (bzgl. $\norm{\, \cdot\, }_{W^m_p}$), sowie $(u_j) \subset M$ mit $u_j \rightharpoonup u $ in $W^m_p(\Omega)$, dann ist $u \in M$, d.h. "`abgeschlossene konvexe Mengen sind schwach abgeschlossen"' (Theorem von Mazun; ohne Beweis, vgl. \cite{Rudin}).
+\item Es sei $u_j \rightharpoonup u $ in $W^p_m (\Omega)$, dann folgt $(u_j)$ ist beschränkt in $W^m_p(\Omega)$ (bzgl. $\norm{\, \cdot\, }_{W^m_p}$), d.h. "`schwach konvergente Folgen sind beschränkt"'.
+\begin{proof}
+Theorem von Mackey, vgl. \cite{Rudin}.
+\end{proof}
+\item $u_ j \rightharpoonup u $ in $W^m_p(\Omega), u_j \rightharpoonup v$ in $W^m_p(\Omega)$, dann gilt $u=v$, d.h. "`Grenzwerte von schwach konvergenten Folgen sind eindeutig"'.
+\begin{proof}
+Aus dem Hauptsatz der Variationsrechnung folgt die Behauptung.
+\end{proof}
+\item Sei $u_j \rightharpoonup u $ in $W^m_p(\Omega)$, dann folgt $\norm u_{W^m_p(\Omega)} \leq \lim \inf \norm{u_j}_{W^m_p(\Omega)}$.
+\end{enumerate}
+\end{bem}
+
+\begin{theorem}\label{theorem:A.14}
+In einem reflexiven Raum $V$\index{reflexiver Raum}, d.h. der Bidualraum $V''$ ist isomorph zu $V$, besitzt jede beschränkte Folge $(v_n)_{n\in \N}$ eine schwach konvergente Teilfolge $(v_{n_j})$.
+\end{theorem}
+
+\begin{proof}
+Der Beweis befindet sich in \cite{Werner} Kapitel III, Theorem 3.7.
+\end{proof}
+
+\begin{bem}\label{bem:A.15}
+Jeder Hilbertraum $H$ ist reflexiv.
+\end{bem}
+
+\begin{proof}
+Dies folgt aus dem Darstellungssatz von Riesz (Satz \ref{satz:2.14}).
+\end{proof}
+
+
+
+
+
+
+
+
+
 
 \newchapter{Optimierung}
 \label{anhang:B}
@@ -340,6 +412,18 @@ Gegeben sei ein zulässiger Startpunkt $\bs x_0$ für \eqref{eq:QP} und definier
 \EndFor
 \end{algorithmic}
 \end{algorithm}
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 \newchapter{Quellcode}

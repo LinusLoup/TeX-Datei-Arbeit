@@ -73,6 +73,12 @@
 \newblock 2. ed.
 \newblock New York, NY : Springer, 2006
 
+\bibitem[Rud91]{Rudin}
+\textsc{Rudin}, Walter:
+\newblock \emph{Functional Analysis}.
+\newblock 2. Auflage.
+\newblock McGraw-Hill, 1991
+
 \bibitem[Sta08]{StarkePDE}
 \textsc{Starke}, Gerhard:
 \newblock Numerik partieller Differentialgleichungen / IFAM - Universität

@@ -38,10 +38,11 @@
 \BOOKMARK [0][-]{appendix.A}{Funktionalanalysis}{}% 38
 \BOOKMARK [1][-]{section.A.1}{Sobolev-R\344ume}{appendix.A}% 39
 \BOOKMARK [1][-]{section.A.2}{Optimalit\344tskriterien}{appendix.A}% 40
-\BOOKMARK [0][-]{appendix.B}{Optimierung}{}% 41
-\BOOKMARK [1][-]{section.B.1}{Quadratische Programmierung}{appendix.B}% 42
-\BOOKMARK [1][-]{section.B.2}{Active Set-Methode f\374r konvexe QPs}{appendix.B}% 43
-\BOOKMARK [1][-]{section.B.3}{Algorithmus}{appendix.B}% 44
-\BOOKMARK [0][-]{appendix.C}{Quellcode}{}% 45
-\BOOKMARK [1][-]{section.C.1}{Implementierung des Fehlersch\344tzers f\374r das Hindernisproblem}{appendix.C}% 46
-\BOOKMARK [0][-]{section.C.1}{Index}{}% 47
+\BOOKMARK [1][-]{section.A.3}{Konvergenzbegriffe}{appendix.A}% 41
+\BOOKMARK [0][-]{appendix.B}{Optimierung}{}% 42
+\BOOKMARK [1][-]{section.B.1}{Quadratische Programmierung}{appendix.B}% 43
+\BOOKMARK [1][-]{section.B.2}{Active Set-Methode f\374r konvexe QPs}{appendix.B}% 44
+\BOOKMARK [1][-]{section.B.3}{Algorithmus}{appendix.B}% 45
+\BOOKMARK [0][-]{appendix.C}{Quellcode}{}% 46
+\BOOKMARK [1][-]{section.C.1}{Implementierung des Fehlersch\344tzers f\374r das Hindernisproblem}{appendix.C}% 47
+\BOOKMARK [0][-]{section.C.1}{Index}{}% 48
