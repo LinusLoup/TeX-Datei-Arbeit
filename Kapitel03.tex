@@ -1,5 +1,7 @@
 \newchapter{Variationsungleichungen}
 
+Dieses Kapitel basiert auf \cite{KikOden}, \cite{StarkeVar}, \cite{EPS}, \cite{EPSContact}, \cite{WriggersFEM}, \cite{HlaHas}, \cite{Glow}, \cite{Falk}.
+
 \section{Ein Hindernisproblem}
 
 \begin{itemize}
@@ -506,6 +508,18 @@ Da $u_h \rightharpoonup u$ in $H$ und $I_h v \ra v$ in $H$ für $h \ra 0$, folgt
 	0 \le \alpha \lim_{h\ra 0} \norm{u_h-u}^2_H \le a(u,v-u)-F(v-u) \quad \forall \, v \in W \, .
 \end{align}
 Da $a$ und $F$ stetig sind und $W$ dicht in $K$ liegt, gilt \eqref{eq:3.30} auch für alle $v \in K$. Setzen wir dann also $v = u$ in \eqref{eq:3.30}, dann folgt die Behauptung $\lim_{h\ra 0} \norm{u_h - u }_H^2 = 0$. 
+\end{proof}
+
+\item Es lässt sich folglich auch eine a priori Abschätzung für den Fehler von $u$ und $u_h$ machen. Die Herleitung ist detailliert in \cite{Falk} wiederzufinden.
+\begin{theorem}[a priori Fehlerabschätzung]
+Es seien $u$ und $u_h$ die Lösungen von \eqref{eq:3.7} und \eqref{eq:3.23}. Dann existiert eine Konstante $C \coloneqq C(\Omega, f, \psi)$ unabhängig von $u$, so dass
+\[
+	\norm{u_h-u}_1 \le C h \, .
+\]
+\end{theorem}
+
+\begin{proof}
+Vgl. \cite{Falk}.
 \end{proof}
 
 \item damit führt die Netzverfeinerung also zur exakten Lösung der Variationsungleichung

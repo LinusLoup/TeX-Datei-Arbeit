@@ -44,10 +44,29 @@
 \newblock Adaptive finite elements for elastic bodies in contact.
 \newblock {In: }\emph{SIAM J. Sci. Comput.} 20 (1999), Nr. 5, S. 1605--1626
 
+\bibitem[Fal74]{Falk}
+\textsc{Falk}, Richard~S.:
+\newblock Error estimates for the approximation of a class of variational
+  inequalities.
+\newblock {In: }\emph{Math. Comp.} 28 (1974), S. 963--971
+
+\bibitem[Glo08]{Glow}
+\textsc{Glowinski}, Roland:
+\newblock \emph{Numerical methods for nonlinear variational problems}.
+\newblock Reprint.
+\newblock Springer, 2008
+
 \bibitem[GRT09]{GopRieTam}
 \textsc{Göpfert}, A. ; \textsc{Riedrich}, T.  ; \textsc{Tammer}, C.:
 \newblock \emph{Angewandte Funktionalanalysis}.
 \newblock Vieweg und Teubner, 2009
+
+\bibitem[HHNL80]{HlaHas}
+\textsc{Hlavácek}, I. ; \textsc{Haslinger}, J. ; \textsc{Necas}, J.  ;
+  \textsc{Lovísek}, J.:
+\newblock \emph{Solution of Variational Inequalities in Mechanics}.
+\newblock 9. Auflage.
+\newblock Springer, 1980
 
 \bibitem[{Joh}92]{JohnObs}
 \textsc{{Johnson}}, Claes:
@@ -123,6 +142,12 @@
 \newblock \emph{Funktionalanalysis}.
 \newblock 7. Auflage.
 \newblock Springer, 2011
+
+\bibitem[Wri01]{WriggersFEM}
+\textsc{Wriggers}, Peter:
+\newblock \emph{Nichtlineare Finite-Element-Methoden}.
+\newblock 5. Auflage.
+\newblock Springer, 2001
 
 \bibitem[Zou11]{Zou}
 \textsc{Zou}, Qingsong:
