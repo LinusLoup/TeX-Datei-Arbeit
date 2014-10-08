@@ -411,7 +411,9 @@ Die quadratischen Programme \eqref{eq:3.16} und \eqref{eq:3.21} hat mit den Vora
 \item es bleibt noch zu prüfen, ob sich die Lösung der Variationsungleichung für Netzverfeinerung an die exakte Lösung konvergiert
 
 \item \begin{vor}
-Gegeben sei ein Parameter $h \ra 0$. Weiter seien $(V_h)_h$ eine Familie aus abgeschlossenen Teilmengen von einem Hilbertraum $H, \emptyset \not= K \subset H$ eine konvexe abgeschlossene Teilmenge und $(K_h)_h$ eine Familie von abgeschlossenen konvexen nichtleeren Teilmengen von $H$, so dass $K_h \subset V_h$ für alle $h$, wobei gilt:
+Gegeben sei ein Parameter $h \ra 0$. Weiter seien $(V_h)_h$ eine Familie aus abgeschlossenen Teilmengen von einem Hilbertraum $H, \emptyset \not= K \subset H$ eine konvexe abgeschlossene Teilmenge und $(K_h)_h$ eine Familie von abgeschlossenen konvexen nichtleeren Teilmengen von $H$, so dass $K_h \subset V_h$ für alle $h$.
+
+Dabei sei $K_h$ eine Approximation von $K$ im folgenden Sinne:
 \begin{enumerate}[(i)]
 \item wenn $(v_h)_h$ eine in $V$ beschränkte Folge mit $v_h \in K_h$ ist, dann folgt $v_h \ra v \in K$,
 \item es existiert ein $W \subset V$ mit $\overline W = K$ and ein $I_h: W \ra K_h$, so dass
@@ -509,6 +511,8 @@ Da $u_h \rightharpoonup u$ in $H$ und $I_h v \ra v$ in $H$ für $h \ra 0$, folgt
 \end{align}
 Da $a$ und $F$ stetig sind und $W$ dicht in $K$ liegt, gilt \eqref{eq:3.30} auch für alle $v \in K$. Setzen wir dann also $v = u$ in \eqref{eq:3.30}, dann folgt die Behauptung $\lim_{h\ra 0} \norm{u_h - u }_H^2 = 0$. 
 \end{proof}
+
+\item \underline{Überlegung:} Inwiefern hält unser $K_h$ diese Voraussetzungen ein.
 
 \item Es lässt sich folglich auch eine a priori Abschätzung für den Fehler von $u$ und $u_h$ machen. Die Herleitung ist detailliert in \cite{Falk} wiederzufinden.
 \begin{theorem}[a priori Fehlerabschätzung]

@@ -36,14 +36,14 @@
 \contentsline {section}{\numberline {6.2}Numerisches Beispiel zum Kontaktproblem}{45}{section.6.2}
 \contentsline {chapter}{\numberline {7}Zusammenfassung und Ausblick}{46}{chapter.7}
 \contentsline {chapter}{Literaturverzeichnis}{47}{chapter.7}
-\contentsline {chapter}{\numberline {A}Funktionalanalysis}{49}{appendix.A}
-\contentsline {section}{\numberline {A.1}Sobolev-R\IeC {\"a}ume}{49}{section.A.1}
-\contentsline {section}{\numberline {A.2}Optimalit\IeC {\"a}tskriterien}{51}{section.A.2}
-\contentsline {section}{\numberline {A.3}Konvergenzbegriffe}{51}{section.A.3}
-\contentsline {chapter}{\numberline {B}Optimierung}{53}{appendix.B}
-\contentsline {section}{\numberline {B.1}Quadratische Programmierung}{53}{section.B.1}
-\contentsline {section}{\numberline {B.2}Active Set-Methode f\IeC {\"u}r konvexe QPs}{54}{section.B.2}
-\contentsline {section}{\numberline {B.3}Algorithmus}{58}{section.B.3}
-\contentsline {chapter}{\numberline {C}Quellcode}{59}{appendix.C}
-\contentsline {section}{\numberline {C.1}Implementierung des Fehlersch\IeC {\"a}tzers f\IeC {\"u}r das Hindernisproblem}{59}{section.C.1}
-\contentsline {chapter}{Index}{59}{section.C.1}
+\contentsline {chapter}{\numberline {A}Funktionalanalysis}{50}{appendix.A}
+\contentsline {section}{\numberline {A.1}Sobolev-R\IeC {\"a}ume}{50}{section.A.1}
+\contentsline {section}{\numberline {A.2}Optimalit\IeC {\"a}tskriterien}{52}{section.A.2}
+\contentsline {section}{\numberline {A.3}Konvergenzbegriffe}{52}{section.A.3}
+\contentsline {chapter}{\numberline {B}Optimierung}{54}{appendix.B}
+\contentsline {section}{\numberline {B.1}Quadratische Programmierung}{54}{section.B.1}
+\contentsline {section}{\numberline {B.2}Active Set-Methode f\IeC {\"u}r konvexe QPs}{55}{section.B.2}
+\contentsline {section}{\numberline {B.3}Algorithmus}{59}{section.B.3}
+\contentsline {chapter}{\numberline {C}Quellcode}{60}{appendix.C}
+\contentsline {section}{\numberline {C.1}Implementierung des Fehlersch\IeC {\"a}tzers f\IeC {\"u}r das Hindernisproblem}{60}{section.C.1}
+\contentsline {chapter}{Index}{60}{section.C.1}
