@@ -154,6 +154,12 @@
 \newblock 5. Auflage.
 \newblock Springer, 2001
 
+\bibitem[Wri06]{WriggersContact}
+\textsc{Wriggers}, Peter:
+\newblock \emph{Computional Contact Mechanics}.
+\newblock 2. Auflage.
+\newblock Springer, 2006
+
 \bibitem[Zou11]{Zou}
 \textsc{Zou}, Qingsong:
 \newblock Efficient and reliable hierarchical error estimates for an elliptic
