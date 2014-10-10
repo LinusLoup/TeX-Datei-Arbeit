@@ -1,6 +1,6 @@
 \newchapter{Variationsungleichungen}
 
-Dieses Kapitel basiert auf \cite{KikOden}, \cite{StarkeVar}, \cite{EPS}, \cite{EPSContact}, \cite{WriggersFEM}, \cite{HlaHas}, \cite{Glow}, \cite{Falk}.
+Dieses Kapitel basiert auf \cite{KikOden}, \cite{StarkeVar}, \cite{EPS}, \cite{EPSContact}, \cite{WriggersFEM}, \cite{WriggersContact}, \cite{HlaHas}, \cite{Glow}, \cite{Falk}.
 
 \section{Ein Hindernisproblem}
 
@@ -17,6 +17,10 @@ mit $K := \{v \in H^1_0(\Omega) \with v\ge \psi$ fast überall in $\Omega\}$.
 \item wir können auch hier eine Variationsformulierung, die äquivalent zu \eqref{eq:Hindernis} ist, herleiten
 
 \item zu Beginn noch eine Skizze von einem Hindernisproblem
+
+\begin{figure}[h]
+\caption{Ein Hindernisproblem mit Hindernis $\psi$ und Last $f$}
+\end{figure}
 
 %\item hierfür zunächst wieder etwas allgemeineres Energiefunktional $J: H \ra \R, J(v) = \frac 1 2 a(v,v)-F(v)$, wobei $H$ Hilbertraum
 \end{itemize}
@@ -539,9 +543,100 @@ Vgl. \cite{Falk}.
 
 \section{Kontaktprobleme}
 
-\subsection{Mathematische Modellierung von Kontaktproblemen}
+\subsection{Mathematische Modellierung eines Kontaktproblems}
 
 \begin{itemize}
+\item 
+\begin{vor}
+Wir treffen folgende Annahmen für unser Kontaktmodell:
+\begin{enumerate}[(a)]
+\item Die in Kontakt stehenden Körper sind beschränkt.
+\item Es liegen kleine Deformationen vor und ein linearer Zusammenhang zwischen Spannung und Verzerrung (Hooke'sches Gesetz).
+\item Wir betrachten ein konstantes Temperaturfeld, d.h. thermodynamische Prozesse werden ausgeschlossen.
+\item Zu Beginn, also in der Ausgangskonfiguration, gilt für die Spannung und Verzerrung: 
+\[
+	\bs \sigma = \bs 0\, , \quad \bs \eps =\bs 0 \, .
+\]
+%\item Wir gehen von einem ebenen Problem aus, d.h. $\Omega \subset \R^2$. Im dreidimensionalen analog.
+\end{enumerate}
+\end{vor}
+
+\item zur Herleitung der starken Kontaktformulierung wollen wir zwei Körper $\mcal B^1, \mcal B^2$ betrachten, welche durch zwei beschränkte Gebiete $\Omega^1, \Omega^2$ mathematisch beschrieben werden können
+
+\item diese Voraussetzung lässt sich noch weiter verallgemeinern (s. \cite{CarWri})
+
+\item die Ränder $\Gamma^i$ von $\Omega^i, i = 1,2$, lassen sich in drei disjunkte Teile unterteilen
+\begin{enumerate}
+\item[$\Gamma^i_u$:] Der \textit{Dirichlet-Rand}\index{Randbedingungen!Dirichlet}, oder auch \textit{\idx{Verschiebungsrand}}, auf dem die Werte von der Verschiebung $\bs u$ vorgegeben sind.
+\item[$\Gamma^i_\sigma$:] Der \textit{Neumann-Rand}\index{Randbedingungen!Neumann}, oder auch \textit{\idx{Spannungsrand}}, auf dem die Oberflächenlast bzw. -spannung $\bs t$ vorgegeben ist.
+\item[$\Gamma^i_c$:] Der \textit{Kontaktrand}\index{Randbedingungen!Kontakt}, auf dem die Kontaktbedingungen definiert sind.
+\end{enumerate}
+
+\item[Skizze:] zwei Körper, deren Randunterteilung zu erkennen ist.
+\begin{figure}[h]
+\caption{Körper $\mcal B^1$ und $\mcal B^2$ mit Randbezeichnungen}
+\end{figure}
+
+\item zur Kontaktkinematik:
+
+\item für die Formulierung der Kontaktbedingungen werden den Körpern die "`Werte"' \textit{master} und \textit{slave} zugeordnet.
+
+\item slave ist dabei die Menge an Punkten, die überprüft werden, ob sie in die master-Fläche eindringen.
+
+\item Zuordnung ist irrelevant $\ra$ kein Unterschied für das Ergebnis
+
+\item o.B.d.A. sei $\mcal B^1$ slave
+
+\item wir wollen zunächst die Kontaktkinematik etwas allgemeiner als in $\cite{WriggersFEM}$ oder $\cite{WriggersContact}$ beschrieben einführen
+
+\item[Skizze:] Skizze mit zwei Körpern (nichtglatter Rand!!) und den Bezeichnungen $\chi(X)$ und $n_c(X)$.
+
+\begin{figure}[h]
+\caption{Kontaktformulierung zwischen zwei Körpern}
+\end{figure}
+
+\item für gegebenen Punkt $\bs X \in \Omega^1$, bzw. $\bs X \in \Gamma^1_c$, in der Ausgangskonfiguration ist $\bar{\bs X} \coloneqq \chi(\bs X)$ derjenige Punkt aus $\Gamma^2$, der minimalsten Abstand zu $\bs X$ hat, d.h.
+\[
+	\norm{\bs X-\bar{\bs X}} = \min \{\norm{\bs X-\bs Y} \with \bs Y \in \Gamma^2\} \, ,
+\]
+also ist $\chi: \Gamma_c^1\cup \Gamma_c^2 \ra \Gamma^1 \cup \Gamma^2$ eine Abbildung der kleinsten Distanz
+
+\item damit definieren wir entsprechend die kritische Richtung mit Länge 1 als
+\begin{align}
+	\bs n_c(\bs X) \coloneqq \frac{\chi(\bs X) - \bs X}{\norm{\chi (\bs X)-\bs X}} \, ,
+\end{align}
+wobei im Falle $\bs X = \chi(\bs X)$, d.h. im Falle des Kontaktes, eine beliebige normierte Richtung gesetzt wird.
+
+\item Bem.: $\bar{\bs X}$ ist daher kritischer Punkt, da er wegen des kleinsten Abstandes zu $\bs X$ der wohlmöglich nächste Punkt ist, der in Kontakt tritt
+
+\item[Vorteil:] diese Formulierung bzgl. der kritischen Richtung kann auch verwendet werden, wenn der Rand der Körper nicht hinreichend glatt ist.
+
+\item in den Koordinaten der Momentankonfiguration gilt $\bs x = \bs X + \bs u$ für das Verschiebungsfeld $\bs u$ und damit ergibt sich die \textit{\idx{Nichtdurchdringungsbedingung}}
+\begin{align}\label{eq:3.32}
+	(\bar{\bs x} - \bs x) \, \bs n_c (\bs X) \ge 0 \, , 
+\end{align}
+wobei $\bar{\bs x} \coloneqq \bar{\bs X} + u(\bar{\bs X})$ ist.
+
+\item das bedeutet, dass die Verbindung der Punkte in der Momantankonfiguration mit der kritischen Richtung einen Winkel $\alpha \in [-\frac \pi2,\frac \pi2]$ einschließen muss, ansonsten läge $\bar{\bs x}$ "`hinter"' $\bs x$, d.h. $\mcal B^1$ wäre in $\mcal B^2$ eingedrungen.
+
+\item 
+
+\item aus \eqref{eq:3.32} folgt
+\begin{align*}
+	0 &  \le (\bar{\bs x} - \bs x) \, \bs n_c (\bs X) = (\bar{\bs X} + u(\bar{\bs X}) -{\bs X} - u({\bs X})) \, \bs n_c(\bs X) \\
+	& = \underbrace{(\bs{\bar X} - \bs X) \frac{\bar{\bs X}-\bs X}{\norm{\bar{\bs X}-\bs X}}}_{ = \norm{\bar{\bs X}-\bs X}\eqqcolon g} + ( u(\bar{\bs X})  - u({\bs X})) \, \bs n_c(\bs X) \\
+	& = g + ( u(\chi(\bs X))  - u({\bs X})) \, \bs n_c(\bs X) \, .
+\end{align*}
+damit erhalten wir die Nichtdurchdringungsbedingung bzgl. der Ausgangskonfiguration
+
+\item da wir kleine Deformationen vorausgesetzt haben, gilt unter anderem $\bs X \approx \bs x,  \nabla_{\bs X} \approx \nabla_{\bs x}$ (vgl. \cite{AltKonti} S. 122f). Daher schreiben wir im folgenden immer $\bs x$ statt $\bs X$.
+
+\item damit schreibt sich die Nichtdurchdringungsbedingung als
+\[
+	(\bs u \circ \chi -\bs u) \cdot \bs n_c + g \ge 0 \quad \forall \, \bs x \in \Gamma_c \, .
+\]
+
+
 \item Starke Formulierung (s. Wriggers Paper) für Kontaktproblem mit Signorini-Kontakt (ohne Reibung).
 \begin{align}
 \div \bs \sigma + \bs b &= \bs 0 \text{ in } \Omega\\

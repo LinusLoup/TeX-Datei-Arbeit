@@ -1,7 +1,15 @@
 \select@language {ngerman}
 \addvspace {10\p@ }
 \addvspace {10\p@ }
+\contentsline {figure}{\numberline {2.1}{\ignorespaces Zul\IeC {\"a}ssige und nichtzul\IeC {\"a}ssige Triangulierung}}{20}{figure.2.1}
+\contentsline {figure}{\numberline {2.2}{\ignorespaces Beispiele quasiuniformer Zerlegungen}}{21}{figure.2.2}
+\contentsline {figure}{\numberline {2.3}{\ignorespaces Dreiecke f\IeC {\"u}r nodale Basisfunktionen (linear, quadratisch, kubisch)}}{22}{figure.2.3}
+\contentsline {figure}{\numberline {2.4}{\ignorespaces Triangulierung von $\Omega = [-1,1]^2$ in 8 \textit {Courant-Elemente}}}{23}{figure.2.4}
+\contentsline {figure}{\numberline {2.5}{\ignorespaces Ein Referenzelement f\IeC {\"u}r Dreiecke}}{25}{figure.2.5}
 \addvspace {10\p@ }
+\contentsline {figure}{\numberline {3.1}{\ignorespaces Ein Hindernisproblem mit Hindernis $\psi $ und Last $f$}}{30}{figure.3.1}
+\contentsline {figure}{\numberline {3.2}{\ignorespaces K\IeC {\"o}rper $\mathcal B^1$ und $\mathcal B^2$ mit Randbezeichnungen}}{43}{figure.3.2}
+\contentsline {figure}{\numberline {3.3}{\ignorespaces Kontaktformulierung zwischen zwei K\IeC {\"o}rpern}}{43}{figure.3.3}
 \addvspace {10\p@ }
 \addvspace {10\p@ }
 \addvspace {10\p@ }
