@@ -693,11 +693,12 @@ wobei $\mcal C : \bs \eps$ das doppelt verjüngende Skalarprodukt beschreibt.
 	\bs \sigma  - \mcal C :\bs \eps  = \bs 0&\ \ \text{ in } \Omega\\
 	\bs \sigma \cdot \bs n = \bs t &\ \ \text{ auf } \Gamma_\sigma \\
 	\bs u = \bs 0 &\ \ \text{ auf }\Gamma_u \\
+	\label{eq:3.41e}
 	\begin{aligned}
 		 u_n  - g& \le 0 \\
 		\sigma_n &\le 0 \\
 		(u_n  - g)\,  \sigma_n &= 0  \\
-		\bs \sigma_t &= 0
+		\bs \sigma_t &= \bs 0
 	\end{aligned}&\Bigg\}
 \text{ auf } \Gamma_c 
 \end{align}
@@ -705,7 +706,16 @@ wobei $\mcal C : \bs \eps$ das doppelt verjüngende Skalarprodukt beschreibt.
 
 \item was ändert sich, wenn wir Reibung betrachten
 \begin{bem}
+Ein Kontaktmodell mit $\bs \sigma_t \not = \bs 0$ ist das Modell mit \textit{\idx{Tresca-Reibung}}. Hierbei wird die letzte Bedingung aus \eqref{eq:3.41e} durch die Bedingungen
+\begin{align}\label{eq:3.42}
+	\norm{\bs \sigma_t} \le \mscr F \, , \quad \bs \sigma_t \bs u_t + \mscr F\,  \norm{\bs u_t} = 0
+\end{align}
+mit $\bs u_t \coloneqq \bs u - u_n \bs n$, dem tangentialen Anteil des Verschiebungsfeldes $\bs u$. Hierbei ist $\mscr F \ge 0$ eine Schranke für die Reibung. Wir können für $\bs u_t \not = 0$ aus der zweiten Gleichung von \eqref{eq:3.42} nachrechnen, dass gilt
+\[
+	hier rechnung
+\]
 
+Mit $\mscr F \coloneqq \mu \sigma_n$ erhalten wir das \textit{Reibungsgesetz von Coulomb}\index{Coulomb-Reibung}.
 \end{bem}
 
 \item Anreißen von Kontaktproblem mit Tresca-Reibung (vgl. Numerik für Kontaktmechanik von Stephan und Vug von Starke) $\Ra$ Herleitung der Variationsungleichung durch Ableitung nicht mehr möglich, da Reibungspotential nicht mehr differenzierbar.

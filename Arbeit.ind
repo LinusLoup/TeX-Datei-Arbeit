@@ -13,6 +13,8 @@
   \indexspace
 
   \item Cauchy-Schwarz'sche Ungleichung, \hyperpage{7}
+  \item Cauchy-Theorem, \hyperpage{45}
+  \item Coulomb-Reibung, \hyperpage{46}
   \item Courant-Elemente, \hyperpage{23}
 
   \indexspace
@@ -30,9 +32,9 @@
 
   \indexspace
 
-  \item G\IeC {\^a}teaux-Ableitung, \hyperpage{56}
-    \subitem rechtsseitig, \hyperpage{56}
-  \item G\IeC {\^a}teaux-differenzierbar, \hyperpage{56}
+  \item G\IeC {\^a}teaux-Ableitung, \hyperpage{57}
+    \subitem rechtsseitig, \hyperpage{57}
+  \item G\IeC {\^a}teaux-differenzierbar, \hyperpage{57}
   \item Galerkin-Approximation, \hyperpage{25, 26}
   \item Galerkin-Orthogonalit\IeC {\"a}t, \hyperpage{26}
 
@@ -40,6 +42,7 @@
 
   \item Hilbertraum, \hyperpage{7}
   \item homogenen Dirichlet-Problem, \hyperpage{10}
+  \item Hooke'sche-Gesetz, \hyperpage{46}
 
   \indexspace
 
@@ -48,7 +51,7 @@
   \indexspace
 
   \item Lagrange-Basis, \hyperpage{22}
-  \item Lebesgue-Raum, \hyperpage{54}
+  \item Lebesgue-Raum, \hyperpage{55}
   \item lineares Komplementarit\IeC {\"a}tsproblem, \hyperpage{37}
 
   \indexspace
@@ -76,20 +79,21 @@
     \subitem Dirichlet, \hyperpage{43}
     \subitem Kontakt, \hyperpage{43}
     \subitem Neumann, \hyperpage{43}
-  \item Raum der Testfunktionen, \hyperpage{54}
-  \item reflexiver Raum, \hyperpage{57}
+  \item Raum der Testfunktionen, \hyperpage{55}
+  \item reflexiver Raum, \hyperpage{58}
   \item Riesz'scher Darstellungssatz, \hyperpage{16}
 
   \indexspace
 
-  \item schwache Ableitung, \hyperpage{54}
+  \item schwache Ableitung, \hyperpage{55}
   \item schwache L\IeC {\"o}sung, \hyperpage{10}
-  \item Signorini-Kontakt, \hyperpage{42}
-  \item Sobolev-Raum, \hyperpage{54}
+  \item Signorini-Kontakt, \hyperpage{42}, \hyperpage{45}
+  \item Sobolev-Raum, \hyperpage{55}
   \item Spannungsrand, \hyperpage{43}
 
   \indexspace
 
+  \item Tresca-Reibung, \hyperpage{46}
   \item Triangulierung, \hyperpage{20}
     \subitem konform, \hyperpage{20}
     \subitem quasi-uniform, \hyperpage{21}, \hyperpage{27}
