@@ -160,6 +160,12 @@
 \newblock 2. Auflage.
 \newblock Springer, 2006
 
+\bibitem[Wri09]{WriggersFEMSkript}
+\textsc{Wriggers}, Peter:
+\newblock Finite-Elemente-Methode / IKM - Universität Hannover.
+\newblock 2009. --
+\newblock Vorlesungsskript
+
 \bibitem[Zou11]{Zou}
 \textsc{Zou}, Qingsong:
 \newblock Efficient and reliable hierarchical error estimates for an elliptic

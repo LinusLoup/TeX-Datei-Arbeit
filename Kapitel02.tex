@@ -1,11 +1,13 @@
 \newchapter{Grundlagen}
 \label{sec:Grundlagen}
+\label{kap:2}
 
 In diesem Kapitel wollen wir uns mit grundlegender Theorie beschäftigen, die nicht im Anhang aufgeführt ist, zum Verständnis von den darauffolgenden Kapiteln jedoch notwendig ist.
 
 Dieses Kapitel basiert auf \cite{BraeFEM}, \cite{StarkePDE}, \cite{EPS}, \cite{Walker}, \cite{AltKonti}.
 
 \section{Hilberträume}
+\label{kap:2.1}
 
 \begin{itemize}
 \item benötigen in den Variationsformulierungen immer wieder Hilberträume, daher werden Eigenschaften dieser hier nochmal eingeführt
@@ -111,7 +113,10 @@ Man kann zeigen, dass $\overline{\spn M} = (M^\perp)^\perp =: M^{\perp\perp}$ is
 \end{itemize}
  
 
+
+
 \section{Variationsformulierung}
+\label{kap:2.2}
 
 
 Stichpunkte für die Formulierung:
@@ -440,6 +445,7 @@ da $u \not = 0$ und die Summe zweier bijektiver linearer Operatoren wieder bijek
 
 
 \section{Finite Elemente Methode}
+\label{kap:2.3}
 
 \begin{itemize}
 \item FEM $\ra$ einleitend ansprechen, dass analytische nicht immer lösbar
@@ -705,6 +711,7 @@ Dieses Vorgehen müssten wir noch für die übrigen Basisfunktion analog durchf�
 
 
 \subsection{A priori Fehlerabschätzung}
+\label{kap:2.3.1}
 
 \begin{itemize}
 \item man kann zeigen, dass der Fehler von $h$ zwischen $u_h$ und $u$ (exakte Lösung) abhängt $\Ra$ Netzverfeinerung führt zur Konvergenz
@@ -830,6 +837,7 @@ Mit $u\in H^2(\Omega)$ und $\tilde c := \(\frac {c_1}\alpha\)^{\frac 1 2} c_2 $ 
 
 
 \section{Adaptive Verfeinerungsstrategien}
+\label{kap:2.4}
 
 \begin{itemize}
 \item durch Netzverfeinerung erhält das numerische Problem mehr Informationen (mehr Punkte werden betrachtet)
@@ -842,6 +850,7 @@ Mit $u\in H^2(\Omega)$ und $\tilde c := \(\frac {c_1}\alpha\)^{\frac 1 2} c_2 $ 
 \end{itemize}
 
 \subsection{A posteriori Fehlerschätzer}
+\label{kap:2.4.1}
 
 \begin{itemize}
 \item für die zu verfeinernden Knoten muss der Fehler zwischen der Approximation $u_h$ und der (nicht unbedingt bekannten) exakten Lösung $u$ abschätzen
@@ -864,6 +873,7 @@ Mit $u\in H^2(\Omega)$ und $\tilde c := \(\frac {c_1}\alpha\)^{\frac 1 2} c_2 $ 
 
 
 \subsection{Verfeinerung des Netzes}
+\label{kap:2.4.2}
 
 \begin{itemize}
 \item wie kann ein Element verfeinert werden $\ra$ Algorithmus, damit auch auch die Triangulierung konform bzw. zulässig bleibt
@@ -877,6 +887,7 @@ Mit $u\in H^2(\Omega)$ und $\tilde c := \(\frac {c_1}\alpha\)^{\frac 1 2} c_2 $ 
 
 
 \section{Einführung in die Strukturmechanik}
+\label{kap:2.5}
 
 \begin{itemize}
 \item Beschreibung der Kinematik: Referenz- bzw. Ausgangskonfiguration, Deformationsgradient, Verzerrungsmaße (Konti-Buch)
@@ -885,7 +896,7 @@ Mit $u\in H^2(\Omega)$ und $\tilde c := \(\frac {c_1}\alpha\)^{\frac 1 2} c_2 $ 
 	\bs \eps = \frac 1 2 (\nabla \bs u + \nabla^T \bs u)
 \]
 \item Kinetik: Kräftegleichgewicht und äußere Kontaktlast
-\item Konzepte für ebene Spannungs- bzw. Verzerrungszustände
+\item Konzepte für ebene Spannungs- bzw. Verzerrungszustände (siehe hierfür auch FEM 1 Skript von Wriggers $\ra$ \cite{WriggersFEMSkript})
 \item Konstitutive Modelle (vor allem Materialgesetze) $\Ra$ Hier vor allem Hooke:
 \[
 	\bs \sigma = \mcal C \bs \eps = 2 \mu \bs \eps + \lambda (\tr \bs \eps) \bs I \, ,

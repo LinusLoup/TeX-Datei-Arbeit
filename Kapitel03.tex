@@ -557,6 +557,7 @@ Wir treffen folgende Annahmen für unser Kontaktmodell:
 \[
 	\bs \sigma = \bs 0\, , \quad \bs \eps =\bs 0 \, .
 \]
+\item Wir gehen von einem reibungslosen Kontakt aus. Dieses Kontaktproblem wird als \textit{\idx{Signorini-Kontakt}-Problem} bezeichnet.
 %\item Wir gehen von einem ebenen Problem aus, d.h. $\Omega \subset \R^2$. Im dreidimensionalen analog.
 \end{enumerate}
 \end{vor}
@@ -617,9 +618,7 @@ wobei im Falle $\bs X = \chi(\bs X)$, d.h. im Falle des Kontaktes, eine beliebig
 \end{align}
 wobei $\bar{\bs x} \coloneqq \bar{\bs X} + u(\bar{\bs X})$ ist.
 
-\item das bedeutet, dass die Verbindung der Punkte in der Momantankonfiguration mit der kritischen Richtung einen Winkel $\alpha \in [-\frac \pi2,\frac \pi2]$ einschließen muss, ansonsten läge $\bar{\bs x}$ "`hinter"' $\bs x$, d.h. $\mcal B^1$ wäre in $\mcal B^2$ eingedrungen.
-
-\item 
+\item das bedeutet, dass die Verbindung der Punkte in der Momantankonfiguration mit der kritischen Richtung einen Winkel $\alpha \in [-\frac \pi2,\frac \pi2]$ einschließen muss, ansonsten läge $\bar{\bs x}$ "`hinter"' $\bs x$, d.h. $\mcal B^1$ wäre in $\mcal B^2$ eingedrungen. 
 
 \item aus \eqref{eq:3.32} folgt
 \begin{align*}
@@ -633,28 +632,82 @@ damit erhalten wir die Nichtdurchdringungsbedingung bzgl. der Ausgangskonfigurat
 
 \item damit schreibt sich die Nichtdurchdringungsbedingung als
 \begin{align}\label{eq:3.33}
-	(\bs u \circ \chi -\bs u) \cdot \bs n_c + g \ge 0 \quad \forall \, \bs x \in \Gamma_c \, .
+	(\bs u \circ \chi -\bs u) \cdot \bs n_c + g \ge 0 \quad \forall \, \bs x \in \Gamma_c \, ,
 \end{align}
-
+wobei $\Gamma_c \coloneqq \Gamma_c^1 \cup \Gamma_c^2$ ist.
+	
 \item im Folgenden wollen wir der Einfachheit halber wir davon ausgehen, dass die Ränder $\Gamma^i$ hinreichend glatt sind $\Ra$ \eqref{eq:3.33} gilt auch für $\bs n_c$ als Einheitsnormale von $\mcal B^1$
 
-\item weiter wollen wir $\bs u(\bar{\bs x})\equiv \bs 0$ annehmen.
+\item weiter wollen wir $\bs u(\bar{\bs x})\equiv \bs 0$ annehmen, d.h. falls $\mcal B^2$ ein Verschiebungsfeld ungleich Null hat, können wir $\bs u$ bzgl. $\Omega = \Omega^1\cup\Omega^2$ auch als Relativverschiebung interpretieren
+
+\item[Hinweis:] Wähle später für die feste Ebene im Beispiel $\mcal B^1$ zur Vereinfachung der Darstellung
 
 \item damit reduziert sich \eqref{eq:3.33} auf
-\[
-	\bs u \cdot \bs n - g \le 0
-\]
-
-
-\item Starke Formulierung (s. Wriggers Paper) für Kontaktproblem mit Signorini-Kontakt (ohne Reibung).
-\begin{align}
-\div \bs \sigma + \bs b &= \bs 0 \text{ in } \Omega\\
-\bs \sigma  - \mcal C \bs \eps & = \bs 0 \text{ in } \Omega\\
-\bs \sigma \cdot \bs n &= \bs t  \text{ auf } \Gamma_N \\
-\bs u &= \bs 0 \text{ auf } \Gamma_D \\
-(\bs u \circ \chi - \bs u) \cdot \bs n_c + g& \ge 0 \text{ auf } \Gamma_C
+\begin{align}\label{eq:3.34}
+	\bs u \cdot \bs n - g \le 0 \quad \forall \, x \in \Gamma_c \, ,
 \end{align}
-sowie auf $\Gamma_C$ muss $\sigma_n \le 0$ (Normalenkraft $\sigma_n = \bs n\cdot ( \bs \sigma \cdot \bs n)$), $\bs \sigma_t = \bs 0$ (keine Tangentialkraft, da keine Reibung – $\bs \sigma_t = \bs \sigma \cdot \bs n - \sigma_n \bs n$) und $((\bs u \circ \chi - \bs u) \cdot \bs n_c + g)\sigma_n = 0$, d.h. wenn kein Kontakt ist, ist die Normalkraft in den Punkten Null, also herrscht Kräftegleichgewicht.
+wobei wir auch $u_n \coloneqq \bs u \cdot \bs n$ im Folgenden schreiben werden.
+
+\item weiter muss auf dem \idx{Kontaktrand} $\Gamma_c$ die Normalkraft eine Druckkraft sein oder es herrscht Kräftegleichgewicht, d.h. für die Spannung in Normalenrichtung $\sigma_n \coloneqq \bs n\cdot (\bs \sigma\cdot \bs n)$ gilt
+\begin{align}\label{eq:3.35}
+	\sigma_n \le 0  \ \text{ auf }  \Gamma_c \, .
+\end{align}
+
+\item wie oben schon angedeutet gilt: wenn die Kontaktbedingung nicht aktiv ist (d.h. nicht die Gleichheit gilt), so muss Kräftegleichgewicht herrschen, d.h. in \eqref{eq:3.35} gilt die Gleichheit. Zusammen erhält man die Komplementaritätsbedingung
+\begin{align}\label{eq:3.36}
+	(u_n - g )\,   \sigma_n = 0 \ \text{ auf } \Gamma_c
+\end{align}
+
+\item laut Voraussetzung (e) betrachten wir \idx{Signorini-Kontakt} und damit muss die Tangentialkraft auf dem Kontaktrand gleich Null sein, d.h.
+\begin{align}\label{eq:3.37}
+	\bs \sigma_t \coloneqq \bs \sigma \cdot \bs n - \sigma_n \bs n = 0 \ \text{ auf } \Gamma_c \, .
+\end{align}
+
+\item materialunabhängige Gleichungen:
+
+\item wie in Kapitel \ref{kap:2.5} eingeführt, gelten auch hier die Gleichung des Kräftegleichgewichts. Da wir laut Voraussetzung (b) von kleinen Deformationen ausgehen, gilt
+\begin{align}\label{eq:3.38}
+	\div\bs \sigma + \bs b = \bs 0 \, .
+\end{align}
+
+\item weiter gilt nach dem \textit{\idx{Cauchy-Theorem}} (vgl. auch \cite{WriggersContact} S. 38), dass die Spannung in Normalenrichtung auf der Oberfläche $\Gamma$ von $\Omega$ gleich der von außen angebrachten Spannung $\bs t$ ist, d.h.
+\begin{align}\label{eq:3.39}
+	\bs \sigma \cdot \bs n = \bs t \ \text{ auf } \Gamma_\sigma \, ,
+\end{align}
+also auf dem Neumann-Rand.
+
+\item konstitutive Gleichungen:
+
+\item da wir laut Voraussetzung (b) von einem linear elastischen Material und kleinen Deformationen ausgehen, gilt ein linearer Zusammenhang bzgl. der Spannung $\bs \sigma$ und Verzerrung $\bs \eps$, d.h. das \idx{Hooke'sche-Gesetz} ($\bs \sigma = \lambda \tr \bs \eps \cdot  I + 2 \mu \bs \eps$, wobei $\lambda, \mu$ die Lamé Konstanten sind) und wir können wir den linearisierten Verzerrungstensor $\bs \eps$ verwenden, d.h. mit einem 4 stufigem Materialtensor $\mcal C = (c_{ijkl})$ gilt
+\begin{align}\label{eq:3.40}
+	\bs \sigma - \mcal C : \bs \eps = \bs 0 \ \text{ in } \Omega \, ,
+\end{align}
+wobei $\mcal C : \bs \eps$ das doppelt verjüngende Skalarprodukt beschreibt.
+
+
+
+\item zusammengefasst mit \eqref{eq:3.34} bis \eqref{eq:3.40} beschreiben wir also das Signorini-Kontakt-Problem in der starken Formulierung:
+\begin{subequations}
+\begin{align}
+	\div \bs \sigma + \bs b = \bs 0&\ \ \text{ in } \Omega\\
+	\bs \sigma  - \mcal C :\bs \eps  = \bs 0&\ \ \text{ in } \Omega\\
+	\bs \sigma \cdot \bs n = \bs t &\ \ \text{ auf } \Gamma_\sigma \\
+	\bs u = \bs 0 &\ \ \text{ auf }\Gamma_u \\
+	\begin{aligned}
+		 u_n  - g& \le 0 \\
+		\sigma_n &\le 0 \\
+		(u_n  - g)\,  \sigma_n &= 0  \\
+		\bs \sigma_t &= 0
+	\end{aligned}&\Bigg\}
+\text{ auf } \Gamma_c 
+\end{align}
+\end{subequations}
+
+\item was ändert sich, wenn wir Reibung betrachten
+\begin{bem}
+
+\end{bem}
+
 \item Anreißen von Kontaktproblem mit Tresca-Reibung (vgl. Numerik für Kontaktmechanik von Stephan und Vug von Starke) $\Ra$ Herleitung der Variationsungleichung durch Ableitung nicht mehr möglich, da Reibungspotential nicht mehr differenzierbar.
 \end{itemize}
 
