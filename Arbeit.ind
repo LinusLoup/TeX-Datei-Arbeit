@@ -32,9 +32,9 @@
 
   \indexspace
 
-  \item G\IeC {\^a}teaux-Ableitung, \hyperpage{57}
-    \subitem rechtsseitig, \hyperpage{57}
-  \item G\IeC {\^a}teaux-differenzierbar, \hyperpage{57}
+  \item G\IeC {\^a}teaux-Ableitung, \hyperpage{59}
+    \subitem rechtsseitig, \hyperpage{59}
+  \item G\IeC {\^a}teaux-differenzierbar, \hyperpage{59}
   \item Galerkin-Approximation, \hyperpage{25, 26}
   \item Galerkin-Orthogonalit\IeC {\"a}t, \hyperpage{26}
 
@@ -51,7 +51,7 @@
   \indexspace
 
   \item Lagrange-Basis, \hyperpage{22}
-  \item Lebesgue-Raum, \hyperpage{55}
+  \item Lebesgue-Raum, \hyperpage{57}
   \item lineares Komplementarit\IeC {\"a}tsproblem, \hyperpage{37}
 
   \indexspace
@@ -79,16 +79,16 @@
     \subitem Dirichlet, \hyperpage{43}
     \subitem Kontakt, \hyperpage{43}
     \subitem Neumann, \hyperpage{43}
-  \item Raum der Testfunktionen, \hyperpage{55}
-  \item reflexiver Raum, \hyperpage{58}
+  \item Raum der Testfunktionen, \hyperpage{57}
+  \item reflexiver Raum, \hyperpage{60}
   \item Riesz'scher Darstellungssatz, \hyperpage{16}
 
   \indexspace
 
-  \item schwache Ableitung, \hyperpage{55}
+  \item schwache Ableitung, \hyperpage{57}
   \item schwache L\IeC {\"o}sung, \hyperpage{10}
-  \item Signorini-Kontakt, \hyperpage{42}, \hyperpage{45}
-  \item Sobolev-Raum, \hyperpage{55}
+  \item Signorini-Kontakt, \hyperpage{42}, \hyperpage{45--47}
+  \item Sobolev-Raum, \hyperpage{57}
   \item Spannungsrand, \hyperpage{43}
 
   \indexspace
@@ -103,5 +103,6 @@
   \indexspace
 
   \item Verschiebungsrand, \hyperpage{43}
+  \item virtuelle Verschiebung, \hyperpage{47}
 
 \end{theindex}
