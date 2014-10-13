@@ -1,8 +1,10 @@
 \newchapter{Variationsungleichungen}
+\label{kap:3}
 
 Dieses Kapitel basiert auf \cite{KikOden}, \cite{StarkeVar}, \cite{EPS}, \cite{EPSContact}, \cite{WriggersFEM}, \cite{WriggersContact}, \cite{HlaHas}, \cite{Glow}, \cite{Falk}.
 
 \section{Ein Hindernisproblem}
+\label{kap:3.1}
 
 \begin{itemize}
 \item Hindernisproblem: Auslenkung $u$ einer Membran $\Omega$ unter Krafteinwirkung $f$, wobei die Membran durch ein Hindernis $\psi$ behindert wird. Mathematische modelliert bedeutet dies:
@@ -27,7 +29,10 @@ mit $K := \{v \in H^1_0(\Omega) \with v\ge \psi$ fast überall in $\Omega\}$.
 
 
 
+
+
 \subsection{Variationsformulierung für das Hindernisproblem}
+\label{kap:3.1.1}
 
 \begin{itemize}
 \item zeigen zunächst, dass $K$ konvex und abgeschlossen ist.
@@ -134,7 +139,10 @@ was wiederum im Widerspruch zu \eqref{eq:3.6} steht. Damit muss $u = \psi$ gelte
 
 
 
+
+
 \subsection{Existenz und Eindeutigkeit der Lösung}
+\label{kap:3.1.2}
 
 \begin{itemize}
 \item für die Existenz und Eindeutigkeit der Lösung des Problems betrachten wir zunächst wieder das allgemeine reelle quadratische Funktional $J: H \ra \R, J(v) = \frac 1 2 a(v,v) - F(v)$.
@@ -239,6 +247,7 @@ Insbesondere hat auch das Problem \eqref{eq:3.5} nach Satz \ref{satz:3.4} und Th
 
 
 \subsection{Lösung des Hindernisproblems mittels FEM}
+\label{kap:3.1.3}
 
 \begin{itemize}
 \item Analog zum vorherigen Kapitel kann man auch im $\R^n$ Existenz und Eindeutigkeit der Lösung unter bestimmten Voraussetzungen zeigen. (vgl. Vug Skript Kapitel 2) $\Ra$ Beachte hierfür auch den Fixpunktsatz von Brouwer.
@@ -394,7 +403,7 @@ Aus \eqref{eq:3.20} folgt wegen $(A\bs\mu-\bs f)_i (\mu_i-\psi_i) = 0$ für alle
 Also ist $\mu \in K_{\mcal S}$ auch Lösung von \eqref{eq:3.15}.
 \end{proof}
 
-\item \begin{bem}
+\item \begin{bem}\label{bem:3.12}
 Analog zu Satz \ref{satz:3.10} und \ref{satz:3.11} können wir auch zeigen, dass das quadratische Programm
 \begin{align}\label{eq:3.21}
 	\min_{\bs\nu \in \R^N} J(\bs\nu) = \frac 1 2 \bs \nu^T A \bs \nu - \bs f^T \bs \nu \quad \text{s.t.} \quad B\bs\nu \ge \bs \psi
@@ -542,8 +551,10 @@ Vgl. \cite{Falk}.
 
 
 \section{Kontaktprobleme}
+\label{kap:3.2}
 
 \subsection{Mathematische Modellierung eines Kontaktproblems}
+\label{kap:3.2.1}
 
 \begin{itemize}
 \item 
@@ -558,7 +569,7 @@ Wir treffen folgende Annahmen für unser Kontaktmodell:
 	\bs \sigma = \bs 0\, , \quad \bs \eps =\bs 0 \, .
 \]
 \item Wir gehen von einem reibungslosen Kontakt aus. Dieses Kontaktproblem wird als \textit{\idx{Signorini-Kontakt}-Problem} bezeichnet.
-%\item Wir gehen von einem ebenen Problem aus, d.h. $\Omega \subset \R^2$. Im dreidimensionalen analog.
+\item Wir gehen von ebenen Problemen aus, d.h. $\Omega \subset \R^2$. Im $\R^3$ sind alle Resultate analog.
 \end{enumerate}
 \end{vor}
 
@@ -569,7 +580,7 @@ Wir treffen folgende Annahmen für unser Kontaktmodell:
 \item die Ränder $\Gamma^i$ von $\Omega^i, i = 1,2$, lassen sich in drei disjunkte Teile unterteilen
 \begin{enumerate}
 \item[$\Gamma^i_u$:] Der \textit{Dirichlet-Rand}\index{Randbedingungen!Dirichlet}, oder auch \textit{\idx{Verschiebungsrand}}, auf dem die Werte von der Verschiebung $\bs u$ vorgegeben sind.
-\item[$\Gamma^i_\sigma$:] Der \textit{Neumann-Rand}\index{Randbedingungen!Neumann}, oder auch \textit{\idx{Spannungsrand}}, auf dem die Oberflächenlast bzw. -spannung $\bs t$ vorgegeben ist.
+\item[$\Gamma^i_\sigma$:] Der \textit{Neumann-Rand}\index{Randbedingungen!Neumann}, oder auch \textit{\idx{Spannungsrand}}, auf dem die Oberflächenlast bzw. -spannung $\bar{\bs t}$ vorgegeben ist.
 \item[$\Gamma^i_c$:] Der \textit{Kontaktrand}\index{Randbedingungen!Kontakt}, auf dem die Kontaktbedingungen definiert sind.
 \end{enumerate}
 
@@ -667,12 +678,12 @@ wobei wir auch $u_n \coloneqq \bs u \cdot \bs n$ im Folgenden schreiben werden.
 
 \item wie in Kapitel \ref{kap:2.5} eingeführt, gelten auch hier die Gleichung des Kräftegleichgewichts. Da wir laut Voraussetzung (b) von kleinen Deformationen ausgehen, gilt
 \begin{align}\label{eq:3.38}
-	\div\bs \sigma + \bs b = \bs 0 \, .
+	\div\bs \sigma + \bar{\bs b} = \bs 0 \, .
 \end{align}
 
-\item weiter gilt nach dem \textit{\idx{Cauchy-Theorem}} (vgl. auch \cite{WriggersContact} S. 38), dass die Spannung in Normalenrichtung auf der Oberfläche $\Gamma$ von $\Omega$ gleich der von außen angebrachten Spannung $\bs t$ ist, d.h.
+\item weiter gilt nach dem \textit{\idx{Cauchy-Theorem}} (vgl. auch \cite{WriggersContact} S. 38), dass die Spannung in Normalenrichtung auf der Oberfläche $\Gamma$ von $\Omega$ gleich der von außen angebrachten Spannung $\bar{\bs t}$ ist, d.h.
 \begin{align}\label{eq:3.39}
-	\bs \sigma \cdot \bs n = \bs t \ \text{ auf } \Gamma_\sigma \, ,
+	\bs \sigma \cdot \bs n = \bar{\bs t} \ \text{ auf } \Gamma_\sigma \, ,
 \end{align}
 also auf dem Neumann-Rand.
 
@@ -689,11 +700,11 @@ wobei $\mcal C : \bs \eps$ das doppelt verjüngende Skalarprodukt beschreibt.
 \item zusammengefasst mit \eqref{eq:3.34} bis \eqref{eq:3.40} beschreiben wir also das Signorini-Kontakt-Problem in der starken Formulierung:
 \begin{subequations}\label{eq:3.41}
 \begin{align}\label{eq:3.41a}
-	\div \bs \sigma + \bs b = \bs 0&\ \ \text{ in } \Omega\\
+	\div \bs \sigma + \bar{\bs b} = \bs 0&\ \ \text{ in } \Omega\\
 	\label{eq:3.41b}
 	\bs \sigma  - \mcal C :\bs \eps  = \bs 0&\ \ \text{ in } \Omega\\
 	\label{eq:3.41c}
-	\bs \sigma \cdot \bs n = \bs t &\ \ \text{ auf } \Gamma_\sigma \\
+	\bs \sigma \cdot \bs n = \bar{\bs t} &\ \ \text{ auf } \Gamma_\sigma \\
 	\label{eq:3.41d}
 	\bs u = \bs 0 &\ \ \text{ auf }\Gamma_u \\
 	\label{eq:3.41e}
@@ -724,26 +735,31 @@ Da die Herleitung der zu diesem Problem äquivalenten Variationsungleichung zus�
 
 
 
+
+
 \subsection{Variationsformulierung des Signorini-Kontaktproblems}
+\label{kap:3.2.2}
 
 \begin{itemize}
-\item Sei $\Omega \subset \R^3$
+\item Sei $\Omega \subset \R^2$ (Voraussetzung (f))
 
 \item wir betrachten das \idx{Signorini-Kontakt}-Problem \eqref{eq:3.41}
 
-\item Es seien $H^1_{\Gamma_u}(\Omega) \coloneqq \{\bs v \in (H^1(\Omega))^3 \with \bs v = \bs 0 \text{ auf } \Gamma_u\}$ und $K \coloneqq \{\bs v \in H^1_{\Gamma_u}(\Omega) \with v_n - g \le 0 \text{ auf } \Gamma_c\}$ $\Ra$ $K$ ist analog zu Lemma \ref{lem:3.1} konvex
+\item Es seien
+$H^1_{\Gamma_u}(\Omega) \coloneqq \{\bs v \in (H^1(\Omega))^2 \with \bs v = \bs 0 \text{ auf } \Gamma_u\}$ und
+$\mscr K \coloneqq \{\bs v \in H^1_{\Gamma_u}(\Omega) \with v_n - g \le 0 \text{ auf } \Gamma_c\}$ $\Ra$ $\mscr K$ ist analog zu Lemma \ref{lem:3.1} konvex
 
-\item weiter seien $\bs u, \bs v \in K$, wobei $\bs u$ die Lösung des Signorini-Kontaktproblems darstellt und $\bs v$ (häufig in den Ingenieurswissenschaften als \textit{\idx{virtuelle Verschiebung}} bezeichnet) eine beliebige Testfunktion ist. Dann gilt $\bs w = \bs v - \bs u \in (H^1_{\Gamma_u}(\Omega))^3$ eine Testfunktion, die wir mit \eqref{eq:3.41a} multiplizieren und über $\Omega$ integrieren.
+\item weiter seien $\bs u, \bs v \in K$, wobei $\bs u$ die Lösung des Signorini-Kontaktproblems darstellt und $\bs v$ (häufig in den Ingenieurswissenschaften als \textit{\idx{virtuelle Verschiebung}} bezeichnet) eine beliebige Testfunktion ist. Dann gilt $\bs w = \bs v - \bs u \in (H^1_{\Gamma_u}(\Omega))^2$ eine Testfunktion, die wir mit \eqref{eq:3.41a} multiplizieren und über $\Omega$ integrieren.
 \begin{align}\notag
-	 0 & =  \int_\Omega (\div \bs\sigma + \bs b) \cdot \bs w \, d \Omega = \int_\Omega \div \bs \sigma \cdot \bs w + \bs b \cdot \bs w \, d\Omega \\
+	 0 & =  \int_\Omega (\div \bs\sigma + \bar{\bs b}) \cdot \bs w \, d \Omega = \int_\Omega \div \bs \sigma \cdot \bs w + \bar{\bs b} \cdot \bs w \, d\Omega \\
 	 \notag
-	& = \int_\Omega \div(\bs w \cdot \bs\sigma) - \grad \bs w : \bs \sigma + \bs b \cdot \bs w \, d\Omega \\
+	& = \int_\Omega \div(\bs w \cdot \bs\sigma) - \grad \bs w : \bs \sigma + \bar{\bs b} \cdot \bs w \, d\Omega \\
 	\notag
-	& = \int_\Gamma \underbrace{\bs w \cdot \bs \sigma \cdot \bs n}_{=\bs w \cdot \norm{\bs n}^2 \cdot (\bs \sigma \cdot \bs n)} \, d\Gamma - \int_\Omega \underbrace{\frac 1 2 (\grad \bs w + \grad^T \bs w)}_{= \bs \eps (\bs w)} : \bs \sigma \, d\Omega + \int_\Omega \bs b \cdot \bs w \, d \Omega \\
+	& = \int_\Gamma \underbrace{\bs w \cdot \bs \sigma \cdot \bs n}_{=\bs w \cdot \norm{\bs n}^2 \cdot (\bs \sigma \cdot \bs n)} \, d\Gamma - \int_\Omega \underbrace{\frac 1 2 (\grad \bs w + \grad^T \bs w)}_{= \bs \eps (\bs w)} : \bs \sigma \, d\Omega + \int_\Omega \bar{\bs b} \cdot \bs w \, d \Omega \\
 	\label{eq:3.43}
-	& = \int_{\Gamma_c} w_n \, \sigma_n \, d \Gamma + \int_{\Gamma_\sigma} \bs t \cdot \bs w \, d\Gamma-\int_\Omega \bs\sigma: \bs \eps(\bs w) \, d\Omega + \int_\Omega \bs b \cdot \bs w \, d\Omega
+	& = \int_{\Gamma_c} w_n \, \sigma_n \, d \Gamma + \int_{\Gamma_\sigma} \bar{\bs t} \cdot \bs w \, d\Gamma-\int_\Omega \bs\sigma: \bs \eps(\bs w) \, d\Omega + \int_\Omega \bar{\bs b} \cdot \bs w \, d\Omega
 \end{align}
-(zweite Zeile ist Produktregel für die Divergenz, dritte Zeile Gauß, vierte Zeile die Aufteilung von $\Gamma = \Gamma_u \cup \Gamma_\sigma \cup \Gamma_c$, wobei $\bs w = \bs 0$ auf $\Gamma_u$ und $\bs \sigma \bs n = \bs t$ auf $\Gamma_\sigma$).
+(zweite Zeile ist Produktregel für die Divergenz, dritte Zeile Gauß, vierte Zeile die Aufteilung von $\Gamma = \Gamma_u \cup \Gamma_\sigma \cup \Gamma_c$, wobei $\bs w = \bs 0$ auf $\Gamma_u$ und $\bs \sigma \bs n = \bar{\bs t}$ auf $\Gamma_\sigma$).
 
 \item betrachte das Integral über $\Gamma_c$, dann gilt für den Integranden
 \begin{align*}
@@ -754,9 +770,9 @@ Da die Herleitung der zu diesem Problem äquivalenten Variationsungleichung zus�
 
 \item damit ist das Integral $\ge 0$ und aus \eqref{eq:3.43} folgt
 \begin{align}\notag
-	& 0 \ge \int_{\Gamma_\sigma} \bs t \cdot \bs w \, d\Gamma-\int_\Omega \bs\sigma: \bs \eps(\bs w) \, d\Omega + \int_\Omega \bs b \cdot \bs w \, d\Omega \\
+	& 0 \ge \int_{\Gamma_\sigma} \bar{\bs t} \cdot \bs w \, d\Gamma-\int_\Omega \bs\sigma: \bs \eps(\bs w) \, d\Omega + \int_\Omega \bar{\bs b} \cdot \bs w \, d\Omega \\
 	\label{eq:3.44}
-	\Llra& \int_\Omega \bs\sigma(\bs u): \bs \eps(\bs v - \bs u) \, d\Omega \ge\int_\Omega \bs b \cdot (\bs v-\bs u) \, d\Omega+ \int_{\Gamma_\sigma} \bs t \cdot (\bs v-\bs u) \, d\Gamma 
+	\Llra& \int_\Omega \bs\sigma(\bs u): \bs \eps(\bs v - \bs u) \, d\Omega \ge\int_\Omega \bar{\bs b} \cdot (\bs v-\bs u) \, d\Omega+ \int_{\Gamma_\sigma} \bar{\bs t} \cdot (\bs v-\bs u) \, d\Gamma 
 \end{align}
 
 \item mit \eqref{eq:3.41b} kann die Spannung aus \eqref{eq:3.44} bzgl. der Verzerrung mit $\bs\sigma = \mcal C : \bs\eps$ ausgedrückt werden
@@ -764,16 +780,16 @@ Da die Herleitung der zu diesem Problem äquivalenten Variationsungleichung zus�
 \item mit der Bilinearform $a: H^1_{\Gamma_u} \times H^1_{\Gamma_u} \ra \R$ und Linearform $F: H^1_{\Gamma_u} \ra \R$ mit
 \begin{align*}
 	a(\bs u,\bs v) &\coloneqq \int_\Omega \bs\eps (\bs u) : \mcal C : \bs\eps(\bs v) \, d\Omega \, ,\\ 
-	 F(\bs v)& \coloneqq \int_\Omega \bs b \cdot \bs v \, d\Omega + \int_{\Gamma_\sigma} \bs t \cdot \bs v \, d\Gamma 
+	 F(\bs v)& \coloneqq \int_\Omega \bar{\bs b} \cdot \bs v \, d\Omega + \int_{\Gamma_\sigma} \bar{\bs t} \cdot \bs v \, d\Gamma 
 \end{align*}
-lässt sich \eqref{eq:3.44} in der altbekannten Form: Finde $\bs u \in K$, so dass gilt
+lässt sich \eqref{eq:3.44} in der altbekannten Form: Finde $\bs u \in \mscr K$, so dass gilt
 \begin{align}\label{eq:3.45}
-	a(\bs u, \bs v - \bs u) \ge F(\bs v- \bs u) \quad \forall \, \bs v \in K \, .
+	a(\bs u, \bs v - \bs u) \ge F(\bs v- \bs u) \quad \forall \, \bs v \in \mscr K \, .
 \end{align}
 
 \item[noch zu zeigen:] Kornsche Ungleichung (vgl. \cite{BraeFEM}) auch für $a(\cdot,\cdot)$ unter der Bedingung, dass $\max \norm{C_{ijkl}} \le M$ für ein $M\ge 0$ ist. $\Ra$ damit folgt die Koerzivität von $a$. Und noch Stetigkeit zeigen
 
-\item vgl. \cite{KikOden} S. 112, zeige: $\abs{F(\bs v)} \le C(\norm{\bs b}_0+\norm{\bs t}_{0,\Gamma_c})\, \norm{\bs v}_1$, also mit $\bs b \in (L^2(\Omega))^3$ und $\bs t \in (L^2(\Gamma_c))^3$.
+\item vgl. \cite{KikOden} S. 112, zeige: $\abs{F(\bs v)} \le C(\norm{\bar{\bs b}}_0+\norm{\bar{\bs t}}_{0,\Gamma_c})\, \norm{\bs v}_1$, also mit $\bar{\bs b} \in (L^2(\Omega))^2$ und $\bar{\bs t} \in (L^2(\Gamma_c))^2$.
 
 \item als letztes: $K$ ist analog zu Lemma \ref{lem:3.1} abgeschlossen und konvex.
 
@@ -788,7 +804,7 @@ lässt sich \eqref{eq:3.44} in der altbekannten Form: Finde $\bs u \in K$, so da
 
 \item 
 \begin{theorem}
-Es sei $\bs v : \Omega \ra \R^3$ und $K$ wie oben definiert. Die Variationsungleichung \eqref{eq:3.45} ist äquivalent zum Minimierungsproblem:
+Es sei $\bs v : \Omega \ra \R^2$ und $K$ wie oben definiert. Die Variationsungleichung \eqref{eq:3.45} ist äquivalent zum Minimierungsproblem:
 \begin{align}
 	\min_{\bs v \in K} J(\bs v)& = \frac 1 2 a(\bs v, \bs v)-F(\bs v)
 \end{align}
@@ -814,23 +830,45 @@ mit dem Reibungsfunktional $j$.
 
 
 \subsection{Lösung des Kontaktproblems mittels FEM}
+\label{kap:3.2.3}
+
 
 \begin{itemize}
-\item betrachte analog zu $\mcal S_h$ den Raum der linearen Ansatzfunktionen
+\item betrachte analog zu $\mcal S_h$ den Raum der linearen mehrdimensionalen Ansatzfunktionen bzgl. einer quasi-uniformen Triangulierung $\mcal T_h$
+\begin{align}
+	 \mscr S_h \coloneqq \{\bs v \in (C^0(\Omega))^2 \with \bs v|_T \in \mcal P_1^2 \text{ für } T \in \mcal T_h, \bs v|_{\Gamma_u} = \bs 0\} \subset H^1_{\Gamma_u} (\Omega)
+\end{align}
 
+\item mit einer Basis $\mscr B_h \coloneqq \{\bs\psi_1,\ldots,\bs \psi_N\}$ von $\mscr S_h$ lässt sich jedes Element $\bs v_h \in \mscr S_h$ als Linearkombination schreiben
+\begin{align}
+	\bs v_h(\bar x) = \sum_{i = 1}^N x_i \, \bs \psi_i(\bar x) \quad \forall \, \bar x \in \Omega
+\end{align}
+für genau ein $(x_1,\ldots,x_N)^T \eqqcolon \bs x \in \R^N$.
 
-\item Beschreibe das diskrete Problem, was man bekommt mit: Finde $\bs x^* \in \R^N$ mit $B\bs x^* \ge c$, so dass
+\item betrachten wir analog zu oben \eqref{eq:3.45} diskret, so ergibt sich: Finde $\bs u_h \in \mscr S_h$, so dass
+\begin{align}
+	a(\bs u_h, \bs v_h - \bs u_h) \ge F(\bs v_h- \bs u_h) \quad \forall \, \bs v_h \in K_h \, .
+\end{align}
+mit $\mscr K_h \coloneqq \{  \bs v_h \in \mscr S_h \with \bs v_h(\bar x_i) \cdot \bs n - g(\bar x_i) \le 0 \text{ mit } \bar x_i \in \mcal N \cap \Gamma_c\}$, d.h. die punktuelle Form (der Nebenbedingung) von $\mscr K$.
+
+\item analog zu $K_{\mcal S}$ können wir auch hier bzgl. einer Basis $\mscr B_h$ die Menge $\mscr K_h$ äquivalent durch den Koordinatenvektor $\bs x \in \R^N$ ausdrücken, d.h.
 \begin{align*}
-	(A\bs x^* - \bs b)^T (\bs x - \bs x^*) \ge 0 \, \forall \bs x\in \R^N \text{ mit } B\bs x \ge \bs c \, ,
+	\mscr K_{\mscr S}  \coloneqq& \bigg\{ \bs x \in \R^N \,\bigg| \, \sum_{j=1}^N x_j \, \bs \psi_j(\bar x_i) \cdot \bs n- g(x_i) \ge 0 \text{ für } \bar x_i \in \mcal N \cap \Gamma_c\bigg\} \\
+	=& \{ \bs x \in \R^N \with B\bs x \ge \bs c , B =  [-\bs \psi_j(\bar x_i)\cdot \bs n(\bar x_i)]_{\bar x_i \in \mcal N \cap \Gamma_c, 1\le j \le N} ,\bs c = [-g(\bar x_i)]_{\bar x_i \in\mcal N \cap \Gamma_c}\}
 \end{align*}
+
+\item damit ist das diskrete Problem: Finde $\bs x^* \in \mscr K_{\mscr S}$, so dass
+\begin{align}\label{eq:3.50}
+	(A\bs x^* - \bs b)^T (\bs x - \bs x^*) \ge 0 \quad \forall \bs x\in \mscr K_{\mscr S} \, ,
+\end{align}
 wobei
 \begin{align*}
-A &= \left[\int_\Omega \mcal C \bs \eps (\bs \Psi_j):\bs \eps(\bs \Psi_i) \, d\Omega\right]_{1 \le i,j\le N} , \,  \bs b = \left[ \int_\Omega \bs b \cdot \bs\Psi_i \, d\Omega + \int_{\Gamma_N} \bs t \cdot \bs\Psi_i \, ds\right]_{1\le i \le N} \\
-B & = [(\bs \Psi_j(\chi(\bs x_i))-\bs \Psi_j(\bs x_i))\cdot \bs n_c(\bs x_i)]_{\bs x_i \in \Gamma_c, 1\le j \le N} , \, c = [-g(\bs x_i)]_{\bs x_i \in \Gamma_c}
+	A &= \left[\int_\Omega \bs \eps (\bs \psi_j):\mcal C:\bs \eps(\bs \psi_i) \, d\Omega\right]_{1 \le i,j\le N} , \,  \bs b = \left[ \int_\Omega \bar{\bs b} \cdot \bs\psi_i \, d\Omega + \int_{\Gamma_N} \bar{\bs 	t} \cdot \bs\psi_i \, ds\right]_{1\le i \le N}
 \end{align*}
-Dieses Problem ist (wie vorher schon gezeigt) äquivalent zu einem quadratischen Problem
+
+\item Aus Bemerkung \ref{bem:3.12} folgt, dass die Variationsungleichung \eqref{eq:3.50} äquivalent zu folgendem quadratischen Programm ist:
 \begin{align*}
-\min_{\bs x\in \R^N} \frac 1 2 \bs x^T A \bs x - \bs b^T \bs x \text{ s.t. } B\bs x \ge \bs c \, ,
+\min_{\bs x\in \R^N} \frac 1 2 \bs x^T A \bs x - \bs b^T \bs x \ \text{ s.t. } \ B\bs x \ge \bs c \, ,
 \end{align*}
 d.h. Lösbarkeit des quadratischen Programms sollte auch gezeigt sein (vgl. Vug Skript oder auch nichtlineare Optimierung).
 \end{itemize}
