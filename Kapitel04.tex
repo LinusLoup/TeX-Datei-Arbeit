@@ -1,27 +1,88 @@
 \newchapter{Ein hierarchischer Fehlerschätzer für Hindernisprobleme}
+\label{kap:4}
 
 \begin{itemize}
-\item Herleitung des Fehlerschätzers bei Hindernisproblemen (s. Mainpaper)
 \item Vergleich Hindernisprobleme zu Kontaktproblemen $\ra$ warum gerade dieser Fehlerschätzer bei Hindernis- bzw. Kontaktproblemen
 \end{itemize}
 
+Dieses Kapitel basiert größtenteils auf \cite{ZouVee}.
+
+
 \section{Herleitung eines a posteriori hierarchischen Fehlerschätzers}
+\label{kap:4.1}
+
+\begin{itemize}
+\item der Einfachheit halber gehen wir von folgendem Sachverhalt aus
+\begin{vor}
+Das Hindernis  wird durch eine stückweise lineare stetige Funktion $\psi$ beschrieben.
+\end{vor}
+
+\item nicht nichtstetige oder auch glatte Hindernisse sind analoge Aussagen, aber schwerer, beweisbar
+\end{itemize}
+
+
+
+
+
 
 \subsection{Diskretisierung}
+\label{kap:4.1.1}
+
+\begin{itemize}
+\item $\mcal B_h$ sei eine nodale Basis bzgl. einer quasi-uniformen Triangulierung $\mcal T_h$  für $\mcal S_h$ (s. auch Kapitel \ref{kap:2}), $K_h$ wie in Kapitel \ref{kap:3.1.3}
+\[
+	K_h  = \{v_h \in \mcal S_h \with v_h (p) \ge \psi(p) \, \forall \, p \in \mcal N \cap \Omega\} \, , 
+\]
+wobei $\mcal N$ wieder die Menge der Knoten von $\mcal T_h$ darstellt.
+
+\item betrachte wieder die diskrete Variationsungleichung \eqref{eq:3.12}: Finde $u_h \in K_h$ mit
+\[
+	a(u_h,v_h-u_h) \ge (f,v_h-u_h) \quad \forall \, v_h \in K_h\, .
+\]
+
+\item oder äquivalent die Minimierung des Funktionals $J(v) = \frac 1 2 a(v,v)-(f,v)$ über $K_h$, d.h.
+\[
+	u_h \in K_h : J(u_h)\le J(v_h) \quad \forall \, v_h \in K_h
+\]
+\end{itemize}
+
+
+
+
 
 \subsection{Lokaler Anteil des Fehlerschätzers}
+\label{kap:4.1.2}
+
+
 
 \subsection{Oszillationsterme}
+\label{kap:4.1.3}
+
+
 
 \subsection{Zuverlässigkeit des Fehlerschätzers}
+\label{kap:4.1.4}
+
+
 
 \subsection{Effektivität des Fehlerschätzers}
+\label{kap:4.1.5}
+
+
 
 \section{Ein adaptiver Algorithmus}
+\label{kap:4.2}
+
+
 
 \section{Erfüllung einer Saturationseigenschaft}
+\label{kap:4.3}
+
+
 
 \section{Übertragung des Fehlerschätzers auf Kontaktprobleme}
+\label{kap:4.4}
+
 
 \newpage
 

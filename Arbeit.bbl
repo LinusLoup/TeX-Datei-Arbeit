@@ -97,6 +97,12 @@
 \newblock 2. ed.
 \newblock New York, NY : Springer, 2006
 
+\bibitem[QSS02]{Numa2}
+\textsc{Quarteroni}, A. ; \textsc{Sacco}, R.  ; \textsc{Saleri}, F.:
+\newblock \emph{Numerische Mathematik 2}.
+\newblock 1. Auflage.
+\newblock Springer, 2002
+
 \bibitem[Rud91]{Rudin}
 \textsc{Rudin}, Walter:
 \newblock \emph{Functional Analysis}.
