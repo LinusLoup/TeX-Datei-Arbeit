@@ -298,7 +298,7 @@ wobei
 \end{satz}
 
 \begin{proof}
-Zunächst berechnen wir zur besseren Übersicht $\eps_{\mcal V}(x_E)$ konkret, d.h.
+Es sei $M = \abs{\mcal E}$ die Anzahl der Kanten. Zunächst berechnen wir zur besseren Übersicht $\eps_{\mcal V}(x_E)$ konkret, d.h.
 \begin{align}\notag
 	\eps_{\mcal V} (x_E) & =  \frac{\max \{-d_E,\rho_E\}}{\norm{\phi_E}} \\
 	\notag
@@ -308,8 +308,40 @@ Zunächst berechnen wir zur besseren Übersicht $\eps_{\mcal V}(x_E)$ konkret, d
 	\label{eq:4.12}
 	& = \max \left\{\psi (x_E)-u_{\mcal S}(x_E)  ,\frac 1{\norm{\phi_E}^2} ((f,\phi_E)-a(u_{\mcal S},\phi_E))	\right\} \, .
 \end{align}
-Da wir  q
+Da  $\eps_{\mcal V} = \sum_{E \in \mcal E} \eps_{\mcal V}(x_E) \phi_E$ ist, können wir \eqref{eq:4.8} bzgl. der Basis $\{\phi_E \with E \in \mcal E\}$ von $\mcal V_h$ diskret schreiben als
+\begin{align*}
+	\min \frac 1 2 \bs v^T D \bs v - \bs g^T \bs v \quad \text{s.t.} \quad\bs v \ge \bs \psi - \bs u_{\mcal S}\, , 
+\end{align*}
+wobei $\bs v = [\eps_{\mcal V}(x_{E_i})]_{1\le i \le M}, D = \operatorname{diag}(a(\phi_{E_1},\phi_{E_1}),\ldots,a(\phi_{E_M},\phi_{E_M})), \bs g = [(f,\phi_{E_i})-a(u_{\mcal S},\phi_{E_i})]_{1\le i\le M}, \bs \psi = [\psi(x_{E_i})]_{1\le i \le M}$ und $ \bs u_{\mcal S} = [u_{\mcal S}(x_{E_i})]_{1\le i \le M}$. Da $\mcal A_{\mcal V}$ und $\mcal I_{\mcal Q}$ konvex sind, existiert ein Minimum $\bs v^* \in \mcal A_{\mcal V}$ von $\mcal I_{\mcal Q}$, das die KKT-Bedingungen erfüllt. Damit gilt
+\begin{subequations}\label{eq:4.13}
+\begin{align}\label{eq:4.13a}
+	D \bs v-\bs g - \bs \lambda & = \bs 0 \, , \\
+	\label{eq:4.13b}
+	\bs \lambda &\ge 0\, ,\\
+	\label{eq:4.13c}
+	\bs v & \ge \bs \psi - \bs u_{\mcal S}\,  , \\
+	\label{eq:4.13d}
+	\lambda_i\, (\bs v - \bs \psi+\bs u_{\mcal S})_i &= 0 \quad \forall \, i=1,\ldots,M \, .
+\end{align}
+\end{subequations}
+Es sei $k \in \{1,\ldots,M\}$ beliebig.
+
+\underline{Fall 1:} Gilt $\lambda_k = 0$, so folgt aus \eqref{eq:4.13a}
+\[
+	\eps_{\mcal V} (x_{E_k}) = v_k = \frac {g_k}{a(\phi_{E_k},\phi_{E_k})} = \frac 1{\norm{\phi_{E_k}}^2} ((f,\phi_{E_k})-a(u_{\mcal S},\phi_{E_k})) \, .
+\]
+\underline{Fall 2:} Gilt $\lambda_k \not= 0$, dann folgt wegen \eqref{eq:4.13d}
+\[
+	\eps_{\mcal V} (x_{E_k}) =v_k = (\bs \psi - \bs u_{\mcal S})_k = \psi(x_{E_k}) - u_{\mcal S}(x_{E_k})\, .
+\]
+Insgesamt folgt mit \eqref{eq:4.12} die Behauptung.
 \end{proof}
+
+\item wir wollen im weiteren den a posteriori Fehlerschätzer
+\[
+	-\mcal I_{\mcal Q} (\eps_{\mcal V})= -\frac 1 2 a_{\mcal Q}(\eps_{\mcal V},\eps_{\mcal V}) + \rho_{\mcal S}(\eps_{\mcal V})
+\]
+betrachten
 \end{itemize}
 
 
@@ -319,7 +351,9 @@ Da wir  q
 \subsection{Lokaler Anteil des Fehlerschätzers}
 \label{kap:4.1.2}
 
-
+\begin{itemize}
+\item
+\end{itemize}
 
 \subsection{Oszillationsterme}
 \label{kap:4.1.3}
