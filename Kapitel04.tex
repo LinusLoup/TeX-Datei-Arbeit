@@ -219,7 +219,97 @@ als Linearkombination aus den Funktionen beschrieben werden kann ($\phi_1$ bis $
 Aus der linearen Unabhängigkeit folgt damit auch $\mcal S_h \cap \mcal V_h = \{0\}$ gilt und damit die Behauptung.
 \end{proof}
 
-\item daher kann jedes Element $v_{\mcal Q} \in \mcal Q_h$ geschrieben werden als $v_{\mcal Q} = v_{\mcal S} + v_{\mcal V}$ mit $v_{\mcal S} \in \mcal S_h, v_{\mcal V}\in \mcal V_h$
+\item daher kann jedes Element $v_{\mcal Q} \in \mcal Q_h$  als $v_{\mcal Q} = v_{\mcal S} + v_{\mcal V}$ mit $v_{\mcal S} \in \mcal S_h, v_{\mcal V}\in \mcal V_h$ geschrieben werden
+
+\item aus diesem Grund führen wir folgende Bilinearform ein:
+\begin{align*}
+	a_{\mcal Q} (v,w) \coloneqq a(v_{\mcal S},w_{\mcal S}) + \sum_{E \in \mcal E} u_{\mcal V}(x_E) w_{\mcal V}(x_E) a(\phi_E,\phi_E) \quad \forall \, v,w \in \mcal Q_h \, ,
+\end{align*}
+welche aufgrund der Eigenschaften der direkten Summe von $\mcal S_h$ und $\mcal V_h$ wohldefiniert ist.
+
+\item dabei ergibt sich $a_{\mcal Q}$ durch Entkopplung von $\mcal S_h$ und $\mcal V_h$ und anschließender "`Diagonalisierung"' auf $\mcal V$
+
+\item sinnvoll $a_{\mcal Q}$ so einzuführen, denn:
+\begin{satz}
+Die zu $a_{\mcal Q}$ assoziierte Energienorm
+\begin{align*}
+	\norm v_{\mcal Q}\coloneqq a_{\mcal Q}(v,v)^{\frac 1 2} \, , \quad v \in \mcal Q_h
+\end{align*}
+ist äquivalent zur Energienorm $\norm\cdot_E$, d.h. es gibt Konstanten $c_1,c_2$ $($die insbesondere nur von der Quasi-Uniformität von $\mcal T_h$ abhängen$)$, so dass
+\[
+	c_1 \norm v_E \le \norm v_{\mcal Q} \le c_2 \norm v_E \, , \quad \forall \, v \in \mcal Q_h \, .
+\]
+\end{satz}
+
+\begin{proof}
+Die Aussage folgt aus Theorem 4.1 bzw. Bemerkung 4.3 in \cite{HoppeKorn} zusammen mit dem Lemma auf Seite 14 in \cite{Deufl}.
+\end{proof}
+
+\item daher führen wir die approximierte Energie
+\begin{align}\label{eq:4.6}
+	\mcal I_{\mcal Q} (v) \coloneqq \frac 1 2 a_{\mcal Q}(v,v)-\rho_{\mcal S}(v) \, , \quad v \in \mcal Q_h 
+\end{align}
+ein.
+
+\item das damit verbundene Defektproblem ist allerdings noch durch die Nebenbedingung aus $\mcal A_{\mcal Q}$ mit $\mcal S_h$ gekoppelt und daher noch nicht alleine auf die Raumerweiterung $\mcal V_h$ bezogen.
+
+\item Als Abhilfe ignorieren wir einfach die linearen Beiträge in $\mcal A_{\mcal Q}$ und führen eine echte Teilmenge 
+\begin{align}\label{eq:4.7}
+	\mcal A_{\mcal V} \coloneqq \{v \in \mcal V \with v(x_E) \ge \psi(x_E)-u_{\mcal S}(x_E) \, \forall \, E \in \mcal E\}
+\end{align}
+von $\mcal A_{\mcal Q}$ ein.
+
+\item zusammen mit \eqref{eq:4.6} und \eqref{eq:4.7} erhalten wir das lokale diskrete Defektproblem
+\begin{align}\label{eq:4.8}
+	\eps_{\mcal V} \in \mcal A_{\mcal V} : \quad \mcal I_{\mcal Q}(\eps_{\mcal V}) \le \mcal I_{\mcal Q} (v) \quad \forall \, v \in \mcal A_{\mcal V}
+\end{align}
+bzw. die dazu äquivalente Variationsungleichung
+\begin{align}\label{eq:4.9}
+	\eps_{\mcal V} \in \mcal A_{\mcal V} : \quad a_{\mcal Q} (\eps_{\mcal V},v-\eps_{\mcal V})\ge \rho_{\mcal S} (v-\eps_{\mcal V}) \quad \forall \, v \in \mcal A_{\mcal V} \, .
+\end{align}
+
+\item
+\begin{bem}
+\begin{enumerate}[(a)]
+\item Da $\psi$ stetig stückweise linear ist und somit $u_{\mcal S} \ge \psi$ gilt, folgt $0 \in \mcal A_{\mcal V}$. Damit ist auch hier die gewünschte Lösung für $\eps_{\mcal V}$ in $\mcal A_{\mcal V}$ enthalten
+\item	Auch für $\mcal A_{\mcal V}$ lässt sich mit analogem Vorgehen zu Lemma \ref{lem:3.1} die Konvexität zeigen.
+\end{enumerate}
+\end{bem}
+
+\item
+\begin{lemma}
+Das Energiefunktional $\mcal I_{\mcal Q}$ ist konvex.
+\end{lemma}
+
+\begin{proof}
+Da $a$ eine stetige koerzive Bilinearform, werden aufgrund der Konstruktion von $a_{\mcal Q}$ diese Eigenschaften auch auf $a_{\mcal Q}$ übertragen. Weiterhin ist leicht zu überprüfen, dass $\rho_{\mcal S}$ eine stetige Linearform ist. Dann folgt aus Lemma \ref{lem:2.3} direkt die Behauptung.
+\end{proof}
+
+\item Lösung des lokalen Defektproblems
+\begin{satz}
+Die Lösung von \eqref{eq:4.8} bzw. \eqref{eq:4.9} ist explizit gegeben durch
+\begin{align}\label{eq:4.10}
+	\eps_{\mcal V} (x_E) = \frac{\max \{-d_E,\rho_E\}}{\norm{\phi_E}} \, 
+\end{align}
+wobei
+\begin{align}\label{eq:4.11}
+	d_E = (u_{\mcal S}(x_E) - \psi (x_E))\norm{\phi_E} \ge 0 \, , \quad \rho_E = \frac{\rho_{\mcal S}(\phi_E)}{\norm{\phi_E}} \, .
+\end{align}
+\end{satz}
+
+\begin{proof}
+Zunächst berechnen wir zur besseren Übersicht $\eps_{\mcal V}(x_E)$ konkret, d.h.
+\begin{align}\notag
+	\eps_{\mcal V} (x_E) & =  \frac{\max \{-d_E,\rho_E\}}{\norm{\phi_E}} \\
+	\notag
+	& = \frac{\max \left\{(\psi (x_E)-u_{\mcal S}(x_E) )\norm{\phi_E} ,\frac{\rho_{\mcal S}(\phi_E)}{\norm{\phi_E}}\right\}}{\norm{\phi_E}} \\
+	\notag
+	& = \max \left\{\psi (x_E)-u_{\mcal S}(x_E)  ,\frac{\rho_{\mcal S}(\phi_E)}{\norm{\phi_E}^2}\right\} \\
+	\label{eq:4.12}
+	& = \max \left\{\psi (x_E)-u_{\mcal S}(x_E)  ,\frac 1{\norm{\phi_E}^2} ((f,\phi_E)-a(u_{\mcal S},\phi_E))	\right\} \, .
+\end{align}
+Da wir  q
+\end{proof}
 \end{itemize}
 
 

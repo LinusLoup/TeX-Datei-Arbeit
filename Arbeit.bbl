@@ -44,6 +44,12 @@
 \newblock Adaptive finite elements for elastic bodies in contact.
 \newblock {In: }\emph{SIAM J. Sci. Comput.} 20 (1999), Nr. 5, S. 1605--1626
 
+\bibitem[DLY89]{Deufl}
+\textsc{Deuflhard}, P. ; \textsc{Leinen}, P.  ; \textsc{Yserentant}, H.:
+\newblock Concepts of an Adaptive Hierarchical Finite Element Code.
+\newblock {In: }\emph{Impact of Computing in Science and Engineering} 1 (1989),
+  S. 3--35
+
 \bibitem[Fal74]{Falk}
 \textsc{Falk}, Richard~S.:
 \newblock Error estimates for the approximation of a class of variational
@@ -72,6 +78,11 @@
 \newblock \emph{Solution of Variational Inequalities in Mechanics}.
 \newblock 9. Auflage.
 \newblock Springer, 1980
+
+\bibitem[HK92]{HoppeKorn}
+\textsc{Hoppe}, R. ; \textsc{Kornhuber}, R.:
+\newblock Adaptive Multilevel-Methods for Obstacle Problems.
+\newblock {In: }\emph{Preprint SC 91-16}  (1992), April
 
 \bibitem[{Joh}92]{JohnObs}
 \textsc{{Johnson}}, Claes:
