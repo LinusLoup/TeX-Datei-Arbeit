@@ -493,7 +493,65 @@ Die Behauptung folgt direkt aus Lemma \ref{lem:4.14} zusammen mit
 durch einfaches Nachrechnen.
 \end{proof}
 
+\item im unbeschränkten Fall gilt $\rho_{\mcal S} = 0 \Lra e = 0$, denn zu $\rho_{\mcal S} = 0$ ist äquivalent
+\[
+	a(e,v) = \rho_{\mcal S}(v) = 0 \quad \forall \, v \in \mcal V\, .
+\]
+Da $e\in \mcal V$ ist, folgt wegen der Galerkin-Orthogonalität, dass $e=0$ sein muss. Die Umkehrung gilt analog.
+
+\item bei Variationsungleichungen gilt dies im allgemeinen nicht.
+
+\item aber: aus Lemma \ref{lem:4.12} folgt allgemeiner, falls $\rho_{\mcal S} (v) \le 0$ für alle $v \in \mcal A$ gilt
+\[
+	\frac 12 \norm{e}^2 \le \rho_{\mcal S}(e) \le 0\,  \lra\,  \norm e = 0 \, \lra\, e = 0 \, ,
+\]
+wodurch $\rho_{\mcal S} = 0$ folgt, dass $e = 0$ ist.
+
+\item es gilt, ist $u_{\mcal S}$ die Lösung von \eqref{eq:3.12}, so gilt für alle $p \in \mcal N \cap \Omega$, dass $v = u_{\mcal S} + \phi_p  \ge \psi$, d.h. $v \in K_h$.
+
+Damit folgt mit Einsetzen von $v$ in  \eqref{eq:3.12}
+\begin{align}\notag
+	&a(u_{\mcal S}, u_{\mcal S} + \phi_p - u_{\mcal S}) \ge (f,u_{\mcal S}+\phi_p-u_{\mcal S}) \\
+	\label{eq:4.20}
+	\Llra \,  & 0 \ge (f,\phi_p)-a(u_{\mcal S},\phi_p) = \rho_{\mcal S}(\phi_p)
+\end{align}
+dies bedeutet, dass die lineare Approximation des Fehlers $e$ gleich Null ist.
+
+\item falls an einem Punkt $p$ kein Kontakt zwischen $u_{\mcal S}$ und $\psi$ vorliegt, also $u_{\mcal S} (p) > \psi(p)$ ist, dann können wir ein $\alpha > 0$ hinreichend klein wählen, sodass $v = u_{\mcal S} - \alpha \phi_p \in K_h$ liegt. Dann folgt analog durch Einsetzen von $v$ in \eqref{eq:3.12}
+\begin{align*}
+	0 & \ge (f,-\alpha \phi_p) - a(u_{\mcal S},-\alpha\phi_p) \\
+	\Llra \, 0 & \le (f,\phi_p) - a(u_{\mcal S},\phi_p) = \rho_{\mcal S} (\phi_p) \stackrel[\scriptsize\eqref{eq:4.20}]{}\le 0
+\end{align*}
+und damit gilt $\rho_{\mcal S} (\phi_p) = 0$
+
+\item zusammen ergeben sich die Bedingungen
+\begin{align}\label{eq:4.21}
+	\rho_{\mcal S} (\phi_p) \le 0 \, , \quad \psi(p)-u_{\mcal S} (p) \le 0 \, , \quad \rho_{\mcal S} (\phi_p) (\psi(p)-u_{\mcal S} (p)) = 0
+\end{align}
+
+\item dies berechtigt zur Definition von Kontakt- und Nichtkontaktpunkten
+\begin{defi}
+Wir definieren die Mengen von \textit{Kontaktpunkten}\index{Kontaktpunkte} $\mcal N^0$ und \textit{Nichtkontaktpunkten}\index{Nichtkontaktpunkte} $\mcal N^+$ durch
+\begin{align*}
+	\mcal N^0 \coloneqq  \{p \in \mcal N \cap \Omega \with u_{\mcal S}(p) = \psi (p) \} \, , \quad 
+	\mcal N^+ \coloneqq  \{p \in \mcal N \cap \Omega \with u_{\mcal S}(p) > \psi (p) \}\, .
+\end{align*}
+\end{defi}
+
 \item 
+\begin{bem}
+Die Bedingungen \eqref{eq:4.21} können wir auch auf den lokalen Anteil $\rho_p$ übertragen, damit ergibt sich für alle $p \in \mcal N \cap \Omega$
+\begin{subequations}\label{eq:4.22}
+\begin{align}\label{eq:4.22a}
+	\rho_p(1) &  \le 0\, ,  \\
+	\label{eq:4.22b}
+	u_{\mcal S} (p) > \psi (p) \, & \lra \, \rho_p(1) =0 \, ,
+\end{align}
+\end{subequations}
+denn $\rho_p (1) = \rho_{\mcal S} (\phi_p)$.
+\end{bem}
+
+\item damit ist also die Approximation von $e$ über $\mcal S_h$ gleich Null, wenn die lokalen Anteile (im Vektor später) kleiner gleich Null sind
 
 \end{itemize}
 
