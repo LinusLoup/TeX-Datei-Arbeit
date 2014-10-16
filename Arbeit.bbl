@@ -153,6 +153,12 @@
 \newblock 8. Auflage.
 \newblock Springer, 1999
 
+\bibitem[SV07]{SiebVee}
+\textsc{Siebert}, K.G. ; \textsc{Veeser}, A.:
+\newblock A Unilaterally Constrained Quadratic Minimization with Adaptive
+  Finite Elements.
+\newblock {In: }\emph{SIAM J. Optim.} 18 (2007), Nr. 1, S. 260–289
+
 \bibitem[Wal11]{Walker}
 \textsc{Walker}, Christoph:
 \newblock Partielle Differentialgleichungen / IFAM - Universität Hannover.
