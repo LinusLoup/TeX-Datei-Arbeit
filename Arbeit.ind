@@ -9,6 +9,7 @@
     \subitem elliptisch, \hyperpage{11}
     \subitem koerziv, \hyperpage{11}
     \subitem stetig, \hyperpage{11}
+  \item Bubble-Funktion, \hyperpage{54}
 
   \indexspace
 
@@ -32,9 +33,9 @@
 
   \indexspace
 
-  \item G\IeC {\^a}teaux-Ableitung, \hyperpage{59}
-    \subitem rechtsseitig, \hyperpage{59}
-  \item G\IeC {\^a}teaux-differenzierbar, \hyperpage{59}
+  \item G\IeC {\^a}teaux-Ableitung, \hyperpage{71}
+    \subitem rechtsseitig, \hyperpage{71}
+  \item G\IeC {\^a}teaux-differenzierbar, \hyperpage{71}
   \item Galerkin-Approximation, \hyperpage{25, 26}
   \item Galerkin-Orthogonalit\IeC {\"a}t, \hyperpage{26}
 
@@ -46,17 +47,19 @@
 
   \indexspace
 
+  \item Kontaktpunkte, \hyperpage{62}
   \item Kontaktrand, \hyperpage{45}
 
   \indexspace
 
   \item Lagrange-Basis, \hyperpage{22}
-  \item Lebesgue-Raum, \hyperpage{57}
+  \item Lebesgue-Raum, \hyperpage{69}
   \item lineares Komplementarit\IeC {\"a}tsproblem, \hyperpage{37}
 
   \indexspace
 
   \item Nichtdurchdringungsbedingung, \hyperpage{44}
+  \item Nichtkontaktpunkte, \hyperpage{62}
   \item nodale Basis, \hyperpage{22}
   \item nodale Basisfunktion, \hyperpage{22}
 
@@ -79,16 +82,16 @@
     \subitem Dirichlet, \hyperpage{43}
     \subitem Kontakt, \hyperpage{43}
     \subitem Neumann, \hyperpage{43}
-  \item Raum der Testfunktionen, \hyperpage{57}
-  \item reflexiver Raum, \hyperpage{60}
+  \item Raum der Testfunktionen, \hyperpage{69}
+  \item reflexiver Raum, \hyperpage{72}
   \item Riesz'scher Darstellungssatz, \hyperpage{16}
 
   \indexspace
 
-  \item schwache Ableitung, \hyperpage{57}
+  \item schwache Ableitung, \hyperpage{69}
   \item schwache L\IeC {\"o}sung, \hyperpage{10}
   \item Signorini-Kontakt, \hyperpage{42}, \hyperpage{45--47}
-  \item Sobolev-Raum, \hyperpage{57}
+  \item Sobolev-Raum, \hyperpage{69}
   \item Spannungsrand, \hyperpage{43}
 
   \indexspace
