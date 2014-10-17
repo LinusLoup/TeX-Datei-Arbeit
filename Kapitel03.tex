@@ -26,23 +26,29 @@ mit $K := \{v \in H^1_0(\Omega) \with v\ge \psi$ fast überall in $\Omega\}$.
 		% Farbendefinition:
 		\newgray{mygray}{0.75}
 		
-		% Omega:
-		\psellipticarc(0,0)(3,0.8){147}{393}
-		\psellipticarc[linestyle=dotted](0,0)(3,0.8){33}{147}
-		
 		% Hindernis:
 		\psellipticarc[fillstyle=shape,fillcolor=mygray](0,0)(1.3,1.5){0}{180}
 		\psellipticarc[fillstyle=shape,fillcolor=mygray](0,0)(1.3,0.35){180}{360}
 		\psellipticarc[linestyle=dotted](0,0)(1.3,0.35){0}{180}
 		
+		% Omega:
+		\psellipticarc(0,0)(3,0.8){147}{393}
+		\psellipticarc[linestyle=dotted](0,0)(3,0.8){33}{147}
+		
 		% Lösung:
 		\pscurve(3,0)(1.7,0.3)(0.95,1)
 		\pscurve(-3,0)(-1.7,0.3)(-0.95,1)
+		\pscurve(0,1.5)(0.5,1.1)(1,0)(1.66,-0.66)
+		\pscurve(0,1.5)(-0.5,1.1)(-1,0)(-1.66,-0.66)
+		\pscurve(0,1.5)(0.5,1.1)(1,0)(1.66,-0.66)
 		
 		% Kraft f:
 		\pscurve[linewidth=0.3pt](3,0.8)(1.7,1.1)(0.95,1.8)
 		\pscurve[linewidth=0.3pt](-3,0.8)(-1.7,1.1)(-0.95,1.8)
 		\psellipticarc[linewidth=0.3pt](0,0.8)(1.3,1.5){45}{135}
+		\psline{->}(1.6,0.2)(1.6,-0.6)
+		\psline{->}(-1.6,0.2)(-1.6,-0.6)
+
 		\psline{->}(3,0.8)(3,0)
 		\psline{->}(-3,0.8)(-3,0)
 		\psline{->}(0,2.3)(0,1.5)
@@ -55,7 +61,7 @@ mit $K := \{v \in H^1_0(\Omega) \with v\ge \psi$ fast überall in $\Omega\}$.
 		\rput(2,0){$u$}
 %		\rput(-3.2,0.4){$f$}
 		\rput(-0.2,1.85){$f$}
-		\rput(-0.9,0.45){$\psi$}
+		\rput(-0.95,0.45){$\psi$}
 		\rput(-1.95,-0.35){$\Omega$}
 	\end{pspicture}
 \end{center}
@@ -622,6 +628,34 @@ Wir treffen folgende Annahmen für unser Kontaktmodell:
 
 \item[Skizze:] zwei Körper, deren Randunterteilung zu erkennen ist.
 \begin{figure}[h]
+\begin{center}
+	\begin{pspicture}(0,0)(4,4.5)
+		% Die Körper B_1,B_2:
+		\psccurve(-2,3)(0,4)(2,3)(2,1)(1,0)(-0.5,1.5)
+		\psccurve(3,1)(5,4)(6,1)(5,0.7)(3,0)
+		\rput(-1,3){$\Omega^1$}
+		\rput(5.5,1.5){$\Omega^2$}
+		
+		% Grenzen der Ränder:
+		% B_1:
+		\psline(-1.85,2.95)(-2.15,3)
+		\psline(2,3.3)(1.7,3.05)
+		\psline(1,0.15)(1,-0.15)
+		% B_2:
+		\psline(3.1,0.12)(2.9,-0.12)
+		\psline(5,3.8)(5.05,4.15)
+		\psline(5.8,1)(6.05,0.8)
+		
+		% Beschriftung:
+		\rput(2.3,0.8){$\Gamma_c^1$}
+		\rput(-1,1.3){$\Gamma_\sigma^1$}
+		\rput(-0.3,4.3){$\Gamma_u^1$}
+		
+		\rput(5,0.3){$\Gamma_\sigma^2$}
+		\rput(6.5,2.5){$\Gamma_u^2$}
+		\rput(3,2.2){$\Gamma_c^2$}
+	\end{pspicture}
+\end{center}
 \caption{Körper $\mcal B^1$ und $\mcal B^2$ mit Randbezeichnungen}
 \end{figure}
 
@@ -640,6 +674,29 @@ Wir treffen folgende Annahmen für unser Kontaktmodell:
 \item[Skizze:] Skizze mit zwei Körpern (nichtglatter Rand!!) und den Bezeichnungen $\chi(X)$ und $n_c(X)$.
 
 \begin{figure}[h]
+\begin{center}
+	\begin{pspicture}(-1,-0.5)(4,4)
+		% B_1 (slave):
+		\pscurve(-1,-1)(0,-0.2)(2,0.3)(5,-0.8)
+		\rput(2,-0.2){$\Omega^1$}
+		
+		% B_2 (master)
+		\psline(0,4)(1,2.5)
+		\psline(1,2.5)(3,3)
+		\psline(3,3)(4,4)
+		\rput(2,3.5){$\Omega^2$}
+		\rput(3,2.7){$\Gamma_c^2$}
+		\rput(0.2,3){$\Gamma_c^2$}
+		
+		% Punkt und kritische/r Punkt/Richtung:
+		\psdot(0,-0.2)
+		\psdot(1,2.5)
+		\psline{->}(0,-0.2)(0.5,1.15)
+		\rput(-0.3,-0.1){$\bs X$}
+		\rput(0.6,1.35){$\bs n_c(\bs X)$}
+		\rput(1.5,2.35){$\chi (\bs X)$}
+	\end{pspicture}
+\end{center}
 \caption{Kontaktformulierung zwischen zwei Körpern}
 \end{figure}
 

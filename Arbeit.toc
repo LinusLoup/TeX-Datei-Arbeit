@@ -19,7 +19,7 @@
 \contentsline {section}{\numberline {3.2}Kontaktprobleme}{42}{section.3.2}
 \contentsline {subsection}{\numberline {3.2.1}Mathematische Modellierung eines Kontaktproblems}{42}{subsection.3.2.1}
 \contentsline {subsection}{\numberline {3.2.2}Variationsformulierung des Signorini-Kontaktproblems}{47}{subsection.3.2.2}
-\contentsline {subsection}{\numberline {3.2.3}L\IeC {\"o}sung des Kontaktproblems mittels FEM}{49}{subsection.3.2.3}
+\contentsline {subsection}{\numberline {3.2.3}L\IeC {\"o}sung des Kontaktproblems mittels FEM}{50}{subsection.3.2.3}
 \contentsline {chapter}{\numberline {4}Ein hierarchischer Fehlersch\IeC {\"a}tzer f\IeC {\"u}r Hindernisprobleme}{51}{chapter.4}
 \contentsline {section}{\numberline {4.1}Herleitung eines a posteriori hierarchischen Fehlersch\IeC {\"a}tzers}{51}{section.4.1}
 \contentsline {subsection}{\numberline {4.1.1}Diskretisierung}{51}{subsection.4.1.1}
