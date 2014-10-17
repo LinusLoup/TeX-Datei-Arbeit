@@ -427,13 +427,34 @@ Da $e_{\mcal Q}$ und $\eps_{\mcal V}$ Lösungen der Variationsungleichungen \eqr
 	\label{eq:4.17}
 	& = \int_{\Omega} fv \, d\Omega - \sum_{T\in \mcal T_h} \int_{\partial T} v \partial_{\bs n} u_{\mcal S} \, d\Gamma \, ,
 \end{align}
-wobei im vorletzten Schritt die 1. Green'sche Formel angewendet wurde und $\bs n$ die äußere Einheitsnormale von $T$ ist.
+wobei im vorletzten Schritt die 1. Green'sche Formel angewendet wurde und d$\bs n$ die äußere Einheitsnormale von $T$ ist.
 
 \item Betrachten wir zwei beliebige Dreiecke $T_1,T_2$ wie in Abbildung \ref{abb:4.2}, wobei $\bs n$ hierbei die Einheitsnormale, die von $T_1$ nach $T_2$ zeigt, bezeichnet, so können wir die Summe aus \eqref{eq:4.17} bzgl. der Menge der Kanten $\mcal E$ darstellen, da der Rand $\partial T = E_1 \cup E_2 \cup E_3$ für jedes $T$ disjunkt in seine Kantenstücke aufgeteilt werden kann.
 
 Dabei sei $E$ nun die Kante, die $T_1$ und $T_2$ zugleich enthalten, d.h. $\bs n$ steht rechtwinklig auf $E$. Dann gilt, dass die Richtungsableitung $\partial_{\bs n} u_{\mcal S}|_{T_2}$ negativ ist bzgl. \eqref{eq:4.17} wegen der negativen Orientierung von $\bs n$ bzgl. $T_2$.
 
 \begin{figure}[h]\label{abb:4.2}
+  \begin{center}
+    \begin{pspicture}(-1.5,0)(2,2)
+    	% Die zwei Dreiecke:
+	\psline(-1.5,1.7)(1,2)
+	\psline(1,2)(-0.2,-0.2)
+	\psline(-0.2,-0.2)(-1.5,1.7)
+	\psline(1,2)(2.5,0.4)
+	\psline(2.5,0.4)(-0.2,-0.2)
+	\rput(-0.7,1.4){$T_1$}
+	\rput(1.9,0.55){$T_2$}
+	
+	% Normalenvektor:
+	\psline{->}(0.35,0.8)(1,0.45)
+	\rput(0.8,0.9){$\bs n$}
+	\psellipticarc[linewidth=0.5pt](0.35,0.8)(0.25,0.25){242}{335}
+	\psdot[dotsize=1.3pt](0.38,0.68)
+	
+	% Beschriftung der Kante E:
+	\rput(0.55,1.65){$E$}
+    \end{pspicture}
+  \end{center}
 \caption{Dreiecke $T_1$ und $T_2$ mit Einheitsnormalen $\bs n$}
 \end{figure}
 

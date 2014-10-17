@@ -532,7 +532,37 @@ Der Radius des Umkreis eines Dreieckes $T$ wird mit $h$ bezeichnet und beschreib
 \item[Skizze] von einer zulässigen und einer nicht zulässigen Triangulierung (hierbei eine Skizze mit hängenden Knoten machen)
 
 \begin{figure}[h]
-\caption{Zulässige und nichtzulässige Triangulierung}
+\begin{center}
+\begin{pspicture}(-3,0)(3,2)
+	% zulässige Triangulierung:
+	\psline(-3,0)(-3,2)
+	\psline(-3,0)(-1,0)
+	\psline(-1,0)(-3,2)
+	\psline(-3,2)(-1,2)
+	\psline(-1,2)(-1,0)
+	\psline(-3,0)(-1,2)
+	\psline(-3,1)(-2,1)
+	\psline(-2,2)(-2,1)
+	\psline(-2,2)(-3,1)
+	
+%	\psline(-2,2)(-1.5,1.5)
+%	\psline(-1.5,1.5)(-1,0)
+
+%	\psline(-2.5,1.5)(-3,1)
+%	\psline(-2.5,1.5)(-1,2)
+	
+	% nichtzulässige Triangulierung
+	\psline(1,2)(2,1)
+	\psline(2,1)(1,0)
+	\psline(1,0)(1,2)
+	\psline(1,0)(3,0)
+	\psline(3,0)(2,1)
+	\psline(1,2)(3,2)
+	\psline(3,2)(3,0)
+	\psdot[dotstyle=o, dotsize=4pt](2,1)
+\end{pspicture}
+\end{center}
+\caption{Zulässige und unzulässige Triangulierung (mit hängendem Knoten)}
 \end{figure}
 
 \item \begin{bem}
@@ -614,7 +644,29 @@ Der Beweis steht in \cite{BraeFEM} Kapitel II, \S 5, Bemerkung 5.4.
 \item[Skizze] Dreiecke für die nodalen Basen (linear, quadratisch, kubisch).
 
 \begin{figure}[h]
-\caption{Dreiecke für nodale Basisfunktionen (linear, quadratisch, kubisch)}
+\begin{center}
+\begin{pspicture}(-3,0)(5,2)
+	% lineares Element:
+	\psline(-3,0)(-3,2)
+	\psline(-3,0)(-1,0)
+	\psline(-1,0)(-3,2)
+	\psdots(-1,0)(-3,0)(-3,2)
+	
+	% quadratisches Element:
+	\psline(0,0)(0,2)
+	\psline(0,0)(2,0)
+	\psline(2,0)(0,2)
+	\psdots(0,0)(0,2)(2,0)(0,1)(1,1)(1,0)
+	
+	% kubisches Element:
+	\psline(3,0)(3,2)
+	\psline(3,0)(5,0)
+	\psline(5,0)(3,2)
+	\psdots(3,0)(5,0)(3,2)(3,1.3333)(3,0.6667)(3.6667,0)(4.3333,0)(3.6667,0.6667)(3.6667,1.3333)(4.3333,0.6667)
+	
+\end{pspicture}
+\end{center}
+\caption{Dreiecke für nodale Basen (linear, quadratisch, kubisch)}
 \end{figure}
 
 \item damit lässt sich für $V_h$ mit einem beliebigen Polynomgrad $m$ eine eindeutige nodale Basis finden, die den Raum aufspannt.
@@ -633,6 +685,57 @@ Wir betrachten unser Variationsproblem \eqref{eq:2.9} auf $\Omega = [-1,1]^2$ mi
 \underline{Skizze:} mit 8 Courant-Elementen, wie auf in http://www.math.uni-hamburg.de/home/struckmeier/numpde06/Kap2.pdf auf Seite 95
 
 \begin{figure}[h]
+\begin{center}
+\begin{pspicture}(-2,-2)(2,2.5)
+	% Skalierung:
+	\psset{xunit=2cm,yunit=2cm}
+
+	% Die 8 Courant-Elemente:
+	\psline(-1,-1)(-1,1)
+	\psline(-1,1)(1,1)
+	\psline(1,1)(1,-1)
+	\psline(1,-1)(-1,-1)
+	\psline(-1,0)(1,0)
+	\psline(0,-1)(0,1)
+	\psline(0,-1)(-1,0)
+	\psline(0,1)(1,0)
+	\psline(-1,1)(1,-1)
+	
+	% Beschriftung der Elemente:
+	\rput(0.3,0.3){I}
+	\rput(0.7,0.7){II}
+	\rput(-0.3,-0.3){VI}
+	\rput(-0.7,-0.7){V}
+	\rput(-0.65,0.3){III}
+	\rput(-0.3,0.7){IV}
+	\rput(0.3,-0.7){VII}
+	\rput(0.7,-0.3){VIII}
+	
+	% Beschriftung und Markierung der Punkte:
+	\psdots(-1,-1)(-1,0)(-1,1)(0,-1)(0,0)(0,1)(1,-1)(1,0)(1,1)
+	% links:
+	\rput(-1.13,1.13){1}
+	\pscircle[linewidth=0.5pt](-1.13,1.13){0.21}
+	\rput(-1.15,0){4}
+	\pscircle[linewidth=0.5pt](-1.15,0){0.21}
+	\rput(-1.13,-1.13){7}
+	\pscircle[linewidth=0.5pt](-1.13,-1.13){0.21}
+	% rechts:
+	\rput(1.13,1.13){3}
+	\pscircle[linewidth=0.5pt](1.13,1.13){0.21}
+	\rput(1.15,0){6}
+	\pscircle[linewidth=0.5pt](1.15,0){0.21}
+	\rput(1.13,-1.13){9}
+	\pscircle[linewidth=0.5pt](1.13,-1.13){0.21}
+	% mitte:
+	\rput(0,1.15){2}
+	\pscircle[linewidth=0.5pt](0,1.15){0.21}
+	\rput(0.15,0.15){5}
+	\pscircle[linewidth=0.5pt](0.15,0.15){0.21}
+	\rput(0,-1.15){8}
+	\pscircle[linewidth=0.5pt](0,-1.15){0.21}
+\end{pspicture}
+\end{center}
 \caption{Triangulierung von $\Omega = [-1,1]^2$ in 8 \textit{\idx{Courant-Elemente}}}
 \end{figure}
 
@@ -699,7 +802,50 @@ Dieses Vorgehen müssten wir noch für die übrigen Basisfunktion analog durchf�
 \item[Skizze] vom Referenzelement (Stephan NPDE Seite 13)
 
 \begin{figure}[h]
-\caption{Ein Referenzelement für Dreiecke}
+\begin{center}
+\begin{pspicture}(-0.5,0)(7,3)
+	% Skalierung
+	\psset{xunit=2cm,yunit=2cm}
+	
+	% lokales Koordinatensystem:
+	\psline{->}(0,0)(1.3,0)
+	\psline{->}(0,0)(0,1.3)
+	\rput(1.3,-0.12){$\xi$}
+	\rput(-0.1,1.3){$\eta$}
+	
+	% globales Koordinatensystem:
+	\psline{->}(2,0)(2.5,0)
+	\psline{->}(2,0)(2,0.5)
+	\rput(2.5,-0.13){$x$}
+	\rput(1.9,0.5){$y$}
+	
+	% Referenz-Dreieck:
+	\psline(0,0)(1,0)
+	\psline(0,0)(0,1)
+	\psline(1,0)(0,1)
+	\rput(0.3,0.3){$\widetilde T$}
+	
+	% Punktbeschriftung:
+	\rput(0,-0.13){\small (0,0)}
+	\rput(0.95,-0.13){\small (1,0)}
+	\rput(-0.22,1){\small (0,1)}
+	
+	% allgemeines Dreieck:
+	\psline(2.2,0.7)(3.2,1.2)
+	\psline(3.2,1.2)(3.7,0.2)
+	\psline(3.7,0.2)(2.2,0.7)
+	\rput(3,0.8){$T$}
+	
+	% Punktbeschriftung:
+	\rput(1.9,0.8){\small$(x_1,y_1)$}
+	\rput(3.2,1.35){\small $(x_3,y_3)$}
+	\rput(3.7,0.1){\small $(x_2,y_2)$}
+	
+	% affine Trafo:
+	\pscurve{->}(0.7,0.7)(1.4,1.2)(2.2,1)
+\end{pspicture}
+\end{center}
+\caption{Referenzelement $\widetilde T$ für ein allgemeines Dreieck $T \in \mcal T_h$}
 \end{figure}
 
 \item Dann die Herleitung von der lokalen Steifigkeitsmatrix (Stephan NPDE Seite 13+14)

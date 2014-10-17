@@ -21,7 +21,45 @@ mit $K := \{v \in H^1_0(\Omega) \with v\ge \psi$ fast überall in $\Omega\}$.
 \item zu Beginn noch eine Skizze von einem Hindernisproblem
 
 \begin{figure}[h]
-\caption{Ein Hindernisproblem mit Hindernis $\psi$ und Last $f$}
+\begin{center}
+	\begin{pspicture}(-2,-1)(2,2)
+		% Farbendefinition:
+		\newgray{mygray}{0.75}
+		
+		% Omega:
+		\psellipticarc(0,0)(3,0.8){147}{393}
+		\psellipticarc[linestyle=dotted](0,0)(3,0.8){33}{147}
+		
+		% Hindernis:
+		\psellipticarc[fillstyle=shape,fillcolor=mygray](0,0)(1.3,1.5){0}{180}
+		\psellipticarc[fillstyle=shape,fillcolor=mygray](0,0)(1.3,0.35){180}{360}
+		\psellipticarc[linestyle=dotted](0,0)(1.3,0.35){0}{180}
+		
+		% Lösung:
+		\pscurve(3,0)(1.7,0.3)(0.95,1)
+		\pscurve(-3,0)(-1.7,0.3)(-0.95,1)
+		
+		% Kraft f:
+		\pscurve[linewidth=0.3pt](3,0.8)(1.7,1.1)(0.95,1.8)
+		\pscurve[linewidth=0.3pt](-3,0.8)(-1.7,1.1)(-0.95,1.8)
+		\psellipticarc[linewidth=0.3pt](0,0.8)(1.3,1.5){45}{135}
+		\psline{->}(3,0.8)(3,0)
+		\psline{->}(-3,0.8)(-3,0)
+		\psline{->}(0,2.3)(0,1.5)
+		\psline{->}(1,1.75)(1,0.95)
+		\psline{->}(-1,1.75)(-1,0.95)
+		\psline{->}(2,0.98)(2,0.18)
+		\psline{->}(-2,0.98)(-2,0.18)
+		
+		% Beschriftungen:
+		\rput(2,0){$u$}
+%		\rput(-3.2,0.4){$f$}
+		\rput(-0.2,1.85){$f$}
+		\rput(-0.9,0.45){$\psi$}
+		\rput(-1.95,-0.35){$\Omega$}
+	\end{pspicture}
+\end{center}
+\caption{Ein Hindernisproblem mit Hindernis $\psi$, konstanter Streckenlast $f$ und Lösung $u$}
 \end{figure}
 
 %\item hierfür zunächst wieder etwas allgemeineres Energiefunktional $J: H \ra \R, J(v) = \frac 1 2 a(v,v)-F(v)$, wobei $H$ Hilbertraum
