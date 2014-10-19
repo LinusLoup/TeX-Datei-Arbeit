@@ -102,6 +102,11 @@
   discretization error of elliptic obstacle problems.
 \newblock {In: }\emph{Mathematics of Computation} 80 (2011), Nr. 273, S. 69--88
 
+\bibitem[MNS00]{MorNoc}
+\textsc{Morin}, P. ; \textsc{Nochetto}, R.H.  ; \textsc{Siebert}, K.G.:
+\newblock Data Oscillation and convergence of adaptive FEM.
+\newblock {In: }\emph{SIAM J. Numer. Anal.} 38 (2000), Nr. 2, S. 466–488
+
 \bibitem[NW06]{NocWri}
 \textsc{Nocedal}, {Jorge} ; \textsc{Wright}, {Stephen J.}:
 \newblock \emph{Numerical Optimization}.

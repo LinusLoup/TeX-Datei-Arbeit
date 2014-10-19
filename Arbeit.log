@@ -1,8 +1,4 @@
-<<<<<<< HEAD
-This is pdfTeX, Version 3.14159265-2.6-1.40.15 (TeX Live 2014) (preloaded format=latex 2014.9.25)  19 OCT 2014 10:47
-=======
-This is pdfTeX, Version 3.14159265-2.6-1.40.15 (TeX Live 2014) (preloaded format=latex 2014.9.29)  18 OCT 2014 19:21
->>>>>>> FETCH_HEAD
+This is pdfTeX, Version 3.14159265-2.6-1.40.15 (TeX Live 2014) (preloaded format=latex 2014.9.29)  19 OCT 2014 17:40
 entering extended mode
  restricted \write18 enabled.
  file:line:error style messages enabled.
@@ -1392,6 +1388,11 @@ Overfull \hbox (82.8521pt too wide) in paragraph at lines 10--10
  [][] [] [][]  
  []
 
+
+Overfull \hbox (89.52968pt too wide) in paragraph at lines 16--16
+ [][] [] [][]  
+ []
+
 )
 \tf@lof=\write9
 \openout9 = `Arbeit.lof'.
@@ -2674,38 +2675,21 @@ Package Fancyhdr Warning: \headheight is too small (12.0pt):
  This may cause the page layout to be inconsistent, however.
 
 Package babel Info: Redefining ngerman shorthand "|
-<<<<<<< HEAD
-(babel)             in language  on input line 547.
+(babel)             in language  on input line 576.
 Package babel Info: Redefining ngerman shorthand "~
-(babel)             in language  on input line 547.
+(babel)             in language  on input line 576.
 Package babel Info: Redefining ngerman shorthand "|
-(babel)             in language  on input line 547.
+(babel)             in language  on input line 576.
 Package babel Info: Redefining ngerman shorthand "~
-(babel)             in language  on input line 547.
+(babel)             in language  on input line 576.
 [62]
 
-LaTeX Font Warning: Command \scriptsize invalid in math mode on input line 586.
-
-=======
-(babel)             in language  on input line 574.
-Package babel Info: Redefining ngerman shorthand "~
-(babel)             in language  on input line 574.
-Package babel Info: Redefining ngerman shorthand "|
-(babel)             in language  on input line 574.
-Package babel Info: Redefining ngerman shorthand "~
-(babel)             in language  on input line 574.
-[62]
-
-LaTeX Font Warning: Command \scriptsize invalid in math mode on input line 593.
->>>>>>> FETCH_HEAD
+LaTeX Font Warning: Command \scriptsize invalid in math mode on input line 615.
 
 
-LaTeX Font Warning: Command \scriptsize invalid in math mode on input line 586.
 
-<<<<<<< HEAD
-=======
-LaTeX Font Warning: Command \scriptsize invalid in math mode on input line 593.
->>>>>>> FETCH_HEAD
+LaTeX Font Warning: Command \scriptsize invalid in math mode on input line 615.
+
 
 
 Package Fancyhdr Warning: \headheight is too small (12.0pt): 
@@ -2713,81 +2697,40 @@ Package Fancyhdr Warning: \headheight is too small (12.0pt):
  We now make it that large for the rest of the document.
  This may cause the page layout to be inconsistent, however.
 
-Package babel Info: Redefining ngerman shorthand "|
-<<<<<<< HEAD
-(babel)             in language  on input line 596.
-Package babel Info: Redefining ngerman shorthand "~
-(babel)             in language  on input line 596.
-Package babel Info: Redefining ngerman shorthand "|
-(babel)             in language  on input line 596.
-Package babel Info: Redefining ngerman shorthand "~
-(babel)             in language  on input line 596.
-[63]
 Package babel Info: Redefining ngerman shorthand "|
 (babel)             in language  on input line 625.
 Package babel Info: Redefining ngerman shorthand "~
 (babel)             in language  on input line 625.
 Package babel Info: Redefining ngerman shorthand "|
-(babel)             in language  on input line 630.
+(babel)             in language  on input line 625.
 Package babel Info: Redefining ngerman shorthand "~
-(babel)             in language  on input line 630.
-Package babel Info: Redefining ngerman shorthand "|
-(babel)             in language  on input line 635.
-Package babel Info: Redefining ngerman shorthand "~
-(babel)             in language  on input line 635.
-Package babel Info: Redefining ngerman shorthand "|
-(babel)             in language  on input line 640.
-Package babel Info: Redefining ngerman shorthand "~
-(babel)             in language  on input line 640.
-Package babel Info: Redefining ngerman shorthand "|
-(babel)             in language  on input line 645.
-Package babel Info: Redefining ngerman shorthand "~
-(babel)             in language  on input line 645.
-Package babel Info: Redefining ngerman shorthand "|
-(babel)             in language  on input line 650.
-Package babel Info: Redefining ngerman shorthand "~
-(babel)             in language  on input line 650.
-
-=======
-(babel)             in language  on input line 632.
-Package babel Info: Redefining ngerman shorthand "~
-(babel)             in language  on input line 632.
-Package babel Info: Redefining ngerman shorthand "|
-(babel)             in language  on input line 637.
-Package babel Info: Redefining ngerman shorthand "~
-(babel)             in language  on input line 637.
-Package babel Info: Redefining ngerman shorthand "|
-(babel)             in language  on input line 642.
-Package babel Info: Redefining ngerman shorthand "~
-(babel)             in language  on input line 642.
-Package babel Info: Redefining ngerman shorthand "|
-(babel)             in language  on input line 647.
-Package babel Info: Redefining ngerman shorthand "~
-(babel)             in language  on input line 647.
-Package babel Info: Redefining ngerman shorthand "|
-(babel)             in language  on input line 652.
-Package babel Info: Redefining ngerman shorthand "~
-(babel)             in language  on input line 652.
-Package babel Info: Redefining ngerman shorthand "|
-(babel)             in language  on input line 657.
-Package babel Info: Redefining ngerman shorthand "~
-(babel)             in language  on input line 657.
-
-Package Fancyhdr Warning: \headheight is too small (12.0pt): 
- Make it at least 13.59999pt.
- We now make it that large for the rest of the document.
- This may cause the page layout to be inconsistent, however.
-
-Package babel Info: Redefining ngerman shorthand "|
-(babel)             in language  on input line 661.
-Package babel Info: Redefining ngerman shorthand "~
-(babel)             in language  on input line 661.
-Package babel Info: Redefining ngerman shorthand "|
-(babel)             in language  on input line 661.
-Package babel Info: Redefining ngerman shorthand "~
-(babel)             in language  on input line 661.
+(babel)             in language  on input line 625.
 [63]
->>>>>>> FETCH_HEAD
+Package babel Info: Redefining ngerman shorthand "|
+(babel)             in language  on input line 654.
+Package babel Info: Redefining ngerman shorthand "~
+(babel)             in language  on input line 654.
+Package babel Info: Redefining ngerman shorthand "|
+(babel)             in language  on input line 666.
+Package babel Info: Redefining ngerman shorthand "~
+(babel)             in language  on input line 666.
+Package babel Info: Redefining ngerman shorthand "|
+(babel)             in language  on input line 678.
+Package babel Info: Redefining ngerman shorthand "~
+(babel)             in language  on input line 678.
+Package babel Info: Redefining ngerman shorthand "|
+(babel)             in language  on input line 690.
+Package babel Info: Redefining ngerman shorthand "~
+(babel)             in language  on input line 690.
+Package babel Info: Redefining ngerman shorthand "|
+(babel)             in language  on input line 702.
+Package babel Info: Redefining ngerman shorthand "~
+(babel)             in language  on input line 702.
+Package babel Info: Redefining ngerman shorthand "|
+(babel)             in language  on input line 714.
+Package babel Info: Redefining ngerman shorthand "~
+(babel)             in language  on input line 714.
+
 
 Package Fancyhdr Warning: \headheight is too small (12.0pt): 
  Make it at least 13.59999pt.
@@ -2795,23 +2738,13 @@ Package Fancyhdr Warning: \headheight is too small (12.0pt):
  This may cause the page layout to be inconsistent, however.
 
 Package babel Info: Redefining ngerman shorthand "|
-<<<<<<< HEAD
-(babel)             in language  on input line 654.
+(babel)             in language  on input line 726.
 Package babel Info: Redefining ngerman shorthand "~
-(babel)             in language  on input line 654.
+(babel)             in language  on input line 726.
 Package babel Info: Redefining ngerman shorthand "|
-(babel)             in language  on input line 654.
+(babel)             in language  on input line 726.
 Package babel Info: Redefining ngerman shorthand "~
-(babel)             in language  on input line 654.
-=======
-(babel)             in language  on input line 661.
-Package babel Info: Redefining ngerman shorthand "~
-(babel)             in language  on input line 661.
-Package babel Info: Redefining ngerman shorthand "|
-(babel)             in language  on input line 661.
-Package babel Info: Redefining ngerman shorthand "~
-(babel)             in language  on input line 661.
->>>>>>> FETCH_HEAD
+(babel)             in language  on input line 726.
 [64]) (./Kapitel05.tex
 Kapitel 5.
 Package babel Info: Redefining ngerman shorthand "|
@@ -2892,13 +2825,13 @@ Package Fancyhdr Warning: \headheight is too small (12.0pt):
  This may cause the page layout to be inconsistent, however.
 
 Package babel Info: Redefining ngerman shorthand "|
-(babel)             in language  on input line 162.
+(babel)             in language  on input line 161.
 Package babel Info: Redefining ngerman shorthand "~
-(babel)             in language  on input line 162.
+(babel)             in language  on input line 161.
 Package babel Info: Redefining ngerman shorthand "|
-(babel)             in language  on input line 162.
+(babel)             in language  on input line 161.
 Package babel Info: Redefining ngerman shorthand "~
-(babel)             in language  on input line 162.
+(babel)             in language  on input line 161.
 [69])
 
 Package Fancyhdr Warning: \headheight is too small (12.0pt): 
@@ -3171,16 +3104,12 @@ LaTeX Warning: There were undefined references.
 Package atveryend Info: Empty hook `AtVeryVeryEnd' on input line 252.
  ) 
 Here is how much of TeX's memory you used:
- 25034 strings out of 493108
- 425419 string characters out of 6134860
- 632318 words of memory out of 5000000
- 28050 multiletter control sequences out of 15000+600000
+ 25035 strings out of 493108
+ 425427 string characters out of 6134860
+ 632501 words of memory out of 5000000
+ 28051 multiletter control sequences out of 15000+600000
  18828 words of font info for 75 fonts, out of 8000000 for 9000
  1141 hyphenation exceptions out of 8191
  44i,22n,54p,10378b,608s stack positions out of 5000i,500n,10000p,200000b,80000s
 
-<<<<<<< HEAD
-Output written on Arbeit.dvi (83 pages, 611284 bytes).
-=======
-Output written on Arbeit.dvi (83 pages, 614804 bytes).
->>>>>>> FETCH_HEAD
+Output written on Arbeit.dvi (83 pages, 637056 bytes).
