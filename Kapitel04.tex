@@ -655,7 +655,90 @@ denn $\rho_p (1) = \rho_{\mcal S} (\phi_p)$.
 \label{kap:4.1.3}
 
 \begin{itemize}
-\item 
+\item in Kapitel \ref{kap:4.1.4} werden wir zeigen, dass $-\mcal I_{\mcal Q} (\eps_{\mcal V})$ eine obere Schranke von $-\mcal I (e)$ bis auf Terme höherer Ordnung bereitstellen, d.h. Terme, die nicht in $\mcal V$ enthalten sind $\ra$ Oszillationsterme (hier eingeführt)
+
+\item man kann in den numerischen Beispielen später sehen, dass (wie auch in der Theorie) eine Verkleinerung der Oszillation auch eine Verringerung des Fehlers mit sich bringt $\Ra$ wir führen die Oszillationsterme ein (auch ohne präzise Beweise)
+
+\item die Oszillation ist in zwei Teile kaufteilbar
+\begin{align}
+	\osc (u_{\mcal S}, \psi, f) \coloneqq \osc_1(u_{\mcal S},\psi)+\osc_2(u_{\mcal S},\psi,f)
+\end{align}
+(später vielleicht mit Wurzeln anders)
+
+\item im unbeschränkten Fall ist die Oszillation nur von $f$ abhängig (s. \cite{MorNoc}) und dort wird daher von "`Daten-Oszillation"' gesprochen
+
+\item $\osc_1$ ist ein Maß für die Oszillation zwischen Hindernis $\psi$ und der Galerkin-Lösung $u_{\mcal S}$, d.h.
+\begin{align}
+	\osc_1(u_{\mcal S},\psi) \coloneqq \(\sum_{p \in \mcal N^{0+}} \norm{\nabla (\psi - u_{\mcal S})}_{0,\omega_p}^2\)^{\frac 12} \, ,
+\end{align}
+wobei $\mcal N^{0+} \coloneqq \{p \in \mcal N^0 \with u_{\mcal S} > \psi \text{ in }\omega_p \setminus \{p\}\}$, also die Megne der \textit{isolierten Kontaktknoten}, d.h. $u_{\mcal S}$ ist in $\omega_p$ nur mit $p$ in Kontakt
+
+\item anschaulich: da $\psi, u_{\mcal S}$ linear, gilt: je größer die Differenz zwischen $\psi$ und $u_{\mcal S}$, umso größer die Differenz $\nabla(\psi-u_{\mcal S})$, d.h. auch $\osc_1$
+
+\item das kontinuierliche Gegenstück zu $\mcal N^{0+}$ ist die Menge der \textit{isolierten Kontaktpunkte} $x_c$, die aufgrund von $u-\psi >0$ für alle $x \in \mcal U(x_c, \eps) \subset \Omega$ mit $u(x_c) = \psi(x_c)$ alle strikten Minima $x_c \in \Omega$ enthält $\Ra (\nabla u -\nabla \psi) = 0$ für alle isolierten Kontaktpunkte, wenn $u, \psi$ hinreichend glatt sind
+
+\item da laut Theorem \ref{theorem:3.14} $u_h \ra u$ für $h\ra 0$ geht, folgt: wenn ein isolierter Kontaktknoten $p \in \mcal N^{0+}$ bei Verfeinerung bestehen bleibt, so hat die exakte Lösung $u$ einen korrespondierenden Kontaktpunkt $\tilde p$, dann gilt
+\begin{align*}
+	\bigcup_{p \in \mcal N^{0+}} \omega_p \xrightarrow[h\ra 0]{} \tilde p
+\end{align*}
+
+\item damit gilt $\osc_1$ hat wenigstens den Grad vom Fehler $e$ (warum?)
+
+\item wegen oben (mit dem hinreichend glatten $u, \psi$) verschwindet $\osc_1$ für $h \ra 0$
+
+\item $\osc_2$ ist über zwei Mengen definiert:
+\begin{align}
+	\mcal N^{++} \coloneqq \{p \in \mcal N^{+}\with \rho_E \ge - d_E \, \forall \, E \in \mcal E_p\}
+\end{align}
+d.h. alle Punkte ohne Kontakt, in denen der Fehler $\eps_{\mcal V}$ nicht in Kontakt mit $\mcal A_{\mcal V}$ steht (wie in Beweis von Satz \ref{satz:4.11} ersichtlich)
+\begin{align}
+	\mcal N^{0-}\coloneqq \{ p \in \mcal N^0 \with u_{\mcal S} = \psi , f \le 0 \text{ auf } \omega_p, j_E \le 0 \, \forall \, E \in \mcal E_p \}
+\end{align}
+d.h. voller Kontakt (s. auch \cite{SiebVee} Gleichung (2.11)) mit Last $f$ auf Druck und negativem Normalenfluss $j_E$
+
+\item aus der Nebenbedingung von $\mcal N^{0-}$ folgt
+\begin{align*}
+	0 \ge f + \sum_{E \in \mcal E_p} j_E
+\end{align*}
+durch Multiplikation mit geeigneten Testfunktionen $v$ und multiplizieren über $\omega_p$ ergibt
+\begin{align*}
+	0 &  \ge \int_{\omega_p} f v \, d\Omega + \sum_{E\in \mcal E_p} \int_E j_E v \, d \Gamma \\
+	& = \int_{\omega_p} f v \, d \Omega - \int_{\omega_p} \underbrace{\nabla u_{\mcal S}}_{=\nabla \psi} \nabla v \, d\Omega
+\end{align*}
+und damit gilt
+\begin{align}
+	 \int_{\omega_p} {\nabla \psi} \nabla v \, d\Omega \ge \int_{\omega_p} f v \, d \Omega
+\end{align}
+es gilt also laut Satz \ref{satz:3.4}, dass $-\Delta \psi - f \ge 0$ auf $\omega_p$ im distributionellem Sinne (vgl. auch \cite{Walker} Kapitel 3)
+
+dies ist laut Satz \ref{satz:3.4} auch notwendig, damit $u = \psi$ auf $\omega_p$ ist
+
+\item damit ergibt sich $\osc_2$ als
+\begin{align}
+	\osc_2(u_{\mcal S},\psi, f) \coloneqq \(\sum_{p \in \mcal N^{++}} h_p^2 \norm{f-\bar f_p}_{0,\omega_p}^2 + \sum_{p \in \mcal N\setminus (\mcal N^{0-}\cup \mcal N^{++})} h_p^2 \norm f_{0,\omega_p}^2 \)^{\frac 12}
+\end{align}
+wobei $h_p \coloneqq \max_{E\in \mcal E_p} \abs E$ für jedes $p \in \mcal N$ ($h_p$ ist ein Maß für den Durchmesser von $\omega_p$) und $\bar f_p$ den Mittelwert von $f$ über $\omega_p$ bezeichne, d.h.
+\begin{align}
+	\bar f _p = \frac 1{\abs{\omega_p}} \int_{\omega_p} f \, d\Omega
+\end{align}
+
+\item anschaulich: damit kann man die Summanden der ersten Summe als Varianz der Last $f$ auf $\omega_p$ interpretieren 
+
+$\mcal N\setminus (\mcal N^{0-}\cup \mcal N^{++})$ ist die Menge von Punkten, die keinen vollen Kontakt und in der $\eps_{\mcal V}$ keinen Kontakt mit $\mcal A_{\mcal V}$ hat
+
+\item damit enthält $\osc_2$ nur Anteile aus Knoten, ohne vollen Kontakt
+
+\item Bem.: die Oszillationsterme können leicht berechnet werden (siehe hierfür auch Kapitel 5)
+
+\item im unbeschränkten Fall, also $\psi = -\infty$, ist $\eps_{\mcal V}$ nicht im Kontakt mit dem Hindernis für alle Punkte aus $\mcal N$, also gilt $\mcal N^{++} = \mcal N$.
+
+\item damit wird \eqref{eq:4.28} ($\osc_2$) zu
+\begin{align}
+	\osc_2(u_{\mcal S},\psi, f) = \(\sum_{p \in \mcal N\cap \Omega} h_p^2 \norm{f-\bar f_p}_{0,\omega_p}^2 + \sum_{p \in \mcal N \cap \partial \Omega} h_p^2 \norm f_{0,\omega_p}^2 \)^{\frac 12}
+\end{align}
+
+\item damit ist (4.28) eine Verallgemeinerung von (4.30): wenn der Teil ohne Kontakt also bekannt wäre, dann wäre der beschränkte Fall auf dieser Menge äquivalent zu einem unbeschränkten Dirichtlet-Problem
+
 \end{itemize}
 
 
