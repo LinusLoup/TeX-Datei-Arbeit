@@ -174,7 +174,29 @@ Wir werden noch zeigen, dass $\rho_{\mcal S}$ eine Schlüsselgröße für die a 
 Im Allgemeinen gilt hierbei nicht $\mcal A_{\mcal Q} \subset \mcal A$. So kann man sich anschaulich eine quadratische Funktion $v_{\mcal Q} \in \mcal A_{\mcal Q}$ vorstellen, die allerdings zwischen den übereinstimmenden Werten aufgrund ihrer Krümmung das lineare Hindernis aus $\mcal A$ durchdringt.
 
 \begin{figure}[h]
-\caption{Beispiel eines Hindernisses mit quadratischer Funktion}
+\begin{center}
+	\begin{pspicture}(0,0)(5,3)
+		% Koordinatensystem:
+		\psaxes[linewidth=0.65pt]{->}(0,0)(-0.3,-0.3)(6.7,2.7)
+		\rput(6.7,-0.2){$x$}
+		\rput(-0.2,2.7){$y$}
+		
+		% Das Hindernis:
+		\psline[linewidth=0.6pt](1,0)(2,1)
+		\psline[linewidth=0.6pt](2,1)(4,1.5)
+		\psline[linewidth=0.6pt](4,1.5)(5,0)
+		\rput(4.5,0.3){$\psi$}
+		
+		\psdots(2,1)(3,1.25)(4,1.5)
+		
+		% Die Funktion v:
+		\psline[linestyle=dashed,linewidth=0.6pt](0,0)(2,1.5)
+		\pscurve[linestyle=dashed,linewidth=0.6pt](2,1.5)(3,1.25)(4,1.5)
+		\psline[linestyle=dashed,linewidth=0.6pt](4,1.5)(6,0)
+		\rput(0.5,0.7){$v$}
+	\end{pspicture}
+\end{center}
+\caption{Beispiel eines affinen Hindernisses $\psi$ mit $v \in \mcal A_{\mcal Q}$ in $\R$}
 \end{figure}
 \end{bem}
 
