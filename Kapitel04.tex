@@ -13,7 +13,7 @@ Dieses Kapitel basiert größtenteils auf \cite{ZouVee}.
 
 \begin{itemize}
 \item der Einfachheit halber gehen wir von folgendem Sachverhalt aus
-\begin{vor}
+\begin{vor}\label{vor:4.1}
 Das Hindernis  wird durch eine stückweise lineare stetige Funktion $\psi$ beschrieben.
 \end{vor}
 
@@ -660,7 +660,7 @@ denn $\rho_p (1) = \rho_{\mcal S} (\phi_p)$.
 \item man kann in den numerischen Beispielen später sehen, dass (wie auch in der Theorie) eine Verkleinerung der Oszillation auch eine Verringerung des Fehlers mit sich bringt $\Ra$ wir führen die Oszillationsterme ein (auch ohne präzise Beweise)
 
 \item die Oszillation ist in zwei Teile kaufteilbar
-\begin{align}
+\begin{align}\label{eq:4.23}
 	\osc (u_{\mcal S}, \psi, f) \coloneqq \osc_1(u_{\mcal S},\psi)+\osc_2(u_{\mcal S},\psi,f)
 \end{align}
 (später vielleicht mit Wurzeln anders)
@@ -752,6 +752,38 @@ $\mcal N\setminus (\mcal N^{0-}\cup \mcal N^{++})$ ist die Menge von Punkten, di
 \label{kap:4.1.4}
 
 \begin{itemize}
+\item 
+
+\item folgendes Lemma ist zentral, um die obere Schranke von $J(u_{\mcal S})-J(u)$ bzgl. $-\mcal I_{\mcal Q}(\eps_{\mcal V})$ zu zeigen
+
+\begin{lemma}
+Es sei Voraussetzung \ref{vor:4.1} erfüllt. Dann gilt
+\begin{align}
+	\rho_{\mcal S}(e) \lesssim \sum_{E\in \mcal E} \eta_E \, \abs{\rho_E} + \osc(u_{\mcal S},\psi,f)^2 
+\end{align}
+mit $\rho_E$ wie in \eqref{eq:4.11}, $\osc (u_{\mcal S},\psi,f)$ wie in \eqref{eq:4.23} und $\eta_E = \abs{\eps_{\mcal V}(x_E)} \, \norm{\phi_E}$.
+\end{lemma}
+
+\begin{proof}
+
+\end{proof}
+
+
+
+
+\item Theorem für obere Schranke des Fehlerschätzers:
+\begin{theorem}
+Es sei Voraussetzung \ref{vor:4.1} für $\psi$ erfüllt. Dann ist der hierarchische Fehlerschätzer $-\mcal I_{\mcal Q}(\eps_{\mcal V})$ eine obere Schranke für den Fehler im Energiefunktional bis auf Addition von Oszillationstermen und einer Konstante $C$, die nur von der Quasi-Uniformität von $\mcal T_h$ abhängt, d.h.
+\begin{align}
+	J(u_{\mcal S}) - J(u) \lesssim -\mcal I_{\mcal Q}(\eps_{\mcal V}) + \osc (u_{\mcal S},\psi,f)^2 \, .
+\end{align}
+\end{theorem}
+
+\begin{proof}
+
+\end{proof}
+
+
 \item
 \end{itemize}
 
