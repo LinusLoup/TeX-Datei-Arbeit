@@ -194,6 +194,11 @@
 \newblock 2009. --
 \newblock Vorlesungsskript
 
+\bibitem[Zha07]{Zhang}
+\textsc{Zhang}, Yongmin:
+\newblock Convergence of free boundaries in discrete obstacle problems.
+\newblock {In: }\emph{Numerische Mathematik}  (2007), Nr. 106, S. 157–164
+
 \bibitem[Zou11]{Zou}
 \textsc{Zou}, Qingsong:
 \newblock Efficient and reliable hierarchical error estimates for an elliptic

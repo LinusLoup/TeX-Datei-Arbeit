@@ -739,6 +739,8 @@ $\mcal N\setminus (\mcal N^{0-}\cup \mcal N^{++})$ ist die Menge von Punkten, di
 
 \item damit ist (4.28) eine Verallgemeinerung von (4.30): wenn der Teil ohne Kontakt also bekannt wäre, dann wäre der beschränkte Fall auf dieser Menge äquivalent zu einem unbeschränkten Dirichtlet-Problem
 
+\item WICHTIG: Noch einmal in \cite{Zhang} schauen, ob dies in Verbindung des letzten Absatzes im Mainpaper verwendet werden kann!!!
+
 \end{itemize}
 
 
@@ -762,7 +764,71 @@ $\mcal N\setminus (\mcal N^{0-}\cup \mcal N^{++})$ ist die Menge von Punkten, di
 \label{kap:4.1.5}
 
 \begin{itemize}
+\item wir zeigen, dass der hierarchische Fehlerschätzer $-\mcal I_{\mcal Q}(\eps_{\mcal V})$ ist auch eine untere Schranke für $-\mcal I(e) = J(u_{\mcal S}) - J(u)$
+
 \item
+\begin{theorem}
+Das Hindernis $\psi$ sei stückweise linear und stetig. Dann ist der hierarchische a posteriori Fehlerschätzer $\mcal I_{\mcal Q}(\eps_{\mcal V})$ auch eine untere Schranke für den Fehler im Energiefunktional im Sinne von
+\begin{align}
+	-\mcal I_{\mcal Q}(\eps_{\mcal V}) \le 6 (J(u_{\mcal S})-J(u)) \, .
+\end{align}
+\end{theorem}
+
+\begin{proof}
+Zunächst folgt mit \eqref{eq:4.16}
+\begin{align}\notag
+	-\mcal I_{\mcal Q} (\eps_{\mcal V}) & \le \rho_{\mcal S} (\eps_{\mcal V}) = \rho_{\mcal S} \(\sum_{E\in \mcal E} \eps_{\mcal V}(x_E) \phi_E\) \\
+	\notag
+	& = \sum_{E\in \mcal E} \eps_{\mcal V} (x_E) \rho_{\mcal S}(\phi_E) \\
+	& = \sum_{E \in \mcal E} \eta_E \, \abs {\rho_E}  \label{eq:my4.32}
+\end{align}
+mit $\eta_E = \abs{\eps_{\mcal V}(x_E)} \cdot \norm{\phi_E}$ und $\rho_E = \frac {\rho_{\mcal S}(\phi_E)}{\norm{\phi_E}}$, wobei man zeigen kann, dass $\sign (\eps_{\mcal V}(x_E)) = \sign (\rho_{\mcal S} (\phi_E))$ gilt. Weiter sollte man erwähnen, dass \eqref{eq:my4.32} äquivalent ist zu \cite{SiebVee} Gleichung (2.16).
+
+Das weitere Vorgehen ist ähnlich zum Beweis von Theorem 3.2 aus \cite{SiebVee}. Es sei
+\[
+	\varphi = \frac 13 \sum_{E\in \mcal E} \beta_E \phi_E
+\]
+eine Linearkombination aus Bubble-Funktionen. Dann lässt sich $u_{\mcal S} + \varphi$ auf jedem $T \in \mcal T_h$ durch eine Konvexkombination aus $v_E \coloneqq u_{\mcal S} + \beta_E \phi_E, E \in \mcal E$ schreiben, d.h.
+\[
+	(u_{\mcal S} + \varphi)\Big|_{T} = \frac 13 \sum_{E\in\mcal E, E \subset T} v_E \Big|_T \, .
+\]
+Da $\R^2 \ni x \mapsto \frac 12 \abs x^2$ konvex ist, rechnen wir mit den obigen Bezeichnungen schnell nach, dass gilt
+\begin{align*}
+	J(u_{\mcal S} + \varphi) & = \int_\Omega \frac 12 \abs{\nabla(u_{\mcal S}+\varphi)}^2 - f (u_{\mcal S} + \varphi )\, d\Omega \\
+	& = \sum_{T\in \mcal T_h} \int_T \frac 12 \Abs{\nabla(u_{\mcal S}+\varphi)\Big|_{T}}^2 - f (u_{\mcal S} + \varphi )\Big|_T\, d\Omega \\
+	& =  \sum_{T\in \mcal T_h} \int_T \frac 12 \Abs{\(\frac 13 \sum_{E\in\mcal E, E \subset T}\nabla v_E \Big|_T\)}^2 - f\( \frac 13 \sum_{E\in\mcal E, E \subset T} v_E \Big|_T\)\, d\Omega \\
+	& \le \frac 13 \sum_{E\in\mcal E, E \subset T} \, \sum_{T\in \mcal T_h} \int_T \frac 12 \Abs{\nabla v_E \Big|_T}^2 - f v_E \Big|_T\, d\Omega \, .
+\end{align*}
+Da wir drei Kanten pro Dreieck $T$ haben, gilt analog die Gleichung
+\[
+	J(u_{\mcal S}) = \frac 13 \sum_{E\in\mcal E , E \subset T}\,  \sum_{T\in \mcal T_h} \int_T \frac 12 \Abs{\nabla u_{\mcal S}}^2 - f u_{\mcal S}\, d\Omega  \, .
+\]
+Durch Subtraktion der letzten beiden Terme und einigen Umformungen ergibt sich dann
+\begin{align}
+	J(u_{\mcal S}) - J(u_{\mcal S}+\varphi) \ge \frac 13 \sum_{E\in \mcal E} (J(u_{\mcal S})-J(u_{\mcal S} + \beta_E \phi_E)) \, .
+\end{align}
+Wir rechnen nach, dass für alle $E\in \mcal E$
+\begin{align*}
+	J(u_{\mcal S} + \beta_E \phi_E) & = \frac 12 a(u_{\mcal S}+\beta_E \phi_E, u_{\mcal S} + \beta_E \phi_E) - (f, u_{\mcal S} + \beta_E \phi_E) \\
+	& = J(u_{\mcal S}) + \frac 12 a(\beta_E\phi_E,\beta_E\phi_E)-((f,\beta_E\phi_E)-a(u_{\mcal S},\beta_E\phi_E)) \\
+	& = J(u_{\mcal S}) + \mcal I (\beta_E\phi_E) 
+\end{align*}
+gilt. Damit ist das Minimieren von $J(u_{\mcal S}+\beta_E\phi_E)$, so dass $\beta_E \ge -d_E$, mit $d_E$ wie oben definiert, äquivalent ist zum Problem:
+\[
+	\min_{\beta_E \ge -d_E} \mcal I (\beta_E\phi_E) \, ,
+\]
+was den nächsten Schritt legitimiert. Wir setzen nun $\beta_E = \eps_{\mcal V}(x_E)$, dann gilt, dass $u_{\mcal S} + \beta_E \phi_E \in  K$ ist für alle $E \in \mcal E$ und damit aufgrund der Konvexität von $K$ auch $u_{\mcal S}+\varphi \in \mcal K$. Damit folgt insgesamt
+\begin{align*}
+	J(u_{\mcal S}) -J(u) & \ge J(u_{\mcal S})-J(u_{\mcal S}+\varphi) \\
+	& \ge  \frac 13 \sum_{E\in \mcal E} (J(u_{\mcal S})-J(u_{\mcal S} + \beta_E \phi_E))=  \frac 13 \sum_{E\in \mcal E} -\mcal I (\beta_E \phi_E) \\
+	&  =   \frac 13 \sum_{E\in \mcal E} \(\rho_{\mcal S}(\beta_E \phi_E) - \frac 12 a(\beta_E\phi_E,\beta_E\phi_E)\) \\
+	& =   \frac 13 \sum_{E\in \mcal E} \(\beta_E \, \rho_{\mcal S}(\phi_E) - \frac 12 \beta_E^2 a(\phi_E,\phi_E)\) \\
+	& \ge   \frac 13 \sum_{E\in \mcal E}\(\frac{\max\{-d_E,\rho_E\}}{\norm{\phi_E}} \, \rho_{\mcal S}(\phi_E) - \frac 1 2 \frac{\max\{-d_E,\rho_E\}^2}{\norm{\phi_E}^2} \norm{\phi_E}^2 \) \\
+	& = \frac 13 \sum_{E\in \mcal E} \bigg( \underbrace{\max\{-d_E,\rho_E\} \rho_E}_{=\eta_E \, \abs{\rho_E}} - \frac 12 \underbrace{\max\{-d_E,\rho_E\}^2}_{\ge \eta_E \, \abs{\rho_E}} \bigg) \\
+	& \ge \frac 13 \sum_{E\in \mcal E} \frac 12 \eta_E \, \abs{\rho_E} = \frac 16 \sum_{E\in \mcal E} \eta_E \, \abs{\rho_E} \, .
+\end{align*}
+Zusammen mit \eqref{eq:my4.32} folgt dann die Behauptung.
+\end{proof}
 \end{itemize}
 
 
