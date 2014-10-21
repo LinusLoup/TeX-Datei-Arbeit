@@ -726,6 +726,8 @@ wobei $h_p \coloneqq \max_{E\in \mcal E_p} \abs E$ für jedes $p \in \mcal N$ ($
 
 $\mcal N\setminus (\mcal N^{0-}\cup \mcal N^{++})$ ist die Menge von Punkten, die keinen vollen Kontakt und in der $\eps_{\mcal V}$ keinen Kontakt mit $\mcal A_{\mcal V}$ hat
 
+\item Beachte: Im Term $\osc_2$ fehlen nur die Punkte, die vollen Kontakt haben, d.h. wir betrachten also wirklich nur die Punkte außerhalb des Hindernisses!! (genauer noch: $\mcal N \setminus (\mcal N^{0-}\cup \mcal N^{++})$ sind nur die Randpunkte!)
+
 \item damit enthält $\osc_2$ nur Anteile aus Knoten, ohne vollen Kontakt
 
 \item Bem.: die Oszillationsterme können leicht berechnet werden (siehe hierfür auch Kapitel 5)
@@ -741,6 +743,7 @@ $\mcal N\setminus (\mcal N^{0-}\cup \mcal N^{++})$ ist die Menge von Punkten, di
 
 \item WICHTIG: Noch einmal in \cite{Zhang} schauen, ob dies in Verbindung des letzten Absatzes im Mainpaper verwendet werden kann!!!
 
+
 \end{itemize}
 
 
@@ -752,6 +755,8 @@ $\mcal N\setminus (\mcal N^{0-}\cup \mcal N^{++})$ ist die Menge von Punkten, di
 \label{kap:4.1.4}
 
 \begin{itemize}
+\item wir wollen in diesem Kapitel eine obere Schranke des Fehlers im Energiefunktional, die vom hierarchischen Fehlerschätzer abhängt, herleiten.
+
 \item 
 
 \item folgendes Lemma ist zentral, um die obere Schranke von $J(u_{\mcal S})-J(u)$ bzgl. $-\mcal I_{\mcal Q}(\eps_{\mcal V})$ zu zeigen
@@ -791,6 +796,21 @@ und damit folgt die Behauptung.
 \end{proof}
 
 \item an dieser Abschätzung können wir sehen, dass es sinnvoll ist, nicht nur den hierarchischen Fehlerschätzer $-\mcal I_{\mcal Q}(\eps_{\mcal V})$ zum Abschätzen des Fehlers zu verwenden, sondern auch die Oszillationsterme (diese sollten von Verfeinerungsschritt zum Verfeinerungsschritt kleiner werden, sonst ist die Verringerung im exakten Fehler nicht gesichert)
+
+\item damit nachher eine Abschätzung analog zu \cite{MorNoc} Lemma 3.8 (wäre schön, wenn diese noch gezeigt werden würde....)
+\begin{lemma}
+Es sei $0 < \gamma < 1$ ein Parameter, der die Reduktion der Größe des Dreiecks bei Verfeinerung wiedergibt. Weiter sei $0 < \hat \theta < 1$ gegeben und eine Menge an Punkten $\hat{\mcal N}\subset \mcal N$, die die zu verfeinernden Dreiecke anzeigen, gegeben, so dass
+\[
+	\osc(u_{\mcal S},\psi,f,\hat{\mcal N}) \ge \hat\theta \osc (u_{\mcal S},\psi,f,\mcal N) \, .
+\]
+Dann existiert ein $\hat\alpha \in (0,1)$, so dass
+\begin{align}
+	\osc(u_{\mcal S},\psi,f,\tilde{\mcal N}) \le \hat \alpha \osc (u_{\mcal S},\psi,f,\mcal N) \, ,
+\end{align}
+wobei $\tilde{\mcal N}$ die Menge an Punkten nach Verfeinerung der Triangulierung $\mcal T_h$ bzgl. der Punkte $\hat{\mcal N}$ ist.
+\end{lemma}
+
+Hierfür vllt eine äquivalente Darstellung von $\osc_2$ bzgl. der Dreiecke und dann das Lemma nur auf $\osc_2$ beziehen.
 \end{itemize}
 
 
