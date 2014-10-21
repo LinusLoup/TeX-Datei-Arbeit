@@ -756,7 +756,7 @@ $\mcal N\setminus (\mcal N^{0-}\cup \mcal N^{++})$ ist die Menge von Punkten, di
 
 \item folgendes Lemma ist zentral, um die obere Schranke von $J(u_{\mcal S})-J(u)$ bzgl. $-\mcal I_{\mcal Q}(\eps_{\mcal V})$ zu zeigen
 
-\begin{lemma}
+\begin{lemma}\label{lem:4.19}
 Es sei Voraussetzung \ref{vor:4.1} erfüllt. Dann gilt
 \begin{align}
 	\rho_{\mcal S}(e) \lesssim \sum_{E\in \mcal E} \eta_E \, \abs{\rho_E} + \osc(u_{\mcal S},\psi,f)^2 
@@ -780,11 +780,17 @@ Es sei Voraussetzung \ref{vor:4.1} für $\psi$ erfüllt. Dann ist der hierarchis
 \end{theorem}
 
 \begin{proof}
-
+Die Aussage folgt direkt durch Lemma \ref{lem:4.12} und \ref{lem:4.19}, denn
+\begin{align*}
+	J(u_{\mcal S})-J(u) & = - \mcal I (e) \le \rho_{\mcal S}(e) \\
+	& \lesssim \underbrace{\sum_{E\in \mcal E}\eta_E \, \abs{\rho_E}}_{=\rho_{\mcal S}(\eps_{\mcal V})} + \osc (u_{\mcal S},\psi,f)^2 \\
+	& \le 2\cdot (-\mcal I_{\mcal Q}(\eps_{\mcal V}))+ \osc (u_{\mcal S},\psi,f)^2 \\
+	& \le 2 \cdot (-\mcal I_{\mcal Q}(\eps_{\mcal V})+ \osc (u_{\mcal S},\psi,f)^2)
+\end{align*}
+und damit folgt die Behauptung.
 \end{proof}
 
-
-\item
+\item an dieser Abschätzung können wir sehen, dass es sinnvoll ist, nicht nur den hierarchischen Fehlerschätzer $-\mcal I_{\mcal Q}(\eps_{\mcal V})$ zum Abschätzen des Fehlers zu verwenden, sondern auch die Oszillationsterme (diese sollten von Verfeinerungsschritt zum Verfeinerungsschritt kleiner werden, sonst ist die Verringerung im exakten Fehler nicht gesichert)
 \end{itemize}
 
 
