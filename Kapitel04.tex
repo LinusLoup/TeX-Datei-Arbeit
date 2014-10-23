@@ -860,7 +860,7 @@ Weiter rechnen wir nach, dass
 \]
 gilt und damit folgt insgesamt zusammen mit \eqref{eq:4.35} bis \eqref{eq:4.37}
 \begin{align*}
-	c_p(\phi_p) & = \int_{\omega_p} \phi_p - \sum_{E\in\mcal E_p} \(\int_E \phi_p \, d\Gamma\) \(\int_{\omega_p} \phi_E \, d\Omega\)\(\int_E \phi_E \, d\Gamma\)^{-1} \\
+	c_p(\phi_p) & = \int_{\omega_p} \phi_p - \sum_{E\in\mcal E_p} \(\int_E \phi_p\) \(\int_{\omega_p} \phi_E \)\(\int_E \phi_E\)^{-1} \\
 	& = \frac 1 3 \, \abs{\omega_p} - 2 \sum_{T \subset \omega_p} \frac 1 2 \, \abs E \cdot \frac 1 6 \, \abs{J_T} \cdot \frac 3 2 \, \abs E^{-1} \\
 	& = \frac 1 3 \, \abs{\omega_p} - \sum_{T\subset \omega_p} \frac 12 \, \abs T = \( \frac 1 3  -  \frac 1 2 \)\abs{\omega_p} \\
 	& = - \frac 16 \, \abs{\omega_p} \, . \qedhere
@@ -883,10 +883,15 @@ mit $\rho_E$ wie in \eqref{eq:4.11}, $\osc (u_{\mcal S},\psi,f)$ wie in \eqref{e
 \begin{proof}
 
 
+Wir machen uns, bevor wir die sechs Fälle zusammenführen, klar, dass gilt
+\begin{align*}
+	\norm{\nabla e}_{0,\omega_p} &\le \norm{\nabla e}_{0,\omega_p}  + \norm{\nabla (\psi-u_{\mcal S})}_{0,\omega_p} \, , \\
+	(\mcal N^+\setminus \mcal N^{++})  \cup (\mcal N\cap \partial \Omega) & \cup \underbrace{(\mcal N^0 \setminus (\mcal N^{0-} \cup \mcal N^{0+}))  \cup\mcal N^{0+}}_{=\mcal N^0\setminus \mcal N^{0-}} = \mcal N \setminus (\mcal N^{0-}\cup \mcal N^{++}) \, .
+\end{align*}
 Verwenden wir nun die sechs gezeigten Fälle, so ergibt sich:
 \begin{align*}
 	\rho_{\mcal S}(e) = & \sum_{p \in \mcal N} \rho_p(e) \\
-	= & \sum_{E\in \mcal E^0} d_E\, \abs{\rho_E} 
+	\le & \sum_{E\in \mcal E^0} d_E\, \abs{\rho_E} +\sum_{p \in \mcal N\setminus\mcal N^{0-}} 
 \end{align*}
 \end{proof}
 
