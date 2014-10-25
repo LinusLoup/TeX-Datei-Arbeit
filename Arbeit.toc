@@ -26,25 +26,25 @@
 \contentsline {subsection}{\numberline {4.1.2}Lokaler Anteil des Fehlersch\IeC {\"a}tzers}{59}{subsection.4.1.2}
 \contentsline {subsection}{\numberline {4.1.3}Oszillationsterme}{64}{subsection.4.1.3}
 \contentsline {subsection}{\numberline {4.1.4}Zuverl\IeC {\"a}ssigkeit des Fehlersch\IeC {\"a}tzers}{67}{subsection.4.1.4}
-\contentsline {subsection}{\numberline {4.1.5}Effektivit\IeC {\"a}t des Fehlersch\IeC {\"a}tzers}{71}{subsection.4.1.5}
-\contentsline {section}{\numberline {4.2}Ein adaptiver Algorithmus}{74}{section.4.2}
-\contentsline {section}{\numberline {4.3}Erf\IeC {\"u}llung einer Saturationseigenschaft}{74}{section.4.3}
-\contentsline {section}{\numberline {4.4}\IeC {\"U}bertragung des Fehlersch\IeC {\"a}tzers auf Kontaktprobleme}{74}{section.4.4}
-\contentsline {chapter}{\numberline {5}Implementierung des Fehlersch\IeC {\"a}tzers in Matlab}{75}{chapter.5}
-\contentsline {chapter}{\numberline {6}Validierung}{76}{chapter.6}
-\contentsline {section}{\numberline {6.1}Numerisches Beispiel zum Hindernisproblem}{76}{section.6.1}
-\contentsline {section}{\numberline {6.2}Numerisches Beispiel zum Kontaktproblem}{76}{section.6.2}
-\contentsline {chapter}{\numberline {7}Zusammenfassung und Ausblick}{77}{chapter.7}
-\contentsline {chapter}{Literaturverzeichnis}{78}{chapter.7}
-\contentsline {chapter}{\numberline {A}Funktionalanalysis}{81}{appendix.A}
-\contentsline {section}{\numberline {A.1}Sobolev-R\IeC {\"a}ume}{81}{section.A.1}
-\contentsline {section}{\numberline {A.2}Optimalit\IeC {\"a}tskriterien}{83}{section.A.2}
-\contentsline {section}{\numberline {A.3}Konvergenzbegriffe}{83}{section.A.3}
-\contentsline {chapter}{\numberline {B}Optimierung}{85}{appendix.B}
-\contentsline {section}{\numberline {B.1}Quadratische Programmierung}{85}{section.B.1}
-\contentsline {section}{\numberline {B.2}Active Set-Methode f\IeC {\"u}r konvexe QPs}{86}{section.B.2}
-\contentsline {section}{\numberline {B.3}Algorithmus}{90}{section.B.3}
-\contentsline {chapter}{\numberline {C}Tensorrechnung}{91}{appendix.C}
-\contentsline {chapter}{\numberline {D}Quellcode}{92}{appendix.D}
-\contentsline {section}{\numberline {D.1}Implementierung des Fehlersch\IeC {\"a}tzers f\IeC {\"u}r das Hindernisproblem}{92}{section.D.1}
-\contentsline {chapter}{Index}{92}{section.D.1}
+\contentsline {subsection}{\numberline {4.1.5}Effektivit\IeC {\"a}t des Fehlersch\IeC {\"a}tzers}{76}{subsection.4.1.5}
+\contentsline {section}{\numberline {4.2}Ein adaptiver Algorithmus}{79}{section.4.2}
+\contentsline {section}{\numberline {4.3}Erf\IeC {\"u}llung einer Saturationseigenschaft}{79}{section.4.3}
+\contentsline {section}{\numberline {4.4}\IeC {\"U}bertragung des Fehlersch\IeC {\"a}tzers auf Kontaktprobleme}{79}{section.4.4}
+\contentsline {chapter}{\numberline {5}Implementierung des Fehlersch\IeC {\"a}tzers in Matlab}{80}{chapter.5}
+\contentsline {chapter}{\numberline {6}Validierung}{81}{chapter.6}
+\contentsline {section}{\numberline {6.1}Numerisches Beispiel zum Hindernisproblem}{81}{section.6.1}
+\contentsline {section}{\numberline {6.2}Numerisches Beispiel zum Kontaktproblem}{81}{section.6.2}
+\contentsline {chapter}{\numberline {7}Zusammenfassung und Ausblick}{82}{chapter.7}
+\contentsline {chapter}{Literaturverzeichnis}{83}{chapter.7}
+\contentsline {chapter}{\numberline {A}Funktionalanalysis}{86}{appendix.A}
+\contentsline {section}{\numberline {A.1}Sobolev-R\IeC {\"a}ume}{86}{section.A.1}
+\contentsline {section}{\numberline {A.2}Optimalit\IeC {\"a}tskriterien}{88}{section.A.2}
+\contentsline {section}{\numberline {A.3}Konvergenzbegriffe}{88}{section.A.3}
+\contentsline {chapter}{\numberline {B}Optimierung}{90}{appendix.B}
+\contentsline {section}{\numberline {B.1}Quadratische Programmierung}{90}{section.B.1}
+\contentsline {section}{\numberline {B.2}Active Set-Methode f\IeC {\"u}r konvexe QPs}{91}{section.B.2}
+\contentsline {section}{\numberline {B.3}Algorithmus}{95}{section.B.3}
+\contentsline {chapter}{\numberline {C}Tensorrechnung}{96}{appendix.C}
+\contentsline {chapter}{\numberline {D}Quellcode}{97}{appendix.D}
+\contentsline {section}{\numberline {D.1}Implementierung des Fehlersch\IeC {\"a}tzers f\IeC {\"u}r das Hindernisproblem}{97}{section.D.1}
+\contentsline {chapter}{Index}{97}{section.D.1}

@@ -571,9 +571,9 @@ da $\phi_p \equiv 0$ auf $\mcal O \coloneqq \overline{\Omega \setminus \omega_p}
 \item 
 \begin{kor}
 Der Indikator $\rho_{\mcal S}$ lässt sich schreiben als
-\[
+\begin{align}\label{eq:4.20}
 	\rho_{\mcal S} = \sum_{p \in \mcal N} \rho_p \, .
-\]
+\end{align}
 \end{kor}
 
 \begin{proof}
@@ -603,7 +603,7 @@ wodurch $\rho_{\mcal S} = 0$ folgt, dass $e = 0$ ist.
 Damit folgt mit Einsetzen von $v$ in  \eqref{eq:3.12}
 \begin{align}\notag
 	&a(u_{\mcal S}, u_{\mcal S} + \phi_p - u_{\mcal S}) \ge (f,u_{\mcal S}+\phi_p-u_{\mcal S}) \\
-	\label{eq:4.20}
+	\label{eq:my4.20}
 	\Llra \,  & 0 \ge (f,\phi_p)-a(u_{\mcal S},\phi_p) = \rho_{\mcal S}(\phi_p)
 \end{align}
 dies bedeutet, dass die lineare Approximation des Fehlers $e$ gleich Null ist.
@@ -611,7 +611,7 @@ dies bedeutet, dass die lineare Approximation des Fehlers $e$ gleich Null ist.
 \item falls an einem Punkt $p$ kein Kontakt zwischen $u_{\mcal S}$ und $\psi$ vorliegt, also $u_{\mcal S} (p) > \psi(p)$ ist, dann können wir ein $\alpha > 0$ hinreichend klein wählen, sodass $v = u_{\mcal S} - \alpha \phi_p \in K_h$ liegt. Dann folgt analog durch Einsetzen von $v$ in \eqref{eq:3.12}
 \begin{align*}
 	0 & \ge (f,-\alpha \phi_p) - a(u_{\mcal S},-\alpha\phi_p) \\
-	\Llra \, 0 & \le (f,\phi_p) - a(u_{\mcal S},\phi_p) = \rho_{\mcal S} (\phi_p) \stackrel[\scriptsize\eqref{eq:4.20}]{}\le 0
+	\Llra \, 0 & \le (f,\phi_p) - a(u_{\mcal S},\phi_p) = \rho_{\mcal S} (\phi_p) \stackrel[\scriptsize\eqref{eq:my4.20}]{}\le 0
 \end{align*}
 und damit gilt $\rho_{\mcal S} (\phi_p) = 0$
 
@@ -777,13 +777,13 @@ Es sei $\pi_p$ die oben beschriebene Projektion. Dann gelten für die Koordinate
 	\pi_p v = \alpha_p(v) \phi_p + \sum_{E \in \mcal E_p} \alpha_E(v) \phi_E
 \]
 die Beziehungen
-\begin{subequations}
+\begin{subequations}\label{eq:4.33}
 \begin{align}
 	\alpha_p(v)& = \begin{cases}
 					\frac{c_p(v)}{c_p(\phi_p)} &, p \in \mcal N^{++} \\
 					0 &, \text{sonst}
 				\end{cases} , \\
-	 \alpha_E(v) &= \frac{\int_E v \, d\Gamma - \alpha_p(v)\int_E \phi_p \, d\Gamma}{\int_E \phi_p \, d\Gamma} \, ,
+	 \alpha_E(v) &= \frac{\int_E v \, d\Gamma - \alpha_p(v)\int_E \phi_p \, d\Gamma}{\int_E \phi_E \, d\Gamma} \, ,
 \end{align}
 \end{subequations}
 wobei
@@ -867,7 +867,25 @@ gilt und damit folgt insgesamt zusammen mit \eqref{eq:4.35} bis \eqref{eq:4.37}
 \end{align*}
 \end{proof}
 
+\item für den wichtigsten Satz dieser Arbeit benötigen wir noch eine Eigenschaft der lokalen Projektionen
+\begin{lemma}
+Die Koeffizienten in \eqref{eq:4.33} erfüllen die Eigenschaft
+\begin{align}\label{eq:my4.39}
+	\max_{\mcal Q \in \{p\} \cup \mcal E_p} \abs{\alpha_{\mcal Q} (v)} \lesssim h^{-1}_p (\norm v_{0,\omega_p} + h_p \norm{\nabla v}_{0,\omega_p}) 
+\end{align}
+und $\pi_p$ ist stabil im Sinne von
+\begin{align}\label{eq:my4.40}
+	\norm{\pi_p v}_{0,\omega_p} \lesssim \norm v_{0,\omega_p} + h_p \norm{\nabla v}_{0,\omega_p} \, .
+\end{align}
+Insbesondere gilt, wenn $p \not\in \mcal N^{++}$ ist, dass für $\alpha_E(v) = \(\int_{E} v \, d\Gamma \) \(\int_E \phi_E\)^{-1}$ die Eigenschaft gilt:
+\begin{align}\label{eq:my4.41}
+	\int_E v \, d\Gamma \ge \int_E (\psi-u_{\mcal S}) \, d\Gamma \lra \alpha_E(v) \gtrsim \psi(x_E)-u_{\mcal S} (x_E) \quad \forall \, E \in \mcal E_p \, .
+\end{align}
+\end{lemma}
 
+\begin{proof}
+Beweis machen???
+\end{proof}
 
 
 \item folgendes Lemma ist zentral, um die obere Schranke von $J(u_{\mcal S})-J(u)$ bzgl. $-\mcal I_{\mcal Q}(\eps_{\mcal V})$ zu zeigen
@@ -881,17 +899,144 @@ mit $\rho_E$ wie in \eqref{eq:4.11}, $\osc (u_{\mcal S},\psi,f)$ wie in \eqref{e
 \end{lemma}
 
 \begin{proof}
+Die Idee des Beweises beruht auf Gleichung \eqref{eq:4.20}; damit können wir den Indikator in die lokalen Anteile bzgl. der Punkte $p \in \mcal N$ aufteilen, d.h.
+\begin{align}\label{eq:4.40}
+	\rho_{\mcal S} (e) = \sum_{p \in \mcal N} \rho_p (e) \, .
+\end{align}
+Hierbei ist die Abschätzung der lokalen Anteile $\rho_p(e)$ abhängig von einer Anwendung der \textit{\idx{Poincaré-Ungleichung}}\index{Ungleichungen!Poincaré} (vgl. auch \cite{Rudin})
+\begin{align}\label{eq:4.41}
+	\norm{v-c}_{0,\omega_p} \lesssim h_p \norm{\nabla v}_{0,\omega_p}
+\end{align}
+mit einer Konstanten $c$ und $v\in H^1(\Omega)$, so dass $v=0$ auf einer Menge $\Gamma \subset \partial \omega_p$ mit einem Maß $\mu (\Gamma)\not= 0$. Da \eqref{eq:4.41} von $p\in \mcal N$ abhängt, werden wir sehen, dass die Anwendung von der Poincaré-Ungleichung vom Typ des Knotens $p$ abhängt. Deshalb betrachten wir die disjunkte Vereinigung
+\begin{align}\label{eq:4.42}
+\begin{aligned}
+	& \overbrace{\mcal N^{++} \cup (\mcal N^+ \setminus \mcal N^{++})}^{=\mcal N^+} \cup (\mcal N \cap \partial \Omega ) \cup\overbrace{ (\mcal N^0 \setminus (\mcal N^{0+} \cup \mcal N^{0-}))  \cup \mcal N^{0+} \cup \mcal N^{0-}}^{= \mcal N^0} \\
+	= \, & \mcal N^+ \cup \mcal N^0 \cup (\mcal N \cap \partial \Omega)  = (\mcal N \cap \Omega) \cup (\mcal N \cap \partial \Omega) = \mcal N \, .
+\end{aligned}
+\end{align}
+Wir wollen im Folgenden die in \eqref{eq:4.42} aufgeführten Fälle chronologisch abarbeiten.
+
+\textit{Fall 1}: Es sei $p \in \mcal N^{++}$. Wir behaupten, dass
+\begin{align}\label{eq:4.46}
+	\rho_p(e) \lesssim \(\sum_{E\in \mcal E^+_p} \abs{\rho_E} + h_p \norm{f-\bar f_p}_{0,\omega_p} \) \norm {\nabla e}_{0,\omega_p}
+\end{align}
+gilt, wobei $\mcal E^+_p = \{E \in \mcal E_p \mid \rho_E \ge -d_E\}$. Da $p \in \mcal N^{++}$ ist, gilt für alle $E\in \mcal E_p$ die Ungleichung $\rho_E \ge -d_E$ ist, d.h. $\mcal E^+_P = \mcal E_p$. Wir setzen
+\[
+	w = (e-c)\phi_p \, , \quad c = \frac 1{\abs{\omega_p}} \int_{\omega_p} e\, d\Omega \, .
+\]
+Da $\mcal N^{++} \subset \mcal N^+ \cap \Omega$ ist, d.h. $u_{\mcal S}(p) > \psi (p)$ ist,  gilt  
+\begin{align*}
+	\rho_p(c) = c \, \rho_p(1) \stackrel{\scriptsize\eqref{eq:4.22b}}= c\cdot 0 = 0 \, .
+\end{align*}
+Damit erhalten wir
+\begin{align}\notag
+	\rho_p (e) & = \rho_p(e) - \rho_p(c) = \rho_p(e-c) \stackrel{\scriptsize \text{Lem. \ref{lem:4.14}}}= \int_{\omega_p} fw \, d \Omega + \sum_{E\in \mcal E_p} \int_E j_E w \, d\Gamma \\
+	\notag
+	&\!\! \!\stackrel{\scriptsize \text{"`}+0\text{"'}}= \int_{\omega_p} f \pi_p w \, d\Omega + \sum_{E\in \mcal E_p}\underbrace{ \int_E j_E \pi_pw \, d \Gamma}_{\stackrel[\scriptsize\eqref{eq:4.32}]{}= \int_E j_Ew \, d\Gamma} + \int_{\omega_p} f(w-\pi_p w) \, d\Omega \\
+	\notag
+	& = \rho_{\mcal S} (\pi_pw ) +  \int_{\omega_p} f(w-\pi_p w) \, d\Omega - \bar f_p \underbrace{ \int_{\omega_p} (w-\pi_p w) \, d\Omega }_{= 0 \text{ wegen } \eqref{eq:4.32}} \\
+	\notag
+	& = \rho_{\mcal S} (\pi_pw ) +  \int_{\omega_p} (f-\bar f_p)(w-\pi_p w) \, d\Omega \\
+	\label{eq:4.47}
+	& \!\!\! \; \; \!\! \stackrel{\scriptsize \text{C.S.}}\le \sum_{E \in \mcal E_p} \alpha_E(w) \rho_E \norm{\phi_E} + \norm{f-\bar f_p}_{0,\omega_p} \norm{w-\pi_p w}_{0,\omega_p} \, , 
+\end{align}
+wobei im letzten Schritt zusätzlich zur Cauchy-Schwarz-Ungleichung im zweiten Summanden noch angewendet wurde, dass
+\begin{align*}
+	\rho_{\mcal S} (\pi_p w) &= \rho_{\mcal S} \(\alpha_p(w) \phi_p + \sum_{E\in \mcal E_p} \alpha_E(w) \phi_E\) \\
+	& = \alpha_p(w) \underbrace{\rho_{\mcal S} (\phi_p)}_{=\rho_p(1) = 0} \sum_{E\in \mcal E_p} \alpha_E(w) \!\!\!\! \underbrace{\rho_{\mcal S}(\phi_E)}_{\stackrel[\scriptsize \eqref{eq:4.11}]{}=\rho_E \norm{\phi_E}} \\
+	& = \sum_{E \in \mcal E_p} \alpha_E(w) \rho_E\norm{\phi_E}
+\end{align*}
+ist. Da $\norm{\phi_p}_{\infty,\omega_p} \le 1$, gilt mit der Poincaré-Ungleichung \eqref{eq:4.41}
+\begin{align}\label{eq:4.48}
+	\norm w_{0,\omega_p} = \norm{(e-c)\phi_p}_{0,\omega_p} \le \norm{e-c}_{0,\omega_p} \lesssim h_p \norm{\nabla e}_{0,\omega_p} \, ,
+\end{align}
+wobei die erste Ungleichung aus dem Mittelwertsatz der Integralrechnung folgt.
+Es sei weiterhin darauf hingewiesen, dass $\norm{\nabla \phi_p}_{\infty,\omega_p} \lesssim h^{-1}_p$, da die Steigung der Hutfunktion nur von der Form von $\omega_p$ abhängt. Damit erhalten wir dann durch Anwenden von \eqref{eq:my4.39} für alle $E \in \mcal E_p$
+\begin{align}
+\begin{aligned}\label{eq:4.49}
+	\abs{\alpha_E(w)} & \lesssim h_p^{-1} (\norm{w}_{0,\omega_p} + h_p \norm{\nabla w}_{0,\omega_p}) \\
+	& = h_p^{-1} (\norm{(e-c)\phi_p}_{0,\omega_p} + h_p \norm{\nabla ((e-c)\phi_p)}_{0,\omega_p}) \\
+	& \le h_p^{-1} (h_p \norm{\nabla e}_{0,\omega_p} + h_p \norm{\underbrace{\nabla(e-c)}_{=\nabla e} \phi_p + (e-c) \nabla \phi_p}_{0,\omega_p}) \\
+	& \! \;\!\!\stackrel{\triangle \not=}\le \norm{\nabla e}_{0,\omega_p} + \norm{\nabla e \, \phi_p}_{0,\omega_p}+ \norm{(e-c) \nabla \phi_p}_{0,\omega_p} \\
+	& \lesssim 2 \, \norm{\nabla e}_{0,\omega_p} + h_p^{-1} \norm{e-c}_{0,\omega_p} \stackrel{\scriptsize \eqref{eq:4.48}} \lesssim  \norm{\nabla e}_{0,\omega_p} \, .
+\end{aligned}
+\end{align}
+Über das Referenzelement $\hat T$ kann man zeigen, dass
+\[
+	\norm{\phi_E}  = a(\phi_E,\phi_E)^{\frac 1 2} =\(\int_{\Omega} \nabla \phi_E \nabla \phi_E \, d\Omega \)^{\frac 12} = \(\frac 83 (\abs{J_{T_1}}+\abs{J_{T_2}})\)^{\frac 12} \lesssim \tilde c \, ,
+\]
+da die Jacobi-Determinanten $J_{T_1},J_{T_2}$ (wobei $E \subset T_i,i=1,2$ gilt) endlich sind, jedoch von der Form von $\omega_p$ abhängen. Damit gilt
+\begin{align}\label{eq:4.50}
+	\norm{\nabla e}_{0,\omega_p} \approx \norm{\phi_E}^{-1} \norm{\nabla e}_{0,\omega_p} \, .
+\end{align}
+Analog folgt mit Anwendung von \eqref{eq:my4.40} und \eqref{eq:4.48}, dass gilt:
+\begin{align}\label{eq:4.51}
+\begin{aligned}
+	\norm{w-\pi_p w}_{0,\omega_p} &\! \;\!\!\stackrel{\scriptsize \triangle \not=} \le \norm w_{0,\omega_p} + \norm{\pi_p w}_{0,\omega_p} \\
+	& \lesssim h_p\norm{\nabla e}_{0,\omega_p}+\norm w_{0,\omega_p} + h_p \norm{\nabla e}_{0,\omega_p} \lesssim h_p \norm{\nabla e}_{0,\omega_p}
+\end{aligned}
+\end{align}
+Setzen wir \eqref{eq:4.49} bis \eqref{eq:4.51} in \eqref{eq:4.47}, so folgt nach Ausklammern von $\norm{\nabla e}_{0,\omega_p}$ die Behauptung \eqref{eq:4.46} mit $\mcal E_p = \mcal E_p^+$.
+
+\textit{Fall 2}: Es sei $p \in \mcal N^+\setminus \mcal N^{++}$. Wir behaupten, dass gilt:
+\begin{align}\label{eq:4.52}
+	\rho_p (e) \lesssim \(\sum_{E \in \mcal E^+_p} \abs{\rho_E} + h_p \norm f_{0,\omega_p}\) \norm{\nabla e}_{0,\omega_p} \, .
+\end{align}
+Auch hier können wir analog zu \eqref{eq:4.47} eine Ungleichung herleiten, wobei die zweite Addition der Null nicht gilt, da $p \not \in \mcal N^{++}$. Damit erhalten wir die Aussage
+\begin{align}\label{eq:4.53}
+	\rho_p (e) \le \sum_{E\in \mcal E_p} \alpha_E (w) \rho_E \norm{\phi_E} + \norm f_{0,\omega_p} \norm{w-\pi_p w}_{0,\omega_p} \, ,
+\end{align} 
+wobei wir hier
+\begin{align}\label{eq:4.54}
+	w = (e-c)\phi_p\, , \quad c = \min\left\{ \(\int_E e\phi_p \, d\Gamma \)\(\int_E \phi_p\, d\Gamma\)^{-1} \mid E \in \mcal E_p \right\}
+\end{align}
+setzen. Damit gilt
+\begin{align*}
+	\alpha_E(w) & = \(\int_E w \, d\Gamma \) \(\int_E \phi_E\, d\Gamma\)^{-1} = \(\int_E (e-c)\phi_p \, d\Gamma \) \(\int_E \phi_E\, d\Gamma\)^{-1} \\
+	& = \(\int_E e\phi_p \, d\Gamma-c\int_E \phi_p \, d\Gamma \) \(\int_E \phi_E\, d\Gamma\)^{-1} \\
+	&\!\!\!\!\!\;\stackrel{\scriptsize \eqref{eq:4.54}} \ge \!\!\;  \(\int_E e\phi_p \, d\Gamma-\(\int_E e\phi_p \, d\Gamma \)\(\int_E \phi_p\, d\Gamma\)^{-1} \(\int_E \phi_p \, d\Gamma \)\) \(\int_E \phi_E\, d\Gamma\)^{-1} \\
+	& = 0 \, .
+\end{align*}
+Daraus können wir folgern, dass für die Kanten $E\in \mcal E_p$ mit $\rho_E < -d_E \le 0$
+\[
+	\alpha_E(w)\rho_E \le 0
+\]
+gilt. Ersetzen wir dies in \eqref{eq:4.53}, so folgt \eqref{eq:4.52} insgesamt mit denselben Abschätzungen aus \eqref{eq:4.49}, \eqref{eq:4.50} und \eqref{eq:4.51}.
+
+\textit{Fall 3}: Sei $p \in \mcal N \cap \partial \Omega$. Wir behaupten für diesen Fall, dass
+\begin{align}\label{eq:4.55}
+	\rho_p (e) \lesssim \sum_{E\in \mcal E^0_p} d_E \, \abs{\rho_E} + \(\sum_{E\in \mcal E_p^+} \abs{\rho_E} + h_p \norm{f}_{0,\omega_p}\)\norm{\nabla e}_{0,\omega_p}
+\end{align}
+mit $\mcal E_p^0 = \mcal E_p \setminus \mcal E_p^+ = \{E \in \mcal E_p \mid \rho_E < -d_E\}$. Auch hier betrachten wir die Ungleichung \eqref{eq:4.53}, wobei wir dieses Mal $w = e\phi_p$ setzen, d.h. mit der obigen Wahl $c = 0$ setzen. In diesem Fall kann kein anderes $c$ gewählt werden, da wir wegen $p \not\in \Omega$ nicht direkt $\rho_p (c) = 0$ aus \eqref{eq:4.22b} folgern können. Da $p \in \partial \Omega$ ist, gilt mindestens auf einer Kante $E \in \mcal E_p$ von $\partial \omega_p$
+\[
+	e = u- u_{\mcal S} = 0 \, .
+\]
+Damit ist $e$ auf einer Teilmenge, vom Maße ungleich Null, des Randes gleich Null und wir können daher die allgemeine Poincaré-Ungleichung \eqref{eq:4.41} anwenden.
+
+
+
+\vspace{3cm}
+
 
 
 Wir machen uns, bevor wir die sechs Fälle zusammenführen, klar, dass gilt
 \begin{align*}
-	\norm{\nabla e}_{0,\omega_p} &\le \norm{\nabla e}_{0,\omega_p}  + \norm{\nabla (\psi-u_{\mcal S})}_{0,\omega_p} \, , \\
-	(\mcal N^+\setminus \mcal N^{++})  \cup (\mcal N\cap \partial \Omega) & \cup \underbrace{(\mcal N^0 \setminus (\mcal N^{0-} \cup \mcal N^{0+}))  \cup\mcal N^{0+}}_{=\mcal N^0\setminus \mcal N^{0-}} = \mcal N \setminus (\mcal N^{0-}\cup \mcal N^{++}) \, .
+	 & (\mcal N^+\setminus \mcal N^{++})  \cup (\mcal N\cap \partial \Omega)  \cup \overbrace{(\mcal N^0 \setminus (\mcal N^{0-} \cup \mcal N^{0+}))  \cup\mcal N^{0+}}^{=\mcal N^0\setminus \mcal N^{0-}} \\
+	 = \, & (\mcal N\cap \Omega) \setminus (\mcal N^{0-}\cup \mcal N^{++})\cup (\mcal N \cap \partial \Omega) = \mcal N \setminus (\mcal N^{0-} \cup \mcal N^{++}) \, .
 \end{align*}
 Verwenden wir nun die sechs gezeigten Fälle, so ergibt sich:
 \begin{align*}
 	\rho_{\mcal S}(e) = & \sum_{p \in \mcal N} \rho_p(e) \\
-	\le & \sum_{E\in \mcal E^0} d_E\, \abs{\rho_E} +\sum_{p \in \mcal N\setminus\mcal N^{0-}} 
+	= & \sum_{E\in \mcal E^0} d_E\, \abs{\rho_E} 
+		+ \sum_{p \in \mcal N \setminus \mcal N^{0-}} \Bigg( \sum_{E \in \mcal E_p^+} \abs{\rho_E} \Bigg) \norm{\nabla e}_{0,\omega_p} \\
+	 & + \! \! \! \sum_{p \in \mcal N\setminus(\mcal N^{0-}\cup\mcal N^{++})}\!\!\! h_p \norm{f}_{0,\omega_p} \norm{\nabla e}_{0,\omega_p} + \sum_{p \in \mcal N^{++}} h_p \norm{f-\bar f_p}_{0,\omega_p} \norm{\nabla e}_{0,\omega_p} \\
+	 & + \sum_{p \in \mcal N^{0+}} \Bigg(\sum_{E\in \mcal E^+_p} \abs{\rho_E} + h_p \norm f_{0,\omega_p}\Bigg) \norm{\nabla(\psi-u_{\mcal S})}_{0,\omega_p}  \, .
+\end{align*}
+Damit folgt nach der Cauchy-Schwarz-Ungleichung, dass mit einer Konstante $C>0$, die nur von der Quasi-Uniformität von $\mcal T_h$ abhängt, gilt:
+\begin{align*}
+	C \rho_{\mcal S}(e) \le & \sum_{E\in \mcal E^0} d_E\, \abs{\rho_E} + \Bigg(\sum_{E\in \mcal E^+} \abs{\rho_E}^2 + \sum_{p \in \mcal N\setminus(\mcal N^{0-}\cup\mcal N^{++})} h_p^2 \norm{f}^2_{0,\omega_p}  \\
+	& +  \sum_{p \in \mcal N^{++}} h_p^2 \norm{f-\bar f_p}_{0,\omega_p}^2\Bigg)^{\frac 12} \Bigg( \norm{\nabla e}_{0,\Omega} + \sum_{p \in \mcal N^{0+}} \norm{\nabla(\psi-u_{\mcal S})}_{0,\omega_p}^2 \Bigg)^{\frac 1 2} \\
+	= &  \sum_{E\in \mcal E^0} d_E\, \abs{\rho_E} + \Bigg(\sum_{E\in \mcal E^+} \abs{\rho_E}^2 + \osc_2(u_{\mcal S},\psi,f)^2\Bigg)^{\frac 12} \Big( \norm{\nabla e}_{0,\Omega} + \osc_1(u_{\mcal S},\psi)^2 \Big)^{\frac 1 2}
 \end{align*}
 \end{proof}
 
