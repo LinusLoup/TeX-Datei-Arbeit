@@ -1337,7 +1337,74 @@ Zusammen mit \eqref{eq:my4.32} folgt dann die Behauptung.
 \label{kap:4.3}
 
 \begin{itemize}
+\item in Kapitel \ref{kap:2.4} musste für den hierarchischen Fehlerschätzer eine Saturationseigenschaft erfüllt werden. Dies ist hier nicht benötigt worden, dennoch wird eine solche äquivalente Eigenschaft erfüllt.
+
+\item wir wollen zeigen, dass das für die quadratische finite Element Approximation $u_{\mcal Q}$ mit
+\begin{align}\label{eq:4.79}
+	u_{\mcal Q} \in K_{\mcal Q} : \quad a(u_{\mcal Q}, v-u_{\mcal Q}) \ge (f,v-u_{\mcal Q}) \quad \forall \, v \in K_{\mcal Q} \, ,
+\end{align}
+wobei $K_{\mcal Q} = \{v \in \mcal Q \mid v(p)\ge \psi(p) \, \forall \, p \in \mcal N_{\mcal Q} \cap \Omega\}$ ist, die Saturationseigenschaft
+\begin{align}\label{eq:4.80}
+	J(u_{\mcal Q})-J(u) \le \alpha (J(u_{\mcal S})-J(u))
+\end{align}
+mit $\alpha \in (0,1)$, wenn der Oszillationsterm $\osc (u_{\mcal S},\psi,f)$ relativ klein ist
+
 \item
+\begin{lemma}
+Es sei $\alpha \in (0,1)$. Dann gilt die Saturationseigenschaft \eqref{eq:4.80} genau dann, wenn gilt
+\begin{align}\label{eq:4.81}
+	J(u_{\mcal S}) - J(u) \le \frac{-\mcal I (e_{\mcal Q})}{1-\alpha} \, .
+\end{align}
+\end{lemma}
+
+\begin{proof}
+Es sei $e_{\mcal Q}$ Lösung von Problem \eqref{eq:4.5} bzw. $u_{\mcal Q}$ Lösung von \eqref{eq:4.79}, damit gilt $u_{\mcal Q} = u_{\mcal S} + e_{\mcal Q}$. Es gilt
+\begin{align*}
+	& -\mcal I(e_{\mcal Q}) + (J(u_{\mcal Q})-J(u))  \\
+	 = & \rho_{\mcal S}(e_{\mcal Q})-\frac 12 a(e_{\mcal Q},e_{\mcal Q}) + \frac 12 a(u_{\mcal Q},u_{\mcal Q})-(f,u_{\mcal Q})-J(u) \\
+	 = & (f,e_{\mcal Q})-a(u_{\mcal S},e_{\mcal Q})+a(u_{\mcal S},u_{\mcal Q})-\frac 12 a(u_{\mcal S},u_{\mcal S})-(f,u_{\mcal Q})- J(u) \\
+	 = & \underbrace{\frac 1 2 a(u_{\mcal S},u_{\mcal S}) - (f,u_{\mcal S})}_{=J(u_{\mcal S})} - J(u) = J(u_{\mcal S})-J(u) \, .
+\end{align*}
+Damit folgt, wenn \eqref{eq:4.80} gilt,
+\begin{align*}
+	J(u_{\mcal S})-J(u) &= -\mcal I (e_{\mcal Q}) + (J(u_{\mcal Q})-J(u)) \\
+	& \le -\mcal I(e_{\mcal Q}) + \alpha (J(u_{\mcal S})-J(u))
+\end{align*}
+und mit Umformung nach $J(u_{\mcal S})-J(u)$ folgt \eqref{eq:4.81}. Analog folgt, wenn \eqref{eq:4.81} gilt:
+\begin{align*}
+	(1-\alpha)(J(u_{\mcal S}) - J(u)) \le -\mcal I (e_{\mcal Q}) = J(u_{\mcal S})-J(u_{\mcal Q}) 
+\end{align*}
+und damit folgt nach leichter Umformung \eqref{eq:4.80}.
+\end{proof}
+
+\item 
+\begin{lemma}
+Es gilt
+\begin{align}\label{eq:4.82}
+	\mcal I(e_{\mcal Q}) \lesssim \mcal I_{\mcal Q} (\eps_{\mcal Q}) \le \mcal I_{\mcal Q} (\eps_{\mcal V}) \le 0 \, .
+\end{align}
+\end{lemma}
+
+\begin{proof}
+
+\end{proof}
+
+\item 
+\begin{theorem}
+Es gibt Konstanten $c >0$ und $\alpha\in (0,1)$, die nur von der Quasi-Uniformität von $\mcal T_h$ abhängt, so dass kleine Oszillation im Sinne von
+\begin{align}
+	\osc (u_{\mcal S},\psi,f)^2 \le c\, (J(u_{\mcal S})-J(u))
+\end{align}
+die Saturationseigenschaft \eqref{eq:4.80}
+\[
+	J(u_{\mcal Q})-J(u) \le \alpha (J(u_{\mcal S})-J(u))
+\]
+impliziert.
+\end{theorem}
+
+\begin{proof}
+
+\end{proof}
 \end{itemize}
 
 
