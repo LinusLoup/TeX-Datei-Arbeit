@@ -1,19 +1,19 @@
 \select@language {ngerman}
 \addvspace {10\p@ }
 \addvspace {10\p@ }
-\contentsline {figure}{\numberline {2.1}{\ignorespaces Zul\IeC {\"a}ssige und unzul\IeC {\"a}ssige Triangulierung (mit h\IeC {\"a}ngendem Knoten)}}{21}{figure.2.1}
-\contentsline {figure}{\numberline {2.2}{\ignorespaces Beispiele quasiuniformer Zerlegungen}}{21}{figure.2.2}
-\contentsline {figure}{\numberline {2.3}{\ignorespaces Dreiecke f\IeC {\"u}r nodale Basen (linear, quadratisch, kubisch)}}{23}{figure.2.3}
-\contentsline {figure}{\numberline {2.4}{\ignorespaces Triangulierung von $\Omega = [-1,1]^2$ in 8 \textit {Courant-Elemente}}}{23}{figure.2.4}
-\contentsline {figure}{\numberline {2.5}{\ignorespaces Referenzelement $\setbox \z@ \hbox {\frozen@everymath \@emptytoks \mathsurround \z@ $\textstyle T$}\mathaccent "0365{T}$ f\IeC {\"u}r ein allgemeines Dreieck $T \in \mathcal T_h$}}{25}{figure.2.5}
+\contentsline {figure}{\numberline {2.1}{\ignorespaces Zul\IeC {\"a}ssige und unzul\IeC {\"a}ssige Triangulierung (mit h\IeC {\"a}ngendem Knoten)\relax }}{21}{figure.caption.6}
+\contentsline {figure}{\numberline {2.2}{\ignorespaces Beispiele quasiuniformer Zerlegungen\relax }}{21}{figure.caption.7}
+\contentsline {figure}{\numberline {2.3}{\ignorespaces Dreiecke f\IeC {\"u}r nodale Basen (linear, quadratisch, kubisch)\relax }}{23}{figure.caption.8}
+\contentsline {figure}{\numberline {2.4}{\ignorespaces Triangulierung von $\Omega = [-1,1]^2$ in 8 \textit {Courant-Elemente}\relax }}{23}{figure.caption.9}
+\contentsline {figure}{\numberline {2.5}{\ignorespaces Referenzelement $\setbox \z@ \hbox {\frozen@everymath \@emptytoks \mathsurround \z@ $\textstyle T$}\mathaccent "0365{T}$ f\IeC {\"u}r ein allgemeines Dreieck $T \in \mathcal T_h$\relax }}{25}{figure.caption.11}
 \addvspace {10\p@ }
-\contentsline {figure}{\numberline {3.1}{\ignorespaces Ein Hindernisproblem mit Hindernis $\psi $, konstanter Streckenlast $f$ und L\IeC {\"o}sung $u$}}{31}{figure.3.1}
-\contentsline {figure}{\numberline {3.2}{\ignorespaces K\IeC {\"o}rper $\mathcal B^1$ und $\mathcal B^2$ mit Randbezeichnungen}}{43}{figure.3.2}
-\contentsline {figure}{\numberline {3.3}{\ignorespaces Kontaktformulierung zwischen zwei K\IeC {\"o}rpern}}{44}{figure.3.3}
+\contentsline {figure}{\numberline {3.1}{\ignorespaces Ein Hindernisproblem mit Hindernis $\psi $, konstanter Streckenlast $f$ und L\IeC {\"o}sung $u$\relax }}{31}{figure.caption.12}
+\contentsline {figure}{\numberline {3.2}{\ignorespaces K\IeC {\"o}rper $\mathcal B^1$ und $\mathcal B^2$ mit Randbezeichnungen\relax }}{43}{figure.caption.14}
+\contentsline {figure}{\numberline {3.3}{\ignorespaces Kontaktformulierung zwischen zwei K\IeC {\"o}rpern\relax }}{44}{figure.caption.15}
 \addvspace {10\p@ }
-\contentsline {figure}{\numberline {4.1}{\ignorespaces Beispiel eines affinen Hindernisses $\psi $ mit $v \in \mathcal A_{\mathcal Q}$ in $\mathbb {R}$}}{55}{figure.4.1}
-\contentsline {figure}{\numberline {4.2}{\ignorespaces Dreiecke $T_1$ und $T_2$ mit Einheitsnormalen $\boldsymbol n$}}{61}{figure.4.2}
-\contentsline {figure}{\numberline {4.3}{\ignorespaces Darstellung von $\omega _p$ (grau) und $\mathcal E_p$ (abgehende Kanten von $p$) f\IeC {\"u}r ein beliebiges $\phi _p$}}{62}{figure.4.3}
+\contentsline {figure}{\numberline {4.1}{\ignorespaces Beispiel eines affinen Hindernisses $\psi $ mit $v \in \mathcal A_{\mathcal Q}$ in $\mathbb {R}$\relax }}{55}{figure.caption.18}
+\contentsline {figure}{\numberline {4.2}{\ignorespaces Dreiecke $T_1$ und $T_2$ mit Einheitsnormalen $\boldsymbol n$\relax }}{61}{figure.caption.19}
+\contentsline {figure}{\numberline {4.3}{\ignorespaces Darstellung von $\omega _p$ (grau) und $\mathcal E_p$ (abgehende Kanten von $p$) f\IeC {\"u}r ein beliebiges $\phi _p$\relax }}{62}{figure.caption.20}
 \addvspace {10\p@ }
 \addvspace {10\p@ }
 \addvspace {10\p@ }

@@ -315,6 +315,14 @@ wobei $\norm\cdot_0$ die durch das Skalarprodukt $(\cdot,\cdot)_0$ induzierte No
 Der Beweis ist in \cite{BraeFEM} Kapitel II, \S1 Sobolev-Räume, Satz 1.5 oder \cite{StarkePDE} Satz 1.5 zu finden.
 \end{proof}
 
+\begin{bem}
+Für die Gültigkeit der Poincaré-Friedrich-Ungleichung, muss $v$ nicht auf ganz $\Gamma$ gleich Null sein, sondern es reicht aus, dass
+\[
+	v \in H^1_{\Gamma_u} (\Omega)\coloneqq \{v \in H^1(\Omega) \mid v = 0 \text{ auf } \Gamma_u\}
+\]
+ist mit $\Gamma_u \subset \Gamma$ und einem Maß $\mu (\Gamma_u) \not = 0$ (vgl. \cite{BraeFEM} Kapitel II, \S1, Bemerkung 1.6).
+\end{bem}
+
 \item Greifen wieder die Frage auf, ob das Problem \eqref{eq:2.4} mit $a:(H^1_0(\Omega))^2\ra \R, a(u,v) = (\nabla u,\nabla v)_0$ und $F:H^1_0(\Omega) \ra \R, F(v) := (f,v)$ eine eindeutige Lösung hat.
 \item Kann nun mit Theorem \ref{theorem:Lax-Milgram} beantwortet werden. Es seien $u,v \in H^1_0(\Omega)$, dann gilt
 \begin{align*}
