@@ -1,29 +1,43 @@
 \newchapter{Grundlagen}
 \label{kap:2}
 
-In diesem Kapitel wollen wir uns mit grundlegender Theorie beschäftigen, die nicht im Anhang aufgeführt ist, zum Verständnis von den darauffolgenden Kapiteln jedoch notwendig ist.
+In diesem Kapitel wollen wir uns mit grundlegender Theorie beschäftigen, die nicht im Anhang aufgeführt, zum Verständnis von den darauffolgenden Kapiteln jedoch notwendig ist.
 
 Dieses Kapitel basiert auf \cite{BraeFEM}, \cite{StarkePDE}, \cite{EPS}, \cite{Walker}, \cite{AltKonti}.
+
 
 \section{Hilberträume}
 \label{kap:2.1}
 
-\begin{itemize}
-\item benötigen in den Variationsformulierungen immer wieder Hilberträume, daher werden Eigenschaften dieser hier nochmal eingeführt
-\item \begin{defi}
+
+Wir benötigen für die Variationsrechnung Hilberträume und wollen uns daher in diesem Kapitel mit wichtigen Eigenschaften solcher Räume im Allgemeinen beschäftigen. Zunächst führen wir ein, was wir unter einem Hilbertraum verstehen.
+
+
+\begin{defi}\label{def:2.1}
 Ein \textit{\idx{Hilbertraum}} ist ein reeller oder komplexer Vektorraum $H$ mit Skalarprodukt $(\cdot, \cdot)_H$, der vollständig bzgl. der durch das Skalarprodukt induzierten Norm, $\norm v_H^2 \coloneqq{(v,v)_H}$ für alle $v \in H$, ist, d.h. in dem jede Cauchy-Folge konvergiert.
 \end{defi}
 
-\item Es sei in diesem Kapitel $H$ ein reeller Hlbertraum mit Skalarprodukt $(\cdot,\cdot)_H$ und der dazu induzierten Norm $\norm v_H^2 = (v,v)_H$ für alle $v \in H$.
 
-\item \begin{bem*}
+\begin{bsp*}
+Es sei $H = \R^n$ und $(\cdot,\cdot)_H : \R^n\times \R^n \ra \R$ definiert durch das Standartskalarprodukt. Dann konvergiert jede \idx{Cauchy-Folge} in $H$ bzgl. der durch $(\cdot,\cdot)_H$ induzierten (euklidischen) Norm (vgl. \cite{Ana2}, metrische Räume) und damit ist $H$ ein Hilbertraum.
+\end{bsp*}
+
+
+Wir wollen die im Folgenden aufgeführten Eigenschaften später auf weniger triviale Räume anwenden, vor allem den Funktionenraum $H^1_0(\Omega)$ (s. Anhang \ref{anhang:A} Sobolev-Räume\index{Sobolev-Raum}). Um alle Aussagen auch allgemein verwenden zu können, sei in diesem Kapitel $H$ ein reeller Hlbertraum mit Skalarprodukt $(\cdot,\cdot)_H$ und der dazu induzierten Norm $\norm v_H^2 = (v,v)_H$ für alle $v \in H$.
+
+
+\begin{bem*}
 Für alle $v,w \in H$ gilt die \idx{Cauchy-Schwarz'sche Ungleichung}
 \[
 	(v,w)_H \le \norm v_H \, \norm w_H \, .
 \]
 \end{bem*}
 
-\item \begin{satz}[\idx{Approximationssatz}]
+
+Da wir uns in dieser Arbeit mit Variationsproblemen über konvexen abgeschlossenen Mengen beschäftigen werden, sammeln wir zunächst einige Aussagen bzgl. dieser Mengen.
+
+
+\begin{satz}[\idx{Approximationssatz}]\label{satz:2.2}
 Es sei $\emptyset\neq M\subset H$ konvex und abgeschlossen. Dann existiert für alle $v\in H$ ein $m_v\in M$ mit
 \[ 
   	\norm{v-m_v}=\dist(v,M)\coloneqq \inf_{w\in M}\norm{v-w}\, .
@@ -35,7 +49,8 @@ Wir nennen $P_M:H\ra M$ mit $v\mapsto m_v$ die \idx{Projektionen} auf $M$.
 Der Beweis ist in \cite{Walker} Kapitel 7.1 Satz 7.2 zu finden.
 \end{proof}
 
-\item \begin{satz}[Charakterisierung der Projektionen]\label{satz:2.3}
+
+\begin{satz}[Charakterisierung der Projektionen]\label{satz:2.3}
 $\emptyset\neq M\subset H$ sei abgeschlossen und konvex und $v\in H$. Dann gilt:
 \[ 
   	m_0=P_M(v)\quad\Longleftrightarrow\quad (m-m_0, v-m_0)_H\leq0 
@@ -60,7 +75,8 @@ Damit ist $2(v, m)_H\leq0$.
 Wegen $0\in M$ ist $\dist(v,M)=\norm v^2_H$ und damit $0=P_M(v)$.
 \end{proof}
 
-\item \begin{satz}\label{satz:2.4}
+
+\begin{satz}\label{satz:2.4}
 Es sei $\emptyset \not = M \subset H$ konvex und abgeschlossen. Dann gilt:
 \[
 	\norm{P_M(v)-P_M(w)}_H \le \norm{v-w}_H \quad \forall \, v,w \in H \, .
@@ -78,19 +94,21 @@ Addieren wir \eqref{eq:2.1} und \eqref{eq:2.2}, so erhalten wir
 	0 &\ge (P_M(w)-P_M(v),v-P_M(v))_H + (P_M(v)-P_M(w),w-P_M(w))_H \\
 	& = (P_M(w)-P_M(v),v-w+P_M(w)-P_M(v))_H \\
 	& = \norm{P_M(w)-P_M(v)}_H^2-(P_M(w)-P_M(v),w-v)_H \\
-	&\stackrel{\scriptsize \text{CS}}\ge \norm{P_M(w)-P_M(v)}_H^2 - \norm{P_M(w)-P_M(v)}_H \, \norm{w-v}_H \, .
+	&\!\!\!\: \stackrel{\scriptsize \text{C.S.}}\ge \norm{P_M(w)-P_M(v)}_H^2 - \norm{P_M(w)-P_M(v)}_H \, \norm{w-v}_H \, .
 \end{align*}
 Nach Umstellen der Ungleichung folgt die Behauptung.
 \end{proof}
 
-\item \begin{defi}
+
+\begin{defi}\label{def:2.5}
 Es sei $\emptyset\neq M\subset H$ und wir definieren das \textit{{orthogonale Komplement}}\index{orthogonales~Komplement} von $M$ durch
 \[
 	M^\perp\coloneqq\{v\in H\with v\perp M\}\coloneqq\{v\in H\with (v, m)_H=0\;\fa\,  m\in M\}\, .
 \]
 \end{defi}
 
-\item \begin{satz}\label{satz:2.6}
+
+\begin{satz}\label{satz:2.6}
  Es sei $M$ ein abgeschlossener Untervektorraum von $H$. Dann ist
   \[
   	H=M\oplus M^\perp\, , 
@@ -102,15 +120,14 @@ Es sei $\emptyset\neq M\subset H$ und wir definieren das \textit{{orthogonale Ko
 Der Beweis findet sich in \cite{Walker} Kapitel 7.1 Theorem 7.6.
 \end{proof}
 
-\item \begin{kor}\label{kor:2.6}
+
+\begin{kor}\label{kor:2.6}
 Es sei $\emptyset \not = M \subset H$   ein Untervektorraum. Dann ist $\bar M = H$ genau dann, wenn $M^\perp = \{0\}$ ist.
 \end{kor}
 
 \begin{proof}
 Man kann zeigen, dass $\overline{\spn M} = (M^\perp)^\perp =: M^{\perp\perp}$ ist und dann unter Verwendung von Satz \ref{satz:2.6} die Behauptung folgern. Den kompletten Beweis können wir in \cite{Walker} Kapitel 7.1 Korollar 7.7 (iii) einsehen.
 \end{proof}
-\end{itemize}
- 
 
 
 
@@ -118,33 +135,49 @@ Man kann zeigen, dass $\overline{\spn M} = (M^\perp)^\perp =: M^{\perp\perp}$ is
 \label{kap:2.2}
 
 
-Stichpunkte für die Formulierung:
+Bevor wir uns mit Variationsproblemen auf konvexen Teilmengen eines Hilbertraumes beschäftigen, wollen wir die Variationsrechnung an einem einfachen Modellproblem ohne Nebenbedingung beschreiben.
+
+Wir betrachten als Modellproblem die Auslenkung $u: \Omega \ra \R$ einer in $\Omega \subset \R^d$ eingespannten Membran unter Krafteinwirkung $f$. Mathematisch beschrieben wird dies durch das  \textit{\idx{Dirichlet-Problem}}
+\begin{subequations}\label{eq:2.1a}
+\begin{align}\label{eq:2.1aa}
+%\begin{aligned}
+	-\Delta u &= f \text{ in } \Omega \, ,\\
+	\label{eq:2.1ab}
+	u & = g \text{ auf } \partial \Omega \, ,
+%\end{aligned}
+\end{align}
+\end{subequations}
+dabei ist $g: \partial \Omega \ra \R$ eine für die Randwerte von $u$ gegebene Funktion.
+
+
+\begin{notation} 
+In der Praxis übliche Dimensionen sind $d = 2,3$. Der Einfachheit halber sei im Folgenden $d = 2$ und $\Omega \subset \R^2$ ein durch ein Polygonzug berandetes Gebiet, den Rand $\partial \Omega$ bezeichnen wir auch mit $\Gamma$.
+\end{notation}
+
+
+\begin{bem*}
+Sollte $\Omega$ ein allgemeiner berandetes Gebiet sein, so können wir dieses beliebig genau durch ein polygonales Gebiet approximieren; hierbei entsteht schon bei der Gebietszerlegung ein Fehler.
+
+Diesen Fehler kann man durch Verwendung von \textit{isoparametrischen Elementen}\index{isoparametrisches Element} (vgl. \cite{BraeFEM} Kapitel III, \S2, Isoparametrische Elemente) verringern. Dies soll in dieser Arbeit aber nicht weiter vertieft werden.
+\end{bem*}
+
+
+Es sei $u_0: \Omega \ra \R$ eine für das \idx{Dirichlet-Problem} zulässige Funktion, d.h. die für   \eqref{eq:2.1a} hinreichend regulär ist und für die $u_0 = g$ auf $\Gamma$ gilt. Dann gilt für 
+$\tilde u = u-u_0$
+\begin{subequations}\label{eq:2.2a}
+\begin{align}\label{eq:2.2aa}
+	-\Delta \tilde u &= \tilde f \text{ in } \Omega \, ,\\
+	\label{eq:2.2ab}
+	\tilde u & = 0 \text{ auf } \Gamma 
+\end{align}
+\end{subequations}
+mit $\tilde f = f-\Delta u_0$. Also reicht es aus, sich auf das \textit{homogene Dirichlet-Problem}\index{Dirichlet-Problem!homogenes} \eqref{eq:2.2a} zu beschränken. Im Folgenden betrachten wir somit \eqref{eq:2.1a} mit $g \equiv 0$.
+
+Mit $H^1_0 (\Omega)$ bezeichnen wir, wie in Bemerkung \ref{bem:A.8} beschrieben, den Raum der einmal schwach differenzierbaren Funktionen, die am Rand $\Gamma$ verschwinden im Sinne der Spur.
+
+
 
 \begin{itemize}
-\item Betrachte als Modellproblem Ausrenkung $u: \Omega \ra \R$ einer in $\Omega \subset \R^d$ eingespannten Membran unter Kraft $f$
-\item mathematisch beschrieben wird dies durch das \textit{\idx{Dirichlet-Problem}}
-\begin{align}\label{eq:2.1a}
-\begin{aligned}
-	-\Delta u &= f \text{ in } \Omega \, ,\\
-	u & = g \text{ auf } \partial \Omega \, ,
-\end{aligned}
-\end{align}
-\item in der Praxis $d = 2,3$ übliche Dimensionen
-\item Richtiger Punkt: \begin{notation} 
-der Einfachheit halber sei im Folgenden $d = 2$ und $\Omega \subset \R^2$ ein durch ein Polygonzug berandetes Gebiet, den Rand $\partial \Omega$ bezeichnen wir mit $\Gamma$.
-\end{notation}
-\item allgemeiner berandete Gebiete können durch polygonale beliebig genau approximiert werden
-\item Transformation: Sei $u_0: \Omega \ra \R$ eine zulässige Funktion, d.h. deren Regularität für \eqref{eq:2.1a} ausreichend ist, und für die $u_0 = g$ auf $\Gamma$ gilt. Dann gilt für 
-$\tilde u = u-u_0$
-\begin{align}\label{eq:2.2a}
-\begin{aligned}
-	-\Delta \tilde u &= \tilde f \text{ in } \Omega \, ,\\
-	\tilde u & = 0 \text{ auf } \Gamma 
-\end{aligned}
-\end{align}
-mit $\tilde f = f-\Delta u_0$.
-\item $\Ra$ wir beschränken uns auf das \textit{homogene Dirichlet-Problem}\index{Dirichlet-Problem!homogenes} \eqref{eq:2.2a}, d.h. sei $g\equiv 0$ in \eqref{eq:2.1a}
-\item Sei im Folgenden $H^1_0 (\Omega)$ wie in Bemerkung \ref{bem:A.8} der Raum der schwach differenzierbaren Funktionen, die am Rand $\Gamma$ verschwinden im Sinne der Spur.
 \item für $v \in H^1_0(\Omega)$ gilt dann mit \eqref{eq:2.1a}
 \begin{align*}
 	\int_\Omega -\Delta u \cdot v \, dx = \int_\Omega f v \, dx \, .

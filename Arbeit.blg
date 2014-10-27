@@ -24,45 +24,45 @@ Warning--empty number in Walker
 Warning--empty note in Walker
 Warning--empty number in WriggersFEMSkript
 Warning--empty note in WriggersFEMSkript
-You've used 34 entries,
+You've used 35 entries,
             4793 wiz_defined-function locations,
-            1091 strings with 9962 characters,
-and the built_in function-call counts, 17983 in all, are:
-= -- 1760
-> -- 503
-< -- 385
-+ -- 458
-- -- 164
-* -- 1148
-:= -- 3060
-add.period$ -- 45
-call.type$ -- 34
-change.case$ -- 162
-chr.to.int$ -- 33
-cite$ -- 50
-duplicate$ -- 589
-empty$ -- 1505
-format.name$ -- 334
-if$ -- 3691
+            1095 strings with 10000 characters,
+and the built_in function-call counts, 18388 in all, are:
+= -- 1796
+> -- 511
+< -- 394
++ -- 467
+- -- 166
+* -- 1167
+:= -- 3130
+add.period$ -- 47
+call.type$ -- 35
+change.case$ -- 166
+chr.to.int$ -- 34
+cite$ -- 51
+duplicate$ -- 606
+empty$ -- 1544
+format.name$ -- 340
+if$ -- 3775
 int.to.chr$ -- 2
 int.to.str$ -- 0
-missing$ -- 129
-newline$ -- 199
-num.names$ -- 102
-pop$ -- 258
+missing$ -- 133
+newline$ -- 205
+num.names$ -- 105
+pop$ -- 265
 preamble$ -- 1
-purify$ -- 230
+purify$ -- 236
 quote$ -- 0
-skip$ -- 1002
+skip$ -- 1026
 stack$ -- 0
-substring$ -- 975
-swap$ -- 111
-text.length$ -- 91
-text.prefix$ -- 19
+substring$ -- 994
+swap$ -- 113
+text.length$ -- 93
+text.prefix$ -- 20
 top$ -- 0
-type$ -- 296
+type$ -- 302
 warning$ -- 16
-while$ -- 156
-width$ -- 35
-write$ -- 440
+while$ -- 159
+width$ -- 36
+write$ -- 453
 (There were 16 warnings)

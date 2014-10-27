@@ -1,7 +1,7 @@
 \begin{theindex}
 
   \item Active-Set-Algorithmus, \hyperpage{39}
-  \item Approximationssatz, \hyperpage{7}
+  \item Approximationssatz, \hyperpage{8}
 
   \indexspace
 
@@ -9,13 +9,14 @@
     \subitem elliptisch, \hyperpage{11}
     \subitem koerziv, \hyperpage{11}
     \subitem stetig, \hyperpage{11}
-  \item Bubble-Funktion, \hyperpage{54}
+  \item Bubble-Funktion, \hyperpage{55}
 
   \indexspace
 
+  \item Cauchy-Folge, \hyperpage{7}
   \item Cauchy-Schwarz'sche Ungleichung, \hyperpage{7}
-  \item Cauchy-Theorem, \hyperpage{45}
-  \item Coulomb-Reibung, \hyperpage{46}
+  \item Cauchy-Theorem, \hyperpage{46}
+  \item Coulomb-Reibung, \hyperpage{47}
   \item Courant-Elemente, \hyperpage{23}
 
   \indexspace
@@ -25,7 +26,7 @@
 
   \indexspace
 
-  \item Energie-Norm, \hyperpage{25}
+  \item Energie-Norm, \hyperpage{26}
 
   \indexspace
 
@@ -33,11 +34,11 @@
 
   \indexspace
 
-  \item G\IeC {\^a}teaux-Ableitung, \hyperpage{71}
-    \subitem rechtsseitig, \hyperpage{71}
-  \item G\IeC {\^a}teaux-differenzierbar, \hyperpage{71}
-  \item Galerkin-Approximation, \hyperpage{25, 26}
-  \item Galerkin-Orthogonalit\IeC {\"a}t, \hyperpage{26}
+  \item G\IeC {\^a}teaux-Ableitung, \hyperpage{95}
+    \subitem rechtsseitig, \hyperpage{95}
+  \item G\IeC {\^a}teaux-differenzierbar, \hyperpage{95}
+  \item Galerkin-Approximation, \hyperpage{26, 27}
+  \item Galerkin-Orthogonalit\IeC {\"a}t, \hyperpage{27}
 
   \indexspace
 
@@ -47,19 +48,19 @@
 
   \indexspace
 
-  \item Kontaktpunkte, \hyperpage{62}
-  \item Kontaktrand, \hyperpage{45}
+  \item Kontaktpunkte, \hyperpage{64}
+  \item Kontaktrand, \hyperpage{46}
 
   \indexspace
 
   \item Lagrange-Basis, \hyperpage{22}
-  \item Lebesgue-Raum, \hyperpage{69}
+  \item Lebesgue-Raum, \hyperpage{93}
   \item lineares Komplementarit\IeC {\"a}tsproblem, \hyperpage{37}
 
   \indexspace
 
-  \item Nichtdurchdringungsbedingung, \hyperpage{44}
-  \item Nichtkontaktpunkte, \hyperpage{62}
+  \item Nichtdurchdringungsbedingung, \hyperpage{45}
+  \item Nichtkontaktpunkte, \hyperpage{64}
   \item nodale Basis, \hyperpage{22}
   \item nodale Basisfunktion, \hyperpage{22}
 
@@ -70,7 +71,7 @@
   \indexspace
 
   \item Poincar\IeC {\'e}-Friedrich-Ungleichung, \hyperpage{15}
-  \item Projektionen, \hyperpage{7}
+  \item Projektionen, \hyperpage{8}
 
   \indexspace
 
@@ -82,21 +83,21 @@
     \subitem Dirichlet, \hyperpage{43}
     \subitem Kontakt, \hyperpage{43}
     \subitem Neumann, \hyperpage{43}
-  \item Raum der Testfunktionen, \hyperpage{69}
-  \item reflexiver Raum, \hyperpage{72}
+  \item Raum der Testfunktionen, \hyperpage{93}
+  \item reflexiver Raum, \hyperpage{96}
   \item Riesz'scher Darstellungssatz, \hyperpage{16}
 
   \indexspace
 
-  \item schwache Ableitung, \hyperpage{69}
+  \item schwache Ableitung, \hyperpage{93}
   \item schwache L\IeC {\"o}sung, \hyperpage{10}
-  \item Signorini-Kontakt, \hyperpage{42}, \hyperpage{45--47}
-  \item Sobolev-Raum, \hyperpage{69}
+  \item Signorini-Kontakt, \hyperpage{43}, \hyperpage{46, 47}
+  \item Sobolev-Raum, \hyperpage{7}, \hyperpage{93}
   \item Spannungsrand, \hyperpage{43}
 
   \indexspace
 
-  \item Tresca-Reibung, \hyperpage{46}
+  \item Tresca-Reibung, \hyperpage{47}
   \item Triangulierung, \hyperpage{20}
     \subitem konform, \hyperpage{20}
     \subitem quasi-uniform, \hyperpage{21}, \hyperpage{27}
@@ -105,6 +106,13 @@
 
   \indexspace
 
+  \item Ungleichungen
+    \subitem Poincar\IeC {\'e}, \hyperpage{71}
+
+  \indexspace
+
+  \item verallgemeinerte Poincar\IeC {\'e}-Friedrich-Ungleichung, 
+		\hyperpage{71}
   \item Verschiebungsrand, \hyperpage{43}
   \item virtuelle Verschiebung, \hyperpage{47}
 
