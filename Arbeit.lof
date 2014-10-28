@@ -4,7 +4,7 @@
 \contentsline {figure}{\numberline {2.1}{\ignorespaces Membran $\Omega $ mit Fl\IeC {\"a}chenlast $f$ und Auslenkung $u(x)$\relax }}{9}{figure.caption.4}
 \contentsline {figure}{\numberline {2.2}{\ignorespaces Zul\IeC {\"a}ssige und unzul\IeC {\"a}ssige Triangulierung (mit h\IeC {\"a}ngendem Knoten)\relax }}{21}{figure.caption.7}
 \contentsline {figure}{\numberline {2.3}{\ignorespaces Dreiecke f\IeC {\"u}r nodale Basen (linear, quadratisch, kubisch)\relax }}{22}{figure.caption.8}
-\contentsline {figure}{\numberline {2.4}{\ignorespaces Triangulierung von $\Omega = [-1,1]^2$ in 8 \textit {Courant-Elemente}\relax }}{23}{figure.caption.9}
+\contentsline {figure}{\numberline {2.4}{\ignorespaces Triangulierung von $\Omega = [-1,1]^2$ in 8 Courant-Elemente\relax }}{23}{figure.caption.9}
 \contentsline {figure}{\numberline {2.5}{\ignorespaces Referenzelement $\setbox \z@ \hbox {\frozen@everymath \@emptytoks \mathsurround \z@ $\textstyle T$}\mathaccent "0365{T}$ f\IeC {\"u}r ein allgemeines Dreieck $T \in \mathcal T_h$\relax }}{25}{figure.caption.11}
 \addvspace {10\p@ }
 \contentsline {figure}{\numberline {3.1}{\ignorespaces Ein Hindernisproblem mit Hindernis $\psi $, konstanter Streckenlast $f$ und L\IeC {\"o}sung $u$\relax }}{31}{figure.caption.12}

@@ -700,42 +700,38 @@ Der Beweis ist in \cite{BraeFEM} Kapitel II, \S5, Satz 5.2 zu finden.
 \end{proof}
 
 
-
-\begin{itemize}
-
-\item Unter FEM verstehen wir das Galerkin-Verfahren mit linearen Ansatzfunktionen
-
-\item dies rechtfertigt, dass für unser Modellproblem \eqref{eq:2.4}, welches für $u,v \in H^1_0(\Omega)$ gestellt ist, auf einer Triangulierung $\mcal T_h$ ein Ansatzraum mit stetigen Funktionen $v \in C^0(\Omega)$ verwendet werden kann, also
+Der Satz \ref{satz:2.23} rechtfertigt, dass wir für das Modellproblem \eqref{eq:2.4} auf einer Triangulierung $\mcal T_h$ einen Ansatzraum $V_h$ mit stetigen Funktionen $v \in C^0(\Omega)$ verwendet, da dann auch $v \in H^1(\Omega)$ gilt. Daher wählen wir
 \[
 	V_h \coloneqq \{v \in C^0(\Omega) \mid v|_T \in \mcal P_m \text{ für } T\in \mcal T_h, v|_{\partial \Omega} = 0\} \, ,
 \]
-wobei $\mcal P_m$ der Raum der Polynome vom Grad $m$ ist.
+wobei $\mcal P_m$ der Raum der Polynome vom Grad $m$ ist. Es stellt sich nun die Frage, wie wir geschickt eine Basis wählen können, um $V_h$ aufzuspannen. Die einfachste Möglichkeit stellen \textit{\idx{nodale Basisfunktion}en} dar.
 
-\item wie diesen Raum $V_h$ aufspannen? $\ra $ die einfachste Möglichkeit solch einen Raum aufzuspannen sind nodale Basisfunktionen
-\begin{defi}[\idx{nodale Basisfunktion}]
+\begin{defi}[\idx{nodale Basisfunktion}]\label{def:2.24}
 Zu einem Finiten Element Raum $V_h$ und einer gegebenen Zerlegung $\mcal T_h$ sei eine Menge von Punkten $P$ bekannt mit $\abs P = N$. Die Menge $\mcal B_h = \{\phi_1,\ldots,\phi_N\}$ mit $\phi_i \in \mcal P_m, i = 1,\ldots, N$, heißt \textit{\idx{nodale Basis}} (oder \textit{\idx{Lagrange-Basis}}), wenn
 \[
 	\phi_i (x_j) = \delta_{ij} = \begin{cases}
 							1, &  i = j \\
 							0 ,& i \not = j
-						\end{cases} %\qquad \forall \,\phi_i \in \mcal B_h, x_j \in P
+						\end{cases} \, , %\qquad \forall \,\phi_i \in \mcal B_h, x_j \in P
 \]
-\end{defi}
 für alle $\phi_i \in \mcal B_h$ und $x_j \in P$ gilt.
+\end{defi}
 
-\item folgende Bemerkung erklärt die Anordnung der in der letzten Definition beschriebenen Punkte $P$ 
+
+Mit der Menge der vorgegebenen Punkte $P$ kann durch die Anzahl $N$ der Grad des zur Interpolation verwendeten Polynoms gesteuert werden.
+
+
 \begin{bem}
-Sei $m \ge 0$. In einem Dreieck $T$ seien auf $m+1$ Linien $l = 1+2+\ldots+(m+1)$ Punkte $z_1,\ldots,z_l$ angeordnet (s. Skizze). Dann gibt es zu jedem $C^0(T)$ genau ein Polynom $p$ vom Grad $m$ mit der Eigenschaft
+Sei $m \ge 0$. In einem Dreieck $T$ seien auf $m+1$ Linien $l = 1+2+\ldots+(m+1)$ Punkte $z_1,\ldots,z_l$ angeordnet (s. Abb. \ref{abb:2.3}). Dann gibt es zu jedem $C^0(T)$ genau ein Polynom $p$ vom Grad $m$ mit der Eigenschaft
 \[
 	p(z_i) = f(z_i) \quad \forall \, i = 1,\ldots,m \, .
 \]
+\end{bem}
 
 \begin{proof}
 Der Beweis steht in \cite{BraeFEM} Kapitel II, \S 5, Bemerkung 5.4.
 \end{proof}
-\end{bem}
 
-\item[Skizze] Dreiecke für die nodalen Basen (linear, quadratisch, kubisch).
 
 \begin{figure}[h]
 \begin{center}
@@ -760,23 +756,22 @@ Der Beweis steht in \cite{BraeFEM} Kapitel II, \S 5, Bemerkung 5.4.
 	
 \end{pspicture}
 \end{center}
-\caption{Dreiecke für nodale Basen (linear, quadratisch, kubisch)}
+\caption{Dreiecke für nodale Basen (linear, quadratisch, kubisch)\label{abb:2.3}}
 \end{figure}
 
-\item damit lässt sich für $V_h$ mit einem beliebigen Polynomgrad $m$ eine eindeutige nodale Basis finden, die den Raum aufspannt.
 
-\item im weiteren wollen wir lineare Ansatzfunktionen verwenden. Wir bezeichnen, sofern nicht anders beschrieben, also im Folgenden $\mcal S_h$ mit
+Damit lässt sich für $V_h$ mit einem beliebigen Polynomgrad $m$ eine eindeutige \idx{nodale Basis} finden, die den Raum aufspannt. Im weiteren wollen wir lineare Ansatzfunktionen verwenden. Wir bezeichnen, sofern nicht anders beschrieben, also im Folgenden $\mcal S_h$ mit
 \[
-	\mcal S_h \coloneqq \{v \in C^0(\Omega) \mid v|_T \in \mcal P_1 \text{ für } T\in \mcal T_h, v|_{\partial \Omega} = 0\} \, .
+	\mcal S_h \coloneqq \{v \in C^0(\Omega) \mid v|_T \in \mcal P_1 \text{ für } T\in \mcal T_h, v|_{\partial \Omega} = 0\} \, ,
 \]
+also sind in diesem Raum die Eckpunkte der Dreiecke vorgegeben bzw. später im LGS gesucht. Das \idx{Galerkin-Verfahren} mit dem Ansatzraum $\mcal S_h$ wird auch \idx{Finite-Elemente-Methode} (kurz: FEM) genannt. 
 
-\item das Galerkin-Verfahren mit dem Ansatzraum $\mcal S_h$ wird Finite-Elemente-Methode genannt
 
-\item Beispiel, um zu sehen, dass auch für kleine Gitter der Rechenaufwand sehr hoch werden kann.
-\begin{bsp}
-Wir betrachten unser Variationsproblem \eqref{eq:2.9} auf $\Omega = [-1,1]^2$ mit $\mcal S_h$ wie oben eingeführt als den Raum der linearen Ansatzfunktionen auf einer Zerlegung $\mcal T_h$ wie unten aufgeführt.
+Wir wollen folgendes Beispiel zur Berechnung von den Matrixeinträgen der Matrix $A$ betrachten.
 
-\underline{Skizze:} mit 8 Courant-Elementen, wie auf in http://www.math.uni-hamburg.de/home/struckmeier/numpde06/Kap2.pdf auf Seite 95
+\begin{bsp}\label{bsp:2.26}
+Wir betrachten das Variationsproblem \eqref{eq:2.9} auf $\Omega = [-1,1]^2$ mit $\mcal S_h$ wie oben eingeführt als den Raum der linearen Ansatzfunktionen auf einer Zerlegung $\mcal T_h$ aus 8 \textit{\idx{Courant-Element}en}, wie in Abbildung \ref{abb:2.4} zu sehen ist, wobei wir auf die rechte Seite $F(v_h)$ zunächst noch nicht genauer eingehen möchten.
+
 
 \begin{figure}[h]
 \begin{center}
@@ -830,10 +825,10 @@ Wir betrachten unser Variationsproblem \eqref{eq:2.9} auf $\Omega = [-1,1]^2$ mi
 	\pscircle[linewidth=0.5pt](0,-1.15){0.21}
 \end{pspicture}
 \end{center}
-\caption{Triangulierung von $\Omega = [-1,1]^2$ in 8 \textit{\idx{Courant-Elemente}}}
+\caption{Triangulierung von $\Omega = [-1,1]^2$ in 8 Courant-Elemente\label{abb:2.4}}
 \end{figure}
 
-Wir stellen für die nodale Basisfunktion $\phi_5$ die Einträge in der Steifigkeitsmatrix auf. Man rechnet leicht nach, dass
+Wir stellen für die nodale Basisfunktion $\phi_5$ die Einträge in der Steifigkeitsmatrix $A$ auf. Man rechnet leicht nach, dass
 \begin{align*}
 	\phi_5(x,y) = \begin{cases}
 					1-x-y , & \text{auf } \rz I \\
@@ -845,7 +840,6 @@ Wir stellen für die nodale Basisfunktion $\phi_5$ die Einträge in der Steifigk
 					0, & \text{sonst}
 				\end{cases}
 \end{align*}
-ist und damit ergeben sich folgende Ableitungen.
 
 \begin{table}[htpb]
 \centering
@@ -857,13 +851,12 @@ ist und damit ergeben sich folgende Ableitungen.
      $\partial_y \phi_5$ & -1&0 & 0& -1& 0& 1& 1& 0\\
 	\hline
 \end{tabular}
-\caption{Ableitungen der nodalen Basisfunktion $\phi_5$.}
+\caption{\label{tab:2.1}Ableitungen der nodalen Basisfunktion $\phi_5$.}
 \end{table}
 
-Damit rechnen wir nach, dass gilt
+ist und es ergeben sich die Ableitungen aus Tabelle \ref{tab:2.1}. Dann gilt
 \begin{align*}
-	a(\phi_5,\phi_5) & = \int_\Omega \nabla \phi_5 \nabla \phi_5 \, dx dy \\
-	& = \int_{\rz I  \cup \ldots \cup \rz{VIII}} \underbrace{(\partial_x \phi_5)^2}_{\ge0}+ \underbrace{(\partial_y \phi_5)^2}_{\ge 0} \, dx dy \\
+	a(\phi_5,\phi_5) & = \int_\Omega \nabla \phi_5 \nabla \phi_5 \, dx dy  = \int_{\rz I  \cup \ldots \cup \rz{VIII}} \underbrace{(\partial_x \phi_5)^2}_{\ge0}+ \underbrace{(\partial_y \phi_5)^2}_{\ge 0} \, dx dy \\
 	& = 2 \int_{\rz I \cup \rz{III} \cup \rz{IV}} {(\partial_x \phi_5)^2}+ {(\partial_y \phi_5)^2} \, dx dy \\
 	& = 2 \(\int_{\rz I \cup \rz{III}}\underbrace{(\partial_x \phi_5)^2}_{=1} \, dx dy + \int_{\rz I \cup \rz{IV}} \underbrace{(\partial_y \phi_5)^2}_{=1} \, dxdy\) \\
 	& = 2 (A(\rz I) + A(\rz{III}) + A(\rz{I}) + A(\rz{IV})) \\
@@ -882,12 +875,22 @@ berechnen. Damit ist der Einteil der Basisfunktion $\phi_5$ an der Steifigkeitsm
 		0 & -1 & 0
 	\end{pmatrix} \, .
 \]
-Hierbei müssen die Einträge aus $\widetilde A$ in die Matrix $A \in \R^{9 \times 9}$ an die richtige Stelle zugeordnet werden, wie durch die Formel $a_{ij} = a(\phi_i,\phi_j)$ beschrieben wird. Dabei nennen wir $\widetilde A$ lokale Steifigkeitsmatrix bzgl. des Knoten 5.
+Hierbei müssen die Einträge aus $\widetilde A$ in die Matrix $A \in \R^{9 \times 9}$ an die richtige Stelle zugeordnet werden, wie durch die Formel $a_{ij} = a(\phi_i,\phi_j)$ beschrieben wird. Daher nennen wir $\widetilde A$ \textit{\idx{lokale Steifigkeitsmatrix}} bzgl. des Knoten 5.
 
 Dieses Vorgehen müssten wir noch für die übrigen Basisfunktion analog durchführen, um die vollständige Steifigkeitsmatrix $A$ zu erhalten. Dies soll hier aber nicht weiter ausgeführt werden.
 \end{bsp}
 
-\item wie man schön erkennt, ist das Vorgehen aus dem obigen Beispiel sehr aufwendig. $\ra$ außerdem ist es schwer dieses zu verallgemeinern, damit man es gut implementieren kann, da die Ansatzfunktionen   auf das Gitter bezogen von individueller Form sind.
+Wie man sieht, ist das Vorgehen aus Beispiel \ref{bsp:2.26} sehr aufwendig. Außerdem ist es schwer dieses auf diese Weise zu verallgemeinern, damit man es gut implementieren kann, da die Ansatzfunktionen auf das Gitter bezogen von individueller Form sind.
+
+Um die Berechnung der Einträge der Steifigkeitsmatrix $A$ zu verallgemeinern, betrachten wir das Referenzelement
+\[
+	\widetilde T \coloneqq \{ (\xi,\eta) \in \R^2 \mid 0\le \xi \le 1, 0 \le \eta \le 1-\xi\} \, ,
+\]
+um dann
+
+
+
+\begin{itemize}
 
 \item Abhilfe durch local-global node ordering zur Effizienzsteigerung (Erklärung):
 

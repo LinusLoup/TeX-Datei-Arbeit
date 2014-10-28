@@ -6,11 +6,11 @@
 \contentsline {section}{\numberline {2.1}Hilbertr\IeC {\"a}ume}{7}{section.2.1}
 \contentsline {section}{\numberline {2.2}Variationsformulierung}{9}{section.2.2}
 \contentsline {section}{\numberline {2.3}Finite Elemente Methode}{18}{section.2.3}
-\contentsline {subsection}{\numberline {2.3.1}A priori Fehlerabsch\IeC {\"a}tzung}{25}{subsection.2.3.1}
-\contentsline {section}{\numberline {2.4}Adaptive Verfeinerungsstrategien}{28}{section.2.4}
+\contentsline {subsection}{\numberline {2.3.1}A priori Fehlerabsch\IeC {\"a}tzung}{24}{subsection.2.3.1}
+\contentsline {section}{\numberline {2.4}Adaptive Verfeinerungsstrategien}{27}{section.2.4}
 \contentsline {subsection}{\numberline {2.4.1}A posteriori Fehlersch\IeC {\"a}tzer}{28}{subsection.2.4.1}
-\contentsline {subsection}{\numberline {2.4.2}Verfeinerung des Netzes}{29}{subsection.2.4.2}
-\contentsline {section}{\numberline {2.5}Einf\IeC {\"u}hrung in die Strukturmechanik}{29}{section.2.5}
+\contentsline {subsection}{\numberline {2.4.2}Verfeinerung des Netzes}{28}{subsection.2.4.2}
+\contentsline {section}{\numberline {2.5}Einf\IeC {\"u}hrung in die Strukturmechanik}{28}{section.2.5}
 \contentsline {chapter}{\numberline {3}Variationsungleichungen}{30}{chapter.3}
 \contentsline {section}{\numberline {3.1}Ein Hindernisproblem}{30}{section.3.1}
 \contentsline {subsection}{\numberline {3.1.1}Variationsformulierung f\IeC {\"u}r das Hindernisproblem}{30}{subsection.3.1.1}

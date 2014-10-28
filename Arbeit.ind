@@ -1,5 +1,9 @@
 \begin{theindex}
 
+  \item (quasi-) uniforme Zerlegung, \hyperpage{20}
+
+  \indexspace
+
   \item Active-Set-Algorithmus, \hyperpage{39}
   \item Approximationssatz, \hyperpage{8}
 
@@ -14,19 +18,20 @@
   \indexspace
 
   \item Cauchy-Folge, \hyperpage{7}
-  \item Cauchy-Schwarz'sche Ungleichung, \hyperpage{7}
+  \item Cauchy-Schwarz'sche Ungleichung, \hyperpage{7}, \hyperpage{15}
   \item Cauchy-Theorem, \hyperpage{46}
   \item Coulomb-Reibung, \hyperpage{47}
   \item Courant-Elemente, \hyperpage{23}
 
   \indexspace
 
-  \item Dirichlet-Problem, \hyperpage{9}
+  \item Dirichlet-Problem, \hyperpage{9, 10}
+    \subitem homogen, \hyperpage{11}
     \subitem homogenes, \hyperpage{10}
 
   \indexspace
 
-  \item Energie-Norm, \hyperpage{26}
+  \item Energie-Norm, \hyperpage{25, 26}
 
   \indexspace
 
@@ -37,14 +42,20 @@
   \item G\IeC {\^a}teaux-Ableitung, \hyperpage{95}
     \subitem rechtsseitig, \hyperpage{95}
   \item G\IeC {\^a}teaux-differenzierbar, \hyperpage{95}
-  \item Galerkin-Approximation, \hyperpage{26, 27}
-  \item Galerkin-Orthogonalit\IeC {\"a}t, \hyperpage{27}
+  \item Galerkin-Approximation, \hyperpage{18}, \hyperpage{26}
+  \item Galerkin-Orthogonalit\IeC {\"a}t, \hyperpage{26}
+  \item Galerkin-Verfahren, \hyperpage{18}
 
   \indexspace
 
+  \item h\IeC {\"a}ngender Knoten, \hyperpage{21}
   \item Hilbertraum, \hyperpage{7}
-  \item homogenen Dirichlet-Problem, \hyperpage{10}
+  \item homogenes Dirichlet-Problem, \hyperpage{11}
   \item Hooke'sche-Gesetz, \hyperpage{46}
+
+  \indexspace
+
+  \item isoparametrisches Element, \hyperpage{10}
 
   \indexspace
 
@@ -54,6 +65,7 @@
   \indexspace
 
   \item Lagrange-Basis, \hyperpage{22}
+  \item Lax-Milgram, \hyperpage{13}, \hyperpage{15, 16}
   \item Lebesgue-Raum, \hyperpage{93}
   \item lineares Komplementarit\IeC {\"a}tsproblem, \hyperpage{37}
 
@@ -90,18 +102,20 @@
   \indexspace
 
   \item schwache Ableitung, \hyperpage{93}
-  \item schwache L\IeC {\"o}sung, \hyperpage{10}
+  \item schwache L\IeC {\"o}sung, \hyperpage{11}
   \item Signorini-Kontakt, \hyperpage{43}, \hyperpage{46, 47}
   \item Sobolev-Raum, \hyperpage{7}, \hyperpage{93}
   \item Spannungsrand, \hyperpage{43}
+  \item starkes Problem, \hyperpage{11}
+  \item Steifigkeitsmatrix, \hyperpage{19}
 
   \indexspace
 
   \item Tresca-Reibung, \hyperpage{47}
   \item Triangulierung, \hyperpage{20}
     \subitem konform, \hyperpage{20}
-    \subitem quasi-uniform, \hyperpage{21}, \hyperpage{27}
-    \subitem uniform, \hyperpage{21}
+    \subitem quasi-uniform, \hyperpage{20}, \hyperpage{27}
+    \subitem uniform, \hyperpage{20}
     \subitem zul\IeC {\"a}ssig, \hyperpage{20}
 
   \indexspace
@@ -111,6 +125,7 @@
 
   \indexspace
 
+  \item Variationsgleichung, \hyperpage{10}
   \item verallgemeinerte Poincar\IeC {\'e}-Friedrich-Ungleichung, 
 		\hyperpage{71}
   \item Verschiebungsrand, \hyperpage{43}
