@@ -441,13 +441,13 @@ Da $e_{\mcal Q}$ und $\eps_{\mcal V}$ Lösungen der Variationsungleichungen \eqr
 
 \item dann gilt mit $\Omega = \bigcup_{T \in \mcal T_h} T$ für alle $v \in H^1(\Omega)$
 \begin{align}\notag 
-	\rho_{\mcal S} (v) & = (f,v)-a(u_{\mcal S},v) = \int_{\Omega} fv \, d\Omega - \int_{\Omega} \nabla u_{\mcal S} \nabla v \, d\Omega \\
+	\rho_{\mcal S} (v) & = (f,v)-a(u_{\mcal S},v) = \int_{\Omega} fv \, dx - \int_{\Omega} \nabla u_{\mcal S} \nabla v \, dx \\
 	\notag
-	& = \int_{\Omega} fv \, d\Omega - \sum_{T\in \mcal T_h} \int_T \nabla u_{\mcal S}\nabla v \, dT \\
+	& = \int_{\Omega} fv \, dx - \sum_{T\in \mcal T_h} \int_T \nabla u_{\mcal S}\nabla v \, dT \\
 	\notag
-	& = \int_{\Omega} fv \, d\Omega - \sum_{T\in \mcal T_h} \(\int_{\partial T} v \partial_{\bs n} u_{\mcal S} \, d\Gamma -  \int_T \underbrace{\Delta u_S}_{=0} v \, dT \) \\
+	& = \int_{\Omega} fv \, dx - \sum_{T\in \mcal T_h} \(\int_{\partial T} v \partial_{\bs n} u_{\mcal S} \, ds -  \int_T \underbrace{\Delta u_S}_{=0} v \, dT \) \\
 	\label{eq:4.17}
-	& = \int_{\Omega} fv \, d\Omega - \sum_{T\in \mcal T_h} \int_{\partial T} v \partial_{\bs n} u_{\mcal S} \, d\Gamma \, ,
+	& = \int_{\Omega} fv \, dx - \sum_{T\in \mcal T_h} \int_{\partial T} v \partial_{\bs n} u_{\mcal S} \, ds \, ,
 \end{align}
 wobei im vorletzten Schritt die 1. Green'sche Formel angewendet wurde und d$\bs n$ die äußere Einheitsnormale von $T$ ist.
 
@@ -482,11 +482,11 @@ Dabei sei $E$ nun die Kante, die $T_1$ und $T_2$ zugleich enthalten, d.h. $\bs n
 
 Hiermit ergibt sich aus \eqref{eq:4.17}
 \begin{align}\notag
-	\rho_{\mcal S} (v) &= \int_{\Omega} fv \, d\Omega - \sum_{T\in \mcal T_h} \int_{\partial T} v \partial_{\bs n} u_{\mcal S} \, d\Gamma \\
+	\rho_{\mcal S} (v) &= \int_{\Omega} fv \, dx - \sum_{T\in \mcal T_h} \int_{\partial T} v \partial_{\bs n} u_{\mcal S} \, ds \\
 	\notag
-	& = \int_{\Omega} fv \, d\Omega - \sum_{E\in \mcal E} \int_{E} v\, (\underbrace{\partial_{\bs n} u_{\mcal S}|_{T_1}-\partial_{\bs n} u_{\mcal S}|_{T_2}}_{\eqqcolon -j_E}) \, d\Gamma \\
+	& = \int_{\Omega} fv \, dx - \sum_{E\in \mcal E} \int_{E} v\, (\underbrace{\partial_{\bs n} u_{\mcal S}|_{T_1}-\partial_{\bs n} u_{\mcal S}|_{T_2}}_{\eqqcolon -j_E}) \, ds \\
 	\label{eq:4.18}
-	& =  \int_{\Omega} fv \, d\Omega + \sum_{E\in \mcal E} \int_{E} j_E v \, d\Gamma \, .
+	& =  \int_{\Omega} fv \, dx + \sum_{E\in \mcal E} \int_{E} j_E v \, ds \, .
 \end{align}
 
 \item da für die nodalen Basisfunktionen $\{\phi_p \with p \in \mcal N\cap \Omega\}$ gilt
@@ -502,7 +502,7 @@ sodass wir $\rho_{\mcal S}$ wie folgt in lokale Anteile aufteilen können:
 \begin{lemma}\label{lem:4.14}
 Für $\rho_p$ gilt
 \begin{align*}
-	\rho_p (v) = \int_{\omega_p} f v \phi_p \, d\Omega + \sum_{E\in \mcal E_p} \int_E j_E v \phi_p \, d\Gamma  \, , \quad v \in H^1(\Omega)
+	\rho_p (v) = \int_{\omega_p} f v \phi_p \, dx + \sum_{E\in \mcal E_p} \int_E j_E v \phi_p \, ds  \, , \quad v \in H^1(\Omega)
 \end{align*}
 mit $\omega_p \coloneqq \supp \phi_p$ und $\mcal E_p \coloneqq \{E \in \mcal E \with E \ni p\}$, d.h. die Menge der Kanten, in denen $p$ enthalten ist.
 \end{lemma}
@@ -510,8 +510,8 @@ mit $\omega_p \coloneqq \supp \phi_p$ und $\mcal E_p \coloneqq \{E \in \mcal E \
 \begin{proof}
 Wir rechnen einfach mit der Definition \eqref{eq:4.19} und \eqref{eq:4.18} nach, dass für ein beliebiges $v \in H^1(\Omega)$ gilt
 \begin{align*}
-	\rho_p(v) &= \rho_{\mcal S} (v \phi_p) =  \int_{\Omega} fv\phi_p \, d\Omega + \sum_{E\in \mcal E} \int_{E} j_E v \phi_p\, d\Gamma \\
-	& = \int_{\omega_p} f v \phi_p \, d\Omega + \sum_{E\in \mcal E_p} \int_E j_E v \phi_p \, d\Gamma  \, ,
+	\rho_p(v) &= \rho_{\mcal S} (v \phi_p) =  \int_{\Omega} fv\phi_p \, dx + \sum_{E\in \mcal E} \int_{E} j_E v \phi_p\, ds \\
+	& = \int_{\omega_p} f v \phi_p \, dx + \sum_{E\in \mcal E_p} \int_E j_E v \phi_p \, ds  \, ,
 \end{align*}
 da $\phi_p \equiv 0$ auf $\mcal O \coloneqq \overline{\Omega \setminus \omega_p}$ und damit auch auf $\mcal F \coloneqq\mcal E \setminus \mcal E_p$, da $\mcal F \subset\mcal O$.
 
@@ -710,12 +710,12 @@ d.h. voller Kontakt (s. auch \cite{SiebVee} Gleichung (2.11)) mit Last $f$ auf D
 \end{align*}
 durch Multiplikation mit geeigneten Testfunktionen $v$ und multiplizieren über $\omega_p$ ergibt
 \begin{align*}
-	0 &  \ge \int_{\omega_p} f v \, d\Omega + \sum_{E\in \mcal E_p} \int_E j_E v \, d \Gamma \\
-	& = \int_{\omega_p} f v \, d \Omega - \int_{\omega_p} \underbrace{\nabla u_{\mcal S}}_{=\nabla \psi} \nabla v \, d\Omega
+	0 &  \ge \int_{\omega_p} f v \, dx + \sum_{E\in \mcal E_p} \int_E j_E v \, ds \\
+	& = \int_{\omega_p} f v \, dx - \int_{\omega_p} \underbrace{\nabla u_{\mcal S}}_{=\nabla \psi} \nabla v \, dx
 \end{align*}
 und damit gilt
 \begin{align}
-	 \int_{\omega_p} {\nabla \psi} \nabla v \, d\Omega \ge \int_{\omega_p} f v \, d \Omega
+	 \int_{\omega_p} {\nabla \psi} \nabla v \, dx \ge \int_{\omega_p} f v \, dx
 \end{align}
 es gilt also laut Satz \ref{satz:3.4}, dass $-\Delta \psi - f \ge 0$ auf $\omega_p$ im distributionellem Sinne (vgl. auch \cite{Walker} Kapitel 3)
 
@@ -727,7 +727,7 @@ dies ist laut Satz \ref{satz:3.4} auch notwendig, damit $u = \psi$ auf $\omega_p
 \end{align}
 wobei $h_p \coloneqq \max_{E\in \mcal E_p} \abs E$ für jedes $p \in \mcal N$ ($h_p$ ist ein Maß für den Durchmesser von $\omega_p$) und $\bar f_p$ den Mittelwert von $f$ über $\omega_p$ bezeichne, d.h.
 \begin{align}
-	\bar f _p = \frac 1{\abs{\omega_p}} \int_{\omega_p} f \, d\Omega
+	\bar f _p = \frac 1{\abs{\omega_p}} \int_{\omega_p} f \, dx
 \end{align}
 
 \item anschaulich: damit kann man die Summanden der ersten Summe als Varianz der Last $f$ auf $\omega_p$ interpretieren 
@@ -772,8 +772,8 @@ $\mcal N\setminus (\mcal N^{0-}\cup \mcal N^{++})$ ist die Menge von Punkten, di
 
 \item $\pi_p$ ist für jedes $v \in H^1(\Omega)$ aus Dimensionsgründen ($\dim (\mcal Q_p) = p+1$) eindeutig bestimmt durch
 \begin{align}\label{eq:4.32}
-	\int_E \pi_p v \, d \Gamma = \int_E v \, d\Gamma \quad \forall \, E \in \mcal E_p \text{ und } \begin{cases}
-														\int_{\omega_p} \pi_p v \, d \Omega = \int_{\omega_p}  v \, d\Omega  &,  p \in \mcal N^{++} \\
+	\int_E \pi_p v \, ds = \int_E v \, ds \quad \forall \, E \in \mcal E_p \text{ und } \begin{cases}
+														\int_{\omega_p} \pi_p v \, dx = \int_{\omega_p}  v \, dx  &,  p \in \mcal N^{++} \\
 														0  &, \text{sonst}
 													\end{cases} \, .
 \end{align}
@@ -791,18 +791,18 @@ die Beziehungen
 					\frac{c_p(v)}{c_p(\phi_p)} &, p \in \mcal N^{++} \\
 					0 &, \text{sonst}
 				\end{cases} , \\
-	 \alpha_E(v) &= \frac{\int_E v \, d\Gamma - \alpha_p(v)\int_E \phi_p \, d\Gamma}{\int_E \phi_E \, d\Gamma} \, ,
+	 \alpha_E(v) &= \frac{\int_E v \, ds - \alpha_p(v)\int_E \phi_p \, ds}{\int_E \phi_E \, ds} \, ,
 \end{align}
 \end{subequations}
 wobei
 \begin{align*}
-	c_p(v) = \int_{\omega_p} v \, d\Omega - \sum_{E\in \mcal E_p} \(\int_E v \, d\Gamma\) \(\int_{\omega_p} \phi_E \, d\Omega\)\(\int_E \phi_E \, d\Gamma\)^{-1}
+	c_p(v) = \int_{\omega_p} v \, dx - \sum_{E\in \mcal E_p} \(\int_E v \, ds\) \(\int_{\omega_p} \phi_E \, dx\)\(\int_E \phi_E \, ds\)^{-1}
 \end{align*}
 Insbesondere gilt $c_p(\phi_p) = -\frac 16\, \abs{\omega_p}$.
 \end{lemma}
 
 \begin{proof}
-Für eine bessere Übersicht im Beweis werden wir die Differentialformen $d\Omega$ und $d\Gamma$ weg. Es sei $v \in H^1(\Omega)$ beliebig. Dann gilt für jede Kante $E \in \mcal E_p$ mit
+Für eine bessere Übersicht im Beweis werden wir die Differentialformen $dx$ und $ds$ weg. Es sei $v \in H^1(\Omega)$ beliebig. Dann gilt für jede Kante $E \in \mcal E_p$ mit
 \[
 	\pi_p v = \alpha_p(v) \phi_p + \alpha_E (v) \phi_E \in \mcal Q_p 
 \]
@@ -864,7 +864,7 @@ gilt. Es sei nun $J_T$ die Jacobi-Determinante bzgl. einer affinen Transformatio
 \]
 Weiter rechnen wir nach, dass
 \[
-	\abs T = \int_T d\Omega = \abs{J_T} \int_{\hat T} d\Omega = \frac 12 \, \abs{J_T} \, \lra \, \abs{J_T} = 2 \, \abs{T} 
+	\abs T = \int_T dx = \abs{J_T} \int_{\hat T} dx = \frac 12 \, \abs{J_T} \, \lra \, \abs{J_T} = 2 \, \abs{T} 
 \]
 gilt und damit folgt insgesamt zusammen mit \eqref{eq:4.35} bis \eqref{eq:4.37}
 \begin{align*}
@@ -885,9 +885,9 @@ und $\pi_p$ ist stabil im Sinne von
 \begin{align}\label{eq:my4.40}
 	\norm{\pi_p v}_{0,\omega_p} \lesssim \norm v_{0,\omega_p} + h_p \norm{\nabla v}_{0,\omega_p} \, .
 \end{align}
-Insbesondere gilt, wenn $p \not\in \mcal N^{++}$ ist, dass für $\alpha_E(v) = \(\int_{E} v \, d\Gamma \) \(\int_E \phi_E\)^{-1}$ die Eigenschaft gilt:
+Insbesondere gilt, wenn $p \not\in \mcal N^{++}$ ist, dass für $\alpha_E(v) = \(\int_{E} v \, ds \) \(\int_E \phi_E\)^{-1}$ die Eigenschaft gilt:
 \begin{align}\label{eq:my4.41}
-	\int_E v \, d\Gamma \ge \int_E (\psi-u_{\mcal S}) \, d\Gamma \lra \alpha_E(v) \gtrsim \psi(x_E)-u_{\mcal S} (x_E) \quad \forall \, E \in \mcal E_p \, .
+	\int_E v \, ds \ge \int_E (\psi-u_{\mcal S}) \, ds \lra \alpha_E(v) \gtrsim \psi(x_E)-u_{\mcal S} (x_E) \quad \forall \, E \in \mcal E_p \, .
 \end{align}
 \end{lemma}
 
@@ -930,7 +930,7 @@ Wir wollen im Folgenden die in \eqref{eq:4.42} aufgeführten Fälle chronologisc
 \end{align}
 gilt, wobei $\mcal E^+_p = \{E \in \mcal E_p \mid \rho_E \ge -d_E\}$. Da $p \in \mcal N^{++}$ ist, gilt für alle $E\in \mcal E_p$ die Ungleichung $\rho_E \ge -d_E$ ist, d.h. $\mcal E^+_P = \mcal E_p$. Wir setzen
 \[
-	w = (e-c)\phi_p \, , \quad c = \frac 1{\abs{\omega_p}} \int_{\omega_p} e\, d\Omega \, .
+	w = (e-c)\phi_p \, , \quad c = \frac 1{\abs{\omega_p}} \int_{\omega_p} e\, dx \, .
 \]
 Da $\mcal N^{++} \subset \mcal N^+ \cap \Omega$ ist, d.h. $u_{\mcal S}(p) > \psi (p)$ ist,  gilt  
 \begin{align*}
@@ -938,13 +938,13 @@ Da $\mcal N^{++} \subset \mcal N^+ \cap \Omega$ ist, d.h. $u_{\mcal S}(p) > \psi
 \end{align*}
 Damit erhalten wir
 \begin{align}\notag
-	\rho_p (e) & = \rho_p(e) - \rho_p(c) = \rho_p(e-c) \stackrel{\scriptsize \text{Lem. \ref{lem:4.14}}}= \int_{\omega_p} fw \, d \Omega + \sum_{E\in \mcal E_p} \int_E j_E w \, d\Gamma \\
+	\rho_p (e) & = \rho_p(e) - \rho_p(c) = \rho_p(e-c) \stackrel{\scriptsize \text{Lem. \ref{lem:4.14}}}= \int_{\omega_p} fw \, dx + \sum_{E\in \mcal E_p} \int_E j_E w \, ds \\
 	\notag
-	&\!\! \!\stackrel{\scriptsize \text{"`}+0\text{"'}}= \int_{\omega_p} f \pi_p w \, d\Omega + \sum_{E\in \mcal E_p}\underbrace{ \int_E j_E \pi_pw \, d \Gamma}_{\stackrel[\scriptsize\eqref{eq:4.32}]{}= \int_E j_Ew \, d\Gamma} + \int_{\omega_p} f(w-\pi_p w) \, d\Omega \\
+	&\!\! \!\stackrel{\scriptsize \text{"`}+0\text{"'}}= \int_{\omega_p} f \pi_p w \, dx + \sum_{E\in \mcal E_p}\underbrace{ \int_E j_E \pi_pw \, ds}_{\stackrel[\scriptsize\eqref{eq:4.32}]{}= \int_E j_Ew \, ds} + \int_{\omega_p} f(w-\pi_p w) \, dx \\
 	\notag
-	& = \rho_{\mcal S} (\pi_pw ) +  \int_{\omega_p} f(w-\pi_p w) \, d\Omega - \bar f_p \underbrace{ \int_{\omega_p} (w-\pi_p w) \, d\Omega }_{= 0 \text{ wegen } \eqref{eq:4.32}} \\
+	& = \rho_{\mcal S} (\pi_pw ) +  \int_{\omega_p} f(w-\pi_p w) \, dx - \bar f_p \underbrace{ \int_{\omega_p} (w-\pi_p w) \, dx }_{= 0 \text{ wegen } \eqref{eq:4.32}} \\
 	\notag
-	& = \rho_{\mcal S} (\pi_pw ) +  \int_{\omega_p} (f-\bar f_p)(w-\pi_p w) \, d\Omega \\
+	& = \rho_{\mcal S} (\pi_pw ) +  \int_{\omega_p} (f-\bar f_p)(w-\pi_p w) \, dx \\
 	\label{eq:4.47}
 	& \!\!\! \; \; \!\! \stackrel{\scriptsize \text{C.S.}}\le \sum_{E \in \mcal E_p} \alpha_E(w) \rho_E \norm{\phi_E} + \norm{f-\bar f_p}_{0,\omega_p} \norm{w-\pi_p w}_{0,\omega_p} \, , 
 \end{align}
@@ -971,7 +971,7 @@ Es sei weiterhin darauf hingewiesen, dass $\norm{\nabla \phi_p}_{\infty,\omega_p
 \end{align}
 Über das Referenzelement $\hat T$ kann man zeigen, dass
 \[
-	\norm{\phi_E}  = a(\phi_E,\phi_E)^{\frac 1 2} =\(\int_{\Omega} \nabla \phi_E \nabla \phi_E \, d\Omega \)^{\frac 12} = \(\frac 83 (\abs{J_{T_1}}+\abs{J_{T_2}})\)^{\frac 12} \lesssim \tilde c \, ,
+	\norm{\phi_E}  = a(\phi_E,\phi_E)^{\frac 1 2} =\(\int_{\Omega} \nabla \phi_E \nabla \phi_E \, dx \)^{\frac 12} = \(\frac 83 (\abs{J_{T_1}}+\abs{J_{T_2}})\)^{\frac 12} \lesssim \tilde c \, ,
 \]
 da die Jacobi-Determinanten $J_{T_1},J_{T_2}$ (wobei $E \subset T_i,i=1,2$ gilt) endlich sind, jedoch von der Form von $\omega_p$ abhängen. Damit gilt
 \begin{align}\label{eq:4.50}
@@ -996,13 +996,13 @@ Auch hier können wir analog zu \eqref{eq:4.47} eine Ungleichung herleiten, wobe
 \end{align} 
 wobei wir hier
 \begin{align}\label{eq:4.54}
-	w = (e-c)\phi_p\, , \quad c = \min\left\{ \(\int_E e\phi_p \, d\Gamma \)\(\int_E \phi_p\, d\Gamma\)^{-1} \mid E \in \mcal E_p \right\}
+	w = (e-c)\phi_p\, , \quad c = \min\left\{ \(\int_E e\phi_p \, ds \)\(\int_E \phi_p\, ds\)^{-1} \mid E \in \mcal E_p \right\}
 \end{align}
 setzen. Damit gilt
 \begin{align*}
-	\alpha_E(w) & = \(\int_E w \, d\Gamma \) \(\int_E \phi_E\, d\Gamma\)^{-1} = \(\int_E (e-c)\phi_p \, d\Gamma \) \(\int_E \phi_E\, d\Gamma\)^{-1} \\
-	& = \(\int_E e\phi_p \, d\Gamma-c\int_E \phi_p \, d\Gamma \) \(\int_E \phi_E\, d\Gamma\)^{-1} \\
-	&\!\!\!\!\!\;\stackrel{\scriptsize \eqref{eq:4.54}} \ge \!\!\;  \(\int_E e\phi_p \, d\Gamma-\(\int_E e\phi_p \, d\Gamma \)\(\int_E \phi_p\, d\Gamma\)^{-1} \(\int_E \phi_p \, d\Gamma \)\) \(\int_E \phi_E\, d\Gamma\)^{-1} \\
+	\alpha_E(w) & = \(\int_E w \, ds \) \(\int_E \phi_E\, ds\)^{-1} = \(\int_E (e-c)\phi_p \, ds \) \(\int_E \phi_E\, ds\)^{-1} \\
+	& = \(\int_E e\phi_p \, ds-c\int_E \phi_p \, ds \) \(\int_E \phi_E\, ds\)^{-1} \\
+	&\!\!\!\!\!\;\stackrel{\scriptsize \eqref{eq:4.54}} \ge \!\!\;  \(\int_E e\phi_p \, ds-\(\int_E e\phi_p \, ds \)\(\int_E \phi_p\, ds\)^{-1} \(\int_E \phi_p \, ds \)\) \(\int_E \phi_E\, ds\)^{-1} \\
 	& = 0 \, .
 \end{align*}
 Daraus können wir folgern, dass für die Kanten $E\in \mcal E_p$ mit $\rho_E < -d_E \le 0$
@@ -1029,7 +1029,7 @@ Damit ist $e$ auf einer Teilmenge, vom Maße ungleich Null, des Randes gleich Nu
 \end{align*}
 Da die Ungleichung punktweise gilt, folgt auch
 \begin{align*}
-	\int_E w \, d\Gamma \ge \int_E \psi-u_{\mcal S} \, d\Gamma \stackrel{\scriptsize \eqref{eq:my4.41}}\lra \alpha_E(w) \gtrsim \psi(x_E) - u_{\mcal S}(x_E) \stackrel{\scriptsize \eqref{eq:4.11}}= -d_E \,\norm{\phi_E}^{-1} 
+	\int_E w \, ds \ge \int_E \psi-u_{\mcal S} \, ds \stackrel{\scriptsize \eqref{eq:my4.41}}\lra \alpha_E(w) \gtrsim \psi(x_E) - u_{\mcal S}(x_E) \stackrel{\scriptsize \eqref{eq:4.11}}= -d_E \,\norm{\phi_E}^{-1} 
 \end{align*}
 und daher gilt $\alpha_E(w) \lesssim d_E \, \norm{\phi_E}^{-1}$. Alle Aussagen ersetzt in \eqref{eq:4.53} ergeben dann die Behauptung.
 
@@ -1043,7 +1043,7 @@ gilt. Um dies zu zeigen, spalten wir den Fehler $e = e^+ + e^-$ auf mit $e^+ \co
 \end{align}
 Wir betrachten zunächst $\rho_p(e^+)$ und setzen analog zum Fall 2
 \begin{align}\label{eq:4.58}
-	w = (e^+-c) \phi_p \, , \quad c =\min\left\{ \(\int_E e^+\phi_p \, d\Gamma \)\(\int_E \phi_p\, d\Gamma\)^{-1} \mid E \in \mcal E_p \right\} \, .
+	w = (e^+-c) \phi_p \, , \quad c =\min\left\{ \(\int_E e^+\phi_p \, ds \)\(\int_E \phi_p\, ds\)^{-1} \mid E \in \mcal E_p \right\} \, .
 \end{align}
 Da $e^+ \ge 0 $ ist, gilt auch $c \ge 0$. Wegen $ \mcal N^0\setminus(\mcal N^{0-}\cup \mcal N^{0+}) \subset \mcal N \cap \Omega$ gilt nach \eqref{eq:4.22a} $\rho_p(1)\le 0$, also analog zu Fall 2
 \begin{align}\label{eq:4.59}
@@ -1099,8 +1099,8 @@ gilt. Wie in Fall 4 verwenden wir die Aufteilung des Indikators nach Gleichung \
 Wir erinnern uns, dass $\psi-u_{\mcal S} \le e^- \le w \le 0$ gilt und damit folgt
 \begin{align}\label{eq:4.66}
 \begin{aligned}
-	0&\ge \alpha_E(w) = \(\int_E w \, d\Gamma \) \(\int_E \phi_E \, d\Gamma\)^{-1} \\
-	& \ge  \(\int_E \psi-u_{\mcal S} \, d\Gamma \) \(\int_E \phi_E \, d\Gamma\)^{-1} \\
+	0&\ge \alpha_E(w) = \(\int_E w \, ds \) \(\int_E \phi_E \, ds\)^{-1} \\
+	& \ge  \(\int_E \psi-u_{\mcal S} \, ds \) \(\int_E \phi_E \, ds\)^{-1} \\
 	& = \alpha_E(\psi-u_{\mcal S})\, .
 \end{aligned}
 \end{align}
@@ -1108,9 +1108,9 @@ Aus \eqref{eq:4.66} folgt
 \begin{align}\notag
 	\abs{\alpha_E(w)} \, \norm{\phi_E} & \le \abs{\alpha_E(\psi-u_{\mcal S})} \, \norm{\phi_E} \\
 	\notag
-	& = \bigg|\(\int_E \psi-u_{\mcal S} \, d\Gamma\)\underbrace{\(\int_E \phi_E\, d\Gamma\)^{-1}}_{\lesssim h_p^{-1}}\bigg| \cdot \underbrace{\(\int_{\omega_p} \nabla\phi_E \nabla\phi_E \, d\Omega\)^{\frac 12}}_{\lesssim h_p^{\frac 12}} \\
+	& = \bigg|\(\int_E \psi-u_{\mcal S} \, ds\)\underbrace{\(\int_E \phi_E\, ds\)^{-1}}_{\lesssim h_p^{-1}}\bigg| \cdot \underbrace{\(\int_{\omega_p} \nabla\phi_E \nabla\phi_E \, dx\)^{\frac 12}}_{\lesssim h_p^{\frac 12}} \\
 	\notag
-	& \lesssim h_p^{-\frac 12} \Abs{\int_E \psi-u_{\mcal S} \, d\Gamma} \stackrel{\scriptsize \text{C.S.}}\lesssim h_p^{-\frac 1 2} \norm{\psi-u_{\mcal S}}_{0,E} \\
+	& \lesssim h_p^{-\frac 12} \Abs{\int_E \psi-u_{\mcal S} \, ds} \stackrel{\scriptsize \text{C.S.}}\lesssim h_p^{-\frac 1 2} \norm{\psi-u_{\mcal S}}_{0,E} \\
 	\label{eq:4.67}
 	& \lesssim \norm{\nabla (\psi-u_{\mcal S})}_{0,\omega_p} \, ,
 \end{align}
@@ -1145,7 +1145,7 @@ Damit folgt  mit der Aufteilung \eqref{eq:4.57} und den Abschätzungen \eqref{eq
 \]
 Weiter gelten für alle $p \in \mcal N^{0-}$  die Eigenschaften $f\le 0$ auf $\omega_p$ und $j_E \le 0$ für alle $E \in \mcal E_p$. Daher rechnen wir leicht nach, dass gilt:
 \begin{align}
-	\rho_p(e) = \rho_{\mcal S} (e \phi_p)= \int_{\omega_p}\underbrace{ f e \phi_p}_{\le 0} \, d\Omega + \sum_{E\in \mcal E_p} \int_E \underbrace{j_E e \phi_p}_{\le 0} \, d\Gamma \le 0 \, .
+	\rho_p(e) = \rho_{\mcal S} (e \phi_p)= \int_{\omega_p}\underbrace{ f e \phi_p}_{\le 0} \, dx + \sum_{E\in \mcal E_p} \int_E \underbrace{j_E e \phi_p}_{\le 0} \, ds \le 0 \, .
 \end{align}
 
 
@@ -1279,14 +1279,14 @@ eine Linearkombination aus Bubble-Funktionen. Dann lässt sich $u_{\mcal S} + \v
 \]
 Da $\R^2 \ni x \mapsto \frac 12 \abs x^2$ konvex ist, rechnen wir mit den obigen Bezeichnungen schnell nach, dass gilt
 \begin{align*}
-	J(u_{\mcal S} + \varphi) & = \int_\Omega \frac 12 \abs{\nabla(u_{\mcal S}+\varphi)}^2 - f (u_{\mcal S} + \varphi )\, d\Omega \\
-	& = \sum_{T\in \mcal T_h} \int_T \frac 12 \Abs{\nabla(u_{\mcal S}+\varphi)\Big|_{T}}^2 - f (u_{\mcal S} + \varphi )\Big|_T\, d\Omega \\
-	& =  \sum_{T\in \mcal T_h} \int_T \frac 12 \Abs{\(\frac 13 \sum_{E\in\mcal E, E \subset T}\nabla v_E \Big|_T\)}^2 - f\( \frac 13 \sum_{E\in\mcal E, E \subset T} v_E \Big|_T\)\, d\Omega \\
-	& \le \frac 13 \sum_{E\in\mcal E, E \subset T} \, \sum_{T\in \mcal T_h} \int_T \frac 12 \Abs{\nabla v_E \Big|_T}^2 - f v_E \Big|_T\, d\Omega \, .
+	J(u_{\mcal S} + \varphi) & = \int_\Omega \frac 12 \abs{\nabla(u_{\mcal S}+\varphi)}^2 - f (u_{\mcal S} + \varphi )\, dx \\
+	& = \sum_{T\in \mcal T_h} \int_T \frac 12 \Abs{\nabla(u_{\mcal S}+\varphi)\Big|_{T}}^2 - f (u_{\mcal S} + \varphi )\Big|_T\, dx \\
+	& =  \sum_{T\in \mcal T_h} \int_T \frac 12 \Abs{\(\frac 13 \sum_{E\in\mcal E, E \subset T}\nabla v_E \Big|_T\)}^2 - f\( \frac 13 \sum_{E\in\mcal E, E \subset T} v_E \Big|_T\)\, dx \\
+	& \le \frac 13 \sum_{E\in\mcal E, E \subset T} \, \sum_{T\in \mcal T_h} \int_T \frac 12 \Abs{\nabla v_E \Big|_T}^2 - f v_E \Big|_T\, dx \, .
 \end{align*}
 Da wir drei Kanten pro Dreieck $T$ haben, gilt analog die Gleichung
 \[
-	J(u_{\mcal S}) = \frac 13 \sum_{E\in\mcal E , E \subset T}\,  \sum_{T\in \mcal T_h} \int_T \frac 12 \Abs{\nabla u_{\mcal S}}^2 - f u_{\mcal S}\, d\Omega  \, .
+	J(u_{\mcal S}) = \frac 13 \sum_{E\in\mcal E , E \subset T}\,  \sum_{T\in \mcal T_h} \int_T \frac 12 \Abs{\nabla u_{\mcal S}}^2 - f u_{\mcal S}\, dx  \, .
 \]
 Durch Subtraktion der letzten beiden Terme und einigen Umformungen ergibt sich dann
 \begin{align}

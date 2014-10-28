@@ -103,7 +103,7 @@ Nach Umstellen der Ungleichung folgt die Behauptung.
 \begin{defi}\label{def:2.5}
 Es sei $\emptyset\neq M\subset H$ und wir definieren das \textit{{orthogonale Komplement}}\index{orthogonales~Komplement} von $M$ durch
 \[
-	M^\perp\coloneqq\{v\in H\with v\perp M\}\coloneqq\{v\in H\with (v, m)_H=0\;\fa\,  m\in M\}\, .
+	M^\perp\coloneqq\{v\in H\mid v\perp M\}\coloneqq\{v\in H\mid (v, m)_H=0\;\fa\,  m\in M\}\, .
 \]
 \end{defi}
 
@@ -136,6 +136,28 @@ Man kann zeigen, dass $\overline{\spn M} = (M^\perp)^\perp =: M^{\perp\perp}$ is
 
 
 Bevor wir uns mit Variationsproblemen auf konvexen Teilmengen eines Hilbertraumes beschäftigen, wollen wir die Variationsrechnung an einem einfachen Modellproblem ohne Nebenbedingung beschreiben.
+
+      \begin{figure}[ht!]
+        \centering
+        \begin{pspicture}(-3,-2.7)(3,2.6)
+          \psset{Beta=15}
+          
+          % Membran
+          \pstThreeDCircle[fillstyle=shape,fillcolor=lightgray](0,0,0)(2,2,0)(-2,2,0)
+          \pstThreeDEllipse[beginAngle=0,endAngle=180](0,0,0)(2,-2,0)(0,0,-2)
+          \pstThreeDLine[arrows=|-|](2.5,-2.5,0)(2.5,-2.5,-2)
+          \pstThreeDPut[origin=rt](2.9,-2.9,-1){\large$u(x)$}
+          \pstThreeDPut(-1.8,1.2,0){\large$\Omega$}
+
+          % Kraft
+          \pstThreeDLine[arrows=->,arrowscale=3](0,0,2)(0,0,0)
+          \pstThreeDPut[origin=lt](-0.2,0.1,1.3){\large$f$}
+        \end{pspicture}
+        \caption{Membran $\Omega$ mit Flächenlast $f$ und Auslenkung $u(x)$}
+      \end{figure}
+
+
+
 
 Wir betrachten als Modellproblem die Auslenkung $u: \Omega \ra \R$ einer in $\Omega \subset \R^d$ eingespannten Membran unter Krafteinwirkung $f$. Mathematisch beschrieben wird dies durch das  \textit{\idx{Dirichlet-Problem}}
 \begin{subequations}\label{eq:2.1a}
@@ -173,27 +195,30 @@ $\tilde u = u-u_0$
 \end{subequations}
 mit $\tilde f = f-\Delta u_0$. Also reicht es aus, sich auf das \textit{homogene Dirichlet-Problem}\index{Dirichlet-Problem!homogenes} \eqref{eq:2.2a} zu beschränken. Im Folgenden betrachten wir somit \eqref{eq:2.1a} mit $g \equiv 0$.
 
-Mit $H^1_0 (\Omega)$ bezeichnen wir, wie in Bemerkung \ref{bem:A.8} beschrieben, den Raum der einmal schwach differenzierbaren Funktionen, die am Rand $\Gamma$ verschwinden im Sinne der Spur.
-
-
-
-\begin{itemize}
-\item für $v \in H^1_0(\Omega)$ gilt dann mit \eqref{eq:2.1a}
+Mit $H^1_0 (\Omega)$ bezeichnen wir, wie in Bemerkung \ref{bem:A.8} beschrieben, den Raum der in $\Omega$ einmal schwach differenzierbaren Funktionen, die am Rand $\Gamma$ verschwinden im Sinne der Spur. Wählen wir nun ein beliebiges $v \in H^1_0(\Omega)$, dann folgt durch Multiplikation von \eqref{eq:2.1aa} mit $v$ und Integration über $\Omega$ die Beziehung
 \begin{align*}
 	\int_\Omega -\Delta u \cdot v \, dx = \int_\Omega f v \, dx \, .
 \end{align*}
-Betrachte also \eqref{eq:2.1a} im Mittel über das ganze Gebiet $\Omega$. Durch Anwenden der 1. Green'schen Formel (bzw. Satz von Gauß) ergibt sich
-\begin{align}
-\notag	& \int_\Omega \nabla u \cdot \nabla v \, dx -\underbrace{\int_\Gamma v \partial_\nu u \, ds}_{=0, \text{ da } v|_\Gamma = 0} = \int_\Omega f v \, dx \, \\
-\label{eq:2.3}	\Llra & \quad \qquad \int_\Omega \nabla u \cdot \nabla v \, dx =\int_\Omega f v \, dx
+Wir betrachten nun \eqref{eq:2.1aa} also nicht mehr punktweise (lokal), sondern im gewichteten Mittel über ganz $\Omega$ (global). Durch Anwenden der 1. Green'schen Formel (bzw. dem Satz von Gauß) ergibt sich
+\begin{align}\notag
+	& \int_\Omega \nabla u \cdot \nabla v \, dx -\underbrace{\int_\Gamma v \partial_\nu u \, ds}_{=0, \text{ da } v|_\Gamma = 0} = \int_\Omega f v \, dx \, \\
+	\label{eq:2.3}	
+	\Llra \, & \quad \qquad \int_\Omega \nabla u \cdot \nabla v \, dx =\int_\Omega f v \, dx \, .
 \end{align}
-\item kurz geschrieben ist \eqref{eq:2.3} mit der Notation aus Satz \ref{satz:A.5} (b) 
+Die Gleichung \eqref{eq:2.3} wird als \textit{\idx{Variationsgleichung}} bezeichnet. Wenn wir die Notationen aus Satz \ref{satz:A.5} (b) verwenden, so können wir \eqref{eq:2.3} kurz schreiben als
 \[
-	(\nabla u, \nabla v)_0 = (f,v)_0 \, .
+	(\nabla u, \nabla v)_0 = (f,v)_0 \, ,
 \]
-\item wir definieren die Bilinearform $a: (H^1_0(\Omega))^2 \ra \R, a(u,v) := (\nabla u, \nabla v)_0$ und $(f,v):=(f,v)_0$.
-\begin{defi}
-Eine Funktion $u \in H^1_0(\Omega)$ heißt \textit{\idx{schwache Lösung}} vom \idx{homogenen Dirichlet-Problem}
+daher definieren wir die Bilinearform $a: (H^1_0(\Omega))^2 \ra \R, a(u,v) := (\nabla u, \nabla v)_0$ und $(f,v):=(f,v)_0$.
+
+
+\begin{bem*}
+Wir werden in dieser Arbeit oftmals auch $a(\cdot,\cdot)$ für eine beliebige Bilinearform $a: H\times H\ra \R$ verwenden.
+\end{bem*}
+
+
+\begin{defi}\label{def:2.8}
+Eine Funktion $u \in H^1_0(\Omega)$ heißt \textit{\idx{schwache Lösung}} vom homogenen Dirichlet-Problem\index{homogenes Dirichlet-Problem}\index{Dirichlet-Problem!homogen}
 \begin{align}\label{eq:DP}\tag{DP}
 \begin{aligned}
 	-\Delta  u &=  f \text{ in } \Omega \, ,\\
@@ -206,10 +231,16 @@ wenn die Gleichung
 \end{align}
 gilt.
 \end{defi}
-\item Wir betrachten im folgenden alle Hilberträume über $\R$.
-\item Frage nach der Existenz und Eindeutigkeit einer schwachen Lösung für \eqref{eq:DP} $\Ra$ hierfür wird ein Hilbertraum benötigt (nachher im Beweis ersichtlich) $\ra$ Lösung liefert der Satz von Lax-Milgram.
-\item zuvor noch eine Definition.
-\begin{defi}
+
+
+Anschaulich ist eine solche Lösung deshalb schwach, da sie das Problem \eqref{eq:DP} nur im gewichteten Mittel löst. Eine schwache Lösung muss das \textit{starke Problem}\index{starkes Problem} nicht lösen, da sie beispielsweise die Regularitätsanforderungen an das Problem nicht erfüllen muss.
+
+Wir wollen uns nun die Frage nach der Eindeutigkeit und Existenz einer Lösung für die Variationsgleichung \eqref{eq:2.4} stellen. Diese Frage wollen wir zunächst allgemein für einen beliebigen reellen Hilbertraum $H$ beantworten. Wie wir nachher im Beweis des zentralen Satzes von Lax-Milgram sehen werden, ist hierfür explizit ein Hilbertraum notwendig.
+
+Zuvor benötigen wir allerdings noch ein paar Definitionen und Eigenschaften für Bilinearformen.
+
+
+\begin{defi}\label{def:2.9}
 Sei $H$ ein Hilbertraum. Die Bilinearform  $a : H\times H \ra \R$ heißt \textit{stetig}\index{Bilinearform!stetig}, falls mit einem $c>0$
 \[
 	\abs{a(u,v)} \le c \, \norm{u}_H   \norm{v}_H \quad \forall \, u,v \in H
@@ -221,10 +252,11 @@ gilt. Sie heißt $H$-\textit{elliptisch} (oder kurz \textit{elliptisch} oder \te
 gilt.
 \end{defi}
 
-\item Bevor Existenz der Lösung gezeigt, betrachte Funktional $J(v) = \frac 1 2 a(v,v)-F(v)$ genauer
 
-\item 
-\begin{lemma}\label{lem:2.3}
+Da man die Variationsgleichung \eqref{eq:2.4} auch aus der Minimierung eines quadratischen Energiefunktionals $J: (H^1_0(\Omega))^2\ra \R, J(v) \coloneqq \frac 12 a(v,v)-(f,v)$ herleiten kann, wollen wir für ein solches Funktional zuvor einige Eigenschaften sammeln.
+
+
+\begin{lemma}\label{lem:2.10}
 Es sei $H$ ein Hilbertraum. Das Funktional
 \[
 	J: H \ra \R \, , \quad J(v) := \frac 1 2 a(v,v) - F(v) \, ,
@@ -243,12 +275,14 @@ Es seien $u,v \in H$, dann gilt $u + t(v-u) = (1-t)u + tv \in H$ (dies gilt auch
 	= & (1-t) \, J(u) + t \, J(v) + \frac {t^2} 2 a(v-u,v-u)  \\
 	 &\underbrace{+ t \, a(u,v)  - \frac 12 t\, a(u,u) -\frac 1 2 t \, a(v,v) }_{=  -\frac 1 2 t\, a(v-u,v-u)}\\
 	= &  (1-t) \, J(u) + t \, J(v) - \frac {1} 2 \underbrace{t \, (1-t)}_{\ge 0} \,\underbrace{ a(v-u,v-u) }_{\ge \alpha  \norm{v-u}_H^2 \ge 0} \\
-	\le &   (1-t) \, J(u) + t \, J(v) \, .% \qedhere
+	\le &   (1-t) \, J(u) + t \, J(v) \, % \qedhere
 \end{align*}
 Daraus folgt die Behauptung.
 \end{proof}
-\item \begin{lemma} \label{lem:2.4}
-Sei $H$ ein Hilbertraum. Das Funktional $J: H \ra \R, J(v) =\frac 1 2 a(v,v)-F(v)$ aus Lemma \ref{lem:2.3} ist Gâteaux-differenzierbar $($s. Definition \ref{def:Gateaux-Ableitung}$)$.
+
+
+\begin{lemma} \label{lem:2.11}
+Sei $H$ ein Hilbertraum. Das Funktional $J: H \ra \R, J(v) =\frac 1 2 a(v,v)-F(v)$ aus Lemma \ref{lem:2.10} ist Gâteaux-differenzierbar $($s. Definition \ref{def:Gateaux-Ableitung}$)$.
 \end{lemma}
 
 \begin{proof}
@@ -261,8 +295,11 @@ Wir rechnen einfach nach, dass der Grenzwert des Differenzenquotienten existiert
 \end{align*}
 da $a$ und $F$ jeweils stetig sind und daher durch $\norm u_H,\norm v_H$ beschränkt sind. Damit folgt die Behauptung.
 \end{proof}
-\item 
-\begin{theorem}\label{theorem:Lax-Milgram}\textnormal{(Lax-Milgram)}
+
+
+Nun können wir die Existenz und Eindeutigkeit einer Lösung durch das folgende Theorem zeigen.
+
+\begin{theorem}[\idx{Lax-Milgram}]\label{theorem:2.12}
 Es sei $H$ ein Hilbertraum und  $a : H \times H \ra \R$ eine symmetrische, in $H$ stetige, koerzive Bilinearform. Weiter sei $F:H\ra \R$ ein stetiges lineares Funktional, d.h.
 \[
 	\abs{F(v)} \le c \, \norm{v}_H \quad \forall \, v \in H
@@ -294,7 +331,7 @@ also ist $u = \arg\min\limits_{v\in H} J(v)$.
 \[
 	\min_{v\in H} J(v) = \frac 1 2 a(v,v) -F(v) \, .
 \]
-Da $J:H\ra \R$ nach Lemma \ref{lem:2.3} ein konvexes Funktional ist und $J$ nach Lemma \ref{lem:2.4} Gâteaux-differenzierbar, gilt mit Satz \ref{satz:A.10} für alle $v \in H$
+Da $J:H\ra \R$ nach Lemma \ref{lem:2.10} ein konvexes Funktional ist und $J$ nach Lemma \ref{lem:2.11} Gâteaux-differenzierbar, gilt mit Satz \ref{satz:A.10} für alle $v \in H$
 \begin{align*}
 	0& = \mscr D_vJ(u) = \frac d{dt} J(u+tv)\Big|_{t=0} \\
 	& = \frac d{dt}(J(u) + t \, (a(u,v)-F(v))+\frac{t^2}2 a(v,v))\Big|_{t=0} \\
@@ -321,7 +358,7 @@ also folgt $u = \tilde u$.
 	& = \frac 1 2 \alpha \(\norm v_H^2 - \frac{2c}\alpha \norm v_H\) = \frac 1 2 \alpha\(\norm v_H - \frac c\alpha\)^2 - \frac {c^2}{2\alpha} \\
 	& \ge - \frac{c^2}{2\alpha}
 \end{align*}
-Folglich ist $J$ nach unten beschränkt. Sei $\eta := \inf \{J(v)\with v \in H\}$ und $(v_n)_{n\in\N}$ eine Folge mit $J(v_n) \ra\eta$ für $n\ra \infty$. Dann folgt mit der Koerzivität von $a$
+Folglich ist $J$ nach unten beschränkt. Sei $\eta := \inf \{J(v)\mid v \in H\}$ und $(v_n)_{n\in\N}$ eine Folge mit $J(v_n) \ra\eta$ für $n\ra \infty$. Dann folgt mit der Koerzivität von $a$
 \begin{align*}
 	\alpha \norm{v_n-v_m}^2_H  \le & a(v_n-v_m,v_n-v_m) \\
 	 = &a(v_n,v_n)+a(v_m,v_m)-a(v_n,v_m)-a(v_m,v_n) \\
@@ -335,8 +372,10 @@ Folglich ist $J$ nach unten beschränkt. Sei $\eta := \inf \{J(v)\with v \in H\}
 d.h. $(v_n)_{n\in \N}$ ist eine Cauchy-Folge. Da $H$ ein Hilbertraum ist, gilt somit: $\exists \, u \in H : v_n \xrightarrow[n\ra \infty]{} u$ mit $J(u) = \eta$.
 \end{proof}
 
-\item
-\begin{satz}\textnormal{(\idx{Poincaré-Friedrich-Ungleichung})}\label{satz:2.13}
+
+Um die allgemeine Aussage aus dem Theorem von \idx{Lax-Milgram} auf unser Modellproblem \eqref{eq:2.4} übertragen zu können, benötigen wir die \textit{\idx{Poincaré-Friedrich-Ungleichung}}, die auch später noch eine zentrale Rolle für den hierarchischen Fehlerschätzer spielen wird.
+
+\begin{satz}[\idx{Poincaré-Friedrich-Ungleichung}]\label{satz:2.13}
 Es sei $\Omega$ in einem $d$-dimensionalen Würfel der Kantenlänge $s>0$ enthalten. Dann gilt
 \[
 	\norm v_0 \le s \norm{\nabla v}_0 \quad \forall \, v \in H^1_0(\Omega) \, ,
@@ -348,54 +387,61 @@ wobei $\norm\cdot_0$ die durch das Skalarprodukt $(\cdot,\cdot)_0$ induzierte No
 Der Beweis ist in \cite{BraeFEM} Kapitel II, \S1 Sobolev-Räume, Satz 1.5 oder \cite{StarkePDE} Satz 1.5 zu finden.
 \end{proof}
 
-\begin{bem}
+
+\begin{bem}\label{bem:2.14}
 Für die Gültigkeit der Poincaré-Friedrich-Ungleichung, muss $v$ nicht auf ganz $\Gamma$ gleich Null sein, sondern es reicht aus, dass
 \[
 	v \in H^1_{\Gamma_u} (\Omega)\coloneqq \{v \in H^1(\Omega) \mid v = 0 \text{ auf } \Gamma_u\}
 \]
-ist mit $\Gamma_u \subset \Gamma$ und einem Maß $\mu (\Gamma_u) \not = 0$ (vgl. \cite{BraeFEM} Kapitel II, \S1, Bemerkung 1.6).
+ist mit $\Gamma_u \subset \Gamma$, wobei mit einem Maß $\mu$ gilt: $\mu (\Gamma_u) \not = 0$, d.h. $\Gamma_u$ ist keine Nullmenge (vgl. \cite{BraeFEM} Kapitel II, \S1, Bemerkung 1.6).
 \end{bem}
 
-\item Greifen wieder die Frage auf, ob das Problem \eqref{eq:2.4} mit $a:(H^1_0(\Omega))^2\ra \R, a(u,v) = (\nabla u,\nabla v)_0$ und $F:H^1_0(\Omega) \ra \R, F(v) := (f,v)$ eine eindeutige Lösung hat.
-\item Kann nun mit Theorem \ref{theorem:Lax-Milgram} beantwortet werden. Es seien $u,v \in H^1_0(\Omega)$, dann gilt
+
+Jetzt können wir mittels Theorem \ref{theorem:2.12} überprüfen, ob  Problem \eqref{eq:2.4} mit $a:(H^1_0(\Omega))^2\ra \R, a(u,v) = (\nabla u,\nabla v)_0$ und $F:H^1_0(\Omega) \ra \R, F(v) := (f,v)$ eine eindeutige Lösung hat. Es seien $u,v \in H^1_0(\Omega)$, dann gilt
 \begin{align*}
 	 a(v,v) = & \int_\Omega \nabla v \nabla v \, dx = \norm{\nabla v}_0^2  \\
 	\ge& \frac{s^2+1}{(1+s)^2}\norm{\nabla v}_0^2  \stackrel{\scriptsize \text{Satz \ref{satz:2.13}}}\ge \frac 1{(1+s)^2} (\norm v_0^2 + \norm{\nabla v}_0^2) \\
 	= & \frac 1{(1+s)^2} \norm v_1^2 \, .
 \end{align*}
-Damit ist $a$ mit $\alpha :=  \frac 1{(1+s)^2}$ koerziv. Weiter rechnen wir nach:
+Damit ist $a$ mit $\alpha :=  \frac 1{(1+s)^2}$ koerziv. Weiter rechnen wir unter Verwendung der Cauchy-Schwarz-Ungleichung\index{Cauchy-Schwarz'sche Ungleichung} nach:
 \begin{align*}
-	\abs{a(u,v)} = & \Abs{\int_\Omega \nabla u \nabla v \, dx} \le \sum_{i = 1}^d \int_\Omega\abs{\partial_i u}\abs{\partial_i v} \, dx \\
-	\stackrel{\scriptsize\text{CS}}\le & \sum_{i = 1}^d \(\int_\Omega \abs{\partial_i u}^2 \, dx\)^{\frac 12} \(\int_\Omega \abs{\partial_i v}^2 \, dx\)^{\frac 12} \\
-	\le & \(\sum_{i = 1}^d \int_\Omega \abs{\partial_i u}^2 \, dx\)^{\frac 12} \(\sum_{i=1}^d\int_\Omega \abs{\partial_i v}^2 \, dx\)^{\frac 12} \\
-	\le & \( \int_\Omega \abs{\nabla u}^2 \, dx + \int_\Omega u^2 \, dx\)^{\frac 12} \(\int_\Omega \abs{\nabla v}^2 \, dx+\int_\Omega v^2\, dx\)^{\frac 12} \\
-	= & \norm u_1 \, \norm v_1 \, ,
+	\abs{a(u,v)} &= \Abs{\int_\Omega \nabla u \nabla v \, dx} \le \sum_{i = 1}^d \int_\Omega\abs{\partial_i u}\abs{\partial_i v} \, dx \\
+	&\!\!\:\! \stackrel{\scriptsize\text{C.S.}}\le  \sum_{i = 1}^d \(\int_\Omega \abs{\partial_i u}^2 \, dx\)^{\frac 12} \(\int_\Omega \abs{\partial_i v}^2 \, dx\)^{\frac 12} \\
+	&\le \(\sum_{i = 1}^d \int_\Omega \abs{\partial_i u}^2 \, dx\)^{\frac 12} \(\sum_{i=1}^d\int_\Omega \abs{\partial_i v}^2 \, dx\)^{\frac 12} \\
+	&\le \( \int_\Omega \abs{\nabla u}^2 \, dx + \int_\Omega u^2 \, dx\)^{\frac 12} \(\int_\Omega \abs{\nabla v}^2 \, dx+\int_\Omega v^2\, dx\)^{\frac 12} \\
+	&= \norm u_1 \, \norm v_1 \, ,
 \end{align*}
 d.h.  $a$ ist stetig mit $c := 1$. Die Symmetrie von $a$ ist trivial, also bleibt nur noch die Stetigkeit von $F$ zu zeigen. Es sei $v \in H^1_0(\Omega)$, dann gilt
 \begin{align*}
-	\abs{F(v)} &= \abs{(f,v)} =  \Abs{\int_\Omega fv \, dx} \stackrel{\scriptsize\text{CS}}\le\( \int_\Omega \abs{f}^2 \,dx\)^{\frac 12} \( \int_\Omega \abs v^2 \, dx\)^{\frac 12} \\
-	&\le  c \, \( \int_\Omega \abs{\nabla v}^2 +  \abs v^2 \, dx\)^{\frac 12} = c \, \norm v_1
+	\abs{F(v)} &= \abs{(f,v)} =  \Abs{\int_\Omega fv \, dx} \stackrel{\scriptsize\text{C.S.}}\le\( \int_\Omega \abs{f}^2 \,dx\)^{\frac 12} \( \int_\Omega \abs v^2 \, dx\)^{\frac 12} \\
+	&\le  c \, \bigg( \int_\Omega \underbrace{\abs{\nabla v}^2}_{\ge 0} +  \abs v^2 \, dx\bigg)^{\frac 12} = c \, \norm v_1
 \end{align*}
-mit $0<c := \int_\Omega \abs f^2 \, dx < \infty$, wenn $f \in L_2(\Omega)$ ist. Damit ist $F$ ein stetiges lineares Funktional und somit existiert nach Theorem \ref{theorem:Lax-Milgram} eine eindeutige Lösung $u \in H^1_0(\Omega)$ für die schwache Formulierung des homogenen Dirichlet-Problems. 
+mit $0<c := \(\int_\Omega \abs f^2 \, dx\)^{\frac 12} < \infty$, wenn $f \in L_2(\Omega)$ ist. Damit ist $F$ ein stetiges lineares Funktional und somit existiert nach Theorem \ref{theorem:2.12} eine eindeutige Lösung $u \in H^1_0(\Omega)$ für die schwache Formulierung des homogenen Dirichlet-Problems. 
 
-\item Weiter minimiert die Lösung $u \in H^1_0(\Omega)$ das Funktional
+Weiter minimiert die Lösung $u \in H^1_0(\Omega)$ auch das Funktional
 \begin{align*}
 	J(v) = \frac 12 \int_\Omega \nabla v\nabla v \, dx - \int_\Omega fv \, dx \, ,
 \end{align*}
-welches die gespeicherte Energie der durch die Kraft $f$ belasteten Membran $\Omega$ beschreibt.
+welches die gespeicherte Energie der durch die Kraft $f$ belasteten in $\Omega$ eingespannten Membran beschreibt.
 
-\item \begin{bem*}
-Die Stetigkeit vom Funktional $F$ zeigt, welche Eigenschaft die Kraft $f$ aus dem Dirichlet-Problem wenigstens quadratisch integrierbar sein muss, damit es eine schwache Lösung geben kann.
+
+\begin{bem*}
+Die Stetigkeit vom Funktional $F$ zeigt, dass  die Kraft $f$ aus dem Dirichlet-Problem wenigstens quadratisch integrierbar, also in $L^2(\Omega)$, sein muss, damit es eine schwache Lösung geben kann.
 \end{bem*}
 
-\item \begin{bem*}
+
+\begin{notation}
 \begin{enumerate}[(a)]
-\item Mit $H'$ bezeichnen wir den Dualraum zu einem Hilbertraum $H$.
+\item Mit $H'$ bezeichnen wir den Dualraum zum Hilbertraum $H$.
 \item Den Dualraum zu $H^1(\Omega)$ bezeichnen wir mit $H^{-1}(\Omega)$.
 \end{enumerate}
-\end{bem*}
-\item Hier noch eine Folgerung aus dem Satz von Lax-Milgram:
-\begin{satz}[\idx{Riesz'scher Darstellungssatz}]\label{satz:2.14}
+\end{notation}
+
+
+Als Folgerung aus dem Theorem von \idx{Lax-Milgram} betrachten wir den nächsten Satz.
+
+
+\begin{satz}[\idx{Riesz'scher Darstellungssatz}]\label{satz:2.15}
 Es sei $H$ ein Hilbertraum mit einem Skalarprodukt $(\cdot,\cdot)_H$. Es sei $F \in H'$, dann existiert genau ein $u \in H$, so dass
 \[
 	(u,v)_H = F(v) \quad \forall \, v \in H \, .
@@ -403,15 +449,16 @@ Es sei $H$ ein Hilbertraum mit einem Skalarprodukt $(\cdot,\cdot)_H$. Es sei $F 
 \end{satz}
 
 \begin{proof}
-Dies ist eine direkte Folgerung aus dem Theorem \ref{theorem:Lax-Milgram}. Die Abbildung $(\cdot,\cdot)_H:H\times H \ra \R$ ist als Skalarprodukt bilinear, symmetrisch und positiv definit, damit auch bzgl. der auf $H$ durch das Skalarprodukt induzierten Norm $\norm v_H := \sqrt{(v,v)_H}$, koerziv. $F$ ist als Element des Dualraumes $H'$ eine lineare stetige Abbildung $F:H\ra\R$ und damit folgt mit $a(\cdot,\cdot) :=(\cdot,\cdot)_H$ aus dem Theorem von Lax-Milgram die Behauptung.
+Dies ist eine direkte Folgerung aus dem Theorem \ref{theorem:2.12}. Die Abbildung $(\cdot,\cdot)_H:H\times H \ra \R$ ist als Skalarprodukt bilinear, symmetrisch und positiv definit, damit auch bzgl. der auf $H$ durch das Skalarprodukt induzierten Norm $\norm v_H := \sqrt{(v,v)_H}$, koerziv. $F$ ist als Element des Dualraumes $H'$ eine lineare stetige Abbildung $F:H\ra\R$ und damit folgt mit $a(\cdot,\cdot) :=(\cdot,\cdot)_H$ aus dem Theorem von Lax-Milgram die Behauptung.
 \end{proof}
 
-\item \begin{kor}\label{kor:2.14}
+
+\begin{lemma}\label{lem:2.16}
 Es sei $H$ ein Hilbertraum mit Skalarprodukt $(\cdot,\cdot)_H$ und $a:H\times H\ra \R$ eine stetige koerzive Bilinearform. Dann existiert genau ein linearer Operator $A : H \ra H$, so dass gilt:
 \[
 	a(u,v)  = (Au,v)_H \quad \forall \, u , v \in H \, .
 \]
-\end{kor}
+\end{lemma}
 
 \begin{proof}
 Es sei $u\in H$ fest, dann ist $L: H\ra \R, L(v) := a(u,v)$ eine lineare Abbildung, die stetig ist, da
@@ -438,7 +485,7 @@ d.h. $\norm{Au}_H \le c \, \norm u_H$ und damit ist nach \cite{Werner} Satz II.1
 
 Betrachten wir den Kern von $A$, so ergibt sich
 \begin{align}\label{eq:2.6}
-	\ker A := \{ v \in H \with Av = 0\} = \{0\} \, ,
+	\ker A := \{ v \in H \mid Av = 0\} = \{0\} \, ,
 \end{align}
 denn
 \[
@@ -450,7 +497,7 @@ und damit gilt $\norm{Av}_H \ge \alpha \norm v_H$, d.h. $Av = 0 \Lra v = 0$. Die
 \]
 Weiter betrachten wir das Bild von $A$, d.h.
 \[
-	\im A := \{ v \in H \with \exists \, u \in H : Au = v \} \subset H\, .
+	\im A := \{ v \in H \mid \exists \, u \in H : Au = v \} \subset H\, .
 \]
 Sei $(v_n)_{n \in \N}$ eine Folge mit $v_k \in \im A $ für alle $k \in \N$. Dann folgt, dass für jedes $v_k$ ein $u_k \in H$ existiert mit $A u_k = v_k$. Es gelte, dass $Au_k = v_k \ra v \in H$ geht, dann folgt
 \begin{align*}
@@ -477,7 +524,6 @@ Es seien nun $0 \not = l\in H$ sowie $A_1,A_2 \in \mcal L(H,H)$ zwei lineare Ope
 \]
 da $u \not = 0$ und die Summe zweier bijektiver linearer Operatoren wieder bijektiv ist, also ist ein so konstruierter Operator eindeutig.
 \end{proof}
-\end{itemize}
 
 
 
@@ -487,35 +533,37 @@ da $u \not = 0$ und die Summe zweier bijektiver linearer Operatoren wieder bijek
 \section{Finite Elemente Methode}
 \label{kap:2.3}
 
-\begin{itemize}
-\item FEM $\ra$ einleitend ansprechen, dass analytische nicht immer lösbar
 
-\item Unter FEM verstehen wir das Galerkin-Verfahren
+Für unser Modellproblem kann man zeigen, dass es für bestimmte Gebiete $\Omega$ eine exakte, d.h. analytische, Lösung gibt (vgl. \cite{Walker} Kapitel 5). Diese muss im Allgemeinen nicht für jedes Problem bekannt oder gar berechenbar sein. Daher wollen wir nicht mehr die exakte Lösung von unserer Variationsgleichung \eqref{eq:2.4} berechnen, sondern eine Approximation davon, die sogenannte \textit{\idx{Galerkin-Approximation}}.
 
-\item Galerkin-Verfahren bedeutet, wir wollen die Variationsgleichung
+Unter dem \textit{\idx{Galerkin-Verfahren}} verstehen wir, dass wir die Variationsgleichung
 \begin{align}\label{eq:2.8}
 	a(u,v) = F(v) \quad \forall \, v \in H
 \end{align}
-auf einem endlich dimensionalen Unterraum $V_h \subset H$ lösen, d.h. finde $u_h \in V_h$, so dass
+nur noch auf einem endlich dimensionalen Unterraum $V_h \subset H$ lösen wollen, d.h. finde $u_h \in V_h$, so dass
 \begin{align}\label{eq:2.9}
 	a(u_h,v_h) = F(v_h) \quad \forall \, v_h \in V_h \, .
 \end{align}
-\item \begin{satz}
-Das "`Galerkin-Problem"' hat eine eindeutige Lösung.
+
+
+\begin{satz}\label{satz:2.17}
+Das "`Galerkin-Problem"' \eqref{eq:2.9} hat eine eindeutige Lösung.
 \end{satz}
 
-da $V_h$ als Unterraum von $H$ auch ein Hilbertraum ist und die Eigenschaften von $a, F$ weiterhin erfüllt sind, gilt auch hier der Satz von Lax-Milgram, was die Eindeutigkeit und Existenz einer Lösung sichert.
+\begin{proof}
+Da $V_h$ als Unterraum von $H$ auch ein Hilbertraum ist und die Eigenschaften von $a, F$ weiterhin erfüllt sind, gilt auch hier der Satz von Lax-Milgram, was die Eindeutigkeit und Existenz einer Lösung sichert.
+\end{proof}
 
-\item ist $\mcal B_h \coloneqq \{\phi_1,\ldots,\phi_N\}$ eine Basis von $V_h$, dann gilt für $u_h \in V_h$:
+
+Da $V_h$ ein endlich dimensionaler Unterraum von $H$ ist, wird jener von einer endlichen Basis $\mcal B_h \coloneqq \{\phi_1,\ldots,\phi_N\}$ aufgespannt, d.h. für $u_h \in V_h$ gilt:
 \begin{align}\label{eq:2.10}
 	\exists! \, \bs\mu \in \R^N :  u_h(x) = \sum_{i = 1}^N \mu_i \,  \phi_i(x) \, .
 \end{align}
-
-\item da $F(\cdot),a(u,\cdot)$ linear sind und alle $v_h \in V_h$ analog zu oben darstellbar sind, ist \eqref{eq:2.9} äquivalent zum Problem
+Da $F(\cdot),a(u,\cdot)$ linear sind und alle $v_h \in V_h$ analog zu oben darstellbar sind, ist \eqref{eq:2.9} äquivalent zum Problem
 \[
 	a(u_h,\phi_i) = F(\phi_i) \quad \forall \, i = 1, \ldots,N \, ,
 \]
-mit $u_h = \sum \mu_i \, \phi_i$ eingesetzt ergibt sich
+mit $u_h$, wie in \eqref{eq:2.10} dargestellt, eingesetzt ergibt sich
 \[
 	a(u_h,\phi_i) = a \Big( \sum_{j = 1}^N \mu_j \,  \phi_j,\phi_i \Big) = \sum_{j = 1}^N \mu_j \, a(\phi_j,\phi_i) \, ,
 \]
@@ -523,36 +571,33 @@ also
 \[
 	 \sum_{j = 1}^N \mu_j \, a(\phi_j,\phi_i) = F(\phi_i)\quad \forall \, i = 1, \ldots,N \, .
 \]
-Damit ergibt sich das LGS
+Damit erhalten wir ein lineares Gleichungssystem
 \[
 	A \bs \mu = \bs f 
 \]
-mit $A = [a(\phi_j,\phi_i)]_{i,j=1}^N, \bs \mu = [\mu_i]_{i=1}^N$ und $\bs f = [F(\phi_i)]_{i=1}^N$.
+mit $A = [a(\phi_j,\phi_i)]_{i,j=1}^N, \bs \mu = [\mu_i]_{i=1}^N$ und $\bs f = [F(\phi_i)]_{i=1}^N$. Dieses Gleichungssystem gilt es zu lösen, um die gesuchten Koordinaten $\mu_i, i = 1,\ldots,N,$ bzgl. der Basis $\mcal B_h$ für die approximierte Lösung $u_h$ zu finden.
 
-\item \begin{bem}\label{bem:2.17}
+In den Ingenieurswissenschaften, insbesondere bei kontinuumsmechanischen Problemen, wird $A$ als \textit{\idx{Steifigkeitsmatrix}} bezeichnet.
+
+\begin{bem}\label{bem:2.18}
 Ist die Bilinearform $a$ symmetrisch, so ist es auch die Matrix $A$, denn
 \[
 	a_{ij} = a(\phi_i,\phi_j) = a(\phi_j,\phi_i)= a_{ji} \, .
 \]
-Außerdem folgt aus der Koerzivität von $a$, dass  mit $0 \not = v \in \R^N$ gilt
+Außerdem folgt aus der Koerzivität von $a$, dass  mit $\bs 0 \not = \bs \nu \in \R^N$ gilt
 \begin{align*}
-	v^T A v & = \sum_{i,j=1}^N v_i a_{ij} v_j  =  \sum_{i=1}^N v_i\sum_{j=1}^N \, a(\phi_i,\phi_j) \, v_j   \\
-	& = \sum_{i=1}^N v_i \, a\Big(\phi_i,\sum_{j=1}^Nv_j\phi_j\Big) =  a\Big(\sum_{i=1}^N v_i\phi_i,\sum_{j=1}^Nv_j\phi_j\Big) \\
+	\bs \nu^T A \bs \nu & = \sum_{i,j=1}^N \nu_i a_{ij} \nu_j  =  \sum_{i=1}^N \nu_i\sum_{j=1}^N \, a(\phi_i,\phi_j) \, \nu_j   \\
+	& = \sum_{i=1}^N \nu_i \, a\Big(\phi_i,\sum_{j=1}^N\nu_j\phi_j\Big) =  a\Big(\sum_{i=1}^N \nu_i\phi_i,\sum_{j=1}^Nv_j\phi_j\Big) \\
 	& = a(v_h,v_h) \ge \alpha \norm{v_h}^2_H > 0 \, ,
 \end{align*}
-da $v_h \not = 0$ wegen $v \not = 0$. Damit ist $A$ also positiv definit.
+da $\sum \nu_i \phi_i = v_h \not = 0$ wegen $\bs \nu \not = \bs 0$. Damit ist $A$ also positiv definit und es folgt nochmals, dass $A \bs \mu = \bs f$ eine eindeutige Lösung hat.
 \end{bem}
 
-\item in Ingenieurwissenschaften, insbesondere bei kontinuumsmechanischen Problemen, wird $A$ als Steifigkeitsmatrix bezeichnet.
 
-\item um eine Basis $\mcal B_h$ bzgl. $V_h$ beschreiben zu können, muss das Gebiet $\Omega$ in endliche Elemente zerlegt werden. $V_h$ wird dann bzgl. einer Zerlegung $\mcal T_h$ beschrieben.
+Um eine Basis $\mcal B_h$ bzgl. $V_h$ beschreiben zu können, muss das Gebiet $\Omega\subset \R^2$ in endliche Elemente zerlegt werden. Die Basis $\mcal B_h$ und damit der Raum $V_h$ wird dann bzgl. einer Zerlegung $\mcal T_h$ beschrieben. Eine gebräuchliche Zerlegung $\mcal T_h$ kann durch Dreiecke oder auch Vierecke geschehen. Wir wollen in dieser Arbeit nur Zerlegungen durch Dreiecke betrachten, hierfür führen wir den folgenden Begriff ein (vgl. \cite{BraeFEM} Seite 58 oder \cite{StarkePDE} Seite 19).
 
-\item betrachte im weiteren (wie oben schon angesprochen) $\Omega$ als zweidimensionales Gebiet, das mit einem Polygonzug berandet ist.
 
-\item eine gebräuchliche Zerlegung $\mcal T_h$ kann durch Dreiecke oder auch Vierecke geschehen. Wir wollen hier nur Zerlegungen durch Dreiecke betrachten
-
-\item hierfür führen wir den Begriff der Triangulierung ein (vgl. \cite{BraeFEM} Seite 58 oder \cite{StarkePDE} Seite 19)
-\begin{defi}[Triangulierung]
+\begin{defi}[\idx{Triangulierung}]\label{def:2.19}
 Es sei $\Omega \subset \R^2$ ein durch einen Polygonzug berandetes Gebiet. Dann heißt eine Zerlegung aus Dreiecken
 \[
 	\mcal T = \{T_1,T_2,\ldots,T_M\}
@@ -565,12 +610,38 @@ Es sei $\Omega \subset \R^2$ ein durch einen Polygonzug berandetes Gebiet. Dann 
 \end{enumerate}
 Wir nennen eine Triangulierung \textit{konform}\index{Triangulierung!konform} oder \textit{zulässig}\index{Triangulierung!zulässig}, wenn zusätzlich gilt:
 \begin{enumerate}[(d)]
-\item Für jede Kante $k$ eines Dreiecks $T \in \mcal T$ gilt entweder $k \subset \partial \Omega$ oder $k \subset \widetilde T$ für ein weiteres Dreieck $\widetilde T \in \mcal T$. 
+\item Für jede Kante $k$ eines Dreiecks $T \in \mcal T$ gilt entweder $k \subset \partial \Omega$ oder $k = \tilde k$ für eine weitere Kante $\tilde k$ eines weiteren Dreiecks $\widetilde T \in \mcal T$. 
 \end{enumerate}
 Der Radius des Umkreis eines Dreieckes $T$ wird mit $h$ bezeichnet und beschreibt die Größe eines Dreiecks. Wenn jedes Dreieck $T \in \mcal T$ höchstens einen Radius von $h$ hat, so schreiben wir $\mcal T_h$ statt $\mcal T$.
 \end{defi}
 
-\item[Skizze] von einer zulässigen und einer nicht zulässigen Triangulierung (hierbei eine Skizze mit hängenden Knoten machen)
+
+\begin{bem}\label{bem:2.20}
+\begin{enumerate}[(a)]
+\item Ein Dreieck $T\in \mcal T_h$ bezeichnen wir auch als (\textit{finites}) \textit{Element}.
+\item Sollte $\Omega \subset \R^3$ sein, so können wir  analog zu Definition \ref{def:2.19} eine Zerlegung mit Tetraedern definieren.
+\end{enumerate}
+\end{bem}
+
+
+Für die Netzverfeinerung führen wir zwei unterschiedliche Familien von Zerlegungen ein (vgl. \cite{BraeFEM} Seite 58).
+
+
+\begin{defi}[\idx{(quasi-) uniforme Zerlegung}]\label{def:2.21}
+Eine Familie von Zerlegungen $\{\mcal T_h\}$ heißt \textit{quasi-uniform}\index{Triangulierung!quasi-uniform}, wenn es eine Zahl $\kappa > 0$ gibt, so dass jedes $T \in \mcal T_h$ einen Kreis vom Radius
+\[
+	\rho_T \ge \frac{h_T}\kappa
+\]
+enthält, wobei $h_T$ der Radius des Dreiecks $T$ ist.
+
+Eine Familie von Zerlegungen $\{\mcal T_h\}$ heißt \textit{uniform}\index{Triangulierung!uniform}, wenn es eine Zahl $\kappa > 0$ gibt, so dass jedes $T \in \mcal T_h$ einen Kreis vom Radius
+\[
+	\rho_T \ge \frac{h}\kappa
+\]
+enthält, wobei $h := \max_{T \in \mcal T_h} h_T$ ist.
+\end{defi}
+
+
 
 \begin{figure}[h]
 \begin{center}
@@ -603,48 +674,24 @@ Der Radius des Umkreis eines Dreieckes $T$ wird mit $h$ bezeichnet und beschreib
 	\psdot[dotstyle=o, dotsize=4pt](2,1)
 \end{pspicture}
 \end{center}
-\caption{Zulässige und unzulässige Triangulierung (mit hängendem Knoten)}
+\caption{Zulässige und unzulässige Triangulierung (mit hängendem Knoten)\label{abb:2.2}}
 \end{figure}
 
-\item \begin{bem}
-natürlich auch im $\R^3$ analog mit Tetraedern definierbar
-\end{bem}
 
-\item vgl. wieder \cite{BraeFEM} Seite 58
-\begin{defi}[(quasi-) uniforme Zerlegung]
-Eine Familie von Zerlegungen $\{\mcal T_h\}$ heißt \textit{quasi-uniform}\index{Triangulierung!quasi-uniform}, wenn es eine Zahl $\kappa > 0$ gibt, so dass jedes $T \in \mcal T_h$ einen Kreis vom Radius
-\[
-	\rho_T \ge \frac{h_T}\kappa
-\]
-enthält, wobei $h_T$ der Radius des Dreiecks $T$ ist.
+In der Abbildung \ref{abb:2.2} ist eine quasi-uniforme zulässige Zerlegung und eine unzulässige Zerlegung zu sehen; zweitere ist daher unzulässig, da es Kanten gibt, die weder am Rand liegen, noch mit einer Kante eines anderen Dreiecks übereinstimmt. Die Knoten, die zu diesem Phänomen führen, nennen wir \textit{hängende Knoten}\index{hängender Knoten}. Dies sind Knoten, die nicht Eckpunkt jedes angrenzenden Dreiecks sind.
 
-Eine Familie von Zerlegungen $\{\mcal T_h\}$ heißt \textit{uniform}\index{Triangulierung!uniform}, wenn es eine Zahl $\kappa > 0$ gibt, so dass jedes $T \in \mcal T_h$ einen Kreis vom Radius
-\[
-	\rho_T \ge \frac{h}\kappa
-\]
-enthält, wobei $h := \max_{T \in \mcal T_h} h_T$ ist.
-\end{defi}
 
-\item[Skizze] Beispiele für eine quasiuniforme Zerlegung (vgl. \cite{BraeFEM} Seite 59) $\ra$ hier noch was zur Erklärung schreiben, wie im Braess
-
-\begin{figure}[h]
-\caption{Beispiele quasiuniformer Zerlegungen}
-\end{figure}
-
-\item \begin{bem}
+\begin{bem}\label{bem:2.22}
 Wie man leicht sehen kann, ist jede uniforme Zerlegung auch quasi-uniform. Umgekehrt gilt dies nicht (s. Abbildung oben).
 
 Allerdings lassen uniforme Zerlegungen keine lokalen Verfeinerungen zu. Da dies für adaptive Verfeinerungsstrategien allerdings ausschlaggebend ist, gehen wir im Folgenden immer von einer quasi-uniformen Zerlegung $\mcal T_h$ aus.
 \end{bem}
 
-\item nun wollen wir uns Gedanken über unseren Ansatzraum $V_h$ machen.
 
-\item hierfür gibt es viele Möglichkeiten, vergleiche hierzu auch \cite{BraeFEM} Kapitel II, \S5, Tabelle 2, durch Konstruktion der Elemente
+Nun wollen wir uns Gedanken über unseren Ansatzraum $V_h$ machen. Hierfür gibt es, abhängig von der Konstruktion des verwendeten Elements, viele Möglichkeiten -- vgl. hierzu auch \cite{BraeFEM} Kapitel II, \S5, Tabelle 2. Wir wollen uns weitestgehend aber nur auf ein Element konzentrieren. Zuvor betrachten wir hierfür ein wichtiges Resultat, wobei noch bemerkt sei, dass eine Funktion $u$ auf $\Omega$ bei gegebener Zerlegung $\mcal T_h$ eine Eigenschaft stückweise hat, wenn sie auf jedem Element diese Eigenschaft besitzt.
 
-\item wir wollen uns weitestgehend aber nur auf ein Element konzentrieren
 
-\item zuvor hierfür ein wichtiges Resultat; sei noch bemerkt, dass eine Fkt. $u$ auf $\Omega$ bei gegebener Zerlegung eine Eigenschaft stückweise hat, wenn sie auf jedem Element diese Eigenschaft besitzt.
-\begin{satz}
+\begin{satz}\label{satz:2.23}
 Sei $k \ge 1$ und $\Omega\subset \R^2$ ein polygonales Gebiet. Eine stückweise beliebig oft differenzierbare Funktion $v : \bar \Omega \ra \R$ liegt in $H^k(\Omega)$ genau dann, wenn $v \in C^{k-1}(\bar\Omega)$ ist.
 \end{satz}
 
@@ -652,9 +699,15 @@ Sei $k \ge 1$ und $\Omega\subset \R^2$ ein polygonales Gebiet. Eine stückweise 
 Der Beweis ist in \cite{BraeFEM} Kapitel II, \S5, Satz 5.2 zu finden.
 \end{proof}
 
+
+
+\begin{itemize}
+
+\item Unter FEM verstehen wir das Galerkin-Verfahren mit linearen Ansatzfunktionen
+
 \item dies rechtfertigt, dass für unser Modellproblem \eqref{eq:2.4}, welches für $u,v \in H^1_0(\Omega)$ gestellt ist, auf einer Triangulierung $\mcal T_h$ ein Ansatzraum mit stetigen Funktionen $v \in C^0(\Omega)$ verwendet werden kann, also
 \[
-	V_h \coloneqq \{v \in C^0(\Omega) \with v|_T \in \mcal P_m \text{ für } T\in \mcal T_h, v|_{\partial \Omega} = 0\} \, ,
+	V_h \coloneqq \{v \in C^0(\Omega) \mid v|_T \in \mcal P_m \text{ für } T\in \mcal T_h, v|_{\partial \Omega} = 0\} \, ,
 \]
 wobei $\mcal P_m$ der Raum der Polynome vom Grad $m$ ist.
 
@@ -714,7 +767,7 @@ Der Beweis steht in \cite{BraeFEM} Kapitel II, \S 5, Bemerkung 5.4.
 
 \item im weiteren wollen wir lineare Ansatzfunktionen verwenden. Wir bezeichnen, sofern nicht anders beschrieben, also im Folgenden $\mcal S_h$ mit
 \[
-	\mcal S_h \coloneqq \{v \in C^0(\Omega) \with v|_T \in \mcal P_1 \text{ für } T\in \mcal T_h, v|_{\partial \Omega} = 0\} \, .
+	\mcal S_h \coloneqq \{v \in C^0(\Omega) \mid v|_T \in \mcal P_1 \text{ für } T\in \mcal T_h, v|_{\partial \Omega} = 0\} \, .
 \]
 
 \item das Galerkin-Verfahren mit dem Ansatzraum $\mcal S_h$ wird Finite-Elemente-Methode genannt
