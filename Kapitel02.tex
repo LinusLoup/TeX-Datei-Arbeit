@@ -859,10 +859,10 @@ ist und es ergeben sich die Ableitungen aus Tabelle \ref{tab:2.1}. Dann gilt
 	a(\phi_5,\phi_5) & = \int_\Omega \nabla \phi_5 \nabla \phi_5 \, dx dy  = \int_{\rz I  \cup \ldots \cup \rz{VIII}} \underbrace{(\partial_x \phi_5)^2}_{\ge0}+ \underbrace{(\partial_y \phi_5)^2}_{\ge 0} \, dx dy \\
 	& = 2 \int_{\rz I \cup \rz{III} \cup \rz{IV}} {(\partial_x \phi_5)^2}+ {(\partial_y \phi_5)^2} \, dx dy \\
 	& = 2 \(\int_{\rz I \cup \rz{III}}\underbrace{(\partial_x \phi_5)^2}_{=1} \, dx dy + \int_{\rz I \cup \rz{IV}} \underbrace{(\partial_y \phi_5)^2}_{=1} \, dxdy\) \\
-	& = 2 (A(\rz I) + A(\rz{III}) + A(\rz{I}) + A(\rz{IV})) \\
-	& = 8 \cdot A(\rz I) = 8 \cdot \frac 1 2= 4 \, ,
+	& = 2 (\mscr A(\rz I) + \mscr A(\rz{III}) +\mscr A(\rz{I}) +\mscr A(\rz{IV})) \\
+	& = 8 \cdot \mscr A(\rz I) = 8 \cdot \frac 1 2= 4 \, ,
 \end{align*}
-wobei verwendet wurde, dass die Dreiecke kongruent zueinander sind. Analog können wir auch die übrigen acht nodalen Basisfunktionen aufstellen und damit die Einträge der Steifigkeitsmatrix
+wobei verwendet wurde, dass die Dreiecke kongruent zueinander sind und $\mscr A(\cdot)$ den Flächeninhalt eines Dreiecks berechnet. Analog können wir auch die übrigen acht nodalen Basisfunktionen aufstellen und damit die Einträge der Steifigkeitsmatrix
 \begin{align*}
 	a(\phi_5,\phi_2) = a(\phi_5,\phi_4) = a(\phi_5,\phi_6) = a(\phi_5,\phi_8) &= -1 \, , \\
 	a(\phi_5,\phi_1) = a(\phi_5,\phi_3) = a(\phi_5,\phi_7) = a(\phi_5,\phi_9)& = 0
@@ -880,25 +880,10 @@ Hierbei müssen die Einträge aus $\widetilde A$ in die Matrix $A \in \R^{9 \tim
 Dieses Vorgehen müssten wir noch für die übrigen Basisfunktion analog durchführen, um die vollständige Steifigkeitsmatrix $A$ zu erhalten. Dies soll hier aber nicht weiter ausgeführt werden.
 \end{bsp}
 
-Wie man sieht, ist das Vorgehen aus Beispiel \ref{bsp:2.26} sehr aufwendig. Außerdem ist es schwer dieses auf diese Weise zu verallgemeinern, damit man es gut implementieren kann, da die Ansatzfunktionen auf das Gitter bezogen von individueller Form sind.
-
-Um die Berechnung der Einträge der Steifigkeitsmatrix $A$ zu verallgemeinern, betrachten wir das Referenzelement
-\[
-	\widetilde T \coloneqq \{ (\xi,\eta) \in \R^2 \mid 0\le \xi \le 1, 0 \le \eta \le 1-\xi\} \, ,
-\]
-um dann
+Wie man sieht, ist das Vorgehen aus Beispiel \ref{bsp:2.26} sehr aufwendig. Außerdem ist es schwer jenes auf diese Weise zu verallgemeinern, damit man es gut implementieren kann, da die Ansatzfunktionen auf das Gitter bezogen von individueller Form sind.
 
 
-
-\begin{itemize}
-
-\item Abhilfe durch local-global node ordering zur Effizienzsteigerung (Erklärung):
-
-\item hierbei ist die Idee die lokale Steifigkeitsmatrix für ein Element durch Transformation auf ein Referenzelement zu berechnen und somit die  Berechnung von lokalen Steifigkeitsmatrizen zu verallgemeinern
-
-\item[Skizze] vom Referenzelement (Stephan NPDE Seite 13)
-
-\begin{figure}[h]
+\begin{figure}[h!]
 \begin{center}
 \begin{pspicture}(-0.5,0)(7,3)
 	% Skalierung
@@ -942,11 +927,17 @@ um dann
 	\pscurve{->}(0.7,0.7)(1.4,1.2)(2.2,1)
 \end{pspicture}
 \end{center}
-\caption{Referenzelement $\widetilde T$ für ein allgemeines Dreieck $T \in \mcal T_h$}
+\caption{Referenzelement $\widetilde T$ für ein allgemeines Dreieck $T \in \mcal T_h$\label{abb:2.5}}
 \end{figure}
 
-\item Dann die Herleitung von der lokalen Steifigkeitsmatrix (Stephan NPDE Seite 13+14)
-\end{itemize}
+
+Um die Berechnung der Einträge der Steifigkeitsmatrix $A$ zu verallgemeinern, betrachten wir das Referenzelement
+\[
+	\widetilde T \coloneqq \{ (\xi,\eta) \in \R^2 \mid 0\le \xi \le 1, 0 \le \eta \le 1-\xi\} \, .
+\]
+Auf diesem können wir dann die Integrale für die Ansatzfunktionen lokal berechnen, um dann die berechneten Werte affin auf ein beliebiges Dreieck $T$ zu transformieren (s. Abbildung \ref{abb:2.5}). Diese auf das Element $T$ bezogene lokale Steifigkeitsmatrix müssen wir dann durch \textit{\idx{global-local node ordering}} in die globale Steifigkeitsmatrix $A$ assemblieren. Die genaue Berechnungsvorschrift für das oben beschriebene Vorgehen wird in Kapitel \ref{kap:5} noch mal genauer hergeleitet.
+
+
 
 
 
@@ -955,10 +946,9 @@ um dann
 \subsection{A priori Fehlerabschätzung}
 \label{kap:2.3.1}
 
-\begin{itemize}
-\item man kann zeigen, dass der Fehler von $h$ zwischen $u_h$ und $u$ (exakte Lösung) abhängt $\Ra$ Netzverfeinerung führt zur Konvergenz
+Wir wollen nun zeigen, dass durch Netzverfeinerung, d.h. Verkleinern von $h$, der Fehler zwischen der exakten Lösung $u$ und der Galerkin-Approximation $u_h$ kleiner wird.
 
-\item \begin{lemma}
+\begin{lemma}\label{lem:2.27}
 Durch $\norm \cdot _E: H^1_0(\Omega) \ra \R, \norm v_E \coloneqq (a(v,v))^{\frac 1 2}$ mit einer stetigen koerziven Bilinearform $a$ wird eine Norm auf $H_0^1(\Omega)$ definiert.
 \end{lemma}
 
@@ -967,10 +957,11 @@ Aus der Stetigkeit und Koerzivität von $a$ folgt direkt
 \begin{align}\label{eq:2.12}
 	\alpha \, \norm{v}_1^2 \le \underbrace{a(v,v)}_{= \norm v_E^2} \le c \, \norm v_1^2 \, .
 \end{align}
-Damit ist $\norm\cdot_E$ nach oben und unten durch die Norm auf $H^1(\Omega)$ beschränkt und somit eine zu dieser äquivalente Norm.
+Damit ist $\norm\cdot_E$ nach oben und unten durch die Norm auf $H^1_0(\Omega)$ beschränkt und somit eine zu dieser äquivalente Norm.
 \end{proof}
 
-\item \begin{bem*}
+
+\begin{bem*}
 \begin{enumerate}[(a)]
 \item Die Norm $\norm \cdot_E$ bezeichnen wir als \textit{\idx{Energie-Norm}}. Sie gibt für die von uns später in der Strukturmechanik betrachtete Bilinearform  die Verzerrungsenergie eines Kontinuums an.
 \item Für die Bilinearform
@@ -978,11 +969,12 @@ Damit ist $\norm\cdot_E$ nach oben und unten durch die Norm auf $H^1(\Omega)$ be
 	a(u,v) = \int_\Omega \nabla u \nabla v \, dx
 \]
 mit $u,v \in H^1_0(\Omega)$ gilt dann $\norm\cdot_E = \abs\cdot_1$ (s. Bemerkung \ref{bem:A.6}).
+\item Auf $H^1(\Omega)$ wäre $\norm{\cdot}_E$ also nur eine Halbnorm, da konstante Funktionen $v = c$ auch die Norm $\norm{v}_E = 0$ hätten.
 \end{enumerate}
 \end{bem*}
 
-\item Galerkin ist Bestapproximation
-\begin{satz}\label{satz:2.26}
+
+\begin{satz}\label{satz:2.28}
 Die \idx{Galerkin-Approximation} $u_h$ ist die beste Approximation von $u$ bzgl. der \idx{Energie-Norm}, also
 \[
 	\norm{u-u_h}_E = \inf_{v \in V_h} \norm{u-v}_E \, .
@@ -1006,16 +998,17 @@ Damit rechnen wir für ein beliebiges $v \in V_h$ einfach nach:
 	& = a(u-u_h, u-v+v-u_h) \\
 	& = a(u-u_h,u-v)+\underbrace{a(u-u_h,\underbrace{v-u_h}_{\in V_h})}_{=0\text{ wegen \eqref{eq:2.14}}} \\
 	& = a(u-u_h,u-v) \\
-	& \stackrel{\scriptsize\text{CS}}\le \norm{u-u_h}_E \norm{u-v}_E 
+	&\!\!\!\:\!\:\!\:\!\:\! \stackrel{\scriptsize\text{C.S.}}\le \norm{u-u_h}_E \norm{u-v}_E 
 \end{align*}
 und damit folgt nach Division $\norm{u-u_h}_E \le \norm{u-v}_E$, was zu zeigen war.
 \end{proof}
 
-\item \begin{bem*}
-Die Gleichung \eqref{eq:2.15} drückt aus, dass die Verbindung $u-u_h$ orthogonal zum Raum $V_h$ steht und wird daher auch \textit{\idx{Galerkin-Orthogonalität}} genannt.
+
+\begin{bem*}
+Die Gleichung \eqref{eq:2.15} drückt aus, dass die Verbindung $u-u_h$ orthogonal zum Raum $V_h$ steht und wird daher auch \textit{\idx{Galerkin-Orthogonalität}} genannt. Diese wird bei Hindernisproblemen im Allgemeinen nicht mehr erfüllt, da diese, wie wir später sehen werden, nicht mehr auf Variationsgleichungen führen.
 \end{bem*}
 
-\item
+
 \begin{satz}[Céa]\label{satz:2.27}
 Der Fehler der \idx{Galerkin-Approximation} $u_h$ hat in der $H^1$-Norm die Eigenschaft
 \[
@@ -1024,15 +1017,17 @@ Der Fehler der \idx{Galerkin-Approximation} $u_h$ hat in der $H^1$-Norm die Eige
 \end{satz}
 
 \begin{proof}
-Aus \eqref{eq:2.12} und Satz \ref{satz:2.26} folgt
+Aus \eqref{eq:2.12} und Satz \ref{satz:2.28} folgt
 \[
 	\norm{u-u_h}_1 \le \(\frac 1\alpha\)^{\frac 1 2} \norm{u-u_h}_E \le \(\frac 1\alpha\)^{\frac 1 2} \norm{u-v}_E \le \(\frac c\alpha\)^{\frac 1 2} \norm{u-v}_1  \, .
 \]
 Damit folgt die Behauptung mit $\tilde c :=  \sqrt{\frac c\alpha}$.
 \end{proof}
 
-\item vgl. \cite{BraeFEM} Satz 6.4
-\begin{theorem}[Approximationssatz]\label{theorem:2.28}
+
+Nun kommen wir zum zentralen Satz dieses Unterkapitels, mit dem man direkt die gewünschte Aussage folgern kann. Vergleiche hierzu auch \cite{BraeFEM} Kapitel II, \S6, Satz 6.4.
+
+\begin{theorem}[\idx{Approximationssatz für Interpolationen}]\label{theorem:2.28}
 Es sei $k \ge 2$ und $\mcal T_h$ eine quasi-uniforme Triangulierung\index{Triangulierung!quasi-uniform} von $\Omega$. Dann gilt für die Interpolation $I_h$ auf die stetigen, stückweise durch Polynome vom Grad $k-1$ gegebenen Funktionen mit einer von $\Omega, \kappa$ und $k$ abhängigen Kontanten $c$ die a priori Fehlerabschätzung
 \[
 	\norm{u-I_hu}_m \le c h^{k-m} \abs{u}_k
@@ -1044,14 +1039,15 @@ für $u \in H^k(\Omega)$ und $0\le m\le k$.
 Für den Beweis würden wir noch weitere Ausführungen über affine Transformationen benötigen, die wir hier nicht weiter aufführen wollen. Der komplette Beweis ist in \cite{BraeFEM} auf Seite 75ff einzusehen.
 \end{proof}
 
-\item für $k=2$ (lineare Polynome) und $m=1$ (Norm in $H^1$) gilt dann
-\[
+
+Für $k=2$, also lineare Polynome, und $m=1$ (die Norm in $H^1$) gilt dann
+\begin{align}\label{eq:2.16}
 	\norm{u-I_hu}_1 \le c h \abs{u}_2
-\]
+\end{align}
 für $u \in H^2(\Omega)$.
 
-\item
-\begin{kor}
+
+\begin{kor}\label{kor:2.31}
 Für lineare $C^0$-Elemente gilt bzgl. der Galerkin-Approximation $u_h$ die a priori Fehlerschätzung für unser Modellproblem \eqref{eq:DP}
 \[
 	\norm{u-u_h}_1 \le \tilde c h \abs{u}_2 \, .
@@ -1061,19 +1057,15 @@ Für lineare $C^0$-Elemente gilt bzgl. der Galerkin-Approximation $u_h$ die a pr
 \begin{proof}
 Mit Theorem \ref{theorem:2.28} und Satz \ref{satz:2.27} folgt
 \begin{align*}
-	\norm{u-u_h}_1& \le \(\frac {c_1}\alpha\)^{\frac 1 2} \inf_{v\in V_h} \norm{u-v}_1\\ 
-	& \le \(\frac {c_1}\alpha\)^{\frac 1 2}  \norm{u-I_h u}_1 \\
-	& \le \(\frac {c_1}\alpha\)^{\frac 1 2} c_2 h \abs{u}_2 \, .
+	\norm{u-u_h}_1& \le \(\frac {c_1}\alpha\)^{\frac 1 2} \inf_{v\in V_h} \norm{u-v}_1
+	 \le \(\frac {c_1}\alpha\)^{\frac 1 2}  \norm{u-I_h u}_1 \\
+	& \!\!\!\! \:\!\: \!\stackrel{\scriptsize \eqref{eq:2.16}}\le \(\frac {c_1}\alpha\)^{\frac 1 2} c_2 h \abs{u}_2 \, .
 \end{align*}
 Mit $u\in H^2(\Omega)$ und $\tilde c := \(\frac {c_1}\alpha\)^{\frac 1 2} c_2 $ folgt dann die Behauptung.
 \end{proof}
 
-\item[$\Ra$] Überleitung zu adaptiven Verfahren
 
-\item durch Verfeinerung des Netzes (Verkleinerung von $h$) wird der Fehler zwischen der exakten Lösung $u$ und der Galerkin-Approximation $u_h$ linear kleiner $\Ra$ verfeinere das Netz hinreichend weit, um möglichst genaues Ergebnis zu erhalten
-\end{itemize}
-
-
+Mit Korollar \ref{kor:2.31} gilt also, dass für $h \ra 0$ die Galerkin-Approximation $u_h$ gegen die exakte Lösung $u$ konvergiert. Es ist also sinnvoll das Netz zu verfeinern, allerdings bringt jede Verfeinerung auch mehr Knoten und damit ein größeres Gleichungssystem mit sich. Daher stellt sich die Frage, ob es sinnvoll ist, nur einzelne Teile des Gitters zu verfeinern, womit wir uns im Kapitel \ref{kap:2.4} beschäftigen wollen.
 
 
 
@@ -1081,15 +1073,8 @@ Mit $u\in H^2(\Omega)$ und $\tilde c := \(\frac {c_1}\alpha\)^{\frac 1 2} c_2 $ 
 \section{Adaptive Verfeinerungsstrategien}
 \label{kap:2.4}
 
-\begin{itemize}
-\item durch Netzverfeinerung erhält das numerische Problem mehr Informationen (mehr Punkte werden betrachtet)
+Wir wollen nun betrachten, wie sich das Gitter geschickt verfeinern lässt, so dass die Anzahl der Knoten im Vergleich zur Verringerung des Fehlers hinreichend groß ist. Diese Verfeinerung im $n$-ten geschieht adaptiv in Abhängigkeit des aktuellen Gitters $\mcal T_{h_n}$ bzw. der aktuellen Lösung $u_{h_n}$. Hierbei wird \textit{a posteriori} der Fehler im nächsten Schritt $\norm{u-u_{h_{n+1}}}$ mit dem Fehler im aktuellen $\norm{u-u_{h_n}}$ verglichen und daraus die notwendige Größe der Verfeinerung abgeschätzt. Da die Lösung $u$ für ein Problem nicht bekannt oder berechenbar sein muss, gilt es den oben beschriebenen Fehler zu schätzen. Für solche a posteriori Fehlerschätzer gibt es mehrere Ansätze.
 
-\item[$\Ra$]  größeres LGS, also langsamer zu Lösen; dies ist nicht vorteilhaft 
-
-\item Abhilfe: wir verfeinern nur Dreiecke bzw. Knoten, die einen großen lokalen Anteil am Gesamtfehler haben, d.h. an Stellen, wo der Fehler groß ist, erhöhen wir den Informationsgrad (mehr Punkte), um den Fehler zu Verfeinern
-
-\item die zu verfeinernden Knoten werden abhängig von der aktuellen Verfeinerung berechnet, d.h. adaptiv
-\end{itemize}
 
 \subsection{A posteriori Fehlerschätzer}
 \label{kap:2.4.1}
