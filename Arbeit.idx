@@ -52,37 +52,49 @@
 \indexentry{Galerkin-Approximation|hyperpage}{26}
 \indexentry{Approximationssatz f\IeC {\"u}r Interpolationen|hyperpage}{26}
 \indexentry{Triangulierung!quasi-uniform|hyperpage}{26}
-\indexentry{Fixpunktsatz von Brouwer|hyperpage}{35}
-\indexentry{lineares Komplementarit\IeC {\"a}tsproblem|hyperpage}{36}
-\indexentry{quadratisches Programm|hyperpage}{37}
-\indexentry{Active-Set-Algorithmus|hyperpage}{38}
-\indexentry{Signorini-Kontakt|hyperpage}{42}
-\indexentry{Randbedingungen!Dirichlet|hyperpage}{42}
-\indexentry{Verschiebungsrand|hyperpage}{42}
-\indexentry{Randbedingungen!Neumann|hyperpage}{42}
-\indexentry{Spannungsrand|hyperpage}{42}
-\indexentry{Randbedingungen!Kontakt|hyperpage}{42}
-\indexentry{Nichtdurchdringungsbedingung|hyperpage}{44}
-\indexentry{Kontaktrand|hyperpage}{45}
+\indexentry{a posteriori Fehlersch\IeC {\"a}tzer|hyperpage}{27}
+\indexentry{Saturationseigenschaft|hyperpage}{28}
+\indexentry{Galerkin-Approximation|hyperpage}{28}
+\indexentry{Defektproblem|hyperpage}{28}
+\indexentry{Triangulierung!konform|hyperpage}{29}
+\indexentry{Verfeinerung!regul\IeC {\"a}r|hyperpage}{29}
+\indexentry{Verfeinerung!rot|hyperpage}{29}
+\indexentry{Verfeinerung!gr\IeC {\"u}n|hyperpage}{29}
+\indexentry{Verfeinerung!blau|hyperpage}{29}
+\indexentry{Verfeinerung!gr\IeC {\"u}n|hyperpage}{30}
+\indexentry{Verfeinerung!blau|hyperpage}{30}
+\indexentry{Matlab!refinemesh|hyperpage}{30}
+\indexentry{Fixpunktsatz von Brouwer|hyperpage}{38}
+\indexentry{lineares Komplementarit\IeC {\"a}tsproblem|hyperpage}{39}
+\indexentry{quadratisches Programm|hyperpage}{40}
+\indexentry{Active-Set-Algorithmus|hyperpage}{41}
 \indexentry{Signorini-Kontakt|hyperpage}{45}
-\indexentry{Cauchy-Theorem|hyperpage}{45}
-\indexentry{Hooke'sche-Gesetz|hyperpage}{45}
-\indexentry{Tresca-Reibung|hyperpage}{46}
-\indexentry{Coulomb-Reibung|hyperpage}{46}
-\indexentry{Signorini-Kontakt|hyperpage}{46}
-\indexentry{Signorini-Kontakt|hyperpage}{46}
-\indexentry{virtuelle Verschiebung|hyperpage}{46}
-\indexentry{Bubble-Funktion|hyperpage}{54}
-\indexentry{Kontaktpunkte|hyperpage}{63}
-\indexentry{Nichtkontaktpunkte|hyperpage}{63}
-\indexentry{verallgemeinerte Poincar\IeC {\'e}-Friedrich-Ungleichung|hyperpage}{70}
-\indexentry{Ungleichungen!Poincar\IeC {\'e}|hyperpage}{70}
-\indexentry{Sobolev-Raum|hyperpage}{92}
-\indexentry{Lebesgue-Raum|hyperpage}{92}
-\indexentry{Raum der Testfunktionen|hyperpage}{92}
-\indexentry{schwache Ableitung|hyperpage}{92}
-\indexentry{G\IeC {\^a}teaux-differenzierbar|hyperpage}{94}
-\indexentry{G\IeC {\^a}teaux-Ableitung|hyperpage}{94}
-\indexentry{G\IeC {\^a}teaux-Ableitung!rechtsseitig|hyperpage}{94}
-\indexentry{G\IeC {\^a}teaux-differenzierbar|hyperpage}{94}
-\indexentry{reflexiver Raum|hyperpage}{95}
+\indexentry{Randbedingungen!Dirichlet|hyperpage}{45}
+\indexentry{Verschiebungsrand|hyperpage}{45}
+\indexentry{Randbedingungen!Neumann|hyperpage}{45}
+\indexentry{Spannungsrand|hyperpage}{45}
+\indexentry{Randbedingungen!Kontakt|hyperpage}{45}
+\indexentry{Nichtdurchdringungsbedingung|hyperpage}{47}
+\indexentry{Kontaktrand|hyperpage}{48}
+\indexentry{Signorini-Kontakt|hyperpage}{48}
+\indexentry{Cauchy-Theorem|hyperpage}{48}
+\indexentry{Hooke'sche-Gesetz|hyperpage}{48}
+\indexentry{Tresca-Reibung|hyperpage}{49}
+\indexentry{Coulomb-Reibung|hyperpage}{49}
+\indexentry{Signorini-Kontakt|hyperpage}{49}
+\indexentry{Signorini-Kontakt|hyperpage}{49}
+\indexentry{virtuelle Verschiebung|hyperpage}{49}
+\indexentry{Bubble-Funktion|hyperpage}{57}
+\indexentry{Kontaktpunkte|hyperpage}{66}
+\indexentry{Nichtkontaktpunkte|hyperpage}{66}
+\indexentry{verallgemeinerte Poincar\IeC {\'e}-Friedrich-Ungleichung|hyperpage}{73}
+\indexentry{Ungleichungen!Poincar\IeC {\'e}|hyperpage}{73}
+\indexentry{Sobolev-Raum|hyperpage}{95}
+\indexentry{Lebesgue-Raum|hyperpage}{95}
+\indexentry{Raum der Testfunktionen|hyperpage}{95}
+\indexentry{schwache Ableitung|hyperpage}{95}
+\indexentry{G\IeC {\^a}teaux-differenzierbar|hyperpage}{97}
+\indexentry{G\IeC {\^a}teaux-Ableitung|hyperpage}{97}
+\indexentry{G\IeC {\^a}teaux-Ableitung!rechtsseitig|hyperpage}{97}
+\indexentry{G\IeC {\^a}teaux-differenzierbar|hyperpage}{97}
+\indexentry{reflexiver Raum|hyperpage}{98}

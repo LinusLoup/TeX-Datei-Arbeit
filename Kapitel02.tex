@@ -1073,18 +1073,14 @@ Mit Korollar \ref{kor:2.31} gilt also, dass für $h \ra 0$ die Galerkin-Approxim
 \section{Adaptive Verfeinerungsstrategien}
 \label{kap:2.4}
 
-Wir wollen nun betrachten, wie sich das Gitter geschickt verfeinern lässt, so dass die Anzahl der Knoten im Vergleich zur Verringerung des Fehlers hinreichend groß ist. Diese Verfeinerung im $n$-ten geschieht adaptiv in Abhängigkeit des aktuellen Gitters $\mcal T_{h_n}$ bzw. der aktuellen Lösung $u_{h_n}$. Hierbei wird \textit{a posteriori} der Fehler im nächsten Schritt $\norm{u-u_{h_{n+1}}}$ mit dem Fehler im aktuellen $\norm{u-u_{h_n}}$ verglichen und daraus die notwendige Größe der Verfeinerung abgeschätzt. Da die Lösung $u$ für ein Problem nicht bekannt oder berechenbar sein muss, gilt es den oben beschriebenen Fehler zu schätzen. Für solche a posteriori Fehlerschätzer gibt es mehrere Ansätze.
+Wir wollen nun betrachten, wie sich das Gitter geschickt verfeinern lässt, so dass die Anzahl der Knoten im Vergleich zur Verringerung des Fehlers hinreichend groß ist. Diese Verfeinerung im $n$-ten Schritt geschieht adaptiv in Abhängigkeit des aktuellen Gitters $\mcal T_{h_n}$ bzw. der aktuellen Lösung $u_{h_n}$. Hierbei wird \textit{a posteriori} der Fehler im nächsten Schritt $\norm{u-u_{h_{n+1}}}$ mit dem Fehler im aktuellen $\norm{u-u_{h_n}}$ verglichen und daraus die notwendige Größe der Verfeinerung abgeschätzt. Da die Lösung $u$ für ein Problem, wie  schon beschrieben, nicht bekannt oder berechenbar sein muss, gilt es den oben beschriebenen Fehler zu schätzen. Für solche a posteriori Fehlerschätzer gibt es mehrere Ansätze.
 
 
 \subsection{A posteriori Fehlerschätzer}
 \label{kap:2.4.1}
 
-\begin{itemize}
-\item für die zu verfeinernden Knoten muss der Fehler zwischen der Approximation $u_h$ und der (nicht unbedingt bekannten) exakten Lösung $u$ abschätzen
+Wie auch in \cite{BraeFEM} Kapitel III, \S 8, Seite 176 genauer beschrieben, gibt es verschiedene Arten von \idx{a posteriori Fehlerschätzer}n:
 
-\item hierfür a posteriori Schätzer zu benutzen $\ra$ ein Fehlerschätzer, der den Fehler im Schritt $n+1$ durch den Fehler im Schritt $n$ abschätzt.
-
-\item es gibt verschiedene Arten von Fehlerschätzern (vgl. \cite{BraeFEM} Kapitel III, \S 8, Seite 176)
 \begin{enumerate}[(a)]
 \item Residuale Schätzer
 \item Schätzung über ein lokales Neumann-Problem
@@ -1093,21 +1089,106 @@ Wir wollen nun betrachten, wie sich das Gitter geschickt verfeinern lässt, so d
 \item Hierarchische Schätzer
 \end{enumerate}
 
-\item wir wollen in dieser Arbeit nur hierarchische Schätzer betrachten
+Als Fehlerschätzer für Hindernis- oder auch Kontaktprobleme sind häufig residuale Schätzer zu finden. Wir wollen uns in dieser Arbeit mit hierarchischen Fehlerschätzern beschäftigen.
 
-\item daher: Idee von hierarchischem Schätzer erklären
-\end{itemize}
+Die Idee dabei ist, dass wir den Fehler durch eine genauere Lösung aus einem "`besseren"' Ansatzraum abschätzen, in dem Sinne, dass für den Ansatzraum $V_h$, in dem die berechnete Lösung $u_h$ liegt, gilt:
+\begin{align}
+	V_h \subset W_h \text{ mit } W_h = V_h \oplus Z_h \, ,
+\end{align}
+wobei bzgl. der Obermenge $W_h$ die Lösung $u_h^W$ genauer ist als $u_h$, d.h. die \textit{\idx{Saturationseigenschaft}}
+\begin{align}\label{eq:2.18}
+	a(u-u_h^W,u-u_h^W) \le \beta^2 a(u-u_h,u-u_h)
+\end{align}
+mit einer Konstanten $0\le \beta < 1$ erfüllt.
+
+\begin{bem}
+Da wir zur Berechnung unser \idx{Galerkin-Approximation} den Raum $V_h = \mcal S_h$ der linearen Ansatzfunktionen verwenden werden, wählen wir später als Hierarchie
+\[
+	W_h = \mcal Q_h \coloneqq \{v \in C^0(\Omega) \mid v|_T \in \mcal P_2 \text{ für } T \in \mcal T_h, v|_{\partial\Omega} = 0\} \, ,
+\]
+den Raum der quadratischen Ansatzfunktionen. Daraus lässt sich dann der Raum $Z_h$ ableiten.
+\end{bem}
+
+
+Wir sollen nun aber nicht die exakte (bessere) Approximation $u_h^W\in W_h$ berechnen, da dies ein zu großer Aufwand wäre, sondern schränken das sogenannte \textit{\idx{Defektproblem}} lokal auf die Erweiterung $Z_h$ ein, d.h.
+\begin{align}\label{eq:2.19}
+	a(u_h^W,z_h) = F(z_h) \quad \forall \, z_h \in Z_h \, ,
+\end{align}
+wobei in \eqref{eq:2.19} $u_h^W$ aufgeteilt werden kann, da $W_h$ aus direkter Summe von $V_h, Z_h$ entsteht, d.h. $u_h^W = u_h+e_h$ mit $u_h \in V_h, e_h\in Z_h$. Da die Lösung $u_h$ in jedem Schritt bekannt ist, lässt sich das lokale Defektproblem \eqref{eq:2.19} schreiben als
+\begin{align}\label{eq:2.20}
+	e_h \in Z_h : \quad a(e_h,z_h) = \underbrace{F(z_h) - a(u_h,z_h)}_{= \widetilde F(z_h)} \quad \forall \, z_h \in Z_h \, .
+\end{align}
+Man kann zeigen, dass für die Lösung $e_h$ aus \eqref{eq:2.20} unter der Bedingung \eqref{eq:2.18} der Term $a(e_h,e_h)$ beschränkt ist und daher gibt  der auf ein Dreieck $T$ bezogene lokale Anteil $\eta_T \coloneqq a_T(e_h,e_h)^{\frac 12}$ den hierarchischen Fehlerschätzer an.
+
+Damit lässt sich $a(e_h,e_h)$ in die lokalen Anteile $\eta_T$ aufteilen, so dass
+\[
+	\sum_{T\in \mcal T_h} a_T(e_h,e_h) = a(e_h,e_h) \, .
+\]
+Daher verwenden wir als adaptive Strategie: Verfeinere alle Dreiecke $T\in \mcal T_h$, deren lokaler Fehleranteil größer gleich dem skalierten Gesamtfehler sind, also
+\[
+	\eta_T \ge \sigma \(\sum_{T\in \mcal T_h} \eta_T^2\)^{\frac 12} ,
+\]
+wobei $\sigma \in (0,1)$ ist. Wählen wir $\sigma$ sehr klein, so werden viele Dreiecke verfeinert, da auch kleinere lokale Fehleranteile die Ungleichung erfüllen. Umgekehrt gilt für ein großes $\sigma$, dass man viele Adaptionsschritte benötigt, um einen hinreichend kleinen Fehler zu erhalten, da nur wenige Dreiecke pro Verfeinerungsschritt ausgewählt werden.
+
+Die Idee der Hierarchie bzgl. der Räume wollen wir in Kapitel \ref{kap:4} auch auf Variationsprobleme unter Nebenbedingung anwenden, um einen a posteriori Schätzer herzuleiten.
 
 
 \subsection{Verfeinerung des Netzes}
 \label{kap:2.4.2}
 
-\begin{itemize}
-\item wie kann ein Element verfeinert werden $\ra$ Algorithmus, damit auch auch die Triangulierung konform bzw. zulässig bleibt
+Auf der Grundlage des a posteriori Schätzers müssen die ausgewählten Dreiecke verfeinert werden. Dabei ist es essentiell, dass eine konforme Triangulierung\index{Triangulierung!konform} auch konform bleibt, was durch Verwendung von verschiedenen Verfeinerungsmethoden möglich ist (s. Abbildung \ref{abb:2.6}).
 
-\item[$\Ra$] Regeln für die Zulässigkeit nötig: vgl. \cite{BraeFEM} Seite 96 unten Punkt 8.1 oder \cite{StarkePDE}
-\end{itemize}
 
+
+\begin{enumerate}[(i)]
+\item \textit{Rote} (\textit{reguläre})\index{Verfeinerung!regulär}\index{Verfeinerung!rot} Verfeinerung,
+\item \textit{Grüne} Verfeinerung,\index{Verfeinerung!grün}
+\item \textit{Blaue} Verfeinerung.\index{Verfeinerung!blau}
+\end{enumerate}
+
+
+\begin{figure}[h]
+\begin{center}
+\begin{pspicture}(0,0)(5,3)
+	\psset{linewidth=0.5pt}
+	% die Dreiecke:
+	\pspolygon(-2,0)(-1,3)(0.5,1.7)
+	\pspolygon(1.5,0)(2.5,3)(4,1.7)
+	\pspolygon(5,0)(6,3)(7.5,1.7)
+	\psdots(-2,0)(-1,3)(0.5,1.7)(1.5,0)(2.5,3)(4,1.7)(5,0)(6,3)(7.5,1.7)
+	
+	% Verfeinerungen:
+	\pspolygon(-1.5,1.5)(-0.25,2.35)(-0.75,0.85)
+	\psdots[linecolor=red](-1.5,1.5)(-0.25,2.35)(-0.75,0.85)
+	\psline(4,1.7)(2,1.5)
+	\psdot[linecolor=green](2,1.5)
+	\psline(7.5,1.7)(5.5,1.5)
+	\psline(6.25,0.85)(5.5,1.5)
+	\psdots[linecolor=blue](5.5,1.5)(6.25,0.85)
+\end{pspicture}
+\caption{Verfeinerungen von Dreiecken\label{abb:2.6}}
+\end{center}
+\end{figure}
+
+Bei der regulären Verfeinerung werden die drei Mittelpunkte der Kanten eines  Dreiecks miteinander verbunden. Der Vorteil dabei ist, dass die Winkel der entstandenen Dreiecke identisch zu den vorherigen Winkeln sind. Damit bleibt das Verhältnis zwischen dem Radius des Um- zum Innenkreises $\frac{h_T}{\rho_T}$, was den Parameter für die Quasi-Uniformität angibt, gleich bleibt.
+
+Beim regulären Verfeinern können allerdings in anliegenden Dreiecken, die bzgl. des a posteriori Fehlerschätzers nicht verfeinert werden müssen, hängende Knoten (vgl. Abbildung \ref{abb:2.2}) entstehen, wodurch eine nichtzulässige Triangulierung entstehen würde. Um die hängenden Knoten zu eliminieren, kann Verfeinerungsmethode (ii) und (iii) verwendet werden.
+
+Bei der grünen Verfeinerung\index{Verfeinerung!grün} wird der Mittelpunkt genau einer Kante mit dem gegenüberliegendem Eckpunkt verbunden.
+
+Bei der blauen Verfeinerung\index{Verfeinerung!blau} verbindet man den Mittelpunkt der längsten Kante im Dreieck mit dem gegenüberliegendem Eckpunkt und einem weiteren Mittelpunkt einer anderen Kante.
+
+Matlab verwendet diese Verfeinerungsstrategien in der Methode \textit{refinemesh}\index{Matlab!refinemesh}. Diese Methode werden wir bei der Implementierung der numerischen Beispiele auch verwenden und daher wollen wir das Vorgehen von Matlab kurz vorstellen. Ist $\widetilde{\mcal T_h}$ die Menge der zu verfeinernden Dreiecke, dann werden folgende Schritte durchgeführt:
+\begin{enumerate}[(i)]
+\item Halbiere alle Kanten der ausgewählten Dreiecke $T \in \widetilde{\mcal T_h}$.
+\item Halbiere jeweils die längste Kante aller Dreiecke, die schon eine geteilte Kante haben. 
+\item Bilde die neuen Dreiecke nach folgender Strategie:
+\begin{enumerate}[(a)]
+\item Wenn alle drei Kanten eines Dreiecks geteilt sind, verwende die reguläre (rote) Verfeinerung.
+\item Sind genau zwei Seiten halbiert, so verwende die blaue Verfeinerung.
+\item Ist genau eine Kante eines Dreiecks halbiert, dann benutze die grüne Verfeinerung.
+\end{enumerate}
+\end{enumerate}
 
 
 
@@ -1115,6 +1196,10 @@ Wir wollen nun betrachten, wie sich das Gitter geschickt verfeinern lässt, so d
 
 \section{Einführung in die Strukturmechanik}
 \label{kap:2.5}
+
+
+Um in Kapitel \ref{kap:3.2} Kontaktprobleme bzgl. der Mechanik beschreiben zu können, wollen wir in diesem Kapitel eine kurze Einführung in die Kontinuumsmechanik geben.
+
 
 \begin{itemize}
 \item Beschreibung der Kinematik: Referenz- bzw. Ausgangskonfiguration, Deformationsgradient, Verzerrungsmaße (Konti-Buch)
