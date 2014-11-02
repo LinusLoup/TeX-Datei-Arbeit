@@ -64,37 +64,65 @@
 \indexentry{Verfeinerung!gr\IeC {\"u}n|hyperpage}{30}
 \indexentry{Verfeinerung!blau|hyperpage}{30}
 \indexentry{Matlab!refinemesh|hyperpage}{30}
-\indexentry{Fixpunktsatz von Brouwer|hyperpage}{38}
-\indexentry{lineares Komplementarit\IeC {\"a}tsproblem|hyperpage}{39}
-\indexentry{quadratisches Programm|hyperpage}{40}
-\indexentry{Active-Set-Algorithmus|hyperpage}{41}
-\indexentry{Signorini-Kontakt|hyperpage}{45}
-\indexentry{Randbedingungen!Dirichlet|hyperpage}{45}
-\indexentry{Verschiebungsrand|hyperpage}{45}
-\indexentry{Randbedingungen!Neumann|hyperpage}{45}
-\indexentry{Spannungsrand|hyperpage}{45}
-\indexentry{Randbedingungen!Kontakt|hyperpage}{45}
-\indexentry{Nichtdurchdringungsbedingung|hyperpage}{47}
-\indexentry{Kontaktrand|hyperpage}{48}
+\indexentry{Kontinuum|hyperpage}{31}
+\indexentry{Kontinuum|hyperpage}{31}
+\indexentry{materielle Punkte|hyperpage}{31}
+\indexentry{r\IeC {\"a}umliche Punkte|hyperpage}{31}
+\indexentry{Konfiguration|hyperpage}{31}
+\indexentry{Referenzkonfiguration|hyperpage}{31}
+\indexentry{Ausgangskonfiguration|hyperpage}{31}
+\indexentry{Konfiguration!Ausgangs-|hyperpage}{31}
+\indexentry{Konfiguration!Referenz-|hyperpage}{31}
+\indexentry{aktuelle Konfiguration|hyperpage}{31}
+\indexentry{Momentankonfiguration|hyperpage}{31}
+\indexentry{Konfiguration!aktuelle|hyperpage}{31}
+\indexentry{Konfiguration!Momentan-|hyperpage}{31}
+\indexentry{Betrachtungsweise!Lagrange'sche|hyperpage}{31}
+\indexentry{Betrachtungsweise!Euler'sche|hyperpage}{31}
+\indexentry{Betrachtungsweise!materielle|hyperpage}{31}
+\indexentry{Betrachtungsweise!r\IeC {\"a}umliche|hyperpage}{31}
+\indexentry{Deformationsgradient|hyperpage}{32}
+\indexentry{Betrachtungsweise!materielle|hyperpage}{32}
+\indexentry{Verzerrungssensor!Green-Lagrange|hyperpage}{32}
+\indexentry{Cauchy-Green-Tensor!rechter|hyperpage}{32}
+\indexentry{Verschiebung|hyperpage}{33}
+\indexentry{Deformationsgradient!materiell|hyperpage}{33}
+\indexentry{Deformationsgradient!r\IeC {\"a}umlich|hyperpage}{33}
+\indexentry{Verschiebungsgradient!materiell|hyperpage}{33}
+\indexentry{Verschiebungsgradient!r\IeC {\"a}umlich|hyperpage}{33}
+\indexentry{Verzerrungstensor!Green-Lagrange|hyperpage}{33}
+\indexentry{G\IeC {\^a}teaux-Ableitung|hyperpage}{33}
+\indexentry{Fixpunktsatz von Brouwer|hyperpage}{41}
+\indexentry{lineares Komplementarit\IeC {\"a}tsproblem|hyperpage}{42}
+\indexentry{quadratisches Programm|hyperpage}{43}
+\indexentry{Active-Set-Algorithmus|hyperpage}{44}
 \indexentry{Signorini-Kontakt|hyperpage}{48}
-\indexentry{Cauchy-Theorem|hyperpage}{48}
-\indexentry{Hooke'sche-Gesetz|hyperpage}{48}
-\indexentry{Tresca-Reibung|hyperpage}{49}
-\indexentry{Coulomb-Reibung|hyperpage}{49}
-\indexentry{Signorini-Kontakt|hyperpage}{49}
-\indexentry{Signorini-Kontakt|hyperpage}{49}
-\indexentry{virtuelle Verschiebung|hyperpage}{49}
-\indexentry{Bubble-Funktion|hyperpage}{57}
-\indexentry{Kontaktpunkte|hyperpage}{66}
-\indexentry{Nichtkontaktpunkte|hyperpage}{66}
-\indexentry{verallgemeinerte Poincar\IeC {\'e}-Friedrich-Ungleichung|hyperpage}{73}
-\indexentry{Ungleichungen!Poincar\IeC {\'e}|hyperpage}{73}
-\indexentry{Sobolev-Raum|hyperpage}{95}
-\indexentry{Lebesgue-Raum|hyperpage}{95}
-\indexentry{Raum der Testfunktionen|hyperpage}{95}
-\indexentry{schwache Ableitung|hyperpage}{95}
-\indexentry{G\IeC {\^a}teaux-differenzierbar|hyperpage}{97}
-\indexentry{G\IeC {\^a}teaux-Ableitung|hyperpage}{97}
-\indexentry{G\IeC {\^a}teaux-Ableitung!rechtsseitig|hyperpage}{97}
-\indexentry{G\IeC {\^a}teaux-differenzierbar|hyperpage}{97}
-\indexentry{reflexiver Raum|hyperpage}{98}
+\indexentry{Randbedingungen!Dirichlet|hyperpage}{48}
+\indexentry{Verschiebungsrand|hyperpage}{48}
+\indexentry{Randbedingungen!Neumann|hyperpage}{48}
+\indexentry{Spannungsrand|hyperpage}{48}
+\indexentry{Randbedingungen!Kontakt|hyperpage}{48}
+\indexentry{Nichtdurchdringungsbedingung|hyperpage}{50}
+\indexentry{Kontaktrand|hyperpage}{51}
+\indexentry{Signorini-Kontakt|hyperpage}{51}
+\indexentry{Cauchy-Theorem|hyperpage}{51}
+\indexentry{Hooke'sche-Gesetz|hyperpage}{51}
+\indexentry{Tresca-Reibung|hyperpage}{52}
+\indexentry{Coulomb-Reibung|hyperpage}{52}
+\indexentry{Signorini-Kontakt|hyperpage}{52}
+\indexentry{Signorini-Kontakt|hyperpage}{52}
+\indexentry{virtuelle Verschiebung|hyperpage}{52}
+\indexentry{Bubble-Funktion|hyperpage}{60}
+\indexentry{Kontaktpunkte|hyperpage}{69}
+\indexentry{Nichtkontaktpunkte|hyperpage}{69}
+\indexentry{verallgemeinerte Poincar\IeC {\'e}-Friedrich-Ungleichung|hyperpage}{76}
+\indexentry{Ungleichungen!Poincar\IeC {\'e}|hyperpage}{76}
+\indexentry{Sobolev-Raum|hyperpage}{98}
+\indexentry{Lebesgue-Raum|hyperpage}{98}
+\indexentry{Raum der Testfunktionen|hyperpage}{98}
+\indexentry{schwache Ableitung|hyperpage}{98}
+\indexentry{G\IeC {\^a}teaux-differenzierbar|hyperpage}{100}
+\indexentry{G\IeC {\^a}teaux-Ableitung|hyperpage}{100}
+\indexentry{G\IeC {\^a}teaux-Ableitung!rechtsseitig|hyperpage}{100}
+\indexentry{G\IeC {\^a}teaux-differenzierbar|hyperpage}{100}
+\indexentry{reflexiver Raum|hyperpage}{101}

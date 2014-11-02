@@ -1130,7 +1130,7 @@ Daher verwenden wir als adaptive Strategie: Verfeinere alle Dreiecke $T\in \mcal
 \]
 wobei $\sigma \in (0,1)$ ist. Wählen wir $\sigma$ sehr klein, so werden viele Dreiecke verfeinert, da auch kleinere lokale Fehleranteile die Ungleichung erfüllen. Umgekehrt gilt für ein großes $\sigma$, dass man viele Adaptionsschritte benötigt, um einen hinreichend kleinen Fehler zu erhalten, da nur wenige Dreiecke pro Verfeinerungsschritt ausgewählt werden.
 
-Die Idee der Hierarchie bzgl. der Räume wollen wir in Kapitel \ref{kap:4} auch auf Variationsprobleme unter Nebenbedingung anwenden, um einen a posteriori Schätzer herzuleiten.
+Die Idee der Hierarchie bzgl. der Räume wollen wir in Kapitel \ref{Kap:4} auch auf Variationsprobleme unter Nebenbedingung anwenden, um einen a posteriori Schätzer herzuleiten.
 
 
 \subsection{Verfeinerung des Netzes}
@@ -1200,14 +1200,143 @@ Matlab verwendet diese Verfeinerungsstrategien in der Methode \textit{refinemesh
 
 Um in Kapitel \ref{kap:3.2} Kontaktprobleme bzgl. der Mechanik beschreiben zu können, wollen wir in diesem Kapitel eine kurze Einführung in die Kontinuumsmechanik geben.
 
+\begin{defi}[\idx{Kontinuum}]
+Ein \textit{Kontinuum} ist eine Teilmenge $\mathscr{B}\subset \R^3$, dessen  Punkte stetig verteilt sind. Den Punkten werden gewisse Materialeigenschaften zugewiesen.
+\end{defi}
+
+
+\subsection{Kinematik}
+\label{kap:2.5.1}
+
+Um die Kinematik für ein \idx{Kontinuum} zu beschreiben, betrachten wir dieses in zeitlich abhängigen Zuständen. Dabei unterscheiden wir zwischen den \textit{materiellen Punkten}\index{materielle Punkte} des Kontinuums, die mit $\bs X = (X_1,X_2,X_3)$ beschrieben werden, und den \textit{räumlichen Punkten}\index{räumliche Punkte} $\bs x = (x_1,x_2,x_3)$.
+
+\begin{defi}[\idx{Konfiguration}]
+Eine zu jedem Zeitpunkt $t$ differenzierbare und stetige Zuordnung $\bs x = \varphi(\bs X, t)$ nennen wir \textit{Konfiguration}. Die Konfiguration zum Zeitpunkt $t = t_0$ nennen wir \textit{Ausgang-} oder \textit{\idx{Referenzkonfiguration}}\index{Ausgangskonfiguration}\index{Konfiguration!Ausgangs-}\index{Konfiguration!Referenz-}, die Konfiguration zum aktuellen Zeitpunkt $t$ \textit{\idx{aktuelle Konfiguration}} oder \textit{\idx{Momentankonfiguration}}\index{Konfiguration!aktuelle}\index{Konfiguration!Momentan-}.
+\end{defi}
+
+
+\begin{figure}[h!]
+\begin{center}
+\begin{pspicture}(0,-1)(4,3)
+	% materielle Punkte:
+	\psccurve(-2,0)(0,0.3)(-0.6,2.3)(-2.2,1.2)
+	\psdot(-1,0.6)
+	\rput(-1.3,0.5){$\bs X$}
+	\rput(-0.6,1.8){$\mscr B$}
+	
+	% Momentankonfiguration:
+	\psccurve(3,1)(5,0.5)(6.4,2)(5.4,3)(4,2)
+	\rput(6,2){$\mscr B$}
+	\psdot(4,1)
+	\rput(4.2,0.9){$\bs x$}
+	
+	% Koordinatensystem:
+	\psline{->}(2,0)(3,0)
+	\psline{->}(2,0)(2,1)
+	\psline{->}(2,0)(1.3,-0.42)
+	\rput(1.6,-0.5){$\bs e_1$}
+	\rput(2.25,1){$\bs e_3$}
+	\rput(3,-0.2){$\bs e_2$}
+	
+	% Zuordnung:
+	\pscurve{->}(0.5,1.5)(1.8,2.5)(3.5,2.1)
+	\rput(2,2.8){$\varphi$}
+\end{pspicture}
+\caption{Konfiguration eines Kontinuums $\mscr B$\label{abb:2.7}}
+\end{center}
+\end{figure}
+
+
+\begin{bem}
+Wir können der Einfachheit halber zu einem Startzeitpunkt $t = t_0$ die materiellen Punkte durch die räumlichen Koordinaten der Ausgangskonfiguration $\bs X = \bs x(t_0)$ beschreiben. So liegt der Körper $\mscr B$ aus Abbildung \ref{abb:2.7} im selben Koordinatensystem.
+\end{bem}
+
+
+Damit ist die Bewegung (oder auch Deformation) eines Kontinuums als zeitlich stetige Folge von Konfigurationen $\bs x = \bs x(\bs X,t)$ zu verstehen. Hierfür gibt es zwei grundlegende Betrachtungsweisen, die \textit{{Lagrange'sche}}\index{Betrachtungsweise!Lagrange'sche} und die \textit{Euler'sche Betrachtungsweise}\index{Betrachtungsweise!Euler'sche}. Bei der Lagrange'schen Betrachtung ist der Beobachter mit dem materiellen Punkt $\bs X$ verbunden und misst alle Änderungen des Kontinuums an diesem Punkt; jene wird auch \textit{materielle Betrachtungsweise}\index{Betrachtungsweise!materielle} genannt. Bei der Euler'schen Betrachtungsweise befindet sich der Beobachter am räumlichen Punkt $\bs x$ und misst zu jedem Zeitpunkt $t$ die Änderungen am Punkt $\bs x$, die sich durch das Passieren von Teilchen $\bs X$ ergeben; jene wird auch \textit{räumliche Betrachtungsweise}\index{Betrachtungsweise!räumliche} genannt.
+
+
+Um die Deformation eines Körpers $\mscr B$ nun beschreiben zu können, betrachten wir die Veränderung von Linienelementen $d \bs x$ bzgl. der Ausgangs- und Momentankonfiguration. Wir beschreiben den sogenannten \textit{\idx{Deformationsgradient}} $\bs F$ durch den Faktor, der zwischen der Deformation dieser Linienelemente liegt, d.h.
+\begin{align}\label{eq:2.21}
+	d\bs x = \bs F \, d\bs X \, .
+\end{align}
+Damit ergibt sich der Deformationsgradient als
+\begin{align}\label{eq:2.22}
+	\bs F = \frac{\partial \bs x}{\partial \bs X} = \Grad \bs x \, , 
+\end{align}
+dies ist der Gradient bzgl. der materiellen Betrachtung\index{Betrachtungsweise!materielle} und wird daher auch \textit{materieller Deformationsgradient} genannt. Analog können wir den \textit{räumlichen Deformationsgradienten} erhalten als
+\begin{align}\label{eq:2.23}
+	\bs F^{-1} = \frac{\partial \bs X}{\partial \bs x} = \grad \bs X \, .
+\end{align}
+Die Deformationsgradienten sind zweistufige Tensoren, die sich jeweils auf die Referenz- und Momentankonfiguration bzgl. der Basen beziehen.
+
+Damit können wir nun die Verzerrung eines Kontinuums mittels des Deformationsgradienten ausdrücken. Um jene zu beschreiben, betrachten wir die Längenänderung zwischen den Linienelementen $d\bs X$ und $d\bs x$.
+\begin{align*}
+	\norm{d\bs x}^2-\norm{d\bs X}^2 &= (d\bs x)^T d\bs x - (d\bs X)^Td\bs X \\
+	& \! \! \!\!\: \!\!\: \stackrel{\scriptsize \eqref{eq:2.21}}= (d\bs X)^T \bs F^T \bs F d\bs X - (d\bs X)^Td\bs X \\
+	& = (d\bs X)^T (\bs F^T \bs F- \bs 1) d\bs X \, ,
+\end{align*}
+wobei $\bs 1$ den zweistufigen Einheitstensor beschreibt. Also lässt sich die Verzerrung bzgl. der Ausgangskonfiguration durch den \textit{Green-Lagrange'schen Verzerrungssensor}\index{Verzerrungssensor!Green-Lagrange}
+\begin{align}\label{eq:2.24}
+	\bs E = \frac 1 2 (\bs C- \bs 1)
+\end{align}
+mit dem \textit{rechten Cauchy-Green-Tensor}\index{Cauchy-Green-Tensor!rechter} $\bs C = \bs F^T\bs F$ beschreiben.
+
+
+\begin{bem}
+Dies ist natürlich nur eine Möglichkeit. Wichtig für die Wahl eines Verzerrungsmaßes ist jedoch, dass für reine Translation oder Rotation dieses Null wird. 
+
+Daher ist beispielsweise $\bs F - \bs 1$ als Verzerrungsmaß unbrauchbar. Der Deformationsgradient lässt sich in Rotation $\bs R$ und Streckung $\bs U$ durch $$\bs F = \bs R \cdot \bs U$$ aufteilen. Sollten wir nun eine reine Rotation betrachten, so ist $\bs U = \bs 1$ und damit $\bs F = \bs R$, was nicht zwangsläufig der Einheitstensor sein muss.
+\end{bem}
+
+
+Wenn wir einen Punkt bzgl. seiner Ausgangs- und Momentankonfiguration vergleichen, so erhalten wir die \textit{\idx{Verschiebung}}
+\begin{align}\label{eq:2.25}
+	\bs u (\bs X,t) = \bs x(\bs X,t)-\bs X \, .
+\end{align}
+Damit ergeben sich analog zum materiellen und räumlichen Deformationsgradienten\index{Deformationsgradient!materiell}\index{Deformationsgradient!räumlich} \eqref{eq:2.22} und \eqref{eq:2.23} mit \eqref{eq:2.25} der materielle und räumliche \textit{Verschiebungsgradient}\index{Verschiebungsgradient!materiell}\index{Verschiebungsgradient!räumlich}:
+\begin{align*}
+	\bs H& = \Grad \bs u = \frac{\partial(\bs x - \bs X)}{\partial \bs X} = \frac{\partial\bs x}{\partial \bs X} - \frac{\partial \bs X}{\partial \bs X} = \bs F - \bs 1 \, ,  \\
+	\bs h& = \grad \bs u = \frac{\partial(\bs x - \bs X)}{\partial \bs x} = \frac{\partial\bs x}{\partial \bs x} - \frac{\partial \bs X}{\partial \bs x} = \bs 1 - \bs F^{-1} \, .
+\end{align*}
+Damit ergibt sich beispielsweise für den Green-Lagrange'schen Verzerrungstensor \index{Verzerrungstensor!Green-Lagrange} \eqref{eq:2.24} bzgl. des materiellen Verschiebungsgradienten die Beziehung
+\begin{align}\label{eq:2.26}
+\begin{aligned}
+	\bs E& = \frac 12 (\bs C - \bs 1) = \frac 1 2 (\bs F^T\bs F - \bs 1) = \frac 12((\bs 1+\bs H)^T(\bs 1+\bs H)-\bs 1) \\
+	& = \frac 12 (\bs 1 + \bs H^T + \bs H +\bs H^T \bs H - \bs 1) = \frac 12(\bs H^T+\bs H+\bs H^T\bs H) \, .
+\end{aligned}
+\end{align}
+Wenn wir von kleinen Deformationen ausgehen, so ist es sinnvoll für die spätere numerische Berechnung, die nichtlinearen Verzerrungsgrößen (wie in \eqref{eq:2.26})  zu linearisieren. Dies können wir mithilfe von Taylor und der \idx{Gâteaux-Ableitung} \eqref{eq:A.1} bewerkstelligen. Für eine vektor- oder tensorwertige Funktion $\bs A$ gilt dann
+\begin{align}\label{eq:2.27}
+	\operatorname{lin}(\bs A)_{\bs x,\bs u} = \bs A(\bs x) + \frac d{ d\eps} (\bs A(\bs x + \eps \bs u))\bigg|_{\eps = 0} \, .
+\end{align}
+Wenden wir also \eqref{eq:2.27} auf den Green-Lagrange'schen Verzerrungstensor \eqref{eq:2.26} an, so erhalten wir die Linearisierung:
+\begin{align*}
+	\operatorname{lin}(\bs E)_{\bs X,\bs u} & = \underbrace{\bs E(\bs X)}_{=0} + \frac d{d\eps} (\bs E(\bs X+\eps \bs u))\bigg|_{\eps = 0} \\
+	& = \frac 12 \frac d{d\eps} \(\(\frac{\partial(\bs X+\eps\bs u)}{\partial \bs X}\)^T \frac{\partial(\bs X+\eps\bs u)}{\partial \bs X}-\bs  1\)\Bigg|_{\eps=0} \\
+	& = \frac 12 \frac d{d\eps} \((\bs 1+\eps \bs H)^T (\bs 1+\eps \bs H) - \bs 1\) \bigg|_{\eps=0} \\
+	& = \frac 12 \frac d{d\eps} (\bs 1+\eps \bs H^T+\eps\bs H+ \eps^2 \bs H^T\bs H-\bs 1) \bigg|_{\eps=0} \\
+	& = \frac 12 (\bs H^T + \bs H + 2\eps \bs H^T\bs H)\bigg|_{\eps=0} = \frac 12(\bs H^T+ \bs H) \eqqcolon \bs \eps \, .
+\end{align*} 
+
+Wir wollen der Einfachheit halber in dieser Arbeit von kleinen Deformationen ausgehen, dann gilt $\bs H \approx \bs h = \nabla \bs u$. Damit werden wir also immer die linearisierten Verzerrungstensor
+\begin{align}\label{eq:2.28}
+	\bs \eps = \frac 1 2 (\nabla^T \bs u + \nabla \bs u)
+\end{align}
+verwenden.
+
+
+\subsection{Kinetik}
+\label{kap:2.5.2}
+
+\subsection{Konstitutive Gleichungen und Prinzipien}
+\label{kap:2.5.3}
+
+
+
 
 \begin{itemize}
-\item Beschreibung der Kinematik: Referenz- bzw. Ausgangskonfiguration, Deformationsgradient, Verzerrungsmaße (Konti-Buch)
-\item Lineararisierung der Verzerrungsmaße für unseren Fall (kleine Deformationen) mittels "Taylor" (siehe auch Gateaux-Ableitung - Seite 24 Konti Skript):
-\[
-	\bs \eps = \frac 1 2 (\nabla \bs u + \nabla^T \bs u)
-\]
 \item Kinetik: Kräftegleichgewicht und äußere Kontaktlast
+\item Cauchy-Spannungstensor gibt den wahren Spannungszustand im Körper unabhängig einer Normalenvektors $\bs n$ an.
 \item Konzepte für ebene Spannungs- bzw. Verzerrungszustände (siehe hierfür auch FEM 1 Skript von Wriggers $\ra$ \cite{WriggersFEMSkript})
 \item Konstitutive Modelle (vor allem Materialgesetze) $\Ra$ Hier vor allem Hooke:
 \[
