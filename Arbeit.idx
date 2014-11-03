@@ -12,7 +12,7 @@
 \indexentry{Variationsgleichung|hyperpage}{10}
 \indexentry{schwache L\IeC {\"o}sung|hyperpage}{11}
 \indexentry{homogenes Dirichlet-Problem|hyperpage}{11}
-\indexentry{Dirichlet-Problem!homogen|hyperpage}{11}
+\indexentry{Dirichlet-Problem!homogenes|hyperpage}{11}
 \indexentry{starkes Problem|hyperpage}{11}
 \indexentry{Bilinearform!stetig|hyperpage}{11}
 \indexentry{Bilinearform!koerziv|hyperpage}{11}
@@ -100,37 +100,40 @@
 \indexentry{Schubmodul|hyperpage}{35}
 \indexentry{Voigt-Notation|hyperpage}{35}
 \indexentry{ebener Verzerrungszustand|hyperpage}{35}
+\indexentry{Lax-Milgram|hyperpage}{36}
+\indexentry{Lax-Milgram|hyperpage}{36}
+\indexentry{Dirichlet-Problem!homogenes|hyperpage}{38}
 \indexentry{Fixpunktsatz von Brouwer|hyperpage}{42}
 \indexentry{lineares Komplementarit\IeC {\"a}tsproblem|hyperpage}{43}
 \indexentry{quadratisches Programm|hyperpage}{44}
-\indexentry{Active-Set-Algorithmus|hyperpage}{45}
+\indexentry{Active-Set-Algorithmus|hyperpage}{46}
 \indexentry{Signorini-Kontakt|hyperpage}{49}
 \indexentry{Randbedingungen!Dirichlet|hyperpage}{49}
 \indexentry{Verschiebungsrand|hyperpage}{49}
 \indexentry{Randbedingungen!Neumann|hyperpage}{49}
 \indexentry{Spannungsrand|hyperpage}{49}
-\indexentry{Randbedingungen!Kontakt|hyperpage}{49}
+\indexentry{Randbedingungen!Kontakt|hyperpage}{50}
 \indexentry{Nichtdurchdringungsbedingung|hyperpage}{51}
 \indexentry{Kontaktrand|hyperpage}{52}
 \indexentry{Signorini-Kontakt|hyperpage}{52}
-\indexentry{Cauchy-Theorem|hyperpage}{52}
-\indexentry{Hooke'sche-Gesetz|hyperpage}{52}
+\indexentry{Cauchy-Theorem|hyperpage}{53}
+\indexentry{Hooke'sche-Gesetz|hyperpage}{53}
 \indexentry{Tresca-Reibung|hyperpage}{53}
-\indexentry{Coulomb-Reibung|hyperpage}{53}
-\indexentry{Signorini-Kontakt|hyperpage}{53}
-\indexentry{Signorini-Kontakt|hyperpage}{53}
-\indexentry{virtuelle Verschiebung|hyperpage}{53}
-\indexentry{Bubble-Funktion|hyperpage}{61}
-\indexentry{Kontaktpunkte|hyperpage}{70}
-\indexentry{Nichtkontaktpunkte|hyperpage}{70}
-\indexentry{verallgemeinerte Poincar\IeC {\'e}-Friedrich-Ungleichung|hyperpage}{77}
-\indexentry{Ungleichungen!Poincar\IeC {\'e}|hyperpage}{77}
-\indexentry{Sobolev-Raum|hyperpage}{99}
-\indexentry{Lebesgue-Raum|hyperpage}{99}
-\indexentry{Raum der Testfunktionen|hyperpage}{99}
-\indexentry{schwache Ableitung|hyperpage}{99}
-\indexentry{G\IeC {\^a}teaux-differenzierbar|hyperpage}{101}
-\indexentry{G\IeC {\^a}teaux-Ableitung|hyperpage}{101}
-\indexentry{G\IeC {\^a}teaux-Ableitung!rechtsseitig|hyperpage}{101}
-\indexentry{G\IeC {\^a}teaux-differenzierbar|hyperpage}{101}
-\indexentry{reflexiver Raum|hyperpage}{102}
+\indexentry{Coulomb-Reibung|hyperpage}{54}
+\indexentry{Signorini-Kontakt|hyperpage}{54}
+\indexentry{Signorini-Kontakt|hyperpage}{54}
+\indexentry{virtuelle Verschiebung|hyperpage}{54}
+\indexentry{Bubble-Funktion|hyperpage}{62}
+\indexentry{Kontaktpunkte|hyperpage}{71}
+\indexentry{Nichtkontaktpunkte|hyperpage}{71}
+\indexentry{verallgemeinerte Poincar\IeC {\'e}-Friedrich-Ungleichung|hyperpage}{78}
+\indexentry{Ungleichungen!Poincar\IeC {\'e}|hyperpage}{78}
+\indexentry{Sobolev-Raum|hyperpage}{100}
+\indexentry{Lebesgue-Raum|hyperpage}{100}
+\indexentry{Raum der Testfunktionen|hyperpage}{100}
+\indexentry{schwache Ableitung|hyperpage}{100}
+\indexentry{G\IeC {\^a}teaux-differenzierbar|hyperpage}{102}
+\indexentry{G\IeC {\^a}teaux-Ableitung|hyperpage}{102}
+\indexentry{G\IeC {\^a}teaux-Ableitung!rechtsseitig|hyperpage}{102}
+\indexentry{G\IeC {\^a}teaux-differenzierbar|hyperpage}{102}
+\indexentry{reflexiver Raum|hyperpage}{103}

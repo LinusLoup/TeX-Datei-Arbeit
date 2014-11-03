@@ -1,24 +1,24 @@
 \newchapter{Variationsungleichungen}
 \label{kap:3}
 
+Hindernis- und Kontaktprobleme basieren auf der Minimierung von Energiefunktionalen, wie im Theorem von Lax-Milgram\index{Lax-Milgram} (Theorem \ref{theorem:2.12}) auch schon verwendet wurde. Allerdings minimieren wir diese jetzt nur auf einer Teilmenge der Funktionen aus dem betrachteten Hilbertraum, d.h. wir werden eine Nebenbedingung einführen. Wir wollen in diesem Kapitel die theoretische Grundlage für die Lösung solcher Probleme bilden und eine a priori Fehlerschätzung zwischen exakter und mit der Finiten-Elemente-Methode approximierter Lösung durchführen.
+
 Dieses Kapitel basiert auf \cite{KikOden}, \cite{StarkeVar}, \cite{EPS}, \cite{EPSContact}, \cite{WriggersFEM}, \cite{WriggersContact}, \cite{HlaHas}, \cite{Glow}, \cite{Falk}.
 
 \section{Ein Hindernisproblem}
 \label{kap:3.1}
 
-\begin{itemize}
-\item Hindernisproblem: Auslenkung $u$ einer Membran $\Omega$ unter Krafteinwirkung $f$, wobei die Membran durch ein Hindernis $\psi$ behindert wird. Mathematische modelliert bedeutet dies:
-\begin{align}\label{eq:Hindernis}
+
+Als Modellproblem wollen wir wieder die Auslenkung $u:\Omega \ra \R$ einer in $\Omega$ eingespannten Membran betrachten, die mit der Flächenlast $f$ belastet wird (vgl. auch Abbildung \ref{abb:2.1}). Nun wollen wir jedoch die Auslenkung $u$ durch ein Hindernis $\psi$ in $\Omega$ behindern (s. Abbildung \ref{abb:3.1} -- die Auslenkung $u$ der Membran liegt bezogen auf die angedeutete Kurve in der Skizze rotationssymmetrisch zur $z$-Achse). Dies führt auf die Minimierung des quadratischen Energiefunktionals
+\begin{align}\label{eq:3.1}
 \min_{v\in K} J(v) = \frac 1 2 a(v,v)-(f,v)
 \end{align}
-mit $K := \{v \in H^1_0(\Omega) \with v\ge \psi$ fast überall in $\Omega\}$. 
+mit $K := \{v \in H^1_0(\Omega) \with v\ge \psi$ fast überall in $\Omega\}$, wobei $a(\cdot,\cdot), (f,\cdot)$ wie in Kapitel \ref{kap:2.2} definiert sind. Das Funktional $J$ gibt hierbei anschaulich wieder die in der Membran gespeicherte Energie an.
 
-\item $J$ gibt wieder die in der Membran gespeicherte Energie an.
-\item wobei jetzt die Lösung nicht auf ganz $H^1_0(\Omega)$ gesucht ist, sondern in einer Teilmenge $K \subset H^1_0(\Omega)$.
 
-\item wir können auch hier eine Variationsformulierung, die äquivalent zu \eqref{eq:Hindernis} ist, herleiten
+Der Unterschied zur Minimierung von $J$ aus dem Theorem von Lax-Milgram\index{Lax-Milgram} liegt nun also darin, dass wir $J$ nicht über ganz $H^1_0(\Omega)$ minimieren, sondern nur über eine Teilmenge $K\subset H^1_0(\Omega)$ (anschaulich alle Auslenkungen $u$, die oberhalb des Hindernisses $\psi$ liegen).
 
-\item zu Beginn noch eine Skizze von einem Hindernisproblem
+
 
 \begin{figure}[h]
 \begin{center}
@@ -38,16 +38,16 @@ mit $K := \{v \in H^1_0(\Omega) \with v\ge \psi$ fast überall in $\Omega\}$.
 		% Lösung:
 		\pscurve(3,0)(1.7,0.3)(0.95,1)
 		\pscurve(-3,0)(-1.7,0.3)(-0.95,1)
-		\pscurve(0,1.5)(0.5,1.1)(1,0)(1.66,-0.66)
-		\pscurve(0,1.5)(-0.5,1.1)(-1,0)(-1.66,-0.66)
-		\pscurve(0,1.5)(0.5,1.1)(1,0)(1.66,-0.66)
+%		\pscurve(0,1.5)(0.5,1.1)(1,0)(1.66,-0.66)
+%		\pscurve(0,1.5)(-0.5,1.1)(-1,0)(-1.66,-0.66)
+%		\pscurve(0,1.5)(0.5,1.1)(1,0)(1.66,-0.66)
 		
 		% Kraft f:
 		\pscurve[linewidth=0.3pt](3,0.8)(1.7,1.1)(0.95,1.8)
 		\pscurve[linewidth=0.3pt](-3,0.8)(-1.7,1.1)(-0.95,1.8)
 		\psellipticarc[linewidth=0.3pt](0,0.8)(1.3,1.5){45}{135}
-		\psline{->}(1.6,0.2)(1.6,-0.6)
-		\psline{->}(-1.6,0.2)(-1.6,-0.6)
+%		\psline{->}(1.6,0.2)(1.6,-0.6)
+%		\psline{->}(-1.6,0.2)(-1.6,-0.6)
 
 		\psline{->}(3,0.8)(3,0)
 		\psline{->}(-3,0.8)(-3,0)
@@ -65,12 +65,11 @@ mit $K := \{v \in H^1_0(\Omega) \with v\ge \psi$ fast überall in $\Omega\}$.
 		\rput(-1.95,-0.35){$\Omega$}
 	\end{pspicture}
 \end{center}
-\caption{Ein Hindernisproblem mit Hindernis $\psi$, konstanter Streckenlast $f$ und Lösung $u$}
+\caption{Ein Hindernisproblem mit Hindernis $\psi$, konstanter Streckenlast $f$ und Lösung $u$\label{abb:3.1}}
 \end{figure}
 
-%\item hierfür zunächst wieder etwas allgemeineres Energiefunktional $J: H \ra \R, J(v) = \frac 1 2 a(v,v)-F(v)$, wobei $H$ Hilbertraum
-\end{itemize}
 
+Wir können nun analog zum Kapitel \ref{kap:2.2} auch für diese Art von Problemen eine Variationsformulierung herleiten.
 
 
 
@@ -78,8 +77,10 @@ mit $K := \{v \in H^1_0(\Omega) \with v\ge \psi$ fast überall in $\Omega\}$.
 \subsection{Variationsformulierung für das Hindernisproblem}
 \label{kap:3.1.1}
 
-\begin{itemize}
-\item zeigen zunächst, dass $K$ konvex und abgeschlossen ist.
+
+Um für das Hindernisproblem \eqref{eq:3.1} eine äquivalente Variationsformulierung zu erhalten, wollen wir die in Anhang \ref{anhang:A.2} aufgeführten Optimalitätskriterien verwenden. Hierfür müssen wir zunächst zeigen, dass die oben aufgeführte Menge $K$ konvex und abgeschlossen in $H^1_0(\Omega)$ ist.
+
+
 \begin{lemma}\label{lem:3.1}
 Die Menge $K =  \{v \in H^1_0(\Omega) \with v\ge \psi\text{ fast überall in }\Omega\}$ ist eine konvexe abgeschlossene Teilmenge von $H^1_0(\Omega)$.
 \end{lemma}
@@ -91,10 +92,11 @@ Die Menge $K =  \{v \in H^1_0(\Omega) \with v\ge \psi\text{ fast überall in }\O
 \end{align*}
 somit ist $(1-t)u + tv \in K$, also $K$ konvex.
 
-(ii) Es sei $(v_n)_{n\in \N}\subset K$ eine konvergente Folge mit $v_n \ra v$ für $n\ra \infty$. Da $H^1_0(\Omega)$ ein abgeschlossener Unterraum von $H^1(\Omega)$ (vgl. auch \cite{Walker} Bemerkung 6.7) ist, folgt direkt $v \in H^1_0(\Omega)$. Da weiter $v_n \ge \psi$ für alle $n \in \N$ gilt, folgt aus dem Spursatz (vgl. \cite{BraeFEM} Kapitel II, \S3, Satz 3.1), dass auch $v \ge \psi$ fast überall in $\Omega$ gilt und damit ist $v \in K$, d.h. $K$ ist abgeschlossen.
+(ii) Es sei $(v_n)_{n\in \N}\subset K$ eine konvergente Folge mit $v_n \ra v$ für $n\ra \infty$. Da $H^1_0(\Omega)$ laut Bemerkung \ref{bem:A.8} ein abgeschlossener Unterraum von $H^1(\Omega)$ ist, folgt direkt $v \in H^1_0(\Omega)$. Da weiter $v_n \ge \psi$ für alle $n \in \N$ gilt, folgt aus dem Spursatz (vgl. \cite{BraeFEM} Kapitel II, \S3, Satz 3.1), dass auch $v \ge \psi$ fast überall in $\Omega$ gilt und damit ist $v \in K$, d.h. $K$ ist abgeschlossen.
 \end{proof}
 
-\item \begin{satz}\label{satz:3.2}
+
+\begin{satz}\label{satz:3.2}
 Es sei $K =   \{v \in H^1_0(\Omega) \with v\ge \psi\text{ fast überall in }\Omega\}$. Das Minimierungsproblem
 \begin{align}\label{eq:3.2}
 	\min_{v\in K} J(v) = \frac 1 2 a(v,v)-(f,v)
@@ -106,19 +108,20 @@ ist äquivalent zur Variationsungleichung: Finde $u \in K$, so dass
 \end{satz}
 
 \begin{proof}
-Aus Lemma \ref{lem:2.3} folgt, dass $J$ konvex ist und damit gilt mit Satz \ref{satz:A.10}, dass $u \in K$ genau dann eine Lösung von \eqref{eq:3.2} ist, wenn
+Aus Lemma \ref{lem:2.10} folgt, dass $J$ konvex ist und damit gilt mit Satz \ref{satz:A.10}, dass $u \in K$ genau dann eine Lösung von \eqref{eq:3.2} ist, wenn
 \begin{align}\label{eq:3.4}
 	\mscr D_{v-u} J(u) \ge 0 \quad \forall \, v \in K 
 \end{align}
-gilt. Analog zu der berechneten Gâteaux-Ableitung von $J$ in Lemma \ref{lem:2.4}, gilt
+gilt. Analog zu der berechneten Gâteaux-Ableitung von $J$ in Lemma \ref{lem:2.11}, gilt
 \[
 	\mscr D_{v-u} J(u) = \frac d{dt} J(u+t(v-u))\Big|_{t=0} = a(u,v-u) -(f,v-u)
 \]
 und damit folgt mit \eqref{eq:3.4} die Behauptung.
 \end{proof}
 
-\item \begin{bem}
-Wie man mit Satz \ref{satz:A.10} sehen kann, gilt analog zu Satz \ref{satz:3.2} auch allgemeiner: Es sei $K\subset H$ eine konvexe Teilmenge eines Hilbertraumes $H$. Dann ist
+
+\begin{bem}\label{bem:3.3}
+Wie man mit Satz \ref{satz:A.10} nachrechnen kann, gilt analog zu Satz \ref{satz:3.2} auch allgemeiner: Es sei $K\subset H$ eine konvexe Teilmenge eines Hilbertraumes $H$. Dann ist
 \begin{align*}
 	\min_{v\in K} J(v) = \frac 1 2 a(v,v)-F(v)
 \end{align*}
@@ -129,13 +132,17 @@ Wie man mit Satz \ref{satz:A.10} sehen kann, gilt analog zu Satz \ref{satz:3.2} 
 wobei $F :H\ra \R$ eine lineare stetige Abbildung ist.
 \end{bem}
 
-\item auch für das Hindernisproblem gibt es analog zum homogenen Dirichlet-Problem \eqref{eq:2.2} eine äquivalente starke Formulierung
 
-\item \begin{satz}[Starke Formulierung des Hindernisproblems]\label{satz:3.4} Jede Lösung $u \in H^2(\Omega) \cap H^1_0(\Omega)$ des Problems
+Wie wir sehen, erhalten wir durch die Einführung einer Nebenbedingung keine Variationsgleichung mehr wie in Kapitel \ref{kap:2.2}, sondern eine Variationsungleichung. Anschaulich liegt dies daran, dass die Veränderung der auf die Membran wirkenden Flächenlast $f$ nicht zwangsläufig eine Änderung in der Auslenkung $u$ hervorrufen muss, da diese durch $\psi$ behindert werden könnte. 
+
+Diese Ungleichunsrelation überträgt sich auch auf die äquivalente starke Formulierung des Problems \eqref{eq:3.1}, die wir auch für das Hindernisproblem, analog zum homogenen Dirichlet-Problem\index{Dirichlet-Problem!homogenes}, finden können.
+
+
+\begin{satz}[Starke Formulierung des Hindernisproblems]\label{satz:3.4} Jede Lösung $u \in H^2(\Omega) \cap H^1_0(\Omega)$ des Problems
 \begin{align}\label{eq:3.5}
 \begin{aligned}
-	-\Delta u -f&\ge 0 \\
-	u-\psi &\ge 0 \\
+	-\Delta u -f&\ge 0\, , \\
+	u-\psi &\ge 0\, ,  \\
 	(u-\psi) (-\Delta u &- f) = 0
 \end{aligned}
 \end{align}
@@ -162,7 +169,7 @@ Damit ist $u$ eine Lösung von \eqref{eq:3.3}
 \begin{aligned}
 	0 & \le a(u,v-u) - (f,v-u) \\
 	&= \int_\Omega \nabla u \nabla(v-u) \, dx - \int_\Omega f(v-u) \, dx \\
-	& \stackrel{\scriptsize\text{Green}}= \int_\Omega -\Delta u (v-u) \, dx - \int_\Omega f(v-u) \, dx \\
+	&\!\!\!\!\stackrel{\scriptsize\text{Green}}= \int_\Omega -\Delta u (v-u) \, dx - \int_\Omega f(v-u) \, dx \\
 	& = \int_\Omega (-\Delta u - f) (v-u) \, dx \, .
 \end{aligned}
 \end{align}
@@ -178,9 +185,6 @@ Nun nehmen wir an, dass $-\Delta u -f > 0$ und $u > \psi$ fast überall in einem
 \]
 was wiederum im Widerspruch zu \eqref{eq:3.6} steht. Damit muss $u = \psi$ gelten, wenn $-\Delta u = f$ ist. Es folgt, dass $u \in H^2(\Omega) \cap K$ eine Lösung von \eqref{eq:3.5} ist.
 \end{proof}
-\end{itemize}
-
-
 
 
 
@@ -188,10 +192,14 @@ was wiederum im Widerspruch zu \eqref{eq:3.6} steht. Damit muss $u = \psi$ gelte
 \subsection{Existenz und Eindeutigkeit der Lösung}
 \label{kap:3.1.2}
 
-\begin{itemize}
-\item für die Existenz und Eindeutigkeit der Lösung des Problems betrachten wir zunächst wieder das allgemeine reelle quadratische Funktional $J: H \ra \R, J(v) = \frac 1 2 a(v,v) - F(v)$.
 
-\item \begin{vor}
+Wir wollen nun die Existenz und Eindeutigkeit der Lösung des Hindernisproblems \eqref{eq:3.2} bzw. der Variationsungleichung \eqref{eq:3.3} überprüfen. Hierzu betrachten wir zunächst wieder das allgemeine reelle quadratische Funktional
+\[
+	J: H \ra \R, J(v) = \frac 1 2 a(v,v) - F(v) \, .
+\]
+Folgende Voraussetzungen wollen wir für den Beweis der Existenz und Eindeutigkeit der Lösung stellen.
+
+\begin{vor}\label{vor:3.5}
 Sei $H$ ein reeller Hilbertraum mit Skalarprodukt $(\cdot,\cdot)_H$ und der damit induzierten Norm $\norm\cdot_H$. Mit $H'$ bezeichnen wir den Dualraum zu $H$. Weiter sei vorausgesetzt:
 \begin{enumerate}[(a)]
 \item $a: H\times H \ra \R$ ist eine stetige koerzive Bilinearform,
@@ -200,8 +208,9 @@ Sei $H$ ein reeller Hilbertraum mit Skalarprodukt $(\cdot,\cdot)_H$ und der dami
 \end{enumerate}
 \end{vor}
 
-\item \begin{theorem}[Existenz und Eindeutigkeit]\label{theorem:3.5}
-Unter den obigen Voraussetzungen hat die Variationsungleichung, finde $u\in K$, so dass
+
+\begin{theorem}[Existenz und Eindeutigkeit]\label{theorem:3.6}
+Unter den obigen Voraussetzungen \ref{vor:3.5} hat die Variationsungleichung, finde $u\in K$, so dass
 \begin{align}\label{eq:3.7}
 	a(u,v-u) \ge F(v-u) \quad \forall \, v \in K
 \end{align}
@@ -259,8 +268,10 @@ Nach dem Banach'scher Fixpunktsatz (vgl. \cite{Stoer} Satz 5.2.3) existiert für
 Insgesamt gibt es also für das Problem \eqref{eq:3.7} genau eine  Lösung.
 \end{proof}
 
-\item \begin{kor}
-Das Problem \eqref{eq:Hindernis} hat eine eindeutige Lösung.
+\newpage
+
+\begin{kor}\label{kor:3.7}
+Das Problem \eqref{eq:3.1} hat eine eindeutige Lösung.
 \end{kor}
 
 \begin{proof}
@@ -272,17 +283,17 @@ abgeschlossen und konvex ist, $F(v) = (f,v)$ ein stetiges lineares Funktional un
 \[
 	a(u,v) = \int_\Omega \nabla u \nabla v \, dx
 \]
-stetig bilinear und koerziv, sind die Voraussetzungen für Theorem \ref{theorem:3.5} erfüllt. Damit hat das Problem, finde $u \in K$, so dass
+stetig bilinear und koerziv, sind die Voraussetzungen für Theorem \ref{theorem:3.6} erfüllt. Damit hat das Problem, finde $u \in K$, so dass
 \begin{align}\label{eq:3.11}
 	a(u,v-u) \ge (f,v-u) \quad \forall \, v \in K \, ,
 \end{align}
-genau eine Lösung. Nach Satz \ref{satz:3.2} ist \eqref{eq:Hindernis} äquivalent zu \eqref{eq:3.11} und damit folgt die Behauptung.
+genau eine Lösung. Nach Satz \ref{satz:3.2} ist \eqref{eq:3.1} äquivalent zu \eqref{eq:3.11} und damit folgt die Behauptung.
 \end{proof}
 
-\item \begin{bem}
-Insbesondere hat auch das Problem \eqref{eq:3.5} nach Satz \ref{satz:3.4} und Theorem \ref{theorem:3.5} eine eindeutige Lösung, wenn $u \in H^2(\Omega) \cap H^1_0(\Omega)$ ist.
+
+\begin{bem}\label{bem:3.8}
+Insbesondere hat auch das Problem \eqref{eq:3.5} nach Satz \ref{satz:3.4} und Theorem \ref{theorem:3.6} eine eindeutige Lösung, wenn $u \in H^2(\Omega) \cap H^1_0(\Omega)$ ist.
 \end{bem}
-\end{itemize}
 
 
 
@@ -319,7 +330,7 @@ Das Problem \eqref{eq:3.12} hat eine eindeutige Lösung $u_h \in K_h$.
 \end{theorem}
 
 \begin{proof}
-Der Beweis ist analog zu Theorem \ref{theorem:3.5} zu führen. Wir ersetzen lediglich $H$ durch $V_h$ und $K$ durch $K_h$ und verwenden im endlich dimensionalen Raum $V_h$ den Fixpunktsatz von Brouwer.
+Der Beweis ist analog zu Theorem \ref{theorem:3.6} zu führen. Wir ersetzen lediglich $H$ durch $V_h$ und $K$ durch $K_h$ und verwenden im endlich dimensionalen Raum $V_h$ den Fixpunktsatz von Brouwer.
 \end{proof}
 
 \item \begin{bem*}
