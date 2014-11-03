@@ -1328,23 +1328,56 @@ verwenden.
 \subsection{Kinetik}
 \label{kap:2.5.2}
 
+Da wir von kleinen Deformationen ausgehen, betrachten wir den \textit{\idx{Cauchy-Spannungstensor}} $\bs\sigma$, der die aktuelle Kraft bzgl. der Querschnittsfläche in der Momentankonfiguration setzt. Wie in \cite{WriggersContact} Kapitel 3.2.2 beschrieben, gilt das \textit{Cauchy Theorem}, das besagt, dass die Spannung $\bs t$ auf einer Schnittfläche eines beliebigen Schnittes im Körper $\mscr B$ gleich der Spannung $\bs\sigma$ in Normaleinrichtung $\bs n$ ist, d.h.
+\begin{align}\label{eq:2.29}
+	\bs t = \bs \sigma \cdot \bs n \, .
+\end{align}
+Mit den Bilanzgleichungen für das Momentengleichgewicht kann man herleiten, dass der Cauchy-Spannungstensor symmetrisch ist, also $\bs \sigma^T = \bs \sigma$ gilt.
+
+Betrachten wir nun eine Volumenkraft $\bar{\bs b}$ und eine Oberflächenlast $\bar{\bs t}$, die auf den Körper $\mscr B$ wirken, so erhalten wir das (\textit{globale}) Kräftegleichgewicht
+\begin{align}\label{eq:2.30}
+	\int_{\Omega} \bar{\bs b} \, dv + \int_{\partial \Omega} \bar{\bs t} \, da = \bs 0 \, ,
+\end{align}
+wobei $\Omega \subset \mscr B \subset \R^3$ eine Teilmenge des Kontinuums $\mscr B$ beschreibt. Mit dem Cauchy Theorem \eqref{eq:2.29} und dem \idx{Satz von Gauß} lässt sich \eqref{eq:2.30} als Integral über $\Omega$ schreiben durch
+\begin{align}\label{eq:2.31}
+	\int_{\Omega} \bar{\bs b} + \div \bs\sigma \, dv = \bs 0 \, .
+\end{align}
+Die Gleichung \eqref{eq:2.31} muss nach dem Schnittprinzip auf jeder Teilmenge $\Omega$ gelten, was nur erfüllt werden kann, wenn der Integrand Null ist. Damit erhalten wir die sogenannte \textit{starke} oder auch \textit{lokale} Form des Gleichgewichts
+\begin{align}\label{eq:2.32}
+	\div \bs \sigma + \bar{\bs b} = \bs 0 \text{ auf } \Omega \, .
+\end{align}
+Wir wollen in der Arbeit von einem konstanten Wärmefeld ausgehen, sodass wir thermodynamische Prozesse vernachlässigen können.
+
 \subsection{Konstitutive Gleichungen und Prinzipien}
 \label{kap:2.5.3}
 
 
-
-
-\begin{itemize}
-\item Kinetik: Kräftegleichgewicht und äußere Kontaktlast
-\item Cauchy-Spannungstensor gibt den wahren Spannungszustand im Körper unabhängig einer Normalenvektors $\bs n$ an.
-\item Konzepte für ebene Spannungs- bzw. Verzerrungszustände (siehe hierfür auch FEM 1 Skript von Wriggers $\ra$ \cite{WriggersFEMSkript})
-\item Konstitutive Modelle (vor allem Materialgesetze) $\Ra$ Hier vor allem Hooke:
+Auch für die konstitutiven Gleichungen (Materialannahmen etc.) machen wir uns zu Nutze, dass wir von kleinen Deformationen ausgehen. Wir gehen daher von einem linear elastischen Material aus, d.h. dass Spannung und Verzerrung in einem linearen Zusammenhang stehen. Hierfür werden wir in der Arbeit das \textit{Hooke'sche Materialmodell}\index{Hooke'sches Materialmodell} verwenden:
+\begin{align}\label{eq:2.33}
+	\bs \sigma = \mcal C :\bs \eps = 2 \mu \bs \eps + \lambda (\tr \bs \eps) \bs I \, ,
+\end{align}
+wobei $\lambda, \mu$ die \textit{\idx{Lamé-Konstanten}} darstellen. Dabei handelt es sich um materialabhängige Parameter, die im Zusammenhang mit dem \idx{Elastizitätsmodul} $E$ und der Querkontraktionszahl $\nu$ stehen.
 \[
-	\bs \sigma = \mcal C \bs \eps = 2 \mu \bs \eps + \lambda (\tr \bs \eps) \bs I \, ,
+	\lambda = \frac{\nu E}{(1+\nu)(1-2\nu)} \, ,\quad \nu = \frac E{2(1+\nu)} \, .
 \]
-wobei $\lambda,\mu$ die Lamé-Konstanten sind (Materialabhängige Parameter). $\Ra$ Hier noch mal den Zusammengang von Konstanten zu $E,\nu$ aufzeigen.
-\item falls Tensorrechnungen konkret benötigt werden, können diese im Anhang dargelegt werden
-\end{itemize}
+Der Materialtensor $\mcal C$ ist 4-stufig und mit "`:"' ist das doppelt verjüngende Skalarprodukt, das in Anhang \ref{anhang:C} beschrieben wird, gemeint. Es sei bemerkt, dass $\nu$ gleich dem \idx{Schubmodul} $G$ ist.
+
+
+Da wir in dieser Arbeit immer $\Omega \subset \R^2$ annehmen wollen, wollen wir an dieser Stelle noch zwei Prinzipien zur Behandlung von dreidimensionalen strukturmechanischen Problemen im $\R^2$ vorstellen (vgl. \cite{WriggersFEMSkript} Kapitel 5.4.1 und 5.4.2).
+
+Ist beispielsweise die dritte Richtung dünn gegenüber den anderen zwei, so können wir das Prinzip des \textit{ebenen Spannungszustand} verwenden. Hierbei ist die Spannung in der dritten Richtung $\sigma_{33} = 0$. Dies impliziert jedoch nicht, dass es in dieser Richtung keine Verzerrung geben muss. Aus dem Hooke'schen Materialgesetz \eqref{eq:2.33} errechnen wir nämlich, dass die Verzerrung $\eps_{33}$ abhängig von $\eps_{11}$ und $\eps_{22}$ ist.
+\[
+	\eps_{33} = -\frac \nu{1-\nu} (\eps_{11}+\eps_{22}) 
+\]
+Damit lässt sich der Materialtensor $\mcal C$ als Matrix schreiben, wenn wir die \textit{\idx{Voigt-Notation}} bzgl. des Spannungs- und Verzerrungstensors verwenden.
+
+
+Analog erhalten wir den \textit{ebenen Verzerrungszustand}\index{ebener Verzerrungszustand}, indem wir die Verzerrung in die dritte Richtung $\eps_{33} = 0$ setzen. Anschaulich heißt das, dass die dritte Richtung unendlich ausgedehnt ist. Auch hier ergeben sich Abhängig-keiten zwischen den Spannungen:
+\[
+	\sigma_{33} = \nu(\sigma_{11}+\sigma_{22}) \, ,
+\]
+was einerseits bedeutet, dass die Spannung in der dritten Richtung nicht zwangsläufig Null sein muss und andererseits uns wieder Einträge aus dem Materialtensor $\mcal C$ eliminieren lässt.
+
 
 
 \newpage
