@@ -1204,6 +1204,10 @@ Um in Kapitel \ref{kap:3.2} Kontaktprobleme bzgl. der Mechanik beschreiben zu k�
 Ein \textit{Kontinuum} ist eine Teilmenge $\mathscr{B}\subset \R^3$, dessen  Punkte stetig verteilt sind. Den Punkten werden gewisse Materialeigenschaften zugewiesen.
 \end{defi}
 
+\begin{notation}
+Wir wollen Vektoren oder vektorwertige (bzw. tensorwertige) Funktionen durch fettgedruckte Buchstaben darstellen (s. auch Anhang \ref{anhang:D}).
+\end{notation}
+
 
 \subsection{Kinematik}
 \label{kap:2.5.1}
@@ -1328,7 +1332,7 @@ verwenden.
 \subsection{Kinetik}
 \label{kap:2.5.2}
 
-Da wir von kleinen Deformationen ausgehen, betrachten wir den \textit{\idx{Cauchy-Spannungstensor}} $\bs\sigma$, der die aktuelle Kraft bzgl. der Querschnittsfläche in der Momentankonfiguration setzt. Wie in \cite{WriggersContact} Kapitel 3.2.2 beschrieben, gilt das \textit{Cauchy Theorem}, das besagt, dass die Spannung $\bs t$ auf einer Schnittfläche eines beliebigen Schnittes im Körper $\mscr B$ gleich der Spannung $\bs\sigma$ in Normaleinrichtung $\bs n$ ist, d.h.
+Da wir von kleinen Deformationen ausgehen, betrachten wir den \textit{\idx{Cauchy-Spannungstensor}} $\bs\sigma$, der die aktuelle Kraft bzgl. der Querschnittsfläche in der Momentankonfiguration setzt. Wie in \cite{WriggersContact} Kapitel 3.2.2 beschrieben, gilt das \textit{Cauchy-Theorem}, das besagt, dass die Spannung $\bs t$ auf einer Schnittfläche eines beliebigen Schnittes im Körper $\mscr B$ gleich der Spannung $\bs\sigma$ in Normaleinrichtung $\bs n$ ist, d.h.
 \begin{align}\label{eq:2.29}
 	\bs t = \bs \sigma \cdot \bs n \, .
 \end{align}
@@ -1338,7 +1342,7 @@ Betrachten wir nun eine Volumenkraft $\bar{\bs b}$ und eine Oberflächenlast $\b
 \begin{align}\label{eq:2.30}
 	\int_{\Omega} \bar{\bs b} \, dv + \int_{\partial \Omega} \bar{\bs t} \, da = \bs 0 \, ,
 \end{align}
-wobei $\Omega \subset \mscr B \subset \R^3$ eine Teilmenge des Kontinuums $\mscr B$ beschreibt. Mit dem Cauchy Theorem \eqref{eq:2.29} und dem \idx{Satz von Gauß} lässt sich \eqref{eq:2.30} als Integral über $\Omega$ schreiben durch
+wobei $\Omega \subset \mscr B \subset \R^3$ eine Teilmenge des Kontinuums $\mscr B$ beschreibt. Mit dem Cauchy-Theorem \eqref{eq:2.29} und dem \idx{Satz von Gauß} lässt sich \eqref{eq:2.30} als Integral über $\Omega$ schreiben durch
 \begin{align}\label{eq:2.31}
 	\int_{\Omega} \bar{\bs b} + \div \bs\sigma \, dv = \bs 0 \, .
 \end{align}

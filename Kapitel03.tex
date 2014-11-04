@@ -13,7 +13,7 @@ Als Modellproblem wollen wir wieder die Auslenkung $u:\Omega \ra \R$ einer in $\
 \begin{align}\label{eq:3.1}
 \min_{v\in K} J(v) = \frac 1 2 a(v,v)-(f,v)
 \end{align}
-mit $K := \{v \in H^1_0(\Omega) \with v\ge \psi$ fast überall in $\Omega\}$, wobei $a(\cdot,\cdot), (f,\cdot)$ wie in Kapitel \ref{kap:2.2} definiert sind. Das Funktional $J$ gibt hierbei anschaulich wieder die in der Membran gespeicherte Energie an.
+mit $K := \{v \in H^1_0(\Omega) \mid v\ge \psi$ fast überall in $\Omega\}$, wobei $a(\cdot,\cdot), (f,\cdot)$ wie in Kapitel \ref{kap:2.2} definiert sind. Das Funktional $J$ gibt hierbei anschaulich wieder die in der Membran gespeicherte Energie an.
 
 
 Der Unterschied zur Minimierung von $J$ aus dem Theorem von Lax-Milgram\index{Lax-Milgram} liegt nun also darin, dass wir $J$ nicht über ganz $H^1_0(\Omega)$ minimieren, sondern nur über eine Teilmenge $K\subset H^1_0(\Omega)$ (anschaulich alle Auslenkungen $u$, die oberhalb des Hindernisses $\psi$ liegen).
@@ -82,7 +82,7 @@ Um für das Hindernisproblem \eqref{eq:3.1} eine äquivalente Variationsformulie
 
 
 \begin{lemma}\label{lem:3.1}
-Die Menge $K =  \{v \in H^1_0(\Omega) \with v\ge \psi\text{ fast überall in }\Omega\}$ ist eine konvexe abgeschlossene Teilmenge von $H^1_0(\Omega)$.
+Die Menge $K =  \{v \in H^1_0(\Omega) \mid v\ge \psi\text{ fast überall in }\Omega\}$ ist eine konvexe abgeschlossene Teilmenge von $H^1_0(\Omega)$.
 \end{lemma}
 
 \begin{proof}
@@ -97,7 +97,7 @@ somit ist $(1-t)u + tv \in K$, also $K$ konvex.
 
 
 \begin{satz}\label{satz:3.2}
-Es sei $K =   \{v \in H^1_0(\Omega) \with v\ge \psi\text{ fast überall in }\Omega\}$. Das Minimierungsproblem
+Es sei $K =   \{v \in H^1_0(\Omega) \mid v\ge \psi\text{ fast überall in }\Omega\}$. Das Minimierungsproblem
 \begin{align}\label{eq:3.2}
 	\min_{v\in K} J(v) = \frac 1 2 a(v,v)-(f,v)
 \end{align}
@@ -156,7 +156,7 @@ mit $\psi \in H^1(\Omega)$ erfüllt die Variationsungleichung \eqref{eq:3.3}. Um
 	& = \int_\Omega \nabla u \nabla(v-u) \, dx - \int_\Omega f(v-u) \\
 	& = a(u,v-u) - (f,v-u) \, .
 \end{align*}
-Mit $\Omega_0 := \{ x \in \Omega \with u = \psi\}$ folgt, dass $-\Delta u = f$ auf $\Omega_1 := \Omega \setminus \bar\Omega_0$ gelten muss.
+Mit $\Omega_0 := \{ x \in \Omega \mid u = \psi\}$ folgt, dass $-\Delta u = f$ auf $\Omega_1 := \Omega \setminus \bar\Omega_0$ gelten muss.
 \begin{align*}
 	 \lra\,   \int_{\Omega = \Omega_0 \cup \Omega_1} \underbrace{(-\Delta u - f)}_{=0 \text{ auf } \Omega_1} (v-u) \, dx  = \int_{\Omega_0}\underbrace{ (-\Delta u - f)}_{\ge0} \underbrace{(v-\psi)}_{\ge 0} \, dx \ge 0
 \end{align*}
@@ -195,7 +195,7 @@ was wiederum im Widerspruch zu \eqref{eq:3.6} steht. Damit muss $u = \psi$ gelte
 
 Wir wollen nun die Existenz und Eindeutigkeit der Lösung des Hindernisproblems \eqref{eq:3.2} bzw. der Variationsungleichung \eqref{eq:3.3} überprüfen. Hierzu betrachten wir zunächst wieder das allgemeine reelle quadratische Funktional
 \[
-	J: H \ra \R, J(v) = \frac 1 2 a(v,v) - F(v) \, .
+	J: H \ra \R \, ,\quad J(v) = \frac 1 2 a(v,v) - F(v) \, .
 \]
 Folgende Voraussetzungen wollen wir für den Beweis der Existenz und Eindeutigkeit der Lösung stellen.
 
@@ -231,7 +231,7 @@ Addieren wir \eqref{eq:3.8} und \eqref{eq:3.9} miteinander und setzen zuvor $v =
 \end{align*}
 Also gilt $\norm{u_2-u_1}_H^2 \le 0 \Ra \norm{u_2-u_1}_H^2 = 0$ und damit folgt $u_1 = u_2$.
 
-(ii) Existenz: Aus dem Darstellungssatz von Riesz bzw. das Korollar \ref{kor:2.14} folgt, dass ein $A \in \mcal L(H,H), l \in H$ existiert, so dass
+(ii) Existenz: Aus dem Darstellungssatz von Riesz bzw. das Lemma \ref{lem:2.16} folgt, dass ein $A \in \mcal L(H,H), l \in H$ existiert, so dass
 \begin{align*}
 	a(u,v) &= (Au,v)_H \quad \forall \, u,v \in H\, , \\
 	F(v) &= (l,v)_H \qquad \forall \, v \in H \, .
@@ -277,7 +277,7 @@ Das Problem \eqref{eq:3.1} hat eine eindeutige Lösung.
 \begin{proof}
 Da laut Lemma \ref{lem:3.1} die Menge 
 \[
-	K=\{v \in H^1_0(\Omega) \with v \ge \psi \text{ fast überall in }\Omega\}
+	K=\{v \in H^1_0(\Omega) \mid v \ge \psi \text{ fast überall in }\Omega\}
 \]
 abgeschlossen und konvex ist, $F(v) = (f,v)$ ein stetiges lineares Funktional und 
 \[
@@ -304,20 +304,17 @@ Insbesondere hat auch das Problem \eqref{eq:3.5} nach Satz \ref{satz:3.4} und Th
 \subsection{Lösung des Hindernisproblems mittels FEM}
 \label{kap:3.1.3}
 
-\begin{itemize}
-\item zur Lösung mittels FEM betrachten wir die Variationsungleichung \eqref{eq:3.11} bzgl. eines endlich dimensionalen Unterraum
+Analog zu Kapitel \ref{kap:2.3} können wir nun auch die Variationsungleichung \eqref{eq:3.11} mittels FEM lösen. Hierzu betrachten wir \eqref{eq:3.11} bzgl. eines endlich dimensionalen Unterraum
 \[
-	K_h \coloneqq \{v_h \in \mcal S_h \with v_h (p) \ge \psi(p) \, \forall \, p \in \mcal N \cap \Omega\}\, ,
+	K_h \coloneqq \{v_h \in V_h \mid v_h (p) \ge \psi(p) \, \forall \, p \in \mcal N \cap \Omega\}\, ,
 \]
-wobei $\mcal N$ die Knotenmenge bzgl. der Triangulierung $\mcal T_h$ bezeichne.
-
-\item damit ist \eqref{eq:3.11} in diskreter Form: Finde $u_h \in K_h$, so dass
+wobei $\mcal N$ die Knotenmenge bzgl. der Triangulierung $\mcal T_h$ bezeichne und $V_h$ wie oben ein endlich dimensionaler Unterraum eines Hilbertraumes $H$ ist. Damit ist \eqref{eq:3.11} in diskreter Form: Finde $u_h \in K_h$, so dass
 \begin{align}\label{eq:3.12}
 	a(u_h,v_h-u_h) \ge (f,v_h-u_h) \quad \forall \, v_h \in K_h \, .
 \end{align}
+Auch für das diskrete Problem existiert eine eindeutige Lösung, wie sich mithilfe des nächsten Sachtes zeigen lässt.
 
-\item vgl. \cite{Werner} Kapitel 4 Satz 7.15.
-\begin{satz}[\idx{Fixpunktsatz von Brouwer}]
+\begin{satz}[\idx{Fixpunktsatz von Brouwer}]\label{satz:3.9}
 Es sei $K \not= \emptyset$ eine kompakte konvexe Teilmenge eines endlich dimensionalen normierten Raumes $H$ und $F: K \ra K$ sei stetig. Dann besitzt $F$ einen Fixpunkt $v \in K$.
 \end{satz}
 
@@ -325,41 +322,44 @@ Es sei $K \not= \emptyset$ eine kompakte konvexe Teilmenge eines endlich dimensi
 Der Beweis ist in \cite{Werner} Kapitel 4 Satz 7.15 zu finden.
 \end{proof}
 
-\item \begin{theorem}[Existenz und Eindeutigkeit]
-Das Problem \eqref{eq:3.12} hat eine eindeutige Lösung $u_h \in K_h$.
+\begin{theorem}[Existenz und Eindeutigkeit]\label{theorem:3.10}
+Es gelten die Voraussetzungen \ref{vor:3.5}. Das Problem \eqref{eq:3.12} hat eine eindeutige Lösung $u_h \in K_h$.
 \end{theorem}
 
 \begin{proof}
 Der Beweis ist analog zu Theorem \ref{theorem:3.6} zu führen. Wir ersetzen lediglich $H$ durch $V_h$ und $K$ durch $K_h$ und verwenden im endlich dimensionalen Raum $V_h$ den Fixpunktsatz von Brouwer.
 \end{proof}
 
-\item \begin{bem*}
+
+ \begin{bem*}
 In Kapitel 2.2 von \cite{StarkePDE} sind die Argumente bzgl. der Existenz und Eindeutigkeit einer Lösung von \eqref{eq:3.11} für den endlich dimensionalen Fall $K_h$ auch noch einmal im Einzelnen aufgeführt.
 \end{bem*}
 
-\item Es sei $\mcal B_h = \{\phi_1,\ldots,\phi_N\}$ eine modale Basis von $\mcal S_h$, d.h. analog zu \eqref{eq:2.10} können wir $u_h$ und $v_h$ mit Koordinaten $\mu_i,\nu_i, i = 1,\ldots,N$ bzgl. $\mcal B_h$ ausdrücken. Dann schreiben wir \eqref{eq:3.12} als
+Es sei $\mcal B_h = \{\phi_1,\ldots,\phi_N\}$ eine nodale Basis von $V_h$, d.h. analog zu \eqref{eq:2.10} können wir $u_h$ und $v_h$ mit Koordinaten $\mu_i,\nu_i, i = 1,\ldots,N$ bzgl. $\mcal B_h$ ausdrücken. Dann schreiben wir \eqref{eq:3.12} als
 \begin{align*}
 	\sum_{i = 1}^N\sum_{j=1}^N \mu_i \, a(\phi_i,\phi_j)\, (\nu_j-\mu_j) & \ge \sum_{j=1}^N  (f,\phi_j) \, (\nu_j-\mu_j)  \\
 	\Llra\quad \qquad  \qquad \qquad \bs \mu^T A (\bs \nu- \bs\mu) &  \ge \bs f^T (\bs \nu-\bs \mu)
 \end{align*}
-mit $A = [a(\phi_j,\phi_i)]_{i,j=1}^N, \bs \mu = [\mu_i]_{i=1}^N,\bs \nu = [\nu_i]_{i=1}^N$ und $\bs f = [(f,\phi_i)]_{i=1}^N$.
-
-\item Die Menge $K_h$ ist bzgl. $\mcal S_h$ äquivalent zu
+mit $A = [a(\phi_j,\phi_i)]_{i,j=1}^N, \bs \mu = [\mu_i]_{i=1}^N,\bs \nu = [\nu_i]_{i=1}^N$ und $\bs f = [(f,\phi_i)]_{i=1}^N$. Damit lässt sich die Menge $K_h$ auch eindeutig durch die Koordinatenvektoren bzgl. $\mcal B_h$ ausdrücken. Die Menge $K_h$ ist bzgl. $V_h$ äquivalent zu
 \begin{align}\label{eq:3.13}
-	K_{\mcal S} \coloneqq \{\bs \nu \in \R^N \with \nu_i \ge \psi(p_i) , p_i \in \mcal N \cap \Omega, i = 1,\ldots, N \} \, .
+	K_{\mcal S} \coloneqq \{\bs \nu \in \R^N \mid \nu_i \ge \psi(p_i) , p_i \in \mcal N \cap \Omega, i = 1,\ldots, N \} \, .
 \end{align}
 Im Folgenden schreiben wir $\bs \psi \coloneqq [\psi(p_i)]_{i=1}^N$ mit $p_i \in \mcal N\cap \Omega$.
 
-\item \begin{bem*}
-$K_{\mcal S}$ ist analog zu $K$ konvex und abgeschlossen.
+
+\begin{bem*}
+$K_h$ bzw. $K_{\mcal S}$ sind analog zu $K$ konvex und abgeschlossen.
 \end{bem*}
 
-\item Damit erhalten wir aus \eqref{eq:3.12} die diskrete Variationsungleichung: Finde $\bs\mu \in K_{\mcal S}$, so dass
+
+Damit erhalten wir aus \eqref{eq:3.12} die diskrete Variationsungleichung: Finde $\bs\mu \in K_{\mcal S}$, so dass
 \begin{align}\label{eq:3.14}
 	(A\bs \mu-\bs f)^T (\bs \nu- \bs\mu) &  \ge 0 \quad \forall \, \bs \nu \in K_{\mcal S} \, .
 \end{align}
+Es fehlt uns nun jedoch die Möglichkeit solch eine Ungleichung, die offensichtlich nicht mehr linear ist, zu lösen. Wir wollen also \eqref{eq:3.14} mathematisch äquivalent formulieren, um es das erzeugte Problem lösen zu können.
 
-\item \begin{satz}\label{satz:3.10}
+
+ \begin{satz}\label{satz:3.11}
 Das Problem \eqref{eq:3.14} ist äquivalent zum linearen Komplementaritätsproblem\index{lineares Komplementaritätsproblem}: Bestimme $\bs\mu \in K_{\mcal S}$, so dass
 \begin{align}\label{eq:3.15}
 	A\bs\mu - \bs f \ge \bs 0\quad\text{ und }\quad (A\bs\mu-\bs f)^T(\bs \mu - \bs\psi) = 0
@@ -409,8 +409,8 @@ was im Widerspruch zu \eqref{eq:3.14} steht, daraus folgt die Behauptung.
 \end{align*}
 \end{proof}
 
-\item das Problem \eqref{eq:3.14} ist äquivalent zu einem quadratischen Optimierungsproblem
-\begin{satz}[Äquivalenz zu quadratischem Programm]\label{satz:3.11}
+
+\begin{satz}[Äquivalenz zu quadratischem Programm]\label{satz:3.12}
 Das Problem \eqref{eq:3.14} ist äquivalent zum quadratischen Programm\index{quadratisches Programm}
 \begin{align}\label{eq:3.16}
 	\min_{\bs\nu \in \R^N} J(\bs\nu) = \frac 1 2 \bs \nu^T A \bs \nu - \bs f^T \bs \nu\quad \text{s.t.} \quad \bs \nu \ge \bs \psi \, .
@@ -418,12 +418,12 @@ Das Problem \eqref{eq:3.14} ist äquivalent zum quadratischen Programm\index{qua
 \end{satz}
 
 \begin{proof}
-Wir zeigen zunächst die Äquivalenz von \eqref{eq:3.15} zu \eqref{eq:3.16} und dann folgt mit Satz \ref{satz:3.10} die Behauptung.
+Wir zeigen zunächst die Äquivalenz von \eqref{eq:3.15} zu \eqref{eq:3.16} und dann folgt mit Satz \ref{satz:3.11} die Behauptung.
 
 "`$\Ra$"' Es sei $\bs\mu \in \R^N$ Lösung vom Problem \eqref{eq:3.15}. Dann folgt mit einem beliebigen $\bs\nu \in K_{\mcal S}$
 \begin{align*}
 	J(\bs\nu) - J(\bs\mu) & =  \frac 1 2 \bs \nu^T A \bs \nu - \bs f^T \bs \nu -  \frac 1 2 \bs \mu^T A \bs \mu + \bs f^T \bs \mu \\
-	& = \frac 1 2\underbrace{ (\bs\nu-\bs \mu)^T A(\bs\nu-\bs\mu) }_{\ge 0 \text{ wegen Bem. \ref{bem:2.17}}}+ \bs \mu^T A \bs \nu - \bs \mu ^TA \bs\mu - \bs f^T (\bs\nu-\bs\mu) \\
+	& = \frac 1 2\underbrace{ (\bs\nu-\bs \mu)^T A(\bs\nu-\bs\mu) }_{\ge 0 \text{ wegen Bem. \ref{bem:2.18}}}+ \bs \mu^T A \bs \nu - \bs \mu ^TA \bs\mu - \bs f^T (\bs\nu-\bs\mu) \\
 	%& \ge (A\bs \mu - \bs f)^T(\bs\nu-\bs\mu) \\
 	& \ge (A\bs \mu - \bs f)^T(\bs\nu-\bs\psi+\bs\psi-\bs\mu) \\
 	& = \underbrace{(A\bs \mu - \bs f)^T}_{\ge 0} \underbrace{(\bs\nu-\bs\psi)}_{\ge 0}- \underbrace{(A\bs \mu - \bs f)^T(\bs\mu-\bs\psi) }_{=0}\\
@@ -436,6 +436,7 @@ Somit ist $\bs\mu \in K_{\mcal S}$ auch Lösung des quadratischen Programms \eqr
 	\mcal L(\bs\nu,\bs\lambda) = J(\bs\nu)-\bs\lambda^T(\bs\nu-\bs\psi)
 \]
 die Karush-Kuhn-Tucker Bedingungen für den Optimalpunkt $(\bs \mu,\bs\lambda^*)$
+\begin{subequations}
 \begin{align}\label{eq:3.17}
 	\nabla_{\bs\nu} \mcal L(\bs\mu,\bs\lambda^*) = \nabla J(\bs\mu)-\lambda^* & = A\bs\mu-\bs f - \bs \lambda^* \stackrel != \bs 0 \, ,\\
 	\label{eq:3.18}
@@ -445,6 +446,7 @@ die Karush-Kuhn-Tucker Bedingungen für den Optimalpunkt $(\bs \mu,\bs\lambda^*)
 	\label{eq:3.20}
 	\lambda_i^* (\mu_i-\psi_i) & = 0 \qquad \forall \, i =1,\ldots,N \, .
 \end{align}
+\end{subequations}
 Mit \eqref{eq:3.17} gilt also $\bs\lambda^* = A\bs\mu-\bs f$ und daher folgt aus \eqref{eq:3.19}
 \[
 	A\bs\mu - \bs f \ge\bs 0 \, .
@@ -456,8 +458,9 @@ Aus \eqref{eq:3.20} folgt wegen $(A\bs\mu-\bs f)_i (\mu_i-\psi_i) = 0$ für alle
 Also ist $\mu \in K_{\mcal S}$ auch Lösung von \eqref{eq:3.15}.
 \end{proof}
 
-\item \begin{bem}\label{bem:3.12}
-Analog zu Satz \ref{satz:3.10} und \ref{satz:3.11} können wir auch zeigen, dass das quadratische Programm
+
+\begin{bem}\label{bem:3.13}
+Analog zu Satz \ref{satz:3.11} und \ref{satz:3.12} können wir durch leichte Abwandlung der Beweise zeigen, dass das quadratische Programm
 \begin{align}\label{eq:3.21}
 	\min_{\bs\nu \in \R^N} J(\bs\nu) = \frac 1 2 \bs \nu^T A \bs \nu - \bs f^T \bs \nu \quad \text{s.t.} \quad B\bs\nu \ge \bs \psi
 \end{align}
@@ -465,33 +468,36 @@ mit $B \in \R^{M\times N}$ äquivalent ist zur Variationsungleichung: Finde $\bs
 \begin{align}\label{eq:3.22}
 	(A\bs\mu - \bs f)^T (\bs\nu-\bs\mu) \ge 0 \quad \forall\, \bs\nu \in \R^N \text{ mit } B \bs \nu \ge \bs\psi \, .
 \end{align}
+Diese Formulierung werden wir später in Kapitel \ref{kap:3.2.3} wiederfinden, wenn wir Kontaktprobleme mittels der Finiten-Elemente-Methode lösen werden.
 \end{bem}
 
 
-\item \begin{bem}
-Die quadratischen Programme \eqref{eq:3.16} und \eqref{eq:3.21} hat mit den Voraussetzungen aus Bemerkung \ref{bem:2.17} eine globale Lösung $\bs\mu$, wenn diese die KKT-Bedingungen \eqref{eq:KKT} erfüllt (vgl. Theorem \ref{theorem:B.1}).
+\begin{bem}\label{bem:3.14}
+Die quadratischen Programme \eqref{eq:3.16} und \eqref{eq:3.21} haben mit den Voraussetzungen aus Bemerkung \ref{bem:2.18} eine globale Lösung $\bs\mu$, wenn diese die KKT-Bedingungen \eqref{eq:KKT} erfüllt (vgl. Theorem \ref{theorem:B.1}).
 \end{bem}
 
-\item mit dem im Anhang \ref{anhang:B.2} vorgestellten \idx{Active-Set-Algorithmus} kann ein solches quadratisches Programm gelöst werden
 
-\item es bleibt noch zu prüfen, ob sich die Lösung der Variationsungleichung für Netzverfeinerung an die exakte Lösung konvergiert
+Da wir wegen Bemerkung \ref{bem:2.18} konvexe quadratischen Programme vorliegen haben, können wir diese mit dem in Anhang \ref{anhang:B.2} vorgestellten Active-Set-Algorithmus lösen. Wie wir später sehen werden, ist es sinnvoll bei der Implementierung auf eine Innere-Punkte-Methode (kurz: IPM) zurückzugreifen.
 
-\item \begin{vor}
+Es bleibt noch zu prüfen, ob die Lösung der Variationsungleichung für Netzverfeinerung an die exakte Lösung konvergiert. Hierfür wollen wir folgende Voraussetzungen an unsere Ansatzräume stellen.
+
+
+\begin{vor}\label{vor:3.15}
 Gegeben sei ein Parameter $h \ra 0$. Weiter seien $(V_h)_h$ eine Familie aus abgeschlossenen Teilmengen von einem Hilbertraum $H, \emptyset \not= K \subset H$ eine konvexe abgeschlossene Teilmenge und $(K_h)_h$ eine Familie von abgeschlossenen konvexen nichtleeren Teilmengen von $H$, so dass $K_h \subset V_h$ für alle $h$.
 
 Dabei sei $K_h$ eine Approximation von $K$ im folgenden Sinne:
 \begin{enumerate}[(i)]
-\item wenn $(v_h)_h$ eine in $V$ beschränkte Folge mit $v_h \in K_h$ ist, dann folgt $v_h \ra v \in K$,
-\item es existiert ein $W \subset V$ mit $\overline W = K$ and ein $I_h: W \ra K_h$, so dass
+\item wenn $(v_h)_h$ eine in $H$ beschränkte Folge mit $v_h \in K_h$ ist, dann folgt $v_h \ra v \in K$,
+\item es existiert ein $W \subset H$ mit $\overline W = K$ and ein $I_h: W \ra K_h$, so dass
 \[
 	\lim_{h\ra 0} I_h v = v
 \]
-stark in $V$ für alle $v \in W$ konvergiert.
+stark in $H$ für alle $v \in W$ konvergiert.
 \end{enumerate}
 \end{vor}
 
-\item Konvergenz von $u_h$ gegen die exakte Lösung $u$.
-\begin{theorem}[a priori Konvergenz]
+
+\begin{theorem}[a priori Konvergenz]\label{theorem:3.16}
 Mit den obigen Voraussetzungen für $K$ und $(K_h)_h$ gilt für die Lösungen $u$ von \eqref{eq:3.7} und $u_h$ vom approximierten Problem: Finde $u_h \in K_h$, so dass
 \begin{align}\label{eq:3.23}
 	a(u_h,v_h-u_h) \ge F(v_h-u_h) \quad \forall \, v_h \in K_h \, , 
@@ -578,24 +584,34 @@ Da $u_h \rightharpoonup u$ in $H$ und $I_h v \ra v$ in $H$ für $h \ra 0$, folgt
 Da $a$ und $F$ stetig sind und $W$ dicht in $K$ liegt, gilt \eqref{eq:3.30} auch für alle $v \in K$. Setzen wir dann also $v = u$ in \eqref{eq:3.30}, dann folgt die Behauptung $\lim_{h\ra 0} \norm{u_h - u }_H^2 = 0$. 
 \end{proof}
 
-\item \underline{Überlegung:} Inwiefern hält unser $K_h$ diese Voraussetzungen ein.
 
-\item Es lässt sich folglich auch eine a priori Abschätzung für den Fehler von $u$ und $u_h$ machen. Die Herleitung ist detailliert in \cite{Falk} wiederzufinden.
-\begin{theorem}[a priori Fehlerabschätzung]
-Es seien $u$ und $u_h$ die Lösungen von \eqref{eq:3.7} und \eqref{eq:3.23}. Dann existiert eine Konstante $C \coloneqq C(\Omega, f, \psi)$ unabhängig von $u$, so dass
+Es sei $V_h \subset H^1_0(\Omega)$ ein beliebiger endlich dimensionaler Unterraum von $H^1_0(\Omega)$ und $K_h$ wie zu Beginn dieses Kapitels definiert. Dann ist $K_h \subset V_h$ für alle Parameter $h$. Außerdem folgt Voraussetzung \ref{vor:3.15} (i) wegen der Abgeschlossenheit von $K_h$. Betrachten wir
+\begin{align*}
+	W \coloneqq \{v \in H^1_0(\Omega) \mid v > \psi \text{ f.ü. in } \Omega\} \, ,
+\end{align*}
+so gilt $\overline W = K$ und mit der bekannten \idx{Spline-Interpolation} folgt dann auch Voraussetzung \ref{vor:3.15} (ii). Damit gilt
+\[
+	\lim_{h\ra 0} \norm{u_h-u}_1 = 0\, .
+\]
+
+
+Es lässt sich folglich auch eine a priori Abschätzung für den Fehler von $u$ und $u_h$ machen. Die Herleitung ist detailliert beispielsweise in \cite{Falk} wiederzufinden.
+
+
+\begin{theorem}[a priori Fehlerabschätzung]\label{theorem:3.17}
+Seien $u$ und $u_h$ die Lösungen von \eqref{eq:3.7} und \eqref{eq:3.23}. Dann existiert eine Konstante $C \coloneqq C(\Omega, f, \psi)$ unabhängig von $u$, so dass
 \[
 	\norm{u_h-u}_1 \le C h \, .
 \]
 \end{theorem}
 
 \begin{proof}
-Vgl. \cite{Falk}.
+Vgl. \cite{Falk} Theorem 2 bzw. \cite{EPS} Theorem 6.4.
 \end{proof}
 
-\item damit führt die Netzverfeinerung also zur exakten Lösung der Variationsungleichung
 
-\item inwiefern adaptive Netzverfeinerung hier sinnvoll ist, wollen wir in Kapitel 4 betrachten
-\end{itemize}
+Damit führt die Netzverfeinerung also zur exakten Lösung der Variationsungleichung \eqref{eq:3.11}. Inwiefern adaptive Netzverfeinerung hier sinnvoll ist, wollen wir in Kapitel \ref{kap:4} betrachten.
+
 
 
 
@@ -606,18 +622,22 @@ Vgl. \cite{Falk}.
 \section{Kontaktprobleme}
 \label{kap:3.2}
 
+
+Das in Kapitel \ref{kap:3.1} vorgestellte \idx{Hindernisproblem} ist ein Modellproblem zur Minimierung eines Energiefunktionals unter Nebenbedingung. Kontaktprobleme sind Probleme aus der Strukturmechanik, die auch auf eine solche Problemstellung führen. Daher können wir die Ideen zur Lösung eines Hindernisproblems auf diese Problemstellung übertragen.
+
+
 \subsection{Mathematische Modellierung eines Kontaktproblems}
 \label{kap:3.2.1}
 
-\begin{itemize}
-\item 
-\begin{vor}
+Zunächst wollen wir mithilfe der in Kapitel \ref{kap:2.5} eingeführten mechanischen Gleichungen ein \idx{Kontaktproblem} mathematisch modellieren.
+
+\begin{vor}\label{vor:3.18}
 Wir treffen folgende Annahmen für unser Kontaktmodell:
 \begin{enumerate}[(a)]
 \item Die in Kontakt stehenden Körper sind beschränkt.
 \item Es liegen kleine Deformationen und linear elastische Materialien vor.
 \item Wir betrachten ein konstantes Temperaturfeld, d.h. thermodynamische Prozesse werden ausgeschlossen.
-\item Zu Beginn, also in der Ausgangskonfiguration, gilt für die Spannung und Verzerrung: 
+\item Zu Beginn, also in der \idx{Ausgangskonfiguration}, gilt für die \idx{Spannung} und \idx{Verzerrung}: 
 \[
 	\bs \sigma = \bs 0\, , \quad \bs \eps =\bs 0 \, .
 \]
@@ -626,19 +646,19 @@ Wir treffen folgende Annahmen für unser Kontaktmodell:
 \end{enumerate}
 \end{vor}
 
-\item zur Herleitung der starken Kontaktformulierung wollen wir zwei Körper $\mcal B^1, \mcal B^2$ betrachten, welche durch zwei beschränkte Gebiete $\Omega^1, \Omega^2$ mathematisch beschrieben werden können
 
-\item diese Voraussetzung lässt sich noch weiter verallgemeinern (s. \cite{CarWri})
+Zur Herleitung der starken Kontaktformulierung wollen wir zwei Körper $\mscr B^1, \mscr B^2$ betrachten, welche wegen Voraussetzung \ref{vor:3.18} (a) durch zwei beschränkte Gebiete $\Omega^1, \Omega^2$ mathematisch beschrieben werden können. Diese Voraussetzung lässt sich auch auf beliebig viele Körper verallgemeinern (vgl. hierfür \cite{CarWri}).
 
-\item die Ränder $\Gamma^i$ von $\Omega^i, i = 1,2$, lassen sich in drei disjunkte Teile unterteilen
+Weiter lassen sich die Ränder $\Gamma^i = \partial \Omega^i$ von $\Omega^i, i = 1,2$, in drei disjunkte Teile unterteilen (s. Abbildung \ref{abb:3.2}):
 \begin{enumerate}
 \item[$\Gamma^i_u$:] Der \textit{Dirichlet-Rand}\index{Randbedingungen!Dirichlet}, oder auch \textit{\idx{Verschiebungsrand}}, auf dem die Werte von der Verschiebung $\bs u$ vorgegeben sind.
 \item[$\Gamma^i_\sigma$:] Der \textit{Neumann-Rand}\index{Randbedingungen!Neumann}, oder auch \textit{\idx{Spannungsrand}}, auf dem die Oberflächenlast bzw. -spannung $\bar{\bs t}$ vorgegeben ist.
 \item[$\Gamma^i_c$:] Der \textit{Kontaktrand}\index{Randbedingungen!Kontakt}, auf dem die Kontaktbedingungen definiert sind.
 \end{enumerate}
 
-\item[Skizze:] zwei Körper, deren Randunterteilung zu erkennen ist.
-\begin{figure}[h]
+
+
+\begin{figure}[h!]
 \begin{center}
 	\begin{pspicture}(0,0)(4,4.5)
 		% Die Körper B_1,B_2:
@@ -667,24 +687,17 @@ Wir treffen folgende Annahmen für unser Kontaktmodell:
 		\rput(3,2.2){$\Gamma_c^2$}
 	\end{pspicture}
 \end{center}
-\caption{Körper $\mcal B^1$ und $\mcal B^2$ mit Randbezeichnungen}
+\caption{Körper $\mcal B^1$ und $\mcal B^2$ mit Randbezeichnungen\label{abb:3.2}}
 \end{figure}
 
-\item zur Kontaktkinematik:
 
-\item für die Formulierung der Kontaktbedingungen werden den Körpern die "`Werte"' \textit{master} und \textit{slave} zugeordnet.
+\subsubsection{Kontaktkinematik}
 
-\item slave ist dabei die Menge an Punkten, die überprüft werden, ob sie in die master-Fläche eindringen.
+ Wir wollen zunächst die Kontaktkinematik (wie in \cite{CarWri}) etwas allgemeiner als in $\cite{WriggersFEM}$ oder $\cite{WriggersContact}$ beschrieben einführen. Für die Formulierung der Kontaktbedingungen werden den Körpern $\mscr B^1, \mscr B^2$ die Bezeichnungen \textit{\idx{master}} und \textit{\idx{slave}} zugeordnet. Mit slave bezeichnen wir dabei die Menge an Punkten, für die überprüft wird, ob sie in die master-Fläche eindringen. Die Zuordnung von master und slave ist jedoch für das Ergebnis der Kontaktbedingung vollkommen unabhängig. Es sei daher o.B.d.A. $\mscr B^1$ der slave.
 
-\item Zuordnung ist irrelevant $\ra$ kein Unterschied für das Ergebnis
 
-\item o.B.d.A. sei $\mcal B^1$ slave
 
-\item wir wollen zunächst die Kontaktkinematik etwas allgemeiner als in $\cite{WriggersFEM}$ oder $\cite{WriggersContact}$ beschrieben einführen
-
-\item[Skizze:] Skizze mit zwei Körpern (nichtglatter Rand!!) und den Bezeichnungen $\chi(X)$ und $n_c(X)$.
-
-\begin{figure}[h]
+\begin{figure}[h!]
 \begin{center}
 	\begin{pspicture}(-1,-0.5)(4,4)
 		% B_1 (slave):
@@ -708,100 +721,92 @@ Wir treffen folgende Annahmen für unser Kontaktmodell:
 		\rput(1.5,2.35){$\chi (\bs X)$}
 	\end{pspicture}
 \end{center}
-\caption{Kontaktformulierung zwischen zwei Körpern}
+\caption{Kontaktformulierung zwischen zwei Körpern\label{abb:3.3}}
 \end{figure}
 
-\item für gegebenen Punkt $\bs X \in \Omega^1$, bzw. $\bs X \in \Gamma^1_c$, in der Ausgangskonfiguration ist $\bar{\bs X} \coloneqq \chi(\bs X)$ derjenige Punkt aus $\Gamma^2$, der minimalsten Abstand zu $\bs X$ hat, d.h.
+Für einen gegebenen Punkt $\bs X \in \Omega^1$, bzw. $\bs X \in \Gamma^1_c$, in der Ausgangskonfiguration ist $\bar{\bs X} \coloneqq \chi(\bs X)$ derjenige Punkt aus $\Gamma^2$, der minimalsten Abstand zu $\bs X$ hat, d.h.
 \[
-	\norm{\bs X-\bar{\bs X}} = \min \{\norm{\bs X-\bs Y} \with \bs Y \in \Gamma^2\} \, ,
+	\norm{\bs X-\bar{\bs X}} = \min \{\norm{\bs X-\bs Y} \mid \bs Y \in \Gamma^2\} \, ,
 \]
-also ist $\chi: \Gamma_c^1\cup \Gamma_c^2 \ra \Gamma^1 \cup \Gamma^2$ eine Abbildung der kleinsten Distanz
-
-\item damit definieren wir entsprechend die kritische Richtung mit Länge 1 als
+also ist $\chi: \Gamma_c^1\cup \Gamma_c^2 \ra \Gamma^1 \cup \Gamma^2$ eine Abbildung der kleinsten Distanz (s. Abbildung \ref{abb:3.3}). Damit definieren wir entsprechend die \textit{\idx{kritische Richtung}} mit Länge 1 als
 \begin{align}
 	\bs n_c(\bs X) \coloneqq \frac{\chi(\bs X) - \bs X}{\norm{\chi (\bs X)-\bs X}} \, ,
 \end{align}
-wobei im Falle $\bs X = \chi(\bs X)$, d.h. im Falle des Kontaktes, eine beliebige normierte Richtung gesetzt wird.
+wobei im Falle $\bs X = \chi(\bs X)$, d.h. im Falle des Kontaktes, eine beliebige normierte Richtung für $\bs n_c(\bs X)$ gesetzt wird. Den Punkt $\bar{\bs X}$ nennen wir analog \textit{kritischen Punkt}\index{kritischer Punkt}.
 
-\item Bem.: $\bar{\bs X}$ ist daher kritischer Punkt, da er wegen des kleinsten Abstandes zu $\bs X$ der wohlmöglich nächste Punkt ist, der in Kontakt tritt
 
-\item[Vorteil:] diese Formulierung bzgl. der kritischen Richtung kann auch verwendet werden, wenn der Rand der Körper nicht hinreichend glatt ist.
+\begin{bem}\label{bem:3.19}
+Der Punkt $\bar{\bs X}$ heißt deshalb kritischer Punkt, da er wegen des kleinsten Abstandes zu $\bs X$ der wohlmöglich nächste Punkt ist, der mit $\bs X$ in Kontakt tritt. Der Vorteil dieser Formulierung ist, dass die kritische Richtung $\bs n_c(\bs X)$ auch existiert, wenn der Rand eines Körpers nicht hinreichend glatt ist.
+\end{bem}
 
-\item in den Koordinaten der Momentankonfiguration gilt $\bs x = \bs X + \bs u$ für das Verschiebungsfeld $\bs u$ und damit ergibt sich die \textit{\idx{Nichtdurchdringungsbedingung}}
+
+In den Koordinaten der \idx{Momentankonfiguration} gilt $\bs x = \bs X + \bs u$ für das Verschiebungsfeld $\bs u$ und damit erhalten wir die \textit{\idx{Nichtdurchdringungsbedingung}}
 \begin{align}\label{eq:3.32}
 	(\bar{\bs x} - \bs x) \, \bs n_c (\bs X) \ge 0 \, , 
 \end{align}
-wobei $\bar{\bs x} \coloneqq \bar{\bs X} + u(\bar{\bs X})$ ist.
-
-\item das bedeutet, dass die Verbindung der Punkte in der Momantankonfiguration mit der kritischen Richtung einen Winkel $\alpha \in [-\frac \pi2,\frac \pi2]$ einschließen muss, ansonsten läge $\bar{\bs x}$ "`hinter"' $\bs x$, d.h. $\mcal B^1$ wäre in $\mcal B^2$ eingedrungen. 
-
-\item aus \eqref{eq:3.32} folgt
+wobei $\bar{\bs x} \coloneqq \bar{\bs X} + u(\bar{\bs X})$ ist. Dies bedeutet, dass die Verbindung der Punkte in der Momentankonfiguration mit der kritischen Richtung einen Winkel $\alpha \in [-\frac \pi2,\frac \pi2]$ einschließen muss, andernfalls läge $\bar{\bs x}$ "`hinter"' $\bs x$, d.h. $\mscr B^1$ wäre in $\mscr B^2$ eingedrungen. Aus \eqref{eq:3.32} folgt
 \begin{align*}
 	0 &  \le (\bar{\bs x} - \bs x) \, \bs n_c (\bs X) = (\bar{\bs X} + u(\bar{\bs X}) -{\bs X} - u({\bs X})) \, \bs n_c(\bs X) \\
 	& = \underbrace{(\bs{\bar X} - \bs X) \frac{\bar{\bs X}-\bs X}{\norm{\bar{\bs X}-\bs X}}}_{ = \norm{\bar{\bs X}-\bs X}\eqqcolon g} + ( u(\bar{\bs X})  - u({\bs X})) \, \bs n_c(\bs X) \\
-	& = g + ( u(\chi(\bs X))  - u({\bs X})) \, \bs n_c(\bs X) \, .
+	& = g + ( u(\chi(\bs X))  - u({\bs X})) \, \bs n_c(\bs X) \, ,
 \end{align*}
-damit erhalten wir die Nichtdurchdringungsbedingung bzgl. der Ausgangskonfiguration
+was uns \idx{Nichtdurchdringungsbedingung} bzgl. der \idx{Ausgangskonfiguration} liefert, wobei wir die Funktion $g$ auch als \textit{\idx{Gap-Funktion}} bezeichnen, da sie die Lücke zwischen den Körpern beschreibt.
 
-\item da wir kleine Deformationen vorausgesetzt haben, gilt unter anderem $\bs X \approx \bs x,  \nabla_{\bs X} \approx \nabla_{\bs x}$ (vgl. \cite{AltKonti} S. 122f). Daher schreiben wir im folgenden immer $\bs x$ statt $\bs X$.
-
-\item damit schreibt sich die Nichtdurchdringungsbedingung als
+Aufgrund von Voraussetzung \ref{vor:3.18} (b) gehen wir von kleinen Deformationen aus. Damit gilt unter anderem  $\bs X \approx \bs x,  \nabla_{\bs X} =\Grad(\cdot)\approx \grad(\cdot) =  \nabla_{\bs x}$ (vgl. \cite{AltKonti} S. 122f). Daher schreiben wir im folgenden immer $\bs x$ statt $\bs X$. Insgesamt lässt sich also die \idx{Nichtdurchdringungsbedingung} schreiben als
 \begin{align}\label{eq:3.33}
 	(\bs u \circ \chi -\bs u) \cdot \bs n_c + g \ge 0 \quad \forall \, \bs x \in \Gamma_c \, ,
 \end{align}
 wobei $\Gamma_c \coloneqq \Gamma_c^1 \cup \Gamma_c^2$ ist.
-	
-\item im Folgenden wollen wir der Einfachheit halber wir davon ausgehen, dass die Ränder $\Gamma^i$ hinreichend glatt sind $\Ra$ \eqref{eq:3.33} gilt auch für $\bs n_c$ als Einheitsnormale von $\mcal B^1$
 
-\item weiter wollen wir $\bs u(\bar{\bs x})\equiv \bs 0$ annehmen, d.h. falls $\mcal B^2$ ein Verschiebungsfeld ungleich Null hat, können wir $\bs u$ bzgl. $\Omega = \Omega^1\cup\Omega^2$ auch als Relativverschiebung interpretieren
 
-\item[Hinweis:] Wähle später für die feste Ebene im Beispiel $\mcal B^1$ zur Vereinfachung der Darstellung
+Der Einfachheit halber wollen wir in dieser Arbeit noch weitere Forderungen an die beiden Körper $\mscr B^1$ und $\mscr B^2$ stellen. Wir fordern, dass die Ränder $\Gamma^i$ hinreichend glatt sind. Daraus folgt, dass \eqref{eq:3.33}  auch für $\bs n_c$ als Einheitsnormale von $\mscr B^1$ gilt. Weiter soll $\bs u(\bar{\bs x})\equiv \bs 0$ gelten, d.h. falls $\mscr B^2$ ein Verschiebungsfeld ungleich Null hat, können wir $\bs u$ bzgl. $\Omega = \Omega^1\cup\Omega^2$ auch als Relativverschiebung interpretieren.
 
-\item damit reduziert sich \eqref{eq:3.33} auf
+
+Im numerischen Beispiel wollen wir später $\mscr B^1$ als feste Ebene verwenden. Damit reduziert sich \eqref{eq:3.33} auf
 \begin{align}\label{eq:3.34}
 	\bs u \cdot \bs n - g \le 0 \quad \forall \, x \in \Gamma_c \, ,
 \end{align}
-wobei wir auch $u_n \coloneqq \bs u \cdot \bs n$ im Folgenden schreiben werden.
-
-\item weiter muss auf dem \idx{Kontaktrand} $\Gamma_c$ die Normalkraft eine Druckkraft sein oder es herrscht Kräftegleichgewicht, d.h. für die Spannung in Normalenrichtung $\sigma_n \coloneqq \bs n\cdot (\bs \sigma\cdot \bs n)$ gilt
+wobei wir auch $u_n \coloneqq \bs u \cdot \bs n$ im Folgenden schreiben werden. Weiter muss auf dem \idx{Kontaktrand} $\Gamma_c$ die Normalkraft eine Druckkraft sein oder es herrscht Kräftegleichgewicht, d.h. für  $\sigma_n \coloneqq \bs n\cdot (\bs \sigma\cdot \bs n)$, also die \idx{Spannung} in Normalenrichtung, gilt
 \begin{align}\label{eq:3.35}
 	\sigma_n \le 0  \ \text{ auf }  \Gamma_c \, .
 \end{align}
-
-\item wie oben schon angedeutet gilt: wenn die Kontaktbedingung nicht aktiv ist (d.h. nicht die Gleichheit gilt), so muss Kräftegleichgewicht herrschen, d.h. in \eqref{eq:3.35} gilt die Gleichheit. Zusammen erhält man die Komplementaritätsbedingung
+Damit gilt auch, wenn die Kontaktbedingung nicht aktiv ist (also nicht die Gleichheit gilt), so muss Kräftegleichgewicht herrschen, d.h. in \eqref{eq:3.35} gilt die Gleichheit. Zusammen erhält man die \textit{\idx{Komplementaritätsbedingung}}
 \begin{align}\label{eq:3.36}
-	(u_n - g )\,   \sigma_n = 0 \ \text{ auf } \Gamma_c
+	(u_n - g )\,   \sigma_n = 0 \ \text{ auf } \Gamma_c \, .
 \end{align}
-
-\item laut Voraussetzung (e) betrachten wir \idx{Signorini-Kontakt} und damit muss die Tangentialkraft auf dem Kontaktrand gleich Null sein, d.h.
+Laut der Voraussetzung (e) betrachten wir \idx{Signorini-Kontakt} (also keine Reibung) und damit muss die Tangentialkraft auf dem Kontaktrand gleich Null sein, d.h.
 \begin{align}\label{eq:3.37}
 	\bs \sigma_t \coloneqq \bs \sigma \cdot \bs n - \sigma_n \bs n = 0 \ \text{ auf } \Gamma_c \, .
 \end{align}
 
-\item materialunabhängige Gleichungen:
 
-\item wie in Kapitel \ref{kap:2.5} eingeführt, gelten auch hier die Gleichung des Kräftegleichgewichts. Da wir laut Voraussetzung (b) von kleinen Deformationen ausgehen, gilt
+
+\subsubsection{Bilanzgleichungen, materialunabhängige Gleichungen}
+
+
+Wie in Kapitel \ref{kap:2.5} eingeführt, gelten auch hier die Gleichung \eqref{eq:2.32} des Kräftegleichgewichts. Da wir laut Voraussetzung (b) von kleinen Deformationen ausgehen, gilt
 \begin{align}\label{eq:3.38}
-	\div\bs \sigma + \bar{\bs b} = \bs 0 \, .
+	\div\bs \sigma + \bar{\bs b} = \bs 0 \ \text{ in } \Omega\, .
 \end{align}
-
-\item weiter gilt nach dem \textit{\idx{Cauchy-Theorem}} (vgl. auch \cite{WriggersContact} S. 38), dass die Spannung in Normalenrichtung auf der Oberfläche $\Gamma$ von $\Omega$ gleich der von außen angebrachten Spannung $\bar{\bs t}$ ist, d.h.
+Weiter gilt nach dem \idx{Cauchy-Theorem} \eqref{eq:2.29}, dass die Spannung in Normalenrichtung auf der Oberfläche $\Gamma$ von $\Omega$ gleich der von außen angebrachten Spannung $\bar{\bs t}$ ist, d.h.
 \begin{align}\label{eq:3.39}
 	\bs \sigma \cdot \bs n = \bar{\bs t} \ \text{ auf } \Gamma_\sigma \, ,
 \end{align}
-also auf dem Neumann-Rand.
+also auf dem Neumann-Rand\index{Randbedingungen!Neumann}.
 
-\item konstitutive Gleichungen:
 
-\item da wir laut Voraussetzung (b) von einem linear elastischen Material und kleinen Deformationen ausgehen, gilt ein linearer Zusammenhang bzgl. der Spannung $\bs \sigma$ und Verzerrung $\bs \eps$, d.h. das \idx{Hooke'sche-Gesetz} ($\bs \sigma = \lambda \tr \bs \eps \cdot  I + 2 \mu \bs \eps$, wobei $\lambda, \mu$ die Lamé Konstanten sind) und wir können wir den linearisierten Verzerrungstensor $\bs \eps$ verwenden, d.h. mit einem 4 stufigem Materialtensor $\mcal C = (c_{ijkl})$ gilt
+
+\subsubsection{Konstitutive Gleichungen}
+
+
+
+Da wir laut Voraussetzung (b) von einem linear elastischen Material und kleinen Deformationen ausgehen, gilt ein linearer Zusammenhang bzgl. der Spannung $\bs \sigma$ und Verzerrung $\bs \eps$, d.h. das \idx{Hooke'sche-Gesetz} \eqref{eq:2.33} und wir können  den linearisierten Verzerrungstensor $\bs \eps$ (vgl. \eqref{eq:2.28}) verwenden, d.h. mit einem 4 stufigem Materialtensor $\mcal C = (c_{ijkl})$ gilt
 \begin{align}\label{eq:3.40}
-	\bs \sigma - \mcal C : \bs \eps = \bs 0 \ \text{ in } \Omega \, ,
+	\bs \sigma - \mcal C : \bs \eps = \bs 0 \ \text{ in } \Omega \, .
 \end{align}
-wobei $\mcal C : \bs \eps$ das doppelt verjüngende Skalarprodukt beschreibt.
 
 
-
-\item zusammengefasst mit \eqref{eq:3.34} bis \eqref{eq:3.40} beschreiben wir also das Signorini-Kontakt-Problem in der starken Formulierung:
+Zusammenfassend lässt sich das \idx{Signorini-Kontakt}-Problem mit \eqref{eq:3.34} bis \eqref{eq:3.40} in der starken Formulierung beschreiben durch:
 \begin{subequations}\label{eq:3.41}
 \begin{align}\label{eq:3.41a}
 	\div \bs \sigma + \bar{\bs b} = \bs 0&\ \ \text{ in } \Omega\\
@@ -822,9 +827,12 @@ wobei $\mcal C : \bs \eps$ das doppelt verjüngende Skalarprodukt beschreibt.
 \end{align}
 \end{subequations}
 
-\item was ändert sich, wenn wir Reibung betrachten
+
+
+An dieser Stelle sei kurz angemerkt, wie sich die Problemstellung \eqref{eq:3.41} ändern würde, wenn wir ein Modell mit Reibung betrachten.
+
 \begin{bem}
-Ein Kontaktmodell mit $\bs \sigma_t \not = \bs 0$ ist das Modell mit \textit{\idx{Tresca-Reibung}}. Für dieses Problem wird die letzte Bedingung aus \eqref{eq:3.41e} durch die Bedingungen
+Ein Kontaktmodell mit $\bs \sigma_t \not = \bs 0$ ist beispielsweise das Modell mit \textit{\idx{Tresca-Reibung}}. Für dieses Problem wird die letzte Bedingung aus \eqref{eq:3.41e} durch die Bedingungen
 \begin{align}\label{eq:3.42}
 	\norm{\bs \sigma_t} \le \mscr F \, , \quad \bs \sigma_t \bs u_t + \mscr F\,  \norm{\bs u_t} = 0
 \end{align}
@@ -832,10 +840,8 @@ mit $\bs u_t \coloneqq \bs u - u_n \bs n$, dem tangentialen Anteil des Verschieb
 
 Mit $\mscr F \coloneqq \mu \sigma_n$ erhalten wir das \textit{Reibungsgesetz von Coulomb}\index{Coulomb-Reibung}, wobei $\mu$ den aus der Mechanik bekannten Reibungskoeffizienten darstellt.
 
-Da die Herleitung der zu diesem Problem äquivalenten Variationsungleichung zusätzliche mathematische Resultate erfordert, werden wir uns in der weiteren Herleitung auf das \idx{Signorini-Kontakt}-Problem beziehen.
+Da die Herleitung der zu diesem Problem äquivalenten Variationsungleichung zusätzliche mathematische Resultate erfordert, werden wir uns in der weiteren Herleitung auf das \idx{Signorini-Kontakt}-Problem beziehen. Außerdem führt solch ein Problem auf eine sogenannte Variationsungleichung zweiter Art, deren Lösung wir in dieser Arbeit nicht ausführen wollen.
 \end{bem}
-\end{itemize}
-
 
 
 
@@ -850,8 +856,8 @@ Da die Herleitung der zu diesem Problem äquivalenten Variationsungleichung zus�
 \item wir betrachten das \idx{Signorini-Kontakt}-Problem \eqref{eq:3.41}
 
 \item Es seien
-$H^1_{\Gamma_u}(\Omega) \coloneqq \{\bs v \in (H^1(\Omega))^2 \with \bs v = \bs 0 \text{ auf } \Gamma_u\}$ und
-$\mscr K \coloneqq \{\bs v \in H^1_{\Gamma_u}(\Omega) \with v_n - g \le 0 \text{ auf } \Gamma_c\}$ $\Ra$ $\mscr K$ ist analog zu Lemma \ref{lem:3.1} konvex
+$H^1_{\Gamma_u}(\Omega) \coloneqq \{\bs v \in (H^1(\Omega))^2 \mid \bs v = \bs 0 \text{ auf } \Gamma_u\}$ und
+$\mscr K \coloneqq \{\bs v \in H^1_{\Gamma_u}(\Omega) \mid v_n - g \le 0 \text{ auf } \Gamma_c\}$ $\Ra$ $\mscr K$ ist analog zu Lemma \ref{lem:3.1} konvex
 
 \item weiter seien $\bs u, \bs v \in K$, wobei $\bs u$ die Lösung des Signorini-Kontaktproblems darstellt und $\bs v$ (häufig in den Ingenieurswissenschaften als \textit{\idx{virtuelle Verschiebung}} bezeichnet) eine beliebige Testfunktion ist. Dann gilt $\bs w = \bs v - \bs u \in (H^1_{\Gamma_u}(\Omega))^2$ eine Testfunktion, die wir mit \eqref{eq:3.41a} multiplizieren und über $\Omega$ integrieren.
 \begin{align}\notag
@@ -940,7 +946,7 @@ mit dem Reibungsfunktional $j$.
 \begin{itemize}
 \item betrachte analog zu $\mcal S_h$ den Raum der linearen mehrdimensionalen Ansatzfunktionen bzgl. einer quasi-uniformen Triangulierung $\mcal T_h$
 \begin{align}
-	 \mscr S_h \coloneqq \{\bs v \in (C^0(\Omega))^2 \with \bs v|_T \in \mcal P_1^2 \text{ für } T \in \mcal T_h, \bs v|_{\Gamma_u} = \bs 0\} \subset H^1_{\Gamma_u} (\Omega)
+	 \mscr S_h \coloneqq \{\bs v \in (C^0(\Omega))^2 \mid \bs v|_T \in \mcal P_1^2 \text{ für } T \in \mcal T_h, \bs v|_{\Gamma_u} = \bs 0\} \subset H^1_{\Gamma_u} (\Omega)
 \end{align}
 
 \item mit einer Basis $\mscr B_h \coloneqq \{\bs\psi_1,\ldots,\bs \psi_N\}$ von $\mscr S_h$ lässt sich jedes Element $\bs v_h \in \mscr S_h$ als Linearkombination schreiben
@@ -953,12 +959,12 @@ für genau ein $(x_1,\ldots,x_N)^T \eqqcolon \bs x \in \R^N$.
 \begin{align}
 	a(\bs u_h, \bs v_h - \bs u_h) \ge F(\bs v_h- \bs u_h) \quad \forall \, \bs v_h \in K_h \, .
 \end{align}
-mit $\mscr K_h \coloneqq \{  \bs v_h \in \mscr S_h \with \bs v_h(\bar x_i) \cdot \bs n - g(\bar x_i) \le 0 \text{ mit } \bar x_i \in \mcal N \cap \Gamma_c\}$, d.h. die punktuelle Form (der Nebenbedingung) von $\mscr K$.
+mit $\mscr K_h \coloneqq \{  \bs v_h \in \mscr S_h \mid \bs v_h(\bar x_i) \cdot \bs n - g(\bar x_i) \le 0 \text{ mit } \bar x_i \in \mcal N \cap \Gamma_c\}$, d.h. die punktuelle Form (der Nebenbedingung) von $\mscr K$.
 
 \item analog zu $K_{\mcal S}$ können wir auch hier bzgl. einer Basis $\mscr B_h$ die Menge $\mscr K_h$ äquivalent durch den Koordinatenvektor $\bs x \in \R^N$ ausdrücken, d.h.
 \begin{align*}
 	\mscr K_{\mscr S}  \coloneqq& \bigg\{ \bs x \in \R^N \,\bigg| \, \sum_{j=1}^N x_j \, \bs \psi_j(\bar x_i) \cdot \bs n- g(x_i) \ge 0 \text{ für } \bar x_i \in \mcal N \cap \Gamma_c\bigg\} \\
-	=& \{ \bs x \in \R^N \with B\bs x \ge \bs c , B =  [-\bs \psi_j(\bar x_i)\cdot \bs n(\bar x_i)]_{\bar x_i \in \mcal N \cap \Gamma_c, 1\le j \le N} ,\bs c = [-g(\bar x_i)]_{\bar x_i \in\mcal N \cap \Gamma_c}\}
+	=& \{ \bs x \in \R^N \mid B\bs x \ge \bs c , B =  [-\bs \psi_j(\bar x_i)\cdot \bs n(\bar x_i)]_{\bar x_i \in \mcal N \cap \Gamma_c, 1\le j \le N} ,\bs c = [-g(\bar x_i)]_{\bar x_i \in\mcal N \cap \Gamma_c}\}
 \end{align*}
 
 \item damit ist das diskrete Problem: Finde $\bs x^* \in \mscr K_{\mscr S}$, so dass
