@@ -153,18 +153,21 @@
 \indexentry{G\IeC {\^a}teaux-differenzierbar|hyperpage}{57}
 \indexentry{Active-Set-Algorithmus|hyperpage}{59}
 \indexentry{Penalty-Methode|hyperpage}{60}
-\indexentry{Bubble-Funktion|hyperpage}{65}
+\indexentry{Defektproblem|hyperpage}{63}
+\indexentry{G\IeC {\^a}teaux-differenzierbar|hyperpage}{64}
+\indexentry{Bubble-Funktion|hyperpage}{64}
+\indexentry{Defektproblem!lokales|hyperpage}{66}
 \indexentry{Kontaktpunkte|hyperpage}{73}
 \indexentry{Nichtkontaktpunkte|hyperpage}{73}
-\indexentry{Ungleichungen!Poincar\IeC {\'e}|hyperpage}{81}
-\indexentry{Poincar\IeC {\'e}-Friedrich-Ungleichung!verallgemeinerte|hyperpage}{81}
-\indexentry{Sobolev-Raum|hyperpage}{103}
-\indexentry{Lebesgue-Raum|hyperpage}{103}
-\indexentry{Raum der Testfunktionen|hyperpage}{103}
-\indexentry{schwache Ableitung|hyperpage}{103}
-\indexentry{Spursatz|hyperpage}{105}
+\indexentry{Ungleichungen!Poincar\IeC {\'e}|hyperpage}{80}
+\indexentry{Poincar\IeC {\'e}-Friedrich-Ungleichung!verallgemeinerte|hyperpage}{80}
+\indexentry{Sobolev-Raum|hyperpage}{102}
+\indexentry{Lebesgue-Raum|hyperpage}{102}
+\indexentry{Raum der Testfunktionen|hyperpage}{102}
+\indexentry{schwache Ableitung|hyperpage}{102}
+\indexentry{Spursatz|hyperpage}{104}
+\indexentry{G\IeC {\^a}teaux-differenzierbar|hyperpage}{104}
+\indexentry{G\IeC {\^a}teaux-Ableitung|hyperpage}{104}
+\indexentry{G\IeC {\^a}teaux-Ableitung!rechtsseitig|hyperpage}{104}
 \indexentry{G\IeC {\^a}teaux-differenzierbar|hyperpage}{105}
-\indexentry{G\IeC {\^a}teaux-Ableitung|hyperpage}{105}
-\indexentry{G\IeC {\^a}teaux-Ableitung!rechtsseitig|hyperpage}{105}
-\indexentry{G\IeC {\^a}teaux-differenzierbar|hyperpage}{106}
-\indexentry{reflexiver Raum|hyperpage}{107}
+\indexentry{reflexiver Raum|hyperpage}{106}

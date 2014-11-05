@@ -26,7 +26,7 @@ Das Hindernis  wird durch eine stückweise lineare stetige Funktion $\psi$ besch
 \end{vor}
 
 
-Für nichtstetige oder auch glatte Hindernisse sind analoge Aussagen beweisbar, die jedoch schwerer zu zeigen sind, bzw. nichtstetige Hindernisse führen sogar auf nichtkonforme Finite-Elemente-Methoden, die nicht Teil dieser Arbeit sind. Für einen residualen Schätzer kann man das Vorgehen für glatte Hindernisse auch in \cite{Page} finden.
+Für nichtstetige oder auch glatte Hindernisse sind analoge Aussagen beweisbar, die jedoch schwerer zu zeigen sind. Für einen residualen Schätzer kann man das Vorgehen für glatte Hindernisse auch in \cite{Page} finden.
 
 
 
@@ -37,37 +37,37 @@ Für nichtstetige oder auch glatte Hindernisse sind analoge Aussagen beweisbar, 
 \subsection{Diskretisierung}
 \label{kap:4.1.1}
 
-\begin{itemize}
-\item $\mcal B_h$ sei eine nodale Basis bzgl. einer quasi-uniformen Triangulierung $\mcal T_h$  für $\mcal S_h$ (s. auch Kapitel \ref{kap:2}), $K_h$ wie in Kapitel \ref{kap:3.1.3}
-\[
-	K_h  = \{v_h \in \mcal S_h \with v_h (p) \ge \psi(p) \, \forall \, p \in \mcal N \cap \Omega\} \, , 
-\]
-wobei $\mcal N$ wieder die Menge der Knoten von $\mcal T_h$ darstellt.
 
-\item betrachte wieder die diskrete Variationsungleichung \eqref{eq:3.12}: Finde $u_h \in K_h$ mit
+Es sei $\mcal B_h$ eine nodale Basis bzgl. einer quasi-uniformen Triangulierung $\mcal T_h$  für $\mcal S_h$ (s. Kapitel \ref{kap:2.3}), dem Raum der stückweise linearen Funktionen über $\mcal T_h$. Weiter sei $K_h$ wie in Kapitel \ref{kap:3.1.3} definiert
 \[
-	a(u_h,v_h-u_h) \ge (f,v_h-u_h) \quad \forall \, v_h \in K_h\, .
+	K_h  = \{v_h \in \mcal S_h \mid v_h (p) \ge \psi(p) \, \forall \, p \in \mcal N \cap \Omega\} \, , 
 \]
-
-\item oder äquivalent die Minimierung des Funktionals $J(v) = \frac 1 2 a(v,v)-(f,v)$ über $K_h$, d.h.
+wobei $\mcal N$ wieder die Menge der Knoten von $\mcal T_h$ darstellt. Wir betrachten nun wieder die diskrete Variationsungleichung \eqref{eq:3.12}: Finde $u_h \in K_h$ mit
+\[
+	a(u_h,v_h-u_h) \ge (f,v_h-u_h) \quad \forall \, v_h \in K_h
+\]
+oder äquivalent die Minimierung des Funktionals $J(v) = \frac 1 2 a(v,v)-(f,v)$ über $K_h$, d.h.
 \begin{align}\label{eq:4.1}
-	u_h \in K_h :\quad J(u_h)\le J(v_h) \quad \forall \, v_h \in K_h
+	u_h \in K_h :\quad J(u_h)\le J(v_h) \quad \forall \, v_h \in K_h \, .
 \end{align}
+Wegen  Voraussetzung \ref{vor:4.1}, dass $\psi$ stückweise linear ist, gilt $K_h \subset K$, da die linearen Ansatzfunktionen nicht nur punktuell, sondern auch kontinuierlich die Nebenbedingung erfüllen. Damit ist \eqref{eq:3.12} eine konforme Finite-Elemente-Methode; nichtkonforme Finite-Elemente würden z.B. durch ein nichtstetiges Hindernis erzeugt werden. Diese sollen jedoch nicht Teil dieser Arbeit sein.
 
-\item wegen der Voraussetzung, dass $\psi$ stückweise linear ist, gilt $K_h \subset K$, da die linearen Ansatzfunktionen nicht nur punktuell, sondern auch kontinuierlich die Nebenbedingung erfüllen
 
-\item damit ist \eqref{eq:3.12} eine konforme FEM $\ra$ nichtkonforme wollen wir hier nicht betrachten (s. bel. stetige Hindernisse)
-
-\item wir wollen einen a posteriori Fehlerschätzer für den Fehler bzgl. der Funktionswerte der Funktionale $J(u),J(u_h)$ herleiten. Hierbei gilt $J(u_h) - J(u) \ge 0$, denn aus den beiden Minimierungsproblemen über $K$ und $K_h$ folgt
+Wir werden einen a posteriori Fehlerschätzer für den Fehler bzgl. der Funktionswerte der Funktionale $J(u),J(u_h)$ herleiten. Hierfür gilt
+\[
+	J(u_h) - J(u) \ge 0\, ,
+\]
+denn aus den beiden Minimierungsproblemen über $K$ und $K_h$ folgt
 \[
 	J(u) \le J(v) \, \forall \, v \in K \, , \quad J(u_h) \le J(v_h) \, \forall \, v_h \in K_h \, .
 \]
-Da $K_h \subset K$ gilt, folgt auch $J(u)\le J(v_h)$ für alle $v_h \in K_h$. Setze $v_h = u_h$, so gilt
+Da $K_h \subset K$ gilt, gilt insbesondere $J(u)\le J(v_h)$ für alle $v_h \in K_h$. Setzen wir $v_h = u_h$, so folgt
 \[
-	J(u) \le J(u_h) \Llra J(u_h)-J(u) \ge 0
+	J(u) \le J(u_h) \Llra J(u_h)-J(u) \ge 0 \, .
 \]
-\item 
-\begin{bem}
+
+
+\begin{bem}\label{bem:4.2}
 Gilt $\psi = -\infty$, d.h. ist kein Hindernis vorhanden, so folgt
 \begin{align*}
 	J(u_h)-J(u)  =& \frac 1 2 a(u_h,u_h)-(f,u_h) - \(\frac 1 2 a(u,u)-(f,u)\) \\
@@ -85,36 +85,45 @@ Ist nun ein $\psi > -\infty$ gegeben, dann addieren wir im zweiten Schritt nicht
 und damit gilt $J(u_h)-J(u) \ge \frac 1 2\norm{u_h-u}_E^2$, d.h. eine obere Schranke des Fehlers im Funktional schätzt auch den Fehler zwischen exakter und approximierter Lösung in der Energienorm ab.
 \end{bem}
 
-\item Herleitung eines hierarchischen a posteriori Fehlerschätzers:
 
-\item 
 \begin{notation}
 Um im Folgenden den hierarchischen Split leichter beschreiben zu können, schreiben wir für die Galerkin-Lösung $u_h$ die Notation $u_{\mcal S}$, um auszudrücken, dass diese im linearen Ansatzraum $\mcal S_h$ liegt. Analog sind die im Weiteren übrigen verwendeten Indizes zu verstehen.
+
+Zudem werden wir die für die Energienorm die Notation
+\[
+	a(v,v)^{\frac 12} = \norm{v}
+\]
+für alle $v \in H^1(\Omega)$, also ohne Index, verwenden. Auch in diesem Kapitel werden wir wieder $(u,v) = (u,v)_0$ für alle $u,v\in H^1(\Omega)$ verwenden.
 \end{notation}
 
-\item wir führen Fehlerfunktion $e= u-u_{\mcal S}$ ein
 
-\item weiter sei $\mcal I(v) = \frac 12 a(v,v)-\rho_{\mcal S}(v)$ mit $\rho_{\mcal S} (v) = (f,v)-a(u_{\mcal S},v), v \in H^1_0(\Omega)$.
+Zur Herleitung des hierarchischen Fehlerschätzers führen wir die Fehlerfunktion $e= u-u_{\mcal S}$ ein, die den exakten Fehler angibt. Weiter sei
+\begin{align*}
+	\mcal I(v) = \frac 12 a(v,v)-\rho_{\mcal S}(v)\text{ mit }\rho_{\mcal S} (v) = (f,v)-a(u_{\mcal S},v)\, ,\quad v \in H^1_0(\Omega) \, .
+\end{align*}
 
-\item
-\begin{bem}
+
+\begin{bem}\label{bem:4.3}
 \begin{enumerate}[(a)]
 \item Die Linearform $\rho_{\mcal S}$ stellt das Residuum der Variationsgleichung (d.h. ohne Hindernis) dar.
 \item Nach dem Darstellungssatz von Riesz existiert ein $v^* \in H^1_0(\Omega)$, so dass
 \[
-	(v^*,v)_1 = \rho_{\mcal S} (v) \quad\forall \, v \in H^1_0(\Omega)
+	(v^*,v) = \rho_{\mcal S} (v) \quad\forall \, v \in H^1_0(\Omega)
 \]
 ist. Wir können also $v^*$ als Lagrange-Multiplikator bzgl. der Nebenbedingung $v \ge \psi$ interpretieren.
 \end{enumerate}
 \end{bem}
 
-\item neues Minimierungsproblem, jetzt für den Fehler $e$.
-\begin{satz}[Lösung des Defektproblems]
+
+Damit führen wir das \idx{Defektproblem} für das Hindernisproblem ein, welches der exakte Fehler $e$ löst.
+
+
+\begin{satz}[Lösung des Defektproblems]\label{satz:4.4}
 Mit den obigen Bezeichnungen löst die Fehlerfunktion $e$ folgendes Defektproblem:
 \begin{align}\label{eq:4.2}
 	e \in \mcal A:\quad  \mcal I(e) \le \mcal I(v) \quad \forall \, v \in \mcal A \, ,
 \end{align}
-wobei $\mcal A \coloneqq \{v \in H^1_0(\Omega) \with v \ge \psi-u_{\mcal S}\} = -u_{\mcal S} + K$.
+wobei $\mcal A \coloneqq \{v \in H^1_0(\Omega) \mid v \ge \psi-u_{\mcal S}\} = -u_{\mcal S} + K$.
 \end{satz}
 
 \begin{proof}
@@ -127,7 +136,8 @@ Wir rechnen für die linke Seite nach, dass gilt
 \begin{align*}
 	J(u)-J(u_{\mcal S}) & = \frac 1 2 a(u,u) - (f,u) -\(\frac 1 2 a(u_{\mcal S},u_{\mcal S}) - (f,u_{\mcal S})\) \\
 	& = \frac 1 2 a(u,u)  + \frac 1 2 a(u_{\mcal S},u_{\mcal S}) - a(u_{\mcal S},u_{\mcal S}) - (f,u-u_{\mcal S}) \\
-	& = \frac 1 2 a(u,u)  + \frac 1 2 a(u_{\mcal S},u_{\mcal S}) - a(u_{\mcal S},u) - ((f,u-u_{\mcal S})- a(u_{\mcal S},u-u_{\mcal S})) \\
+	& = \frac 1 2 a(u,u)  + \frac 1 2 a(u_{\mcal S},u_{\mcal S}) - a(u_{\mcal S},u) \\ 
+	& \ \ \, - ((f,u-u_{\mcal S})- a(u_{\mcal S},u-u_{\mcal S})) \\
 	& = \frac 1 2a(u-u_{\mcal S},u-u_{\mcal S})- \rho_{\mcal S} (u-u_{\mcal S}) \\
 	& = \frac 1 2 a(e,e)-\rho_{\mcal S} (e) = \mcal I(e) \, .
 \end{align*}
@@ -137,8 +147,8 @@ Analog gilt für die rechte Seite $J(\tilde v ) - J(u_{\mcal S}) = \mcal I(\tild
 \]
 \end{proof}
 
-\item
-\begin{kor}
+
+\begin{kor}\label{kor:4.5}
 Das Problem \eqref{eq:4.2} ist äquivalent zur Variationsungleichung: Finde $e \in \mcal A$ mit
 \begin{align}\label{eq:4.3}
 	a(e,v-e) \ge \rho_{\mcal S} (v-e) \quad \forall \, v \in \mcal A \, .
@@ -146,43 +156,43 @@ Das Problem \eqref{eq:4.2} ist äquivalent zur Variationsungleichung: Finde $e \
 \end{kor}
 
 \begin{proof}
-Analog zu Lemma \ref{lem:3.1} lässt sich zeigen, dass $\mcal A$ abgeschlossen und konvex ist. Mit Satz \ref{satz:A.10} folgt dann die Behauptung.
+Analog zu Lemma \ref{lem:3.1} lässt sich zeigen, dass $\mcal A$ abgeschlossen und konvex ist. Aus Lemma \ref{lem:2.10} und \ref{lem:2.11} folgt, dass $\mcal I$ konvex und \idx{Gâteaux-differenzierbar} ist und mit Satz \ref{satz:A.10} folgt dann die Behauptung.
 \end{proof}
 
-\item da $\psi$ stückweise linear ist, liegt $0 \in \mcal A$, d.h. das "`gewünschte"' Ergebnis für $e$ liegt im betrachteten Raum
 
-\item
 \begin{bem*}
-Wir werden noch zeigen, dass $\rho_{\mcal S}$ eine Schlüsselgröße für die a posteriori Abschätzung darstellt.
+\begin{enumerate}[(a)]
+\item Da $\psi$ stückweise linear ist und $\psi-u_{\mcal S} \le 0$ gilt, folgt $0 \in \mcal A$, d.h. das "`gewünschte"' Ergebnis für den Fehler $e$ liegt in der für das Defektproblem betrachteten Menge.
+\item Wir werden noch zeigen, dass $\rho_{\mcal S}$ eine Schlüsselgröße für die a posteriori Abschätzung darstellt.
+\end{enumerate}
 \end{bem*}
 
-\item a posteriori Schätzer in 2 Schritten
+
+Die Herleitung des a posteriori Schätzers vollzieht sich jetzt analog zu Kapitel \ref{kap:2.4.1} in zwei Schritten.
 \begin{enumerate}[(i)]
-\item	diskreditiere \eqref{eq:4.3} bzgl. einer Erweiterung von $\mcal S_h$ (hier quadratische Funktionen), so dass $e$ hinreichend genau approximiert wird.
-\item Aufteilung des neuen Raumes, sodass \eqref{eq:4.3} lokal in der Erweiterung exakt gelöst werden kann
+\item	Diskretisiere \eqref{eq:4.3} bzgl. einer Erweiterung von $\mcal S_h$ (hier mit quadratischen Funktionen), so dass $e$ hinreichend genau approximiert wird.
+\item Teile den neuen Raum so auf, dass \eqref{eq:4.3} lokal in der Erweiterung exakt gelöst werden kann.
 \end{enumerate}
 
-\item als Erweiterung von $\mcal S_h$ betrachten wir einen Raum $\mcal Q_h$ mit $\mcal S_h \subset \mcal Q_h$.
 
-\item hier bietet sich an: $\mcal Q_h \coloneqq \{v \in C^0(\Omega) \with v|_T \in \mcal P_2 \text{ für } T\in \mcal T_h, v|_{\partial\Omega} = 0\}$, also der Raum der quadratischen Spline über einer quasi-uniformen Zerlegung $\mcal T_h$.
-
-\item damit definiere $\mcal N_{\mcal Q} \coloneqq \mcal N \cup \{x_E \with E \in \mcal E\}$, wobei $x_E$ den Mittelpunkt der Kante $E$ darstellt und $\mcal E$ somit die Menge aller Kanten ist.
-
-\item damit ergibt sich $\mcal A$ über $\mcal Q$ diskret als
+Als Erweiterung von $\mcal S_h$ betrachten wir einen Raum $\mcal Q_h$ mit $\mcal S_h \subset \mcal Q_h$, wobei
+\[
+	\mcal Q_h \coloneqq \{v \in C^0(\Omega) \mid v|_T \in \mcal P_2 \text{ für } T\in \mcal T_h, v|_{\partial\Omega} = 0\}
+\]
+ist, d.h. der Raum der stückweise quadratischen Funktionen über einer quasi-uniformen Zerlegung $\mcal T_h$. Damit definieren wir $\mcal N_{\mcal Q} \coloneqq \mcal N \cup \{x_E \mid E \in \mcal E\}$, wobei $x_E$ den Mittelpunkt der Kante $E$ bezeichne und $\mcal E$ somit die Menge aller Kanten ist. Daraus ergibt sich $\mcal A$ über $\mcal Q_h$ diskret als
 \begin{align}\label{eq:4.4}
-	\mcal A_{\mcal Q} \coloneqq \{v \in \mcal Q_h \with v(p) \ge \psi(p)-u_{\mcal S}(p) \, \forall \, p \in \mcal N_{\mcal Q} \cap \Omega\}
+	\mcal A_{\mcal Q} \coloneqq \{v \in \mcal Q_h \mid v(p) \ge \psi(p)-u_{\mcal S}(p) \, \forall \, p \in \mcal N_{\mcal Q} \cap \Omega\} 
 \end{align}
-
-\item im Bezug zu \eqref{eq:4.4} ergibt sich dann das diskrete Defektproblem
+und im Bezug zu \eqref{eq:4.4} erhalten wir somit das diskrete Defektproblem
 \begin{align}\label{eq:4.5}
-	e_{\mcal Q} \in \mcal A_{\mcal Q} : \quad a(e_{\mcal Q}, v-e_{\mcal Q}) \ge \rho_{\mcal S}(v-e_{\mcal Q}) \quad \forall \, v \in \mcal A_{\mcal Q}
+	e_{\mcal Q} \in \mcal A_{\mcal Q} : \quad a(e_{\mcal Q}, v-e_{\mcal Q}) \ge \rho_{\mcal S}(v-e_{\mcal Q}) \quad \forall \, v \in \mcal A_{\mcal Q} \, .
 \end{align}
 
-\item 
-\begin{bem}
-Im Allgemeinen gilt hierbei nicht $\mcal A_{\mcal Q} \subset \mcal A$. So kann man sich anschaulich eine quadratische Funktion $v_{\mcal Q} \in \mcal A_{\mcal Q}$ vorstellen, die allerdings zwischen den übereinstimmenden Werten aufgrund ihrer Krümmung das lineare Hindernis aus $\mcal A$ durchdringt.
 
-\begin{figure}[h]
+\begin{bem}\label{bem:4.6}
+Im Allgemeinen gilt hierbei nicht $\mcal A_{\mcal Q} \subset \mcal A$. So kann man sich anschaulich eine quadratische Funktion $v_{\mcal Q} \in \mcal A_{\mcal Q}$ vorstellen, die allerdings zwischen den übereinstimmenden Werten aufgrund ihrer Krümmung das lineare Hindernis aus $\mcal A$ durchdringt (vgl. das eindimensionale Beispiel aus Abbildung \ref{abb:4.1}).
+
+\begin{figure}[h!]
 \begin{center}
 	\begin{pspicture}(0,0)(5,3)
 		% Koordinatensystem:
@@ -205,33 +215,29 @@ Im Allgemeinen gilt hierbei nicht $\mcal A_{\mcal Q} \subset \mcal A$. So kann m
 		\rput(0.5,0.7){$v$}
 	\end{pspicture}
 \end{center}
-\caption{Beispiel eines affinen Hindernisses $\psi$ mit $v \in \mcal A_{\mcal Q}$ in $\R$}
+\caption{Beispiel eines affinen Hindernisses $\psi$ mit $v \in \mcal A_{\mcal Q}$ in $\R$\label{abb:4.1}}
 \end{figure}
 \end{bem}
 
-\item hierarchische Aufteilung von $\mcal Q_h$ durch $\mcal Q_h = \mcal S_h \oplus \mcal V_h$, wobei $\mcal V_h \coloneqq \{\phi_E \with E \in \mcal E\}$ ist und $\phi_E$ die \textit{\idx{Bubble-Funktion}} mit
+
+Als hierarchischen Split des Raumes $\mcal Q_h$ verwenden wir $\mcal Q_h = \mcal S_h \oplus \mcal V_h$, wobei $\mcal V_h \coloneqq \{\phi_E \mid E \in \mcal E\}$ der Raum der quadratischen \textit{Bubble-Funktionen}\index{Bubble-Funktion} ist, wobei solch eine Bubble-Funktion $\phi_E$ bzgl. der Eck- und Kantenmittelpunkte eines Dreiecks definiert ist durch
 \[
 	\phi_E (p) = \delta_{x_E,p} = \begin{cases}
 								1, & p = x_E \\
 								0, & \text{sonst}
-							\end{cases}
+							\end{cases} .
 \]
-ist
+Es stellt sich nun die Frage, ob $\mcal Q_h$ wirklich als direkte Summe der beiden Räume $\mcal S_h$ und $\mcal V_h$ geschrieben werden kann.
 
-\item
-\begin{bsp}
-allgemeine Skizze und die drei bubble Funktionen auf einem Referenzdreieck
-\end{bsp}
 
-\item
-\begin{satz}
+\begin{satz}\label{satz:4.7}
 Mit den oben verwendeten Notationen gilt $\mcal Q_h = \mcal S_h \oplus \mcal V_h$.
 \end{satz}
 
 \begin{proof}
-Wir zeigen, dass $\mcal Q_h = \mcal S_h \oplus \mcal V_h$ auf dem Referenzdreieck gilt und damit gilt es auch für beliebige Dreiecke $T \in \mcal T_h$, da ein allgemeines Dreieck $T$ aus dem Referenzelement $\tilde T$ durch affine Transformation hervorgeht.
+Wir zeigen, dass $\mcal Q_h = \mcal S_h \oplus \mcal V_h$ auf dem Referenzdreieck gilt und damit gilt es auch für beliebige Dreiecke $T \in \mcal T_h$, da ein allgemeines Dreieck $T$ aus dem Referenzelement $\widetilde T$ (vgl. Kapitel \ref{kap:2.3}) durch affine Transformation hervorgeht.
 
-Auf dem Referenzelement $\tilde T$ ist $\{\phi_1,\phi_2,\phi_3\}$ eine Basis von $\mcal S_h$ mit
+Auf dem Referenzelement $\widetilde T$ ist $\{\phi_1,\phi_2,\phi_3\}$ eine Basis von $\mcal S_h$ mit
 \[
 	\phi_1(\xi,\eta) = 1-\xi-\eta \, , \quad \phi_2(\xi,\eta) = \xi \, , \quad \phi_3(\xi,\eta) = \eta
 \]
@@ -250,25 +256,23 @@ als Linearkombination aus den Funktionen beschrieben werden kann ($\phi_1$ bis $
 Aus der linearen Unabhängigkeit folgt damit auch $\mcal S_h \cap \mcal V_h = \{0\}$ gilt und damit die Behauptung.
 \end{proof}
 
-\item daher kann jedes Element $v_{\mcal Q} \in \mcal Q_h$  als $v_{\mcal Q} = v_{\mcal S} + v_{\mcal V}$ mit $v_{\mcal S} \in \mcal S_h, v_{\mcal V}\in \mcal V_h$ geschrieben werden
-
-\item aus diesem Grund führen wir folgende Bilinearform ein:
+Satz \ref{satz:4.7} erlaubt es uns also, jedes Element $v_{\mcal Q} \in \mcal Q_h$  als $v_{\mcal Q} = v_{\mcal S} + v_{\mcal V}$ mit $v_{\mcal S} \in \mcal S_h, v_{\mcal V}\in \mcal V_h$ schreiben zu können. Aus diesem Grund führen wir folgende Bilinearform ein:
 \begin{align*}
 	a_{\mcal Q} (v,w) \coloneqq a(v_{\mcal S},w_{\mcal S}) + \sum_{E \in \mcal E} u_{\mcal V}(x_E) w_{\mcal V}(x_E) a(\phi_E,\phi_E) \quad \forall \, v,w \in \mcal Q_h \, ,
 \end{align*}
-welche aufgrund der Eigenschaften der direkten Summe von $\mcal S_h$ und $\mcal V_h$ wohldefiniert ist.
+welche aufgrund der Eigenschaften der direkten Summe von $\mcal S_h$ und $\mcal V_h$ wohldefiniert ist. Dabei erhält man $a_{\mcal Q}$ durch Entkopplung von $a$ bzgl. der Räume $\mcal S_h$ und $\mcal V_h$ und anschließender "`Diagonalisierung"' auf $\mcal V_h$ in dem Sinne, dass wir nur noch die Koordinaten der Elemente $v,w$ auf $\mcal V_h$ betrachten, deren Basisfunktionen $\phi_E$ gleich sind. Wenn wir mittels $a_{\mcal Q}$ eine Matrix bzgl. der Basisfunktionen $\phi_E$ mit dem bekannten Muster aus dem Galerkinverfahren aufstellen, ergibt sich eine Diagonalmatrix.
 
-\item dabei ergibt sich $a_{\mcal Q}$ durch Entkopplung von $\mcal S_h$ und $\mcal V_h$ und anschließender "`Diagonalisierung"' auf $\mcal V$
+Es ist legitim und sinnvoll mit der im Vergleich zur Bilinearform $a$ einfacheren Form $a_{\mcal Q}$ weiterzuarbeiten, was  der folgende Satz besagt.
 
-\item sinnvoll $a_{\mcal Q}$ so einzuführen, denn:
-\begin{satz}\label{satz:4.9}
+
+\begin{satz}\label{satz:4.8}
 Die zu $a_{\mcal Q}$ assoziierte Energienorm
 \begin{align*}
 	\norm v_{\mcal Q}\coloneqq a_{\mcal Q}(v,v)^{\frac 1 2} \, , \quad v \in \mcal Q_h
 \end{align*}
-ist äquivalent zur Energienorm $\norm\cdot_E$, d.h. es gibt Konstanten $c_1,c_2$ $($die insbesondere nur von der Quasi-Uniformität von $\mcal T_h$ abhängen$)$, so dass
+ist äquivalent zur Energienorm $a(\cdot,\cdot)^{\frac 12} = \norm\cdot$, d.h. es gibt Konstanten $c_1,c_2$ $($die insbesondere nur von der Quasi-Uniformität von $\mcal T_h$ abhängen$)$, so dass
 \[
-	c_1 \norm v_E \le \norm v_{\mcal Q} \le c_2 \norm v_E \, , \quad \forall \, v \in \mcal Q_h \, .
+	c_1 \, \norm v \le \norm v_{\mcal Q} \le c_2 \, \norm v \, , \quad \forall \, v \in \mcal Q_h \, .
 \]
 \end{satz}
 
@@ -276,21 +280,16 @@ ist äquivalent zur Energienorm $\norm\cdot_E$, d.h. es gibt Konstanten $c_1,c_2
 Die Aussage folgt aus Theorem 4.1 bzw. Bemerkung 4.3 in \cite{HoppeKorn} zusammen mit dem Lemma auf Seite 14 in \cite{Deufl}.
 \end{proof}
 
-\item daher führen wir die approximierte Energie
+
+Deshalb führen wir die approximierte Energie
 \begin{align}\label{eq:4.6}
 	\mcal I_{\mcal Q} (v) \coloneqq \frac 1 2 a_{\mcal Q}(v,v)-\rho_{\mcal S}(v) \, , \quad v \in \mcal Q_h 
 \end{align}
-ein.
-
-\item das damit verbundene Defektproblem ist allerdings noch durch die Nebenbedingung aus $\mcal A_{\mcal Q}$ mit $\mcal S_h$ gekoppelt und daher noch nicht alleine auf die Raumerweiterung $\mcal V_h$ bezogen.
-
-\item Als Abhilfe ignorieren wir einfach die linearen Beiträge in $\mcal A_{\mcal Q}$ und führen eine echte Teilmenge 
+ein, das damit verbundene Defektproblem ist allerdings noch durch die Nebenbedingung aus $\mcal A_{\mcal Q}$ mit $\mcal S_h$ gekoppelt und daher noch nicht alleine auf die Raumerweiterung $\mcal V_h$ bezogen. Als Abhilfe ignorieren wir einfach die linearen Beiträge in $\mcal A_{\mcal Q}$ und führen eine echte Teilmenge 
 \begin{align}\label{eq:4.7}
-	\mcal A_{\mcal V} \coloneqq \{v \in \mcal V \with v(x_E) \ge \psi(x_E)-u_{\mcal S}(x_E) \, \forall \, E \in \mcal E\}
+	\mcal A_{\mcal V} \coloneqq \{v \in \mcal V_h \mid v(x_E) \ge \psi(x_E)-u_{\mcal S}(x_E) \, \forall \, E \in \mcal E\}
 \end{align}
-von $\mcal A_{\mcal Q}$ ein.
-
-\item zusammen mit \eqref{eq:4.6} und \eqref{eq:4.7} erhalten wir das lokale diskrete Defektproblem
+von $\mcal A_{\mcal Q}$ ein. Zusammen mit \eqref{eq:4.6} und \eqref{eq:4.7} erhalten wir dann das lokale diskrete Defektproblem\index{Defektproblem!lokales}
 \begin{align}\label{eq:4.8}
 	\eps_{\mcal V} \in \mcal A_{\mcal V} : \quad \mcal I_{\mcal Q}(\eps_{\mcal V}) \le \mcal I_{\mcal Q} (v) \quad \forall \, v \in \mcal A_{\mcal V}
 \end{align}
@@ -299,24 +298,27 @@ bzw. die dazu äquivalente Variationsungleichung
 	\eps_{\mcal V} \in \mcal A_{\mcal V} : \quad a_{\mcal Q} (\eps_{\mcal V},v-\eps_{\mcal V})\ge \rho_{\mcal S} (v-\eps_{\mcal V}) \quad \forall \, v \in \mcal A_{\mcal V} \, .
 \end{align}
 
-\item
-\begin{bem}
+
+\begin{bem}\label{bem:4.9}
 \begin{enumerate}[(a)]
 \item Da $\psi$ stetig stückweise linear ist und somit $u_{\mcal S} \ge \psi$ gilt, folgt $0 \in \mcal A_{\mcal V}$. Damit ist auch hier die gewünschte Lösung für $\eps_{\mcal V}$ in $\mcal A_{\mcal V}$ enthalten
 \item	Auch für $\mcal A_{\mcal V}$ lässt sich mit analogem Vorgehen zu Lemma \ref{lem:3.1} die Konvexität zeigen.
 \end{enumerate}
 \end{bem}
 
-\item
-\begin{lemma}
+
+\begin{lemma}\label{lem:4.10}
 Das Energiefunktional $\mcal I_{\mcal Q}$ ist konvex.
 \end{lemma}
 
 \begin{proof}
-Da $a$ eine stetige koerzive Bilinearform, werden aufgrund der Konstruktion von $a_{\mcal Q}$ diese Eigenschaften auch auf $a_{\mcal Q}$ übertragen. Weiterhin ist leicht zu überprüfen, dass $\rho_{\mcal S}$ eine stetige Linearform ist. Dann folgt aus Lemma \ref{lem:2.3} direkt die Behauptung.
+Da $a$ eine stetige koerzive Bilinearform, werden aufgrund der Konstruktion von $a_{\mcal Q}$ diese Eigenschaften auch auf $a_{\mcal Q}$ übertragen. Weiterhin ist leicht zu überprüfen, dass $\rho_{\mcal S}$ eine stetige Linearform ist. Dann folgt aus Lemma \ref{lem:2.10} direkt die Behauptung.
 \end{proof}
 
-\item Lösung des lokalen Defektproblems
+
+Das lokale diskrete Defektproblem \eqref{eq:4.9} ist sogar exakt lösbar. Die Lösung des Problems gibt uns der nächste Satz.
+
+
 \begin{satz}
 Die Lösung von \eqref{eq:4.8} bzw. \eqref{eq:4.9} ist explizit gegeben durch
 \begin{align}\label{eq:4.10}
@@ -339,9 +341,9 @@ Es sei $M = \abs{\mcal E}$ die Anzahl der Kanten. Zunächst berechnen wir zur be
 	\label{eq:4.12}
 	& = \max \left\{\psi (x_E)-u_{\mcal S}(x_E)  ,\frac 1{\norm{\phi_E}^2} ((f,\phi_E)-a(u_{\mcal S},\phi_E))	\right\} \, .
 \end{align}
-Da  $\eps_{\mcal V} = \sum_{E \in \mcal E} \eps_{\mcal V}(x_E) \phi_E$ ist, können wir \eqref{eq:4.8} bzgl. der Basis $\{\phi_E \with E \in \mcal E\}$ von $\mcal V_h$ diskret schreiben als
+Da  $\eps_{\mcal V} = \sum_{E \in \mcal E} \eps_{\mcal V}(x_E) \phi_E$ ist, können wir \eqref{eq:4.8} bzgl. der Basis $\{\phi_E \mid E \in \mcal E\}$ von $\mcal V_h$ diskret schreiben als
 \begin{align*}
-	\min \frac 1 2 \bs v^T D \bs v - \bs g^T \bs v \quad \text{s.t.} \quad\bs v \ge \bs \psi - \bs u_{\mcal S}\, , 
+	\min_{\bs v \in \R^M} \frac 1 2 \bs v^T D \bs v - \bs g^T \bs v \quad \text{s.t.} \quad\bs v \ge \bs \psi - \bs u_{\mcal S}\, , 
 \end{align*}
 wobei $\bs v = [\eps_{\mcal V}(x_{E_i})]_{1\le i \le M}, D = \operatorname{diag}(a(\phi_{E_1},\phi_{E_1}),\ldots,a(\phi_{E_M},\phi_{E_M})), \bs g = [(f,\phi_{E_i})-a(u_{\mcal S},\phi_{E_i})]_{1\le i\le M}, \bs \psi = [\psi(x_{E_i})]_{1\le i \le M}$ und $ \bs u_{\mcal S} = [u_{\mcal S}(x_{E_i})]_{1\le i \le M}$. Da $\mcal A_{\mcal V}$ und $\mcal I_{\mcal Q}$ konvex sind, existiert ein Minimum $\bs v^* \in \mcal A_{\mcal V}$ von $\mcal I_{\mcal Q}$, das die KKT-Bedingungen erfüllt. Damit gilt
 \begin{subequations}\label{eq:4.13}
@@ -361,6 +363,7 @@ Es sei $k \in \{1,\ldots,M\}$ beliebig.
 \[
 	\eps_{\mcal V} (x_{E_k}) = v_k = \frac {g_k}{a(\phi_{E_k},\phi_{E_k})} = \frac 1{\norm{\phi_{E_k}}^2} ((f,\phi_{E_k})-a(u_{\mcal S},\phi_{E_k})) \, .
 \]
+
 \underline{Fall 2:} Gilt $\lambda_k \not= 0$, dann folgt wegen \eqref{eq:4.13d}
 \[
 	\eps_{\mcal V} (x_{E_k}) =v_k = (\bs \psi - \bs u_{\mcal S})_k = \psi(x_{E_k}) - u_{\mcal S}(x_{E_k})\, .
@@ -368,15 +371,14 @@ Es sei $k \in \{1,\ldots,M\}$ beliebig.
 Insgesamt folgt mit \eqref{eq:4.13c} und \eqref{eq:4.12} die Behauptung.
 \end{proof}
 
-\item wir wollen im weiteren den a posteriori Fehlerschätzer
+
+Als a posteriori Fehlerschätzer werden wir im Folgenden 
 \[
 	-\mcal I_{\mcal Q} (\eps_{\mcal V})= -\frac 1 2 a_{\mcal Q}(\eps_{\mcal V},\eps_{\mcal V}) + \rho_{\mcal S}(\eps_{\mcal V})
 \]
-betrachten und werden zeigen, dass er äquivalent zu $J(u_{\mcal S}) - J(u)$ ist (vgl. Kapitel \ref{kap:4.1.4} und \ref{kap:4.1.5})
+betrachten und zeigen, dass dieser äquivalent zum Fehler im Funktional $J(u_{\mcal S}) - J(u)$ ist (vgl. Kapitel \ref{kap:4.1.4} und \ref{kap:4.1.5}). Zunächst wollen wir aber eine Einführung der lokalen Anteile des Fehlerschätzers $-\mcal I_{\mcal Q} (\eps_{\mcal V})$ bieten.
 
-\item zunächst aber Einführung des lokalen Anteils des Fehlerschätzers $-\mcal I_{\mcal Q} (\eps_{\mcal V})$
-\end{itemize}
-
+%---------------------------------------------------
 
 
 
@@ -498,7 +500,7 @@ Hiermit ergibt sich aus \eqref{eq:4.17}
 	& =  \int_{\Omega} fv \, dx + \sum_{E\in \mcal E} \int_{E} j_E v \, ds \, .
 \end{align}
 
-\item da für die nodalen Basisfunktionen $\{\phi_p \with p \in \mcal N\cap \Omega\}$ gilt
+\item da für die nodalen Basisfunktionen $\{\phi_p \mid p \in \mcal N\cap \Omega\}$ gilt
 \[
 	\sum_{p \in \mcal N} \phi_p = 1 \text{ auf ganz } \Omega \, , 
 \]
@@ -513,7 +515,7 @@ Für $\rho_p$ gilt
 \begin{align*}
 	\rho_p (v) = \int_{\omega_p} f v \phi_p \, dx + \sum_{E\in \mcal E_p} \int_E j_E v \phi_p \, ds  \, , \quad v \in H^1(\Omega)
 \end{align*}
-mit $\omega_p \coloneqq \supp \phi_p$ und $\mcal E_p \coloneqq \{E \in \mcal E \with E \ni p\}$, d.h. die Menge der Kanten, in denen $p$ enthalten ist.
+mit $\omega_p \coloneqq \supp \phi_p$ und $\mcal E_p \coloneqq \{E \in \mcal E \mid E \ni p\}$, d.h. die Menge der Kanten, in denen $p$ enthalten ist.
 \end{lemma}
 
 \begin{proof}
@@ -633,8 +635,8 @@ und damit gilt $\rho_{\mcal S} (\phi_p) = 0$
 \begin{defi}
 Wir definieren die Mengen von \textit{Kontaktpunkten}\index{Kontaktpunkte} $\mcal N^0$ und \textit{Nichtkontaktpunkten}\index{Nichtkontaktpunkte} $\mcal N^+$ durch
 \begin{align*}
-	\mcal N^0 \coloneqq  \{p \in \mcal N \cap \Omega \with u_{\mcal S}(p) = \psi (p) \} \, , \quad 
-	\mcal N^+ \coloneqq  \{p \in \mcal N \cap \Omega \with u_{\mcal S}(p) > \psi (p) \}\, .
+	\mcal N^0 \coloneqq  \{p \in \mcal N \cap \Omega \mid u_{\mcal S}(p) = \psi (p) \} \, , \quad 
+	\mcal N^+ \coloneqq  \{p \in \mcal N \cap \Omega \mid u_{\mcal S}(p) > \psi (p) \}\, .
 \end{align*}
 \end{defi}
 
@@ -688,7 +690,7 @@ eingeführt. Wir wählen hier absichtlich eine leicht veränderte Darstellung, d
 \begin{align}
 	\osc_1(u_{\mcal S},\psi) \coloneqq \(\sum_{p \in \mcal N^{0+}} \norm{\nabla (\psi - u_{\mcal S})}_{0,\omega_p}^2\)^{\frac 12} \, ,
 \end{align}
-wobei $\mcal N^{0+} \coloneqq \{p \in \mcal N^0 \with u_{\mcal S} > \psi \text{ in }\omega_p \setminus \{p\}\}$, also die Megne der \textit{isolierten Kontaktknoten}, d.h. $u_{\mcal S}$ ist in $\omega_p$ nur mit $p$ in Kontakt
+wobei $\mcal N^{0+} \coloneqq \{p \in \mcal N^0 \mid u_{\mcal S} > \psi \text{ in }\omega_p \setminus \{p\}\}$, also die Megne der \textit{isolierten Kontaktknoten}, d.h. $u_{\mcal S}$ ist in $\omega_p$ nur mit $p$ in Kontakt
 
 \item anschaulich: da $\psi, u_{\mcal S}$ linear, gilt: je größer die Differenz zwischen $\psi$ und $u_{\mcal S}$, umso größer die Differenz $\nabla(\psi-u_{\mcal S})$, d.h. auch $\osc_1$
 
@@ -705,11 +707,11 @@ wobei $\mcal N^{0+} \coloneqq \{p \in \mcal N^0 \with u_{\mcal S} > \psi \text{ 
 
 \item $\osc_2$ ist über zwei Mengen definiert:
 \begin{align}
-	\mcal N^{++} \coloneqq \{p \in \mcal N^{+}\with \rho_E \ge - d_E \, \forall \, E \in \mcal E_p\}
+	\mcal N^{++} \coloneqq \{p \in \mcal N^{+}\mid \rho_E \ge - d_E \, \forall \, E \in \mcal E_p\}
 \end{align}
 d.h. alle Punkte ohne Kontakt, in denen der Fehler $\eps_{\mcal V}$ nicht in Kontakt mit $\mcal A_{\mcal V}$ steht (wie in Beweis von Satz \ref{satz:4.11} ersichtlich)
 \begin{align}
-	\mcal N^{0-}\coloneqq \{ p \in \mcal N^0 \with u_{\mcal S} = \psi , f \le 0 \text{ auf } \omega_p, j_E \le 0 \, \forall \, E \in \mcal E_p \}
+	\mcal N^{0-}\coloneqq \{ p \in \mcal N^0 \mid u_{\mcal S} = \psi , f \le 0 \text{ auf } \omega_p, j_E \le 0 \, \forall \, E \in \mcal E_p \}
 \end{align}
 d.h. voller Kontakt (s. auch \cite{SiebVee} Gleichung (2.11)) mit Last $f$ auf Druck und negativem Normalenfluss $j_E$
 
@@ -776,7 +778,7 @@ $\mcal N\setminus (\mcal N^{0-}\cup \mcal N^{++})$ ist die Menge von Punkten, di
 
 \item die Reduktion des Fehlers $e = u-u_{\mcal S} \in H^1_0(\Omega)$ auf den approximierten Fehler $\eps_{\mcal V}\in \mcal V$ erhalten wir durch lokale Projektionen für jedes $p \in \mcal N$ mit
 \begin{align}
-	\pi_p: H^1(\Omega) \ra \mcal Q_p = \Span \{ \phi_p\} \cup \mcal V_p \, , \quad \mcal V_p = \Span\{\phi_E \with E \in \mcal E_p\} \, .
+	\pi_p: H^1(\Omega) \ra \mcal Q_p = \Span \{ \phi_p\} \cup \mcal V_p \, , \quad \mcal V_p = \Span\{\phi_E \mid E \in \mcal E_p\} \, .
 \end{align}
 
 \item $\pi_p$ ist für jedes $v \in H^1(\Omega)$ aus Dimensionsgründen ($\dim (\mcal Q_p) = p+1$) eindeutig bestimmt durch
@@ -789,7 +791,7 @@ $\mcal N\setminus (\mcal N^{0-}\cup \mcal N^{++})$ ist die Menge von Punkten, di
 
 \item
 \begin{lemma}
-Es sei $\pi_p$ die oben beschriebene Projektion. Dann gelten für die Koordinaten bzgl. der Basis $\{\phi_p\}\cup \{\phi_E \with E \in \mcal E_p\}$ von 
+Es sei $\pi_p$ die oben beschriebene Projektion. Dann gelten für die Koordinaten bzgl. der Basis $\{\phi_p\}\cup \{\phi_E \mid E \in \mcal E_p\}$ von 
 \[
 	\pi_p v = \alpha_p(v) \phi_p + \sum_{E \in \mcal E_p} \alpha_E(v) \phi_E
 \]
@@ -1418,13 +1420,13 @@ Da $e_{\mcal Q},\eps_{\mcal Q}\in \mcal A_{\mcal Q}$ Lösungen von \eqref{eq:4.5
 \begin{align}\label{eq:my4.85}
 	-a(e_{\mcal Q}, \eps_{\mcal Q}-e_{\mcal Q}) \le \rho_{\mcal S} (e_{\mcal Q}-\eps_{\mcal Q}) \le a_{\mcal Q} (\eps_{\mcal Q},e_{\mcal Q}-\eps_{\mcal Q}) \, .
 \end{align}
-Dann folgt wegen der Äquivalenz von $\norm\cdot_{\mcal Q}$ und $\norm{\cdot}$ (vgl. Satz \ref{satz:4.9}), der Cauchy-Schwarz-Ungleichung und \eqref{eq:my4.85} die obere Schranke
+Dann folgt wegen der Äquivalenz von $\norm\cdot_{\mcal Q}$ und $\norm{\cdot}$ (vgl. Satz \ref{satz:4.8}), der Cauchy-Schwarz-Ungleichung und \eqref{eq:my4.85} die obere Schranke
 \begin{align*}
 	\norm{\eps_{\mcal Q}-e_{\mcal Q}}^2 & = a(\eps_{\mcal Q}-e_{\mcal Q},\eps_{\mcal Q}-e_{\mcal Q}) \\
 	& = a(\eps_{\mcal Q},\eps_{\mcal Q}-e_{\mcal Q})-a(e_{\mcal Q},\eps_{\mcal Q}-e_{\mcal Q})\\
 	&\!\!\!\!\!\; \stackrel{\scriptsize \eqref{eq:my4.85}}\le a(\eps_{\mcal Q},\eps_{\mcal Q}-e_{\mcal Q})+a_{\mcal Q}(\eps_{\mcal Q},e_{\mcal Q}-\eps_{\mcal Q}) \\
 	&\!\!\!\;\!\!\!\;\;\!\!\!\:\: \stackrel{\scriptsize \text{C.S.}}\le \norm{\eps_{\mcal Q}} \, \norm{\eps_{\mcal Q}-e_{\mcal Q}} + \norm{\eps_{\mcal Q}}_{\mcal Q} \norm{\eps_{\mcal Q}-e_{\mcal Q}}_{\mcal Q} \\
-	&\!\!\!\!\! \stackrel{\scriptsize \text{Satz \ref{satz:4.9}}}\lesssim \norm{\eps_{\mcal Q}}_{\mcal Q} \norm{\eps_{\mcal Q}-e_{\mcal Q}} \, .
+	&\!\!\!\!\! \stackrel{\scriptsize \text{Satz \ref{satz:4.8}}}\lesssim \norm{\eps_{\mcal Q}}_{\mcal Q} \norm{\eps_{\mcal Q}-e_{\mcal Q}} \, .
 \end{align*}
 Mit Division durch $\norm{\eps_{\mcal Q}-e_{\mcal Q}}$ erhalten wir dann
 \[
