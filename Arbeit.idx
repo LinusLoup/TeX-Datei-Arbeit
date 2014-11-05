@@ -139,19 +139,30 @@
 \indexentry{Tresca-Reibung|hyperpage}{53}
 \indexentry{Coulomb-Reibung|hyperpage}{53}
 \indexentry{Signorini-Kontakt|hyperpage}{53}
-\indexentry{Signorini-Kontakt|hyperpage}{53}
+\indexentry{Signorini-Kontakt|hyperpage}{54}
+\indexentry{Randbedingungen!Dirichlet-Rand|hyperpage}{54}
+\indexentry{Signorini-Kontakt|hyperpage}{54}
 \indexentry{virtuelle Verschiebung|hyperpage}{54}
-\indexentry{Bubble-Funktion|hyperpage}{61}
-\indexentry{Kontaktpunkte|hyperpage}{70}
-\indexentry{Nichtkontaktpunkte|hyperpage}{70}
-\indexentry{verallgemeinerte Poincar\IeC {\'e}-Friedrich-Ungleichung|hyperpage}{77}
-\indexentry{Ungleichungen!Poincar\IeC {\'e}|hyperpage}{77}
-\indexentry{Sobolev-Raum|hyperpage}{99}
-\indexentry{Lebesgue-Raum|hyperpage}{99}
-\indexentry{Raum der Testfunktionen|hyperpage}{99}
-\indexentry{schwache Ableitung|hyperpage}{99}
-\indexentry{G\IeC {\^a}teaux-differenzierbar|hyperpage}{101}
-\indexentry{G\IeC {\^a}teaux-Ableitung|hyperpage}{101}
-\indexentry{G\IeC {\^a}teaux-Ableitung!rechtsseitig|hyperpage}{101}
-\indexentry{G\IeC {\^a}teaux-differenzierbar|hyperpage}{101}
-\indexentry{reflexiver Raum|hyperpage}{102}
+\indexentry{Satz von Gau\IeC {\ss }|hyperpage}{54}
+\indexentry{Einstein'sche Summenkonvention|hyperpage}{55}
+\indexentry{Korn'sche Ungleichung|hyperpage}{56}
+\indexentry{G\IeC {\^a}teaux-differenzierbar|hyperpage}{57}
+\indexentry{Tresca-Reibung|hyperpage}{57}
+\indexentry{Reibungsfunktional|hyperpage}{57}
+\indexentry{G\IeC {\^a}teaux-differenzierbar|hyperpage}{57}
+\indexentry{Active-Set-Algorithmus|hyperpage}{59}
+\indexentry{Bubble-Funktion|hyperpage}{64}
+\indexentry{Kontaktpunkte|hyperpage}{73}
+\indexentry{Nichtkontaktpunkte|hyperpage}{73}
+\indexentry{verallgemeinerte Poincar\IeC {\'e}-Friedrich-Ungleichung|hyperpage}{80}
+\indexentry{Ungleichungen!Poincar\IeC {\'e}|hyperpage}{80}
+\indexentry{Sobolev-Raum|hyperpage}{102}
+\indexentry{Lebesgue-Raum|hyperpage}{102}
+\indexentry{Raum der Testfunktionen|hyperpage}{102}
+\indexentry{schwache Ableitung|hyperpage}{102}
+\indexentry{Spursatz|hyperpage}{104}
+\indexentry{G\IeC {\^a}teaux-differenzierbar|hyperpage}{104}
+\indexentry{G\IeC {\^a}teaux-Ableitung|hyperpage}{104}
+\indexentry{G\IeC {\^a}teaux-Ableitung!rechtsseitig|hyperpage}{104}
+\indexentry{G\IeC {\^a}teaux-differenzierbar|hyperpage}{105}
+\indexentry{reflexiver Raum|hyperpage}{106}
