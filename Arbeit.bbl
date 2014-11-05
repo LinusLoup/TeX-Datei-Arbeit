@@ -119,6 +119,13 @@
 \newblock 2. ed.
 \newblock New York, NY : Springer, 2006
 
+\bibitem[Pag10]{Page}
+\textsc{Page}, M.:
+\newblock Schätzerreduktion und Konvergenz adaptiver FEM für
+  Hindernisprobleme / Universität Wien.
+\newblock 2010. --
+\newblock Masterarbeit
+
 \bibitem[QSS02]{Numa2}
 \textsc{Quarteroni}, A. ; \textsc{Sacco}, R.  ; \textsc{Saleri}, F.:
 \newblock \emph{Numerische Mathematik 2}.

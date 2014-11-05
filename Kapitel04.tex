@@ -1,24 +1,33 @@
 \newchapter{Ein hierarchischer Fehlerschätzer für Hindernisprobleme}
 \label{kap:4}
 
-\begin{itemize}
-\item Vergleich Hindernisprobleme zu Kontaktproblemen $\ra$ warum gerade dieser Fehlerschätzer bei Hindernis- bzw. Kontaktproblemen
-\end{itemize}
+
+Die adaptive Netzverfeinerung (s. Kapitel \ref{kap:2.4}) ist gerade auch bei Hindernis- und Kontaktproblemen von großem Vorteil. Wie wir in Kapitel \ref{kap:3} gesehen haben, führt die Lösung von solchen Problemen auf quadratische Programme, die wir mit zeitaufwändigen Verfahren lösen müssen. An dieser Stelle sei bemerkt, dass man Variationsungleichungen auch mit anderen Verfahren – häufig üblich ist z.B. die \textit{\idx{Penalty-Methode}} – lösen kann, die jedoch nicht weniger aufwendig sind.
+
+
+Um nun eine adaptive Verfeinerungsstrategie herleiten zu können, müssen wir zunächst einen geeigneten Fehlerschätzer für unser Modellproblem \eqref{eq:3.1} erhalten. Dabei ist "`geeignet"' in dem Sinne zu verstehen, dass der Schätzer unseren echten Fehler nach oben und unten beschränkt. Weiter wollen wir mit dem Fehler a posteriori nach jedem Verfeinerungsschritt den Fehler in der nächsten Verfeinerung abschätzen. Mit diesen Fragestellungen werden wir uns in diesem Kapitel beschäftigen und einen ersten adaptiven Algorithmus sowie die Übertragung auf Kontaktprobleme zeigen.
+
+
+Es sei bemerkt, dass man als a posteriori Fehlerschätzer für Hindernisprobleme in der Literatur häufig residuale Schätzer wiederfinden kann. Wir wollen uns jedoch hier mit einem hierarchischen Fehlerschätzer beschäftigen, dessen grundlegende Idee auch schon in Kapitel \ref{kap:2.4.1} dargestellt wurde.
 
 Dieses Kapitel basiert größtenteils auf \cite{ZouVee}.
 
 
-\section{Herleitung eines a posteriori hierarchischen Fehlerschätzers}
+
+
+\section{Herleitung von einem a posteriori hierarchischen Fehlerschätzers}
 \label{kap:4.1}
 
-\begin{itemize}
-\item der Einfachheit halber gehen wir von folgendem Sachverhalt aus
+Bevor wir uns detailliert der Herleitung eines hierarchischen a posteriori Fehlerschätzers widmen, wollen wir eine Generalvoraussetzung für das gesamte Kapitel \ref{kap:4} stellen.
+
+
 \begin{vor}\label{vor:4.1}
 Das Hindernis  wird durch eine stückweise lineare stetige Funktion $\psi$ beschrieben.
 \end{vor}
 
-\item nicht nichtstetige oder auch glatte Hindernisse sind analoge Aussagen, aber schwerer, beweisbar
-\end{itemize}
+
+Für nichtstetige oder auch glatte Hindernisse sind analoge Aussagen beweisbar, die jedoch schwerer zu zeigen sind, bzw. nichtstetige Hindernisse führen sogar auf nichtkonforme Finite-Elemente-Methoden, die nicht Teil dieser Arbeit sind. Für einen residualen Schätzer kann man das Vorgehen für glatte Hindernisse auch in \cite{Page} finden.
+
 
 
 
@@ -911,7 +920,7 @@ Die Idee des Beweises beruht auf Gleichung \eqref{eq:4.20}; damit können wir de
 \begin{align}\label{eq:4.40}
 	\rho_{\mcal S} (e) = \sum_{p \in \mcal N} \rho_p (e) \, .
 \end{align}
-Hierbei ist die Abschätzung der lokalen Anteile $\rho_p(e)$ abhängig von einer Anwendung der Poincaré-Friedrichungleichung (Satz \ref{satz:2.13}), die auf die \textit{\idx{verallgemeinerte Poincaré-Friedrich-Ungleichung}}\index{Ungleichungen!Poincaré} (vgl. auch \cite{Rudin})
+Hierbei ist die Abschätzung der lokalen Anteile $\rho_p(e)$ abhängig von einer Anwendung der Poincaré-Friedrichungleichung (Satz \ref{satz:2.13}), die auf die \textit{verallgemeinerte Poincaré-Friedrich-Ungleichung}\index{Ungleichungen!Poincaré}\index{Poincaré-Friedrich-Ungleichung!verallgemeinerte} (vgl. auch \cite{Rudin})
 \begin{align}\label{eq:4.41}
 	\norm{v-c}_{0,\omega_p} \lesssim h_p \norm{\nabla v}_{0,\omega_p}
 \end{align}

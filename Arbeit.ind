@@ -5,10 +5,12 @@
   \indexspace
 
   \item a posteriori Fehlersch\IeC {\"a}tzer, \hyperpage{27}
+  \item Active-Set-Algorithmus, \hyperpage{59}
   \item aktuelle Konfiguration, \hyperpage{31}
   \item Approximationssatz, \hyperpage{8}
   \item Approximationssatz f\IeC {\"u}r Interpolationen, \hyperpage{26}
-  \item Ausgangskonfiguration, \hyperpage{31}, \hyperpage{49}
+  \item Ausgangskonfiguration, \hyperpage{31}, \hyperpage{49}, 
+		\hyperpage{51}
 
   \indexspace
 
@@ -21,7 +23,7 @@
     \subitem elliptisch, \hyperpage{11}
     \subitem koerziv, \hyperpage{11}
     \subitem stetig, \hyperpage{11}
-  \item Bubble-Funktion, \hyperpage{62}
+  \item Bubble-Funktion, \hyperpage{65}
 
   \indexspace
 
@@ -30,8 +32,8 @@
     \subitem rechter, \hyperpage{32}
   \item Cauchy-Schwarz'sche Ungleichung, \hyperpage{7}, \hyperpage{15}
   \item Cauchy-Spannungstensor, \hyperpage{34}
-  \item Cauchy-Theorem, \hyperpage{53}
-  \item Coulomb-Reibung, \hyperpage{54}
+  \item Cauchy-Theorem, \hyperpage{52}
+  \item Coulomb-Reibung, \hyperpage{53}
   \item Courant-Element, \hyperpage{22}
 
   \indexspace
@@ -46,6 +48,7 @@
   \indexspace
 
   \item ebener Verzerrungszustand, \hyperpage{35}
+  \item Einstein'sche Summenkonvention, \hyperpage{55}
   \item Elastizit\IeC {\"a}tsmodul, \hyperpage{35}
   \item Energie-Norm, \hyperpage{25}
 
@@ -56,13 +59,15 @@
 
   \indexspace
 
-  \item G\IeC {\^a}teaux-Ableitung, \hyperpage{33}, \hyperpage{102}
-    \subitem rechtsseitig, \hyperpage{102}
-  \item G\IeC {\^a}teaux-differenzierbar, \hyperpage{102}
+  \item G\IeC {\^a}teaux-Ableitung, \hyperpage{33}, \hyperpage{105}
+    \subitem rechtsseitig, \hyperpage{105}
+  \item G\IeC {\^a}teaux-differenzierbar, \hyperpage{57}, 
+		\hyperpage{105, 106}
   \item Galerkin-Approximation, \hyperpage{18}, \hyperpage{25, 26}, 
 		\hyperpage{28}
   \item Galerkin-Orthogonalit\IeC {\"a}t, \hyperpage{26}
   \item Galerkin-Verfahren, \hyperpage{18}, \hyperpage{22}
+  \item Gap-Funktion, \hyperpage{51}
   \item global-local node ordering, \hyperpage{24}
 
   \indexspace
@@ -80,36 +85,41 @@
 
   \indexspace
 
+  \item Komplementarit\IeC {\"a}tsbedingung, \hyperpage{52}
   \item Konfiguration, \hyperpage{31}
     \subitem aktuelle, \hyperpage{31}
     \subitem Ausgangs-, \hyperpage{31}
     \subitem Momentan-, \hyperpage{31}
     \subitem Referenz-, \hyperpage{31}
   \item Kontaktproblem, \hyperpage{49}
-  \item Kontaktpunkte, \hyperpage{71}
+  \item Kontaktpunkte, \hyperpage{73}
   \item Kontaktrand, \hyperpage{52}
   \item Kontinuum, \hyperpage{31}
+  \item Korn'sche Ungleichung, \hyperpage{56}
+  \item kritische Richtung, \hyperpage{50}
+  \item kritischer Punkt, \hyperpage{51}
 
   \indexspace
 
   \item Lagrange-Basis, \hyperpage{22}
   \item Lam\IeC {\'e}-Konstanten, \hyperpage{35}
   \item Lax-Milgram, \hyperpage{13}, \hyperpage{15, 16}, \hyperpage{36}
-  \item Lebesgue-Raum, \hyperpage{100}
+  \item Lebesgue-Raum, \hyperpage{103}
   \item lineares Komplementarit\IeC {\"a}tsproblem, \hyperpage{43}
   \item lokale Steifigkeitsmatrix, \hyperpage{24}
 
   \indexspace
 
+  \item master, \hyperpage{50}
   \item materielle Punkte, \hyperpage{31}
   \item Matlab
     \subitem refinemesh, \hyperpage{30}
-  \item Momentankonfiguration, \hyperpage{31}
+  \item Momentankonfiguration, \hyperpage{31}, \hyperpage{51}
 
   \indexspace
 
   \item Nichtdurchdringungsbedingung, \hyperpage{51}
-  \item Nichtkontaktpunkte, \hyperpage{71}
+  \item Nichtkontaktpunkte, \hyperpage{73}
   \item nodale Basis, \hyperpage{22}
   \item nodale Basisfunktion, \hyperpage{21, 22}
 
@@ -119,7 +129,9 @@
 
   \indexspace
 
+  \item Penalty-Methode, \hyperpage{60}
   \item Poincar\IeC {\'e}-Friedrich-Ungleichung, \hyperpage{15}
+    \subitem verallgemeinerte, \hyperpage{81}
   \item Projektionen, \hyperpage{8}
 
   \indexspace
@@ -131,32 +143,35 @@
   \item r\IeC {\"a}umliche Punkte, \hyperpage{31}
   \item Randbedingungen
     \subitem Dirichlet, \hyperpage{49}
+    \subitem Dirichlet-Rand, \hyperpage{54}
     \subitem Kontakt, \hyperpage{49}
-    \subitem Neumann, \hyperpage{49}
-  \item Raum der Testfunktionen, \hyperpage{100}
+    \subitem Neumann, \hyperpage{49}, \hyperpage{52}
+  \item Raum der Testfunktionen, \hyperpage{103}
   \item Referenzkonfiguration, \hyperpage{31}
-  \item reflexiver Raum, \hyperpage{103}
+  \item reflexiver Raum, \hyperpage{107}
+  \item Reibungsfunktional, \hyperpage{57}
   \item Riesz'scher Darstellungssatz, \hyperpage{16}
 
   \indexspace
 
   \item Saturationseigenschaft, \hyperpage{28}
-  \item Satz von Gau\IeC {\ss }, \hyperpage{34}
+  \item Satz von Gau\IeC {\ss }, \hyperpage{34}, \hyperpage{54}
   \item Schubmodul, \hyperpage{35}
-  \item schwache Ableitung, \hyperpage{100}
+  \item schwache Ableitung, \hyperpage{103}
   \item schwache L\IeC {\"o}sung, \hyperpage{11}
-  \item Signorini-Kontakt, \hyperpage{49}, \hyperpage{52}, 
-		\hyperpage{54}
-  \item Sobolev-Raum, \hyperpage{7}, \hyperpage{100}
-  \item Spannung, \hyperpage{49}
+  \item Signorini-Kontakt, \hyperpage{49}, \hyperpage{52--54}
+  \item slave, \hyperpage{50}
+  \item Sobolev-Raum, \hyperpage{7}, \hyperpage{103}
+  \item Spannung, \hyperpage{49}, \hyperpage{52}
   \item Spannungsrand, \hyperpage{49}
   \item Spline-Interpolation, \hyperpage{48}
+  \item Spursatz, \hyperpage{105}
   \item starkes Problem, \hyperpage{11}
   \item Steifigkeitsmatrix, \hyperpage{19}
 
   \indexspace
 
-  \item Tresca-Reibung, \hyperpage{53}
+  \item Tresca-Reibung, \hyperpage{53}, \hyperpage{57}
   \item Triangulierung, \hyperpage{20}
     \subitem konform, \hyperpage{20}, \hyperpage{29}
     \subitem quasi-uniform, \hyperpage{20}, \hyperpage{26}
@@ -166,13 +181,11 @@
   \indexspace
 
   \item Ungleichungen
-    \subitem Poincar\IeC {\'e}, \hyperpage{78}
+    \subitem Poincar\IeC {\'e}, \hyperpage{81}
 
   \indexspace
 
   \item Variationsgleichung, \hyperpage{10}
-  \item verallgemeinerte Poincar\IeC {\'e}-Friedrich-Ungleichung, 
-		\hyperpage{78}
   \item Verfeinerung
     \subitem blau, \hyperpage{29, 30}
     \subitem gr\IeC {\"u}n, \hyperpage{29, 30}
@@ -184,10 +197,8 @@
     \subitem r\IeC {\"a}umlich, \hyperpage{33}
   \item Verschiebungsrand, \hyperpage{49}
   \item Verzerrung, \hyperpage{49}
-  \item Verzerrungssensor
-    \subitem Green-Lagrange, \hyperpage{32}
   \item Verzerrungstensor
-    \subitem Green-Lagrange, \hyperpage{33}
+    \subitem Green-Lagrange, \hyperpage{32, 33}
   \item virtuelle Verschiebung, \hyperpage{54}
   \item Voigt-Notation, \hyperpage{35}
 

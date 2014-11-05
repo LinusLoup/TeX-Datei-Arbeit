@@ -83,7 +83,7 @@
 \indexentry{Betrachtungsweise!r\IeC {\"a}umliche|hyperpage}{32}
 \indexentry{Deformationsgradient|hyperpage}{32}
 \indexentry{Betrachtungsweise!materielle|hyperpage}{32}
-\indexentry{Verzerrungssensor!Green-Lagrange|hyperpage}{32}
+\indexentry{Verzerrungstensor!Green-Lagrange|hyperpage}{32}
 \indexentry{Cauchy-Green-Tensor!rechter|hyperpage}{32}
 \indexentry{Verschiebung|hyperpage}{33}
 \indexentry{Deformationsgradient!materiell|hyperpage}{33}
@@ -92,6 +92,7 @@
 \indexentry{Verschiebungsgradient!r\IeC {\"a}umlich|hyperpage}{33}
 \indexentry{Verzerrungstensor!Green-Lagrange|hyperpage}{33}
 \indexentry{G\IeC {\^a}teaux-Ableitung|hyperpage}{33}
+\indexentry{Verzerrungstensor!Green-Lagrange|hyperpage}{33}
 \indexentry{Cauchy-Spannungstensor|hyperpage}{34}
 \indexentry{Satz von Gau\IeC {\ss }|hyperpage}{34}
 \indexentry{Hooke'sches Materialmodell|hyperpage}{35}
@@ -151,18 +152,19 @@
 \indexentry{Reibungsfunktional|hyperpage}{57}
 \indexentry{G\IeC {\^a}teaux-differenzierbar|hyperpage}{57}
 \indexentry{Active-Set-Algorithmus|hyperpage}{59}
-\indexentry{Bubble-Funktion|hyperpage}{64}
+\indexentry{Penalty-Methode|hyperpage}{60}
+\indexentry{Bubble-Funktion|hyperpage}{65}
 \indexentry{Kontaktpunkte|hyperpage}{73}
 \indexentry{Nichtkontaktpunkte|hyperpage}{73}
-\indexentry{verallgemeinerte Poincar\IeC {\'e}-Friedrich-Ungleichung|hyperpage}{80}
-\indexentry{Ungleichungen!Poincar\IeC {\'e}|hyperpage}{80}
-\indexentry{Sobolev-Raum|hyperpage}{102}
-\indexentry{Lebesgue-Raum|hyperpage}{102}
-\indexentry{Raum der Testfunktionen|hyperpage}{102}
-\indexentry{schwache Ableitung|hyperpage}{102}
-\indexentry{Spursatz|hyperpage}{104}
-\indexentry{G\IeC {\^a}teaux-differenzierbar|hyperpage}{104}
-\indexentry{G\IeC {\^a}teaux-Ableitung|hyperpage}{104}
-\indexentry{G\IeC {\^a}teaux-Ableitung!rechtsseitig|hyperpage}{104}
+\indexentry{Ungleichungen!Poincar\IeC {\'e}|hyperpage}{81}
+\indexentry{Poincar\IeC {\'e}-Friedrich-Ungleichung!verallgemeinerte|hyperpage}{81}
+\indexentry{Sobolev-Raum|hyperpage}{103}
+\indexentry{Lebesgue-Raum|hyperpage}{103}
+\indexentry{Raum der Testfunktionen|hyperpage}{103}
+\indexentry{schwache Ableitung|hyperpage}{103}
+\indexentry{Spursatz|hyperpage}{105}
 \indexentry{G\IeC {\^a}teaux-differenzierbar|hyperpage}{105}
-\indexentry{reflexiver Raum|hyperpage}{106}
+\indexentry{G\IeC {\^a}teaux-Ableitung|hyperpage}{105}
+\indexentry{G\IeC {\^a}teaux-Ableitung!rechtsseitig|hyperpage}{105}
+\indexentry{G\IeC {\^a}teaux-differenzierbar|hyperpage}{106}
+\indexentry{reflexiver Raum|hyperpage}{107}

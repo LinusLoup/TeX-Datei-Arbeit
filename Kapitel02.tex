@@ -1279,7 +1279,7 @@ Damit können wir nun die Verzerrung eines Kontinuums mittels des Deformationsgr
 	& \! \! \!\!\: \!\!\: \stackrel{\scriptsize \eqref{eq:2.21}}= (d\bs X)^T \bs F^T \bs F d\bs X - (d\bs X)^Td\bs X \\
 	& = (d\bs X)^T (\bs F^T \bs F- \bs 1) d\bs X \, ,
 \end{align*}
-wobei $\bs 1$ den zweistufigen Einheitstensor beschreibt. Also lässt sich die Verzerrung bzgl. der Ausgangskonfiguration durch den \textit{Green-Lagrange'schen Verzerrungssensor}\index{Verzerrungssensor!Green-Lagrange}
+wobei $\bs 1$ den zweistufigen Einheitstensor beschreibt. Also lässt sich die Verzerrung bzgl. der Ausgangskonfiguration durch den \textit{Green-Lagrange'schen Verzerrungstensor}\index{Verzerrungstensor!Green-Lagrange}
 \begin{align}\label{eq:2.24}
 	\bs E = \frac 1 2 (\bs C- \bs 1)
 \end{align}
@@ -1313,7 +1313,7 @@ Wenn wir von kleinen Deformationen ausgehen, so ist es sinnvoll für die später
 \begin{align}\label{eq:2.27}
 	\operatorname{lin}(\bs A)_{\bs x,\bs u} = \bs A(\bs x) + \frac d{ d\eps} (\bs A(\bs x + \eps \bs u))\bigg|_{\eps = 0} \, .
 \end{align}
-Wenden wir also \eqref{eq:2.27} auf den Green-Lagrange'schen Verzerrungstensor \eqref{eq:2.26} an, so erhalten wir die Linearisierung:
+Wenden wir also \eqref{eq:2.27} auf den Green-Lagrange'schen Verzerrungstensor\index{Verzerrungstensor!Green-Lagrange} \eqref{eq:2.26} an, so erhalten wir die Linearisierung:
 \begin{align*}
 	\operatorname{lin}(\bs E)_{\bs X,\bs u} & = \underbrace{\bs E(\bs X)}_{=0} + \frac d{d\eps} (\bs E(\bs X+\eps \bs u))\bigg|_{\eps = 0} \\
 	& = \frac 12 \frac d{d\eps} \(\(\frac{\partial(\bs X+\eps\bs u)}{\partial \bs X}\)^T \frac{\partial(\bs X+\eps\bs u)}{\partial \bs X}-\bs  1\)\Bigg|_{\eps=0} \\
