@@ -34,7 +34,7 @@ Für nichtstetige oder auch glatte Hindernisse sind analoge Aussagen beweisbar, 
 
 
 
-\subsection{Diskretisierung}
+\subsection{Diskretisierung des Defektproblems}
 \label{kap:4.1.1}
 
 
@@ -319,7 +319,7 @@ Da $a$ eine stetige koerzive Bilinearform, werden aufgrund der Konstruktion von 
 Das lokale diskrete Defektproblem \eqref{eq:4.9} ist sogar exakt lösbar. Die Lösung des Problems gibt uns der nächste Satz.
 
 
-\begin{satz}
+\begin{satz}\label{satz:4.11}
 Die Lösung von \eqref{eq:4.8} bzw. \eqref{eq:4.9} ist explizit gegeben durch
 \begin{align}\label{eq:4.10}
 	\eps_{\mcal V} (x_E) = \frac{\max \{-d_E,\rho_E\}}{\norm{\phi_E}} \, 
@@ -378,7 +378,7 @@ Als a posteriori Fehlerschätzer werden wir im Folgenden
 \]
 betrachten und zeigen, dass dieser äquivalent zum Fehler im Funktional $J(u_{\mcal S}) - J(u)$ ist (vgl. Kapitel \ref{kap:4.1.4} und \ref{kap:4.1.5}). Zunächst wollen wir aber eine Einführung der lokalen Anteile des Fehlerschätzers $-\mcal I_{\mcal Q} (\eps_{\mcal V})$ bieten.
 
-%---------------------------------------------------
+
 
 
 
@@ -386,8 +386,7 @@ betrachten und zeigen, dass dieser äquivalent zum Fehler im Funktional $J(u_{\m
 \subsection{Lokaler Anteil des Fehlerschätzers}
 \label{kap:4.1.2}
 
-\begin{itemize}
-\item 
+
 \begin{notation}
 \begin{enumerate}[(a)]
 \item Wir schreiben im Folgenden "`$\lesssim$"' statt "`$\le C$"', wenn die Konstante $C$ nur von der Quasi-Uniformität von $\mcal T_h$ abhängt.
@@ -395,10 +394,12 @@ betrachten und zeigen, dass dieser äquivalent zum Fehler im Funktional $J(u_{\m
 \end{enumerate}
 \end{notation}
 
-\item zunächst zeigen wir ein paar Eigenschaften von der Fehlerfunktion $e = u-u_{\mcal S}$
 
-\item
-\begin{lemma}\label{lem:4.13}
+Um die lokalen Anteile des Fehlerschätzers herzuleiten, zeigen wir zunächst ein paar Eigenschaften der Fehlerfunktion $e = u-u_{\mcal S}$.
+
+
+
+\begin{lemma}\label{lem:4.12}
 Die Fehlerfunktion $e = u-u_{\mcal S}$ erfüllt die Ungleichungen
 \begin{align}\label{eq:4.14}
 	\frac 12 \norm e^2 \le \frac 12 \rho_{\mcal S}(e) \le -\mcal I (e) \le \rho_{\mcal S}(e) \, .
@@ -417,6 +418,7 @@ da $a$ koerziv ist. Dann gilt weiter
 	& = -\frac 1 2 a(u,e) \underbrace{\frac 1 2 a(u_{\mcal S},e)-\frac 1 2(f,e)}_{=-\frac 12 \rho_{\mcal S}(e)} + \frac 1 2 (f,e)+\rho_{\mcal S}(e) \\
 	& = -\frac 12 (\underbrace{a(u,u-u_{\mcal S})-(f,u-u_{\mcal S})}_{\le 0}) + \frac 1 2\rho_{\mcal S}(e) \ge \frac 1 2\rho_{\mcal S}(e) \, .
 \end{align*}
+
 Es bleibt also die erste Ungleichung von \eqref{eq:4.14} zu zeigen. Wir rechnen nach, dass
 \begin{align*}
 	\frac 1 2 \rho_{\mcal S} (e) &= \frac 1 2 (f,e)-\frac 1 2a(u_{\mcal S},e) \\
@@ -426,8 +428,8 @@ Es bleibt also die erste Ungleichung von \eqref{eq:4.14} zu zeigen. Wir rechnen 
 gilt, womit \eqref{eq:4.14} insgesamt bewiesen ist.
 \end{proof}
 
-\item 
-\begin{kor}\label{kor:4.14}
+
+\begin{kor}\label{kor:4.13}
 Für die Lösungen $e_{\mcal Q}, \eps_{\mcal V}$ von \eqref{eq:4.5} und \eqref{eq:4.9} gilt
 \begin{align}\label{eq:4.15}
 	\frac 12 \norm{e_{\mcal Q}}^2 \le \frac 12 \rho_{\mcal S}(e_{\mcal Q})& \le -\mcal I (e_{\mcal Q}) \le \rho_{\mcal S}(e_{\mcal Q}) \, ,\\
@@ -440,17 +442,11 @@ Für die Lösungen $e_{\mcal Q}, \eps_{\mcal V}$ von \eqref{eq:4.5} und \eqref{e
 Da $e_{\mcal Q}$ und $\eps_{\mcal V}$ Lösungen der Variationsungleichungen \eqref{eq:4.5} und \eqref{eq:4.9} sind, folgt die Behauptung analog zum Beweis von Lemma \ref{lem:4.12}.
 \end{proof}
 
-\item wegen \eqref{eq:4.16} ist $\rho_{\mcal S} (\eps_{\mcal V})$ äquivalent zum Fehlerschätzer $-\mcal I_{\mcal Q}(\eps_{\mcal V})$ und kann daher als Indikator für $-\mcal I_{\mcal Q} (\eps_{\mcal V})$ verwendet werden (verkleinern wir $\rho_{\mcal S}$, so wird auch $-\mcal I_{\mcal Q}$ kleiner)
 
-\item in Kapitel \ref{kap:4.1.4} und \ref{kap:4.1.5} werden wir die Äquivalenz von $-\mcal I_{\mcal Q}(\eps_{\mcal V})$ zum exakten Fehler in den Funktionalen $J(u_{\mcal S}) - J(u)=-\mcal I(e)$ zeigen
+Wegen \eqref{eq:4.16} ist also $\rho_{\mcal S} (\eps_{\mcal V})$ äquivalent zum Fehlerschätzer $-\mcal I_{\mcal Q}(\eps_{\mcal V})$ und kann daher als Fehlerindikator für $-\mcal I_{\mcal Q} (\eps_{\mcal V})$ verwendet werden, denn wenn wir  $\rho_{\mcal S}$ verkleinern, so wird auch $-\mcal I_{\mcal Q}$ kleiner. In Kapitel \ref{kap:4.1.4} und \ref{kap:4.1.5} werden wir dann die Äquivalenz von $-\mcal I_{\mcal Q}(\eps_{\mcal V})$ zum exakten Fehler in den Funktionalen $J(u_{\mcal S}) - J(u)=-\mcal I(e)$ zeigen.
 
-\item damit folgt auch aus Lemma \ref{lem:4.12}, dass der Fehler $J(u_{\mcal S})-J(u)$ äquivalent zu $\rho_{\mcal S}(e)$ ist $\Ra$ daher betrachten wir ein paar weitere Eigenschaften von $\rho_{\mcal S}$.
 
-\item nun zu den lokalen Anteilen von $\rho_{\mcal S}(\eps_{\mcal V})$:
-
-\item es sei $u_{\mcal S}$ die Lösung von \eqref{eq:3.12}, dann auf jedem $T\in \mcal T_h$ die Gleichung $\Delta u_{\mcal S} = 0$, da $u_{\mcal S}$ auf jedem $T$ linear ist.
-
-\item dann gilt mit $\Omega = \bigcup_{T \in \mcal T_h} T$ für alle $v \in H^1(\Omega)$
+Aus Lemma \ref{lem:4.12} folgt analog, dass der Fehler $J(u_{\mcal S})-J(u)$ äquivalent zu $\rho_{\mcal S}(e)$ ist. Daher werden wir die lokalen Anteile des Fehlerschätzers mittels $\rho_{\mcal S}(\eps_{\mcal V})$ berechnen. Es sei $u_{\mcal S}$ die Lösung von \eqref{eq:3.12}, dann gilt für alle $T\in \mcal T_h$ die Gleichung $\Delta u_{\mcal S} = 0$, da $u_{\mcal S}$ auf jedem $T$ linear ist. Mit $\Omega = \bigcup_{T \in \mcal T_h} T$ berechnen wir daher für alle $v \in H^1(\Omega)$
 \begin{align}\notag 
 	\rho_{\mcal S} (v) & = (f,v)-a(u_{\mcal S},v) = \int_{\Omega} fv \, dx - \int_{\Omega} \nabla u_{\mcal S} \nabla v \, dx \\
 	\notag
@@ -460,15 +456,16 @@ Da $e_{\mcal Q}$ und $\eps_{\mcal V}$ Lösungen der Variationsungleichungen \eqr
 	\label{eq:4.17}
 	& = \int_{\Omega} fv \, dx - \sum_{T\in \mcal T_h} \int_{\partial T} v \partial_{\bs n} u_{\mcal S} \, ds \, ,
 \end{align}
-wobei im vorletzten Schritt die 1. Green'sche Formel angewendet wurde und d$\bs n$ die äußere Einheitsnormale von $T$ ist.
+wobei im vorletzten Schritt die 1. Green'sche Formel angewendet wurde und $\bs n$ die äußere Einheitsnormale von einem Dreieck $T$ bezeichnet.
 
-\item Betrachten wir zwei beliebige Dreiecke $T_1,T_2$ wie in Abbildung \ref{abb:4.2}, wobei $\bs n$ hierbei die Einheitsnormale, die von $T_1$ nach $T_2$ zeigt, bezeichnet, so können wir die Summe aus \eqref{eq:4.17} bzgl. der Menge der Kanten $\mcal E$ darstellen, da der Rand $\partial T = E_1 \cup E_2 \cup E_3$ für jedes $T$ disjunkt in seine Kantenstücke aufgeteilt werden kann.
+
+Betrachten wir zwei beliebige Dreiecke $T_1,T_2$ wie in Abbildung \ref{abb:4.2}, wobei $\bs n$ hierbei die Einheitsnormale, die von $T_1$ nach $T_2$ zeigt, bezeichnet, so können wir die Summe aus \eqref{eq:4.17} bzgl. der Menge der Kanten $\mcal E$ darstellen, da der Rand $\partial T = E_1 \cup E_2 \cup E_3$ für jedes $T$ disjunkt in seine Kantenstücke aufgeteilt werden kann.
 
 Dabei sei $E$ nun die Kante, die $T_1$ und $T_2$ zugleich enthalten, d.h. $\bs n$ steht rechtwinklig auf $E$. Dann gilt, dass die Richtungsableitung $\partial_{\bs n} u_{\mcal S}|_{T_2}$ negativ ist bzgl. \eqref{eq:4.17} wegen der negativen Orientierung von $\bs n$ bzgl. $T_2$.
 
-\begin{figure}[h]\label{abb:4.2}
+\begin{figure}[h]
   \begin{center}
-    \begin{pspicture}(-1.5,0)(2,2)
+    \begin{pspicture}(-1.5,0)(2,2.2)
     	% Die zwei Dreiecke:
 	\psline(-1.5,1.7)(1,2)
 	\psline(1,2)(-0.2,-0.2)
@@ -488,10 +485,10 @@ Dabei sei $E$ nun die Kante, die $T_1$ und $T_2$ zugleich enthalten, d.h. $\bs n
 	\rput(0.55,1.65){$E$}
     \end{pspicture}
   \end{center}
-\caption{Dreiecke $T_1$ und $T_2$ mit Einheitsnormalen $\bs n$}
+\caption{Dreiecke $T_1$ und $T_2$ mit Einheitsnormalen $\bs n$\label{abb:4.2}}
 \end{figure}
 
-Hiermit ergibt sich aus \eqref{eq:4.17}
+Dies in \eqref{eq:4.17} eingesetzt ergibt
 \begin{align}\notag
 	\rho_{\mcal S} (v) &= \int_{\Omega} fv \, dx - \sum_{T\in \mcal T_h} \int_{\partial T} v \partial_{\bs n} u_{\mcal S} \, ds \\
 	\notag
@@ -499,17 +496,18 @@ Hiermit ergibt sich aus \eqref{eq:4.17}
 	\label{eq:4.18}
 	& =  \int_{\Omega} fv \, dx + \sum_{E\in \mcal E} \int_{E} j_E v \, ds \, .
 \end{align}
-
-\item da für die nodalen Basisfunktionen $\{\phi_p \mid p \in \mcal N\cap \Omega\}$ gilt
+Da für die nodalen Basisfunktionen $\{\phi_p \mid p \in \mcal N\cap \Omega\}$ von $\mcal S_h$ die Partition der Eins gilt, also
 \[
-	\sum_{p \in \mcal N} \phi_p = 1 \text{ auf ganz } \Omega \, , 
+	\sum_{p \in \mcal N} \phi_p = 1 \text{ auf ganz } \Omega \, ,
 \]
-sodass wir $\rho_{\mcal S}$ wie folgt in lokale Anteile aufteilen können:
+lässt sich $\rho_{\mcal S}$ wie folgt in lokale Anteile aufteilen können:
 \begin{align}\label{eq:4.19}
-	\rho_p(v) \coloneqq \rho_{\mcal S} (v \phi_p) \, , \quad v \in H^1(\Omega) \, .
+	\rho_p(v) \coloneqq \rho_{\mcal S} (v \phi_p) \, , \quad v \in H^1(\Omega) , p \in \mcal N \, .
 \end{align}
 
-\item
+In Lemma \ref{lem:4.14} werden wir zeigen, dass wir den in \eqref{eq:4.19} definierten lokalen Anteil von $\rho_{\mcal S}$ leicht berechnen können, und mit der Aussage aus Korollar \ref{kor:4.15}, dass sich der Fehlerindikator $\rho_{\mcal S}$ auch eindeutig in die lokalen Anteile $\rho_p$ zerlegen lässt.
+
+
 \begin{lemma}\label{lem:4.14}
 Für $\rho_p$ gilt
 \begin{align*}
@@ -524,11 +522,11 @@ Wir rechnen einfach mit der Definition \eqref{eq:4.19} und \eqref{eq:4.18} nach,
 	\rho_p(v) &= \rho_{\mcal S} (v \phi_p) =  \int_{\Omega} fv\phi_p \, dx + \sum_{E\in \mcal E} \int_{E} j_E v \phi_p\, ds \\
 	& = \int_{\omega_p} f v \phi_p \, dx + \sum_{E\in \mcal E_p} \int_E j_E v \phi_p \, ds  \, ,
 \end{align*}
-da $\phi_p \equiv 0$ auf $\mcal O \coloneqq \overline{\Omega \setminus \omega_p}$ und damit auch auf $\mcal F \coloneqq\mcal E \setminus \mcal E_p$, da $\mcal F \subset\mcal O$.
+da $\phi_p \equiv 0$ auf $\mcal O \coloneqq \overline{\Omega \setminus \omega_p}$ und damit auch auf $\mcal F \coloneqq\mcal E \setminus \mcal E_p$, da $\mcal F \subset\mcal O$ (vgl. Abbildung \ref{abb:4.3}).
 
-\begin{figure}[h]
+\begin{figure}[h!]
 \begin{center}
-	\begin{pspicture}(0,0)(7,5)
+	\begin{pspicture}(0,0)(7,5.3)
 		%\psset{xunit=1.5cm,yunit=1.2cm}
 		
 		% \omega_p:
@@ -575,12 +573,12 @@ da $\phi_p \equiv 0$ auf $\mcal O \coloneqq \overline{\Omega \setminus \omega_p}
 		
 	\end{pspicture}
 \end{center}
-\caption{Darstellung von $\omega_p$ (grau) und $\mcal E_p$ (abgehende Kanten von $p$) \\ für ein beliebiges $\phi_p$}
+\caption{Darstellung von $\omega_p$ (grau) und $\mcal E_p$ (abgehende Kanten von $p$) \\ für ein beliebiges $\phi_p$\label{abb:4.3}}
 \end{figure}
 \end{proof}
 
-\item 
-\begin{kor}
+ 
+\begin{kor}\label{kor:4.15}
 Der Indikator $\rho_{\mcal S}$ lässt sich schreiben als
 \begin{align}\label{eq:4.20}
 	\rho_{\mcal S} = \sum_{p \in \mcal N} \rho_p \, .
@@ -595,53 +593,45 @@ Die Behauptung folgt direkt aus Lemma \ref{lem:4.14} zusammen mit
 durch einfaches Nachrechnen.
 \end{proof}
 
-\item im unbeschränkten Fall gilt $\rho_{\mcal S} = 0 \Lra e = 0$, denn zu $\rho_{\mcal S} = 0$ ist äquivalent
+
+Im unbeschränkten Fall gilt $\rho_{\mcal S} = 0 \Lra e = 0$, denn zu $\rho_{\mcal S} = 0$ ist 
 \[
-	a(e,v) = \rho_{\mcal S}(v) = 0 \quad \forall \, v \in \mcal V\, .
+	a(e,v) = \rho_{\mcal S}(v) = 0 \quad \forall \, v \in \mcal V
 \]
-Da $e\in \mcal V$ ist, folgt wegen der Galerkin-Orthogonalität, dass $e=0$ sein muss. Die Umkehrung gilt analog.
+äquivalent. Da $e\in \mcal V$ ist, folgt wegen der \idx{Galerkin-Orthogonalität}, dass $e=0$ sein muss. Die Umkehrung gilt offensichtlich auch.
 
-\item bei Variationsungleichungen gilt dies im allgemeinen nicht.
-
-\item aber: aus Lemma \ref{lem:4.12} folgt allgemeiner, falls $\rho_{\mcal S} (v) \le 0$ für alle $v \in \mcal A$ gilt
+Wie wir schon weiter oben beschrieben haben, gilt die Galerkin-Orthogo-nalität\index{Galerkin-Orthogonalität} bei Variationsungleichungen gilt  im Allgemeinen nicht. Aber aus Lemma \ref{lem:4.12} folgt allgemeiner, falls $\rho_{\mcal S} (v) \le 0$ für alle $v \in \mcal A$ gilt,
 \[
 	\frac 12 \norm{e}^2 \le \rho_{\mcal S}(e) \le 0\,  \lra\,  \norm e = 0 \, \lra\, e = 0 \, ,
 \]
-wodurch $\rho_{\mcal S} = 0$ folgt, dass $e = 0$ ist.
-
-\item es gilt, ist $u_{\mcal S}$ die Lösung von \eqref{eq:3.12}, so gilt für alle $p \in \mcal N \cap \Omega$, dass $v = u_{\mcal S} + \phi_p  \ge \psi$, d.h. $v \in K_h$.
-
-Damit folgt mit Einsetzen von $v$ in  \eqref{eq:3.12}
+d.h. aus $\rho_{\mcal S} = 0$ folgt, dass $e = 0$ ist. Man kann nun diese globale Eigenschaft auch auf die lokalen Anteile übertragen. Mit $u_{\mcal S}$ als Lösung von \eqref{eq:3.12} gilt für alle $p \in \mcal N \cap \Omega$, dass $v = u_{\mcal S} + \phi_p  \ge \psi$, d.h. $v \in K_h$. Daraus folgt mit Einsetzen von $v$ in  \eqref{eq:3.12}
 \begin{align}\notag
 	&a(u_{\mcal S}, u_{\mcal S} + \phi_p - u_{\mcal S}) \ge (f,u_{\mcal S}+\phi_p-u_{\mcal S}) \\
 	\label{eq:my4.20}
-	\Llra \,  & 0 \ge (f,\phi_p)-a(u_{\mcal S},\phi_p) = \rho_{\mcal S}(\phi_p)
+	\Llra \,  & 0 \ge (f,\phi_p)-a(u_{\mcal S},\phi_p) = \rho_{\mcal S}(\phi_p) \, .
 \end{align}
-dies bedeutet, dass die lineare Approximation des Fehlers $e$ gleich Null ist.
-
-\item falls an einem Punkt $p$ kein Kontakt zwischen $u_{\mcal S}$ und $\psi$ vorliegt, also $u_{\mcal S} (p) > \psi(p)$ ist, dann können wir ein $\alpha > 0$ hinreichend klein wählen, sodass $v = u_{\mcal S} - \alpha \phi_p \in K_h$ liegt. Dann folgt analog durch Einsetzen von $v$ in \eqref{eq:3.12}
+Dies bedeutet, dass die lineare Approximation des Fehlers $e$ gleich Null ist. Falls an einem Punkt $p$ kein Kontakt zwischen $u_{\mcal S}$ und $\psi$ vorliegt, also $u_{\mcal S} (p) > \psi(p)$ ist, dann können wir ein $\alpha > 0$ hinreichend klein wählen, sodass $v = u_{\mcal S} - \alpha \phi_p \in K_h$ liegt. Dann folgt analog durch Einsetzen von $v$ in \eqref{eq:3.12}
 \begin{align*}
 	0 & \ge (f,-\alpha \phi_p) - a(u_{\mcal S},-\alpha\phi_p) \\
 	\Llra \, 0 & \le (f,\phi_p) - a(u_{\mcal S},\phi_p) = \rho_{\mcal S} (\phi_p) \stackrel[\scriptsize\eqref{eq:my4.20}]{}\le 0
 \end{align*}
-und damit gilt $\rho_{\mcal S} (\phi_p) = 0$
-
-\item zusammen ergeben sich die Bedingungen
+und damit gilt $\rho_{\mcal S} (\phi_p) = 0$.  Zusammen ergeben sich die (KKT-)Bedingungen
 \begin{align}\label{eq:4.21}
-	\rho_{\mcal S} (\phi_p) \le 0 \, , \quad \psi(p)-u_{\mcal S} (p) \le 0 \, , \quad \rho_{\mcal S} (\phi_p) (\psi(p)-u_{\mcal S} (p)) = 0
+	\rho_{\mcal S} (\phi_p) \le 0 \, , \quad \psi(p)-u_{\mcal S} (p) \le 0 \, , \quad \rho_{\mcal S} (\phi_p) (\psi(p)-u_{\mcal S} (p)) = 0 \, .
 \end{align}
+Dies berechtigt zur Definition von Kontakt- und Nichtkontaktpunkten.
 
-\item dies berechtigt zur Definition von Kontakt- und Nichtkontaktpunkten
-\begin{defi}
-Wir definieren die Mengen von \textit{Kontaktpunkten}\index{Kontaktpunkte} $\mcal N^0$ und \textit{Nichtkontaktpunkten}\index{Nichtkontaktpunkte} $\mcal N^+$ durch
+
+\begin{defi}\label{def:4.16}
+Wir definieren die Mengen von  \textit{inneren Kontaktknoten}\index{Kontaktknoten} $\mcal N^0$ und \textit{Nichtkontaktknoten}\index{Nichtkontaktknoten} $\mcal N^+$ durch
 \begin{align*}
 	\mcal N^0 \coloneqq  \{p \in \mcal N \cap \Omega \mid u_{\mcal S}(p) = \psi (p) \} \, , \quad 
 	\mcal N^+ \coloneqq  \{p \in \mcal N \cap \Omega \mid u_{\mcal S}(p) > \psi (p) \}\, .
 \end{align*}
 \end{defi}
 
-\item 
-\begin{bem}
+
+\begin{bem}\label{bem:4.17}
 Die Bedingungen \eqref{eq:4.21} können wir auch auf den lokalen Anteil $\rho_p$ übertragen, damit ergibt sich für alle $p \in \mcal N \cap \Omega$
 \begin{subequations}\label{eq:4.22}
 \begin{align}\label{eq:4.22a}
@@ -653,10 +643,8 @@ Die Bedingungen \eqref{eq:4.21} können wir auch auf den lokalen Anteil $\rho_p$
 denn $\rho_p (1) = \rho_{\mcal S} (\phi_p)$.
 \end{bem}
 
-\item damit ist also die Approximation von $e$ über $\mcal S_h$ gleich Null, wenn die lokalen Anteile (im Vektor später) kleiner gleich Null sind
 
-\end{itemize}
-
+Damit ist also die Approximation von $e$ über $\mcal S_h$ gleich Null, wenn die lokalen Anteile von $\rho_{\mcal S}$ kleiner gleich Null sind. 
 
 
 
@@ -665,105 +653,100 @@ denn $\rho_p (1) = \rho_{\mcal S} (\phi_p)$.
 \subsection{Oszillationsterme}
 \label{kap:4.1.3}
 
-\begin{itemize}
-\item in Kapitel \ref{kap:4.1.4} werden wir zeigen, dass $-\mcal I_{\mcal Q} (\eps_{\mcal V})$ eine obere Schranke von $-\mcal I (e)$ bis auf Terme höherer Ordnung bereitstellen, d.h. Terme, die nicht in $\mcal V$ enthalten sind $\ra$ Oszillationsterme (hier eingeführt)
+In Kapitel \ref{kap:4.1.4} werden wir zeigen, dass $-\mcal I_{\mcal Q} (\eps_{\mcal V})$ eine obere Schranke von $-\mcal I (e)$ bis auf Terme höherer Ordnung bereitstellen, d.h. Terme, die nicht in $\mcal V$ enthalten sind. Diese sogenannten \textit{\idx{Oszillationsterme}} wollen wir daher in diesem Kapitel anschaulich einführen (ohne präzise Beweise). 
 
-\item man kann in den numerischen Beispielen später sehen, dass (wie auch in der Theorie) eine Verkleinerung der Oszillation auch eine Verringerung des Fehlers mit sich bringt $\Ra$ wir führen die Oszillationsterme ein (auch ohne präzise Beweise)
+Wie wir später auch in den numerischen Beispielen sehen werden, bringt eine Verkleinerung der Oszillation auch eine Verringerung des Fehlers mit sich. Daher ist es von Interesse die Oszillationsterme einfach berechnen zu können und auch mit in die adaptive Verfeinerung einzubeziehen.
 
-\item die Oszillation ist in zwei Teile kaufteilbar
-\begin{align}\label{eq:4.23}
+Wir werden zwei Arten von Oszillationen betrachten und daher die Gesamtoszillation in diese Anteile aufteilen.
+\begin{align}\label{eq:4.24}
 	\osc (u_{\mcal S}, \psi, f) \coloneqq \(\osc_1(u_{\mcal S},\psi)^2+\osc_2(u_{\mcal S},\psi,f)^2\)^{\frac 12}
 \end{align}
 
-\item
-\begin{bem*}
-In \cite{ZouVee} werden die Oszillationsterme \eqref{eq:4.23} durch
+
+\begin{bem}\label{bem:4.18}
+In \cite{ZouVee} werden die \idx{Oszillationsterme} \eqref{eq:4.24} durch
 \[
 	\osc (u_{\mcal S}, \psi, f) = \osc_1(u_{\mcal S},\psi)+\osc_2(u_{\mcal S},\psi,f)
 \]
 eingeführt. Wir wählen hier absichtlich eine leicht veränderte Darstellung, da diese für die spätere Implementierung bzgl. der lokalen Anteile der Oszillationen von Vorteil ist.
-\end{bem*}
 
-\item im unbeschränkten Fall ist die Oszillation nur von $f$ abhängig (s. \cite{MorNoc}) und dort wird daher von "`Daten-Oszillation"' gesprochen
+Im unbeschränkten Fall ist die Oszillation nur von $f$ abhängig (vgl. \cite{MorNoc}) und daher wird dabei von "`Daten-Oszillation"' gesprochen.
+\end{bem}
 
-\item $\osc_1$ ist ein Maß für die Oszillation zwischen Hindernis $\psi$ und der Galerkin-Lösung $u_{\mcal S}$, d.h.
-\begin{align}
-	\osc_1(u_{\mcal S},\psi) \coloneqq \(\sum_{p \in \mcal N^{0+}} \norm{\nabla (\psi - u_{\mcal S})}_{0,\omega_p}^2\)^{\frac 12} \, ,
-\end{align}
-wobei $\mcal N^{0+} \coloneqq \{p \in \mcal N^0 \mid u_{\mcal S} > \psi \text{ in }\omega_p \setminus \{p\}\}$, also die Megne der \textit{isolierten Kontaktknoten}, d.h. $u_{\mcal S}$ ist in $\omega_p$ nur mit $p$ in Kontakt
 
-\item anschaulich: da $\psi, u_{\mcal S}$ linear, gilt: je größer die Differenz zwischen $\psi$ und $u_{\mcal S}$, umso größer die Differenz $\nabla(\psi-u_{\mcal S})$, d.h. auch $\osc_1$
-
-\item das kontinuierliche Gegenstück zu $\mcal N^{0+}$ ist die Menge der \textit{isolierten Kontaktpunkte} $x_c$, die aufgrund von $u-\psi >0$ für alle $x \in \mcal U(x_c, \eps) \subset \Omega$ mit $u(x_c) = \psi(x_c)$ alle strikten Minima $x_c \in \Omega$ enthält $\Ra (\nabla u -\nabla \psi) = 0$ für alle isolierten Kontaktpunkte, wenn $u, \psi$ hinreichend glatt sind
-
-\item da laut Theorem \ref{theorem:3.14} $u_h \ra u$ für $h\ra 0$ geht, folgt: wenn ein isolierter Kontaktknoten $p \in \mcal N^{0+}$ bei Verfeinerung bestehen bleibt, so hat die exakte Lösung $u$ einen korrespondierenden Kontaktpunkt $\tilde p$, dann gilt
+Der Oszillationsterm $\osc_1 (u_{\mcal S},\psi)$ ist ein Maß für die \idx{Oszillation} zwischen dem Hindernis $\psi$ und der Galerkin-Lösung $u_{\mcal S}$, d.h.
 \begin{align*}
-	\bigcup_{p \in \mcal N^{0+}} \omega_p \xrightarrow[h\ra 0]{} \tilde p
+	\osc_1(u_{\mcal S},\psi) \coloneqq \(\sum_{p \in \mcal N^{0+}} \norm{\nabla (\psi - u_{\mcal S})}_{0,\omega_p}^2\)^{\frac 12} ,
 \end{align*}
+wobei $\mcal N^{0+} \coloneqq \{p \in \mcal N^0 \mid u_{\mcal S} > \psi \text{ in }\omega_p \setminus \{p\}\}$ ist, also die Menge der \textit{isolierten Kontaktknoten}, d.h. $u_{\mcal S}$ ist auf der Menge $\omega_p$ nur im Punkt $p$ mit $\psi$ in Kontakt. Anschaulich stellt $\osc_1 (u_{\mcal S},\psi)$ deshalb ein Maß für die Hindernisoszillation dar, weil wegen der Linearität von $u_{\mcal S} ,\psi$ folgt, dass eine größere Differenz zwischen $\psi$ und $u_{\mcal S}$ auch einen größeren Gradienten $\nabla (\psi-u_{\mcal S})$ impliziert und damit auch eine größere Oszillation $\osc_1(u_{\mcal S},\psi)$.
 
-\item damit gilt $\osc_1$ hat wenigstens den Grad vom Fehler $e$ (warum?)
+Das kontinuierliche Gegenstück zu $\mcal N^{0+}$ ist die Menge der \textit{isolierten Kontaktpunkte} $x_c$, die aufgrund von $u-\psi >0$ für alle $x \in \mcal U(x_c, \eps) \subset \Omega$ mit $u(x_c) = \psi(x_c)$ alle strikten Minima $x_c \in \Omega$ von $u-\psi$ enthält. Daraus folgt, dass $(\nabla u -\nabla \psi) = 0$ ist für alle isolierten Kontaktpunkte, wenn $u, \psi$ hinreichend glatt sind.
 
-\item wegen oben (mit dem hinreichend glatten $u, \psi$) verschwindet $\osc_1$ für $h \ra 0$
+Stellt nun $\psi$ nur eine lineare Approximation an ein hinreichend glattes Hindernis dar, so folgt mit den Aussagen aus Theorem  \ref{theorem:3.16} und Theorem 2 in \cite{Zhang}, dass wegen der Konvergenz der diskretisierten Ränder für einen isolierter Kontaktknoten $p \in \mcal N^{0+}$, der bei
+Verfeinerung bestehen bleibt, ein für die exakte Lösung $u$ korrespondierender Kontaktpunkt $\tilde p$ existiert und es gilt
+\begin{align*}
+	\bigcup_{p \in \mcal N^{0+}} \omega_p \xrightarrow[h\ra 0]{} \tilde p \, .
+\end{align*}
+Sind $u$ und $\psi$ also hinreichend glatt, so verschwindet der Oszillationsterm $\osc_1(u_{\mcal S},\psi)$ für $h\ra 0$.
 
-\item $\osc_2$ ist über zwei Mengen definiert:
-\begin{align}
-	\mcal N^{++} \coloneqq \{p \in \mcal N^{+}\mid \rho_E \ge - d_E \, \forall \, E \in \mcal E_p\}
+% damit gilt $\osc_1$ hat wenigstens den Grad vom Fehler $e$ (warum?)
+
+
+Der Oszillationsterm $\osc_2(u_{\mcal S}, \psi, f)$ ist auf zwei Mengen definiert:
+\begin{align}\label{eq:4.25}
+	\mcal N^{++} \coloneqq \{p \in \mcal N^{+}\mid \rho_E \ge - d_E \, \forall \, E \in \mcal E_p\} \, ,
 \end{align}
-d.h. alle Punkte ohne Kontakt, in denen der Fehler $\eps_{\mcal V}$ nicht in Kontakt mit $\mcal A_{\mcal V}$ steht (wie in Beweis von Satz \ref{satz:4.11} ersichtlich)
-\begin{align}
-	\mcal N^{0-}\coloneqq \{ p \in \mcal N^0 \mid u_{\mcal S} = \psi , f \le 0 \text{ auf } \omega_p, j_E \le 0 \, \forall \, E \in \mcal E_p \}
+d.h. alle Knoten ohne Kontakt, in denen der Fehler $\eps_{\mcal V}$ nicht in Kontakt mit dem Hindernis aus $\mcal A_{\mcal V}$ steht (wie in Beweis von Satz \ref{satz:4.11} ersichtlich) und
+\begin{align}\label{eq:4.26}
+	\mcal N^{0-}\coloneqq \{ p \in \mcal N^0 \mid u_{\mcal S} = \psi , f \le 0 \text{ auf } \omega_p, j_E \le 0 \, \forall \, E \in \mcal E_p \} \, ,
 \end{align}
-d.h. voller Kontakt (s. auch \cite{SiebVee} Gleichung (2.11)) mit Last $f$ auf Druck und negativem Normalenfluss $j_E$
+d.h. die Kontaktknoten mit vollem Kontakt, sodass die Kraft $f$ eine Drucklast ist und negativer Normalenfluss $j_E$ herrscht (vgl. auch \cite{SiebVee} Gleichung (2.11)).
 
-\item aus der Nebenbedingung von $\mcal N^{0-}$ folgt
+
+Aus der Nebenbedingung von $\mcal N^{0-}$ folgt
 \begin{align*}
 	0 \ge f + \sum_{E \in \mcal E_p} j_E
 \end{align*}
-durch Multiplikation mit geeigneten Testfunktionen $v$ und multiplizieren über $\omega_p$ ergibt
+Durch Multiplikation mit geeigneten Testfunktionen $v$ und Integration über $\omega_p$ ergibt
 \begin{align*}
 	0 &  \ge \int_{\omega_p} f v \, dx + \sum_{E\in \mcal E_p} \int_E j_E v \, ds \\
 	& = \int_{\omega_p} f v \, dx - \int_{\omega_p} \underbrace{\nabla u_{\mcal S}}_{=\nabla \psi} \nabla v \, dx
 \end{align*}
 und damit gilt
-\begin{align}
-	 \int_{\omega_p} {\nabla \psi} \nabla v \, dx \ge \int_{\omega_p} f v \, dx
+\begin{align}\label{eq:4.27}
+	 \int_{\omega_p} {\nabla \psi} \nabla v \, dx \ge \int_{\omega_p} f v \, dx \, .
 \end{align}
-es gilt also laut Satz \ref{satz:3.4}, dass $-\Delta \psi - f \ge 0$ auf $\omega_p$ im distributionellem Sinne (vgl. auch \cite{Walker} Kapitel 3)
-
-dies ist laut Satz \ref{satz:3.4} auch notwendig, damit $u = \psi$ auf $\omega_p$ ist
-
-\item damit ergibt sich $\osc_2$ als
-\begin{align}
-	\osc_2(u_{\mcal S},\psi, f) \coloneqq \(\sum_{p \in \mcal N^{++}} h_p^2 \norm{f-\bar f_p}_{0,\omega_p}^2 + \sum_{p \in \mcal N\setminus (\mcal N^{0-}\cup \mcal N^{++})} h_p^2 \norm f_{0,\omega_p}^2 \)^{\frac 12}
-\end{align}
-wobei $h_p \coloneqq \max_{E\in \mcal E_p} \abs E$ für jedes $p \in \mcal N$ ($h_p$ ist ein Maß für den Durchmesser von $\omega_p$) und $\bar f_p$ den Mittelwert von $f$ über $\omega_p$ bezeichne, d.h.
-\begin{align}
-	\bar f _p = \frac 1{\abs{\omega_p}} \int_{\omega_p} f \, dx
-\end{align}
-
-\item anschaulich: damit kann man die Summanden der ersten Summe als Varianz der Last $f$ auf $\omega_p$ interpretieren 
-
-$\mcal N\setminus (\mcal N^{0-}\cup \mcal N^{++})$ ist die Menge von Punkten, die keinen vollen Kontakt und in der $\eps_{\mcal V}$ keinen Kontakt mit $\mcal A_{\mcal V}$ hat
-
-\item Beachte: Im Term $\osc_2$ fehlen nur die Punkte, die vollen Kontakt haben, d.h. wir betrachten also wirklich nur die Punkte außerhalb des Hindernisses!! (genauer noch: $\mcal N \setminus (\mcal N^{0-}\cup \mcal N^{++})$ sind nur die Randpunkte!)
-
-\item damit enthält $\osc_2$ nur Anteile aus Knoten, ohne vollen Kontakt
-
-\item Bem.: die Oszillationsterme können leicht berechnet werden (siehe hierfür auch Kapitel 5)
-
-\item im unbeschränkten Fall, also $\psi = -\infty$, ist $\eps_{\mcal V}$ nicht im Kontakt mit dem Hindernis für alle Punkte aus $\mcal N$, also gilt $\mcal N^{++} = \mcal N$.
-
-\item damit wird \eqref{eq:4.28} ($\osc_2$) zu
-\begin{align}
-	\osc_2(u_{\mcal S},\psi, f) = \(\sum_{p \in \mcal N\cap \Omega} h_p^2 \norm{f-\bar f_p}_{0,\omega_p}^2 + \sum_{p \in \mcal N \cap \partial \Omega} h_p^2 \norm f_{0,\omega_p}^2 \)^{\frac 12}
-\end{align}
-
-\item damit ist (4.28) eine Verallgemeinerung von (4.30): wenn der Teil ohne Kontakt also bekannt wäre, dann wäre der beschränkte Fall auf dieser Menge äquivalent zu einem unbeschränkten Dirichtlet-Problem
-
-\item WICHTIG: Noch einmal in \cite{Zhang} schauen, ob dies in Verbindung des letzten Absatzes im Mainpaper verwendet werden kann!!!
+Es gilt also mit \eqref{eq:4.27} laut Satz \ref{satz:3.4}, dass $-\Delta \psi - f \ge 0$ auf $\omega_p$ im distributionellem Sinne (vgl. auch \cite{Walker} Kapitel 3) ist. Dies ist laut Satz \ref{satz:3.4} auch notwendig, damit $u = \psi$ auf $\omega_p$ gilt.
 
 
-\end{itemize}
+Mit den Mengen \eqref{eq:4.25} und \eqref{eq:4.26} ist der Oszillationsterm $\osc_2 (u_{\mcal S}, \psi, f)$ definiert als
+\begin{align*}
+	\osc_2(u_{\mcal S},\psi, f) \coloneqq \(\sum_{p \in \mcal N^{++}} h_p^2 \norm{f-\bar f_p}_{0,\omega_p}^2 + \sum_{p \in \mcal N\setminus (\mcal N^{0-}\cup \mcal N^{++})} h_p^2 \norm f_{0,\omega_p}^2 \)^{\frac 12}, 
+\end{align*}
+wobei $h_p \coloneqq \max_{E\in \mcal E_p} \abs E$ für jedes $p \in \mcal N$ ist, $h_p$ ist ein Maß für den Durchmesser von $\omega_p$, und $\bar f_p$ den Mittelwert von $f$ über $\omega_p$ bezeichne, also
+\begin{align*}
+	\bar f _p = \frac 1{\abs{\omega_p}} \int_{\omega_p} f \, dx \, .
+\end{align*}
+Anschaulich kann man die Summanden der ersten Summe als Varianz der Last $f$ auf $\omega_p$ interpretieren. Da wir in der Variationsrechnung ein gemitteltes Problem betrachten, ist die erste Summe also ein Maß dafür, auf welchen Teilen von $\Omega$ die wirkliche Last $f$ um einen gemittelten Wert oszilliert. Dies impliziert bei starker Oszillation anschaulich, dass eine Verfeinerung in solchen Gebieten, die Lösung genauer machen würde.
+
+In der Menge $\mcal N\setminus (\mcal N^{0-}\cup \mcal N^{++})$ sind die inneren Knoten, die keinen vollen Kontakt $u_{\mcal S} = \psi$ auf $\omega_p$ haben und für die die Lösung $\eps_{\mcal V}$ des lokalen Defektproblems keinen Kontakt mit der Nebenbedingung von $\mcal A_{\mcal V}$ hat. Man beachte also, dass in $\mcal N\setminus (\mcal N^{0-}\cup \mcal N^{++})$ nur die Kontaktknoten fehlen, die vollen  Kontakt haben, und die Nichtkontaktknoten, für die $\eps_{\mcal V}$ in Kontakt mit dem Hindernis aus $\mcal A_{\mcal V}$ stehen. Diese Menge beschreibt gerade die Randpunkte am Hindernis und $\osc_2 (u_{\mcal S},\psi,f)$ enthält nur Anteile aus Knoten ohne vollen Kontakt, da für diese die Varianz bzgl. des Lastvektors $f$ irrelevant wäre, denn hier würde nach Verfeinerung immer noch voller Kontakt herrschen.
+
+
+\begin{bem*}
+Die \idx{Oszillationsterme} können leicht berechnet bzw. implementiert werden, wie man in Kapitel \ref{kap:5} oder auch Anhang \ref{anhang:D} nachvollziehen kann.
+\end{bem*}
+
+
+Im unbeschränkten Fall, also $\psi = -\infty$, ist $\eps_{\mcal V}$ nicht im Kontakt mit dem Hindernis für alle Knoten aus $\mcal N$ und damit gilt $\mcal N^{++} = \mcal N\cap \Omega$. Wir rechnen nach, dass dann für die Menge der Randpunkte gilt:
+\[
+	\mcal N\setminus (\mcal N^{0-}\cup \mcal N^{++}) = \mcal N \setminus (\mcal N \cap \Omega) = \mcal N \cap \partial \Omega \, .
+\]
+Also erhalten wir für den Oszillationsterm $\osc_2(u_{\mcal S},\psi,f)$ die Form
+\begin{align*}
+	\osc_2(u_{\mcal S},\psi, f) = \(\sum_{p \in \mcal N\cap \Omega} h_p^2 \norm{f-\bar f_p}_{0,\omega_p}^2 + \sum_{p \in \mcal N \cap \partial \Omega} h_p^2 \norm f_{0,\omega_p}^2 \)^{\frac 12} ,
+\end{align*}
+was der Daten-Oszillation aus dem unbeschränkten Fall entspricht. Damit ist der zweite Oszillationsterm aus \eqref{eq:4.24} also eine Verallgemeinerung des unbeschränkten Falles. Wenn also der Teil ohne Kontakt  bekannt wäre, dann wäre der beschränkte Fall auf dieser Menge von Knoten äquivalent zu einem unbeschränkten \idx{Dirichtlet-Problem}.
+
 
 
 
@@ -772,6 +755,13 @@ $\mcal N\setminus (\mcal N^{0-}\cup \mcal N^{++})$ ist die Menge von Punkten, di
 
 \subsection{Zuverlässigkeit des Fehlerschätzers}
 \label{kap:4.1.4}
+
+
+
+
+
+
+%---------------------------------------------------
 
 \begin{itemize}
 \item wir wollen in diesem Kapitel eine obere Schranke des Fehlers im Energiefunktional, die vom hierarchischen Fehlerschätzer abhängt, herleiten.
@@ -914,7 +904,7 @@ Es sei Voraussetzung \ref{vor:4.1} erfüllt. Dann gilt
 \begin{align}
 	\rho_{\mcal S}(e) \lesssim \sum_{E\in \mcal E} \eta_E \, \abs{\rho_E} + \osc(u_{\mcal S},\psi,f)^2 
 \end{align}
-mit $\rho_E$ wie in \eqref{eq:4.11}, $\osc (u_{\mcal S},\psi,f)$ wie in \eqref{eq:4.23} und $\eta_E = \abs{\eps_{\mcal V}(x_E)} \, \norm{\phi_E}$.
+mit $\rho_E$ wie in \eqref{eq:4.11}, $\osc (u_{\mcal S},\psi,f)$ wie in \eqref{eq:4.24} und $\eta_E = \abs{\eps_{\mcal V}(x_E)} \, \norm{\phi_E}$.
 \end{lemma}
 
 \begin{proof}
@@ -1223,11 +1213,11 @@ Es sei die Voraussetzung \ref{vor:4.1} für $\psi$ erfüllt. Dann liefert die L�
 \begin{align}\label{eq:4.74}
 	\norm{u-u_S} \lesssim \(\sum_{E\in \mcal E} \eta_E \,\abs{\rho_E} \)^{\frac 12} + \osc (u_{\mcal S},\psi,f) 
 \end{align}
-bis auf Oszillationsterme, wie in \eqref{eq:4.23} definiert, und einer Konstante, die nur von der Quasi-Uniformität von $\mcal T_h$ abhängt.
+bis auf Oszillationsterme, wie in \eqref{eq:4.24} definiert, und einer Konstante, die nur von der Quasi-Uniformität von $\mcal T_h$ abhängt.
 \end{theorem}
 
 \begin{proof}
-Mit Lemma \ref{lem:4.13} und \ref{lem:4.21} folgt direkt
+Mit Lemma \ref{lem:4.12} und \ref{lem:4.21} folgt direkt
 \begin{align*}
 	\norm{u-u_{\mcal S}}^2 \le 2 \rho_{\mcal S} (e) \lesssim \sum_{E\in \mcal E} \eta_E \, \abs{\rho_E} + \osc (u_{\mcal S},\psi,f)^2 \, .
 \end{align*}
@@ -1405,7 +1395,7 @@ Weiter sei $\eps_{\mcal V}\in \mcal A_{\mcal V}$ die Lösung von \eqref{eq:4.8}.
 \[
 	\mcal I_{\mcal Q}(\eps_{\mcal Q}) \le \mcal I_{\mcal Q} (\eps_{\mcal V}) \le 0 \, .
 \]
-Analog zu Lemma \ref{lem:4.13} bzw. Korollar \ref{kor:4.14} gilt auch für $\eps_{\mcal Q}$ die Ungleichung $-\mcal I_{\mcal Q} (\eps_{\mcal Q}) \le \rho_{\mcal S} (\eps_{\mcal Q})$. Gilt nun $\rho_{\mcal S} (\eps_{\mcal Q}) \lesssim \rho_{\mcal S}(e_{\mcal Q})$, so folgt mit \eqref{eq:4.16}
+Analog zu Lemma \ref{lem:4.12} bzw. Korollar \ref{kor:4.13} gilt auch für $\eps_{\mcal Q}$ die Ungleichung $-\mcal I_{\mcal Q} (\eps_{\mcal Q}) \le \rho_{\mcal S} (\eps_{\mcal Q})$. Gilt nun $\rho_{\mcal S} (\eps_{\mcal Q}) \lesssim \rho_{\mcal S}(e_{\mcal Q})$, so folgt mit \eqref{eq:4.16}
 \[
 	\mcal I(e_{\mcal Q}) \le -\frac 12 \rho_{\mcal S} (e_{\mcal Q}) \lesssim -\rho_{\mcal S} (\eps_{\mcal Q}) \le \mcal I_{\mcal Q}(\eps_{\mcal Q}) \, .
 \]
