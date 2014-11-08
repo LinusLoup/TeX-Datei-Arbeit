@@ -443,7 +443,7 @@ Da $e_{\mcal Q}$ und $\eps_{\mcal V}$ Lösungen der Variationsungleichungen \eqr
 \end{proof}
 
 
-Wegen \eqref{eq:4.16} ist also $\rho_{\mcal S} (\eps_{\mcal V})$ äquivalent zum Fehlerschätzer $-\mcal I_{\mcal Q}(\eps_{\mcal V})$ und kann daher als Fehlerindikator für $-\mcal I_{\mcal Q} (\eps_{\mcal V})$ verwendet werden, denn wenn wir  $\rho_{\mcal S}$ verkleinern, so wird auch $-\mcal I_{\mcal Q}$ kleiner. In Kapitel \ref{kap:4.1.4} und \ref{kap:4.1.5} werden wir dann die Äquivalenz von $-\mcal I_{\mcal Q}(\eps_{\mcal V})$ zum exakten Fehler in den Funktionalen $J(u_{\mcal S}) - J(u)=-\mcal I(e)$ zeigen.
+Wegen \eqref{eq:4.16} ist also $\rho_{\mcal S} (\eps_{\mcal V})$ äquivalent zum Fehlerschätzer $-\mcal I_{\mcal Q}(\eps_{\mcal V})$ und kann daher als \idx{Fehlerindikator} für $-\mcal I_{\mcal Q} (\eps_{\mcal V})$ verwendet werden, denn wenn wir  $\rho_{\mcal S}$ verkleinern, so wird auch $-\mcal I_{\mcal Q}$ kleiner. In Kapitel \ref{kap:4.1.4} und \ref{kap:4.1.5} werden wir dann die Äquivalenz von $-\mcal I_{\mcal Q}(\eps_{\mcal V})$ zum exakten Fehler in den Funktionalen $J(u_{\mcal S}) - J(u)=-\mcal I(e)$ zeigen.
 
 
 Aus Lemma \ref{lem:4.12} folgt analog, dass der Fehler $J(u_{\mcal S})-J(u)$ äquivalent zu $\rho_{\mcal S}(e)$ ist. Daher werden wir die lokalen Anteile des Fehlerschätzers mittels $\rho_{\mcal S}(\eps_{\mcal V})$ berechnen. Es sei $u_{\mcal S}$ die Lösung von \eqref{eq:3.12}, dann gilt für alle $T\in \mcal T_h$ die Gleichung $\Delta u_{\mcal S} = 0$, da $u_{\mcal S}$ auf jedem $T$ linear ist. Mit $\Omega = \bigcup_{T \in \mcal T_h} T$ berechnen wir daher für alle $v \in H^1(\Omega)$
@@ -505,7 +505,7 @@ lässt sich $\rho_{\mcal S}$ wie folgt in lokale Anteile aufteilen können:
 	\rho_p(v) \coloneqq \rho_{\mcal S} (v \phi_p) \, , \quad v \in H^1(\Omega) , p \in \mcal N \, .
 \end{align}
 
-In Lemma \ref{lem:4.14} werden wir zeigen, dass wir den in \eqref{eq:4.19} definierten lokalen Anteil von $\rho_{\mcal S}$ leicht berechnen können, und mit der Aussage aus Korollar \ref{kor:4.15}, dass sich der Fehlerindikator $\rho_{\mcal S}$ auch eindeutig in die lokalen Anteile $\rho_p$ zerlegen lässt.
+In Lemma \ref{lem:4.14} werden wir zeigen, dass wir den in \eqref{eq:4.19} definierten lokalen Anteil von $\rho_{\mcal S}$ leicht berechnen können, und mit der Aussage aus Korollar \ref{kor:4.15}, dass sich der \idx{Fehlerindikator} $\rho_{\mcal S}$ auch eindeutig in die lokalen Anteile $\rho_p$ zerlegen lässt.
 
 
 \begin{lemma}\label{lem:4.14}
@@ -756,42 +756,37 @@ was der Daten-Oszillation aus dem unbeschränkten Fall entspricht. Damit ist der
 \subsection{Zuverlässigkeit des Fehlerschätzers}
 \label{kap:4.1.4}
 
+Wir werden in diesem Kapitel eine obere Schranke für den Fehler im Energiefunktional $-\mcal I(e)$, die vom hierarchischen Fehlerschätzer $-\mcal I_{\mcal Q}(\eps_{\mcal V})$ abhängt, herleiten. Hierfür sind zunächst Eigenschaften für die Interpolation von $e$ auf $\eps_{\mcal V}$ notwendig.
 
-
-
-
-
-%---------------------------------------------------
-
-\begin{itemize}
-\item wir wollen in diesem Kapitel eine obere Schranke des Fehlers im Energiefunktional, die vom hierarchischen Fehlerschätzer abhängt, herleiten.
-
-\item die Reduktion des Fehlers $e = u-u_{\mcal S} \in H^1_0(\Omega)$ auf den approximierten Fehler $\eps_{\mcal V}\in \mcal V$ erhalten wir durch lokale Projektionen für jedes $p \in \mcal N$ mit
-\begin{align}
+Die Reduktion des Fehlers $e = u-u_{\mcal S} \in H^1_0(\Omega)$ auf den approximierten Fehler $\eps_{\mcal V}\in \mcal V$ erhalten wir durch lokale Projektionen für jedes $p \in \mcal N$ mit
+\begin{align*}
 	\pi_p: H^1(\Omega) \ra \mcal Q_p = \Span \{ \phi_p\} \cup \mcal V_p \, , \quad \mcal V_p = \Span\{\phi_E \mid E \in \mcal E_p\} \, .
-\end{align}
-
-\item $\pi_p$ ist für jedes $v \in H^1(\Omega)$ aus Dimensionsgründen ($\dim (\mcal Q_p) = p+1$) eindeutig bestimmt durch
+\end{align*}
+Die lokalen Projektionen $\pi_p$ sind für jedes $v \in H^1(\Omega)$ aus Dimensionsgründen ($\dim (\mcal Q_p) = p+1$) eindeutig bestimmt durch
 \begin{align}\label{eq:4.32}
 	\int_E \pi_p v \, ds = \int_E v \, ds \quad \forall \, E \in \mcal E_p \text{ und } \begin{cases}
 														\int_{\omega_p} \pi_p v \, dx = \int_{\omega_p}  v \, dx  &,  p \in \mcal N^{++} \\
 														0  &, \text{sonst}
-													\end{cases} \, .
+													\end{cases}  .
 \end{align}
 
-\item
-\begin{lemma}
+
+Zunächst zeigen wir ein Resultat, das uns die Koordinaten für das Bild der lokalen Projektion $\pi_p$ in einer Basis von $\mcal Q_p$ liefert.
+
+
+\begin{lemma}\label{lem:4.19}
 Es sei $\pi_p$ die oben beschriebene Projektion. Dann gelten für die Koordinaten bzgl. der Basis $\{\phi_p\}\cup \{\phi_E \mid E \in \mcal E_p\}$ von 
 \[
 	\pi_p v = \alpha_p(v) \phi_p + \sum_{E \in \mcal E_p} \alpha_E(v) \phi_E
 \]
 die Beziehungen
 \begin{subequations}\label{eq:4.33}
-\begin{align}
+\begin{align}\label{eq:4.33a}
 	\alpha_p(v)& = \begin{cases}
 					\frac{c_p(v)}{c_p(\phi_p)} &, p \in \mcal N^{++} \\
 					0 &, \text{sonst}
 				\end{cases} , \\
+	\label{eq:4.33b}
 	 \alpha_E(v) &= \frac{\int_E v \, ds - \alpha_p(v)\int_E \phi_p \, ds}{\int_E \phi_E \, ds} \, ,
 \end{align}
 \end{subequations}
@@ -876,8 +871,9 @@ gilt und damit folgt insgesamt zusammen mit \eqref{eq:4.35} bis \eqref{eq:4.37}
 \end{align*}
 \end{proof}
 
-\item für den wichtigsten Satz dieser Arbeit benötigen wir noch eine Eigenschaft der lokalen Projektionen
-\begin{lemma}
+Für das zentrale Lemma in diesem Kapitel benötigen wir noch eine Abschätzung für die Koordinaten der lokalen Projektionen.
+
+\begin{lemma}\label{lem:4.21}
 Die Koeffizienten in \eqref{eq:4.33} erfüllen die Eigenschaft
 \begin{align}\label{eq:my4.39}
 	\max_{\mcal Q \in \{p\} \cup \mcal E_p} \abs{\alpha_{\mcal Q} (v)} \lesssim h^{-1}_p (\norm v_{0,\omega_p} + h_p \norm{\nabla v}_{0,\omega_p}) 
@@ -893,11 +889,48 @@ Insbesondere gilt, wenn $p \not\in \mcal N^{++}$ ist, dass für $\alpha_E(v) = \
 \end{lemma}
 
 \begin{proof}
-Beweis machen???
+Unter Verwendung der \index{Cauchy-Schwar'sche Ungleichung} Cauchy-Schwarz'schen Ungleichung und einer Anwendung vom \idx{Spursatz} (s. Theorem \ref{theorem:A.9}) erhalten wir zunächst
+\begin{align*}
+	\Abs{\int_{\omega_p} v \, dx} & \stackrel{\scriptsize\text{C.S.}}\le \underbrace{\(\int_{\omega_p} dx\)^{\frac 12}}_{=\abs{\omega_p}^{\frac 12}} \(\int_{\omega_p} v^2 \, dx\)^{\frac 12} \lesssim h_p \norm{v}_{0,\omega_p} \, , \\
+	\Abs{\int_{E} v \, ds} & \stackrel{\scriptsize\text{C.S.}}\le \underbrace{\(\int_E ds\)^{\frac 12}}_{=\abs E^{\frac 12}\le h_p^{\frac 12}} \underbrace{\(\int_E v^2 \, ds\)^{\frac 12}}_{=\norm v_{0,E}} \stackrel{\scriptsize\text{Spursatz}}\lesssim h_p(h_p^{-1} \norm v_{0,\omega_p} + \norm{\nabla v}_{0,\omega_p}) \, .
+\end{align*}
+Analog zum Beweis von Lemma \ref{lem:4.19} können wir für $\phi_p$ und $\phi_E$ berechnen, dass die Integrale jeweils über $E$ sowie $\omega_p$ von den Gebieten und einer weiteren Konstanten abhängen und damit also "`$\approx h_p$"' sind. Durch Anwendung der Dreiecksungleichung sowie den eben erwähnten Integralen lässt sich damit berechnen, dass
+\[
+	\abs{\alpha_p (v)} \lesssim \norm v_{0,\omega_p} + h_p \norm{\nabla v}_{0,\omega_p}
+\]
+gilt. Dies in \eqref{eq:4.33b} eingesetzt, ergibt dann wieder unter Verwendung der Dreiecksungleichung und der endlichen Integrale von $\phi_p,\phi_E$ sowie der obigen Abschätzungen die Schranke
+\[
+	\abs{\alpha_E(v)} \lesssim h_p^{-1} (\norm v_{0,\omega_p} + h_p \norm{\nabla v}_{0,\omega_p})
+\]
+und damit folgt \eqref{eq:my4.39}. 
+
+
+Die Abschätzung \eqref{eq:my4.40} folgt direkt aus den Abschätzungen von \eqref{eq:my4.39} zusammen mit der Koordinatendarstellung
+\[
+	\pi_p v = \alpha_p(v) \phi_p + \sum_{E \in \mcal E_p} \alpha_E(v) \phi_E
+\]
+der lokalen Projektion und vorheriger Anwendung der Dreiecksungleichung auf die Norm $\norm{\pi_p v}_{0,\omega_p}$.
+
+
+Es sei $P \not\in \mcal N^{++}$. Dann gilt wegen \eqref{eq:4.33a} $\alpha_p(v) = 0$ und damit mit \eqref{eq:4.33b}
+\[
+	\alpha_E(v) = \(\int_E v \, ds\) \(\int_E\phi_E \, ds\)^{-1} .
+\]
+Da $\psi$ wegen Voraussetzung \ref{vor:4.1} stückweise linear ist, gilt dies auch für $\psi-u_{\mcal S}$, d.h. die Funktion stellt eine Gerade über der Kante $E$ dar. Mit der Mittelpunktsregel der Quadratur (vgl. \cite{Stoer} Kapitel 3) ergibt sich dann also
+\[
+	\int_E (\psi-u_{\mcal S}) \, ds = \abs E \, (\psi(x_E) -u_{\mcal S}(x_E)) \, .
+\]
+Wie wir im Beweis von Lemma \ref{lem:4.19} nachgerechnet haben, gilt $\int_E \phi_E \, ds = \frac 23 \abs E$ und dann ist unter der Voraussetzung von \eqref{eq:my4.41}
+\begin{align*}
+	\psi(x_E) -u_{\mcal S}(x_E) &= \frac 3 2\abs E^{-1} \int_E (\psi-u_{\mcal S}) \, ds \\
+	& \lesssim \(\int_E \phi_E \, ds\)^{-1} \(\int_E v \, ds\) \\
+	& = \alpha_E(v) \, . \qedhere
+\end{align*}
 \end{proof}
 
 
-\item folgendes Lemma ist zentral, um die obere Schranke von $J(u_{\mcal S})-J(u)$ bzgl. $-\mcal I_{\mcal Q}(\eps_{\mcal V})$ zu zeigen
+Jetzt haben wir das komplette Werkzeug, um das zentrale Lemma zum Beweis einer oberen Schranke für $J(u_{\mcal S})-J(u)$ bzgl. $-\mcal I_{\mcal Q}(\eps_{\mcal V})$ zu zeigen. Da wir gesehen haben, dass $-\mcal I (e)$ äquivalent zum \idx{Fehlerindikator} $\rho_{\mcal S}(e)$ ist, leiten wir für diesen im folgenden Lemma  eine obere Schranke her.
+
 
 \begin{lemma}\label{lem:4.21}
 Es sei Voraussetzung \ref{vor:4.1} erfüllt. Dann gilt
@@ -912,16 +945,17 @@ Die Idee des Beweises beruht auf Gleichung \eqref{eq:4.20}; damit können wir de
 \begin{align}\label{eq:4.40}
 	\rho_{\mcal S} (e) = \sum_{p \in \mcal N} \rho_p (e) \, .
 \end{align}
-Hierbei ist die Abschätzung der lokalen Anteile $\rho_p(e)$ abhängig von einer Anwendung der Poincaré-Friedrichungleichung (Satz \ref{satz:2.13}), die auf die \textit{verallgemeinerte Poincaré-Friedrich-Ungleichung}\index{Ungleichungen!Poincaré}\index{Poincaré-Friedrich-Ungleichung!verallgemeinerte} (vgl. auch \cite{Rudin})
+Hierbei ist die Abschätzung der lokalen Anteile $\rho_p(e)$ abhängig von einer Anwendung der Poincaré-Friedrichungleichung (Satz \ref{satz:2.13}), die auf die \textit{verallgemeinerte \idx{Poincaré-Friedrich-Ungleichung}}\index{Ungleichungen!Poincaré}\index{\idx{Poincaré-Friedrich-Ungleichung}!verallgemeinerte} (vgl. auch \cite{Rudin})
 \begin{align}\label{eq:4.41}
 	\norm{v-c}_{0,\omega_p} \lesssim h_p \norm{\nabla v}_{0,\omega_p}
 \end{align}
-mit einer Konstanten $c$ und $v\in H^1(\Omega)$, so dass $v=c$ auf einer Menge $\Gamma \subset \partial \omega_p$ mit einem Maß $\mu (\Gamma)\not= 0$ gilt, führt. Da \eqref{eq:4.41} von $p\in \mcal N$ abhängt, werden wir sehen, dass die Anwendung von der Poincaré-Friedrich-Ungleichung vom Typ des Knotens $p$ abhängt. Deshalb betrachten wir die disjunkte Vereinigung
-\begin{align}\label{eq:4.42}
-\begin{aligned}
+mit einer Konstanten $c$ und $v\in H^1(\Omega)$, so dass $v=c$ auf einer Menge $\Gamma \subset \partial \omega_p$ mit einem Maß $\mu (\Gamma)\not= 0$ gilt, führt. Da \eqref{eq:4.41} von $p\in \mcal N$ abhängt, werden wir sehen, dass die Anwendung von der \idx{Poincaré-Friedrich-Ungleichung} vom Typ des Knotens $p$ abhängt. Deshalb betrachten wir die disjunkte Vereinigung
+\begin{align}\notag
+%\begin{aligned}
 	& \overbrace{\mcal N^{++} \cup (\mcal N^+ \setminus \mcal N^{++})}^{=\mcal N^+} \cup (\mcal N \cap \partial \Omega ) \cup\overbrace{ (\mcal N^0 \setminus (\mcal N^{0+} \cup \mcal N^{0-}))  \cup \mcal N^{0+} \cup \mcal N^{0-}}^{= \mcal N^0} \\
+	\label{eq:4.42}
 	= \, & \mcal N^+ \cup \mcal N^0 \cup (\mcal N \cap \partial \Omega)  = (\mcal N \cap \Omega) \cup (\mcal N \cap \partial \Omega) = \mcal N \, .
-\end{aligned}
+%\end{aligned}
 \end{align}
 Wir wollen im Folgenden die in \eqref{eq:4.42} aufgeführten Fälle chronologisch abarbeiten.
 
@@ -955,7 +989,7 @@ wobei im letzten Schritt zusätzlich zur Cauchy-Schwarz-Ungleichung im zweiten S
 	& = \alpha_p(w) \underbrace{\rho_{\mcal S} (\phi_p)}_{=\rho_p(1) = 0} \sum_{E\in \mcal E_p} \alpha_E(w) \!\!\!\! \underbrace{\rho_{\mcal S}(\phi_E)}_{\stackrel[\scriptsize \eqref{eq:4.11}]{}=\rho_E \norm{\phi_E}} \\
 	& = \sum_{E \in \mcal E_p} \alpha_E(w) \rho_E\norm{\phi_E}
 \end{align*}
-ist. Da $\norm{\phi_p}_{\infty,\omega_p} \le 1$, gilt mit der Poincaré-Friedrich-Ungleichung \eqref{eq:4.41}
+ist. Da $\norm{\phi_p}_{\infty,\omega_p} \le 1$, gilt mit der \idx{Poincaré-Friedrich-Ungleichung} \eqref{eq:4.41}
 \begin{align}\label{eq:4.48}
 	\norm w_{0,\omega_p} = \norm{(e-c)\phi_p}_{0,\omega_p} \le \norm{e-c}_{0,\omega_p} \lesssim h_p \norm{\nabla e}_{0,\omega_p} \, ,
 \end{align}
@@ -1003,7 +1037,7 @@ setzen. Damit gilt
 \begin{align*}
 	\alpha_E(w) & = \(\int_E w \, ds \) \(\int_E \phi_E\, ds\)^{-1} = \(\int_E (e-c)\phi_p \, ds \) \(\int_E \phi_E\, ds\)^{-1} \\
 	& = \(\int_E e\phi_p \, ds-c\int_E \phi_p \, ds \) \(\int_E \phi_E\, ds\)^{-1} \\
-	&\!\!\!\!\!\;\stackrel{\scriptsize \eqref{eq:4.54}} \ge \!\!\;  \(\int_E e\phi_p \, ds-\(\int_E e\phi_p \, ds \)\(\int_E \phi_p\, ds\)^{-1} \(\int_E \phi_p \, ds \)\) \(\int_E \phi_E\, ds\)^{-1} \\
+	&\!\!\!\!\!\;\stackrel{\scriptsize \eqref{eq:4.54}}\ge \!\!\; \!\frac{\int_E e\phi_p \, ds-\(\int_E e\phi_p \, ds \)\(\int_E \phi_p\, ds\)^{-1} \(\int_E \phi_p \, ds \)}{\int_E \phi_E\, ds} \\
 	& = 0 \, .
 \end{align*}
 Daraus können wir folgern, dass für die Kanten $E\in \mcal E_p$ mit $\rho_E < -d_E \le 0$
@@ -1020,7 +1054,7 @@ mit $\mcal E_p^0 = \mcal E_p \setminus \mcal E_p^+ = \{E \in \mcal E_p \mid \rho
 \[
 	e = u- u_{\mcal S} = 0 \, .
 \]
-Damit ist $e$ auf einer Teilmenge, vom Maße ungleich Null, des Randes gleich Null und wir können daher die allgemeine Poincaré-Friedrich-Ungleichung \eqref{eq:4.41} anwenden. Damit erhalten wir die Anteile von $E \in \mcal E_p^+$ durch die Abschätzungen \eqref{eq:4.49}, \eqref{eq:4.50} und \eqref{eq:4.51}. Um die Anteile für die Kanten $E \in \mcal E^0_p$ zu erhalten, betrachten wir
+Damit ist $e$ auf einer Teilmenge, vom Maße ungleich Null, des Randes gleich Null und wir können daher die allgemeine \idx{Poincaré-Friedrich-Ungleichung} \eqref{eq:4.41} anwenden. Damit erhalten wir die Anteile von $E \in \mcal E_p^+$ durch die Abschätzungen \eqref{eq:4.49}, \eqref{eq:4.50} und \eqref{eq:4.51}. Um die Anteile für die Kanten $E \in \mcal E^0_p$ zu erhalten, betrachten wir
 \begin{align*}
 \begin{aligned}
 	u_{\mcal S} + w &= u_{\mcal S} + e \phi_p = u_{\mcal S} + (u-u_{\mcal S}) \phi_p \\
@@ -1038,7 +1072,7 @@ und daher gilt $\alpha_E(w) \lesssim d_E \, \norm{\phi_E}^{-1}$. Alle Aussagen e
 \begin{align}\label{eq:4.56}
 	\rho_p (e) \lesssim \sum_{E\in \mcal E^0_p} d_E \, \abs{\rho_E} + \(\sum_{E\in \mcal E_p^+} \abs{\rho_E} + h_p \norm{f}_{0,\omega_p}\)\norm{\nabla e}_{0,\omega_p}
 \end{align}
-gilt. Um dies zu zeigen, spalten wir den Fehler $e = e^+ + e^-$ auf mit $e^+ \coloneqq \max\{e,0\}$ und $e^-\coloneqq \min\{e,0\}$. Damit lässt sich der lokale Anteil des Indekators $\rho_{\mcal S}$ schreiben als
+gilt. Um dies zu zeigen, spalten wir den Fehler $e = e^+ + e^-$ auf mit $e^+ \coloneqq \max\{e,0\}$ und $e^-\coloneqq \min\{e,0\}$. Damit lässt sich der lokale Anteil des Indikators $\rho_{\mcal S}$ schreiben als
 \begin{align}\label{eq:4.57}
 	\rho_p(e) = \rho_p (e^+ + e^-) = \rho_p(e^+)+\rho_p(e^-) \, .
 \end{align}
@@ -1081,7 +1115,7 @@ Nun bleiben noch die oberen Schranken von $\abs{\alpha_E(w)}$ für $E \in \mcal 
 \[
 	0 = \psi-u_{\mcal S} \le e^- = \min\{e,0\} \le 0 \, \lra \, e^- = 0 \text{ auf } E\, .
 \]
-Wie in Fall 3 ist damit die allgemeine Poincaré-Friedrich-Ungleichung anwendbar und wir können die Aussagen \eqref{eq:4.49}, \eqref{eq:4.50} und \eqref{eq:4.51} mit Anwendung von $\norm{\nabla e^-}_{0,\omega_p} \le \norm{\nabla e}_{0,\omega_p}$ zeigen. Insgesamt folgt dann mit \eqref{eq:4.63}
+Wie in Fall 3 ist damit die allgemeine \idx{Poincaré-Friedrich-Ungleichung} anwendbar und wir können die Aussagen \eqref{eq:4.49}, \eqref{eq:4.50} und \eqref{eq:4.51} mit Anwendung von $\norm{\nabla e^-}_{0,\omega_p} \le \norm{\nabla e}_{0,\omega_p}$ zeigen. Insgesamt folgt dann mit \eqref{eq:4.63}
 \begin{align}\label{eq:4.64}
 	\rho_p(e^-) \lesssim \sum_{E\in \mcal E^0_p} d_E \, \abs{\rho_E} + \(\sum_{E\in \mcal E^+_p} \abs{\rho_E} + h_p \norm f_{0,\omega_p} \) \norm{\nabla e}_{0,\omega_p} \, .
 \end{align}
@@ -1115,13 +1149,13 @@ Aus \eqref{eq:4.66} folgt
 	\label{eq:4.67}
 	& \lesssim \norm{\nabla (\psi-u_{\mcal S})}_{0,\omega_p} \, ,
 \end{align}
-wobei im letzten Schritt eine \textit{skalierte} Version der Poincaré-Friedrich-Ungleichung
+wobei im letzten Schritt eine \textit{skalierte} Version der \index{Poincaré-Friedrich-Ungleichung}Poincaré-Friedrich-Unglei-chung
 \footnote{Anschaulich können wir uns dies folgendermaßen vorstellen: Da $\psi-u_{\mcal S}$ linear und am Punkt $p$ gleich ist, ist der Gradient $\nabla (\psi-u_{\mcal S})=\text{const.}$ Damit kann man mit dieser Konstanten als Höhe mit dem Mittelwertsatz der Integralrechnung die beiden Normen gegenseitig abschätzen, wobei diese Ungleichung abhängig von einer Konstanten $c$ ist, die wiederum nur von der Form von $\omega_p$ bzw. $E$ abhängt.}
  verwendet wurde, die darauf basiert, dass $(\psi-u_{\mcal S})(p) = 0$ und $\psi-u_{\mcal S}$ linear ist wegen Voraussetzung \ref{vor:4.1}. Wegen $\psi-u_{\mcal S} \le w$ folgt auch, dass
 \begin{align}\label{eq:4.68}
 	\norm w_{0,\omega_p} \le \norm{\psi-u_{\mcal S}}_{0,\omega_p} \lesssim h_p \norm{\nabla (\psi-u_{\mcal S})}_{0,\omega_p} \, ,
 \end{align}
-wobei in \eqref{eq:4.68} im letzten Schritt wegen $(\psi-u_{\mcal S})(p) = 0$ wieder die skalierte Version der Poincaré-Friedrich-Ungleichung verwendet wurde. Aus \eqref{eq:4.67} folgern wir unter Verwendung der Dreiecksungleichung
+wobei in \eqref{eq:4.68} im letzten Schritt wegen $(\psi-u_{\mcal S})(p) = 0$ wieder die skalierte Version der \idx{Poincaré-Friedrich-Ungleichung} verwendet wurde. Aus \eqref{eq:4.67} folgern wir unter Verwendung der Dreiecksungleichung
 \begin{align}\label{eq:4.69}
 \begin{aligned}
 	\norm{\pi_p w}_{0,\omega_p} & \le \sum_{E\in \mcal E_p} \abs{\alpha_E(w)} \, \norm{\phi_E}_{0,\omega_p} \\ 
@@ -1150,25 +1184,27 @@ Weiter gelten für alle $p \in \mcal N^{0-}$  die Eigenschaften $f\le 0$ auf $\o
 \end{align}
 
 
-Bevor wir die sechs Fälle zusammenführen, machen wir uns klar, dass gilt
+Bevor wir die sechs Fälle zusammenführen, machen wir uns klar, dass 
 \begin{align*}
 	 & (\mcal N^+\setminus \mcal N^{++})  \cup (\mcal N\cap \partial \Omega)  \cup \overbrace{(\mcal N^0 \setminus (\mcal N^{0-} \cup \mcal N^{0+}))  \cup\mcal N^{0+}}^{=\mcal N^0\setminus \mcal N^{0-}} \\
-	 = \, & (\mcal N\cap \Omega) \setminus (\mcal N^{0-}\cup \mcal N^{++})\cup (\mcal N \cap \partial \Omega) = \mcal N \setminus (\mcal N^{0-} \cup \mcal N^{++}) \, .
+	 = \, & (\mcal N\cap \Omega) \setminus (\mcal N^{0-}\cup \mcal N^{++})\cup (\mcal N \cap \partial \Omega) = \mcal N \setminus (\mcal N^{0-} \cup \mcal N^{++}) 
 \end{align*}
-Verwenden wir nun die sechs gezeigten Fälle, so ergibt sich:
+gilt. Verwenden wir nun die sechs gezeigten Fälle, so ergibt sich:
 \begin{align*}
 	\rho_{\mcal S}(e) = & \sum_{p \in \mcal N} \rho_p(e) \\
 	= & \sum_{E\in \mcal E^0} d_E\, \abs{\rho_E} 
 		+ \sum_{p \in \mcal N \setminus \mcal N^{0-}} \Bigg( \sum_{E \in \mcal E_p^+} \abs{\rho_E} \Bigg) \norm{\nabla e}_{0,\omega_p} \\
-	 & + \! \! \! \sum_{p \in \mcal N\setminus(\mcal N^{0-}\cup\mcal N^{++})}\!\!\! h_p \norm{f}_{0,\omega_p} \norm{\nabla e}_{0,\omega_p} + \sum_{p \in \mcal N^{++}} h_p \norm{f-\bar f_p}_{0,\omega_p} \norm{\nabla e}_{0,\omega_p} \\
+	 & + \! \! \!\! \sum_{p \in \mcal N\setminus(\mcal N^{0-}\cup\mcal N^{++})}\!\!\! h_p \norm{f}_{0,\omega_p} \norm{\nabla e}_{0,\omega_p} + \sum_{p \in \mcal N^{++}} h_p \norm{f-\bar f_p}_{0,\omega_p} \norm{\nabla e}_{0,\omega_p} \\
 	 & + \sum_{p \in \mcal N^{0+}} \Bigg(\sum_{E\in \mcal E^+_p} \abs{\rho_E} + h_p \norm f_{0,\omega_p}\Bigg) \norm{\nabla(\psi-u_{\mcal S})}_{0,\omega_p}  \, .
 \end{align*}
 Damit folgt nach der Cauchy-Schwarz-Ungleichung, dass mit einer Konstante $C>0$, die nur von der Quasi-Uniformität von $\mcal T_h$ abhängt, gilt:
 \begin{align*}
-	C \rho_{\mcal S}(e) \le & \sum_{E\in \mcal E^0} d_E\, \abs{\rho_E} + \Bigg(\sum_{E\in \mcal E^+} \abs{\rho_E}^2 + \sum_{p \in \mcal N\setminus(\mcal N^{0-}\cup\mcal N^{++})} h_p^2 \norm{f}^2_{0,\omega_p}  \\
-	& +  \sum_{p \in \mcal N^{++}} h_p^2 \norm{f-\bar f_p}_{0,\omega_p}^2\Bigg)^{\frac 12} \Bigg( \norm{\nabla e}^2_{0,\Omega} + \sum_{p \in \mcal N^{0+}} \norm{\nabla(\psi-u_{\mcal S})}_{0,\omega_p}^2 \Bigg)^{\frac 1 2} \\
-	= &  \sum_{E\in \mcal E^0} d_E\, \abs{\rho_E} + \Bigg(\sum_{E\in \mcal E^+} \abs{\rho_E}^2 + \osc_2(u_{\mcal S},\psi,f)^2\Bigg)^{\frac 12} \Big( \norm{\nabla e}^2_{0,\Omega} + \osc_1(u_{\mcal S},\psi)^2 \Big)^{\frac 1 2} \\
-	\le&\sum_{E\in \mcal E^0} d_E\, \abs{\rho_E} + \frac \eps2\Bigg(  \sum_{E\in \mcal E^+} \abs{\rho_E}^2 + \osc_2(u_{\mcal S},\psi,f)^2\Bigg) + \frac 1{2\eps} \Big( \norm{\nabla e}^2_{0,\Omega} + \osc_1(u_{\mcal S},\psi)^2 \Big) \, ,
+	C \rho_{\mcal S}(e) & \le  \sum_{E\in \mcal E^0} d_E\, \abs{\rho_E} + \Bigg(\sum_{E\in \mcal E^+} \abs{\rho_E}^2 + \sum_{p \in \mcal N\setminus(\mcal N^{0-}\cup\mcal N^{++})} h_p^2 \norm{f}^2_{0,\omega_p}  \\
+	&\ \,  +  \sum_{p \in \mcal N^{++}} h_p^2 \norm{f-\bar f_p}_{0,\omega_p}^2\Bigg)^{\frac 12} \Bigg( \norm{\nabla e}^2_{0,\Omega} + \sum_{p \in \mcal N^{0+}} \norm{\nabla(\psi-u_{\mcal S})}_{0,\omega_p}^2 \Bigg)^{\frac 1 2} \\
+	& =   \sum_{E\in \mcal E^0} d_E\, \abs{\rho_E} \\
+	&\ \, + \Bigg(\sum_{E\in \mcal E^+} \abs{\rho_E}^2  + \osc_2(u_{\mcal S},\psi,f)^2\Bigg)^{\frac 12} \Big( \norm{\nabla e}^2_{0,\Omega} + \osc_1(u_{\mcal S},\psi)^2 \Big)^{\frac 1 2} \\
+	& \le\sum_{E\in \mcal E^0} d_E\, \abs{\rho_E}  \\
+	&\ \,  + \frac \eps2 \Bigg(  \sum_{E\in \mcal E^+} \abs{\rho_E}^2 + \osc_2(u_{\mcal S},\psi,f)^2\Bigg) + \frac 1{2\eps} \Big( \norm{\nabla e}^2_{0,\Omega} + \osc_1(u_{\mcal S},\psi)^2 \Big)  ,
 \end{align*}
 wobei wir als letztes die Ungleichung von Young mit einem $\eps > 0$ verwendet haben und
 \[
@@ -1176,26 +1212,30 @@ wobei wir als letztes die Ungleichung von Young mit einem $\eps > 0$ verwendet h
 \] 
 Wählen wir $\eps \le C$, so ergibt sich nach leichtem Umstellen der Ungleichung
 \begin{align*}
-	c(\eps) \rho_{\mcal S}(e) & \le \frac \eps2 \(\sum_{E\in \mcal E^+} \abs{\rho_E}^2+\osc_2(u_{\mcal S},\psi,f)^2\) + \frac 1{2\eps} \osc_1(u_{\mcal S},f)^2 + \sum_{E\in \mcal E^0} d_E \, \abs{\rho_E} \\
-	& \le \(1+\frac 1{2\eps}\) \sum_{E\in \mcal E_p} \eta_E \, \abs{\rho_E}+ \(\frac\eps 2 + \frac 1{2\eps}\) \(\osc_2(u_{\mcal S},\psi,f)^2+\osc_1(u_{\mcal S},f)^2\) \\
+	\!\!\!\!\!\!\!\!\!  c(\eps) \rho_{\mcal S}(e) & \le \frac \eps2 \(\sum_{E\in \mcal E^+} \abs{\rho_E}^2+\osc_2(u_{\mcal S},\psi,f)^2\) \\
+	& \ \ \  + \frac 1{2\eps} \osc_1(u_{\mcal S},f)^2 + \sum_{E\in \mcal E^0} d_E \, \abs{\rho_E} \\
+\end{align*}
+\begin{align*}
+	\qquad \qquad \qquad & \le \(1+\frac 1{2\eps}\) \sum_{E\in \mcal E_p} \eta_E \, \abs{\rho_E} \\
+	& \ \ \ + \(\frac\eps 2 + \frac 1{2\eps}\) \(\osc_2(u_{\mcal S},\psi,f)^2+\osc_1(u_{\mcal S},f)^2\) \\
 	& \lesssim \sum_{E\in \mcal E_p} \eta_E \, \abs{\rho_E} + \osc(u_{\mcal S},\psi,f)^2 
 \end{align*}
 mit $c(\eps) = \eps-\frac 1{2\eps}$ und $\eta_E$ wie in \eqref{eq:4.11} definiert. Damit folgt die Behauptung.
 \end{proof}
 
 
+Mit dem Lemma \ref{lem:4.21} und der Äquivalenz des a posteriori Fehlerschätzers $-\mcal I_{\mcal Q}(\eps_{\mcal V})$ zum Fehlerindikator $\rho_{\mcal S}(\eps_{\mcal V})$ folgt das gewünschte Resultat für unseren Fehlerschätzer im nächsten Theorem.
 
 
-\item Theorem für obere Schranke des Fehlerschätzers:
 \begin{theorem}\label{theorem:4.22}
 Es sei Voraussetzung \ref{vor:4.1} für $\psi$ erfüllt. Dann ist der hierarchische Fehlerschätzer $-\mcal I_{\mcal Q}(\eps_{\mcal V})$ eine obere Schranke für den Fehler im Energiefunktional bis auf Addition von Oszillationstermen und einer Konstante $C$, die nur von der Quasi-Uniformität von $\mcal T_h$ abhängt, d.h.
-\begin{align}
+\begin{align}\label{eq:4.72}
 	J(u_{\mcal S}) - J(u) \lesssim -\mcal I_{\mcal Q}(\eps_{\mcal V}) + \osc (u_{\mcal S},\psi,f)^2 \, .
 \end{align}
 \end{theorem}
 
 \begin{proof}
-Die Aussage folgt direkt durch Lemma \ref{lem:4.12} und \ref{lem:4.19}, denn
+Die Aussage folgt direkt durch Lemma \ref{lem:4.12} und \ref{lem:4.21}, denn
 \begin{align*}
 	J(u_{\mcal S})-J(u) & = - \mcal I (e) \le \rho_{\mcal S}(e) \\
 	& \lesssim \underbrace{\sum_{E\in \mcal E}\eta_E \, \abs{\rho_E}}_{=\rho_{\mcal S}(\eps_{\mcal V})} + \osc (u_{\mcal S},\psi,f)^2 \\
@@ -1205,10 +1245,14 @@ Die Aussage folgt direkt durch Lemma \ref{lem:4.12} und \ref{lem:4.19}, denn
 und damit folgt die Behauptung.
 \end{proof}
 
-\item an dieser Abschätzung können wir sehen, dass es sinnvoll ist, nicht nur den hierarchischen Fehlerschätzer $-\mcal I_{\mcal Q}(\eps_{\mcal V})$ zum Abschätzen des Fehlers zu verwenden, sondern auch die Oszillationsterme (diese sollten von Verfeinerungsschritt zum Verfeinerungsschritt kleiner werden, sonst ist die Verringerung im exakten Fehler nicht gesichert)
 
-\item damit kann man auch den exakten Fehler durch die Terme nach oben abschätzen
-\begin{theorem}
+An der Abschätzung \eqref{eq:4.72} können wir sehen, dass es sinnvoll ist, nicht nur den hierarchischen Fehlerschätzer $-\mcal I_{\mcal Q}(\eps_{\mcal V})$ von einem Verfeinerungsschritt zum nächsten zu verringern, sondern auch zu fordern, dass  die \idx{Oszillationsterme} $\osc (u_{\mcal S},\psi,f)$ kleiner werden. Daher wollen wir in unserem Algorithmus später für einen adaptiven Verfeinerungsschritt diese Forderung mit verwenden, dass die \idx{Oszillationsterme} aus \eqref{eq:4.24} verringert werden.
+
+
+
+Wie wir in Bemerkung \ref{bem:4.2} gesehen haben, gibt eine obere Schranke vom Fehler der Funktionswerte des Energiefunktionals $J$ auch eine obere Schranke für den exakten Fehler bzgl. der Energienorm an.
+
+\begin{theorem}\label{theorem:4.23}
 Es sei die Voraussetzung \ref{vor:4.1} für $\psi$ erfüllt. Dann liefert die Lösung vom lokalisierten Defektproblem \eqref{eq:4.9} eine obere Schranke für den exakten Fehler
 \begin{align}\label{eq:4.74}
 	\norm{u-u_S} \lesssim \(\sum_{E\in \mcal E} \eta_E \,\abs{\rho_E} \)^{\frac 12} + \osc (u_{\mcal S},\psi,f) 
@@ -1225,7 +1269,11 @@ Nach Wurzel ziehen und Verwendung der Dreiecksungleichung folgt die Behauptung.
 \end{proof}
 
 
-\item damit nachher eine Abschätzung analog zu \cite{MorNoc} Lemma 3.8 (wäre schön, wenn diese noch gezeigt werden würde....)
+
+
+\underline{WICHTIG:} Noch erarbeiten!!!! damit nachher eine Abschätzung analog zu \cite{MorNoc} Lemma 3.8 (wäre schön, wenn diese noch gezeigt werden würde....)
+
+
 \begin{lemma}
 Es sei $0 < \gamma < 1$ ein Parameter, der die Reduktion der Größe des Dreiecks bei Verfeinerung wiedergibt. Weiter sei $0 < \hat \theta < 1$ gegeben und eine Menge an Punkten $\hat{\mcal N}\subset \mcal N$, die die zu verfeinernden Dreiecke anzeigen, gegeben, so dass
 \[
@@ -1239,7 +1287,8 @@ wobei $\tilde{\mcal N}$ die Menge an Punkten nach Verfeinerung der Triangulierun
 \end{lemma}
 
 Hierfür vllt eine äquivalente Darstellung von $\osc_2$ bzgl. der Dreiecke und dann das Lemma nur auf $\osc_2$ beziehen.
-\end{itemize}
+
+
 
 
 
@@ -1249,11 +1298,10 @@ Hierfür vllt eine äquivalente Darstellung von $\osc_2$ bzgl. der Dreiecke und 
 \subsection{Effektivität des Fehlerschätzers}
 \label{kap:4.1.5}
 
-\begin{itemize}
-\item wir zeigen, dass der hierarchische Fehlerschätzer $-\mcal I_{\mcal Q}(\eps_{\mcal V})$ ist auch eine untere Schranke für $-\mcal I(e) = J(u_{\mcal S}) - J(u)$
+Der Fehlerschätzer  $-\mcal I_{\mcal Q}(\eps_{\mcal V})$ ist für den exakten Fehler des Energiefunktionals auch effektiv, d.h. wir werden zeigen, dass der hierarchische Fehlerschätzer $-\mcal I_{\mcal Q}(\eps_{\mcal V})$ auch eine untere Schranke für $-\mcal I(e) = J(u_{\mcal S}) - J(u)$ ist.
 
-\item
-\begin{theorem}
+
+\begin{theorem}\label{theorem:4.25}
 Das Hindernis $\psi$ sei stückweise linear und stetig. Dann ist der hierarchische a posteriori Fehlerschätzer $\mcal I_{\mcal Q}(\eps_{\mcal V})$ auch eine untere Schranke für den Fehler im Energiefunktional im Sinne von
 \begin{align}
 	-\mcal I_{\mcal Q}(\eps_{\mcal V}) \le 6 (J(u_{\mcal S})-J(u)) \, .
@@ -1315,7 +1363,7 @@ was den nächsten Schritt legitimiert. Wir setzen nun $\beta_E = \eps_{\mcal V}(
 \end{align*}
 Zusammen mit \eqref{eq:my4.32} folgt dann die Behauptung.
 \end{proof}
-\end{itemize}
+
 
 
 
@@ -1336,6 +1384,13 @@ Zusammen mit \eqref{eq:my4.32} folgt dann die Behauptung.
 
 \section{Erfüllung einer Saturationseigenschaft}
 \label{kap:4.3}
+
+
+
+
+
+%---------------------------------------------------
+
 
 \begin{itemize}
 \item in Kapitel \ref{kap:2.4} musste für den hierarchischen Fehlerschätzer eine Saturationseigenschaft erfüllt werden. Dies ist hier nicht benötigt worden, dennoch wird eine solche äquivalente Eigenschaft erfüllt.

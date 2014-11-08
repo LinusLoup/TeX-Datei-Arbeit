@@ -1,6 +1,8 @@
 \begin{theindex}
 
   \item (quasi-) uniforme Zerlegung, \hyperpage{20}
+  \item \idx{Poincar\IeC {\'e}-Friedrich-Ungleichung}
+    \subitem verallgemeinerte, \hyperpage{79}
 
   \indexspace
 
@@ -23,7 +25,7 @@
     \subitem elliptisch, \hyperpage{11}
     \subitem koerziv, \hyperpage{11}
     \subitem stetig, \hyperpage{11}
-  \item Bubble-Funktion, \hyperpage{65}
+  \item Bubble-Funktion, \hyperpage{64}
 
   \indexspace
 
@@ -38,12 +40,14 @@
 
   \indexspace
 
-  \item Defektproblem, \hyperpage{28}
+  \item Defektproblem, \hyperpage{28}, \hyperpage{63}
+    \subitem lokales, \hyperpage{66}
   \item Deformationsgradient, \hyperpage{32}
     \subitem materiell, \hyperpage{33}
     \subitem r\IeC {\"a}umlich, \hyperpage{33}
   \item Dirichlet-Problem, \hyperpage{9, 10}
     \subitem homogenes, \hyperpage{10, 11}, \hyperpage{38}
+  \item Dirichtlet-Problem, \hyperpage{75}
 
   \indexspace
 
@@ -54,18 +58,20 @@
 
   \indexspace
 
+  \item Fehlerindikator, \hyperpage{69, 70}, \hyperpage{79}
   \item Finite-Elemente-Methode, \hyperpage{22}
   \item Fixpunktsatz von Brouwer, \hyperpage{42}
 
   \indexspace
 
-  \item G\IeC {\^a}teaux-Ableitung, \hyperpage{33}, \hyperpage{105}
-    \subitem rechtsseitig, \hyperpage{105}
+  \item G\IeC {\^a}teaux-Ableitung, \hyperpage{33}, \hyperpage{104}
+    \subitem rechtsseitig, \hyperpage{104}
   \item G\IeC {\^a}teaux-differenzierbar, \hyperpage{57}, 
-		\hyperpage{105, 106}
+		\hyperpage{64}, \hyperpage{104, 105}
   \item Galerkin-Approximation, \hyperpage{18}, \hyperpage{25, 26}, 
 		\hyperpage{28}
-  \item Galerkin-Orthogonalit\IeC {\"a}t, \hyperpage{26}
+  \item Galerkin-Orthogonalit\IeC {\"a}t, \hyperpage{26}, 
+		\hyperpage{71, 72}
   \item Galerkin-Verfahren, \hyperpage{18}, \hyperpage{22}
   \item Gap-Funktion, \hyperpage{51}
   \item global-local node ordering, \hyperpage{24}
@@ -91,8 +97,8 @@
     \subitem Ausgangs-, \hyperpage{31}
     \subitem Momentan-, \hyperpage{31}
     \subitem Referenz-, \hyperpage{31}
+  \item Kontaktknoten, \hyperpage{72}
   \item Kontaktproblem, \hyperpage{49}
-  \item Kontaktpunkte, \hyperpage{73}
   \item Kontaktrand, \hyperpage{52}
   \item Kontinuum, \hyperpage{31}
   \item Korn'sche Ungleichung, \hyperpage{56}
@@ -104,7 +110,7 @@
   \item Lagrange-Basis, \hyperpage{22}
   \item Lam\IeC {\'e}-Konstanten, \hyperpage{35}
   \item Lax-Milgram, \hyperpage{13}, \hyperpage{15, 16}, \hyperpage{36}
-  \item Lebesgue-Raum, \hyperpage{103}
+  \item Lebesgue-Raum, \hyperpage{102}
   \item lineares Komplementarit\IeC {\"a}tsproblem, \hyperpage{43}
   \item lokale Steifigkeitsmatrix, \hyperpage{24}
 
@@ -119,19 +125,23 @@
   \indexspace
 
   \item Nichtdurchdringungsbedingung, \hyperpage{51}
-  \item Nichtkontaktpunkte, \hyperpage{73}
+  \item Nichtkontaktknoten, \hyperpage{72}
   \item nodale Basis, \hyperpage{22}
   \item nodale Basisfunktion, \hyperpage{21, 22}
 
   \indexspace
 
   \item orthogonales~Komplement, \hyperpage{9}
+  \item Oszillation, \hyperpage{73}
+  \item Oszillationsterme, \hyperpage{73}, \hyperpage{75}, 
+		\hyperpage{88}
 
   \indexspace
 
   \item Penalty-Methode, \hyperpage{60}
-  \item Poincar\IeC {\'e}-Friedrich-Ungleichung, \hyperpage{15}
-    \subitem verallgemeinerte, \hyperpage{81}
+  \item Poincar\IeC {\'e}-Friedrich-Ungleichung, \hyperpage{15}, 
+		\hyperpage{79--81}, \hyperpage{83--86}, 
+		\hyperpage{115}
   \item Projektionen, \hyperpage{8}
 
   \indexspace
@@ -146,9 +156,9 @@
     \subitem Dirichlet-Rand, \hyperpage{54}
     \subitem Kontakt, \hyperpage{49}
     \subitem Neumann, \hyperpage{49}, \hyperpage{52}
-  \item Raum der Testfunktionen, \hyperpage{103}
+  \item Raum der Testfunktionen, \hyperpage{102}
   \item Referenzkonfiguration, \hyperpage{31}
-  \item reflexiver Raum, \hyperpage{107}
+  \item reflexiver Raum, \hyperpage{106}
   \item Reibungsfunktional, \hyperpage{57}
   \item Riesz'scher Darstellungssatz, \hyperpage{16}
 
@@ -157,15 +167,15 @@
   \item Saturationseigenschaft, \hyperpage{28}
   \item Satz von Gau\IeC {\ss }, \hyperpage{34}, \hyperpage{54}
   \item Schubmodul, \hyperpage{35}
-  \item schwache Ableitung, \hyperpage{103}
+  \item schwache Ableitung, \hyperpage{102}
   \item schwache L\IeC {\"o}sung, \hyperpage{11}
   \item Signorini-Kontakt, \hyperpage{49}, \hyperpage{52--54}
   \item slave, \hyperpage{50}
-  \item Sobolev-Raum, \hyperpage{7}, \hyperpage{103}
+  \item Sobolev-Raum, \hyperpage{7}, \hyperpage{102}
   \item Spannung, \hyperpage{49}, \hyperpage{52}
   \item Spannungsrand, \hyperpage{49}
   \item Spline-Interpolation, \hyperpage{48}
-  \item Spursatz, \hyperpage{105}
+  \item Spursatz, \hyperpage{104}
   \item starkes Problem, \hyperpage{11}
   \item Steifigkeitsmatrix, \hyperpage{19}
 
@@ -181,7 +191,7 @@
   \indexspace
 
   \item Ungleichungen
-    \subitem Poincar\IeC {\'e}, \hyperpage{81}
+    \subitem Poincar\IeC {\'e}, \hyperpage{79}
 
   \indexspace
 

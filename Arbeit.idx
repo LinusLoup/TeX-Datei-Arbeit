@@ -157,6 +157,8 @@
 \indexentry{G\IeC {\^a}teaux-differenzierbar|hyperpage}{64}
 \indexentry{Bubble-Funktion|hyperpage}{64}
 \indexentry{Defektproblem!lokales|hyperpage}{66}
+\indexentry{Fehlerindikator|hyperpage}{69}
+\indexentry{Fehlerindikator|hyperpage}{70}
 \indexentry{Galerkin-Orthogonalit\IeC {\"a}t|hyperpage}{71}
 \indexentry{Galerkin-Orthogonalit\IeC {\"a}t|hyperpage}{72}
 \indexentry{Kontaktknoten|hyperpage}{72}
@@ -166,15 +168,28 @@
 \indexentry{Oszillation|hyperpage}{73}
 \indexentry{Oszillationsterme|hyperpage}{75}
 \indexentry{Dirichtlet-Problem|hyperpage}{75}
+\indexentry{Cauchy-Schwar'sche Ungleichung|hyperpage}{79}
+\indexentry{Spursatz|hyperpage}{79}
+\indexentry{Fehlerindikator|hyperpage}{80}
+\indexentry{Poincar\IeC {\'e}-Friedrich-Ungleichung|hyperpage}{80}
 \indexentry{Ungleichungen!Poincar\IeC {\'e}|hyperpage}{80}
-\indexentry{Poincar\IeC {\'e}-Friedrich-Ungleichung!verallgemeinerte|hyperpage}{80}
-\indexentry{Sobolev-Raum|hyperpage}{102}
-\indexentry{Lebesgue-Raum|hyperpage}{102}
-\indexentry{Raum der Testfunktionen|hyperpage}{102}
-\indexentry{schwache Ableitung|hyperpage}{102}
-\indexentry{Spursatz|hyperpage}{104}
-\indexentry{G\IeC {\^a}teaux-differenzierbar|hyperpage}{104}
-\indexentry{G\IeC {\^a}teaux-Ableitung|hyperpage}{104}
-\indexentry{G\IeC {\^a}teaux-Ableitung!rechtsseitig|hyperpage}{104}
+\indexentry{\idx{Poincar\IeC {\'e}-Friedrich-Ungleichung}!verallgemeinerte|hyperpage}{80}
+\indexentry{Poincar\IeC {\'e}-Friedrich-Ungleichung|hyperpage}{81}
+\indexentry{Poincar\IeC {\'e}-Friedrich-Ungleichung|hyperpage}{82}
+\indexentry{Poincar\IeC {\'e}-Friedrich-Ungleichung|hyperpage}{84}
+\indexentry{Poincar\IeC {\'e}-Friedrich-Ungleichung|hyperpage}{85}
+\indexentry{Poincar\IeC {\'e}-Friedrich-Ungleichung|hyperpage}{86}
+\indexentry{Poincar\IeC {\'e}-Friedrich-Ungleichung|hyperpage}{87}
+\indexentry{Oszillationsterme|hyperpage}{89}
+\indexentry{Oszillationsterme|hyperpage}{89}
+\indexentry{Sobolev-Raum|hyperpage}{103}
+\indexentry{Lebesgue-Raum|hyperpage}{103}
+\indexentry{Raum der Testfunktionen|hyperpage}{103}
+\indexentry{schwache Ableitung|hyperpage}{103}
+\indexentry{Spursatz|hyperpage}{105}
 \indexentry{G\IeC {\^a}teaux-differenzierbar|hyperpage}{105}
-\indexentry{reflexiver Raum|hyperpage}{106}
+\indexentry{G\IeC {\^a}teaux-Ableitung|hyperpage}{105}
+\indexentry{G\IeC {\^a}teaux-Ableitung!rechtsseitig|hyperpage}{105}
+\indexentry{G\IeC {\^a}teaux-differenzierbar|hyperpage}{106}
+\indexentry{reflexiver Raum|hyperpage}{107}
+\indexentry{Poincar\IeC {\'e}-Friedrich-Ungleichung|hyperpage}{116}
