@@ -721,7 +721,7 @@ Es gilt also mit \eqref{eq:4.27} laut Satz \ref{satz:3.4}, dass $-\Delta \psi - 
 
 Mit den Mengen \eqref{eq:4.25} und \eqref{eq:4.26} ist der Oszillationsterm $\osc_2 (u_{\mcal S}, \psi, f)$ definiert als
 \begin{align*}
-	\osc_2(u_{\mcal S},\psi, f) \coloneqq \(\sum_{p \in \mcal N^{++}} h_p^2 \norm{f-\bar f_p}_{0,\omega_p}^2 + \sum_{p \in \mcal N\setminus (\mcal N^{0-}\cup \mcal N^{++})} h_p^2 \norm f_{0,\omega_p}^2 \)^{\frac 12}, 
+	\osc_2(u_{\mcal S},\psi, f) \coloneqq \(\sum_{p \in \mcal N^{++}} h_p^2\, \norm{f-\bar f_p}_{0,\omega_p}^2 + \sum_{p \in \mcal N\setminus (\mcal N^{0-}\cup \mcal N^{++})} h_p^2 \, \norm f_{0,\omega_p}^2 \)^{\frac 12}, 
 \end{align*}
 wobei $h_p \coloneqq \max_{E\in \mcal E_p} \abs E$ für jedes $p \in \mcal N$ ist, $h_p$ ist ein Maß für den Durchmesser von $\omega_p$, und $\bar f_p$ den Mittelwert von $f$ über $\omega_p$ bezeichne, also
 \begin{align*}
@@ -1269,24 +1269,50 @@ Nach Wurzel ziehen und Verwendung der Dreiecksungleichung folgt die Behauptung.
 \end{proof}
 
 
+Wir wollen noch ein Resultat liefern, was die Forderung an die Verringerung der \idx{Oszillationsterme} in jedem Verfeinerungsschritt begründet. Hierbei handelt es sich um ein analoges Resultat zu Lemma 3.8 aus \cite{MorNoc}.
 
-
-\underline{WICHTIG:} Noch erarbeiten!!!! damit nachher eine Abschätzung analog zu \cite{MorNoc} Lemma 3.8 (wäre schön, wenn diese noch gezeigt werden würde....)
-
-
-\begin{lemma}
+\begin{lemma}\label{lem:4.24}
 Es sei $0 < \gamma < 1$ ein Parameter, der die Reduktion der Größe des Dreiecks bei Verfeinerung wiedergibt. Weiter sei $0 < \hat \theta < 1$ gegeben und eine Menge an Punkten $\hat{\mcal N}\subset \mcal N$, die die zu verfeinernden Dreiecke anzeigen, gegeben, so dass
 \[
 	\osc(u_{\mcal S},\psi,f,\hat{\mcal N}) \ge \hat\theta \osc (u_{\mcal S},\psi,f,\mcal N) \, .
 \]
 Dann existiert ein $\hat\alpha \in (0,1)$, so dass
-\begin{align}
+\begin{align}\label{eq:my4.70}
 	\osc(u_{\mcal S},\psi,f,\tilde{\mcal N}) \le \hat \alpha \osc (u_{\mcal S},\psi,f,\mcal N) \, ,
 \end{align}
 wobei $\tilde{\mcal N}$ die Menge an Punkten nach Verfeinerung der Triangulierung $\mcal T_h$ bzgl. der Punkte $\hat{\mcal N}$ ist.
 \end{lemma}
 
-Hierfür vllt eine äquivalente Darstellung von $\osc_2$ bzgl. der Dreiecke und dann das Lemma nur auf $\osc_2$ beziehen.
+\begin{proof}
+Es sei $T \in \mcal T_h$ ein Element, das Teilmenge von einem $\omega_p$ ist. Da
+\[
+	\bar f_p = \frac 1{\abs{\omega_p}} \int_{\omega_p} f \, dx \text{ bzw. } \bar f_T \coloneqq \frac 1{\abs T} \int_T f \, dx
+\]
+$L^2$-Projektionen von $f$ auf den Raum der stückweise konstanten Funktionen über $\omega_p$ bzw. $T$ sind, gilt
+\[
+	\norm{f-\bar f_p}_{0,\omega_p} \le \norm{f-\bar f_T}_{0,T} \, .
+\]
+Weiter können wir auch mit einem Kontraktionsparameter $\beta > 0$ zeigen, dass gilt:
+\[
+	\norm{f-\bar f_p}_{0,\omega_p} \ge \beta\, \norm{f-\bar f_T}_{0,T} \, .
+\]
+Analoge Aussagen ergeben sich für $\norm{f}_{0,\omega_p}$ und $\norm f_{0,T}$. Damit lässt sich der Oszillationsterm $\osc_2 (u_{\mcal S},\psi,f)$ äquivalent beschreiben durch
+\[
+	\widetilde\osc_2 (u_{\mcal S},\psi,f,\mcal T_h) = \(\sum_{T \in \mcal T_h^1} h_T^2 \, \norm{f-\bar f_T}_{0,T}^2 + \sum_{T \in \mcal T_h^2} h_T^2\, \norm f_{0,T}^2\)^{\frac 12},
+\]
+wobei $\mcal T_h^i, i = 1,2$ die Menge der Dreiecke ist, über die die Summanden des Oszillationsterms berechnet werden sollen, und $h_T$ wie gewohnt der Radius des Dreiecks ist. 
+
+Es sei nun $\hat{\mcal T_H^i}, i = 1,2$ die zu verfeinernde Menge an gröberen Elementen. Da $h_T \le \gamma h_{\hat T}$, ergibt sich
+\begin{align*}
+	\widetilde \osc_2 (u_{\mcal S},\psi,f,\mcal T_h)^2 &=  \sum_{T \in \mcal T_h^1} h_T^2 \, \norm{f-\bar f_T}_{0,T}^2 + \sum_{T \in \mcal T_h^2} h_T^2\, \norm f_{0,T}^2 \\
+	&\le  \gamma^2 \(\sum_{\hat T \in \hat{\mcal  T}_H^1} h_{\hat T}^2 \, \norm{f-\bar f_{\hat T}}_{0,\hat T}^2 + \sum_{\hat T \in \hat{\mcal T}_H^2} h_{\hat T}^2\, \norm f_{0,\hat T}^2\) \\
+	& \ \ \, +  \(\sum_{ T \in \mcal T_H \setminus \hat{\mcal  T}_H^1} h_{ T}^2 \, \norm{f-\bar f_{ T}}_{0, T}^2 + \sum_{ T \in \mcal T_H\setminus \hat{\mcal T}_H^2} h_{ T}^2\, \norm f_{0, T}^2\) \\
+	& \!\! \! \stackrel{\scriptsize\text{"`}+0\text{"'}}= \underbrace{ (\gamma^2-1)}_{\le 0} \, \underbrace{\widetilde{\osc}_2(u_{\mcal S},\psi,f,\hat{\mcal T}_H)^2}_{\ge 0}  + \widetilde \osc_2(u_{\mcal S},\psi,f,\mcal T_H)^2 \\
+	& \le \tilde \alpha \, \widetilde \osc_2(u_{\mcal S},\psi,f,\mcal T_H)^2 \, .
+\end{align*}
+Eine analoge Aussage ergibt sich auch für $\widetilde\osc_1(u_{\mcal S},\psi,\mcal T_h)$. Wegen der Äquiva-lenz der Darstellung von $\widetilde\osc_1, \widetilde\osc_2$ zu den Oszillationstermen \eqref{eq:4.24}, folgt die Behauptung \eqref{eq:my4.70}.
+\end{proof}
+
 
 
 
@@ -1373,11 +1399,28 @@ Zusammen mit \eqref{eq:my4.32} folgt dann die Behauptung.
 \section{Ein adaptiver Algorithmus}
 \label{kap:4.2}
 
-\begin{itemize}
-\item
-\end{itemize}
+Mit den Resultaten aus Kapitel \ref{kap:4.1} können wir nun einen implementierbaren Algorithmus für eine adaptive Verfeinerung angeben. 
+
+Mittels Theorem \ref{theorem:4.22} bildet der hierarchische a posteriori Fehlerschätzer $-\mcal I_{\mcal Q}(\eps_{\mcal V})$ eine obere Schranke für den exakten Fehler $J(u_{\mcal S})-J(u)$ (und wegen Theorem \ref{theorem:4.25} auch eine untere), d.h. dass die Verringerung unseres Schätzers auch eine Verkleinerung des Fehlers mit sich führt. Aufgrund von Korollar \ref{kor:4.13} ist außerdem der Fehlerschätzer $-\mcal I_{\mcal Q}(\eps_{\mcal V})$ äquivalent zum Fehlerindikator $\rho_{\mcal S} (\eps_{\mcal V})$, den wir durch Lemma \ref{lem:4.14} in seine lokalen Anteile bzgl. der einzelnen Knoten aufteilen können. Daher werden wir diesen im Algorithmus zur Verringerung des Fehlerschätzers verwenden.
+
+Zuletzt bleibt noch aus, dass auch die \idx{Oszillationsterme} in der oberen Schranke von Theorem \ref{theorem:4.22} enthalten sind. Diese sollten sich also in einem Verfeinerungsschritt nicht vergrößern. Diese Forderung können wir mittels Lemma \ref{lem:4.24} erfüllen.
+
+Insgesamt ergibt sich damit folgender adaptiver Algorithmus.
 
 
+\begin{algorithm}[H]
+\caption{Adaptive Verfeinerungsstrategie für ein Hindernisproblem}
+Gegeben sei ein initiales Gitter $\mcal T_0$. Wir setzen $\mcal T_n \coloneqq \mcal T_0$.
+\begin{algorithmic}[1] 
+\State Berechne die Galerkin-Lösung $u_{\mcal S}$ von \eqref{eq:3.12} über der Zerlegung $\mcal T_n$.
+\State Berechne die Lösung $\eps_{\mcal V}$ vom lokalen Defektproblem \eqref{eq:4.9} mittels \eqref{eq:4.10}.
+\State Berechne die lokalen Anteile $\rho_p$ des Fehlerindikators $\rho_{\mcal S}$ mit Lemma \ref{lem:4.14} für alle $p \in \mcal N$. Damit auch
+\[
+	\rho_{\mcal S} = \sum_{p\in \mcal N} \rho_p \, .
+\]
+\State 
+\end{algorithmic}
+\end{algorithm}
 
 
 
@@ -1385,29 +1428,19 @@ Zusammen mit \eqref{eq:my4.32} folgt dann die Behauptung.
 \section{Erfüllung einer Saturationseigenschaft}
 \label{kap:4.3}
 
-
-
-
-
-%---------------------------------------------------
-
-
-\begin{itemize}
-\item in Kapitel \ref{kap:2.4} musste für den hierarchischen Fehlerschätzer eine Saturationseigenschaft erfüllt werden. Dies ist hier nicht benötigt worden, dennoch wird eine solche äquivalente Eigenschaft erfüllt.
-
-\item wir wollen zeigen, dass das für die quadratische finite Element Approximation $u_{\mcal Q}$ mit
+In Kapitel \ref{kap:2.4}, in dem wir adaptive Verfeinerungsstrategien für Variationsgleichungen beschrieben haben, musste für den hierarchischen Fehlerschätzer eine \idx{Saturationseigenschaft} erfüllt werden. Dies ist hier nicht benötigt worden, dennoch wird eine solche äquivalente Eigenschaft erfüllt. Wir wollen daher in diesem Kapitel zeigen, dass das für die quadratische Finite-Element-Approximation $u_{\mcal Q}$ mit
 \begin{align}\label{eq:4.79}
 	u_{\mcal Q} \in K_{\mcal Q} : \quad a(u_{\mcal Q}, v-u_{\mcal Q}) \ge (f,v-u_{\mcal Q}) \quad \forall \, v \in K_{\mcal Q} \, ,
 \end{align}
-wobei $K_{\mcal Q} = \{v \in \mcal Q \mid v(p)\ge \psi(p) \, \forall \, p \in \mcal N_{\mcal Q} \cap \Omega\}$ ist, die Saturationseigenschaft
+wobei $K_{\mcal Q} = \{v \in \mcal Q \mid v(p)\ge \psi(p) \, \forall \, p \in \mcal N_{\mcal Q} \cap \Omega\}$ ist, die \idx{Saturationseigenschaft}
 \begin{align}\label{eq:4.80}
 	J(u_{\mcal Q})-J(u) \le \alpha (J(u_{\mcal S})-J(u))
 \end{align}
-mit $\alpha \in (0,1)$, wenn der Oszillationsterm $\osc (u_{\mcal S},\psi,f)$ relativ klein ist
+mit $\alpha \in (0,1)$ erfüllt, wenn die \idx{Oszillationsterme} $\osc (u_{\mcal S},\psi,f)$ relativ klein sind. Hierfür werden wir zunächst die Äquivalenz zu einer Ungleichung abhängig von $-\mcal I(e_{\mcal Q})$ zeigen, um dann aufgrund der Äquivalenz von $-\mcal I(e_{\mcal Q})$ zum hierarchischen Fehlerschätzer das gewünschte Resultat zu erhalten.
 
-\item
+
 \begin{lemma}\label{lem:4.26}
-Es sei $\alpha \in (0,1)$. Dann gilt die Saturationseigenschaft \eqref{eq:4.80} genau dann, wenn gilt
+Es sei $\alpha \in (0,1)$. Dann gilt die Saturationseigenschaft \eqref{eq:4.80} genau dann, wenn gilt:
 \begin{align}\label{eq:4.81}
 	J(u_{\mcal S}) - J(u) \le \frac{-\mcal I (e_{\mcal Q})}{1-\alpha} \, .
 \end{align}
@@ -1433,7 +1466,7 @@ und mit Umformung nach $J(u_{\mcal S})-J(u)$ folgt \eqref{eq:4.81}. Analog folgt
 und damit folgt nach leichter Umformung \eqref{eq:4.80}.
 \end{proof}
 
-\item 
+
 \begin{lemma}\label{lem:4.27}
 Es gilt
 \begin{align}\label{eq:4.82}
@@ -1487,7 +1520,7 @@ mit einer Konstanten $C>0$, die nur von der Quasi-Uniformität von $\mcal T_h$ a
 \]
 \end{proof}
 
-\item 
+ 
 \begin{theorem}
 Es gibt Konstanten $c >0$ und $\alpha\in (0,1)$, die nur von der Quasi-Uniformität von $\mcal T_h$ abhängt, so dass kleine Oszillation im Sinne von
 \begin{align}\label{eq:4.83}
@@ -1516,7 +1549,7 @@ ist und damit gilt für $1-\alpha = \frac{1-c_2c}{c_1}$, dass
 \end{align*}
 sein muss. Setzen wir nun $c_1 \ge 1$, so gilt für $\alpha \in \(\frac{c_1-1}{c_1},1\)\subset(0,1)$, damit $c> 0$ ist. Damit sind die Voraussetzungen aus Lemma \ref{lem:4.26} erfüllt und somit folgt die Behauptung \eqref{eq:4.80}.
 \end{proof}
-\end{itemize}
+
 
 
 
@@ -1525,6 +1558,10 @@ sein muss. Setzen wir nun $c_1 \ge 1$, so gilt für $\alpha \in \(\frac{c_1-1}{c
 
 \section{Übertragung des Fehlerschätzers auf Kontaktprobleme}
 \label{kap:4.4}
+
+
+%---------------------------------------------------
+
 
 \begin{itemize}
 \item

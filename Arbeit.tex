@@ -34,7 +34,7 @@
 %\usepackage[active]{preview}
 \usepackage{stackrel}
 \usepackage[makeroom]{cancel}
-\usepackage[section]{algorithm}
+\usepackage[chapter]{algorithm}
 \usepackage{algorithmicx}
 \usepackage{algpseudocode}
 \usepackage{color}
@@ -118,6 +118,7 @@
 \newcommand{\sign}{\operatorname{sign}}
 \newcommand{\osc}{\operatorname{osc}}
 \newcommand{\Span}{\operatorname{span}}
+\renewcommand{\listalgorithmname}{Algorithmenverzeichnis} 
 
 \newcommand{\rz}[1]{%
 	\ensuremath{% stellt Mathe-Modus sicher
@@ -204,10 +205,13 @@ Zweitprüfer: Prof. Dr. Peter Wriggers
 \listoftables
 \addcontentsline{toc}{chapter}{Tabellenverzeichnis}
 
+% Algorithmenverzeichnis
+\listofalgorithms
+\addcontentsline{toc}{chapter}{Algorithmenverzeichnis}
 
 \mainmatter
 
-\setcounter{page}{6}
+\setcounter{page}{7}
 
 %\setcounter{page}{\thecountersave}
 
