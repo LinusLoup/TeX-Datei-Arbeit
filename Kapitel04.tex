@@ -15,7 +15,7 @@ Dieses Kapitel basiert größtenteils auf \cite{ZouVee}.
 
 
 
-\section{Herleitung von einem a posteriori hierarchischen Fehlerschätzers}
+\section{Herleitung von einem hierarchischen a posteriori  Fehlerschätzer}
 \label{kap:4.1}
 
 Bevor wir uns detailliert der Herleitung eines hierarchischen a posteriori Fehlerschätzers widmen, wollen wir eine Generalvoraussetzung für das gesamte Kapitel \ref{kap:4} stellen.
@@ -522,7 +522,7 @@ Wir rechnen einfach mit der Definition \eqref{eq:4.19} und \eqref{eq:4.18} nach,
 	\rho_p(v) &= \rho_{\mcal S} (v \phi_p) =  \int_{\Omega} fv\phi_p \, dx + \sum_{E\in \mcal E} \int_{E} j_E v \phi_p\, ds \\
 	& = \int_{\omega_p} f v \phi_p \, dx + \sum_{E\in \mcal E_p} \int_E j_E v \phi_p \, ds  \, ,
 \end{align*}
-da $\phi_p \equiv 0$ auf $\mcal O \coloneqq \overline{\Omega \setminus \omega_p}$ und damit auch auf $\mcal F \coloneqq\mcal E \setminus \mcal E_p$, da $\mcal F \subset\mcal O$ (vgl. Abbildung \ref{abb:4.3}).
+da $\phi_p \equiv 0$ auf $\mcal O \coloneqq \overline{\Omega \setminus \omega_p}$ und damit auch auf $\mcal F \coloneqq\mcal E \setminus \mcal E_p$, da $\mcal F \subset\mcal O$ (vgl. Abbildung \ref{abb:4.3}). \qedhere
 
 \begin{figure}[h!]
 \begin{center}
@@ -1410,15 +1410,26 @@ Insgesamt ergibt sich damit folgender adaptiver Algorithmus.
 
 \begin{algorithm}[H]
 \caption{Adaptive Verfeinerungsstrategie für ein Hindernisproblem}
-Gegeben sei ein initiales Gitter $\mcal T_0$. Wir setzen $\mcal T_n \coloneqq \mcal T_0$.
+Gegeben sei eine Fehlerschranke $\eps>0$, Parameter $\theta_1,\theta_2 \in (0,1)$ und ein initiales Gitter $\mcal T_0$. Wir setzen $\mcal T_n \coloneqq \mcal T_0$.
 \begin{algorithmic}[1] 
 \State Berechne die Galerkin-Lösung $u_{\mcal S}$ von \eqref{eq:3.12} über der Zerlegung $\mcal T_n$.
-\State Berechne die Lösung $\eps_{\mcal V}$ vom lokalen Defektproblem \eqref{eq:4.9} mittels \eqref{eq:4.10}.
-\State Berechne die lokalen Anteile $\rho_p$ des Fehlerindikators $\rho_{\mcal S}$ mit Lemma \ref{lem:4.14} für alle $p \in \mcal N$. Damit auch
+\State Berechne die Lösung $\eps_{\mcal V}$ vom lokalen Defektproblem \eqref{eq:4.9} mittels \eqref{eq:4.10} und berechne damit $-\mcal I_{\mcal Q}(\eps_{\mcal V})$.
+\State Berechne die lokalen Anteile $\rho_p$ des Fehlerindikators $\rho_{\mcal S}$ mit Lemma \ref{lem:4.14} für alle $p \in \mcal N$ und damit auch $\rho_{\mcal S}$ mit \eqref{eq:4.20}. 
+\State Weiter berechne die Mengen $\mcal N^{0+},\mcal N^{++}$ und $\mcal N^{0-}$ um die lokalen Anteile (also die einzelnen Summanden) von $\osc_1(u_{\mcal S},\psi)$ und $\osc_2(u_{\mcal S},\psi,f)$ sowie die globalen \idx{Oszillationsterme} $\osc (u_{\mcal S},\psi,f)$ zu bestimmen.
+\If {$-\mcal I_{\mcal Q}(\eps_{\mcal V}) < \eps$}
+\State \textbf{break} 
+\EndIf 
+\State Finde die kleinste Menge an Punkten $\hat{\mcal N}\subset \mcal N$, so dass gilt
 \[
-	\rho_{\mcal S} = \sum_{p\in \mcal N} \rho_p \, .
+	\sum_{p \in \hat{\mcal N}} \rho_p (\eps_{\mcal V}) \ge \theta_1\;\! \rho_{\mcal S}(\eps_{\mcal V}) \,.
 \]
-\State 
+\State Erweitere $\hat{\mcal N}$ mit der Menge $\bar{\mcal N}$ zu einer kleinsten Menge an Punkten $\widetilde{\mcal N} \subset \hat{\mcal N}$, so dass gilt
+\[
+	\osc (u_{\mcal S},\psi,f,\bar{\mcal N}) \ge \theta_2 \osc (u_{\mcal S},\psi,f) \, .
+\]
+\State Bestimme aus $\widetilde{\mcal N}$ die angrenzenden Dreiecke $\widetilde{\mcal T_n} \subset \mcal T_n$. 
+\State Erhalte die neue Triangulierung $\mcal T_{n+1}$ durch die Verfeinerung des Gitters $\mcal T_n$ über die zu verfeinernden Dreiecke $\widetilde{\mcal T_n}$.
+\State Setze $n \la n+1$ und Springe zu Schritt 1.
 \end{algorithmic}
 \end{algorithm}
 

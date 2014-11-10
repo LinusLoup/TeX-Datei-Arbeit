@@ -431,11 +431,170 @@ Gegeben sei ein zulässiger Startpunkt $\bs x_0$ für \eqref{eq:QP} und definier
 \newchapter{Tensorrechnung}
 \label{anhang:C}
 
-hier auch ein paar Integralsätz!
 
-Produktregel für die Divergenz
+\section{Tensoralgebra}
+\label{kap:C.1}
 
 
+\begin{defi}\label{def:C.1}
+Es sei $V$ ein endlicher Vektorraum und $\K$ ein beliebiger Körper. Ein $p$-\textit{\idx{Tensor}} (oder auch $p$-\textit{stufiger Tensor}) $\varphi: V\times \dots \times V \ra \K$ ist eine multilineare Abbildung, d.h. linear in jeder Komponente. Die Menge aller $p$-Tensoren über $V$ wird mit $T^p(V)$ bezeichnet.
+\end{defi}
+
+\begin{bsp}\label{bsp:C.2}
+Der \idx{Dualraum} $V^*$ eines Vektorraums $V$ ist der Raum der Linearformen, also der Raum der $1$-Tensoren. Also können wir schreiben $V^* = T^1(V)$.
+\end{bsp}
+
+\begin{bem}\label{bem:C.3}
+Da $V$ endlich ist, können wir $T^p(V)$ durch eine endliche Anzahl von Basisvektoren $\varphi_k \in T^p(V)$ aufspannen. Solche Basisvektoren lassen sich durch die Basis des Dualraumes $V^*$ und der folgenden Definition bilden.
+\end{bem}
+
+\begin{defi}[\idx{Tensorprodukt}]\label{def:C.4}
+Ist $\varphi \in T^p(V)$ und $\psi \in T^q(V)$, so definieren wir das \textit{\idx{Tensorprodukt}} (oder auch \textit{dyadische Produkt}\index{dyadisches Produkt}) $\varphi \otimes \psi \in T^{p+q}(V)$ durch
+\[
+	(\varphi \otimes \psi)(v_1,\dots,v_p,v_{p+1},\dots,v_{p+q}) = \varphi (v_1,\dots,v_p)\cdot \psi (v_{p+1},\dots,v_{p+q}) \, .
+\]
+\end{defi}
+
+\begin{bem*}
+Wir sollten beachten, dass $\varphi \otimes \psi$ nicht zwangsläufig kommutativ ist.
+\end{bem*}
+
+\begin{bem}\label{bem:C.5}
+Da $T^1(V)$ der Raum der Linear- und $T^2(V)$ der Raum der Bilinearformen ist, können wir die Elemente als Vektoren bzw. Matrizen identifizieren. Hierbei ist allerdings zu beachten, dass diese nur die Koordinaten bzgl. der jeweils betrachteten Basen angeben.
+
+Wir notieren einstufige Tensoren, d.h. Elemente aus $T^1(V)$, in fetten Kleinbuchstaben, also $\bs a, \bs b, \bs c$ usw., und schreiben diese bzgl. der Standardbasis
+\[
+	\bs a = a_i \bs e_i \coloneqq \sum_{i=1}^n a_i \bs e_i \, .
+\]
+
+Hierbei ist die \textit{\idx{Einstein'sche Summenkonvention}} benutzt worden, in der über doppelt vorkommende Indizes summiert wird.
+
+Analog beschreiben wir zweistufige Tensoren, also Elemente aus $T^2(V)$, mit fetten Großbuchstaben, d.h. $\bs A, \bs B, \bs C$ etc., und schreiben diese bzgl. der Standardbasis als \idx{Tensorprodukt} von zwei einstufigen Tensoren:
+\[
+	\bs A = A_{ij} \bs e_i \otimes \bs e_j \coloneqq \sum_{i,j=1}^n A_{ij} \bs e_i \otimes \bs e_j \, .
+\]
+\end{bem}
+
+\begin{bem*}
+Die Tensordarstellung aus Bemerkung \ref{bem:C.5} kann natürlich auch bzgl. allgemeiner Basen geschehen.
+\end{bem*}
+
+\begin{defi}[\idx{Kroneckerdelta}, \idx{Einheitstensor}]\label{def:C.6}
+Das \textit{Kroneckerdelta} ist definiert durch
+\[
+	\delta_{ij} \coloneqq \begin{cases}
+						1, & i = j \\
+						0, & \text{sonst}
+					\end{cases} \, .
+\]
+Damit können wir den zweistufigen \textit{Einheitstensor} definieren durch
+\[
+	\bs 1\coloneqq \delta_{ij} \bs e_i \otimes \bs e_j \, .
+\]
+\end{defi}
+
+\begin{bem}\label{bem:C.7}
+Wir können leicht nachrechnen, dass das Kroneckerdelta folgende Eigenschaften hat:
+\begin{align*}
+	\delta_{ij} \delta_{jk} = \delta_{ik} \, , \quad \delta_{ij}\delta_{jk}\delta_{kl} = \delta_{il} \, .
+\end{align*}
+Mit diesen Eigenschaften können wir beispielsweise 4- oder 6-stufige Einheitstensoren\idx{Einheitstensor} definieren.
+\end{bem}
+
+\begin{defi}[Skalarprodukte]\label{def:C.8}
+Das \textit{einfach verjüngende \idx{Skalarprodukt}}\index{Skalarprodukt!einfach verjüngend} ist für zwei Vektoren (1-Tensoren) $\bs a, \bs b$ definiert als
+\[
+	\bs a \cdot \bs b \coloneqq (a_i \bs e_i)\cdot (b_j \bs e_j) = a_i b_j \, \underbrace{\bs e_i \cdot \bs e_j}_{=\delta_{ij}} = a_i b_i \, .
+\]
+Das \textit{doppelt verjüngende \idx{Skalarprodukt}}\index{Skalarprodukt!doppelt verjüngend} ist für zwei Matrizen (2-Tensoren) $\bs T,\bs S$ definiert als
+\begin{align*}
+	\bs T : \bs S & = (T_{ij} \bs e_i \otimes \bs e_j) : (S_{kl} \bs e_k \otimes \bs e_l)\coloneqq T_{ij} S_{kl} \,  \delta_{ik} \cdot \delta_{jl} 
+	 = T_{ij}S_{ij} \, .
+\end{align*}
+\end{defi}
+
+\begin{bem}\label{bem:C.9}
+Analog können wir die Skalarprodukte aus Definition \ref{def:C.8} auch auf höher stufige Tensoren übertragen. Die Skalarprodukte heißen einfach und doppelt verjüngend, da sie im Endergebnis die Stufe der Tensoren um eins bzw. zwei verringern.
+\end{bem}
+
+
+
+\section{Tensoranalysis}
+\label{kap:C.2}
+
+In dieser Arbeit werden skalar-, vektor- oder auch tensorwertige Funktionen in einem mehrdimensionalen Raum verwendet. Hierfür wollen wir \idx{Gradient} und \idx{Divergenz} einführen.
+
+\begin{defi}[Gradient,Divergenz]\label{def:C.10}
+Der \textit{Gradient} einer  skalar-, vektor- oder  tensorwertige Funktionen ist definiert als
+\[
+	\grad(\ldots) \coloneqq \frac{\partial(\ldots)}{\partial\bs x} \coloneqq \frac{\partial(\ldots)}{\partial x_i}\otimes \bs e_i \coloneqq (\ldots)_{,i} \otimes \bs e_i \, . 
+\]
+Für den Gradienten schreiben wir auch häufig den Nabla-Operator $\nabla$.
+
+Die \textit{Divergenz} einer skalar-, vektor- oder  tensorwertige Funktionen ist definiert durch
+\[
+	\div (\ldots) \coloneqq \nabla \cdot (\ldots) = \frac{\partial(\ldots)}{\partial x_i}\cdot \bs e_i = (\ldots)_{,i} \cdot \bs e_i \, .
+\]
+\end{defi}
+
+\begin{bem*}
+Der Gradient vergrößert also die Stufe eines Tensors, während die Divergenz diese verringert.
+\end{bem*}
+
+Für den Gradienten und die Divergenz gelten einige Produktregeln bzgl. tensorwertigen Funktionen (von 0. bis 2. Stufe). Folgende werden wir davon benötigen.
+
+\begin{satz}[\idx{Produktregel}n]\label{satz:C.11}
+Es seien $\phi(\bs x)$ eine skalarwertiges, $\bs a(\bs x)$ eine vekorwertiges und $\bs T(\bs x)$ ein tensorwertiges $($2. Stufe$)$ Tensorfeld. Dann gelten für die Divergenz folgende Produktregeln.
+\begin{align}\label{eq:C.1}
+	\div (\phi \cdot \bs a ) &= \grad \phi \cdot \bs a + \phi \cdot \div \bs a \\
+	\label{eq:C.2}
+	\div (\bs a \cdot \bs T) &= \grad \bs a : \bs T + \bs a \cdot \div \bs T 
+\end{align}
+\end{satz}
+
+\begin{proof}
+Einfaches Nachrechnen.
+\end{proof}
+
+
+Weiter gelten in der Tensoranalysis verschiedene Integralsätze von Gauß, Stokes und Green, von denen wir folgende aufführen wollen, wobei wir uns wieder auf $\Omega \subset \R^2, \partial\Omega = \Gamma$ beschränken.
+
+\begin{satz}[Integralsatz von Gauß]\label{satz:C.12}
+Es seien die Tensorfelder $\bs a(\bs x), \bs T(\bs x)$ wie in Satz \ref{satz:C.11} gegeben. Dann gelten die Sätze von Gauß\index{Integralsatz!Gauß}
+\begin{subequations}\label{eq:C.3}
+\begin{align}\label{eq:C.3a}
+	\int_{\Omega} \div \bs a \, d\Omega = \int_\Gamma \bs a \cdot \bs n \, d\Gamma \, , \\
+	\label{eq:C.3b}
+	\int_{\Omega} \div \bs T \, d\Omega = \int_\Gamma \bs T \cdot \bs n \, d\Gamma  \, , 
+\end{align}
+\end{subequations}
+wobei $\bs n$ die äußere Einheitsnormale auf $\Gamma$ bezeichne.
+\end{satz}
+
+\begin{proof}
+Standardresultat aus der Analysis 2.
+\end{proof}
+
+\begin{kor}[1. Green'sche Formel\index{Integralsatz!Green}\index{1. Green'sche Formel}]\label{kor:C.13}
+Es seien $u,v : \Omega \ra \R$ skalarwertige Funktionen. Dann folgt
+\begin{align}\label{eq:C.4}
+	\int_{\Omega} v \Delta u \, dx + \int_{\Omega} \nabla u \cdot \nabla v \, dx = \int_{\Gamma} v \partial_{\bs n} u \, ds
+\end{align}
+mit $\partial_{\bs n} u = \nabla u \cdot \bs n$.
+\end{kor}
+
+\begin{proof}
+Es seien $u,v$ wie vorausgesetzt. Dann ist $\nabla u$ vektorwertig und nach \eqref{eq:C.1} gilt dann
+\begin{align*}
+	\div (v \cdot \nabla u) & = \nabla v \cdot \nabla u + v \cdot \div(\nabla u) \\
+	& =  \nabla v \cdot \nabla u + v \cdot \Delta u \, .
+\end{align*}
+Weiter gilt wegen \eqref{eq:C.3a}
+\[
+	\int_{\Omega} \div (v \cdot \nabla u) \, d\Omega = \int_\Gamma v \cdot \underbrace{\nabla u \cdot \bs n}_{=\partial_{\bs n} u} \, d\Gamma \, .
+\]
+Zusammen mit dem oberen Resultat folgt dann die Behauptung \eqref{eq:C.4}.
+\end{proof}
 
 
 

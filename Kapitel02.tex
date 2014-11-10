@@ -199,7 +199,7 @@ Mit $H^1_0 (\Omega)$ bezeichnen wir, wie in Bemerkung \ref{bem:A.8} beschrieben,
 \begin{align*}
 	\int_\Omega -\Delta u \cdot v \, dx = \int_\Omega f v \, dx \, .
 \end{align*}
-Wir betrachten nun \eqref{eq:2.1aa} also nicht mehr punktweise (lokal), sondern im gewichteten Mittel über ganz $\Omega$ (global). Durch Anwenden der 1. Green'schen Formel (bzw. dem Satz von Gauß) ergibt sich
+Wir betrachten nun \eqref{eq:2.1aa} also nicht mehr punktweise (lokal), sondern im gewichteten Mittel über ganz $\Omega$ (global). Durch Anwenden der 1. Green'schen Formel \eqref{eq:C.4} (bzw. dem Satz von Gauß) ergibt sich
 \begin{align}\notag
 	& \int_\Omega \nabla u \cdot \nabla v \, dx -\underbrace{\int_\Gamma v \partial_\nu u \, ds}_{=0, \text{ da } v|_\Gamma = 0} = \int_\Omega f v \, dx \, \\
 	\label{eq:2.3}	
@@ -1205,7 +1205,7 @@ Ein \textit{Kontinuum} ist eine Teilmenge $\mathscr{B}\subset \R^3$, dessen  Pun
 \end{defi}
 
 \begin{notation}
-Wir wollen Vektoren oder vektorwertige (bzw. tensorwertige) Funktionen durch fettgedruckte Buchstaben darstellen (s. auch Anhang \ref{anhang:D}).
+Wir wollen Vektoren oder vektorwertige (bzw. tensorwertige) Funktionen durch fettgedruckte Buchstaben darstellen (s. auch Anhang \ref{anhang:C}).
 \end{notation}
 
 
@@ -1364,7 +1364,7 @@ wobei $\lambda, \mu$ die \textit{\idx{Lamé-Konstanten}} darstellen. Dabei hande
 \[
 	\lambda = \frac{\nu E}{(1+\nu)(1-2\nu)} \, ,\quad \nu = \frac E{2(1+\nu)} \, .
 \]
-Der Materialtensor $\mcal C$ ist 4-stufig und mit "`:"' ist das doppelt verjüngende Skalarprodukt, das in Anhang \ref{anhang:C} beschrieben wird, gemeint. Es sei bemerkt, dass $\nu$ gleich dem \idx{Schubmodul} $G$ ist.
+Der Materialtensor $\mcal C$ ist 4-stufig und mit "`:"' ist das doppelt verjüngende Skalarprodukt (s. Definition \ref{def:C.8}) gemeint. Es sei bemerkt, dass $\nu$ gleich dem \idx{Schubmodul} $G$ ist.
 
 
 Da wir in dieser Arbeit immer $\Omega \subset \R^2$ annehmen wollen, wollen wir an dieser Stelle noch zwei Prinzipien zur Behandlung von dreidimensionalen strukturmechanischen Problemen im $\R^2$ vorstellen (vgl. \cite{WriggersFEMSkript} Kapitel 5.4.1 und 5.4.2).

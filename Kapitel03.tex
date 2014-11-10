@@ -477,7 +477,7 @@ Die quadratischen Programme \eqref{eq:3.16} und \eqref{eq:3.21} haben mit den Vo
 \end{bem}
 
 
-Da wir wegen Bemerkung \ref{bem:2.18} konvexe quadratischen Programme vorliegen haben, können wir diese mit dem in Anhang \ref{anhang:B.2} vorgestellten Active-Set-Algorithmus lösen. Wie wir später sehen werden, ist es sinnvoll bei der Implementierung auf eine Innere-Punkte-Methode (kurz: IPM) zurückzugreifen.
+Da wir wegen Bemerkung \ref{bem:2.18} konvexe quadratischen Programme vorliegen haben, können wir diese mit dem in Anhang \ref{anhang:B.2} vorgestellten Active-Set-Algorithmus lösen. Wie wir später sehen werden, ist es sinnvoll bei der Implementierung auf eine Innere-Punkte-Methode (kurz: IPM) zurückzu-greifen.
 
 Es bleibt noch zu prüfen, ob die Lösung der Variationsungleichung für Netzverfeinerung an die exakte Lösung konvergiert. Hierfür wollen wir folgende Voraussetzungen an unsere Ansatzräume stellen.
 
@@ -880,7 +880,7 @@ auch eine Testfunktion ist, die wir mit \eqref{eq:3.41a} multiplizieren und übe
 	\label{eq:3.43}
 	& = \int_{\Gamma_c} w_n \, \sigma_n \, d \Gamma + \int_{\Gamma_\sigma} \bar{\bs t} \cdot \bs w \, d\Gamma-\int_\Omega \bs\sigma: \bs \eps(\bs w) \, d\Omega + \int_\Omega \bar{\bs b} \cdot \bs w \, d\Omega \, ,
 \end{align}
-wobei im zweiten Schritt die Produktregel für die Divergenz \eqref{eq:Div} und darauf folgend der Integralsatz von Gauß\index{Satz von Gauß} verwendet wurde. Weiter wurde die disjunkte Aufteilung vom Rand $\Gamma = \Gamma_u \cup \Gamma_\sigma \cup \Gamma_c$ benutzt, wobei $\bs w = \bs 0$ auf $\Gamma_u$ und $\bs \sigma \bs n = \bar{\bs t}$ auf $\Gamma_\sigma$ gilt.
+wobei im zweiten Schritt die Produktregel für die Divergenz \eqref{eq:C.2} und darauf folgend der Integralsatz von Gauß\index{Satz von Gauß} verwendet wurde. Weiter wurde die disjunkte Aufteilung vom Rand $\Gamma = \Gamma_u \cup \Gamma_\sigma \cup \Gamma_c$ benutzt, wobei $\bs w = \bs 0$ auf $\Gamma_u$ und $\bs \sigma \bs n = \bar{\bs t}$ auf $\Gamma_\sigma$ gilt.
 
 
 Um weiter zu einer Variationsungleichung zu gelangen, betrachten wir das Integral über $\Gamma_c$. Dann gilt für den Integranden

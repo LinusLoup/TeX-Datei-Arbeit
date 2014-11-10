@@ -56,6 +56,12 @@
   inequalities.
 \newblock {In: }\emph{Math. Comp.} 28 (1974), S. 963--971
 
+\bibitem[Fis05]{Fischer}
+\textsc{Fischer}, Gerd:
+\newblock \emph{Lineare Algebra}.
+\newblock 15. Auflage.
+\newblock 2005
+
 \bibitem[Glo08]{Glow}
 \textsc{Glowinski}, Roland:
 \newblock \emph{Numerical methods for nonlinear variational problems}.
