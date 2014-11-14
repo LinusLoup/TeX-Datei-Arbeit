@@ -1,21 +1,21 @@
 \select@language {ngerman}
 \addvspace {10\p@ }
 \addvspace {10\p@ }
-\contentsline {figure}{\numberline {2.1}{\ignorespaces Membran $\Omega $ mit Fl\IeC {\"a}chenlast $f$ und Auslenkung $u(x)$\relax }}{10}{figure.caption.5}
-\contentsline {figure}{\numberline {2.2}{\ignorespaces Zul\IeC {\"a}ssige und unzul\IeC {\"a}ssige Triangulierung (mit h\IeC {\"a}ngendem Knoten)\relax }}{22}{figure.caption.8}
-\contentsline {figure}{\numberline {2.3}{\ignorespaces Dreiecke f\IeC {\"u}r nodale Basen (linear, quadratisch, kubisch)\relax }}{23}{figure.caption.9}
-\contentsline {figure}{\numberline {2.4}{\ignorespaces Triangulierung von $\Omega = [-1,1]^2$ in 8 Courant-Elemente\relax }}{24}{figure.caption.10}
-\contentsline {figure}{\numberline {2.5}{\ignorespaces Referenzelement $\setbox \z@ \hbox {\frozen@everymath \@emptytoks \mathsurround \z@ $\textstyle T$}\mathaccent "0365{T}$ f\IeC {\"u}r ein allgemeines Dreieck $T \in \mathcal T_h$\relax }}{25}{figure.caption.12}
-\contentsline {figure}{\numberline {2.6}{\ignorespaces Verfeinerungen von Dreiecken\relax }}{31}{figure.caption.13}
-\contentsline {figure}{\numberline {2.7}{\ignorespaces Konfiguration eines Kontinuums $\EuScript B$\relax }}{32}{figure.caption.14}
+\contentsline {figure}{\numberline {2.1}{\ignorespaces Membran $\Omega $ mit Fl\IeC {\"a}chenlast $f$ und Auslenkung $u(x)$\relax }}{11}{figure.caption.6}
+\contentsline {figure}{\numberline {2.2}{\ignorespaces Zul\IeC {\"a}ssige und unzul\IeC {\"a}ssige Triangulierung (mit h\IeC {\"a}ngendem Knoten)\relax }}{23}{figure.caption.9}
+\contentsline {figure}{\numberline {2.3}{\ignorespaces Dreiecke f\IeC {\"u}r nodale Basen (linear, quadratisch, kubisch)\relax }}{24}{figure.caption.10}
+\contentsline {figure}{\numberline {2.4}{\ignorespaces Triangulierung von $\Omega = [-1,1]^2$ in 8 Courant-Elemente\relax }}{25}{figure.caption.11}
+\contentsline {figure}{\numberline {2.5}{\ignorespaces Referenzelement $\setbox \z@ \hbox {\frozen@everymath \@emptytoks \mathsurround \z@ $\textstyle T$}\mathaccent "0365{T}$ f\IeC {\"u}r ein allgemeines Dreieck $T \in \mathcal T_h$\relax }}{26}{figure.caption.13}
+\contentsline {figure}{\numberline {2.6}{\ignorespaces Verfeinerungen von Dreiecken\relax }}{32}{figure.caption.14}
+\contentsline {figure}{\numberline {2.7}{\ignorespaces Konfiguration eines Kontinuums $\EuScript B$\relax }}{33}{figure.caption.15}
 \addvspace {10\p@ }
-\contentsline {figure}{\numberline {3.1}{\ignorespaces Ein Hindernisproblem mit Hindernis $\psi $, konstanter Streckenlast $f$ und L\IeC {\"o}sung $u$\relax }}{38}{figure.caption.15}
-\contentsline {figure}{\numberline {3.2}{\ignorespaces K\IeC {\"o}rper $\mathcal B^1$ und $\mathcal B^2$ mit Randbezeichnungen\relax }}{51}{figure.caption.17}
-\contentsline {figure}{\numberline {3.3}{\ignorespaces Kontaktformulierung zwischen zwei K\IeC {\"o}rpern\relax }}{51}{figure.caption.19}
+\contentsline {figure}{\numberline {3.1}{\ignorespaces Ein Hindernisproblem mit Hindernis $\psi $, konstanter Streckenlast $f$ und L\IeC {\"o}sung $u$\relax }}{39}{figure.caption.16}
+\contentsline {figure}{\numberline {3.2}{\ignorespaces K\IeC {\"o}rper $\mathcal B^1$ und $\mathcal B^2$ mit Randbezeichnungen\relax }}{52}{figure.caption.18}
+\contentsline {figure}{\numberline {3.3}{\ignorespaces Kontaktformulierung zwischen zwei K\IeC {\"o}rpern\relax }}{52}{figure.caption.20}
 \addvspace {10\p@ }
-\contentsline {figure}{\numberline {4.1}{\ignorespaces Beispiel eines affinen Hindernisses $\psi $ mit $v \in \mathcal A_{\mathcal Q}$ in $\mathbb {R}$\relax }}{66}{figure.caption.24}
-\contentsline {figure}{\numberline {4.2}{\ignorespaces Dreiecke $T_1$ und $T_2$ mit Einheitsnormalen $\boldsymbol n$\relax }}{71}{figure.caption.25}
-\contentsline {figure}{\numberline {4.3}{\ignorespaces Darstellung von $\omega _p$ (grau) und $\mathcal E_p$ (abgehende Kanten von $p$) f\IeC {\"u}r ein beliebiges $\phi _p$\relax }}{72}{figure.caption.26}
+\contentsline {figure}{\numberline {4.1}{\ignorespaces Beispiel eines affinen Hindernisses $\psi $ mit $v \in \mathcal A_{\mathcal Q}$ in $\mathbb {R}$\relax }}{67}{figure.caption.25}
+\contentsline {figure}{\numberline {4.2}{\ignorespaces Dreiecke $T_1$ und $T_2$ mit Einheitsnormalen $\boldsymbol n$\relax }}{72}{figure.caption.26}
+\contentsline {figure}{\numberline {4.3}{\ignorespaces Darstellung von $\omega _p$ (grau) und $\mathcal E_p$ (abgehende Kanten von $p$) f\IeC {\"u}r ein beliebiges $\phi _p$\relax }}{73}{figure.caption.27}
 \addvspace {10\p@ }
 \addvspace {10\p@ }
 \addvspace {10\p@ }

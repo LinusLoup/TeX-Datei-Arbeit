@@ -591,7 +591,7 @@ Es seien $u,v$ wie vorausgesetzt. Dann ist $\nabla u$ vektorwertig und nach \eqr
 \end{align*}
 Weiter gilt wegen \eqref{eq:C.3a}
 \[
-	\int_{\Omega} \div (v \cdot \nabla u) \, d\Omega = \int_\Gamma v \cdot \underbrace{\nabla u \cdot \bs n}_{=\partial_{\bs n} u} \, d\Gamma \, .
+	\int_{\Omega} \div (v \cdot \nabla u) \, dOmega = \int_\Gamma v \cdot \underbrace{\nabla u \cdot \bs n}_{=\partial_{\bs n} u} \, d\Gamma \, .
 \]
 Zusammen mit dem oberen Resultat folgt dann die Behauptung \eqref{eq:C.4}.
 \end{proof}
@@ -602,7 +602,76 @@ Zusammen mit dem oberen Resultat folgt dann die Behauptung \eqref{eq:C.4}.
 \newchapter{Quellcode}
 \label{anhang:D}
 
+\definecolor{mygreen}{RGB}{0,130,0}
+
+\lstset{language=Matlab,
+	basicstyle=\scriptsize,%\ttfamily,
+	breaklines=true,
+	commentstyle=\color{mygreen},
+	rulecolor=\color{black},
+	numbers=left,
+	stepnumber=1,
+	numberstyle=\tiny\color{gray},
+	stringstyle=\color{purple},
+	frame=single,
+	xrightmargin=-0.9pt,
+	%xleftmargin=1pt,
+	literate={-}{-}{1}{<->}{$\leftrightarrow$}{1},%{>=}{$\ge$}{1},
+	%tabsize=1,
+	keywordstyle=\color{blue},
+	captionpos=b,
+	breakatwhitespace=true,
+	showstringspaces=false,
+	deletekeywords={lower,flag,find,abs,max,length,sum,zeros,ones,ceil,size,sqrt,norm,sparse,margin,prod,all,meshgrid,diag,text,num2str,min,legend,axis,full,plot,subplot,title,figure,tic,toc,eps,load,isempty,fprintf},
+	morekeywords={switch,case}
+	}
+
+
 \section{Implementierung des Fehlerschätzers für das Hindernisproblem}
+
+Im Folgenden ist der Quellcode angegeben, der für die Implementierung für das in Kapitel \ref{kap:4} beschriebene affine Hindernisproblem geschrieben wurde. Als letztes ist auch die Startdatei für das in Kapitel \ref{kap:6.1} dargestellte numerische Beispiel angegeben.
+
+\lstinputlisting[caption={[Assemblierung von Matrix und Vektor]Assemblierung der Steifigkeitsmatrix $A$ und des Lastvektor $f$},label=lst:D.1]{/Users/cornelius/Documents/MATLAB/DiplomarbeitMatlab/EinfachesHindernisproblem/assemble.m}
+
+\lstinputlisting[caption={Berechnung der lokalen Anteile von $\rho_{\mcal S}$},label=lst:D.2]{/Users/cornelius/Documents/MATLAB/DiplomarbeitMatlab/EinfachesHindernisproblem/eval_rho_p.m}
+
+\lstinputlisting[caption={Lösung des lokalen Defektproblems \eqref{eq:4.9}},label=lst:D.3]{/Users/cornelius/Documents/MATLAB/DiplomarbeitMatlab/EinfachesHindernisproblem/defect_problem_solution.m}
+
+\lstinputlisting[caption={[Dreiecksindizes zur Verfeinerung]Berechnung der zu verfeinernden Dreiecksindizes}]{/Users/cornelius/Documents/MATLAB/DiplomarbeitMatlab/EinfachesHindernisproblem/find_triangle_refinement.m}
+
+\lstinputlisting[caption={[Gradientenberechnung]Berechnung des Gradienten von der Galerkin-Approximation auf einem Dreieck},]{/Users/cornelius/Documents/MATLAB/DiplomarbeitMatlab/EinfachesHindernisproblem/gradu.m}
+
+\lstinputlisting[caption={Bestimmung der inneren Knoten $\mcal N \cap \Omega$}]{/Users/cornelius/Documents/MATLAB/DiplomarbeitMatlab/EinfachesHindernisproblem/inner_points.m}
+
+\lstinputlisting[caption={Bestimmung der inneren Kontaktknoten $\mcal N^0$}]{/Users/cornelius/Documents/MATLAB/DiplomarbeitMatlab/EinfachesHindernisproblem/N0.m}
+
+\lstinputlisting[caption={Bestimmung der inneren Nicht-Kontaktknoten $\mcal N^+$}]{/Users/cornelius/Documents/MATLAB/DiplomarbeitMatlab/EinfachesHindernisproblem/Nplus.m}
+
+
+\lstinputlisting[caption={Bestimmung der Menge $\mcal N^{++}$}]{/Users/cornelius/Documents/MATLAB/DiplomarbeitMatlab/EinfachesHindernisproblem/Nplusplus.m}
+
+\lstinputlisting[caption={Berechnung der Menge an Knoten aus $\mcal N^{0+}$ und $\mcal N^{0-}$}]{/Users/cornelius/Documents/MATLAB/DiplomarbeitMatlab/EinfachesHindernisproblem/N0plusminus.m}
+
+\lstinputlisting[caption={[Bestimmung der lokalen Steifigkeitsmatrix]Bestimmung der lokalen Steifigkeitsmatrix im linearen und quadratischen Fall}]{/Users/cornelius/Documents/MATLAB/DiplomarbeitMatlab/EinfachesHindernisproblem/local_mat.m}
+
+\lstinputlisting[caption={Berechnung der Indizes anliegender Dreiecke}]{/Users/cornelius/Documents/MATLAB/DiplomarbeitMatlab/EinfachesHindernisproblem/neighbourhood.m}
+
+\lstinputlisting[caption={Bestimmung der Mittelpunkte und Zuordnung zu den Dreiecken}]{/Users/cornelius/Documents/MATLAB/DiplomarbeitMatlab/EinfachesHindernisproblem/midpoints_of_triangle.m}
+
+\lstinputlisting[caption={Berechnung der Normalflüsse $j_E$ für alle $E\in \mcal E_p$}]{/Users/cornelius/Documents/MATLAB/DiplomarbeitMatlab/EinfachesHindernisproblem/normal_flux.m}
+
+\lstinputlisting[caption={Bestimmung der Oszillation $\osc_1(u_{\mcal S},\psi)$}]{/Users/cornelius/Documents/MATLAB/DiplomarbeitMatlab/EinfachesHindernisproblem/osc1.m}
+
+\lstinputlisting[caption={Berechnung der Oszillationsterme $\osc_2(u_{\mcal S},\psi,f)$}]{/Users/cornelius/Documents/MATLAB/DiplomarbeitMatlab/EinfachesHindernisproblem/osc2.m}
+
+\lstinputlisting[caption={Gewichte und Stützstellen für die Quadratur}]{/Users/cornelius/Documents/MATLAB/DiplomarbeitMatlab/EinfachesHindernisproblem/quad_tri.m}
+
+\lstinputlisting[caption={Adaptive Verfeinerung des Gitters und Lösung des Hindernisproblems}]{/Users/cornelius/Documents/MATLAB/DiplomarbeitMatlab/EinfachesHindernisproblem/adaptive_refinement_solution.m}
+
+\newpage
+
+\lstinputlisting[caption={Startdatei des Problems}]{/Users/cornelius/Documents/MATLAB/DiplomarbeitMatlab/EinfachesHindernisproblem/start.m}
+
 
 %\newpage
 %\newchapter{noch mehr Quellcode}

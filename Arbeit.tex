@@ -1,7 +1,7 @@
 \documentclass[a4paper,11pt,oneside]{book}
 
-\usepackage[utf8]{inputenc}
 %\usepackage[T1]{fontenc}
+\usepackage[utf8]{inputenc}
 %\usepackage{pslatex}
 \usepackage[intlimits]{amsmath}
 \usepackage{amsfonts}
@@ -39,6 +39,7 @@
 \usepackage{algpseudocode}
 \usepackage{color}
 \usepackage{caption}
+\usepackage{listings}
 %\usepackage{mathalfa}
 
 
@@ -119,6 +120,8 @@
 \newcommand{\osc}{\operatorname{osc}}
 \newcommand{\Span}{\operatorname{span}}
 \renewcommand{\listalgorithmname}{Algorithmenverzeichnis} 
+\renewcommand{\lstlistlistingname}{Quellcodeverzeichnis}
+\renewcommand{\lstlistingname}{Code}
 
 \newcommand{\rz}[1]{%
 	\ensuremath{% stellt Mathe-Modus sicher
@@ -209,9 +212,14 @@ Zweitprüfer: Prof. Dr. Peter Wriggers
 \listofalgorithms
 \addcontentsline{toc}{chapter}{Algorithmenverzeichnis}
 
+% Quellcodeverzeichnis
+\lstlistoflistings
+\addcontentsline{toc}{chapter}{Quellcodeverzeichnis}
+
+
 \mainmatter
 
-\setcounter{page}{7}
+\setcounter{page}{8}
 
 %\setcounter{page}{\thecountersave}
 
@@ -256,6 +264,7 @@ Zweitprüfer: Prof. Dr. Peter Wriggers
 
 \input{Kapitel08}
 
+\newpage
 \pagestyle{fancy}{
 	\rhead{}
 	\lhead{\sl Index}
