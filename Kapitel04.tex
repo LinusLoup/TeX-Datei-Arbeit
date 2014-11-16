@@ -1409,7 +1409,7 @@ Insgesamt ergibt sich damit folgender adaptiver Algorithmus.
 
 
 \begin{algorithm}[H]
-\caption{Adaptive Verfeinerungsstrategie für ein Hindernisproblem}
+\caption{Adaptive Verfeinerungsstrategie für ein Hindernisproblem\label{alg:4.1}}
 Gegeben sei eine Fehlerschranke $\eps>0$, Parameter $\theta_1,\theta_2 \in (0,1)$ und ein initiales Gitter $\mcal T_0$. Wir setzen $\mcal T_n \coloneqq \mcal T_0$.
 \begin{algorithmic}[1] 
 \State Berechne die Galerkin-Lösung $u_{\mcal S}$ von \eqref{eq:3.12} über der Zerlegung $\mcal T_n$.

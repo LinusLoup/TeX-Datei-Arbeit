@@ -35,22 +35,24 @@
 \BOOKMARK [1][-]{section.4.3}{Erf\374llung einer Saturationseigenschaft}{chapter.4}% 35
 \BOOKMARK [1][-]{section.4.4}{\334bertragung des Fehlersch\344tzers auf Kontaktprobleme}{chapter.4}% 36
 \BOOKMARK [0][-]{chapter.5}{Implementierung des Fehlersch\344tzers in Matlab}{}% 37
-\BOOKMARK [0][-]{chapter.6}{Validierung}{}% 38
-\BOOKMARK [1][-]{section.6.1}{Numerisches Beispiel zum Hindernisproblem}{chapter.6}% 39
-\BOOKMARK [1][-]{section.6.2}{Numerisches Beispiel zum Kontaktproblem}{chapter.6}% 40
-\BOOKMARK [0][-]{chapter.7}{Zusammenfassung und Ausblick}{}% 41
-\BOOKMARK [0][-]{chapter.7}{Literaturverzeichnis}{}% 42
-\BOOKMARK [0][-]{appendix.A}{Funktionalanalysis}{}% 43
-\BOOKMARK [1][-]{section.A.1}{Sobolev-R\344ume}{appendix.A}% 44
-\BOOKMARK [1][-]{section.A.2}{Optimalit\344tskriterien}{appendix.A}% 45
-\BOOKMARK [1][-]{section.A.3}{Konvergenzbegriffe}{appendix.A}% 46
-\BOOKMARK [0][-]{appendix.B}{Optimierung}{}% 47
-\BOOKMARK [1][-]{section.B.1}{Quadratische Programmierung}{appendix.B}% 48
-\BOOKMARK [1][-]{section.B.2}{Active Set-Methode f\374r konvexe QPs}{appendix.B}% 49
-\BOOKMARK [1][-]{section.B.3}{Algorithmus}{appendix.B}% 50
-\BOOKMARK [0][-]{appendix.C}{Tensorrechnung}{}% 51
-\BOOKMARK [1][-]{section.C.1}{Tensoralgebra}{appendix.C}% 52
-\BOOKMARK [1][-]{section.C.2}{Tensoranalysis}{appendix.C}% 53
-\BOOKMARK [0][-]{appendix.D}{Quellcode}{}% 54
-\BOOKMARK [1][-]{section.D.1}{Implementierung des Fehlersch\344tzers f\374r das Hindernisproblem}{appendix.D}% 55
-\BOOKMARK [0][-]{lstnumber.D.19.80}{Index}{}% 56
+\BOOKMARK [1][-]{section.5.1}{Implementierung eines Hindernisproblems}{chapter.5}% 38
+\BOOKMARK [0][-]{chapter.6}{Validierung}{}% 39
+\BOOKMARK [1][-]{section.6.1}{Numerisches Beispiel zum Hindernisproblem}{chapter.6}% 40
+\BOOKMARK [1][-]{section.6.2}{Numerisches Beispiel zum Kontaktproblem}{chapter.6}% 41
+\BOOKMARK [0][-]{chapter.7}{Zusammenfassung und Ausblick}{}% 42
+\BOOKMARK [0][-]{chapter.7}{Literaturverzeichnis}{}% 43
+\BOOKMARK [0][-]{appendix.A}{Funktionalanalysis}{}% 44
+\BOOKMARK [1][-]{section.A.1}{Sobolev-R\344ume}{appendix.A}% 45
+\BOOKMARK [1][-]{section.A.2}{Optimalit\344tskriterien}{appendix.A}% 46
+\BOOKMARK [1][-]{section.A.3}{Konvergenzbegriffe}{appendix.A}% 47
+\BOOKMARK [0][-]{appendix.B}{Optimierung}{}% 48
+\BOOKMARK [1][-]{section.B.1}{Quadratische Programmierung}{appendix.B}% 49
+\BOOKMARK [1][-]{section.B.2}{Active Set-Methode f\374r konvexe QPs}{appendix.B}% 50
+\BOOKMARK [1][-]{section.B.3}{Algorithmus}{appendix.B}% 51
+\BOOKMARK [0][-]{appendix.C}{Tensorrechnung}{}% 52
+\BOOKMARK [1][-]{section.C.1}{Tensoralgebra}{appendix.C}% 53
+\BOOKMARK [1][-]{section.C.2}{Tensoranalysis}{appendix.C}% 54
+\BOOKMARK [0][-]{appendix.D}{Quellcode}{}% 55
+\BOOKMARK [1][-]{section.D.1}{Implementierung des Fehlersch\344tzers f\374r das Hindernisproblem}{appendix.D}% 56
+\BOOKMARK [0][-]{lstnumber.D.19.80}{Index}{}% 57
+\BOOKMARK [0][-]{appendix*.38}{Selbstst\344ndigkeitserkl\344rung}{}% 58

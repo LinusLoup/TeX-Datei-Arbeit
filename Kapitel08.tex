@@ -591,7 +591,7 @@ Es seien $u,v$ wie vorausgesetzt. Dann ist $\nabla u$ vektorwertig und nach \eqr
 \end{align*}
 Weiter gilt wegen \eqref{eq:C.3a}
 \[
-	\int_{\Omega} \div (v \cdot \nabla u) \, dOmega = \int_\Gamma v \cdot \underbrace{\nabla u \cdot \bs n}_{=\partial_{\bs n} u} \, d\Gamma \, .
+	\int_{\Omega} \div (v \cdot \nabla u) \, d\Omega = \int_\Gamma v \cdot \underbrace{\nabla u \cdot \bs n}_{=\partial_{\bs n} u} \, d\Gamma \, .
 \]
 Zusammen mit dem oberen Resultat folgt dann die Behauptung \eqref{eq:C.4}.
 \end{proof}
@@ -637,6 +637,8 @@ Im Folgenden ist der Quellcode angegeben, der für die Implementierung für das 
 
 \lstinputlisting[caption={Lösung des lokalen Defektproblems \eqref{eq:4.9}},label=lst:D.3]{/Users/cornelius/Documents/MATLAB/DiplomarbeitMatlab/EinfachesHindernisproblem/defect_problem_solution.m}
 
+\newpage
+
 \lstinputlisting[caption={[Dreiecksindizes zur Verfeinerung]Berechnung der zu verfeinernden Dreiecksindizes}]{/Users/cornelius/Documents/MATLAB/DiplomarbeitMatlab/EinfachesHindernisproblem/find_triangle_refinement.m}
 
 \lstinputlisting[caption={[Gradientenberechnung]Berechnung des Gradienten von der Galerkin-Approximation auf einem Dreieck},]{/Users/cornelius/Documents/MATLAB/DiplomarbeitMatlab/EinfachesHindernisproblem/gradu.m}
@@ -667,8 +669,6 @@ Im Folgenden ist der Quellcode angegeben, der für die Implementierung für das 
 \lstinputlisting[caption={Gewichte und Stützstellen für die Quadratur}]{/Users/cornelius/Documents/MATLAB/DiplomarbeitMatlab/EinfachesHindernisproblem/quad_tri.m}
 
 \lstinputlisting[caption={Adaptive Verfeinerung des Gitters und Lösung des Hindernisproblems}]{/Users/cornelius/Documents/MATLAB/DiplomarbeitMatlab/EinfachesHindernisproblem/adaptive_refinement_solution.m}
-
-\newpage
 
 \lstinputlisting[caption={Startdatei des Problems}]{/Users/cornelius/Documents/MATLAB/DiplomarbeitMatlab/EinfachesHindernisproblem/start.m}
 

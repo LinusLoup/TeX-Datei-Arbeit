@@ -1,7 +1,7 @@
 \newchapter{Grundlagen}
 \label{kap:2}
 
-In diesem Kapitel wollen wir uns mit grundlegender Theorie beschäftigen, die nicht im Anhang aufgeführt, zum Verständnis von den darauffolgenden Kapiteln jedoch notwendig ist.
+In diesem Kapitel wollen wir uns mit grundlegender Theorie beschäftigen, die nicht im Anhang aufgeführt, zum Verständnis der darauffolgenden Kapitel jedoch notwendig ist.
 
 Dieses Kapitel basiert auf \cite{BraeFEM}, \cite{StarkePDE}, \cite{EPS}, \cite{Walker}, \cite{AltKonti}.
 
@@ -19,11 +19,11 @@ Ein \textit{\idx{Hilbertraum}} ist ein reeller oder komplexer Vektorraum $H$ mit
 
 
 \begin{bsp*}
-Es sei $H = \R^n$ und $(\cdot,\cdot)_H : \R^n\times \R^n \ra \R$ definiert durch das Standartskalarprodukt. Dann konvergiert jede \idx{Cauchy-Folge} in $H$ bzgl. der durch $(\cdot,\cdot)_H$ induzierten (euklidischen) Norm (vgl. \cite{Ana2}, metrische Räume) und damit ist $H$ ein Hilbertraum.
+Es sei $H = \R^n$ und $(\cdot,\cdot)_H : \R^n\times \R^n \ra \R$ definiert durch das Standardskalarprodukt. Dann konvergiert jede \idx{Cauchy-Folge} in $H$ bzgl. der durch $(\cdot,\cdot)_H$ induzierten (euklidischen) Norm (vgl. \cite{Ana2}, metrische Räume) und damit ist $H$ ein Hilbertraum.
 \end{bsp*}
 
 
-Wir wollen die im Folgenden aufgeführten Eigenschaften später auf weniger triviale Räume anwenden, vor allem den Funktionenraum $H^1_0(\Omega)$ (s. Anhang \ref{anhang:A} Sobolev-Räume\index{Sobolev-Raum}). Um alle Aussagen auch allgemein verwenden zu können, sei in diesem Kapitel $H$ ein reeller Hlbertraum mit Skalarprodukt $(\cdot,\cdot)_H$ und der dazu induzierten Norm $\norm v_H^2 = (v,v)_H$ für alle $v \in H$.
+Wir wollen die im Folgenden aufgeführten Eigenschaften später auf weniger triviale Räume anwenden, vor allem den Funktionenraum $H^1_0(\Omega)$ (s. Anhang \ref{anhang:A} Sobolev-Räume\index{Sobolev-Raum}). Um alle Aussagen auch allgemein verwenden zu können, sei in diesem Kapitel $H$ ein reeller Hilbertraum mit Skalarprodukt $(\cdot,\cdot)_H$ und der dazu induzierten Norm $\norm v_H^2 = (v,v)_H$ für alle $v \in H$.
 
 
 \begin{bem*}
@@ -51,7 +51,7 @@ Der Beweis ist in \cite{Walker} Kapitel 7.1 Satz 7.2 zu finden.
 
 
 \begin{satz}[Charakterisierung der Projektionen]\label{satz:2.3}
-$\emptyset\neq M\subset H$ sei abgeschlossen und konvex und $v\in H$. Dann gilt:
+$\emptyset\neq M\subset H$ sei abgeschlossen, konvex und $v\in H$. Dann gilt:
 \[ 
   	m_0=P_M(v)\quad\Longleftrightarrow\quad (m-m_0, v-m_0)_H\leq0 
 \]
@@ -173,12 +173,12 @@ dabei ist $g: \partial \Omega \ra \R$ eine für die Randwerte von $u$ gegebene F
 
 
 \begin{notation} 
-In der Praxis übliche Dimensionen sind $d = 2,3$. Der Einfachheit halber sei im Folgenden $d = 2$ und $\Omega \subset \R^2$ ein durch ein Polygonzug berandetes Gebiet, den Rand $\partial \Omega$ bezeichnen wir auch mit $\Gamma$.
+In der Praxis übliche Dimensionen sind $d = 2,3$. Der Einfachheit halber sei im Folgenden $d = 2$ und $\Omega \subset \R^2$ ein durch ein Polygonzug berandetes Gebiet. Den Rand $\partial \Omega$ bezeichnen wir auch mit $\Gamma$.
 \end{notation}
 
 
 \begin{bem*}
-Sollte $\Omega$ ein allgemeiner berandetes Gebiet sein, so können wir dieses beliebig genau durch ein polygonales Gebiet approximieren; hierbei entsteht schon bei der Gebietszerlegung ein Fehler.
+Sollte $\Omega$ ein allgemein berandetes Gebiet sein, so können wir dieses beliebig genau durch ein polygonales Gebiet approximieren; hierbei entsteht schon bei der Gebietszerlegung ein Fehler.
 
 Diesen Fehler kann man durch Verwendung von \textit{isoparametrischen Elementen}\index{isoparametrisches Element} (vgl. \cite{BraeFEM} Kapitel III, \S2, Isoparametrische Elemente) verringern. Dies soll in dieser Arbeit aber nicht weiter vertieft werden.
 \end{bem*}
@@ -199,7 +199,7 @@ Mit $H^1_0 (\Omega)$ bezeichnen wir, wie in Bemerkung \ref{bem:A.8} beschrieben,
 \begin{align*}
 	\int_\Omega -\Delta u \cdot v \, dx = \int_\Omega f v \, dx \, .
 \end{align*}
-Wir betrachten nun \eqref{eq:2.1aa} also nicht mehr punktweise (lokal), sondern im gewichteten Mittel über ganz $\Omega$ (global). Durch Anwenden der 1. Green'schen Formel \eqref{eq:C.4} (bzw. dem Satz von Gauß) ergibt sich
+Wir betrachten nun \eqref{eq:2.1aa} also nicht mehr punktweise (lokal), sondern im gewichteten Mittel über ganz $\Omega$ (global). Durch Anwenden der \index{1. Green'sche Formel} 1. Green'schen Formel \eqref{eq:C.4} (bzw. dem Satz von Gauß) ergibt sich
 \begin{align}\notag
 	& \int_\Omega \nabla u \cdot \nabla v \, dx -\underbrace{\int_\Gamma v \partial_\nu u \, ds}_{=0, \text{ da } v|_\Gamma = 0} = \int_\Omega f v \, dx \, \\
 	\label{eq:2.3}	
@@ -209,7 +209,7 @@ Die Gleichung \eqref{eq:2.3} wird als \textit{\idx{Variationsgleichung}} bezeich
 \[
 	(\nabla u, \nabla v)_0 = (f,v)_0 \, ,
 \]
-daher definieren wir die Bilinearform $a: (H^1_0(\Omega))^2 \ra \R, a(u,v) := (\nabla u, \nabla v)_0$ und $(f,v):=(f,v)_0$.
+damit definieren wir die Bilinearform $a: (H^1_0(\Omega))^2 \ra \R, a(u,v) := (\nabla u, \nabla v)_0$ und $(f,v):=(f,v)_0$.
 
 
 \begin{bem*}
@@ -233,7 +233,7 @@ gilt.
 \end{defi}
 
 
-Anschaulich ist eine solche Lösung deshalb schwach, da sie das Problem \eqref{eq:DP} nur im gewichteten Mittel löst. Eine schwache Lösung muss das \textit{starke Problem}\index{starkes Problem} nicht lösen, da sie beispielsweise die Regularitätsanforderungen an das Problem nicht erfüllen muss.
+Anschaulich nennen wir eine solche Lösung schwach, da sie das Problem \eqref{eq:DP} nur im gewichteten Mittel löst. Eine schwache Lösung muss das \textit{starke Problem}\index{starkes Problem} nicht lösen, da sie beispielsweise die Regularitätsanforderungen an das Problem nicht erfüllen muss.
 
 Wir wollen uns nun die Frage nach der Eindeutigkeit und Existenz einer Lösung für die Variationsgleichung \eqref{eq:2.4} stellen. Diese Frage wollen wir zunächst allgemein für einen beliebigen reellen Hilbertraum $H$ beantworten. Wie wir nachher im Beweis des zentralen Satzes von Lax-Milgram sehen werden, ist hierfür explizit ein Hilbertraum notwendig.
 
@@ -261,7 +261,7 @@ Es sei $H$ ein Hilbertraum. Das Funktional
 \[
 	J: H \ra \R \, , \quad J(v) := \frac 1 2 a(v,v) - F(v) \, ,
 \]
-wobei $a: H\times H \ra \R$ eine stetige bilineare koerzive und $F: H\ra \R$ eine lineare Abbildung ist, ist konvex.
+ist konvex, wobei $a: H\times H \ra \R$ eine stetige bilineare koerzive und $F: H\ra \R$ eine lineare Abbildung ist.
 \end{lemma}
 
 \begin{proof}
@@ -337,7 +337,7 @@ Da $J:H\ra \R$ nach Lemma \ref{lem:2.10} ein konvexes Funktional ist und $J$ nac
 	& = \frac d{dt}(J(u) + t \, (a(u,v)-F(v))+\frac{t^2}2 a(v,v))\Big|_{t=0} \\
 	& = a(u,v)-F(v) + t \, a(v,v) \Big|_{t=0} = a(u,v)-F(v)
 \end{align*}
-(ii) Eindeutigkeit: Es seien $u,\tilde u \in H$ Lösungen der Variationsungleichung, d.h.
+(ii) Eindeutigkeit: Es seien $u,\tilde u \in H$ Lösungen der Variationsgleichung, d.h.
 \begin{align*}
 	a(u,v) = F(v) \, \wedge \, a(\tilde u,v) = F(v) \quad \forall \, v \in H \, .
 \end{align*}
@@ -358,7 +358,7 @@ also folgt $u = \tilde u$.
 	& = \frac 1 2 \alpha \(\norm v_H^2 - \frac{2c}\alpha \norm v_H\) = \frac 1 2 \alpha\(\norm v_H - \frac c\alpha\)^2 - \frac {c^2}{2\alpha} \\
 	& \ge - \frac{c^2}{2\alpha}
 \end{align*}
-Folglich ist $J$ nach unten beschränkt. Sei $\eta := \inf \{J(v)\mid v \in H\}$ und $(v_n)_{n\in\N}$ eine Folge mit $J(v_n) \ra\eta$ für $n\ra \infty$. Dann folgt mit der Koerzivität von $a$
+Folglich ist $J$ nach unten beschränkt. Sei $\eta := \inf \{J(v)\mid v \in H\}$ und $(v_n)_{n\in\N}$ eine Folge mit $J(v_n) \ra\eta$ für $n\ra \infty$, dann folgt mit der Koerzivität von $a$
 \begin{align*}
 	\alpha \norm{v_n-v_m}^2_H  \le & a(v_n-v_m,v_n-v_m) \\
 	 = &a(v_n,v_n)+a(v_m,v_m)-a(v_n,v_m)-a(v_m,v_n) \\
@@ -481,7 +481,7 @@ für alle $w \in H$. Weiter gilt
 \[
 	\norm{Au}_H^2 = (Au,Au)_H = a(u,Au) \stackrel{\scriptsize \text{stetig}}\le c \, \norm u_H \norm{Au}_H \, ,
 \]
-d.h. $\norm{Au}_H \le c \, \norm u_H$ und damit ist nach \cite{Werner} Satz II.1.2 der Operator $A$ stetig.
+d.h. $\norm{Au}_H \le c \, \norm u_H$ und damit ist nach \cite{Werner} Satz II.1.2 (oder vgl. auch \cite{Ana2} Kapitel 1.3) der Operator $A$ stetig.
 
 Betrachten wir den Kern von $A$, so ergibt sich
 \begin{align}\label{eq:2.6}
