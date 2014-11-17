@@ -24,7 +24,7 @@ Weiter werden nach Ausführung des adaptiven Algorithmus die Galerkin-Lösung un
 Die Funktion {\ttfamily adaptive_refinement_solution.m} ist das Herzstück des Programms. Diese Datei beinhaltet den Ablauf des Algorithmus \ref{alg:4.1}, wobei hier die Abbruchbedingung aus Zeile 5 erweitert wurde. Alle weiteren Programmteile werden in {\ttfamily adaptive_refinement_solution.m} aufgerufen.
 
 
-\subsubsection{Lokale Steifigkeitsmatrix und Assemblierung}
+\subsubsection{Lokale Steifigkeitsmatrix und \idx{Assemblierung}}
 
 Wie schon in Kapitel \ref{kap:2.3} Beispiel \ref{bsp:2.26} beschrieben ist es für die Implementierung notwendig eine Verallgemeinerung zur Berechnung der Steifigkeitsmatrix herzuleiten. Die Idee ist an selber Stelle kurz vorgestellt worden; wir wollen nun angelehnt an Abbildung \ref{abb:2.5} die Formeln für die lokale Steifigkeitsmatrix eines beliebigen Elementes $T$ über das Referenzelement
 \[
@@ -198,32 +198,107 @@ Damit ist der lokale Vektor aus \eqref{eq:5.6} bzgl. eines beliebigen Dreiecks $
 
 Die hier hergeleiteten Formeln für die lokalen Steifigkeitsmatrizen bzw. Vektoren werden in {\ttfamily local_mat.m} verwendet und ermöglichen einerseits eine leichtere Implementierung, da wir nur über ein Element integrieren müssen, andererseits erzeugen sie aber auch einen schnelleren Programmcode, weil wir keine Integrationen mehr durchführen müssen, um die Steifigkeitsmatrizen aufzustellen.
 
-Die globalen Steifigkeitsmatrizen erzeugen wir dann durch Assemblierung, d.h. wir berechnen für alle Elemente die lokalen Steifigkeitsmatrizen und ordnen mit dem global-local node ordering jedem globalen Knoten in einem Element den jeweils lokalen zu. Damit addieren wir in der globalen Steifigkeitsmatrix im zugehörigen Eintrag den jeweiligen lokalen Eintrag auf. Dieses Vorgehen wir im Programmcode {\ttfamily assemble.m} verwendet. Natürlich ist die Assemblierung für den globalen Vektor aus $\rho_{\mcal S}$ analog.
-
-
-\subsubsection{Lösung der quadratischen Programme}
-
-Wie wir in Anhang \ref{anhang:B} beschrieben können wir die konvexen quadratischen Programme, die sich durch Hindernis- oder Kontaktproblem erzeugen, mit dem \idx{Active-Set-Algorithmus} lösen. Dieser ist unter anderem in der Matlab-Funktion {\ttfamily quadprog} hinterlegt. Allerdings ist der Active-Set-Algorithmus mit steigender Dimension schnell sehr langsam. Das Funktionen-Paket {\ttfamily quadprog} beinhaltet jedoch auch die \textit{\idx{Innere-Punkte-Methode}} (kurz: IPM), welche für große Systeme wesentlich schneller ist als die Active-Set-Methode. Daher verwenden wir die IPM zur Lösung der quadratischen Programme. Außerdem verwenden wir dazu \textit{Sparse}-Matrizen und die Option \textit{large-scale}, um die Auswertung zu beschleunigen.
+Die globalen Steifigkeitsmatrizen erzeugen wir dann durch \idx{Assemblierung}, d.h. wir berechnen für alle Elemente die lokalen Steifigkeitsmatrizen und ordnen mit dem global-local node ordering jedem globalen Knoten in einem Element den jeweils lokalen zu. Damit addieren wir in der globalen Steifigkeitsmatrix im zugehörigen Eintrag den jeweiligen lokalen Eintrag auf. Dieses Vorgehen wir im Programmcode {\ttfamily assemble.m} verwendet. Natürlich ist die Assemblierung für den globalen Vektor aus $\rho_{\mcal S}$ analog.
 
 
 \subsubsection{Quadratur auf einem Dreieck}
 
+Das Skalarprodukt $(f,v)_T = \int_T fv \, dx$ muss allerdings auf den einzelnen Dreiecken $T$ ausgewertet werden. Dies kann leider nur durch direkte Integration geschehen, weil die Last $f$ auf den Elementen variabel sein kann und daher nicht allgemein auf das Referenzdreieck transformierbar ist, so dass wir einen lokalen Vektor erstellen können, der nur noch assembliert\index{Assemblierung} werden muss. 
 
-\subsubsection{Berechnung der einzelnen Knotenmengen}
+Für die zweidimensionale Integration sind in Matlab beispielsweise die Funktionen {\ttfamily integral2} und {\ttfamily quad2d} implementiert. Um jedoch die Laufzeit des Codes zu verbessern, werden wir direkt eine Gauß-Quadratur\index{Quadratur!Gauß} über dem Referenzdreieck $\widetilde T$ verwenden. Eine mögliche Wahl (mit dem dazugehörigen Exaktheitsgrad) ist beispielsweise in \cite{Quad} wiederzufinden. Implementiert sind davon die \textit{Seitenmitten-Regel}\index{Quadratur!Seitenmitten-Regel} und die \textit{7-Punkte-Formel}\index{Quadratur!7-Punkte-Formel}, wobei wir aufgrund der hohen Genauigkeit beim Aufrufen des Progammcodes vorwiegend letztere verwenden. Die lokalen Stützstellen $(\xi_k,\eta_k)$ und Gewichte $w_k$ für die 7-Punkte-Formel sind auch in \cite{BraeFEM} Kapitel II, Tabelle 5 zu finden und lauten wie folgt (s. Abbildung \ref{abb:5.1} für die ungefähre Lage der Stützstellen).
+
+\begin{table}[htpb]
+\centering
+\begin{tabular}[c]{|c|c|c|c|}
+	\hline
+	$k$ & $\xi_k$ & $\eta_k$ & $w_k$ \\
+	\hline
+	 1 & $1/3$ & $1/3$ & $9/80$ \\
+	 2 & $(6+\sqrt{15})/21$ & $(6+\sqrt{15})/21$ & $(155+\sqrt{15})/2400$ \\
+	 3 & $(9-2\sqrt{15})/21$ & $(6+\sqrt{15})/21$ & $(155+\sqrt{15})/2400$  \\
+	 4 & $(6+\sqrt{15})/21$ & $(9-2\sqrt{15})/21$ & $(155+\sqrt{15})/2400$ \\
+	 5 & $(6-\sqrt{15})/21$ & $(6-\sqrt{15})/21$ & $(155-\sqrt{15})/2400$ \\
+	 6 & $(9+2\sqrt{15})/21$ & $(6-\sqrt{15})/21$ & $(155-\sqrt{15})/2400$ \\
+	 7 & $(6-\sqrt{15})/21$ & $(9+2\sqrt{15})/21$ & $(155-\sqrt{15})/2400$ \\
+	\hline
+\end{tabular}
+\caption{\label{tab:5.1}Stützstellen $(\xi_k,\eta_k)$ und Gewichte $w_k$ für die Gauß-Quadratur über das Referenzdreieck $\widetilde T$}
+\end{table}
+
+Um nun das Integral über ein beliebiges Element $T$ zu ziehen, benötigen wir noch die affine Transformation von $T$ auf das Referenzelement $\widetilde T$, welche schon weiter oben bei der Berechnung der Steifigkeitsmatrizen genauer beschrieben wurde. Dadurch folgt  mit $f(x_1+(x_2-x_1)\xi+(x_3-x_1)\eta,y_1+(y_2-y_1)\xi + (y_3-y_1)\eta) = \tilde f(\xi,\eta)$ die Formel
+\begin{align}\label{eq:5.7}
+	\int_T f(x,y) \, dxdy = \int_{\widetilde T} \tilde f(\xi,\eta)  J \, d\xi d\eta  \approx J\,  \sum_{k=1}^7 w_k \, \tilde f(\xi_k,\eta_k) \, .
+\end{align}
+Die benötigten Gewichte und Stützstellen für die Quadraturformel über einem Dreieck \eqref{eq:5.7}  werden durch {\ttfamily quad_tri.m} übergeben. Weiterhin übergibt diese Funktion auch die Funktionswerte der mitgegebenen Ansatzfunktionen. Die Integration kann dann durch Anwendung der Formel \eqref{eq:5.7} geschehen.
+
+
+\begin{figure}[h!]
+\begin{center}
+	\begin{pspicture}(0.7,0)(5,4.7)
+		% Koordinatensystem:
+		\psaxes[labels=none,ticks=none,linewidth=0.5pt]{->}(0,0)(-0.3,-0.3)(6.2,4.2)
+		\rput(6.2,-0.2){$x$}
+		\rput(-0.2,4.2){$y$}
+		
+		% Dreieck:
+		\pspolygon(1.5,1)(4.8,2.4)(2.7,3.7)
+		\rput(1.5,0.85){\small$(x_1,y_1)$}
+		\rput(5.45,2.4){\small$(x_2,y_2)$}
+		\rput(2.7,3.9){\small$(x_3,y_3)$}
+		
+		% Winkelhalbierende:
+		\psline[linestyle=dashed,linewidth=0.5pt](1.5,1)(3.75,3.05)
+		\psline[linestyle=dashed,linewidth=0.5pt](4.8,2.4)(2.1,2.35)
+		\psline[linestyle=dashed,linewidth=0.5pt](2.7,3.7)(3.15,1.7)
+		
+		% die Stützstellen:
+		\psdots(3,2.367)(1.956,1.415)(4.253,2.39)(2.791,3.295)(3.123,1.819)(3.615,2.927)(2.261,2.353)
+		\rput(2.9,2.4){\scriptsize$1$}
+		\rput(2.13,1.415){\scriptsize$2$}
+		\rput(4.2,2.57){\scriptsize$3$}
+		\rput(2.65,3.295){\scriptsize$4$}
+		\rput(3.28,1.92){\scriptsize$5$}
+		\rput(3.45,3){\scriptsize$6$}
+		\rput(2.15,2.18){\scriptsize$7$}
+	\end{pspicture}
+\end{center}
+\caption{Ungefähre Lage der Stützstellen in einem Dreieck für die Gauß-Quadratur\index{Quadratur!Gauß}\label{abb:5.1}}
+\end{figure}
+
+
+
+\subsubsection{Lösung der quadratischen Programme}\index{quadratisches Programm}
+
+Wie wir in Anhang \ref{anhang:B} beschrieben können wir die konvexen quadratischen Programme, die sich durch Hindernis- oder Kontaktproblem erzeugen, mit dem \idx{Active-Set-Algorithmus} lösen. Dieser ist unter anderem in der Matlab-Funktion {\ttfamily quadprog} hinterlegt. Allerdings ist der Active-Set-Algorithmus mit steigender Dimension schnell sehr langsam. Das Funktionen-Paket {\ttfamily quadprog} beinhaltet jedoch auch die \textit{\idx{Innere-Punkte-Methode}} (kurz: IPM), welche für große Systeme wesentlich schneller ist als die Active-Set-Methode. Daher verwenden wir die IPM zur Lösung der quadratischen Programme. Außerdem verwenden wir dazu \textit{Sparse}-Matrizen und die Option \textit{large-scale}, um die Auswertung zu beschleunigen.
 
 
 \subsubsection{Berechnung des Normalenflußes}
 
+Mit der Datei {\ttfamily normal_flux.m} berechnen wir für jede Kante aus der überge-benen Kantenmenge $E_p$ den Normalenfluß $j_E$. Hierfür werden zunächst für jede Kante $E \in E_p$ die Indizes der anliegenden Dreiecke berechnet (dies geschieht mit der Funktion {\ttfamily neighbourhood.m}). Dabei gibt der Parameter {\ttfamily flag} an, ob eine Kante nur einen oder zwei Nachbarn besitzt, d.h. ob Randkante ist oder innen liegt. Durch die Indizes der anliegenden Dreiecke lassen sich die Eckpunkte und damit die Gradienten von $u_{\mcal S}$ auf $T_1$ und $T_2$ sowie der Normalenvektor $\bs n$, der immer von $T_1$ nach $T_2$ zeigen soll, berechnen. Da diese Eigenschaft durch die gewählte Erzeugung des Normalenvektors im Code  nicht immer erfüllt sein muss, wird überprüft, ob der berechnete Vektor $\bs n$ mit einer der übrigen Kanten aus $T_1$ einen Winkel $\alpha \in (0,\frac \pi2)$ einschließt. Sollte dies der Fall sein, so drehen wir den Vektor $\bs n$ um, ansonsten beschreibt er schon die gewünschte Richtung. Danach werden die durch das Skalarprodukt $\nabla u_{\mcal S}|_{T_i} \cdot \bs n$ berechneten Richtungsableitungen noch voneinander abgezogen, um $j_E$ zu erhalten.
 
 
 
+\subsubsection{Berechnung der einzelnen Knotenmengen}
 
-\subsubsection{meine Stichpunkte}
+Um die Knotenmengen $\mcal N^0$ und $\mcal N^+$ zu berechnen, müssen wir zunächst die inneren Knoten $\mcal N\cap \Omega$ bestimmen. Dies kann man sehr leicht durch die Adjazenzmatrix $H \in \{0,1\}^{m\times n}$, die mit der Funktion {\ttfamily assemb} berechnet werden kann und durch den Matrixeintrag 1 angibt welcher der $n$ Knoten einer der $m$ Randknoten ist, bestimmen. Dafür berechnen wir eine Vergleichsmatrix, die überprüft, welcher der Einträge in $H$ gleich Null ist, und bilden dann spaltenweise das Produkt. Die Einträge, die in dem erzeugten Vektor, ungleich Null sind, können keine Randpunkte sein.
 
-\begin{itemize}
-\item Gründe warum wo was.
-\item Warum Verwendung von Sparse, IPM und large scale?
-\end{itemize}
+Die inneren Kontakt- und Nichtkontaktknoten lassen sich dann leicht durch Überprüfen der Bedingungen berechnen, bzw. die Nichtkontaktknoten lassen sich auch einfach als Komplement zu den Kontaktknoten bilden. Bei der Berechnung der Kontaktknotenindizes ist zu beachten, dass wegen der Approximationsfehler eine obere Fehlerschranke $\eps \approx 0$ verwendet wird. Dieses Vorgehen ist in {\ttfamily N0.m} und {\ttfamily Nplus.m} verwendet.
+
+Analog kann man auch die Menge der Knoten $\mcal N^{++}$ (s. {\ttfamily Nplusplus.m}) leicht implementieren, indem wir einfach die Bedingung aus der Menge mit den mitgegebenen Daten überprüfen.
+
+Dies ist für der Menge der isolierten Kontaktknoten\index{isolierte Kontaktknoten} $\mcal N^{0+}$ und der Kontaktnoten mit vollständigem Kontakt $\mcal N^{0-}$ nicht mehr so einfach möglich. Die nun beschriebenen Ideen sind gemeinsam in der Datei {\ttfamily N0plusminus.m} angewendet. Da wir in Matlab keine kompletten Funktionen miteinander vergleichen können (s. Bedingung $u_{\mcal S} = \psi$ auf ganz $\omega_p$), transformieren wir die Dreiecke $T$ wieder auf das Referenzdreieck und vergleichen einzelne Funktionswerte bzgl. eines möglichst engmaschigem Gitter auf diesem. Hierbei laufen wir in einer Schleife über alle Dreiecke $T \subset \omega_p$ und berechnen auf jedem Dreieck $u_{\mcal S}-\psi$ auf dem betrachteten Gitter. Um nun zu überprüfen, ob $p$ ein isolierter Kontaktknoten ist, müssen wir aus den berechneten Funktionswerten die der Eckpunkte eliminieren, was in Zeile 52-60 geschieht. Sollte nun ein Funktionswert kleiner oder gleich Null sein, so kann $p$ kein isolierter Kontaktknoten mehr sein und wir setzen daher {\ttfamily flag_plus}$=1$, womit wir später diese Entscheidung fällen, wenn wir aus der Schleife über alle Dreiecke $T$ kommen. Sollten nun aber alle Funktionswerte an den Eckpunkten von $\psi$ und $u_{\mcal S}$ übereinstimmen, so gilt wegen der Linearität der beiden Funktionen die Gleichheit und weiter $f\le 0$ an den betrachteten Gitterpunkten, so erhöhen wir den Parameter {\ttfamily flag_minus} um Eins, mit dem wir  damit später entscheiden können, ob die Bedingung auch auf allen Dreiecken von $\omega_p$ gilt. Es fehlt also nur noch die Überprüfung, ob {\ttfamily flag_plus}$\ =0 \ (\Ra p \in \mcal N^{0+})$ bzw. {\ttfamily flag_minus}$\ =\abs{\omega_p}$ und $j_E \le 0$ für alle $E \in\mcal E_p \ (\Ra p \in \mcal N^{0-})$ ist.
+
+
+\subsubsection{Oszillationsterme}
+
+Die Berechnung der \idx{Oszillationsterme} geschieht in {\ttfamily osc1.m} und {\ttfamily osc2.m}. Die größte Schwierigkeit zur Implementierung dieser, liegt in der Bestimmung der einzelnen Punktemengen, die oben beschrieben wurde. Daher werden hier größtenteils nur die Integrale aus $\osc_1(u_{\mcal S},\psi)$ und $\osc_2(u_{\mcal S},\psi,f)$ eingearbeitet.
+
+
+\subsubsection{Berechnung des zu verfeinernden Dreiecksindizes}
+
+Im Quellcode {\ttfamily find_triangle_refinement.m} werden die Indizes der zu verfeinernden Dreiecke berechnet. Dies geschieht dadurch, dass wir so viele der größten Anteile vom Fehlerindikator $\rho_{\mcal S}$ heraussuchen, bis jene größer als ein skalierter Wert des Indikators ist. Dasselbe Vorgehen verwenden wir dann noch für die \idx{Oszillationsterme}. Für die damit erhaltenen Punktindizes berechnen wir mit {\ttfamily neighbourhood} die anliegenden Dreiecke und übergeben diese für die Verfeinerung.
+
+Sollten wir ein symmetrisches Problem vorliegen haben, dann ist es von Vorteil dieses auch symmetrisch bzgl. der Netzverfeinerung bzw. der Lösung zu halten. In diesem Fall sind auch die Fehleranteile im hierarchischen Fehlerschätzer $-\mcal I_{\mcal Q}(\eps_{\mcal V})$ bzw. Fehlerindikator $\rho_{\mcal S}$ symmetrisch angeordnet. Hierfür können wir den Wert {\ttfamily option} auf {\ttfamily 'symmetric'} setzen. Dies bewirkt, dass bei der Auswahl eines Fehleranteiles alle weiteren Punkte mit demselben Anteil direkt mit gewählt werden. Damit kann es zu einer stärkeren Netzverfeinerung kommen, das erzeugte Gitter bleibt jedoch symmetrisch und damit auch die dadurch berechnete \idx{Galerkin-Lösung}.
 
 
 

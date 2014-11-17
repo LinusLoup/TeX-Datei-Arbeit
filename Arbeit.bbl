@@ -144,6 +144,12 @@
 \newblock 2. Auflage.
 \newblock McGraw-Hill, 1991
 
+\bibitem[Sch]{Quad}
+\textsc{Schneider}, Rene:
+\newblock \emph{Beispiele für Gauß-Integration im Mehrdimensionalen}. --
+\newblock
+  \url{https://www-user.tu-chemnitz.de/~rens/lehre/archiv/numerik1_11SS/folien/gaussxd.pdf}
+
 \bibitem[Sta08]{StarkePDE}
 \textsc{Starke}, Gerhard:
 \newblock Numerik partieller Differentialgleichungen / IFAM - Universität

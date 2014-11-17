@@ -42,28 +42,29 @@
 \contentsline {section}{\numberline {5.1}Implementierung eines Hindernisproblems}{101}{section.5.1}
 \contentsline {subsubsection}{Grundlegender Aufbau des Programms}{101}{section*.30}
 \contentsline {subsubsection}{Lokale Steifigkeitsmatrix und Assemblierung}{102}{section*.31}
-\contentsline {subsubsection}{L\IeC {\"o}sung der quadratischen Programme}{105}{section*.32}
-\contentsline {subsubsection}{Quadratur auf einem Dreieck}{105}{section*.33}
-\contentsline {subsubsection}{Berechnung der einzelnen Knotenmengen}{105}{section*.34}
-\contentsline {subsubsection}{Berechnung des Normalenflu\IeC {\ss }es}{105}{section*.35}
-\contentsline {subsubsection}{meine Stichpunkte}{105}{section*.36}
-\contentsline {chapter}{\numberline {6}Validierung}{106}{chapter.6}
-\contentsline {section}{\numberline {6.1}Numerisches Beispiel zum Hindernisproblem}{106}{section.6.1}
-\contentsline {section}{\numberline {6.2}Numerisches Beispiel zum Kontaktproblem}{106}{section.6.2}
-\contentsline {chapter}{\numberline {7}Zusammenfassung und Ausblick}{107}{chapter.7}
-\contentsline {chapter}{Literaturverzeichnis}{108}{chapter.7}
-\contentsline {chapter}{\numberline {A}Funktionalanalysis}{111}{appendix.A}
-\contentsline {section}{\numberline {A.1}Sobolev-R\IeC {\"a}ume}{111}{section.A.1}
-\contentsline {section}{\numberline {A.2}Optimalit\IeC {\"a}tskriterien}{113}{section.A.2}
-\contentsline {section}{\numberline {A.3}Konvergenzbegriffe}{114}{section.A.3}
-\contentsline {chapter}{\numberline {B}Optimierung}{116}{appendix.B}
-\contentsline {section}{\numberline {B.1}Quadratische Programmierung}{116}{section.B.1}
-\contentsline {section}{\numberline {B.2}Active Set-Methode f\IeC {\"u}r konvexe QPs}{117}{section.B.2}
-\contentsline {section}{\numberline {B.3}Algorithmus}{121}{section.B.3}
-\contentsline {chapter}{\numberline {C}Tensorrechnung}{122}{appendix.C}
-\contentsline {section}{\numberline {C.1}Tensoralgebra}{122}{section.C.1}
-\contentsline {section}{\numberline {C.2}Tensoranalysis}{124}{section.C.2}
-\contentsline {chapter}{\numberline {D}Quellcode}{126}{appendix.D}
-\contentsline {section}{\numberline {D.1}Implementierung des Fehlersch\IeC {\"a}tzers f\IeC {\"u}r das Hindernisproblem}{126}{section.D.1}
-\contentsline {chapter}{Index}{146}{lstnumber.D.19.80}
-\contentsline {chapter}{Selbstst\IeC {\"a}ndigkeitserkl\IeC {\"a}rung}{149}{appendix*.38}
+\contentsline {subsubsection}{Quadratur auf einem Dreieck}{105}{section*.32}
+\contentsline {subsubsection}{L\IeC {\"o}sung der quadratischen Programme}{106}{section*.35}
+\contentsline {subsubsection}{Berechnung des Normalenflu\IeC {\ss }es}{107}{section*.36}
+\contentsline {subsubsection}{Berechnung der einzelnen Knotenmengen}{107}{section*.37}
+\contentsline {subsubsection}{Oszillationsterme}{108}{section*.38}
+\contentsline {subsubsection}{Berechnung des zu verfeinernden Dreiecksindizes}{108}{section*.39}
+\contentsline {chapter}{\numberline {6}Validierung}{109}{chapter.6}
+\contentsline {section}{\numberline {6.1}Numerisches Beispiel zum Hindernisproblem}{109}{section.6.1}
+\contentsline {section}{\numberline {6.2}Numerisches Beispiel zum Kontaktproblem}{109}{section.6.2}
+\contentsline {chapter}{\numberline {7}Zusammenfassung und Ausblick}{110}{chapter.7}
+\contentsline {chapter}{Literaturverzeichnis}{111}{chapter.7}
+\contentsline {chapter}{\numberline {A}Funktionalanalysis}{114}{appendix.A}
+\contentsline {section}{\numberline {A.1}Sobolev-R\IeC {\"a}ume}{114}{section.A.1}
+\contentsline {section}{\numberline {A.2}Optimalit\IeC {\"a}tskriterien}{116}{section.A.2}
+\contentsline {section}{\numberline {A.3}Konvergenzbegriffe}{117}{section.A.3}
+\contentsline {chapter}{\numberline {B}Optimierung}{119}{appendix.B}
+\contentsline {section}{\numberline {B.1}Quadratische Programmierung}{119}{section.B.1}
+\contentsline {section}{\numberline {B.2}Active Set-Methode f\IeC {\"u}r konvexe QPs}{120}{section.B.2}
+\contentsline {section}{\numberline {B.3}Algorithmus}{124}{section.B.3}
+\contentsline {chapter}{\numberline {C}Tensorrechnung}{125}{appendix.C}
+\contentsline {section}{\numberline {C.1}Tensoralgebra}{125}{section.C.1}
+\contentsline {section}{\numberline {C.2}Tensoranalysis}{127}{section.C.2}
+\contentsline {chapter}{\numberline {D}Quellcode}{129}{appendix.D}
+\contentsline {section}{\numberline {D.1}Implementierung des Fehlersch\IeC {\"a}tzers f\IeC {\"u}r das Hindernisproblem}{129}{section.D.1}
+\contentsline {chapter}{Index}{149}{lstnumber.D.19.80}
+\contentsline {chapter}{Selbstst\IeC {\"a}ndigkeitserkl\IeC {\"a}rung}{152}{appendix*.41}
