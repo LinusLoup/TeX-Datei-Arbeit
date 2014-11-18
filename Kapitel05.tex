@@ -262,7 +262,7 @@ Die benötigten Gewichte und Stützstellen für die Quadraturformel über einem 
 		\rput(2.15,2.18){\scriptsize$7$}
 	\end{pspicture}
 \end{center}
-\caption{Ungefähre Lage der Stützstellen in einem Dreieck für die Gauß-Quadratur\index{Quadratur!Gauß}\label{abb:5.1}}
+\caption{Ungefähre Lage der Stützstellen in einem allgemeinen Dreieck für die Gauß-Quadratur\index{Quadratur!Gauß}\label{abb:5.1}}
 \end{figure}
 
 
@@ -292,6 +292,19 @@ Dies ist für der Menge der isolierten Kontaktknoten\index{isolierte Kontaktknot
 \subsubsection{Oszillationsterme}
 
 Die Berechnung der \idx{Oszillationsterme} geschieht in {\ttfamily osc1.m} und {\ttfamily osc2.m}. Die größte Schwierigkeit zur Implementierung dieser, liegt in der Bestimmung der einzelnen Punktemengen, die oben beschrieben wurde. Daher werden hier größtenteils nur die Integrale aus $\osc_1(u_{\mcal S},\psi)$ und $\osc_2(u_{\mcal S},\psi,f)$ eingearbeitet.
+
+
+\subsubsection{Bestimmung der lokalen Anteile des Fehlerindikators $\rho_{\mcal S}(\eps_{\mcal V})$}
+
+In der Datei {\ttfamily eval_rho_p.m} werden die lokalen Anteile $\rho_p (\eps_{\mcal V}) = \rho_{\mcal S}(\eps_{\mcal V}\phi_p)$ berechnet. Dabei werden die einzelnen Integrale mit der oben beschriebenen Quadratur berechnet. Es bleibt nur noch anzumerken, dass die Kurvenintegrale
+\[
+	\int_E j_E \eps_{\mcal V}(x_E) \, \phi_E \phi_p \, ds = j_E \eps_{\mcal V}(x_E) \int_E \phi_E \phi_p \, ds
+\]
+über alle Kanten $E \in \mcal E$ mittels eindimensionaler \index{Quadratur!Gauß} bestimmt werden können, wobei wir auch hier das Integral auf das Referenzintervall $[-1,1]$ transformieren. Die Quadratur selbst ist danach leicht durchzuführen, weil $\phi_p$ auf einer Kante $E$ identisch zu einer ansteigenden oder abfallenden Gerade und $\phi_E$ gleich einer nach unten geöffneten Parabel ist, die auf dem Anfangs- und Endpunkt ihre Nullstellen hat. Daher lassen sich die Werte
+\[
+	\int_{-1}^1  \phi_E(x(\xi),y(\xi))  \, \phi_p(x(\xi),y(\xi)) \, d\xi
+\]
+unabhängig von $E$ bestimmen und müssen später nur noch mit der Funktionaldeterminante $$J=\frac{\abs E}2$$ multipliziert werden.
 
 
 \subsubsection{Berechnung des zu verfeinernden Dreiecksindizes}

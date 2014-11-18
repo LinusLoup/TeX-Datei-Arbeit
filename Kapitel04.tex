@@ -1338,9 +1338,8 @@ Das Hindernis $\psi$ sei stückweise linear und stetig. Dann ist der hierarchisc
 Zunächst folgt mit \eqref{eq:4.16}
 \begin{align}\notag
 	-\mcal I_{\mcal Q} (\eps_{\mcal V}) & \le \rho_{\mcal S} (\eps_{\mcal V}) = \rho_{\mcal S} \(\sum_{E\in \mcal E} \eps_{\mcal V}(x_E) \phi_E\) \\
-	\notag
-	& = \sum_{E\in \mcal E} \eps_{\mcal V} (x_E) \rho_{\mcal S}(\phi_E) \\
-	& = \sum_{E \in \mcal E} \eta_E \, \abs {\rho_E}  \label{eq:my4.32}
+	& = \sum_{E\in \mcal E} \eps_{\mcal V} (x_E) \rho_{\mcal S}(\phi_E)
+	= \sum_{E \in \mcal E} \eta_E \, \abs {\rho_E}  \label{eq:my4.32}
 \end{align}
 mit $\eta_E = \abs{\eps_{\mcal V}(x_E)} \cdot \norm{\phi_E}$ und $\rho_E = \frac {\rho_{\mcal S}(\phi_E)}{\norm{\phi_E}}$, wobei man zeigen kann, dass $\sign (\eps_{\mcal V}(x_E)) = \sign (\rho_{\mcal S} (\phi_E))$ gilt. Weiter sollte man erwähnen, dass \eqref{eq:my4.32} äquivalent ist zu \cite{SiebVee} Gleichung (2.16).
 
@@ -1354,9 +1353,9 @@ eine Linearkombination aus Bubble-Funktionen. Dann lässt sich $u_{\mcal S} + \v
 \]
 Da $\R^2 \ni x \mapsto \frac 12 \abs x^2$ konvex ist, rechnen wir mit den obigen Bezeichnungen schnell nach, dass gilt
 \begin{align*}
-	J(u_{\mcal S} + \varphi) & = \int_\Omega \frac 12 \abs{\nabla(u_{\mcal S}+\varphi)}^2 - f (u_{\mcal S} + \varphi )\, dx \\
+	 J(u_{\mcal S} + \varphi) & = \int_\Omega \frac 12 \abs{\nabla(u_{\mcal S}+\varphi)}^2 - f (u_{\mcal S} + \varphi )\, dx \\
 	& = \sum_{T\in \mcal T_h} \int_T \frac 12 \Abs{\nabla(u_{\mcal S}+\varphi)\Big|_{T}}^2 - f (u_{\mcal S} + \varphi )\Big|_T\, dx \\
-	& =  \sum_{T\in \mcal T_h} \int_T \frac 12 \Abs{\(\frac 13 \sum_{E\in\mcal E, E \subset T}\nabla v_E \Big|_T\)}^2 - f\( \frac 13 \sum_{E\in\mcal E, E \subset T} v_E \Big|_T\)\, dx \\
+	 & =  \sum_{T\in \mcal T_h} \int_T \frac 12 \Abs{\(\frac 13 \sum_{E\in\mcal E, E \subset T}\nabla v_E \Big|_T\)}^2 - f\( \frac 13 \sum_{E\in\mcal E, E \subset T} v_E \Big|_T\)\, dx \\
 	& \le \frac 13 \sum_{E\in\mcal E, E \subset T} \, \sum_{T\in \mcal T_h} \int_T \frac 12 \Abs{\nabla v_E \Big|_T}^2 - f v_E \Big|_T\, dx \, .
 \end{align*}
 Da wir drei Kanten pro Dreieck $T$ haben, gilt analog die Gleichung
@@ -1401,11 +1400,11 @@ Zusammen mit \eqref{eq:my4.32} folgt dann die Behauptung.
 
 Mit den Resultaten aus Kapitel \ref{kap:4.1} können wir nun einen implementierbaren Algorithmus für eine adaptive Verfeinerung angeben. 
 
-Mittels Theorem \ref{theorem:4.22} bildet der hierarchische a posteriori Fehlerschätzer $-\mcal I_{\mcal Q}(\eps_{\mcal V})$ eine obere Schranke für den exakten Fehler $J(u_{\mcal S})-J(u)$ (und wegen Theorem \ref{theorem:4.25} auch eine untere), d.h. dass die Verringerung unseres Schätzers auch eine Verkleinerung des Fehlers mit sich führt. Aufgrund von Korollar \ref{kor:4.13} ist außerdem der Fehlerschätzer $-\mcal I_{\mcal Q}(\eps_{\mcal V})$ äquivalent zum Fehlerindikator $\rho_{\mcal S} (\eps_{\mcal V})$, den wir durch Lemma \ref{lem:4.14} in seine lokalen Anteile bzgl. der einzelnen Knoten aufteilen können. Daher werden wir diesen im Algorithmus zur Verringerung des Fehlerschätzers verwenden.
+Mittels Theorem \ref{theorem:4.22} bildet der hierarchische a posteriori Fehlerschätzer $-\mcal I_{\mcal Q}(\eps_{\mcal V})$ eine obere Schranke für den exakten Fehler $J(u_{\mcal S})-J(u)$ (und wegen Theorem \ref{theorem:4.25} auch eine untere), d.h. dass die Verringerung unseres Schätzers auch eine Verkleinerung des Fehlers mit sich führt. Aufgrund von Korollar \ref{kor:4.13} ist außerdem der Fehlerschätzer $-\mcal I_{\mcal Q}(\eps_{\mcal V})$ äquivalent zum Fehlerindikator $\rho_{\mcal S} (\eps_{\mcal V})$, den wir durch Lemma \ref{lem:4.14} in seine lokalen Anteile bzgl. der einzelnen Knoten aufteilen können. %Daher werden wir diesen im Algorithmus zur Verringerung des Fehlerschätzers verwenden.
 
-Zuletzt bleibt noch aus, dass auch die \idx{Oszillationsterme} in der oberen Schranke von Theorem \ref{theorem:4.22} enthalten sind. Diese sollten sich also in einem Verfeinerungsschritt nicht vergrößern. Diese Forderung können wir mittels Lemma \ref{lem:4.24} erfüllen.
+Zuletzt bleibt noch aus, dass auch die \idx{Oszillationsterme} in der oberen Schranke von Theorem \ref{theorem:4.22} enthalten sind. Diese sollten sich also in einem Verfeinerungsschritt nicht vergrößern. Diese Forderung können wir mittels Lemma \ref{lem:4.24} (durch möglicherweise weitere Verfeinerung) erfüllen.
 
-Insgesamt ergibt sich damit folgender adaptiver Algorithmus.
+%Insgesamt ergibt sich damit folgender adaptiver Algorithmus.
 
 
 \begin{algorithm}[H]
@@ -1423,9 +1422,9 @@ Gegeben sei eine Fehlerschranke $\eps>0$, Parameter $\theta_1,\theta_2 \in (0,1)
 \[
 	\sum_{p \in \hat{\mcal N}} \rho_p (\eps_{\mcal V}) \ge \theta_1\;\! \rho_{\mcal S}(\eps_{\mcal V}) \,.
 \]
-\State Erweitere $\hat{\mcal N}$ mit der Menge $\bar{\mcal N}$ zu einer kleinsten Menge an Punkten $\widetilde{\mcal N} \subset \hat{\mcal N}$, so dass gilt
+\State Erweitere, falls notwendig, $\hat{\mcal N}$ zu einer Menge an Punkten $\widetilde{\mcal N} \supset \hat{\mcal N}$, so dass gilt
 \[
-	\osc (u_{\mcal S},\psi,f,\bar{\mcal N}) \ge \theta_2 \osc (u_{\mcal S},\psi,f) \, .
+	\osc (u_{\mcal S},\psi,f,\widetilde{\mcal N}) \ge \theta_2 \osc (u_{\mcal S},\psi,f) \, .
 \]
 \State Bestimme aus $\widetilde{\mcal N}$ die angrenzenden Dreiecke $\widetilde{\mcal T_n} \subset \mcal T_n$. 
 \State Erhalte die neue Triangulierung $\mcal T_{n+1}$ durch die Verfeinerung des Gitters $\mcal T_n$ über die zu verfeinernden Dreiecke $\widetilde{\mcal T_n}$.

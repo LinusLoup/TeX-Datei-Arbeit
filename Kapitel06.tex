@@ -2,23 +2,58 @@
 \label{kap:6}
 
 
-\begin{itemize}
-\item numerisches Beispiel (Problemstellung) $\ra$ vielleicht mit Kontakt und nur Hindernis
-\item Vergleich mit Analytischer Lösung?! (Tabelle mit Ergebnissen) $\ra$ Ergebnisse diskutieren
-\end{itemize}
+In diesem Kapitel wollen wir numerische Beispiele für das Hindernis- bzw. Kontaktproblem diskutieren. Dabei werden Auswertungen, die aus dem Quellcode aus Anhang \ref{anhang:D} resultieren, benutzt.
+
+Mögliche numerische Beispiele wurden aus den Veröffentlichungen \cite{SiebVee}, \cite{BraeCar} und \cite{CarWri} entnommen.
+
 
 \section{Numerisches Beispiel zum Hindernisproblem}
 \label{kap:6.1}
 
-\begin{itemize}
-\item numerisches Beispiel aus \cite{SiebVee} oder auch \cite{BraeCar}
-\end{itemize}
+\begin{bsp}[glatte, rotationssymmetrische Lösung]\label{bsp:6.1}
+Wir betrachten das Hindernisproblem mit dem Hindernis $\psi \equiv 0$ und der Lastfunktion $f\equiv -2$ auf $\Omega = [-\frac 32,\frac 32]^2$. Die Dirichlet-Randbedingungen\index{Randbedingungen!Dirichlet} werden durch die Funktion
+\[
+	\tilde u(x,y) = \frac{x^2+y^2}2-\frac 12 \ln(x^2+y^2)-\frac 12
+\]
+gegeben. Für dieses Problem existiert eine exakte (glatte) Lösung, die in \idx{Polarkoordinaten} wie folgt lautet:
+\begin{align}\label{eq:6.1}
+	u(r,\varphi) = \begin{cases}
+					\frac{r^2}2-\ln (r)-\frac 12 & , r \ge 1 \\
+					0 & , \, \text{sonst}
+				\end{cases} \, .
+\end{align}
+Damit lässt sich der exakte Wert des Energiefunktionals $J(u)$ mit \eqref{eq:6.1} ermitteln. Hierfür nutzen wir die Rotationssymmetrie von $u$ aus, da $u$ unabhängig vom Drehwinkel $\varphi$ ist. Dadurch reicht es aus, die zu berechnenden Integrale nur im ersten Quadranten von $\Omega$ zu berechnen. Um jetzt $J(u)= \frac 12 a(u,u)-(f,u)$ zu bestimmen, müssen wir mit der Kettenregel den Zusammenhang zwischen $u_x,u_y$ und $u_r,u_\varphi$ ermitteln. Dieser ergibt sich zu
+\begin{align}\label{eq:6.2}
+	\begin{pmatrix} u_x \\ u_y \end{pmatrix} = \frac 1r \begin{pmatrix} r \cos \varphi & -\sin\varphi \\ r \sin\varphi & \cos\varphi \end{pmatrix} \begin{pmatrix} u_r \\ r_\varphi \end{pmatrix}.
+\end{align}
+
+Da $u_\varphi = 0$ und $u_r = r-\frac 1r$ gilt, erhalten wir für den exakten Wert des Energiefunktionals unter Verwendung von \eqref{eq:6.2}
+\begin{align*}
+	J(u) & = \frac 12 \int_\Omega \underbrace{\nabla u \nabla u}_{=u_x^2+u_y^2} \, dx dy - \int_\Omega f u \, dx dy \\
+	& = 4  \( \frac 12 \int_0^{\frac \pi4} \int_1^{\frac 3{2\cos\varphi}} (\cos^2\varphi + \sin^2\varphi) \(r-\frac 1r\)^2 r \, dr d\varphi  \right. \\
+	& \quad + \frac 12 \int_{\frac \pi4}^{\frac {3\pi}4} \int_1^{\frac 3{2\sin\varphi}} (\cos^2\varphi + \sin^2\varphi) \(r-\frac 1r\)^2 r \, dr d\varphi \\
+	&\quad  +  2 \int_0^{\frac \pi4} \int_1^{\frac 3{2\cos\varphi}} \(\frac{r^2}2 - \ln(r) - \frac 12\) r \, dr d\varphi  \\
+	&\quad  + \left. 2 \int_{\frac \pi4}^{\frac {3\pi}4} \int_1^{\frac 3{2\sin\varphi}} \(\frac{r^2}2 - \ln(r) - \frac 12\) r \, dr d\varphi \) \\
+	& \approx 3,980995748730258 \, .
+\end{align*}
+Die oberen Grenzen $\frac 3{2\cos\varphi}$ und $\frac 3{2\sin\varphi}$ kommen dabei durch Beschreibung der Randpunkte von $\Omega$ in Polarkoordinaten für $\varphi\in [0,\frac\pi4]$  zustande. Die Rotationssymmetrie kann auf das zweite Integral nur deshalb angewendet werden, weil $f$ eine konstante (und damit auch rotationssymmetrische) Funktion ist.
+
+Tets
+\end{bsp}
+
 
 
 \section{Numerisches Beispiel zum Kontaktproblem}
 \label{kap:6.2}
 
 
+
+\subsubsection{meine Stichpunkte}
+
+\begin{itemize}
+\item numerisches Beispiel (Problemstellung) $\ra$ vielleicht mit Kontakt und nur Hindernis
+\item Vergleich mit Analytischer Lösung?! (Tabelle mit Ergebnissen) $\ra$ Ergebnisse diskutieren
+\end{itemize}
 
 
 \newpage

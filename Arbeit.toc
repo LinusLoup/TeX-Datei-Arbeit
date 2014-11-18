@@ -37,34 +37,36 @@
 \contentsline {subsection}{\numberline {4.1.5}Effektivit\IeC {\"a}t des Fehlersch\IeC {\"a}tzers}{94}{subsection.4.1.5}
 \contentsline {section}{\numberline {4.2}Ein adaptiver Algorithmus}{96}{section.4.2}
 \contentsline {section}{\numberline {4.3}Erf\IeC {\"u}llung einer Saturationseigenschaft}{97}{section.4.3}
-\contentsline {section}{\numberline {4.4}\IeC {\"U}bertragung des Fehlersch\IeC {\"a}tzers auf Kontaktprobleme}{100}{section.4.4}
-\contentsline {chapter}{\numberline {5}Implementierung des Fehlersch\IeC {\"a}tzers in Matlab}{101}{chapter.5}
-\contentsline {section}{\numberline {5.1}Implementierung eines Hindernisproblems}{101}{section.5.1}
-\contentsline {subsubsection}{Grundlegender Aufbau des Programms}{101}{section*.30}
-\contentsline {subsubsection}{Lokale Steifigkeitsmatrix und Assemblierung}{102}{section*.31}
-\contentsline {subsubsection}{Quadratur auf einem Dreieck}{105}{section*.32}
-\contentsline {subsubsection}{L\IeC {\"o}sung der quadratischen Programme}{106}{section*.35}
-\contentsline {subsubsection}{Berechnung des Normalenflu\IeC {\ss }es}{107}{section*.36}
-\contentsline {subsubsection}{Berechnung der einzelnen Knotenmengen}{107}{section*.37}
-\contentsline {subsubsection}{Oszillationsterme}{108}{section*.38}
-\contentsline {subsubsection}{Berechnung des zu verfeinernden Dreiecksindizes}{108}{section*.39}
+\contentsline {section}{\numberline {4.4}\IeC {\"U}bertragung des Fehlersch\IeC {\"a}tzers auf Kontaktprobleme}{99}{section.4.4}
+\contentsline {chapter}{\numberline {5}Implementierung des Fehlersch\IeC {\"a}tzers in Matlab}{100}{chapter.5}
+\contentsline {section}{\numberline {5.1}Implementierung eines Hindernisproblems}{100}{section.5.1}
+\contentsline {subsubsection}{Grundlegender Aufbau des Programms}{100}{section*.30}
+\contentsline {subsubsection}{Lokale Steifigkeitsmatrix und Assemblierung}{101}{section*.31}
+\contentsline {subsubsection}{Quadratur auf einem Dreieck}{104}{section*.32}
+\contentsline {subsubsection}{L\IeC {\"o}sung der quadratischen Programme}{105}{section*.35}
+\contentsline {subsubsection}{Berechnung des Normalenflu\IeC {\ss }es}{106}{section*.36}
+\contentsline {subsubsection}{Berechnung der einzelnen Knotenmengen}{106}{section*.37}
+\contentsline {subsubsection}{Oszillationsterme}{107}{section*.38}
+\contentsline {subsubsection}{Bestimmung der lokalen Anteile des Fehlerindikators $\rho _{\mathcal S}(\varepsilon _{\mathcal V})$}{107}{section*.39}
+\contentsline {subsubsection}{Berechnung des zu verfeinernden Dreiecksindizes}{108}{section*.40}
 \contentsline {chapter}{\numberline {6}Validierung}{109}{chapter.6}
 \contentsline {section}{\numberline {6.1}Numerisches Beispiel zum Hindernisproblem}{109}{section.6.1}
-\contentsline {section}{\numberline {6.2}Numerisches Beispiel zum Kontaktproblem}{109}{section.6.2}
-\contentsline {chapter}{\numberline {7}Zusammenfassung und Ausblick}{110}{chapter.7}
-\contentsline {chapter}{Literaturverzeichnis}{111}{chapter.7}
-\contentsline {chapter}{\numberline {A}Funktionalanalysis}{114}{appendix.A}
-\contentsline {section}{\numberline {A.1}Sobolev-R\IeC {\"a}ume}{114}{section.A.1}
-\contentsline {section}{\numberline {A.2}Optimalit\IeC {\"a}tskriterien}{116}{section.A.2}
-\contentsline {section}{\numberline {A.3}Konvergenzbegriffe}{117}{section.A.3}
-\contentsline {chapter}{\numberline {B}Optimierung}{119}{appendix.B}
-\contentsline {section}{\numberline {B.1}Quadratische Programmierung}{119}{section.B.1}
-\contentsline {section}{\numberline {B.2}Active Set-Methode f\IeC {\"u}r konvexe QPs}{120}{section.B.2}
-\contentsline {section}{\numberline {B.3}Algorithmus}{124}{section.B.3}
-\contentsline {chapter}{\numberline {C}Tensorrechnung}{125}{appendix.C}
-\contentsline {section}{\numberline {C.1}Tensoralgebra}{125}{section.C.1}
-\contentsline {section}{\numberline {C.2}Tensoranalysis}{127}{section.C.2}
-\contentsline {chapter}{\numberline {D}Quellcode}{129}{appendix.D}
-\contentsline {section}{\numberline {D.1}Implementierung des Fehlersch\IeC {\"a}tzers f\IeC {\"u}r das Hindernisproblem}{129}{section.D.1}
-\contentsline {chapter}{Index}{149}{lstnumber.D.19.80}
-\contentsline {chapter}{Selbstst\IeC {\"a}ndigkeitserkl\IeC {\"a}rung}{152}{appendix*.41}
+\contentsline {section}{\numberline {6.2}Numerisches Beispiel zum Kontaktproblem}{110}{section.6.2}
+\contentsline {subsubsection}{meine Stichpunkte}{110}{section*.41}
+\contentsline {chapter}{\numberline {7}Zusammenfassung und Ausblick}{111}{chapter.7}
+\contentsline {chapter}{Literaturverzeichnis}{112}{chapter.7}
+\contentsline {chapter}{\numberline {A}Funktionalanalysis}{115}{appendix.A}
+\contentsline {section}{\numberline {A.1}Sobolev-R\IeC {\"a}ume}{115}{section.A.1}
+\contentsline {section}{\numberline {A.2}Optimalit\IeC {\"a}tskriterien}{117}{section.A.2}
+\contentsline {section}{\numberline {A.3}Konvergenzbegriffe}{118}{section.A.3}
+\contentsline {chapter}{\numberline {B}Optimierung}{120}{appendix.B}
+\contentsline {section}{\numberline {B.1}Quadratische Programmierung}{120}{section.B.1}
+\contentsline {section}{\numberline {B.2}Active Set-Methode f\IeC {\"u}r konvexe QPs}{121}{section.B.2}
+\contentsline {section}{\numberline {B.3}Algorithmus}{125}{section.B.3}
+\contentsline {chapter}{\numberline {C}Tensorrechnung}{126}{appendix.C}
+\contentsline {section}{\numberline {C.1}Tensoralgebra}{126}{section.C.1}
+\contentsline {section}{\numberline {C.2}Tensoranalysis}{128}{section.C.2}
+\contentsline {chapter}{\numberline {D}Quellcode}{130}{appendix.D}
+\contentsline {section}{\numberline {D.1}Implementierung des Fehlersch\IeC {\"a}tzers f\IeC {\"u}r das Hindernisproblem}{130}{section.D.1}
+\contentsline {chapter}{Index}{150}{lstnumber.D.19.84}
+\contentsline {chapter}{Selbstst\IeC {\"a}ndigkeitserkl\IeC {\"a}rung}{153}{appendix*.43}
