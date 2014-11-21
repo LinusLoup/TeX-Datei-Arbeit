@@ -389,11 +389,11 @@ Der Beweis ist in \cite{BraeFEM} Kapitel II, \S1 Sobolev-Räume, Satz 1.5 oder \
 
 
 \begin{bem}\label{bem:2.14}
-Für die Gültigkeit der Poincaré-Friedrich-Ungleichung, muss $v$ nicht auf ganz $\Gamma$ gleich Null sein, sondern es reicht aus, dass
+Für die Gültigkeit der Poincaré-Friedrich-Ungleichung muss $v$ nicht auf ganz $\Gamma$ gleich Null sein, sondern es reicht aus, dass
 \[
 	v \in H^1_{\Gamma_u} (\Omega)\coloneqq \{v \in H^1(\Omega) \mid v = 0 \text{ auf } \Gamma_u\}
 \]
-ist mit $\Gamma_u \subset \Gamma$, wobei mit einem Maß $\mu$ gilt: $\mu (\Gamma_u) \not = 0$, d.h. $\Gamma_u$ ist keine Nullmenge (vgl. \cite{BraeFEM} Kapitel II, \S1, Bemerkung 1.6).
+mit $\Gamma_u \subset \Gamma$ ist, wobei mit einem Maß $\mu$ gilt: $\mu (\Gamma_u) \not = 0$, d.h. $\Gamma_u$ ist keine Nullmenge (vgl. \cite{BraeFEM} Kapitel II, \S1, Bemerkung 1.6).
 \end{bem}
 
 
@@ -422,11 +422,11 @@ Weiter minimiert die Lösung $u \in H^1_0(\Omega)$ auch das Funktional
 \begin{align*}
 	J(v) = \frac 12 \int_\Omega \nabla v\nabla v \, dx - \int_\Omega fv \, dx \, ,
 \end{align*}
-welches die gespeicherte Energie der durch die Kraft $f$ belasteten in $\Omega$ eingespannten Membran beschreibt.
+welches die gespeicherte Energie der durch die Kraft $f$ belasteten, in $\Omega$ eingespannten Membran beschreibt.
 
 
 \begin{bem*}
-Die Stetigkeit vom Funktional $F$ zeigt, dass  die Kraft $f$ aus dem Dirichlet-Problem wenigstens quadratisch integrierbar, also in $L^2(\Omega)$, sein muss, damit es eine schwache Lösung geben kann.
+Die Stetigkeit der Linearform $F$ zeigt, dass  die Kraft $f$ aus dem Dirichlet-Problem wenigstens quadratisch integrierbar, also in $L^2(\Omega)$, sein muss, damit es eine schwache Lösung geben kann.
 \end{bem*}
 
 
@@ -449,7 +449,7 @@ Es sei $H$ ein Hilbertraum mit einem Skalarprodukt $(\cdot,\cdot)_H$. Es sei $F 
 \end{satz}
 
 \begin{proof}
-Dies ist eine direkte Folgerung aus dem Theorem \ref{theorem:2.12}. Die Abbildung $(\cdot,\cdot)_H:H\times H \ra \R$ ist als Skalarprodukt bilinear, symmetrisch und positiv definit, damit auch bzgl. der auf $H$ durch das Skalarprodukt induzierten Norm $\norm v_H := \sqrt{(v,v)_H}$, koerziv. $F$ ist als Element des Dualraumes $H'$ eine lineare stetige Abbildung $F:H\ra\R$ und damit folgt mit $a(\cdot,\cdot) :=(\cdot,\cdot)_H$ aus dem Theorem von Lax-Milgram die Behauptung.
+Dies ist eine direkte Folgerung aus dem Theorem \ref{theorem:2.12}. Die Abbildung $(\cdot,\cdot)_H:H\times H \ra \R$ ist als Skalarprodukt bilinear, symmetrisch und positiv definit, damit auch bzgl. der auf $H$ durch das Skalarprodukt induzierten Norm $\norm v_H := \sqrt{(v,v)_H}$, koerziv. $F$ ist als Element des Dualraumes $H'$ eine lineare, stetige Abbildung $F:H\ra\R$ und damit folgt mit $a(\cdot,\cdot) :=(\cdot,\cdot)_H$ aus dem Theorem von Lax-Milgram die Behauptung.
 \end{proof}
 
 
@@ -518,7 +518,7 @@ Damit folgt mit $u = v \in H$ oben eingesetzt
 \]
 Also besteht der zu $\im A$ orthogonale Raum nur aus dem Nullelement und mit Korollar \ref{kor:2.6} gilt dann $\im A = \overline{\im A} = H$. Damit ist $A$ bijektiv.
 
-Es seien nun $0 \not = l\in H$ sowie $A_1,A_2 \in \mcal L(H,H)$ zwei lineare Operatoren mit $A_1u = l$ und $A_2 u = l$, die nach der obigen Weise konstruiert sind. Dann gilt
+Es seien nun $0 \not = l\in H$ sowie $A_1,A_2 \in \mcal L(H,H)$ zwei lineare Operatoren mit $A_1u = l$ und $A_2 u = l$, die nach der obrigen Weise konstruiert sind. Dann gilt
 \[
 	0 = A_1 u - A_2 u = (A_1 - A_2)u \, \lra \, A_1 = A_2 \, , 
 \]
@@ -1362,7 +1362,7 @@ Auch für die konstitutiven Gleichungen (Materialannahmen etc.) machen wir uns z
 \end{align}
 wobei $\lambda, \mu$ die \textit{\idx{Lamé-Konstanten}} darstellen. Dabei handelt es sich um materialabhängige Parameter, die im Zusammenhang mit dem \idx{Elastizitätsmodul} $E$ und der Querkontraktionszahl $\nu$ stehen.
 \[
-	\lambda = \frac{\nu E}{(1+\nu)(1-2\nu)} \, ,\quad \nu = \frac E{2(1+\nu)} \, .
+	\lambda = \frac{\nu E}{(1+\nu)(1-2\nu)} \, ,\quad \mu = \frac E{2(1+\nu)} \, .
 \]
 Der Materialtensor $\mcal C$ ist 4-stufig und mit "`:"' ist das doppelt verjüngende Skalarprodukt (s. Definition \ref{def:C.8}) gemeint. Es sei bemerkt, dass $\nu$ gleich dem \idx{Schubmodul} $G$ ist.
 

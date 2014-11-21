@@ -25,6 +25,13 @@
   for an obstacle problem.
 \newblock {In: }\emph{Numerische Mathematik} 107 (2007), S. 455--471
 
+\bibitem[BCH09]{BraeCar2}
+\textsc{Braess}, D. ; \textsc{Carstensen}, C.  ; \textsc{Hoppe}, R.:
+\newblock Error reduction in adaptive finite element approximation of elliptic
+  obstacle problems.
+\newblock {In: }\emph{Journal of Computational Mathematics} 27 (2009), Nr. 2-3,
+  S. 148–169
+
 \bibitem[Bra05]{BraeLook}
 \textsc{Braess}, Dietrich:
 \newblock A Posteriori Error Estimators for Obstacle Problems – Another Look

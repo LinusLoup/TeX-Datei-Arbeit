@@ -4,10 +4,10 @@
 
 In diesem Kapitel wollen wir numerische Beispiele für das Hindernis- bzw. Kontaktproblem diskutieren. Dabei werden Auswertungen, die aus dem Quellcode aus Anhang \ref{anhang:D} resultieren, benutzt.
 
-Mögliche numerische Beispiele wurden aus den Veröffentlichungen \cite{SiebVee}, \cite{BraeCar} und \cite{CarWri} entnommen.
+Mögliche numerische Beispiele wurden aus den Veröffentlichungen \cite{SiebVee}, \cite{BraeCar}, \cite{BraeCar2} und \cite{CarWri} entnommen.
 
 
-\section{Numerisches Beispiel zum Hindernisproblem}
+\section{Numerische Beispiele zum Hindernisproblem}
 \label{kap:6.1}
 
 \begin{bsp}[glatte, rotationssymmetrische Lösung]\label{bsp:6.1}
@@ -38,9 +38,95 @@ Da $u_\varphi = 0$ und $u_r = r-\frac 1r$ gilt, erhalten wir für den exakten We
 \end{align*}
 Die oberen Grenzen $\frac 3{2\cos\varphi}$ und $\frac 3{2\sin\varphi}$ kommen dabei durch Beschreibung der Randpunkte von $\Omega$ in Polarkoordinaten für $\varphi\in [0,\frac\pi4]$  zustande. Die Rotationssymmetrie kann auf das zweite Integral nur deshalb angewendet werden, weil $f$ eine konstante (und damit auch rotationssymmetrische) Funktion ist.
 
-Tets
+\textbf{Hier kommen noch die Auswertungen der Daten rein!}
+
+
+\begin{figure}[h]
+\begin{center}
+\subfigure[Test1]{\includegraphics[width=10cm]{Abbildungen/exakte_loesung_hindernisproblem1_Kopie.ps}}
+\hfill
+\subfigure[Test2]{\includegraphics[width=10cm]{Abbildungen/exakte_loesung_hindernisproblem1.eps}}
+\end{center}
+\caption{Exakte Lösung des Hindernisproblems}
+\end{figure}
 \end{bsp}
 
+
+\begin{bsp}[Singularität und L-förmiges Gebiet]\label{bsp:6.2}
+Wir wollen nun ein Hindernisproblem mit Singularität im Nullpunkt betrachten, was zu einer starken Verfeinerung an diesem Punkt führen muss. Hierfür sei das Gebiet L-förmig, also von der Form
+\[
+	\Omega \coloneqq (-2,2)^2 \setminus ([0,2]\times [-2,0]) \, .
+\]
+Das Hindernis sei wieder durch $\psi \equiv 0$ gegeben und die Lastfunktion in Polarkoordinaten $(r,\varphi)$ durch
+\[
+	f(r,\varphi) \coloneqq -r^{\frac 23} \sin \(\frac{2\varphi}3\)\(\frac{\gamma_1'(r)}r + \gamma_1''(r)\) - \frac 43r^{\frac 13} \gamma_1'(r) \sin \(\frac{2\varphi}3\)-\gamma_2(r) \, ,
+\]
+wobei mit $\bar r = 2\(r-\frac 14\)$ gilt
+\begin{align*}
+	\gamma_1(r) &= \begin{cases}
+					1 & , \bar r < 0 \\
+					-6\bar r^5+15 \bar r ^4-10 \bar r ^3+1 & , 0 \le \bar r < 1 \\
+					0 & , \bar r \ge 1
+				\end{cases} \, , \\
+	\gamma_2(r) & = \begin{cases}
+						0 & , r < \frac 5 4 \\
+						1 & , \, \text{sonst}
+					\end{cases} \, .
+\end{align*}
+Für dieses Problem gibt es eine exakte Lösung, die Polarkoordinaten
+\[
+	u(r,\varphi) = r^{\frac 23} \gamma_1(r)\sin \(\frac{2\varphi}3\) 
+\]
+lautet. Die Funktion hat im Ursprung eine Singularität. Damit können wir auch für dieses Beispiel mit den Umformungen aus \eqref{eq:6.2} den exakten Wert des Energiefunktionals $J$ berechnen. Durch Anwendung der Polarkoordinaten und Transformationssatz der Integration erhalten wir
+\[
+	J(u) \approx 0,5 \, .
+\]
+
+\textbf{Hier kommen noch die Auswertungen der Daten rein!}
+
+\begin{figure}[h]
+\begin{center}
+\includegraphics[width=13cm]{Abbildungen/num_loesung_rec7_bsp2.eps}
+\end{center}
+\caption{Numerische Lösung des Beispiels \ref{bsp:6.2} in der Verfeinerungsstufe 7 mit $\theta_1=\theta_2 = 0,3$}
+\end{figure}
+
+\begin{figure}[h]
+\begin{center}
+\subfigure[Verfeinerungsstufe 6]{\includegraphics[width=6.26cm]{Abbildungen/mesh_rec6_bsp2.eps}}
+\hfill
+\subfigure[Verfeinerungsstufe 8]{\includegraphics[width=6.26cm]{Abbildungen/mesh_rec8_bsp2.eps}}
+\end{center}
+\caption{Netzverfeinerungen für das Beispiel \ref{bsp:6.2} mit $\theta_1=\theta_2=0,3$}
+\end{figure}
+\end{bsp}
+
+\begin{bsp}\label{bsp:6.3}
+Als letztes Beispiel für ein affines Hindernisproblem können wir das Beispiel \ref{bsp:6.2} noch erweitern, indem wir als affines Hindernis nicht die Nullfunktion, sondern eine umgedrehte Pyramide verwenden, die gegeben wird durch
+\[
+	\psi (x) \coloneqq 0,5 \,  (\dist (x,\partial [-2,2]^2)-2,01) \, , \quad x \in \bar \Omega \, .
+\]
+
+\textbf{Hier kommen noch die Auswertungen der Daten rein!}
+
+
+\begin{figure}[h]
+\begin{center}
+\includegraphics[width=13cm]{Abbildungen/num_loesung_rec8_bsp3_angle1_ohneBalken.ps}
+\end{center}
+\caption{Numerische Lösung des Beispiels \ref{bsp:6.3} mit $\theta_1=\theta_2 = 0,3$}
+\end{figure}
+
+
+\begin{figure}[h]
+\begin{center}
+\subfigure[Verfeinerungsstufe 6]{\includegraphics[width=6.26cm]{Abbildungen/mesh_rec6_bsp3.eps}}
+\hfill
+\subfigure[Verfeinerungsstufe 8]{\includegraphics[width=6.26cm]{Abbildungen/mesh_rec8_bsp3.eps}}
+\end{center}
+\caption{Netzverfeinerungen für das Beispiel \ref{bsp:6.3} mit $\theta_1=\theta_2=0,3$}
+\end{figure}
+\end{bsp}
 
 
 \section{Numerisches Beispiel zum Kontaktproblem}

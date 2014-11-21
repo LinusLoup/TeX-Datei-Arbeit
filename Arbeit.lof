@@ -19,6 +19,17 @@
 \addvspace {10\p@ }
 \contentsline {figure}{\numberline {5.1}{\ignorespaces Ungef\IeC {\"a}hre Lage der St\IeC {\"u}tzstellen in einem allgemeinen Dreieck f\IeC {\"u}r die Gau\IeC {\ss }-Quadratur\relax }}{105}{figure.caption.34}
 \addvspace {10\p@ }
+\contentsline {figure}{\numberline {6.1}{\ignorespaces Exakte L\IeC {\"o}sung des Hindernisproblems\relax }}{112}{figure.caption.41}
+\contentsline {subfigure}{\numberline {(a)}{\ignorespaces {Test1}}}{112}{figure.caption.41}
+\contentsline {subfigure}{\numberline {(b)}{\ignorespaces {Test2}}}{112}{figure.caption.41}
+\contentsline {figure}{\numberline {6.2}{\ignorespaces Numerische L\IeC {\"o}sung des Beispiels \ref {bsp:6.2} in der Verfeinerungsstufe 7 mit $\theta _1=\theta _2 = 0,3$\relax }}{113}{figure.caption.42}
+\contentsline {figure}{\numberline {6.3}{\ignorespaces Netzverfeinerungen f\IeC {\"u}r das Beispiel \ref {bsp:6.2} mit $\theta _1=\theta _2=0,3$\relax }}{113}{figure.caption.43}
+\contentsline {subfigure}{\numberline {(a)}{\ignorespaces {Verfeinerungsstufe 6}}}{113}{figure.caption.43}
+\contentsline {subfigure}{\numberline {(b)}{\ignorespaces {Verfeinerungsstufe 8}}}{113}{figure.caption.43}
+\contentsline {figure}{\numberline {6.4}{\ignorespaces Numerische L\IeC {\"o}sung des Beispiels \ref {bsp:6.3} mit $\theta _1=\theta _2 = 0,3$\relax }}{114}{figure.caption.44}
+\contentsline {figure}{\numberline {6.5}{\ignorespaces Netzverfeinerungen f\IeC {\"u}r das Beispiel \ref {bsp:6.3} mit $\theta _1=\theta _2=0,3$\relax }}{114}{figure.caption.45}
+\contentsline {subfigure}{\numberline {(a)}{\ignorespaces {Verfeinerungsstufe 6}}}{114}{figure.caption.45}
+\contentsline {subfigure}{\numberline {(b)}{\ignorespaces {Verfeinerungsstufe 8}}}{114}{figure.caption.45}
 \addvspace {10\p@ }
 \addvspace {10\p@ }
 \addvspace {10\p@ }
