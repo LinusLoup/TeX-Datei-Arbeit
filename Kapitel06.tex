@@ -38,8 +38,6 @@ Da $u_\varphi = 0$ und $u_r = r-\frac 1r$ gilt, erhalten wir für den exakten We
 \end{align*}
 Die oberen Grenzen $\frac 3{2\cos\varphi}$ und $\frac 3{2\sin\varphi}$ kommen dabei durch Beschreibung der Randpunkte von $\Omega$ in Polarkoordinaten für $\varphi\in [0,\frac\pi4]$  zustande. Die Rotationssymmetrie kann auf das zweite Integral nur deshalb angewendet werden, weil $f$ eine konstante (und damit auch rotationssymmetrische) Funktion ist.
 
-\textbf{Hier kommen noch die Auswertungen der Daten rein!}
-
 
 \begin{figure}[h]
 \begin{center}
@@ -58,6 +56,47 @@ Die oberen Grenzen $\frac 3{2\cos\varphi}$ und $\frac 3{2\sin\varphi}$ kommen da
 \subfigure[Verfeinerungsstufe 8]{\includegraphics[width=6.25cm]{Abbildungen/mesh_rec8_bsp1.eps}}
 \end{center}
 \caption{Gitterverfeinerung für das Hindernisproblem im Beispiel \ref{bsp:6.1} mit $\theta_1=0,4$ und $\theta_2=0,3$\label{abb:6.2}}
+\end{figure}
+
+In Abbildung \ref{abb:6.1} ist die exakte Lösung die Galerkin-Lösung auf der Verfeinerungsstufe 6 der implementierten, adaptiven Verfeinerungsstrategie im Vergleich dargestellt. In der Tabelle \ref{tab:6.1} sind die Ergebnisse für das Beispiel für $\theta_1 = 0,3$ und $\theta_2 = 0,2$, sowie für eine uniforme Verfeinerung dargestellt. Die maximale Anzahl der Knoten $\abs{\mcal N}$ ist jeweils mittels der Implementierung auf 150.000 begrenzt. Man kann gut erkennen, dass die Anzahl der Knoten im uniformen Fall wesentlich schneller ansteigt. Da in den ersten Verfeinerungsstufen sehr wenig Knoten vorhanden sind, gleichen sich zunächst die adaptive und uniforme Verfeinerung. Der starke Anstieg des Freiheitsgrades in den letzten beiden Schritten liegt daran, dass die lokalen Anteile vom Fehlerindikator $\rho_{\mcal S}$ sehr klein werden (wegen hoher Knotenanzahl) und könnte man durch eine variable Wahl der Parameter $\theta_1$ und $\theta_2$ verringern. 
+
+Weiter stellen wir in Abbildung \ref{abb:6.2} eine adaptive Gitterverfeinerung für das Beispiel \ref{bsp:6.1}, die mit {\ttfamily start_example_1.m} für $\theta_1 = 0,4$ und $\theta_2 = 0,3$ erzeugt werden können, in den Stufen 6 und 8 dar und können gut erkennen, dass im Bereich des vollen Kontaktes weniger stark verfeinert wird. Weiter kann man schön sehen, dass durch die Option {\ttfamily 'symmetric'} das Gitter auch symmetrisch angeordnet bleibt von Verfeinerungsschritt zu Verfeinerungsschritt.
+
+
+\begin{table}[h]
+\centering
+\begin{tabular}[c]{|c|c|c|c|c|c|c|c|}
+	\hline
+	 & \multicolumn{4}{c|}{Adaptive Verfeinerung} & \multicolumn{2}{c|}{Uniforme Verfeinerung} \\
+	\hline
+	Stufe & $\abs{\mcal N}$ & $\rho_{\mcal S}(\eps_{\mcal V})$ & $-\mcal I_{\mcal Q} (\eps_{\mcal V})$ & $-\mcal I(e)$ & $\abs{\mcal N}$ & $-\mcal I (e)$ \\
+	\hline
+	 1 &  9  & 6.3512 & 3.1756 & 4.6323 & 9  & 4.6323 \\
+	 2 & 25 & 1.8284 & 0.9142 & 1.0978 & 25 & 1.0978 \\
+	 3 & 81 & 0.8642 & 0.4349 & 0.2667 & 81 & 0.2667 \\
+	 4 & 197 & 0.5422 &0.2713 & 0.1113 & 289 & 0.0670 \\
+	 5 & 357 & 0.3896 & 0.1949 & 0.0564 & 1089 &0.0167  \\
+	 6 & 821 & 0.2564 & 0.1282 & 0.0231 &4225 &  0.0046 \\
+	 7 & 1133 & 0.1896 & 0.0948 & 0.0141 & 16641 & 0.0014 \\
+	 8 & 1957 & 0.0993 & 0.0497 & 0.0079 & 66049 & 0.0010 \\
+	 9 & 7569 & 0.0476 & 0.0238 & 0.0020 & & \\
+	 10 & 29761 & 0.0223 & 0.0112 & 0.0018 & & \\
+	 11 & 118017 & 0.0075 & 0.0037 & 0.0007 & & \\
+	\hline
+\end{tabular}
+\caption[Vergleich von adaptiver und uniformer Verfeinerung für Beispiel \ref{bsp:6.1}]{\label{tab:6.1}Vergleich von adaptiver und uniformer Verfeinerung für Beispiel \ref{bsp:6.1} mit Angabe des Freiheitsgrades, a posteriori Fehlerschätzer und exaktem Fehler}
+\end{table}
+
+
+Weiter stellen wir in Abbildung \ref{abb:6.3} auch noch die Oszillationen in einer Verfeinerungsstufe $k$ da. Dabei kann man erkennen, dass es in der Stufe $k=1$ noch einen isolierten Knoten geben muss, der jedoch durch Verfeinerung verschwindet, weil es keinen äquivalenten, isolierten Kontaktpunkt für die exakte Lösung gibt. Außerdem können wir sehen, dass durch die Bedingung aus Lemma \ref{lem:4.24} der Wert der Oszillationsterme von Verfeinerung zu Verfeinerung sinkt.
+
+
+
+\begin{figure}[h]
+\begin{center}
+\includegraphics[width=10.5cm]{Abbildungen/adaptive_solution_example1.ps}
+\end{center}
+\caption[Diagramm mit dem Fehler und der Oszillation für Beispiel \ref{bsp:6.1}]{Oszillationsterme, Fehlerindikator $\rho_{\mcal S}$, Fehlerschätzer $-\mcal I_{\mcal Q}$ und exakten Fehler für Beispiel \ref{bsp:6.1} mit $\theta_1=0,3$ und $\theta_2=0,2$\label{abb:6.3}}
 \end{figure}
 \end{bsp}
 

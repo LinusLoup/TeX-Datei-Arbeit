@@ -629,7 +629,7 @@ Zusammen mit dem oberen Resultat folgt dann die Behauptung \eqref{eq:C.4}.
 
 \section{Implementierung des Fehlerschätzers für das Hindernisproblem}
 
-Im Folgenden ist der Quellcode angegeben, der für die Implementierung für das in Kapitel \ref{kap:4} beschriebene affine Hindernisproblem geschrieben wurde. Als letztes ist auch die Startdatei für das in Kapitel \ref{kap:6.1} dargestellte numerische Beispiel angegeben.
+Im Folgenden ist der Quellcode angegeben, der für die Implementierung für das in Kapitel \ref{kap:4} beschriebene affine Hindernisproblem geschrieben wurde. Als letztes sind auch die Startdateien für die in Kapitel \ref{kap:6.1} dargestellten numerischen Beispiele angegeben.
 
 \lstinputlisting[caption={[Assemblierung von Matrix und Vektor]Assemblierung der Steifigkeitsmatrix $A$ und des Lastvektor $f$},label=lst:D.1]{/Users/cornelius/Documents/MATLAB/DiplomarbeitMatlab/EinfachesHindernisproblem/assemble.m}
 
@@ -639,43 +639,76 @@ Im Folgenden ist der Quellcode angegeben, der für die Implementierung für das 
 
 \newpage
 
-\lstinputlisting[caption={[Dreiecksindizes zur Verfeinerung]Berechnung der zu verfeinernden Dreiecksindizes}]{/Users/cornelius/Documents/MATLAB/DiplomarbeitMatlab/EinfachesHindernisproblem/find_triangle_refinement.m}
+\lstinputlisting[caption={[Dreiecksindizes zur Verfeinerung]Berechnung der zu verfeinernden Dreiecksindizes},label=lst:D.4]{/Users/cornelius/Documents/MATLAB/DiplomarbeitMatlab/EinfachesHindernisproblem/find_triangle_refinement.m}
 
-\lstinputlisting[caption={[Gradientenberechnung]Berechnung des Gradienten von der Galerkin-Approximation auf einem Dreieck},]{/Users/cornelius/Documents/MATLAB/DiplomarbeitMatlab/EinfachesHindernisproblem/gradu.m}
+\lstinputlisting[caption={[Gradientenberechnung]Berechnung des Gradienten von der Galerkin-Approximation auf einem Dreieck},label=lst:D.5]{/Users/cornelius/Documents/MATLAB/DiplomarbeitMatlab/EinfachesHindernisproblem/gradu.m}
 
-\lstinputlisting[caption={Bestimmung der inneren Knoten $\mcal N \cap \Omega$}]{/Users/cornelius/Documents/MATLAB/DiplomarbeitMatlab/EinfachesHindernisproblem/inner_points.m}
+\lstinputlisting[caption={Bestimmung der inneren Knoten $\mcal N \cap \Omega$},label=lst:D.6]{/Users/cornelius/Documents/MATLAB/DiplomarbeitMatlab/EinfachesHindernisproblem/inner_points.m}
 
-\lstinputlisting[caption={Bestimmung der inneren Kontaktknoten $\mcal N^0$}]{/Users/cornelius/Documents/MATLAB/DiplomarbeitMatlab/EinfachesHindernisproblem/N0.m}
+\lstinputlisting[caption={Bestimmung der inneren Kontaktknoten $\mcal N^0$},label=lst:D.7]{/Users/cornelius/Documents/MATLAB/DiplomarbeitMatlab/EinfachesHindernisproblem/N0.m}
 
-\lstinputlisting[caption={Bestimmung der inneren Nicht-Kontaktknoten $\mcal N^+$}]{/Users/cornelius/Documents/MATLAB/DiplomarbeitMatlab/EinfachesHindernisproblem/Nplus.m}
+\lstinputlisting[caption={Bestimmung der inneren Nicht-Kontaktknoten $\mcal N^+$},label=lst:D.8]{/Users/cornelius/Documents/MATLAB/DiplomarbeitMatlab/EinfachesHindernisproblem/Nplus.m}
 
 
-\lstinputlisting[caption={Bestimmung der Menge $\mcal N^{++}$}]{/Users/cornelius/Documents/MATLAB/DiplomarbeitMatlab/EinfachesHindernisproblem/Nplusplus.m}
+\lstinputlisting[caption={Bestimmung der Menge $\mcal N^{++}$},label=lst:D.9]{/Users/cornelius/Documents/MATLAB/DiplomarbeitMatlab/EinfachesHindernisproblem/Nplusplus.m}
 
-\lstinputlisting[caption={Berechnung der Menge an Knoten aus $\mcal N^{0+}$ und $\mcal N^{0-}$}]{/Users/cornelius/Documents/MATLAB/DiplomarbeitMatlab/EinfachesHindernisproblem/N0plusminus.m}
+\lstinputlisting[caption={Berechnung der Menge an Knoten aus $\mcal N^{0+}$ und $\mcal N^{0-}$},label=lst:D.10]{/Users/cornelius/Documents/MATLAB/DiplomarbeitMatlab/EinfachesHindernisproblem/N0plusminus.m}
 
-\lstinputlisting[caption={[Bestimmung der lokalen Steifigkeitsmatrix]Bestimmung der lokalen Steifigkeitsmatrix im linearen und quadratischen Fall}]{/Users/cornelius/Documents/MATLAB/DiplomarbeitMatlab/EinfachesHindernisproblem/local_mat.m}
+\lstinputlisting[caption={[Bestimmung der lokalen Steifigkeitsmatrix]Bestimmung der lokalen Steifigkeitsmatrix im linearen und quadratischen Fall},label=lst:D.11]{/Users/cornelius/Documents/MATLAB/DiplomarbeitMatlab/EinfachesHindernisproblem/local_mat.m}
 
-\lstinputlisting[caption={Berechnung der Indizes anliegender Dreiecke}]{/Users/cornelius/Documents/MATLAB/DiplomarbeitMatlab/EinfachesHindernisproblem/neighbourhood.m}
+\lstinputlisting[caption={Berechnung der Indizes anliegender Dreiecke},label=lst:D.12]{/Users/cornelius/Documents/MATLAB/DiplomarbeitMatlab/EinfachesHindernisproblem/neighbourhood.m}
 
-\lstinputlisting[caption={Bestimmung der Mittelpunkte und Zuordnung zu den Dreiecken}]{/Users/cornelius/Documents/MATLAB/DiplomarbeitMatlab/EinfachesHindernisproblem/midpoints_of_triangle.m}
+\lstinputlisting[caption={Bestimmung der Mittelpunkte und Zuordnung zu den Dreiecken},label=lst:D.13]{/Users/cornelius/Documents/MATLAB/DiplomarbeitMatlab/EinfachesHindernisproblem/midpoints_of_triangle.m}
 
-\lstinputlisting[caption={Berechnung der Normalflüsse $j_E$ für alle $E\in \mcal E_p$}]{/Users/cornelius/Documents/MATLAB/DiplomarbeitMatlab/EinfachesHindernisproblem/normal_flux.m}
+\lstinputlisting[caption={Berechnung der Normalflüsse $j_E$ für alle $E\in \mcal E_p$},label=lst:D.14]{/Users/cornelius/Documents/MATLAB/DiplomarbeitMatlab/EinfachesHindernisproblem/normal_flux.m}
 
-\lstinputlisting[caption={Bestimmung der Oszillation $\osc_1(u_{\mcal S},\psi)$}]{/Users/cornelius/Documents/MATLAB/DiplomarbeitMatlab/EinfachesHindernisproblem/osc1.m}
+\newpage
 
-\lstinputlisting[caption={Berechnung der Oszillationsterme $\osc_2(u_{\mcal S},\psi,f)$}]{/Users/cornelius/Documents/MATLAB/DiplomarbeitMatlab/EinfachesHindernisproblem/osc2.m}
+\lstinputlisting[caption={Bestimmung der Oszillation $\osc_1(u_{\mcal S},\psi)$},label=lst:D.15]{/Users/cornelius/Documents/MATLAB/DiplomarbeitMatlab/EinfachesHindernisproblem/osc1.m}
 
-\lstinputlisting[caption={Gewichte und Stützstellen für die Quadratur}]{/Users/cornelius/Documents/MATLAB/DiplomarbeitMatlab/EinfachesHindernisproblem/quad_tri.m}
+\newpage
 
-\lstinputlisting[caption={Adaptive Verfeinerung des Gitters und Lösung des Hindernisproblems}]{/Users/cornelius/Documents/MATLAB/DiplomarbeitMatlab/EinfachesHindernisproblem/adaptive_refinement_solution.m}
+\lstinputlisting[caption={Berechnung der Oszillationsterme $\osc_2(u_{\mcal S},\psi,f)$},label=lst:D.16]{/Users/cornelius/Documents/MATLAB/DiplomarbeitMatlab/EinfachesHindernisproblem/osc2.m}
 
-\lstinputlisting[caption={[Startdatei (Beispiel \ref{bsp:6.1})]Startdatei des  Beispiels \ref{bsp:6.1} für das Hindernisproblem}]{/Users/cornelius/Documents/MATLAB/DiplomarbeitMatlab/EinfachesHindernisproblem/start_example1.m}
+\lstinputlisting[caption={Gewichte und Stützstellen für die Quadratur},label=lst:D.17]{/Users/cornelius/Documents/MATLAB/DiplomarbeitMatlab/EinfachesHindernisproblem/quad_tri.m}
 
-\lstinputlisting[caption={[Startdatei (Beispiel \ref{bsp:6.2})]Startdatei des Beispiels \ref{bsp:6.2} für das Hindernisproblem}]{/Users/cornelius/Documents/MATLAB/DiplomarbeitMatlab/EinfachesHindernisproblem/start_example2.m}
+\lstinputlisting[caption={Adaptive Verfeinerung des Gitters und Lösung des Hindernisproblems},label=lst:D.18]{/Users/cornelius/Documents/MATLAB/DiplomarbeitMatlab/EinfachesHindernisproblem/adaptive_refinement_solution.m}
 
-\lstinputlisting[caption={[Startdatei (Beispiel \ref{bsp:6.3})]Startdatei des Beispiels \ref{bsp:6.3} für das Hindernisproblem}]{/Users/cornelius/Documents/MATLAB/DiplomarbeitMatlab/EinfachesHindernisproblem/start_example3.m}
+\lstinputlisting[caption={[Startdatei (Beispiel \ref{bsp:6.1})]Startdatei des  Beispiels \ref{bsp:6.1} für das Hindernisproblem},label=lst:D.19]{/Users/cornelius/Documents/MATLAB/DiplomarbeitMatlab/EinfachesHindernisproblem/start_example1.m}
 
+\lstinputlisting[caption={[Startdatei (Beispiel \ref{bsp:6.2})]Startdatei des Beispiels \ref{bsp:6.2} für das Hindernisproblem},label=lst:D.20]{/Users/cornelius/Documents/MATLAB/DiplomarbeitMatlab/EinfachesHindernisproblem/start_example2.m}
+
+\newpage
+
+\lstinputlisting[caption={[Startdatei (Beispiel \ref{bsp:6.3})]Startdatei des Beispiels \ref{bsp:6.3} für das Hindernisproblem},label=lst:D.21]{/Users/cornelius/Documents/MATLAB/DiplomarbeitMatlab/EinfachesHindernisproblem/start_example3.m}
+
+
+
+
+
+
+\section{Implementierung des Fehlerschätzers für das Kontaktproblem}
+
+Für den Quellcode des Kontaktproblems fügen wir nur die Dateien an, die verändert werden mussten für die Übertragung vom Hindernis- zum Kontaktproblem. Die detaillierte Beschreibung ist in Kapitel \ref{kap:5.2} zu finden.
+
+\lstinputlisting[caption={[Assemblierung von Matrix und Vektor für das Kontaktproblem]Assemblierung der Steifigkeitsmatrix und des Lastvektors für das Kontaktproblem},label=lst:D.22]{/Users/cornelius/Documents/MATLAB/DiplomarbeitMatlab/Kontaktproblem/assemble.m}
+
+\newpage
+
+\lstinputlisting[caption={[Berechnung der lokalen Anteile von $\rho_{\mscr S}$]Berechnung der lokalen Anteile von $\rho_{\mscr S}$ für das Kontaktproblem},label=lst:D.23]{/Users/cornelius/Documents/MATLAB/DiplomarbeitMatlab/Kontaktproblem/eval_rho_p.m}
+
+\newpage
+
+\lstinputlisting[caption={Berechnung der lokalen Steifigkeitsmatrix für das Kontaktproblem},label=lst:D.24]{/Users/cornelius/Documents/MATLAB/DiplomarbeitMatlab/Kontaktproblem/local_mat.m}
+
+\lstinputlisting[caption={Bestimmung des Normalenspannungsflusses über eine Kante $E$},label=lst:D.25]{/Users/cornelius/Documents/MATLAB/DiplomarbeitMatlab/Kontaktproblem/normal_flux.m}
+
+\lstinputlisting[caption={Gewichte und Stützstellen für die Quadratur über eine Kante},label=lst:D.26]{/Users/cornelius/Documents/MATLAB/DiplomarbeitMatlab/Kontaktproblem/quad_edge.m}
+
+\lstinputlisting[caption={Adaptive Verfeinerung des Gitters und Lösung des Kontaktproblems},label=lst:D.27]{/Users/cornelius/Documents/MATLAB/DiplomarbeitMatlab/Kontaktproblem/adaptive_refinement_solution.m}
+
+
+\lstinputlisting[caption={[Startdatei (Beispiel \ref{bsp:6.4})]Startdatei des Beispiels \ref{bsp:6.4} für das Kontaktproblem},label=lst:D.28]{/Users/cornelius/Documents/MATLAB/DiplomarbeitMatlab/Kontaktproblem/start_example4.m}
 
 %\newpage
 %\newchapter{noch mehr Quellcode}

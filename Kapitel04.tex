@@ -873,7 +873,7 @@ gilt und damit folgt insgesamt zusammen mit \eqref{eq:4.35} bis \eqref{eq:4.37}
 
 Für das zentrale Lemma in diesem Kapitel benötigen wir noch eine Abschätzung für die Koordinaten der lokalen Projektionen.
 
-\begin{lemma}\label{lem:4.21}
+\begin{lemma}\label{lem:4.20}
 Die Koeffizienten in \eqref{eq:4.33} erfüllen die Eigenschaft
 \begin{align}\label{eq:my4.39}
 	\max_{\mcal Q \in \{p\} \cup \mcal E_p} \abs{\alpha_{\mcal Q} (v)} \lesssim h^{-1}_p (\norm v_{0,\omega_p} + h_p \norm{\nabla v}_{0,\omega_p}) 
@@ -1212,11 +1212,11 @@ wobei wir als letztes die Ungleichung von Young mit einem $\eps > 0$ verwendet h
 \] 
 Wählen wir $\eps \le C$, so ergibt sich nach leichtem Umstellen der Ungleichung
 \begin{align*}
-	\!\!\!\!\!\!\!\!\!  c(\eps) \rho_{\mcal S}(e) & \le \frac \eps2 \(\sum_{E\in \mcal E^+} \abs{\rho_E}^2+\osc_2(u_{\mcal S},\psi,f)^2\) \\
+	  c(\eps) \rho_{\mcal S}(e) & \le \frac \eps2 \(\sum_{E\in \mcal E^+} \abs{\rho_E}^2+\osc_2(u_{\mcal S},\psi,f)^2\) \\
 	& \ \ \  + \frac 1{2\eps} \osc_1(u_{\mcal S},f)^2 + \sum_{E\in \mcal E^0} d_E \, \abs{\rho_E} \\
-\end{align*}
-\begin{align*}
-	\qquad \qquad \qquad & \le \(1+\frac 1{2\eps}\) \sum_{E\in \mcal E_p} \eta_E \, \abs{\rho_E} \\
+%\end{align*}
+%\begin{align*}
+	 & \le \(1+\frac 1{2\eps}\) \sum_{E\in \mcal E_p} \eta_E \, \abs{\rho_E} \\
 	& \ \ \ + \(\frac\eps 2 + \frac 1{2\eps}\) \(\osc_2(u_{\mcal S},\psi,f)^2+\osc_1(u_{\mcal S},f)^2\) \\
 	& \lesssim \sum_{E\in \mcal E_p} \eta_E \, \abs{\rho_E} + \osc(u_{\mcal S},\psi,f)^2 
 \end{align*}
@@ -1321,7 +1321,7 @@ Eine analoge Aussage ergibt sich auch für $\widetilde\osc_1(u_{\mcal S},\psi,\m
 
 
 
-\subsection{Effektivität des Fehlerschätzers}
+\subsection{Effizienz des Fehlerschätzers}
 \label{kap:4.1.5}
 
 Der Fehlerschätzer  $-\mcal I_{\mcal Q}(\eps_{\mcal V})$ ist für den exakten Fehler des Energiefunktionals auch effektiv, d.h. wir werden zeigen, dass der hierarchische Fehlerschätzer $-\mcal I_{\mcal Q}(\eps_{\mcal V})$ auch eine untere Schranke für $-\mcal I(e) = J(u_{\mcal S}) - J(u)$ ist.
@@ -1569,16 +1569,147 @@ sein muss. Setzen wir nun $c_1 \ge 1$, so gilt für $\alpha \in \(\frac{c_1-1}{c
 \section{Übertragung des Fehlerschätzers auf Kontaktprobleme}
 \label{kap:4.4}
 
-
-%---------------------------------------------------
-
-
-\begin{itemize}
-\item
-\end{itemize}
+Nun wollen wir das in Kapitel \ref{kap:4.1} vorgestellte Konzept auf das Kontaktprobem \eqref{eq:3.41} übertragen. Hierfür haben wir in Kapitel \ref{kap:3.2} schon gesehen, dass dieses äquivalent zur Variationsungleichung:
+\begin{align}\label{eq:4.82}
+	\bs u \in \mscr K : \quad a(\bs u, \bs v- \bs u) \ge F(\bs v-\bs u) \quad \forall \, \bs v \in \mscr K \, , 
+\end{align}
+wobei $\mscr K$ die konvexe, abgeschlossene Menge aus \eqref{eq:my3.44} ist, $a$ die stetige, koerzive Bilinearform \eqref{eq:3.44a} und $F$ die stetige Linearform \eqref{eq:3.44b}. 
 
 
+\subsubsection{Diskretisierung des lokalen Defektproblems}
 
+Die Diskretisierung des Defektproblems ist analog zu Kapitel \ref{kap:4.1.1} durchzuführen. Wir betrachten hierfür die diskretisierte Variationsungleichung \eqref{eq:3.55}:
+\begin{align}\label{eq:4.83}
+	\bs u_h \in \mscr K_h: \quad a(\bs u_h, \bs v_h - \bs u_h) \ge F(\bs v_h- \bs u_h) \quad \forall \, \bs v_h \in \mscr K_h \, .
+\end{align}
+mit $\mscr K_h \coloneqq \{  \bs v_h \in \mscr S_h \mid \bs v_h(\bar x_i) \cdot \bs n - g(\bar x_i) \le 0 \text{ mit } \bar x_i \in \mcal N \cap \Gamma_c\}$. Wie wir schon gesehen haben, existiert auch hierfür eine äquivalentes Minimierungsproblem eines Energiefunktionals:
+\begin{align}\label{eq:4.84}
+	\bs u_h \in \mscr K_h: \quad J(\bs u_h) \le J(\bs v_h) \quad \forall \, \bs v_h \in \mscr K_h \, ,
+\end{align}
+wobei $J(\bs v) = \frac 12 a(\bs v, \bs v) - F(\bs v)$ ist.
+
+\begin{notation}
+Wir wollen der Einfachheit halber auch wieder statt $\bs u_h$ die Notation $\bs u_{\mscr S}$ für $\bs u_h \in \mscr S_h$ verwenden. Analog sind zudem die übrigen Indizes zu verstehen (vgl.  obige Notation).
+\end{notation}
+
+Betrachten wir wieder die exakte Fehlerfunktion $\bs e = \bs u-\bs u_{\mscr S}$ und das Funktional 
+\[
+	\mscr I (\bs v) = \frac 12 a(\bs v,\bs v) - \rho_{\mscr S} (\bs v) \text{ mit } \rho_{\mscr S} (\bs v) = a(\bs u_{\mscr S},\bs v)-F(\bs v) \, , 
+\]
+so gelten für das Funktional $\mscr I$ wegen der Linearität von $F$ die Aussagen von Satz \ref{satz:4.4} und Korollar \ref{kor:4.5} bzgl. der Menge
+\[
+	\mscr A = \{\bs v \in (H^1_{\Gamma_u}(\Omega))^2 \mid v_n - (g-\bs u_{\mscr S}\cdot \bs n) \le 0\text{ auf } \Gamma_c\} = -\bs u_{\mscr S} + \mscr K \, .
+\]
+Betrachten wir nun die Hierarchie $\mscr Q_h \subset \mscr S_h$ mit
+\[
+	\mscr Q_h \coloneqq \{\bs v \in (C^0(\Omega))^2 \mid \bs v|_T \in (\mcal P_2)^2 \text{ für } T \in \mcal T_h, \bs v_{\Gamma_u} = \bs 0\} \, ,
+\]
+so erhalten wir analog zu \eqref{eq:4.4} und \eqref{eq:4.5} das diskrete Defektproblem:
+\begin{align}\label{eq:4.85}
+	\bs e_{\mscr Q} \in \mscr A_{\mscr Q} : \quad a(\bs e_{\mscr Q}, \bs v-\bs e_{\mscr Q}) \ge F(\bs v -\bs e_{\mscr Q}) \quad \forall \, \bs v \in \mscr A_{\mscr Q}
+\end{align}
+mit $\mscr A_{\mscr Q} = \{\bs v \in \mscr Q_h \mid v_n (p) - (g(p)-(u_{\mscr S})_n (p)) \le 0 \, \forall \, p \in \mcal N_{\mscr Q}\cap \Gamma_c\}$, wobei $\mcal N_{\mscr Q} = \mcal N_{\mcal Q}$ wieder die Menge der Mittelpunkte auf den Kanten $E \in \mcal E$ bezeichnet. Da $\mscr S_h$ bzw. $\mscr Q_h$ komponentenweise mit den Räumen $\mcal S_h$ und $\mcal Q_h$ übereinstimmt, können wir analog die Aussage von Satz \ref{eq:4.7} im Zweidimensionalen zeigen und somit den hierarchischen Split $\mscr Q_h = \mscr S_h \oplus \mscr V_h$ übertragen, wobei $\mscr V_h$ der Raum der zweidimensionalen, quadratischen \index{Bubble-Funktion} Bubble-Funktio-nen ist.
+
+Damit lässt sich jede Funktion $\bs v_{\mscr Q} \in \mscr Q_h$ schreiben als $\bs v_{\mscr Q} = \bs v_{\mscr S}+\bs v_{\mscr V}$ und somit auch die zu $\norm{\cdot}^2 = a(\cdot,\cdot)$ äquivalente Norm
+\begin{align*}
+	a_{\mscr Q} (\bs v, \bs w) = a(\bs v_{\mscr S},\bs w_{\mscr S})  &+ \sum_{E\in \mcal E}  \big((\bs u_{\mscr V}(x_E))_x(\bs v_{\mscr V}(x_E))_x a(\bs \psi_{E_x},\bs \psi_{E_x}) \\
+	& + (\bs u_{\mscr V}(x_E))_y(\bs v_{\mscr V}(x_E))_y a(\bs \psi_{E_y},\bs \psi_{E_y})\big) \quad \forall \, \bs v, \bs w \in \mscr Q_h
+\end{align*}
+analog zu $a_{\mcal Q}$ einführen, wobei $\bs \psi_{E_x}, \bs \psi_{E_y}$  die \index{Bubble-Funktion} Bubble-Funktionen für die Kante $E\in \mcal E$ bzgl. der x- und y-Verschiebungen,  bzw. $(\cdot)_x,(\cdot)_y$ die x- und y- Komponenten der dort betrachteten Vektoren sind. Damit können wir analog zu \eqref{eq:4.6} bis \eqref{eq:4.9} das diskrete lokale Defektproblem aufstellen:
+\begin{align}\label{eq:4.86}
+	\bs \eps_{\mscr V} \in \mscr A_{\mscr V}: \quad {\mscr I}_{\mscr Q} (\bs \eps_{\mscr V}) \le \mscr I_{\mscr Q} (\bs v) \quad \forall \, \bs v \in \mscr A_{\mscr V}
+\end{align}
+mit ${\mscr A}_{\mscr V} \coloneqq \{\bs v \in \mscr V_h \mid  v_n (x_E) - (g(x_E)-(u_{\mscr S})_n (x_E)) \le 0 \, \forall \, E \subset \Gamma_c \}$. Weiter erhalten wir die äquivalente Variationsungleichung zu \eqref{eq:4.86}:
+\begin{align}\label{eq:4.87}
+	\bs \eps_{\mscr V} \in \mscr A_{\mscr V}: \quad a_{\mscr Q} (\bs \eps_{\mscr V},\bs v - \bs\eps_{\mscr V}) \ge \rho_{\mscr S} (\bs v-\bs\eps_{\mscr V}) \quad \forall \, \bs v \in \mscr A_{\mscr V} \, , 
+\end{align}
+da auch hier $\mscr I_{\mscr Q}$ die notwendigen Bedingungen zum Anwenden von Satz \ref{satz:A.10} aufgrund der zugrunde liegenden Eigenschaften von $a$ und $F$ erfüllt. Die Variationsungleichung \eqref{eq:4.87} können wir dann wieder mit Methoden aus der Nichtlinearen Optimierung wie schon mehrmals angesprochen lösen.
+
+Es ist also sinnvoll auch für Kontaktprobleme\index{Kontaktproblem} sich den hierarchischen a posteriori Fehlerschätzer 
+\[
+	-\mscr I_{\mscr Q} (\bs \eps_{\mscr V}) = -\frac 12 a_{\mscr Q} (\bs\eps_{\mscr V},\bs\eps_{\mscr V}) + \rho_{\mscr S}(\bs\eps_{\mscr V})
+\]
+näher anzusehen.
+
+
+
+\subsubsection{Lokaler Anteil des Fehlerschätzers}
+
+Da wir schon gezeigt haben, das $a$ unter bestimmten Bedingungen eine koerzive, stetige Bilinearform und $F$ eine stetige Bilinearform ist, gelten die Aussagen aus dem Lemma \ref{lem:4.12} auch für $\mscr I$ bzw. $\rho_{\mscr S}$. Da sich die Eigenschaften von $a$ auch auf $a_{\mscr Q}$ übertragen gilt auch das Korollar \ref{kor:4.13} bezogen auf die Bilinearform $a_{\mscr Q}$ und Linearform $\rho_{\mscr S} (\cdot)= F(\cdot)-a_{\mscr Q}(\bs u_{\mscr S},\cdot)$. Daher ist $\rho_{\mscr S}$ auch für Kontaktprobleme äquivalent zum Fehlerschätzer $-\mscr I_{\mscr Q}$ und kann als Fehlerindikator verwendet werden.
+
+Bei der lokalen Aufteilung gibt es jetzt rechnerische Unterschiede zum skalaren Fall aus Kapitel \ref{kap:4.1.2}, die hier erörtert werden sollen; das grundlegende Vorgehen bleibt jedoch gleich. Da $\bs u_{\mscr S}$ in jeder Komponente linear ist über einem Dreieck $T \in \mcal T_h$, gilt die Identität \begin{align}\label{eq:4.88}
+	\div (\bs \sigma(\bs u_{\mscr S})) = \div (\mcal C: \bs \eps(\bs u_{\mscr S})) = \bs 0\, ,
+\end{align}
+wenn $\mcal C$ ein konstanter Tensor ist. Damit lässt sich der Fehlerindikator für ein beliebiges $\bs v \in (H^1(\Omega))^2$ schreiben als
+\begin{align}\notag
+	\rho_{\mscr S}(\bs v) & = F(\bs v) -a(\bs u_{\mscr S},\bs v) = F(\bs v) - \int_{\Omega} \bs\eps(\bs u_{\mscr S}) : \mcal C : \bs \eps(\bs v) \, d\Omega \\
+	\notag
+	& = F(\bs v) - \sum_{T \in \mcal T_h} \int_T \underbrace{\bs\eps(\bs u_{\mscr S}) : \mcal C}_{=\bs \sigma (\bs u_{\mscr S})} : \bs \eps(\bs v) \, d\Omega \\ 
+	\notag
+	&\!\!\!\! \stackrel{\scriptsize\bs\sigma = \bs \sigma^T}= F(\bs v) - \sum_{T \in \mcal T_h} \int_T \underbrace{\bs \sigma (\bs u_{\mscr S}) : \grad(\bs v)}_{\parbox{2.4cm}{\scriptsize$\stackrel{\eqref{eq:C.2}}=\div(\bs\sigma(\bs v \cdot \bs u_{\mscr S}))$ $\quad -\bs v \cdot \div(\bs \sigma(\bs u_{\mscr S}))$}} \, d\Omega \\
+	\label{eq:4.89}
+	& \!\!\!\! \stackrel[\scriptsize \eqref{eq:4.88}]{\scriptsize\eqref{eq:C.3a}}= F(\bs v) - \sum_{T \in \mcal T_h} \int_{\partial T} \bs v \cdot \bs \sigma(\bs u_{\mscr S}) \cdot \bs n \, d\Gamma  \, .
+\end{align}
+Jetzt lässt sich \eqref{eq:4.89} analog zu der Gleichung \eqref{eq:4.18} auch als Summe über die Kanten $E\in \mcal E$ beschreiben. Wenn wir $\bs n$ wieder als die Einheitsnormale bezeichnen, die von einem gegebenen Dreieck $T_1$ in das Dreieck $T_2$ zeigt, dann lässt sich der \textit{Nomalenspannungsfluss} über $E$ berechnen als
+\[
+	\bs j_E \coloneqq \bs\sigma(\bs u_{\mscr S}|_{T_2}) \cdot \bs n - \bs\sigma(\bs u_{\mscr S}|_{T_1})\cdot \bs n \, .
+\]
+Damit lässt sich \eqref{eq:4.89} umformen zu
+\begin{align}\label{eq:4.90}
+	\rho_{\mscr S} (\bs v) = \int_\Omega \bs b \cdot \bs v \, d\Omega + \int_{\Gamma_\sigma} \bs t \cdot \bs v \, d\Gamma + \sum_{E \in \mcal E} \int_E \bs v \cdot \bs j_E \, d\Gamma \, .
+\end{align} 
+Um nun den lokalen Anteil von $\rho_{\mscr S}$ bzgl. eines Punktes $p \in \mcal N$ zu erhalten, gewichten wir genau wie in \eqref{eq:4.19} die Funktion $\bs v$ mit der Hutfunktion $\phi_p$, d.h.
+\begin{align}\label{eq:4.91}
+	\rho_p (\bs v) \coloneqq \rho_{\mscr S}(\bs v \phi_p) \quad \text{mit } \bs v \in (H^1(\Omega))^2, p \in \mcal N \, .
+\end{align}
+Wegen der der Zerlegung der Eins durch $\phi_p$ können wir die Aussagen von Lemma \ref{lem:4.14} und Korollar \ref{kor:4.15} direkt übertragen, wir erhalten also
+\[
+	\rho_p (\bs v) = \int_{\omega_p} \bs b \cdot \bs v \, \phi_p \, d\Omega + \int_{\scriptsize\parbox{1cm}{$E \subset \Gamma_\sigma$ \\ $E \in \mcal E_p$}} \bs t \cdot \bs v\, \phi_p \, d\Gamma + \sum_{E \in \mcal E_p} \int_E \bs v \cdot \bs j_E\, \phi_p \, d\Gamma \, ,
+\]
+wobei $\omega_p$ und $\mcal E_p$ wie oben definiert sind.
+
+HIER FEHLT NOCH DIE IDEE DER LOKALEN ANTEILE
+
+Für die Übertragung der Oszillationsterme betrachten wir wieder zwei Teilmengen der Knotenmenge $\mcal N$.
+
+\begin{defi}\label{def:4.29}
+Wir definieren die Menge der \textit{\idx{Kontaktknoten}} $\mscr N^0$ und die Menge der \textit{\idx{Nichtkontaktknoten}} $\mscr N^+$ analog zu Definition \ref{def:4.16} durch
+\[
+	\mscr N^0 \coloneqq \{p \in \mcal N \mid (u_{\mscr S})_n (p) = g(p)\} \, , \quad \mscr N^+ \coloneqq \{p \in \mcal N \mid (u_{\mscr S})_n (p) < g(p) \} \, ,
+\]
+wobei $(u_{\mscr S})_n = \bs u_{\mscr S} \cdot \bs n$ ist. 
+\end{defi}
+
+Es sei hier angemerkt, dass nun nicht mehr die inneren Knoten betrachtet werden wie in Definition \ref{def:4.16}, sondern alle Knoten aus $\mcal N$, da diejenigen Knoten, die in Kontakt stehen können, in den von uns betrachteten Problemen immer auf dem Rand des Gebietes $\Omega$ liegen.
+
+
+\subsubsection{Oszillationsterme}
+
+Wir definieren die Oszillationen analog zu Kapitel \ref{kap:4.1.3} durch
+\[
+	\osc (\bs u_{\mscr S},g,\bs b, \bs t) \coloneqq \(\osc_1 (\bs u_{\mscr S},g)^2 + \osc_2 (\bs u_{\mscr S},g,\bs b)^2\)^{\frac 12} \, .
+\]
+Dabei ist $\osc_1$ wieder ein Maß für die Hindernisoszillation, d.h.
+\[
+	\osc_1(\bs u_{\mscr S},g) \coloneqq \(\sum_{p \in \mscr N^{0+}} \norm{\nabla(g-(u_{\mscr S})_n)}^2_{0,\omega_p} \)^{\frac 12}  ,
+\]
+wobei $\mscr N^{0+} \coloneqq \{p \in \mscr N^0 \mid (u_{\mscr S})_n - g < 0 \text{ in } \omega_p \setminus \{p\}\}$ wieder die isolierten Kontaktknoten enthält. Weiter definieren wir analog zu \eqref{eq:4.25} und \eqref{eq:4.26} die Mengen
+\begin{align*}
+	\mscr N^{++} & \coloneqq \{ p \in \mscr N^+ \mid (\eps_{\mscr V})_n (x_E) <g(x_E)-(u_{\mscr S}) \, \forall \, E \in \mcal E_p , E \subset \Gamma_c\} \, , \\
+	\mscr N^{0-} & \coloneqq \{p \in \mscr N^0 \mid ( u_{\mscr S})_n = g \, \forall \, E \subset \Gamma_c \subset \mcal E_p, \bs b \le \bs 0 \text{ auf } \omega_p, \bs j_E \le \bs 0 \, \forall \, E \in \mcal E_p \} \, .
+\end{align*}
+Dann lässt sich der zweite Oszillationsterm beschreiben durch
+\[
+	\osc_2(\bs u_{\mscr S},g,\bs b) \coloneqq \(\sum_{p\in \mscr N^{++}} h_p^2 \, \norm{\bs b-\bar{\bs b}_p}_{0,\omega_p}^2 + \sum_{p \in \mcal N \setminus(\mscr N^{++}\cup \mscr N^{0-})} h_p^2  \, \norm{\bs b}_{0,\omega_p}^2 \)^{\frac 12}  ,
+\]
+wobei $\norm{\bs f}_{0,\omega_p}^2 = \int_{\omega_p} \abs{\bs f}^2 \, d\Omega$ und $\bar{\bs b}_p$ analog zu $\bar f_p$ der Mittelwert von $\bs b$ über $\omega_p$ ist (komponentenweise integriert).
+
+
+\subsubsection{Zuverlässigkeit des Fehlerschätzers}
+
+Als letztes wollen wir uns noch mit der Übertragung der oberen Schranke auf den Fehlerschätzer $-\mscr I_{\mscr Q}(\bs \eps_{\mscr V})$ beschäftigen, in der die hierfür definierten Oszillationen wieder eine Rolle spielen werden.
+
+Zunächst lassen sich die Resultate für die lokalen Projektionen aus Lemma \ref{lem:4.19} und \ref{lem:4.20} vollständig übernehmen, da wir hier die komponentenweise Betrachtung der Basis aus dem Raum $\mcal Q_h$ verwenden können und somit für die Resultate der einzelnen Komponenten auf den neuen Raum $\mscr Q_h$ übertragen können.
 
 
 

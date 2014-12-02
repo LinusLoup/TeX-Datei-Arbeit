@@ -126,7 +126,7 @@ Es sei $\emptyset \not = M \subset H$   ein Untervektorraum. Dann ist $\bar M = 
 \end{kor}
 
 \begin{proof}
-Man kann zeigen, dass $\overline{\spn M} = (M^\perp)^\perp =: M^{\perp\perp}$ ist und dann unter Verwendung von Satz \ref{satz:2.6} die Behauptung folgern. Den kompletten Beweis können wir in \cite{Walker} Kapitel 7.1 Korollar 7.7 (iii) einsehen.
+Man kann zeigen, dass $\overline{\spn M} = (M^\perp)^\perp =: M^{\perp\perp}$ ist und dann folgt unter Verwendung von Satz \ref{satz:2.6} die Behauptung. Den kompletten Beweis können wir in \cite{Walker} Kapitel 7.1 Korollar 7.7 (iii) einsehen.
 \end{proof}
 
 
@@ -173,7 +173,7 @@ dabei ist $g: \partial \Omega \ra \R$ eine für die Randwerte von $u$ gegebene F
 
 
 \begin{notation} 
-In der Praxis übliche Dimensionen sind $d = 2,3$. Der Einfachheit halber sei im Folgenden $d = 2$ und $\Omega \subset \R^2$ ein durch ein Polygonzug berandetes Gebiet. Den Rand $\partial \Omega$ bezeichnen wir auch mit $\Gamma$.
+In der Praxis übliche Dimensionen sind $d = 2,3$. Der Einfachheit halber sei im Folgenden $d = 2$ und $\Omega \subset \R^2$ ein durch ein Polygonzug berandetes Gebiet, wobei wir den Rand $\partial \Omega$ auch mit $\Gamma$ bezeichnen.
 \end{notation}
 
 
@@ -265,7 +265,7 @@ ist konvex, wobei $a: H\times H \ra \R$ eine stetige bilineare koerzive und $F: 
 \end{lemma}
 
 \begin{proof}
-Es seien $u,v \in H$, dann gilt $u + t(v-u) = (1-t)u + tv \in H$ (dies gilt auch, wenn wir den Satz auf eine konvexe Teilmenge $M \subset H$ beschränken). Damit folgt mit $t \in [0,1]$
+Es seien $u,v \in H$, dann gilt $u + t(v-u) = (1-t)u + tv \in H$ (dies gilt auch, wenn wir den Satz auf eine konvexe Teilmenge $M \subset H$ beschränken). Damit folgt mit $t \in [0,1]$:
 \begin{align*}
 	J((1-t)u+tv)  = & \frac 1 2 a((1-t)u+tv,(1-t)u+tv) - F((1-t)u+tv) \\
 	= &(1-t) \, J(u) + t \, J(v) +  \frac 1 2 a((1-t)u+tv,(1-t)u+tv) \\
@@ -275,7 +275,7 @@ Es seien $u,v \in H$, dann gilt $u + t(v-u) = (1-t)u + tv \in H$ (dies gilt auch
 	= & (1-t) \, J(u) + t \, J(v) + \frac {t^2} 2 a(v-u,v-u)  \\
 	 &\underbrace{+ t \, a(u,v)  - \frac 12 t\, a(u,u) -\frac 1 2 t \, a(v,v) }_{=  -\frac 1 2 t\, a(v-u,v-u)}\\
 	= &  (1-t) \, J(u) + t \, J(v) - \frac {1} 2 \underbrace{t \, (1-t)}_{\ge 0} \,\underbrace{ a(v-u,v-u) }_{\ge \alpha  \norm{v-u}_H^2 \ge 0} \\
-	\le &   (1-t) \, J(u) + t \, J(v) \, % \qedhere
+	\le &   (1-t) \, J(u) + t \, J(v) \, .% \qedhere
 \end{align*}
 Daraus folgt die Behauptung.
 \end{proof}
@@ -499,7 +499,7 @@ Weiter betrachten wir das Bild von $A$, d.h.
 \[
 	\im A := \{ v \in H \mid \exists \, u \in H : Au = v \} \subset H\, .
 \]
-Sei $(v_n)_{n \in \N}$ eine Folge mit $v_k \in \im A $ für alle $k \in \N$. Dann folgt, dass für jedes $v_k$ ein $u_k \in H$ existiert mit $A u_k = v_k$. Es gelte, dass $Au_k = v_k \ra v \in H$ geht, dann folgt
+Sei $(v_n)_{n \in \N}$ eine Folge mit $v_k \in \im (A) $ für alle $k \in \N$. Dann folgt, dass für jedes $v_k$ ein $u_k \in H$ existiert mit $A u_k = v_k$. Es gelte, dass $Au_k = v_k \ra v \in H$ geht, dann folgt
 \begin{align*}
 	\alpha \, \norm{u_n -u_m}_H & \le \norm{A(u_n-u_m)}_H = \norm{Au_n-Au_m}_H \\
 	& = \norm{v_n-v_m}_H \xrightarrow[n,m\ra \infty]{} 0 \, ,
@@ -508,7 +508,7 @@ d.h. $(u_n)_{n\in \N} \subset H$ ist eine Cauchy-Folge und konvergiert daher in 
 \[
 	v_n = A u_n \xrightarrow[n\ra \infty]{} Au = v\, ,
 \]
-d.h. $v \in \im A$ und damit ist $\im A$ abgeschlossen. Wir betrachten nun ein $v \in H$ mit $v \perp \im A \subset H$, dann gilt
+d.h. $v \in \im (A)$ und damit ist $\im (A)$ abgeschlossen. Wir betrachten nun ein $v \in H$ mit $v \perp \im A \subset H$, dann gilt
 \[
 	(Au,v)_H = 0 \quad \forall \, u \in H \, .
 \]
@@ -516,7 +516,7 @@ Damit folgt mit $u = v \in H$ oben eingesetzt
 \[
 	 0 = (Av,v)_H = a(v,v) \ge \alpha \, \norm v_H^2 \, \lra \, v = 0 \, .
 \]
-Also besteht der zu $\im A$ orthogonale Raum nur aus dem Nullelement und mit Korollar \ref{kor:2.6} gilt dann $\im A = \overline{\im A} = H$. Damit ist $A$ bijektiv.
+Also besteht der zu $\im (A)$ orthogonale Raum nur aus dem Nullelement und mit Korollar \ref{kor:2.6} gilt dann $\im A = \overline{\im A} = H$. Damit ist $A$ bijektiv.
 
 Es seien nun $0 \not = l\in H$ sowie $A_1,A_2 \in \mcal L(H,H)$ zwei lineare Operatoren mit $A_1u = l$ und $A_2 u = l$, die nach der obrigen Weise konstruiert sind. Dann gilt
 \[
@@ -559,11 +559,11 @@ Da $V_h$ ein endlich dimensionaler Unterraum von $H$ ist, wird jener von einer e
 \begin{align}\label{eq:2.10}
 	\exists! \, \bs\mu \in \R^N :  u_h(x) = \sum_{i = 1}^N \mu_i \,  \phi_i(x) \, .
 \end{align}
-Da $F(\cdot),a(u,\cdot)$ linear sind und alle $v_h \in V_h$ analog zu oben darstellbar sind, ist \eqref{eq:2.9} äquivalent zum Problem
+Da $F(\cdot),a(u,\cdot)$ linear sind und alle $v_h \in V_h$ wie in \eqref{eq:2.10} darstellbar sind, ist \eqref{eq:2.9} äquivalent zum Problem
 \[
 	a(u_h,\phi_i) = F(\phi_i) \quad \forall \, i = 1, \ldots,N \, ,
 \]
-mit $u_h$, wie in \eqref{eq:2.10} dargestellt, eingesetzt ergibt sich
+mit $u_h$ wie in \eqref{eq:2.10} beschrieben. Ersetzen wir $u_h$ in der Bilinearform durch \eqref{eq:2.10}, so ergibt sich
 \[
 	a(u_h,\phi_i) = a \Big( \sum_{j = 1}^N \mu_j \,  \phi_j,\phi_i \Big) = \sum_{j = 1}^N \mu_j \, a(\phi_j,\phi_i) \, ,
 \]
@@ -580,7 +580,7 @@ mit $A = [a(\phi_j,\phi_i)]_{i,j=1}^N, \bs \mu = [\mu_i]_{i=1}^N$ und $\bs f = [
 In den Ingenieurswissenschaften, insbesondere bei kontinuumsmechanischen Problemen, wird $A$ als \textit{\idx{Steifigkeitsmatrix}} bezeichnet.
 
 \begin{bem}\label{bem:2.18}
-Ist die Bilinearform $a$ symmetrisch, so ist es auch die Matrix $A$, denn
+Ist die Bilinearform $a$ symxmetrisch, so ist es auch die Matrix $A$, denn
 \[
 	a_{ij} = a(\phi_i,\phi_j) = a(\phi_j,\phi_i)= a_{ji} \, .
 \]
@@ -678,7 +678,7 @@ enthält, wobei $h := \max_{T \in \mcal T_h} h_T$ ist.
 \end{figure}
 
 
-In der Abbildung \ref{abb:2.2} ist eine quasi-uniforme zulässige Zerlegung und eine unzulässige Zerlegung zu sehen; zweitere ist daher unzulässig, da es Kanten gibt, die weder am Rand liegen, noch mit einer Kante eines anderen Dreiecks übereinstimmt. Die Knoten, die zu diesem Phänomen führen, nennen wir \textit{hängende Knoten}\index{hängender Knoten}. Dies sind Knoten, die nicht Eckpunkt jedes angrenzenden Dreiecks sind.
+In der Abbildung \ref{abb:2.2} ist eine quasi-uniforme zulässige Zerlegung und eine unzulässige Zerlegung zu sehen; zweitere ist daher unzulässig, da es Kanten gibt, die weder am Rand liegen, noch mit einer Kante eines anderen Dreiecks übereinstimmen. Die Knoten, die zu diesem Phänomen führen, nennen wir \textit{hängende Knoten}\index{hängender Knoten}. Dies sind Knoten, die nicht Eckpunkt jedes angrenzenden Dreiecks sind.
 
 
 \begin{bem}\label{bem:2.22}
@@ -692,7 +692,7 @@ Nun wollen wir uns Gedanken über unseren Ansatzraum $V_h$ machen. Hierfür gibt
 
 
 \begin{satz}\label{satz:2.23}
-Sei $k \ge 1$ und $\Omega\subset \R^2$ ein polygonales Gebiet. Eine stückweise beliebig oft differenzierbare Funktion $v : \bar \Omega \ra \R$ liegt in $H^k(\Omega)$ genau dann, wenn $v \in C^{k-1}(\bar\Omega)$ ist.
+Es sei $k \ge 1$ und $\Omega\subset \R^2$ ein polygonales Gebiet. Eine stückweise beliebig oft differenzierbare Funktion $v : \bar \Omega \ra \R$ liegt in $H^k(\Omega)$ genau dann, wenn $v \in C^{k-1}(\bar\Omega)$ ist.
 \end{satz}
 
 \begin{proof}
@@ -707,7 +707,7 @@ Der Satz \ref{satz:2.23} rechtfertigt, dass wir für das Modellproblem \eqref{eq
 wobei $\mcal P_m$ der Raum der Polynome vom Grad $m$ ist. Es stellt sich nun die Frage, wie wir geschickt eine Basis wählen können, um $V_h$ aufzuspannen. Die einfachste Möglichkeit stellen \textit{\idx{nodale Basisfunktion}en} dar.
 
 \begin{defi}[\idx{nodale Basisfunktion}]\label{def:2.24}
-Zu einem Finiten Element Raum $V_h$ und einer gegebenen Zerlegung $\mcal T_h$ sei eine Menge von Punkten $P$ bekannt mit $\abs P = N$. Die Menge $\mcal B_h = \{\phi_1,\ldots,\phi_N\}$ mit $\phi_i \in \mcal P_m, i = 1,\ldots, N$, heißt \textit{\idx{nodale Basis}} (oder \textit{\idx{Lagrange-Basis}}), wenn
+Zu einem Finiten-Element-Raum $V_h$ und einer gegebenen Zerlegung $\mcal T_h$ sei eine Menge von Punkten $P$ bekannt mit $\abs P = N$. Die Menge $\mcal B_h = \{\phi_1,\ldots,\phi_N\}$ mit $\phi_i \in \mcal P_m, i = 1,\ldots, N$, heißt \textit{\idx{nodale Basis}} (oder \textit{\idx{Lagrange-Basis}}), wenn
 \[
 	\phi_i (x_j) = \delta_{ij} = \begin{cases}
 							1, &  i = j \\
@@ -760,14 +760,14 @@ Der Beweis steht in \cite{BraeFEM} Kapitel II, \S 5, Bemerkung 5.4.
 \end{figure}
 
 
-Damit lässt sich für $V_h$ mit einem beliebigen Polynomgrad $m$ eine eindeutige \idx{nodale Basis} finden, die den Raum aufspannt. Im weiteren wollen wir lineare Ansatzfunktionen verwenden. Wir bezeichnen, sofern nicht anders beschrieben, also im Folgenden $\mcal S_h$ mit
+Damit lässt sich für $V_h$ mit einem beliebigen Polynomgrad $m$ eine eindeutige \idx{nodale Basis} finden, die den Raum aufspannt. Im Weiteren wollen wir lineare Ansatzfunktionen verwenden. Wir bezeichnen, sofern nicht anders beschrieben, also im Folgenden $\mcal S_h$ mit
 \[
 	\mcal S_h \coloneqq \{v \in C^0(\Omega) \mid v|_T \in \mcal P_1 \text{ für } T\in \mcal T_h, v|_{\partial \Omega} = 0\} \, ,
 \]
 also sind in diesem Raum die Eckpunkte der Dreiecke vorgegeben bzw. später im LGS gesucht. Das \idx{Galerkin-Verfahren} mit dem Ansatzraum $\mcal S_h$ wird auch \idx{Finite-Elemente-Methode} (kurz: FEM) genannt. 
 
+Folgendes Beispiel soll zur Erläuterung der Berechnung von den Matrixeinträgen der Steifigkeitsmatrix $A$ dienen.
 
-Wir wollen folgendes Beispiel zur Berechnung von den Matrixeinträgen der Matrix $A$ betrachten.
 
 \begin{bsp}\label{bsp:2.26}
 Wir betrachten das Variationsproblem \eqref{eq:2.9} auf $\Omega = [-1,1]^2$ mit $\mcal S_h$ wie oben eingeführt als den Raum der linearen Ansatzfunktionen auf einer Zerlegung $\mcal T_h$ aus 8 \textit{\idx{Courant-Element}en}, wie in Abbildung \ref{abb:2.4} zu sehen ist, wobei wir auf die rechte Seite $F(v_h)$ zunächst noch nicht genauer eingehen möchten.
@@ -867,7 +867,7 @@ wobei verwendet wurde, dass die Dreiecke kongruent zueinander sind und $\mscr A(
 	a(\phi_5,\phi_2) = a(\phi_5,\phi_4) = a(\phi_5,\phi_6) = a(\phi_5,\phi_8) &= -1 \, , \\
 	a(\phi_5,\phi_1) = a(\phi_5,\phi_3) = a(\phi_5,\phi_7) = a(\phi_5,\phi_9)& = 0
 \end{align*}
-berechnen. Damit ist der Einteil der Basisfunktion $\phi_5$ an der Steifigkeitsmatrix $A$ von der Form
+berechnen. Damit ist der Anteil der Basisfunktion $\phi_5$ an der Steifigkeitsmatrix $A$ von der Form
 \[
 	\widetilde A = \begin{pmatrix}
 		0 & -1 & 0 \\
@@ -877,7 +877,7 @@ berechnen. Damit ist der Einteil der Basisfunktion $\phi_5$ an der Steifigkeitsm
 \]
 Hierbei müssen die Einträge aus $\widetilde A$ in die Matrix $A \in \R^{9 \times 9}$ an die richtige Stelle zugeordnet werden, wie durch die Formel $a_{ij} = a(\phi_i,\phi_j)$ beschrieben wird. Daher nennen wir $\widetilde A$ \textit{\idx{lokale Steifigkeitsmatrix}} bzgl. des Knoten 5.
 
-Dieses Vorgehen müssten wir noch für die übrigen Basisfunktion analog durchführen, um die vollständige Steifigkeitsmatrix $A$ zu erhalten. Dies soll hier aber nicht weiter ausgeführt werden.
+Dieses Vorgehen müssten wir noch für die übrigen Basisfunktionen analog durchführen, um die vollständige Steifigkeitsmatrix $A$ zu erhalten. Dies soll hier aber nicht weiter ausgeführt werden.
 \end{bsp}
 
 Wie man sieht, ist das Vorgehen aus Beispiel \ref{bsp:2.26} sehr aufwendig. Außerdem ist es schwer jenes auf diese Weise zu verallgemeinern, damit man es gut implementieren kann, da die Ansatzfunktionen auf das Gitter bezogen von individueller Form sind.
@@ -1005,7 +1005,7 @@ und damit folgt nach Division $\norm{u-u_h}_E \le \norm{u-v}_E$, was zu zeigen w
 
 
 \begin{bem*}
-Die Gleichung \eqref{eq:2.15} drückt aus, dass die Verbindung $u-u_h$ orthogonal zum Raum $V_h$ steht und wird daher auch \textit{\idx{Galerkin-Orthogonalität}} genannt. Diese wird bei Hindernisproblemen im Allgemeinen nicht mehr erfüllt, da diese, wie wir später sehen werden, nicht mehr auf Variationsgleichungen führen.
+Die Gleichung \eqref{eq:2.15} drückt aus, dass die Verbindung $u-u_h$ orthogonal zum Raum $V_h$ steht und wird daher auch \textit{\idx{Galerkin-Orthogonalität}} genannt. Diese wird bei Hindernisproblemen im Allgemeinen nicht mehr erfüllt, daher führen Hindernisprobleme nicht mehr auf Variationsgleichungen, wie wir später sehen werden.
 \end{bem*}
 
 
@@ -1028,7 +1028,7 @@ Damit folgt die Behauptung mit $\tilde c :=  \sqrt{\frac c\alpha}$.
 Nun kommen wir zum zentralen Satz dieses Unterkapitels, mit dem man direkt die gewünschte Aussage folgern kann. Vergleiche hierzu auch \cite{BraeFEM} Kapitel II, \S6, Satz 6.4.
 
 \begin{theorem}[\idx{Approximationssatz für Interpolationen}]\label{theorem:2.28}
-Es sei $k \ge 2$ und $\mcal T_h$ eine quasi-uniforme Triangulierung\index{Triangulierung!quasi-uniform} von $\Omega$. Dann gilt für die Interpolation $I_h$ auf die stetigen, stückweise durch Polynome vom Grad $k-1$ gegebenen Funktionen mit einer von $\Omega, \kappa$ und $k$ abhängigen Kontanten $c$ die a priori Fehlerabschätzung
+Es sei $k \ge 2$ und $\mcal T_h$ eine quasi-uniforme Triangulierung\index{Triangulierung!quasi-uniform} von $\Omega$. Dann gilt für die Interpolation $I_h$ auf die stetigen, stückweise durch Polynome vom Grad $k-1$ gegebenen Funktionen mit einer von $\Omega, \kappa$ und $k$ abhängigen Konstanten $c$ die a priori Fehlerabschätzung
 \[
 	\norm{u-I_hu}_m \le c h^{k-m} \abs{u}_k
 \]
@@ -1130,13 +1130,13 @@ Daher verwenden wir als adaptive Strategie: Verfeinere alle Dreiecke $T\in \mcal
 \]
 wobei $\sigma \in (0,1)$ ist. Wählen wir $\sigma$ sehr klein, so werden viele Dreiecke verfeinert, da auch kleinere lokale Fehleranteile die Ungleichung erfüllen. Umgekehrt gilt für ein großes $\sigma$, dass man viele Adaptionsschritte benötigt, um einen hinreichend kleinen Fehler zu erhalten, da nur wenige Dreiecke pro Verfeinerungsschritt ausgewählt werden.
 
-Die Idee der Hierarchie bzgl. der Räume wollen wir in Kapitel \ref{Kap:4} auch auf Variationsprobleme unter Nebenbedingung anwenden, um einen a posteriori Schätzer herzuleiten.
+Die Idee der Hierarchie bzgl. der Räume wollen wir in Kapitel \ref{kap:4}  auf Variationsprobleme unter Nebenbedingung anwenden, um einen a posteriori Schätzer herzuleiten.
 
 
 \subsection{Verfeinerung des Netzes}
 \label{kap:2.4.2}
 
-Auf der Grundlage des a posteriori Schätzers müssen die ausgewählten Dreiecke verfeinert werden. Dabei ist es essentiell, dass eine konforme Triangulierung\index{Triangulierung!konform} auch konform bleibt, was durch Verwendung von verschiedenen Verfeinerungsmethoden möglich ist (s. Abbildung \ref{abb:2.6}).
+Auf der Grundlage des a posteriori Schätzers müssen die ausgewählten Dreiecke verfeinert werden. Dabei ist es essentiell, dass eine konforme Triangulierung\index{Triangulierung!konform} auch konform bleibt, was durch Verwendung  verschiedenener Verfeinerungsmethoden möglich ist (s. Abbildung \ref{abb:2.6}).
 
 
 
@@ -1170,9 +1170,9 @@ Auf der Grundlage des a posteriori Schätzers müssen die ausgewählten Dreiecke
 \end{center}
 \end{figure}
 
-Bei der regulären Verfeinerung werden die drei Mittelpunkte der Kanten eines  Dreiecks miteinander verbunden. Der Vorteil dabei ist, dass die Winkel der entstandenen Dreiecke identisch zu den vorherigen Winkeln sind. Damit bleibt das Verhältnis zwischen dem Radius des Um- zum Innenkreises $\frac{h_T}{\rho_T}$, was den Parameter für die Quasi-Uniformität angibt, gleich bleibt.
+Bei der regulären Verfeinerung werden die drei Mittelpunkte der Kanten eines  Dreiecks miteinander verbunden. Der Vorteil dabei ist, dass die Winkel der entstandenen Dreiecke identisch zu den vorherigen Winkeln sind. Damit bleibt das Verhältnis zwischen dem Radius des Um- zum Innenkreises $\frac{h_T}{\rho_T}$, was den Parameter für die Quasi-Uniformität angibt, gleich.
 
-Beim regulären Verfeinern können allerdings in anliegenden Dreiecken, die bzgl. des a posteriori Fehlerschätzers nicht verfeinert werden müssen, hängende Knoten (vgl. Abbildung \ref{abb:2.2}) entstehen, wodurch eine nichtzulässige Triangulierung entstehen würde. Um die hängenden Knoten zu eliminieren, kann Verfeinerungsmethode (ii) und (iii) verwendet werden.
+Beim regulären Verfeinern können allerdings in anliegenden Dreiecken, die bzgl. des a posteriori Fehlerschätzers nicht verfeinert werden müssen, hängende Knoten (vgl. Abbildung \ref{abb:2.2}) entstehen, wodurch eine nichtzulässige Triangulierung entstehen würde. Um die hängenden Knoten zu eliminieren, kann die Verfeinerungsmethode (ii) und (iii) verwendet werden.
 
 Bei der grünen Verfeinerung\index{Verfeinerung!grün} wird der Mittelpunkt genau einer Kante mit dem gegenüberliegendem Eckpunkt verbunden.
 
@@ -1259,7 +1259,7 @@ Wir können der Einfachheit halber zu einem Startzeitpunkt $t = t_0$ die materie
 Damit ist die Bewegung (oder auch Deformation) eines Kontinuums als zeitlich stetige Folge von Konfigurationen $\bs x = \bs x(\bs X,t)$ zu verstehen. Hierfür gibt es zwei grundlegende Betrachtungsweisen, die \textit{{Lagrange'sche}}\index{Betrachtungsweise!Lagrange'sche} und die \textit{Euler'sche Betrachtungsweise}\index{Betrachtungsweise!Euler'sche}. Bei der Lagrange'schen Betrachtung ist der Beobachter mit dem materiellen Punkt $\bs X$ verbunden und misst alle Änderungen des Kontinuums an diesem Punkt; jene wird auch \textit{materielle Betrachtungsweise}\index{Betrachtungsweise!materielle} genannt. Bei der Euler'schen Betrachtungsweise befindet sich der Beobachter am räumlichen Punkt $\bs x$ und misst zu jedem Zeitpunkt $t$ die Änderungen am Punkt $\bs x$, die sich durch das Passieren von Teilchen $\bs X$ ergeben; jene wird auch \textit{räumliche Betrachtungsweise}\index{Betrachtungsweise!räumliche} genannt.
 
 
-Um die Deformation eines Körpers $\mscr B$ nun beschreiben zu können, betrachten wir die Veränderung von Linienelementen $d \bs x$ bzgl. der Ausgangs- und Momentankonfiguration. Wir beschreiben den sogenannten \textit{\idx{Deformationsgradient}} $\bs F$ durch den Faktor, der zwischen der Deformation dieser Linienelemente liegt, d.h.
+Um die Deformation eines Körpers $\mscr B$ nun beschreiben zu können, betrachten wir die Veränderung von Linienelementen $d \bs x$ bzgl. der Ausgangs- und Momentankonfiguration. Wir beschreiben den sogenannten \textit{\idx{Deformationsgradient}en} $\bs F$ durch den Faktor, der zwischen der Deformation dieser Linienelemente liegt, d.h.
 \begin{align}\label{eq:2.21}
 	d\bs x = \bs F \, d\bs X \, .
 \end{align}
@@ -1287,7 +1287,7 @@ mit dem \textit{rechten Cauchy-Green-Tensor}\index{Cauchy-Green-Tensor!rechter} 
 
 
 \begin{bem}
-Dies ist natürlich nur eine Möglichkeit. Wichtig für die Wahl eines Verzerrungsmaßes ist jedoch, dass für reine Translation oder Rotation dieses Null wird. 
+Dies ist natürlich nur eine Möglichkeit. Wichtig für die Wahl eines Verzerrungsmaßes ist jedoch, dass für eine reine Translation oder Rotation dieses Null wird. 
 
 Daher ist beispielsweise $\bs F - \bs 1$ als Verzerrungsmaß unbrauchbar. Der Deformationsgradient lässt sich in Rotation $\bs R$ und Streckung $\bs U$ durch $$\bs F = \bs R \cdot \bs U$$ aufteilen. Sollten wir nun eine reine Rotation betrachten, so ist $\bs U = \bs 1$ und damit $\bs F = \bs R$, was nicht zwangsläufig der Einheitstensor sein muss.
 \end{bem}
@@ -1297,7 +1297,7 @@ Wenn wir einen Punkt bzgl. seiner Ausgangs- und Momentankonfiguration vergleiche
 \begin{align}\label{eq:2.25}
 	\bs u (\bs X,t) = \bs x(\bs X,t)-\bs X \, .
 \end{align}
-Damit ergeben sich analog zum materiellen und räumlichen Deformationsgradienten\index{Deformationsgradient!materiell}\index{Deformationsgradient!räumlich} \eqref{eq:2.22} und \eqref{eq:2.23} mit \eqref{eq:2.25} der materielle und räumliche \textit{Verschiebungsgradient}\index{Verschiebungsgradient!materiell}\index{Verschiebungsgradient!räumlich}:
+Es ergibt sich analog zum materiellen und räumlichen Deformationsgradienten\index{Deformationsgradient!materiell}\index{Deformationsgradient!räumlich} \eqref{eq:2.22} und \eqref{eq:2.23} mit \eqref{eq:2.25} der materielle und räumliche \textit{Verschiebungsgradient}\index{Verschiebungsgradient!materiell}\index{Verschiebungsgradient!räumlich}:
 \begin{align*}
 	\bs H& = \Grad \bs u = \frac{\partial(\bs x - \bs X)}{\partial \bs X} = \frac{\partial\bs x}{\partial \bs X} - \frac{\partial \bs X}{\partial \bs X} = \bs F - \bs 1 \, ,  \\
 	\bs h& = \grad \bs u = \frac{\partial(\bs x - \bs X)}{\partial \bs x} = \frac{\partial\bs x}{\partial \bs x} - \frac{\partial \bs X}{\partial \bs x} = \bs 1 - \bs F^{-1} \, .
@@ -1322,7 +1322,7 @@ Wenden wir also \eqref{eq:2.27} auf den Green-Lagrange'schen Verzerrungstensor\i
 	& = \frac 12 (\bs H^T + \bs H + 2\eps \bs H^T\bs H)\bigg|_{\eps=0} = \frac 12(\bs H^T+ \bs H) \eqqcolon \bs \eps \, .
 \end{align*} 
 
-Wir wollen der Einfachheit halber in dieser Arbeit von kleinen Deformationen ausgehen, dann gilt $\bs H \approx \bs h = \nabla \bs u$. Damit werden wir also immer die linearisierten Verzerrungstensor
+Wir wollen der Einfachheit halber in dieser Arbeit von kleinen Deformationen ausgehen, dann gilt $\bs H \approx \bs h = \nabla \bs u$. Damit werden wir also immer den linearisierten Verzerrungstensor
 \begin{align}\label{eq:2.28}
 	\bs \eps = \frac 1 2 (\nabla^T \bs u + \nabla \bs u)
 \end{align}

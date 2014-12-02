@@ -1,4 +1,4 @@
-\documentclass[a4paper,11pt,oneside]{book}
+\documentclass[a4paper,11pt,twoside,openany]{book}
 
 %\usepackage[T1]{fontenc}
 \usepackage[utf8]{inputenc}
@@ -187,7 +187,17 @@ Erstprüfer: Prof. Dr. Gerhard Starke\\ % hier auch gerne eine Tabelle
 Zweitprüfer: Prof. Dr. Peter Wriggers  
 \end{titlepage} 
 
-\setcounter{page}{2}
+ 
+\thispagestyle{empty}
+\quad 
+\newpage 
+\thispagestyle{empty}
+\quad 
+\newpage
+
+\setcounter{page}{4}
+
+
 
 
 % Inhaltsverzeichnis
@@ -195,8 +205,8 @@ Zweitprüfer: Prof. Dr. Peter Wriggers
 \tableofcontents
 %\addcontentsline{toc}{chapter}{Inhaltsverzeichnis}
 \thispagestyle{fancy}{
-	\rhead{}
-	\lhead{\sl Inhaltsverzeichnis}
+	\fancyhead[LO,RE]{}
+	\fancyhead[LE,RO]{\sl Inhaltsverzeichnis}
 	%\renewcommand{\headrulewidth}{0.4pt}
 	\renewcommand{\headheight}{14pt}
 	\renewcommand{\footrulewidth}{0.4pt}
@@ -219,16 +229,16 @@ Zweitprüfer: Prof. Dr. Peter Wriggers
 \lstlistoflistings
 \addcontentsline{toc}{chapter}{Quellcodeverzeichnis}
 
-
 \mainmatter
 
-\setcounter{page}{8}
+
+\setcounter{page}{10}
 
 %\setcounter{page}{\thecountersave}
 
 \pagestyle{fancy}{
-	\rhead{}
-	\lhead{\sl\thechapter. \nameofchapter}
+	\fancyhead[LO,RE]{}
+	\fancyhead[LE,RO]{\sl\thechapter. \nameofchapter}
 	%\renewcommand{\headrulewidth}{0.4pt}
 	\renewcommand{\headheight}{14pt}
 	\renewcommand{\footrulewidth}{0.4pt}
@@ -247,7 +257,8 @@ Zweitprüfer: Prof. Dr. Peter Wriggers
 % Literatur
 
 \thispagestyle{fancy}{
-	\lhead{\sl Literaturverzeichnis}
+	\fancyhead[LO,RE]{}
+	\fancyhead[LE,RO]{\sl Literaturverzeichnis}
 	\rhead{}
 }
 \addcontentsline{toc}{chapter}{Literaturverzeichnis}
@@ -257,8 +268,8 @@ Zweitprüfer: Prof. Dr. Peter Wriggers
 \newpage
 
 \pagestyle{fancy}{
-	\rhead{}
-	\lhead{\sl\thechapter. \nameofchapter}
+	\fancyhead[LO,RE]{}
+	\fancyhead[LE,RO]{\sl\thechapter. \nameofchapter}
 	%\renewcommand{\headrulewidth}{0.4pt}
 	\renewcommand{\headheight}{14pt}
 	\renewcommand{\footrulewidth}{0.4pt}
@@ -269,8 +280,8 @@ Zweitprüfer: Prof. Dr. Peter Wriggers
 
 \newpage
 \pagestyle{fancy}{
-	\rhead{}
-	\lhead{\sl Index}
+	\fancyhead[LO,RE]{}
+	\fancyhead[LE,RO]{\sl Index}
 	%\renewcommand{\headrulewidth}{0.4pt}
 	\renewcommand{\headheight}{14pt}
 	\renewcommand{\footrulewidth}{0.4pt}

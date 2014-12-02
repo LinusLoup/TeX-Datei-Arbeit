@@ -13,7 +13,7 @@ Als Modellproblem wollen wir wieder die Auslenkung $u:\Omega \ra \R$ einer in $\
 \begin{align}\label{eq:3.1}
 \min_{v\in K} J(v) = \frac 1 2 a(v,v)-(f,v)
 \end{align}
-mit $K := \{v \in H^1_0(\Omega) \mid v\ge \psi$ fast überall in $\Omega\}$, wobei $a(\cdot,\cdot), (f,\cdot)$ wie in Kapitel \ref{kap:2.2} definiert sind. Das Funktional $J$ gibt hierbei anschaulich wieder die in der Membran gespeicherte Energie an.
+mit $K := \{v \in H^1_0(\Omega) \mid v\ge \psi$ fast überall in $\Omega\}$, wobei $a(\cdot,\cdot), (f,\cdot)$ wie in Kapitel \ref{kap:2.2} definiert sind. Das Funktional $J$ gibt dabei wie zuvor die in der Membran gespeicherte Energie an.
 
 
 Der Unterschied zur Minimierung von $J$ aus dem Theorem von Lax-Milgram\index{Lax-Milgram} liegt nun also darin, dass wir $J$ nicht über ganz $H^1_0(\Omega)$ minimieren, sondern nur über eine Teilmenge $K\subset H^1_0(\Omega)$ (anschaulich alle Auslenkungen $u$, die oberhalb des Hindernisses $\psi$ liegen).
@@ -156,9 +156,9 @@ mit $\psi \in H^1(\Omega)$ erfüllt die Variationsungleichung \eqref{eq:3.3}. Um
 	& = \int_\Omega \nabla u \nabla(v-u) \, dx - \int_\Omega f(v-u) \\
 	& = a(u,v-u) - (f,v-u) \, .
 \end{align*}
-Mit $\Omega_0 := \{ x \in \Omega \mid u = \psi\}$ folgt, dass $-\Delta u = f$ auf $\Omega_1 := \Omega \setminus \bar\Omega_0$ gelten muss.
+Mit $\Omega_0 := \{ x \in \Omega \mid u = \psi\}$ folgt, dass $-\Delta u = f$ auf $\Omega_1 := \Omega \setminus \bar\Omega_0$ gelten muss. Hieraus ergibt sich
 \begin{align*}
-	 \lra\,   \int_{\Omega = \Omega_0 \cup \Omega_1} \underbrace{(-\Delta u - f)}_{=0 \text{ auf } \Omega_1} (v-u) \, dx  = \int_{\Omega_0}\underbrace{ (-\Delta u - f)}_{\ge0} \underbrace{(v-\psi)}_{\ge 0} \, dx \ge 0
+	   \int_{\Omega = \Omega_0 \cup \Omega_1} \underbrace{(-\Delta u - f)}_{=0 \text{ auf } \Omega_1} (v-u) \, dx  = \int_{\Omega_0}\underbrace{ (-\Delta u - f)}_{\ge0} \underbrace{(v-\psi)}_{\ge 0} \, dx \ge 0 \, .
 \end{align*}
 Damit ist $u$ eine Lösung von \eqref{eq:3.3}
 \[
@@ -210,7 +210,7 @@ Sei $H$ ein reeller Hilbertraum mit Skalarprodukt $(\cdot,\cdot)_H$ und der dami
 
 
 \begin{theorem}[Existenz und Eindeutigkeit]\label{theorem:3.6}
-Unter den obigen Voraussetzungen \ref{vor:3.5} hat die Variationsungleichung, finde $u\in K$, so dass
+Unter den obigen Voraussetzungen \ref{vor:3.5} hat die Variationsungleichung: Finde $u\in K$, so dass
 \begin{align}\label{eq:3.7}
 	a(u,v-u) \ge F(v-u) \quad \forall \, v \in K
 \end{align}
@@ -283,7 +283,7 @@ abgeschlossen und konvex ist, $F(v) = (f,v)$ ein stetiges lineares Funktional un
 \[
 	a(u,v) = \int_\Omega \nabla u \nabla v \, dx
 \]
-stetig bilinear und koerziv, sind die Voraussetzungen für Theorem \ref{theorem:3.6} erfüllt. Damit hat das Problem, finde $u \in K$, so dass
+stetig bilinear und koerziv ist, sind die Voraussetzungen für Theorem \ref{theorem:3.6} erfüllt. Damit hat das Problem, finde $u \in K$, so dass
 \begin{align}\label{eq:3.11}
 	a(u,v-u) \ge (f,v-u) \quad \forall \, v \in K \, ,
 \end{align}
@@ -399,7 +399,7 @@ und damit folgt
 \begin{align*}
 	0 > (A\bs \mu - \bs f)_i (\bs\psi - \bs\mu)_i  = (A\bs\mu-\bs f)^T (\bs \nu-\bs \mu) \ge 0 \, ,
 \end{align*}
-was im Widerspruch zu \eqref{eq:3.14} steht, daraus folgt die Behauptung.
+was im Widerspruch zu \eqref{eq:3.14} steht. Daraus folgt die Behauptung.
 
 "`$\La$"' Es sei $\bs \mu \in K_{\mcal S}$ Lösung von \eqref{eq:3.15}. Dann rechnen wir nach, dass für ein beliebiges $\bs\nu \in K_{\mcal S}$ gilt
 \begin{align*}
@@ -483,7 +483,7 @@ Es bleibt noch zu prüfen, ob die Lösung der Variationsungleichung für Netzver
 
 
 \begin{vor}\label{vor:3.15}
-Gegeben sei ein Parameter $h \ra 0$. Weiter seien $(V_h)_h$ eine Familie aus abgeschlossenen Teilmengen von einem Hilbertraum $H, \emptyset \not= K \subset H$ eine konvexe abgeschlossene Teilmenge und $(K_h)_h$ eine Familie von abgeschlossenen konvexen nichtleeren Teilmengen von $H$, so dass $K_h \subset V_h$ für alle $h$.
+Gegeben sei ein Parameter $h \ra 0$. Weiter seien $(V_h)_h$ eine Familie aus abgeschlossenen Teilmengen eines Hilbertraums $H,  K \subset H$ eine nichtleere, konvexe, abgeschlossene Teilmenge und $(K_h)_h$ eine Familie von abgeschlossenen konvexen nichtleeren Teilmengen von $H$, so dass $K_h \subset V_h$ für alle $h$.
 
 Dabei sei $K_h$ eine Approximation von $K$ im folgenden Sinne:
 \begin{enumerate}[(i)]
@@ -595,7 +595,7 @@ so gilt $\overline W = K$ und mit der bekannten \idx{Spline-Interpolation} folgt
 \]
 
 
-Es lässt sich folglich auch eine a priori Abschätzung für den Fehler von $u$ und $u_h$ machen. Die Herleitung ist detailliert beispielsweise in \cite{Falk} wiederzufinden.
+Es lässt sich folglich auch eine a priori Abschätzung für den Fehler von $u$ und $u_h$ herleiten. Die Herleitung ist detailliert beispielsweise in \cite{Falk} wiederzufinden.
 
 
 \begin{theorem}[a priori Fehlerabschätzung]\label{theorem:3.17}
@@ -637,7 +637,7 @@ Wir treffen folgende Annahmen für unser Kontaktmodell:
 \item Die in Kontakt stehenden Körper sind beschränkt.
 \item Es liegen kleine Deformationen und linear elastische Materialien vor.
 \item Wir betrachten ein konstantes Temperaturfeld, d.h. thermodynamische Prozesse werden ausgeschlossen.
-\item Zu Beginn, also in der \idx{Ausgangskonfiguration}, gilt für die \idx{Spannung} und \idx{Verzerrung}: 
+\item Zu Beginn, also in der \idx{Ausgangskonfiguration}, gilt für die \idx{Spannung} und \idx{Verzerrung}
 \[
 	\bs \sigma = \bs 0\, , \quad \bs \eps =\bs 0 \, .
 \]
@@ -770,7 +770,7 @@ wobei wir auch $u_n \coloneqq \bs u \cdot \bs n$ im Folgenden schreiben werden. 
 \begin{align}\label{eq:3.35}
 	\sigma_n \le 0  \ \text{ auf }  \Gamma_c \, .
 \end{align}
-Damit gilt auch, wenn die Kontaktbedingung nicht aktiv ist (also nicht die Gleichheit gilt), so muss Kräftegleichgewicht herrschen, d.h. in \eqref{eq:3.35} gilt die Gleichheit. Zusammen erhält man die \textit{\idx{Komplementaritätsbedingung}}
+Damit gilt auch, wenn die Kontaktbedingung nicht aktiv ist (also nicht die Gleichheit gilt), muss Kräftegleichgewicht herrschen, d.h. in \eqref{eq:3.35} gilt die Gleichheit. Zusammen erhält man die \textit{\idx{Komplementaritätsbedingung}}
 \begin{align}\label{eq:3.36}
 	(u_n - g )\,   \sigma_n = 0 \ \text{ auf } \Gamma_c \, .
 \end{align}
@@ -856,11 +856,11 @@ Wegen Voraussetzung \ref{vor:3.18} (f) sei $\Omega \subset \R^2$ ein zweidimensi
 
 
 Wir betrachten das \idx{Signorini-Kontakt}-Problem \eqref{eq:3.41}. Um hierfür eine Variationsformulierung herzuleiten, führen wir analog zu $H^1_0(\Omega)$ den Raum
-\begin{align}\label{eq:3.43}
+\begin{align}\label{eq:my3.43}
 	H^1_{\Gamma_u}(\Omega) \coloneqq \{\bs v \in (H^1(\Omega))^2 \mid \bs v = \bs 0 \text{ auf } \Gamma_u\}
 \end{align}
 der Funktionen, die auf dem \index{Randbedingungen!Dirichlet} Dirichtlet-Rand $\Gamma_u$ gleich Null sind. Weiter sei analog zur Teilmenge $K \subset H^1_0(\Omega)$ die zu betrachtende Teilmenge von $H^1_{\Gamma_u}(\Omega)$ definiert durch
-\begin{align}\label{eq:3.44}
+\begin{align}\label{eq:my3.44}
 	\mscr K \coloneqq \{\bs v \in H^1_{\Gamma_u}(\Omega) \mid v_n - g \le 0 \text{ auf } \Gamma_c\} \, ,
 \end{align}
 welche die Funktionen enthält, die die Dirichlet-Rand- und Kontaktrandbedingungen erfüllen. Die Menge $\mscr K$ ist analog zu Lemma \ref{lem:3.1} konvex und abgeschlossen (vgl. auch \cite{KikOden} Kapitel 6.2 und \cite{CarWri} Proposition 3.2).
@@ -957,13 +957,13 @@ wobei wir im vorletzten Schritt verwendet haben, dass $$\sum_{i,j=1}^2 \eps_{ij}
 	a(\bs v,\bs v) &= \int_{\Omega} \underbrace{\bs \eps(\bs v) : \mcal C: \bs \eps(\bs v)}_{= \eps_{ij}(\bs v) C_{ijkl} \eps_{kl}(\bs v)} \, d\Omega \ge m \int_{\Omega} \underbrace{\eps_{ij} (\bs v) \eps_{ij}(\bs v)}_{=\sum_{i,j=1}^2 v_{i.j}^2} \, d\Omega \\
 	& = m \int_{\Omega} \abs{\grad \bs v}^2\,  d\Omega \stackrel{\scriptsize \text{Satz \ref{satz:2.13}}}\ge c\,  \norm{\bs v}_1^2
 \end{align*}
-mit einem $c>0$. Die letzte Ungleichung folgt auch aus der zweiten \textit{Korn'schen Ungleichung}\index{Korn'sche Ungleichung} (s. \cite{BraeFEM} Kapitel VI, \S3, Satz 3.3). Als letztes berechnen wir für die Linearform $F(\cdot)$ aus \eqref{eq:3.44b} die Stetigkeit nach.
+mit einem $c>0$. Die letzte Ungleichung folgt aus der zweiten \textit{Korn'schen Ungleichung}\index{Korn'sche Ungleichung} (s. \cite{BraeFEM} Kapitel VI, \S3, Satz 3.3). Als letztes berechnen wir für die Linearform $F(\cdot)$ aus \eqref{eq:3.44b} die Stetigkeit nach.
 \begin{align*}
 	\abs{F(\bs v)} &= \Abs{ \int_\Omega \bar{\bs b} \cdot \bs v \, d\Omega + \int_{\Gamma_\sigma} \bar{\bs t} \cdot \bs v \, d\Gamma } \\
 	&\!\! \stackrel[\triangle\not=]{\scriptsize\text{C.S.}}\le \norm{\bar{\bs b}}_0 \, \norm{\bs v}_0+\norm{\bar{\bs t}}_{0,\Gamma_\sigma}\, \norm{\bs v}_{0,\Gamma_\sigma} \\
 	&\!\!\!\!\!\! \!\!\!\!\! \stackrel[\scriptsize\text{Spursatz}]{\scriptsize\text{Theorem \ref{theorem:A.9}}}\le c\, (\norm{\bar{\bs b}}_0+\norm{\bar{\bs t}}_{0,\Gamma_c})\, \norm{\bs v}_1 
 \end{align*}
-Also ist $F$ unter der Voraussetzung, dass $\bar{\bs b}  \in (L^2(\Omega))^2$ und $\bar{\bs t} \in (L^2(\Gamma_c))^2$ gilt (analog zum Modellproblem aus Kapitel \ref{kap:2.2}), stetig. Damit folgt das die Aussage des nächsten Theorems.
+Also ist $F$ unter der Voraussetzung, dass $\bar{\bs b}  \in (L^2(\Omega))^2$ und $\bar{\bs t} \in (L^2(\Gamma_c))^2$ gilt (analog zum Modellproblem aus Kapitel \ref{kap:2.2}), stetig. Damit folgt die Aussage des nächsten Theorems.
 
 
 \begin{theorem}\label{theorem:3.22}
@@ -1031,9 +1031,9 @@ mit $\mscr K_h \coloneqq \{  \bs v_h \in \mscr S_h \mid \bs v_h(\bar x_i) \cdot 
 
 Analog zu $K_{\mcal S}$ aus \eqref{eq:3.13} können wir auch hier bzgl. einer Basis $\mscr B_h$ die Menge $\mscr K_h$ äquivalent durch den Koordinatenvektor $\bs x \in \R^{2N}$ ausdrücken, d.h.
 \begin{align*}
-	\mscr K_{\mscr S}  &\coloneqq \bigg\{ \bs x \in \R^{2N} \,\bigg| \, \sum_{j=1}^{2N} x_j \, \bs \psi_j(\bar x_i) \cdot \bs n- g(x_i) \le 0 \text{ für } \bar x_i \in \mcal N \cap \Gamma_c\bigg\} \\
+	\mscr K_{\mscr S}  &\coloneqq \bigg\{ \bs x \in \R^{2N} \,\bigg| \, \sum_{j=1}^{2N} x_j \, \bs \psi_j(\bar x_i) \cdot \bs n(\bar x_i) - g(x_i) \le 0 \text{ für } \bar x_i \in \mcal N \cap \Gamma_c\bigg\} \\
 	& = \{ \bs x \in \R^{2N} \mid B\bs x \ge \bs c\} \\
-	\text{mit } & B =  [-\bs \psi_j(\bar x_i)\cdot \bs n(\bar x_i)]_{\bar x_i \in \mcal N \cap \Gamma_c, 1\le j \le 2N} ,\bs c = [-g(\bar x_i)]_{\bar x_i \in\mcal N \cap \Gamma_c} \, .
+	\text{mit }  B & =  [-\bs \psi_j(\bar x_i)\cdot \bs n(\bar x_i)]_{\bar x_i \in \mcal N \cap \Gamma_c, 1\le j \le 2N} ,\bs c = [-g(\bar x_i)]_{\bar x_i \in\mcal N \cap \Gamma_c} \, .
 \end{align*}
 Damit können wir das diskrete Problem in Matrixschreibweise wieder durch Einsetzen der Linearkombination \eqref{eq:3.54} in die Variationsungleichung \eqref{eq:3.55} erhalten. Finde $\bs x^* \in \mscr K_{\mscr S}$, so dass
 \begin{align}\label{eq:3.56}
@@ -1042,7 +1042,7 @@ Damit können wir das diskrete Problem in Matrixschreibweise wieder durch Einset
 wobei
 \begin{align*}
 	A &= \left[\int_\Omega \bs \eps (\bs \psi_j):\mcal C:\bs \eps(\bs \psi_i) \, d\Omega\right]_{1 \le i,j\le 2N} , \\
-	 \bs b& = \left[ \int_\Omega \bar{\bs b} \cdot \bs\psi_i \, d\Omega + \int_{\Gamma_N} \bar{\bs 	t} \cdot \bs\psi_i \, ds\right]_{1\le i \le 2N}
+	 \bs b& = \left[ \int_\Omega \bar{\bs b} \cdot \bs\psi_i \, d\Omega + \int_{\Gamma_\sigma} \bar{\bs 	t} \cdot \bs\psi_i \, d\Gamma\right]_{1\le i \le 2N}
 \end{align*}
 ist. Aus Bemerkung \ref{bem:3.13} folgt, dass die Variationsungleichung \eqref{eq:3.56} äquivalent zu folgendem quadratischen Programm ist:
 \begin{align}\label{eq:3.57}

@@ -26,7 +26,7 @@ Die Funktion {\ttfamily adaptive_refinement_solution.m} ist das Herzstück des P
 
 \subsubsection{Lokale Steifigkeitsmatrix und \idx{Assemblierung}}
 
-Wie schon in Kapitel \ref{kap:2.3} Beispiel \ref{bsp:2.26} beschrieben ist es für die Implementierung notwendig eine Verallgemeinerung zur Berechnung der Steifigkeitsmatrix herzuleiten. Die Idee ist an selber Stelle kurz vorgestellt worden; wir wollen nun angelehnt an Abbildung \ref{abb:2.5} die Formeln für die lokale Steifigkeitsmatrix eines beliebigen Elementes $T$ über das Referenzelement
+Wie schon in Kapitel \ref{kap:2.3}, Beispiel \ref{bsp:2.26} beschrieben ist es für die Implementierung notwendig eine Verallgemeinerung zur Berechnung der Steifigkeitsmatrix herzuleiten. Die Idee ist an selber Stelle kurz vorgestellt worden; wir wollen nun angelehnt an Abbildung \ref{abb:2.5} die Formeln für die lokale Steifigkeitsmatrix eines beliebigen Elementes $T$ über das Referenzelement
 \[
 	\widetilde T = \{(\xi ,\eta)\in \R^2\mid 0\le \xi \le 1, 0\le \eta \le 1-\xi\}
 \]
@@ -312,6 +312,14 @@ unabhängig von $E$ bestimmen und müssen später nur noch mit der Funktionaldet
 Im Quellcode {\ttfamily find_triangle_refinement.m} werden die Indizes der zu verfeinernden Dreiecke berechnet. Dies geschieht dadurch, dass wir so viele der größten Anteile vom Fehlerindikator $\rho_{\mcal S}$ heraussuchen, bis jene größer als ein skalierter Wert des Indikators ist. Dasselbe Vorgehen verwenden wir dann noch für die \idx{Oszillationsterme}. Für die damit erhaltenen Punktindizes berechnen wir mit {\ttfamily neighbourhood} die anliegenden Dreiecke und übergeben diese für die Verfeinerung.
 
 Sollten wir ein symmetrisches Problem vorliegen haben, dann ist es von Vorteil dieses auch symmetrisch bzgl. der Netzverfeinerung bzw. der Lösung zu halten. In diesem Fall sind auch die Fehleranteile im hierarchischen Fehlerschätzer $-\mcal I_{\mcal Q}(\eps_{\mcal V})$ bzw. Fehlerindikator $\rho_{\mcal S}$ symmetrisch angeordnet. Hierfür können wir den Wert {\ttfamily option} auf {\ttfamily 'symmetric'} setzen. Dies bewirkt, dass bei der Auswahl eines Fehleranteiles alle weiteren Punkte mit demselben Anteil direkt mit gewählt werden. Damit kann es zu einer stärkeren Netzverfeinerung kommen, das erzeugte Gitter bleibt jedoch symmetrisch und damit auch die dadurch berechnete \idx{Galerkin-Lösung}.
+
+
+
+\section{Implementierung eines Kontaktproblems}
+\label{kap:5.2}
+
+\subsubsection{Grundlegende Änderungen bzgl. der Implementierung für das Hindernisproblem}
+
 
 
 
