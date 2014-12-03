@@ -8,35 +8,35 @@
 \contentsline {figure}{\numberline {2.2}{\ignorespaces Zul\IeC {\"a}ssige und unzul\IeC {\"a}ssige Triangulierung (mit h\IeC {\"a}ngendem Knoten)\relax }}{27}{figure.caption.10}
 \contentsline {figure}{\numberline {2.3}{\ignorespaces Dreiecke f\IeC {\"u}r nodale Basen (linear, quadratisch, kubisch)\relax }}{28}{figure.caption.11}
 \contentsline {figure}{\numberline {2.4}{\ignorespaces Triangulierung von $\Omega = [-1,1]^2$ in 8 Courant-Elemente\relax }}{29}{figure.caption.12}
-\contentsline {figure}{\numberline {2.5}{\ignorespaces Referenzelement $\setbox \z@ \hbox {\frozen@everymath \@emptytoks \mathsurround \z@ $\textstyle T$}\mathaccent "0365{T}$ f\IeC {\"u}r ein allgemeines Dreieck $T \in \mathcal T_h$\relax }}{30}{figure.caption.14}
+\contentsline {figure}{\numberline {2.5}{\ignorespaces Referenzelement $\setbox \z@ \hbox {\frozen@everymath \@emptytoks \mathsurround \z@ $\textstyle T$}\mathaccent "0365{T}$ f\IeC {\"u}r ein allgemeines Dreieck $T \in \mathcal T_h$\relax }}{31}{figure.caption.14}
 \contentsline {figure}{\numberline {2.6}{\ignorespaces Verfeinerungen von Dreiecken\relax }}{36}{figure.caption.15}
 \contentsline {figure}{\numberline {2.7}{\ignorespaces Konfiguration eines Kontinuums $\EuScript B$\relax }}{37}{figure.caption.16}
 \addvspace {10\p@ }
-\contentsline {figure}{\numberline {3.1}{\ignorespaces Ein Hindernisproblem mit Hindernis $\psi $, konstanter Streckenlast $f$ und L\IeC {\"o}sung $u$\relax }}{43}{figure.caption.17}
-\contentsline {figure}{\numberline {3.2}{\ignorespaces K\IeC {\"o}rper $\mathcal B^1$ und $\mathcal B^2$ mit Randbezeichnungen\relax }}{56}{figure.caption.19}
-\contentsline {figure}{\numberline {3.3}{\ignorespaces Kontaktformulierung zwischen zwei K\IeC {\"o}rpern\relax }}{56}{figure.caption.21}
+\contentsline {figure}{\numberline {3.1}{\ignorespaces Ein Hindernisproblem mit Hindernis $\psi $, konstanter Streckenlast $f$ und L\IeC {\"o}sung $u$\relax }}{44}{figure.caption.17}
+\contentsline {figure}{\numberline {3.2}{\ignorespaces K\IeC {\"o}rper $\mathcal B^1$ und $\mathcal B^2$ mit Randbezeichnungen\relax }}{57}{figure.caption.19}
+\contentsline {figure}{\numberline {3.3}{\ignorespaces Kontaktformulierung zwischen zwei K\IeC {\"o}rpern\relax }}{57}{figure.caption.21}
 \addvspace {10\p@ }
-\contentsline {figure}{\numberline {4.1}{\ignorespaces Beispiel eines affinen Hindernisses $\psi $ mit $v \in \mathcal A_{\mathcal Q}$ in $\mathbb {R}$\relax }}{71}{figure.caption.26}
-\contentsline {figure}{\numberline {4.2}{\ignorespaces Dreiecke $T_1$ und $T_2$ mit Einheitsnormalen $\boldsymbol n$\relax }}{76}{figure.caption.27}
-\contentsline {figure}{\numberline {4.3}{\ignorespaces Darstellung von $\omega _p$ (grau) und $\mathcal E_p$ (abgehende Kanten von $p$) f\IeC {\"u}r ein beliebiges $\phi _p$\relax }}{77}{figure.caption.28}
+\contentsline {figure}{\numberline {4.1}{\ignorespaces Beispiel eines affinen Hindernisses $\psi $ mit $v \in \mathcal A_{\mathcal Q}$ in $\mathbb {R}$\relax }}{72}{figure.caption.26}
+\contentsline {figure}{\numberline {4.2}{\ignorespaces Dreiecke $T_1$ und $T_2$ mit Einheitsnormalen $\boldsymbol n$\relax }}{77}{figure.caption.27}
+\contentsline {figure}{\numberline {4.3}{\ignorespaces Darstellung von $\omega _p$ (grau) und $\mathcal E_p$ (abgehende Kanten von $p$) f\IeC {\"u}r ein beliebiges $\phi _p$\relax }}{78}{figure.caption.28}
 \addvspace {10\p@ }
-\contentsline {figure}{\numberline {5.1}{\ignorespaces Ungef\IeC {\"a}hre Lage der St\IeC {\"u}tzstellen in einem allgemeinen Dreieck f\IeC {\"u}r die Gau\IeC {\ss }-Quadratur\relax }}{113}{figure.caption.39}
+\contentsline {figure}{\numberline {5.1}{\ignorespaces Ungef\IeC {\"a}hre Lage der St\IeC {\"u}tzstellen in einem allgemeinen Dreieck f\IeC {\"u}r die Gau\IeC {\ss }-Quadratur\relax }}{114}{figure.caption.39}
 \addvspace {10\p@ }
-\contentsline {figure}{\numberline {6.1}{\ignorespaces Exakte und numerische L\IeC {\"o}sung des Beispiels \ref {bsp:6.1}\relax }}{118}{figure.caption.47}
-\contentsline {subfigure}{\numberline {(a)}{\ignorespaces {Exakte L\IeC {\"o}sung f\IeC {\"u}r das Hindernisproblem}}}{118}{figure.caption.47}
-\contentsline {subfigure}{\numberline {(b)}{\ignorespaces {Numerische L\IeC {\"o}sung in der Verfeinerungsstufe 6 mit $\theta _1=0,4$ und $\theta _2=0,3$}}}{118}{figure.caption.47}
-\contentsline {figure}{\numberline {6.2}{\ignorespaces Gitterverfeinerung f\IeC {\"u}r das Hindernisproblem im Beispiel \ref {bsp:6.1} mit $\theta _1=0,4$ und $\theta _2=0,3$\relax }}{119}{figure.caption.48}
-\contentsline {subfigure}{\numberline {(a)}{\ignorespaces {Verfeinerungsstufe 6}}}{119}{figure.caption.48}
-\contentsline {subfigure}{\numberline {(b)}{\ignorespaces {Verfeinerungsstufe 8}}}{119}{figure.caption.48}
-\contentsline {figure}{\numberline {6.3}{\ignorespaces Diagramm mit dem Fehler und der Oszillation f\IeC {\"u}r Beispiel \ref {bsp:6.1}}}{121}{figure.caption.50}
-\contentsline {figure}{\numberline {6.4}{\ignorespaces Numerische L\IeC {\"o}sung des Beispiels \ref {bsp:6.2} in der Verfeinerungsstufe 7 mit $\theta _1=\theta _2 = 0,3$\relax }}{122}{figure.caption.51}
-\contentsline {figure}{\numberline {6.5}{\ignorespaces Netzverfeinerungen f\IeC {\"u}r das Beispiel \ref {bsp:6.2} mit $\theta _1=\theta _2=0,3$\relax }}{123}{figure.caption.52}
-\contentsline {subfigure}{\numberline {(a)}{\ignorespaces {Verfeinerungsstufe 6}}}{123}{figure.caption.52}
-\contentsline {subfigure}{\numberline {(b)}{\ignorespaces {Verfeinerungsstufe 8}}}{123}{figure.caption.52}
-\contentsline {figure}{\numberline {6.6}{\ignorespaces Numerische L\IeC {\"o}sung des Beispiels \ref {bsp:6.3} mit $\theta _1=\theta _2 = 0,3$\relax }}{123}{figure.caption.53}
-\contentsline {figure}{\numberline {6.7}{\ignorespaces Netzverfeinerungen f\IeC {\"u}r das Beispiel \ref {bsp:6.3} mit $\theta _1=\theta _2=0,3$\relax }}{124}{figure.caption.54}
-\contentsline {subfigure}{\numberline {(a)}{\ignorespaces {Verfeinerungsstufe 6}}}{124}{figure.caption.54}
-\contentsline {subfigure}{\numberline {(b)}{\ignorespaces {Verfeinerungsstufe 8}}}{124}{figure.caption.54}
+\contentsline {figure}{\numberline {6.1}{\ignorespaces Exakte und numerische L\IeC {\"o}sung des Beispiels \ref {bsp:6.1}\relax }}{123}{figure.caption.52}
+\contentsline {subfigure}{\numberline {(a)}{\ignorespaces {Exakte L\IeC {\"o}sung f\IeC {\"u}r das Hindernisproblem}}}{123}{figure.caption.52}
+\contentsline {subfigure}{\numberline {(b)}{\ignorespaces {Numerische L\IeC {\"o}sung in der Verfeinerungsstufe 6 mit $\theta _1=0,4$ und $\theta _2=0,3$}}}{123}{figure.caption.52}
+\contentsline {figure}{\numberline {6.2}{\ignorespaces Gitterverfeinerung f\IeC {\"u}r das Hindernisproblem im Beispiel \ref {bsp:6.1} mit $\theta _1=0,4$ und $\theta _2=0,3$\relax }}{124}{figure.caption.53}
+\contentsline {subfigure}{\numberline {(a)}{\ignorespaces {Verfeinerungsstufe 6}}}{124}{figure.caption.53}
+\contentsline {subfigure}{\numberline {(b)}{\ignorespaces {Verfeinerungsstufe 8}}}{124}{figure.caption.53}
+\contentsline {figure}{\numberline {6.3}{\ignorespaces Diagramm mit dem Fehler und der Oszillation f\IeC {\"u}r Beispiel \ref {bsp:6.1}}}{126}{figure.caption.55}
+\contentsline {figure}{\numberline {6.4}{\ignorespaces Numerische L\IeC {\"o}sung des Beispiels \ref {bsp:6.2} in der Verfeinerungsstufe 7 mit $\theta _1=\theta _2 = 0,3$\relax }}{127}{figure.caption.56}
+\contentsline {figure}{\numberline {6.5}{\ignorespaces Netzverfeinerungen f\IeC {\"u}r das Beispiel \ref {bsp:6.2} mit $\theta _1=\theta _2=0,3$\relax }}{128}{figure.caption.57}
+\contentsline {subfigure}{\numberline {(a)}{\ignorespaces {Verfeinerungsstufe 6}}}{128}{figure.caption.57}
+\contentsline {subfigure}{\numberline {(b)}{\ignorespaces {Verfeinerungsstufe 8}}}{128}{figure.caption.57}
+\contentsline {figure}{\numberline {6.6}{\ignorespaces Numerische L\IeC {\"o}sung des Beispiels \ref {bsp:6.3} mit $\theta _1=\theta _2 = 0,3$\relax }}{128}{figure.caption.58}
+\contentsline {figure}{\numberline {6.7}{\ignorespaces Netzverfeinerungen f\IeC {\"u}r das Beispiel \ref {bsp:6.3} mit $\theta _1=\theta _2=0,3$\relax }}{129}{figure.caption.59}
+\contentsline {subfigure}{\numberline {(a)}{\ignorespaces {Verfeinerungsstufe 6}}}{129}{figure.caption.59}
+\contentsline {subfigure}{\numberline {(b)}{\ignorespaces {Verfeinerungsstufe 8}}}{129}{figure.caption.59}
 \addvspace {10\p@ }
 \addvspace {10\p@ }
 \addvspace {10\p@ }

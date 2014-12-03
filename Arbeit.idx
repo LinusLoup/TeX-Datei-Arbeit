@@ -3,6 +3,7 @@
 \indexentry{adaptive Verfeinerungsstategie|hyperpage}{10}
 \indexentry{Galerkin-Approximation|hyperpage}{10}
 \indexentry{Signorini-Kontakt|hyperpage}{11}
+\indexentry{Gap-Funktion|hyperpage}{12}
 \indexentry{Hilbertraum|hyperpage}{13}
 \indexentry{Cauchy-Folge|hyperpage}{13}
 \indexentry{Sobolev-Raum|hyperpage}{13}
@@ -32,6 +33,7 @@
 \indexentry{Riesz'scher Darstellungssatz|hyperpage}{22}
 \indexentry{Galerkin-Approximation|hyperpage}{24}
 \indexentry{Galerkin-Verfahren|hyperpage}{24}
+\indexentry{Galerkin-Verfahren|hyperpage}{25}
 \indexentry{Steifigkeitsmatrix|hyperpage}{25}
 \indexentry{Triangulierung|hyperpage}{26}
 \indexentry{Triangulierung|hyperpage}{26}
@@ -39,35 +41,35 @@
 \indexentry{Triangulierung!zul\IeC {\"a}ssig|hyperpage}{26}
 \indexentry{(quasi-) uniforme Zerlegung|hyperpage}{26}
 \indexentry{Triangulierung!quasi-uniform|hyperpage}{26}
-\indexentry{Triangulierung!uniform|hyperpage}{26}
+\indexentry{Triangulierung!uniform|hyperpage}{27}
 \indexentry{h\IeC {\"a}ngender Knoten|hyperpage}{27}
-\indexentry{nodale Basisfunktion|hyperpage}{27}
+\indexentry{nodale Basisfunktion|hyperpage}{28}
 \indexentry{nodale Basisfunktion|hyperpage}{28}
 \indexentry{nodale Basis|hyperpage}{28}
 \indexentry{Lagrange-Basis|hyperpage}{28}
 \indexentry{nodale Basis|hyperpage}{28}
 \indexentry{Galerkin-Verfahren|hyperpage}{28}
 \indexentry{Finite-Elemente-Methode|hyperpage}{28}
-\indexentry{Courant-Element|hyperpage}{28}
+\indexentry{Courant-Element|hyperpage}{29}
 \indexentry{lokale Steifigkeitsmatrix|hyperpage}{30}
-\indexentry{global-local node ordering|hyperpage}{30}
-\indexentry{Assemblierung|hyperpage}{30}
+\indexentry{global-local node ordering|hyperpage}{31}
+\indexentry{Assemblierung|hyperpage}{31}
 \indexentry{Energie-Norm|hyperpage}{31}
-\indexentry{Galerkin-Approximation|hyperpage}{31}
-\indexentry{Energie-Norm|hyperpage}{31}
+\indexentry{Galerkin-Approximation|hyperpage}{32}
+\indexentry{Energie-Norm|hyperpage}{32}
 \indexentry{Galerkin-Orthogonalit\IeC {\"a}t|hyperpage}{32}
 \indexentry{Galerkin-Approximation|hyperpage}{32}
-\indexentry{Approximationssatz f\IeC {\"u}r Interpolationen|hyperpage}{32}
-\indexentry{Triangulierung!quasi-uniform|hyperpage}{32}
-\indexentry{a posteriori Fehlersch\IeC {\"a}tzer|hyperpage}{33}
+\indexentry{Approximationssatz f\IeC {\"u}r Interpolationen|hyperpage}{33}
+\indexentry{Triangulierung!quasi-uniform|hyperpage}{33}
+\indexentry{a posteriori Fehlersch\IeC {\"a}tzer|hyperpage}{34}
 \indexentry{Saturationseigenschaft|hyperpage}{34}
 \indexentry{Galerkin-Approximation|hyperpage}{34}
-\indexentry{Defektproblem|hyperpage}{34}
+\indexentry{Defektproblem|hyperpage}{35}
 \indexentry{Triangulierung!konform|hyperpage}{35}
-\indexentry{Verfeinerung!regul\IeC {\"a}r|hyperpage}{35}
-\indexentry{Verfeinerung!rot|hyperpage}{35}
-\indexentry{Verfeinerung!gr\IeC {\"u}n|hyperpage}{35}
-\indexentry{Verfeinerung!blau|hyperpage}{35}
+\indexentry{Verfeinerung!regul\IeC {\"a}r|hyperpage}{36}
+\indexentry{Verfeinerung!rot|hyperpage}{36}
+\indexentry{Verfeinerung!gr\IeC {\"u}n|hyperpage}{36}
+\indexentry{Verfeinerung!blau|hyperpage}{36}
 \indexentry{Verfeinerung!gr\IeC {\"u}n|hyperpage}{36}
 \indexentry{Verfeinerung!blau|hyperpage}{36}
 \indexentry{Matlab!refinemesh|hyperpage}{36}
@@ -84,14 +86,14 @@
 \indexentry{Momentankonfiguration|hyperpage}{37}
 \indexentry{Konfiguration!aktuelle|hyperpage}{37}
 \indexentry{Konfiguration!Momentan-|hyperpage}{37}
-\indexentry{Betrachtungsweise!Lagrange'sche|hyperpage}{37}
-\indexentry{Betrachtungsweise!Euler'sche|hyperpage}{37}
-\indexentry{Betrachtungsweise!materielle|hyperpage}{37}
+\indexentry{Betrachtungsweise!Lagrange'sche|hyperpage}{38}
+\indexentry{Betrachtungsweise!Euler'sche|hyperpage}{38}
+\indexentry{Betrachtungsweise!materielle|hyperpage}{38}
 \indexentry{Betrachtungsweise!r\IeC {\"a}umliche|hyperpage}{38}
 \indexentry{Deformationsgradient|hyperpage}{38}
 \indexentry{Betrachtungsweise!materielle|hyperpage}{38}
-\indexentry{Verzerrungstensor!Green-Lagrange|hyperpage}{38}
-\indexentry{Cauchy-Green-Tensor!rechter|hyperpage}{38}
+\indexentry{Verzerrungstensor!Green-Lagrange|hyperpage}{39}
+\indexentry{Cauchy-Green-Tensor!rechter|hyperpage}{39}
 \indexentry{Verschiebung|hyperpage}{39}
 \indexentry{Deformationsgradient!materiell|hyperpage}{39}
 \indexentry{Deformationsgradient!r\IeC {\"a}umlich|hyperpage}{39}
@@ -99,7 +101,7 @@
 \indexentry{Verschiebungsgradient!r\IeC {\"a}umlich|hyperpage}{39}
 \indexentry{Verzerrungstensor!Green-Lagrange|hyperpage}{39}
 \indexentry{G\IeC {\^a}teaux-Ableitung|hyperpage}{39}
-\indexentry{Verzerrungstensor!Green-Lagrange|hyperpage}{39}
+\indexentry{Verzerrungstensor!Green-Lagrange|hyperpage}{40}
 \indexentry{Cauchy-Spannungstensor|hyperpage}{40}
 \indexentry{Satz von Gau\IeC {\ss }|hyperpage}{40}
 \indexentry{Hooke'sches Materialmodell|hyperpage}{41}
@@ -108,145 +110,152 @@
 \indexentry{Schubmodul|hyperpage}{41}
 \indexentry{Voigt-Notation|hyperpage}{41}
 \indexentry{ebener Verzerrungszustand|hyperpage}{41}
-\indexentry{Lax-Milgram|hyperpage}{42}
-\indexentry{Lax-Milgram|hyperpage}{42}
-\indexentry{Dirichlet-Problem!homogenes|hyperpage}{44}
-\indexentry{Fixpunktsatz von Brouwer|hyperpage}{48}
-\indexentry{lineares Komplementarit\IeC {\"a}tsproblem|hyperpage}{49}
-\indexentry{quadratisches Programm|hyperpage}{50}
-\indexentry{Spline-Interpolation|hyperpage}{54}
-\indexentry{Hindernisproblem|hyperpage}{55}
-\indexentry{Kontaktproblem|hyperpage}{55}
-\indexentry{Ausgangskonfiguration|hyperpage}{55}
-\indexentry{Spannung|hyperpage}{55}
-\indexentry{Verzerrung|hyperpage}{55}
-\indexentry{Signorini-Kontakt|hyperpage}{55}
-\indexentry{Randbedingungen!Dirichlet|hyperpage}{55}
-\indexentry{Verschiebungsrand|hyperpage}{55}
-\indexentry{Randbedingungen!Neumann|hyperpage}{55}
-\indexentry{Spannungsrand|hyperpage}{55}
-\indexentry{Randbedingungen!Kontakt|hyperpage}{55}
-\indexentry{master|hyperpage}{56}
-\indexentry{slave|hyperpage}{56}
-\indexentry{kritische Richtung|hyperpage}{56}
-\indexentry{kritischer Punkt|hyperpage}{57}
-\indexentry{Momentankonfiguration|hyperpage}{57}
-\indexentry{Nichtdurchdringungsbedingung|hyperpage}{57}
-\indexentry{Nichtdurchdringungsbedingung|hyperpage}{57}
-\indexentry{Ausgangskonfiguration|hyperpage}{57}
-\indexentry{Gap-Funktion|hyperpage}{57}
-\indexentry{Nichtdurchdringungsbedingung|hyperpage}{57}
-\indexentry{Kontaktrand|hyperpage}{58}
-\indexentry{Spannung|hyperpage}{58}
-\indexentry{Komplementarit\IeC {\"a}tsbedingung|hyperpage}{58}
-\indexentry{Signorini-Kontakt|hyperpage}{58}
-\indexentry{Cauchy-Theorem|hyperpage}{58}
-\indexentry{Randbedingungen!Neumann|hyperpage}{58}
-\indexentry{Hooke'sche-Gesetz|hyperpage}{59}
+\indexentry{Lax-Milgram|hyperpage}{43}
+\indexentry{Lax-Milgram|hyperpage}{43}
+\indexentry{Dirichlet-Problem!homogenes|hyperpage}{45}
+\indexentry{Fixpunktsatz von Brouwer|hyperpage}{49}
+\indexentry{lineares Komplementarit\IeC {\"a}tsproblem|hyperpage}{50}
+\indexentry{quadratisches Programm|hyperpage}{51}
+\indexentry{Spline-Interpolation|hyperpage}{55}
+\indexentry{Hindernisproblem|hyperpage}{56}
+\indexentry{Kontaktproblem|hyperpage}{56}
+\indexentry{Ausgangskonfiguration|hyperpage}{56}
+\indexentry{Spannung|hyperpage}{56}
+\indexentry{Verzerrung|hyperpage}{56}
+\indexentry{Signorini-Kontakt|hyperpage}{56}
+\indexentry{Randbedingungen!Dirichlet|hyperpage}{56}
+\indexentry{Verschiebungsrand|hyperpage}{56}
+\indexentry{Randbedingungen!Neumann|hyperpage}{56}
+\indexentry{Spannungsrand|hyperpage}{56}
+\indexentry{Randbedingungen!Kontakt|hyperpage}{56}
+\indexentry{master|hyperpage}{57}
+\indexentry{slave|hyperpage}{57}
+\indexentry{kritische Richtung|hyperpage}{57}
+\indexentry{kritischer Punkt|hyperpage}{58}
+\indexentry{Momentankonfiguration|hyperpage}{58}
+\indexentry{Nichtdurchdringungsbedingung|hyperpage}{58}
+\indexentry{Nichtdurchdringungsbedingung|hyperpage}{58}
+\indexentry{Ausgangskonfiguration|hyperpage}{58}
+\indexentry{Gap-Funktion|hyperpage}{58}
+\indexentry{Nichtdurchdringungsbedingung|hyperpage}{58}
+\indexentry{Kontaktrand|hyperpage}{59}
+\indexentry{Spannung|hyperpage}{59}
+\indexentry{Komplementarit\IeC {\"a}tsbedingung|hyperpage}{59}
 \indexentry{Signorini-Kontakt|hyperpage}{59}
-\indexentry{Tresca-Reibung|hyperpage}{59}
-\indexentry{Coulomb-Reibung|hyperpage}{59}
-\indexentry{Signorini-Kontakt|hyperpage}{59}
+\indexentry{Cauchy-Theorem|hyperpage}{59}
+\indexentry{Randbedingungen!Neumann|hyperpage}{59}
+\indexentry{Hooke'sche-Gesetz|hyperpage}{60}
 \indexentry{Signorini-Kontakt|hyperpage}{60}
-\indexentry{Randbedingungen!Dirichlet|hyperpage}{60}
+\indexentry{Tresca-Reibung|hyperpage}{60}
+\indexentry{Coulomb-Reibung|hyperpage}{60}
 \indexentry{Signorini-Kontakt|hyperpage}{60}
-\indexentry{virtuelle Verschiebung|hyperpage}{60}
-\indexentry{Satz von Gau\IeC {\ss }|hyperpage}{60}
-\indexentry{Einstein'sche Summenkonvention|hyperpage}{61}
-\indexentry{Korn'sche Ungleichung|hyperpage}{62}
-\indexentry{G\IeC {\^a}teaux-differenzierbar|hyperpage}{63}
-\indexentry{Tresca-Reibung|hyperpage}{63}
-\indexentry{Reibungsfunktional|hyperpage}{63}
-\indexentry{G\IeC {\^a}teaux-differenzierbar|hyperpage}{63}
-\indexentry{Active-Set-Algorithmus|hyperpage}{65}
-\indexentry{Penalty-Methode|hyperpage}{66}
-\indexentry{Defektproblem|hyperpage}{69}
-\indexentry{G\IeC {\^a}teaux-differenzierbar|hyperpage}{70}
-\indexentry{Bubble-Funktion|hyperpage}{70}
-\indexentry{Defektproblem!lokales|hyperpage}{72}
-\indexentry{Fehlerindikator|hyperpage}{75}
+\indexentry{Signorini-Kontakt|hyperpage}{61}
+\indexentry{Randbedingungen!Dirichlet|hyperpage}{61}
+\indexentry{Signorini-Kontakt|hyperpage}{61}
+\indexentry{virtuelle Verschiebung|hyperpage}{61}
+\indexentry{Satz von Gau\IeC {\ss }|hyperpage}{61}
+\indexentry{Einstein'sche Summenkonvention|hyperpage}{62}
+\indexentry{Korn'sche Ungleichung|hyperpage}{63}
+\indexentry{G\IeC {\^a}teaux-differenzierbar|hyperpage}{64}
+\indexentry{Tresca-Reibung|hyperpage}{64}
+\indexentry{Reibungsfunktional|hyperpage}{64}
+\indexentry{G\IeC {\^a}teaux-differenzierbar|hyperpage}{64}
+\indexentry{Active-Set-Algorithmus|hyperpage}{66}
+\indexentry{Penalty-Methode|hyperpage}{67}
+\indexentry{Defektproblem|hyperpage}{70}
+\indexentry{G\IeC {\^a}teaux-differenzierbar|hyperpage}{71}
+\indexentry{Bubble-Funktion|hyperpage}{71}
+\indexentry{Defektproblem!lokales|hyperpage}{73}
 \indexentry{Fehlerindikator|hyperpage}{76}
-\indexentry{Galerkin-Orthogonalit\IeC {\"a}t|hyperpage}{77}
+\indexentry{Fehlerindikator|hyperpage}{77}
 \indexentry{Galerkin-Orthogonalit\IeC {\"a}t|hyperpage}{78}
-\indexentry{Kontaktknoten|hyperpage}{78}
-\indexentry{Nichtkontaktknoten|hyperpage}{78}
-\indexentry{Oszillationsterme|hyperpage}{79}
-\indexentry{Oszillationsterme|hyperpage}{79}
-\indexentry{Oszillation|hyperpage}{79}
-\indexentry{isolierte Kontaktknoten|hyperpage}{79}
-\indexentry{Oszillationsterme|hyperpage}{81}
-\indexentry{Dirichtlet-Problem|hyperpage}{82}
-\indexentry{Cauchy-Schwar'sche Ungleichung|hyperpage}{85}
-\indexentry{Spursatz|hyperpage}{85}
-\indexentry{Fehlerindikator|hyperpage}{86}
-\indexentry{Poincar\IeC {\'e}-Friedrich-Ungleichung|hyperpage}{87}
-\indexentry{Ungleichungen!Poincar\IeC {\'e}|hyperpage}{87}
-\indexentry{\idx{Poincar\IeC {\'e}-Friedrich-Ungleichung}!verallgemeinerte|hyperpage}{87}
-\indexentry{Poincar\IeC {\'e}-Friedrich-Ungleichung|hyperpage}{87}
+\indexentry{Galerkin-Orthogonalit\IeC {\"a}t|hyperpage}{79}
+\indexentry{Kontaktknoten|hyperpage}{79}
+\indexentry{Nichtkontaktknoten|hyperpage}{79}
+\indexentry{Oszillationsterme|hyperpage}{80}
+\indexentry{Oszillationsterme|hyperpage}{80}
+\indexentry{Oszillation|hyperpage}{80}
+\indexentry{isolierte Kontaktknoten|hyperpage}{80}
+\indexentry{Oszillationsterme|hyperpage}{82}
+\indexentry{Dirichtlet-Problem|hyperpage}{83}
+\indexentry{Cauchy-Schwar'sche Ungleichung|hyperpage}{86}
+\indexentry{Spursatz|hyperpage}{86}
+\indexentry{Fehlerindikator|hyperpage}{87}
 \indexentry{Poincar\IeC {\'e}-Friedrich-Ungleichung|hyperpage}{88}
-\indexentry{Poincar\IeC {\'e}-Friedrich-Ungleichung|hyperpage}{90}
-\indexentry{Poincar\IeC {\'e}-Friedrich-Ungleichung|hyperpage}{92}
+\indexentry{Ungleichungen!Poincar\IeC {\'e}|hyperpage}{88}
+\indexentry{\idx{Poincar\IeC {\'e}-Friedrich-Ungleichung}!verallgemeinerte|hyperpage}{88}
+\indexentry{Poincar\IeC {\'e}-Friedrich-Ungleichung|hyperpage}{88}
+\indexentry{Poincar\IeC {\'e}-Friedrich-Ungleichung|hyperpage}{89}
+\indexentry{Poincar\IeC {\'e}-Friedrich-Ungleichung|hyperpage}{91}
 \indexentry{Poincar\IeC {\'e}-Friedrich-Ungleichung|hyperpage}{93}
-\indexentry{Poincar\IeC {\'e}-Friedrich-Ungleichung|hyperpage}{93}
-\indexentry{Oszillationsterme|hyperpage}{95}
-\indexentry{Oszillationsterme|hyperpage}{95}
+\indexentry{Poincar\IeC {\'e}-Friedrich-Ungleichung|hyperpage}{94}
+\indexentry{Poincar\IeC {\'e}-Friedrich-Ungleichung|hyperpage}{94}
 \indexentry{Oszillationsterme|hyperpage}{96}
-\indexentry{Oszillationsterme|hyperpage}{100}
-\indexentry{Oszillationsterme|hyperpage}{100}
-\indexentry{Saturationseigenschaft|hyperpage}{100}
-\indexentry{Saturationseigenschaft|hyperpage}{101}
+\indexentry{Oszillationsterme|hyperpage}{96}
+\indexentry{Oszillationsterme|hyperpage}{97}
 \indexentry{Oszillationsterme|hyperpage}{101}
-\indexentry{Bubble-Funktion|hyperpage}{104}
+\indexentry{Oszillationsterme|hyperpage}{101}
+\indexentry{Saturationseigenschaft|hyperpage}{101}
+\indexentry{Saturationseigenschaft|hyperpage}{102}
+\indexentry{Oszillationsterme|hyperpage}{102}
 \indexentry{Bubble-Funktion|hyperpage}{105}
-\indexentry{Kontaktproblem|hyperpage}{105}
-\indexentry{Kontaktknoten|hyperpage}{106}
-\indexentry{Nichtkontaktknoten|hyperpage}{106}
-\indexentry{Assemblierung|hyperpage}{109}
-\indexentry{Funktionaldeterminante|hyperpage}{109}
-\indexentry{Kettenregel|hyperpage}{109}
-\indexentry{Assemblierung|hyperpage}{112}
-\indexentry{Assemblierung|hyperpage}{112}
-\indexentry{Quadratur!Gau\IeC {\ss }|hyperpage}{112}
-\indexentry{Quadratur!Seitenmitten-Regel|hyperpage}{112}
-\indexentry{Quadratur!7-Punkte-Formel|hyperpage}{112}
+\indexentry{Bubble-Funktion|hyperpage}{106}
+\indexentry{Kontaktproblem|hyperpage}{106}
+\indexentry{Kontaktknoten|hyperpage}{107}
+\indexentry{Nichtkontaktknoten|hyperpage}{107}
+\indexentry{Assemblierung|hyperpage}{110}
+\indexentry{Funktionaldeterminante|hyperpage}{110}
+\indexentry{Kettenregel|hyperpage}{110}
+\indexentry{Assemblierung|hyperpage}{113}
+\indexentry{Assemblierung|hyperpage}{113}
 \indexentry{Quadratur!Gau\IeC {\ss }|hyperpage}{113}
-\indexentry{quadratisches Programm|hyperpage}{113}
-\indexentry{Active-Set-Algorithmus|hyperpage}{113}
-\indexentry{Innere-Punkte-Methode|hyperpage}{113}
-\indexentry{isolierte Kontaktknoten|hyperpage}{114}
-\indexentry{Oszillationsterme|hyperpage}{115}
-\indexentry{Quadratur!Gau\IeC {\ss }|hyperpage}{115}
+\indexentry{Quadratur!Seitenmitten-Regel|hyperpage}{113}
+\indexentry{Quadratur!7-Punkte-Formel|hyperpage}{113}
+\indexentry{Quadratur!Gau\IeC {\ss }|hyperpage}{114}
+\indexentry{quadratisches Programm|hyperpage}{114}
+\indexentry{Active-Set-Algorithmus|hyperpage}{114}
+\indexentry{Innere-Punkte-Methode|hyperpage}{114}
+\indexentry{isolierte Kontaktknoten|hyperpage}{115}
 \indexentry{Oszillationsterme|hyperpage}{116}
-\indexentry{Galerkin-L\IeC {\"o}sung|hyperpage}{116}
-\indexentry{Randbedingungen!Dirichlet|hyperpage}{117}
-\indexentry{Polarkoordinaten|hyperpage}{117}
-\indexentry{Sobolev-Raum|hyperpage}{129}
-\indexentry{Lebesgue-Raum|hyperpage}{129}
-\indexentry{Raum der Testfunktionen|hyperpage}{129}
-\indexentry{schwache Ableitung|hyperpage}{129}
-\indexentry{Spursatz|hyperpage}{131}
-\indexentry{G\IeC {\^a}teaux-differenzierbar|hyperpage}{131}
-\indexentry{G\IeC {\^a}teaux-Ableitung|hyperpage}{131}
-\indexentry{G\IeC {\^a}teaux-Ableitung!rechtsseitig|hyperpage}{131}
-\indexentry{G\IeC {\^a}teaux-differenzierbar|hyperpage}{132}
-\indexentry{reflexiver Raum|hyperpage}{133}
-\indexentry{Tensor|hyperpage}{140}
-\indexentry{Dualraum|hyperpage}{140}
-\indexentry{Tensorprodukt|hyperpage}{140}
-\indexentry{Tensorprodukt|hyperpage}{140}
-\indexentry{dyadisches Produkt|hyperpage}{140}
-\indexentry{Einstein'sche Summenkonvention|hyperpage}{141}
-\indexentry{Tensorprodukt|hyperpage}{141}
-\indexentry{Kroneckerdelta|hyperpage}{141}
-\indexentry{Einheitstensor|hyperpage}{141}
-\indexentry{Einheitstensor|hyperpage}{141}
-\indexentry{Skalarprodukt|hyperpage}{141}
-\indexentry{Skalarprodukt!einfach verj\IeC {\"u}ngend|hyperpage}{141}
-\indexentry{Skalarprodukt|hyperpage}{141}
-\indexentry{Skalarprodukt!doppelt verj\IeC {\"u}ngend|hyperpage}{141}
-\indexentry{Gradient|hyperpage}{142}
-\indexentry{Divergenz|hyperpage}{142}
-\indexentry{Produktregel|hyperpage}{142}
-\indexentry{Integralsatz!Gau\IeC {\ss }|hyperpage}{142}
-\indexentry{Integralsatz!Green|hyperpage}{143}
-\indexentry{1. Green'sche Formel|hyperpage}{143}
+\indexentry{Quadratur!Gau\IeC {\ss }|hyperpage}{116}
+\indexentry{Oszillationsterme|hyperpage}{117}
+\indexentry{Galerkin-L\IeC {\"o}sung|hyperpage}{117}
+\indexentry{Hertz'sche Kontaktproblem|hyperpage}{117}
+\indexentry{Lam\IeC {\'e}-Konstanten|hyperpage}{117}
+\indexentry{Gap-Funktion|hyperpage}{117}
+\indexentry{Neumann-Rand|hyperpage}{120}
+\indexentry{Normalenspanungsflu\IeC {\ss }|hyperpage}{120}
+\indexentry{Lam\IeC {\'e}-Konstanten|hyperpage}{120}
+\indexentry{Gap-Funktion|hyperpage}{121}
+\indexentry{Randbedingungen!Dirichlet|hyperpage}{122}
+\indexentry{Polarkoordinaten|hyperpage}{122}
+\indexentry{Sobolev-Raum|hyperpage}{134}
+\indexentry{Lebesgue-Raum|hyperpage}{134}
+\indexentry{Raum der Testfunktionen|hyperpage}{134}
+\indexentry{schwache Ableitung|hyperpage}{134}
+\indexentry{Spursatz|hyperpage}{136}
+\indexentry{G\IeC {\^a}teaux-differenzierbar|hyperpage}{136}
+\indexentry{G\IeC {\^a}teaux-Ableitung|hyperpage}{136}
+\indexentry{G\IeC {\^a}teaux-Ableitung!rechtsseitig|hyperpage}{136}
+\indexentry{G\IeC {\^a}teaux-differenzierbar|hyperpage}{137}
+\indexentry{reflexiver Raum|hyperpage}{138}
+\indexentry{Tensor|hyperpage}{145}
+\indexentry{Dualraum|hyperpage}{145}
+\indexentry{Tensorprodukt|hyperpage}{145}
+\indexentry{Tensorprodukt|hyperpage}{145}
+\indexentry{dyadisches Produkt|hyperpage}{145}
+\indexentry{Einstein'sche Summenkonvention|hyperpage}{146}
+\indexentry{Tensorprodukt|hyperpage}{146}
+\indexentry{Kroneckerdelta|hyperpage}{146}
+\indexentry{Einheitstensor|hyperpage}{146}
+\indexentry{Einheitstensor|hyperpage}{146}
+\indexentry{Skalarprodukt|hyperpage}{146}
+\indexentry{Skalarprodukt!einfach verj\IeC {\"u}ngend|hyperpage}{146}
+\indexentry{Skalarprodukt|hyperpage}{146}
+\indexentry{Skalarprodukt!doppelt verj\IeC {\"u}ngend|hyperpage}{146}
+\indexentry{Gradient|hyperpage}{147}
+\indexentry{Divergenz|hyperpage}{147}
+\indexentry{Produktregel|hyperpage}{147}
+\indexentry{Integralsatz!Gau\IeC {\ss }|hyperpage}{147}
+\indexentry{Integralsatz!Green|hyperpage}{148}
+\indexentry{1. Green'sche Formel|hyperpage}{148}

@@ -88,7 +88,7 @@ Weiter stellen wir in Abbildung \ref{abb:6.2} eine adaptive Gitterverfeinerung f
 \end{table}
 
 
-Weiter stellen wir in Abbildung \ref{abb:6.3} auch noch die Oszillationen in einer Verfeinerungsstufe $k$ da. Dabei kann man erkennen, dass es in der Stufe $k=1$ noch einen isolierten Knoten geben muss, der jedoch durch Verfeinerung verschwindet, weil es keinen äquivalenten, isolierten Kontaktpunkt für die exakte Lösung gibt. Außerdem können wir sehen, dass durch die Bedingung aus Lemma \ref{lem:4.24} der Wert der Oszillationsterme von Verfeinerung zu Verfeinerung sinkt.
+In Abbildung \ref{abb:6.3} sind als letztes auch noch die Oszillationen in einer Verfeinerungsstufe $k$ dargestellt. Dabei kann man erkennen, dass es in der Stufe $k=1$ noch einen isolierten Knoten geben muss, der jedoch durch Verfeinerung verschwindet, weil es keinen äquivalenten, isolierten Kontaktpunkt für die exakte Lösung gibt. Außerdem können wir sehen, dass durch die Bedingung aus Lemma \ref{lem:4.24} der Wert der Oszillationsterme von Verfeinerung zu Verfeinerung sinkt.
 
 
 
@@ -99,6 +99,9 @@ Weiter stellen wir in Abbildung \ref{abb:6.3} auch noch die Oszillationen in ein
 \caption[Diagramm mit dem Fehler und der Oszillation für Beispiel \ref{bsp:6.1}]{Oszillationsterme, Fehlerindikator $\rho_{\mcal S}$, Fehlerschätzer $-\mcal I_{\mcal Q}$ und exakten Fehler für Beispiel \ref{bsp:6.1} mit $\theta_1=0,3$ und $\theta_2=0,2$\label{abb:6.3}}
 \end{figure}
 \end{bsp}
+
+
+\newpage
 
 
 \begin{bsp}[Singularität und L-förmiges Gebiet]\label{bsp:6.2}
@@ -137,7 +140,7 @@ lautet. Die Funktion hat im Ursprung eine Singularität. Damit können wir auch 
 \begin{center}
 \includegraphics[width=13cm]{Abbildungen/num_loesung_rec7_bsp2.eps}
 \end{center}
-\caption{Numerische Lösung des Beispiels \ref{bsp:6.2} in der Verfeinerungsstufe 7 mit $\theta_1=\theta_2 = 0,3$}
+\caption{Numerische Lösung des Beispiels \ref{bsp:6.2} in der Verfeinerungsstufe 7 mit $\theta_1=\theta_2 = 0,3$\label{abb:6.4}}
 \end{figure}
 
 \begin{figure}[h]
@@ -146,15 +149,16 @@ lautet. Die Funktion hat im Ursprung eine Singularität. Damit können wir auch 
 \hfill
 \subfigure[Verfeinerungsstufe 8]{\includegraphics[width=6.26cm]{Abbildungen/mesh_rec8_bsp2.eps}}
 \end{center}
-\caption{Netzverfeinerungen für das Beispiel \ref{bsp:6.2} mit $\theta_1=\theta_2=0,3$}
+\caption{Netzverfeinerungen für das Beispiel \ref{bsp:6.2} mit $\theta_1=\theta_2=0,3$\label{abb:6.5}}
 \end{figure}
 \end{bsp}
 
 \begin{bsp}\label{bsp:6.3}
 Als letztes Beispiel für ein affines Hindernisproblem können wir das Beispiel \ref{bsp:6.2} noch erweitern, indem wir als affines Hindernis nicht die Nullfunktion, sondern eine umgedrehte Pyramide verwenden, die gegeben wird durch
 \[
-	\psi (x) \coloneqq 0,5 \,  (\dist (x,\partial [-2,2]^2)-2,01) \, , \quad x \in \bar \Omega \, .
+	\psi (x) \coloneqq 0,5 \,  (\dist (x,\partial [-2,2]^2)-2,01) \, , \quad x \in \bar \Omega \, ,
 \]
+während alle übrigen Eingabedaten gleich bleiben. In Abbildung \ref{abb:6.7} können wir das Hindernis gut an der Ecke des Gebietes $\Omega$ erkennen, wenn wir diese mit der Lösung von Beispiel \ref{bsp:6.2} aus Abbildung \ref{abb:6.4} vergleichen.
 
 \textbf{Hier kommen noch die Auswertungen der Daten rein!}
 
@@ -163,7 +167,7 @@ Als letztes Beispiel für ein affines Hindernisproblem können wir das Beispiel 
 \begin{center}
 \includegraphics[width=13cm]{Abbildungen/num_loesung_bsp3.eps}
 \end{center}
-\caption{Numerische Lösung des Beispiels \ref{bsp:6.3} mit $\theta_1=\theta_2 = 0,3$}
+\caption{Numerische Lösung des Beispiels \ref{bsp:6.3} mit $\theta_1=\theta_2 = 0,3$\label{abb:6.7}}
 \end{figure}
 
 

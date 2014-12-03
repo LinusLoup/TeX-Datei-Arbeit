@@ -54,7 +54,7 @@ Dabei gilt $J>0$, da die Orientierung der Eckpunkte von $\widetilde T$ zu $T$ er
 	& =\tilde u(\xi,\eta) \, .
 \end{align*}
 Wir rechnen also unter Verwendung der \idx{Kettenregel} nach, dass
-\begin{align*}
+\begin{align}\notag
 	\begin{pmatrix} \tilde u_\xi \\ \tilde u_\eta \end{pmatrix} & = \begin{pmatrix}
 				x_2-x_1 & y_2-y_1 \\
 				x_3-x_1 & y_3-y_1
@@ -62,8 +62,8 @@ Wir rechnen also unter Verwendung der \idx{Kettenregel} nach, dass
 	\Llra  \begin{pmatrix}  u_x \\  u_y \end{pmatrix} & =\frac 1J \begin{pmatrix}
 				y_3-y_1 & y_1-y_2 \\
 				x_1-x_3 & x_2-x_1
-			\end{pmatrix} \begin{pmatrix} \tilde u_\xi \\ \tilde u_\eta \end{pmatrix}
-\end{align*}
+			\end{pmatrix} \begin{pmatrix} \tilde u_\xi \\ \tilde u_\eta \end{pmatrix}\label{eq:Kettenregel}
+\end{align}
 gilt. Damit können wir $\nabla u \nabla v$ auf dem Referenzelement $\widetilde T$ ausdrücken durch
 \begin{align*}
 	\begin{pmatrix} u_x \\ u_y \end{pmatrix}^T \begin{pmatrix} v_x \\ v_y \end{pmatrix} & = \frac 1{J^2} \begin{pmatrix} \tilde u_\xi \\ \tilde u_\eta \end{pmatrix}^T \begin{pmatrix}
@@ -318,8 +318,119 @@ Sollten wir ein symmetrisches Problem vorliegen haben, dann ist es von Vorteil d
 \section{Implementierung eines Kontaktproblems}
 \label{kap:5.2}
 
-\subsubsection{Grundlegende Änderungen bzgl. der Implementierung für das Hindernisproblem}
+Für die Untersuchung eines Kontaktproblems ist das \textit{\idx{Hertz'sche Kontaktproblem}} implementiert worden. Hierbei handelt es sich um einen Zylinder, der mit einer Oberflächenlast $\bs t$ belastet auf eine Ebene gedrückt wird.
 
+\subsubsection{Grundlegende Änderungen in der Implementierung bzgl. des Hindernisproblems}
+
+Der Aufbau der Startdatei bleibt grundlegend gleich; es ändern sich nur die Übergabe der Lastfunktionen (Volumenlast $\bs b$ und Flächenlast $\bs t$) und es müssen neue Parameter $\mu$ und $\lambda$, die \idx{Lamé-Konstanten}, hinzugefügt werden. Diese werden als Vektor übergeben, damit wir für den Zylinder und die Ebene verschiedene Elastizitäten erhalten.
+
+Da wir den Zylinder nur vertikal, d.h. normal zur Ebene, belasten, wird für die \idx{Gap-Funktion} der Einfachheit halber nicht der Normalenvektor an $\Omega$ verwendet, sondern der Vektor $(0,\pm 1)^T$.
+
+Da wir nun zwei verschiedene Lasten erhalten, was den Lastvektor der rechten Seite in der Variationsungleichung ändert, und auch eine andere Bilinearform $a(\cdot,\cdot)$ verwenden, sowie verschiedene Randbedingungen haben, müssen in folgenden Dateien Änderungen vorgenommen werden:
+\begin{itemize}
+\item {\ttfamily assemble.m},
+\item {\ttfamily local_mat.m},
+\item {\ttfamily eval_rho_p.m},
+\item {\ttfamily normal_flux.m},
+\item {\ttfamily adaptive_refinement_solution.m}.
+\end{itemize}
+
+Zu den Änderungen gibt es noch zwei neue Dateien: {\ttfamily quad_edge.m} und {\ttfamily boundary_disjunction.m}. Erstere arbeitet analog zu {\ttfamily quad_tri.m} und gibt einfach die Stützstellen und Gewichte für die Gauß-Quadratur über eine Kante mit den dazu gegebenen Eckpunkten wieder zurück. Die Funktion {\ttfamily boundary_disjunction.m} berechnet für die übergebenen Randpunkte drei disjunkte Teilmengen von Randpunkten, die mit den Dirichlet-, Neumann und Kontaktrandpunkten übereinstimmen.
+
+\subsubsection{Lokale Steifigkeitsmatrizen und Assemblierung}
+
+Die Assemblierung der lokalen Matrizen bzw. Vektoren ist nur leicht verändert. Da wir in dem Kontaktproblem ein Verschiebungsfeld berechnen, werden die Matrizen und Vektoren doppelt so groß als im Hindernisproblem. Um weiterhin eine Struktur zu behalten, werden x- und y-Verschiebung blockweise in den Verschiebungsvektor hintereinander geschrieben. Dies führt dazu, dass bei der Assemblierung der Steifigkeitsmatrix $A$ auch ($2\times 2$)-Matrixblöcke assembliert werden. Analog ist das Vorgehen für den Lastvektor blockweise durchzuführen. Als Änderung zum Hindernisproblem erhalten wir hier jedoch auch eine Last, die auf bestimmten Randpunkten (Neumann-Rand) existiert. Diese wird mithilfe von {\ttfamily quad_edge.m} durch direkte Integration über die jeweiligen Randkanten in den Lastvektor in die passenden Komponenten eingepflegt.
+
+Die Berechnung der lokalen Steifigkeitsmatrizen wird analog zu \eqref{eq:5.3} hergeleitet. Wir rechnen nach, dass bzgl. des Referenzdreiecks $\widetilde T$ gilt:
+\begin{align}\notag
+	a_T(\bs u, \bs v) & = \int_T \bs \eps(\bs u) : \mcal C : \bs \eps(\bs v) \, dxdy \\
+	\notag
+	& = \frac 1 J \int_{\widetilde T} a \, \tilde u_{1,1} \tilde v_{1,1} + b \, (\tilde u_{1,2} \tilde v_{1,1} + \tilde u_{1,1} \tilde v_{1,2}) + c \, (\tilde u_{2,1} \tilde v_{2,2} + \tilde u_{2,2} \tilde v_{2,1}) \\ 
+	& \ \ \, \notag + d \, (\tilde u_{1,1} \tilde v_{2,2}+\tilde u_{2,2} \tilde v_{1,1}) + e \, (\tilde u_{1,1} \tilde v_{2,1}+\tilde u_{2,1} \tilde v_{1,1}) + f \, \tilde u_{1,2} \tilde v_{1,2} \\
+	\notag & \ \ \, + g \, \tilde u_{2,1} \tilde v_{2,1} + h\, (\tilde u_{1,2} \tilde v_{2,1} +\tilde u_{2,1} \tilde v_{1,2}) + i \, (\tilde u_{1,2} \tilde v_{2,2} + \tilde u_{2,2} \tilde v_{1,2}) \\
+	& \ \ \, + j \, \tilde u_{2,2} \tilde v_{2,2} \, d\xi d\eta \, ,\label{eq:5.9}
+\end{align}
+wobei für beide Komponenten von $\bs u$ und $\bs v$ jeweils die Kettenregel \eqref{eq:Kettenregel} angewendet angewendet wurde. Wir lesen $(\cdot)_{i,j}$ so, dass die $i$-te Komponente von $(\cdot)$ nach der $j$-ten Variable abgeleitet wird. Die Koeffizienten aus \eqref{eq:5.9} berechnen sich als
+\begin{align*}
+	a &= \mu \, (x_3-x_1)^2 +(2\mu+\lambda) \, (y_3-y_1)^2 \, , \\
+	b & = -(\mu \, (x_3-x_1)(x_2-x_1) + (2\mu+\lambda) \, (y_3-y_1)(y_2-y_1)) \, , \\
+	c & = -(\mu \, (y_3-y_1)(y_2-y_1) + (2\mu+\lambda) \, (x_3-x_1)(x_2-x_1)) \, ,  \\
+	d & = \mu \, (x_3-x_1)(y_2-y_1) + \lambda \, (y_3-y_1)(x_2-x_1) \, , \\
+	e & = -(\mu+\lambda) \, (x_3-x_1)(y_3-y_1) \, , \\
+	f & = \mu \, (x_2-x_1)^2 + (2\mu + \lambda) \, (y_2-y_1)^2 \, ,  \\
+	g & = \mu \, (y_3-y_1)^2 + (2\mu + \lambda) \, (x_3-x_1)^2 \, ,  \\
+	h & = \mu\, (x_2-x_1)(y_3-y_1) + \lambda\, (x_3-x_1)(y_2-y_1) \, , \\
+	i & = -(\mu + \lambda) \, (x_2-x_1)(y_2-y_1) \, ,  \\
+	j & = \mu \, (y_2-y_1)^2 + (2\mu +\lambda) \, (x_2-x_1)^2 \, .
+\end{align*}
+Als Basis für $\mscr S_h$ über dem Referenzelement $\widetilde T$ verwenden wir
+\begin{align*}
+	 \bs \psi_1(\xi,\eta) = \begin{pmatrix} 1-\xi-\eta \\ 0 \end{pmatrix}  \, , \quad \bs \psi_2(\xi,\eta) & = \begin{pmatrix} 0 \\ 1-\xi-\eta  \end{pmatrix} \, , \quad \bs \psi_3(\xi,\eta) = \begin{pmatrix} \xi \\ 0 \end{pmatrix}  \, , \\
+	  \bs \psi_4(\xi,\eta)  = \begin{pmatrix} 0 \\ \xi  \end{pmatrix} \, , \quad
+	 \bs \psi_5(\xi,\eta) & = \begin{pmatrix} \eta \\ 0\end{pmatrix}  \, , \quad  \bs \psi_6(\xi,\eta)  = \begin{pmatrix} 0 \\  \eta  \end{pmatrix}\, .
+\end{align*}
+Mit dieser Basis und den übrigen Resultaten lässt sich aus \eqref{eq:5.9} die lokale Steifigkeitsmatrix mit umfangreicher Rechnung zu
+\[
+	S = \frac 1{2J} \begin{pmatrix}
+					a+ 2b & d+e+h+i & -a-b & -e-h & -b-f & -d-i \\
+					d+e+h+i & 2c+j+g &  -d-e & -c & -h-i & -c-j \\
+					-a-b & -d-e & a & e & b & d \\
+					-e-h & -c & e & g & h & c+d \\
+					-b-f & -h-i & b & h & f & i \\
+					-d-i & -c-j & d & c+d & i & j
+				\end{pmatrix}
+\]
+bestimmen. Analog zu der linearen Basis können wir auch eine Basis aus quadratischen Bubble-Funktionen erstellen. Da die Berechnung der der lokalen Steifigkeitsmatrix in diesem Fall sehr aufwendig ist und wir für die Bilinearform $a_{\mscr Q}$ nur die Hauptdiagonale der Matrix benötigen, bestimmen wir diese analog zu $S$ als
+\[
+	\bar S =\frac 4{3J} \operatorname{diag} (a+b+f, c+g+j, a+b+f, c+g+j, a+b+f, c+g+j) \, .
+\]
+Wie im eindimensionalen Fall können wir auch hier wieder den lokalen Anteil von $a(\bs u_{\mscr S},\bs v)$ für ein Dreieck $T$ berechnen. Wir berechnen auch hier unter Verwendung der Kettenregel \eqref{eq:Kettenregel}, dass auf einem Dreieck $T$
+\begin{align*}
+	a_T(\bs u_{\mscr S},\bs v) & = \frac 1J \int_{\widetilde T} (a\, \tilde u_{\mscr S_{1,1}} + b \, \tilde u_{\mscr S_{1,2}} + e \, \tilde u_{\mscr S_{2,1}} + d \, \tilde u_{\mscr S_{2,2}}) \, \tilde v_{1,1} \\
+	& \ \ \, + (b\, \tilde u_{\mscr S_{1,1}} + f \, \tilde u_{\mscr S_{1,2}} + h \, \tilde u_{\mscr S_{2,1}} + i \, \tilde u_{\mscr S_{2,2}}) \, \tilde v_{1,2} \\
+	& \ \ \, +(e\, \tilde u_{\mscr S_{1,1}} + h \, \tilde u_{\mscr S_{1,2}} + g \, \tilde u_{\mscr S_{2,1}} + c \, \tilde u_{\mscr S_{2,2}}) \, \tilde v_{2,1} \\
+	& \ \ \, +(d\, \tilde u_{\mscr S_{1,1}} + i \, \tilde u_{\mscr S_{1,2}} + c \, \tilde u_{\mscr S_{2,1}} + j \, \tilde u_{\mscr S_{2,2}}) \, \tilde v_{2,2} \, d \xi d\eta  \\
+	& = \alpha \, \bar {\bs w}_1 + \beta \, \bar {\bs w}_2 + \gamma \, \bar {\bs w}_3 + \delta\, \bar {\bs w}_4
+\end{align*}
+gilt. Durch Einsetzen der Basisfunktionen in $a_T(\bs u_{\mscr S},\bs v)$ ergeben sich analog zu $\bs w_1, \bs w_2$ die einzelnen lokalen Anteile von $\rho_{\mscr S}$ mit
+\[
+	\bar{\bs w}_1 = \begin{pmatrix}
+					0 \\ 0 \\ \frac 23 \\ 0 \\ -\frac 23 \\ 0
+				\end{pmatrix} \, , \quad
+	\bar{\bs w}_2 = \begin{pmatrix}
+					-\frac 23 \\ 0 \\ \frac 23 \\ 0 \\ 0 \\ 0
+				\end{pmatrix} \, , \quad
+	\bar{\bs w}_3 = \begin{pmatrix}
+					0 \\ 0 \\ 0 \\ \frac 23 \\ 0  \\  -\frac 23 
+				\end{pmatrix} \, , \quad
+	\bar{\bs w}_4 = \begin{pmatrix}
+					0 \\ -\frac 23 \\ 0 \\ \frac 23 \\ 0 \\ 0
+				\end{pmatrix} \, .											
+\]
+
+
+\subsubsection{Berechnung der lokalen Anteile von $\rho_{\mscr S}$}
+
+Für die Berechnung der lokalen Anteile von $\rho_{\mscr S}(\bs\eps_{\mscr V})$ verwenden wir die Gleichung \eqref{eq:4.91}. Diese ist analog zum Hindernisproblem definiert, nur dass in den Integralen Skalarprodukte, also mehrere Summanden, vorhanden sind über die integriert werden müssen. Der grundlegende Aufbau des Quellcodes bleibt also gleich. 
+
+In Punkten, die auf dem \idx{Neumann-Rand} liegen, müssen wir noch die Anteile aus dem Randintegral im Vektor der lokalen Anteile von $\rho_{\mscr S}(\bs\eps_{\mscr V})$ hinzufügen. 
+
+
+
+\subsubsection{Berechnung des Normalenspannungsflußes}
+
+Der \idx{Normalenspanungsfluß} $\bs j_E$, der zwischen den Gleichungen \eqref{eq:4.89} und \eqref{eq:4.90} definiert ist, ist analog zum Normalenfluss definiert. Da allerdings hier die Spannung für $\bs u_{\mscr S}$ berechnet werden muss, werden der Funktion {\ttfamily normal_flux.m} zusätzlich die \idx{Lamé-Konstanten} $\lambda$ und $\mu$ übergeben. Diese fließen im Quellcode in die Beziehung $\bs\sigma = \mcal C:\bs \eps = 2\mu \bs \eps + \lambda \,  (\tr \bs \eps)  \bs I$ ein. Der sonstige Aufbau der Datei bleibt gleich und wir nutzen aus, dass wir mit {\ttfamily gradu.m} die Gradienten für die erste und zweite Komponente des Verschiebungsfeldes $\bs u$ getrennt berechnen können.
+
+
+
+\subsubsection{Besonderheiten in {\ttfamily adaptive_refinement_solution.m}}
+
+Auch hier muss der grundlegende Aufbau der Quellcodes nicht verändert werden, allerdings müssen ein paar Zusätze eingefügt werden. Diese beziehen sich vor allem auf die Tatsache, dass die Nebenbedingung bzgl. des Hindernisses nicht mehr auf ganz $\Omega$ gilt, sondern noch auf einem Teil des Randes, dem Kontaktrand $\Gamma_c$. Daher berechnen wir uns zunächst die Indizes für die Randpunkte, die auf dem Kontaktrand liegen und bestimmen alle notwendigen Größen zur Lösung der Variationsungleichung bzgl. dieser Punkte. Also wird das Hindernis (hier die \idx{Gap-Funktion}) beispielsweise nur an den Kontaktrandpunkten ausgewertet. Weiter müssen wir für diese Punkte auch die Matrix $B$ aus Kapitel \ref{kap:3.2.3} aufstellen. Da wir der Einfachheit halber für $\bs n$ die Vektoren $(0,\pm 1)^T$ verwendet haben (je nach Lage des Knotens), erhalten wir für $B$ eine $(m\times n)$-Matrix ($m = \abs{\mcal N_{\Gamma_c}}, n = \abs{\mcal N}$), die in jeder Zeile nur einen Eintrag ungleich Null, nämlich gleich $\pm 1$ hat. Dieser befindet sich gerade in der $2k$-ten Spalte, wenn der dazugehörige Randpunkt den Index $k$ hat. (Analoges Vorgehen ist für die Nebenbedingung des lokalen Defektproblems notwendig.)
+
+
+\subsubsection{Erweiterung der vorhandenen Implementierung}
+
+In der Implementierung fehlt die Verwendung der Oszillationsterme. Wenn diese noch eingearbeitet werden, kann man analog zum Algorithmus \ref{alg:4.1} den Schritt 9 auf das Kontaktproblem übertragen und damit erreichen, dass sich mit Sicherheit in jedem Verfeinerungsschritt die Oszillationen verringern.
 
 
 

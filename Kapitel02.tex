@@ -23,7 +23,7 @@ Es sei $H = \R^n$ und $(\cdot,\cdot)_H : \R^n\times \R^n \ra \R$ definiert durch
 \end{bsp*}
 
 
-Wir wollen die im Folgenden aufgeführten Eigenschaften später auf weniger triviale Räume anwenden, vor allem den Funktionenraum $H^1_0(\Omega)$ (s. Anhang \ref{anhang:A} Sobolev-Räume\index{Sobolev-Raum}). Um alle Aussagen auch allgemein verwenden zu können, sei in diesem Kapitel $H$ ein reeller Hilbertraum mit Skalarprodukt $(\cdot,\cdot)_H$ und der dazu induzierten Norm $\norm v_H^2 = (v,v)_H$ für alle $v \in H$.
+Wir wollen die im Folgenden aufgeführten Eigenschaften später auf weniger triviale Räume anwenden, vor allem den Funktionenraum $H^1_0(\Omega)$ (s. Anhang \ref{anhang:A}, Sobolev-Räume\index{Sobolev-Raum}). Es sei in diesem Kapitel $H$ ein reeller Hilbertraum mit Skalarprodukt $(\cdot,\cdot)_H$ und der dazu induzierten Norm $\norm v_H^2 = (v,v)_H$ für alle $v \in H$.
 
 
 \begin{bem*}
@@ -40,7 +40,7 @@ Da wir uns in dieser Arbeit mit Variationsproblemen über konvexen abgeschlossen
 \begin{satz}[\idx{Approximationssatz}]\label{satz:2.2}
 Es sei $\emptyset\neq M\subset H$ konvex und abgeschlossen. Dann existiert für alle $v\in H$ ein $m_v\in M$ mit
 \[ 
-  	\norm{v-m_v}=\dist(v,M)\coloneqq \inf_{w\in M}\norm{v-w}\, .
+  	\norm{v-m_v}_H=\dist(v,M)\coloneqq \inf_{w\in M}\norm{v-w}_H\, .
 \]
 Wir nennen $P_M:H\ra M$ mit $v\mapsto m_v$ die \idx{Projektionen} auf $M$.
 \end{satz}
@@ -51,7 +51,7 @@ Der Beweis ist in \cite{Walker} Kapitel 7.1 Satz 7.2 zu finden.
 
 
 \begin{satz}[Charakterisierung der Projektionen]\label{satz:2.3}
-$\emptyset\neq M\subset H$ sei abgeschlossen, konvex und $v\in H$. Dann gilt:
+$\emptyset\neq M\subset H$ sei konvex, abgeschlossen und $v\in H$. Dann gilt:
 \[ 
   	m_0=P_M(v)\quad\Longleftrightarrow\quad (m-m_0, v-m_0)_H\leq0 
 \]
@@ -122,7 +122,7 @@ Der Beweis findet sich in \cite{Walker} Kapitel 7.1 Theorem 7.6.
 
 
 \begin{kor}\label{kor:2.6}
-Es sei $\emptyset \not = M \subset H$   ein Untervektorraum. Dann ist $\bar M = H$ genau dann, wenn $M^\perp = \{0\}$ ist.
+Es sei $\emptyset \not = M \subset H$   ein Untervektorraum. Dann ist der Abschluss $\bar M = H$ genau dann, wenn $M^\perp = \{0\}$ ist.
 \end{kor}
 
 \begin{proof}
@@ -195,7 +195,7 @@ $\tilde u = u-u_0$
 \end{subequations}
 mit $\tilde f = f-\Delta u_0$. Also reicht es aus, sich auf das \textit{homogene Dirichlet-Problem}\index{Dirichlet-Problem!homogenes} \eqref{eq:2.2a} zu beschränken. Im Folgenden betrachten wir somit \eqref{eq:2.1a} mit $g \equiv 0$.
 
-Mit $H^1_0 (\Omega)$ bezeichnen wir, wie in Bemerkung \ref{bem:A.8} beschrieben, den Raum der in $\Omega$ einmal schwach differenzierbaren Funktionen, die am Rand $\Gamma$ verschwinden im Sinne der Spur. Wählen wir nun ein beliebiges $v \in H^1_0(\Omega)$, dann folgt durch Multiplikation von \eqref{eq:2.1aa} mit $v$ und Integration über $\Omega$ die Beziehung
+Mit $H^1_0 (\Omega)$ bezeichnen wir, wie in Bemerkung \ref{bem:A.8} im Anhang beschrieben, den Raum der in $\Omega$ einmal schwach differenzierbaren Funktionen, die am Rand $\Gamma$ verschwinden im Sinne der Spur. Wählen wir nun ein beliebiges $v \in H^1_0(\Omega)$, dann folgt durch Multiplikation von \eqref{eq:2.1aa} mit $v$ und Integration über $\Omega$ die Beziehung
 \begin{align*}
 	\int_\Omega -\Delta u \cdot v \, dx = \int_\Omega f v \, dx \, .
 \end{align*}
@@ -286,7 +286,7 @@ Sei $H$ ein Hilbertraum. Das Funktional $J: H \ra \R, J(v) =\frac 1 2 a(v,v)-F(v
 \end{lemma}
 
 \begin{proof}
-Wir rechnen einfach nach, dass der Grenzwert des Differenzenquotienten existiert und verwenden dabei die Bilinearität von $a$ und Linearität von $F$. Seien $u,v \in H$, dann gilt
+Wir rechnen einfach nach, dass der Grenzwert des Differenzenquotienten existiert und verwenden dabei die Bilinearität von $a$ und die Linearität von $F$. Seien $u,v \in H$, dann gilt
 \begin{align*}
 	\mscr D_v J(u) & = \lim_{t\ra 0} \frac{J(u+tv)-J(u)}t \\ 
 	&= \lim_{t\ra 0} \frac{J(u) + t \, (a(u,v)-F(v)) + \frac {t^2}2 a(v,v)-J(u)}t \\
@@ -534,7 +534,7 @@ da $u \not = 0$ und die Summe zweier bijektiver linearer Operatoren wieder bijek
 \label{kap:2.3}
 
 
-Für unser Modellproblem kann man zeigen, dass es für bestimmte Gebiete $\Omega$ eine exakte, d.h. analytische, Lösung gibt (vgl. \cite{Walker} Kapitel 5). Diese muss im Allgemeinen nicht für jedes Problem bekannt oder gar berechenbar sein. Daher wollen wir nicht mehr die exakte Lösung von unserer Variationsgleichung \eqref{eq:2.4} berechnen, sondern eine Approximation davon, die sogenannte \textit{\idx{Galerkin-Approximation}}.
+Für unser Modellproblem kann man zeigen, dass es für bestimmte Gebiete $\Omega$ eine exakte, d.h. analytische, Lösung gibt (vgl. \cite{Walker} Kapitel 5). Solch eine Lösung muss im Allgemeinen nicht für jedes Problem bekannt oder gar berechenbar sein. Daher wollen wir nicht mehr die exakte Lösung von unserer Variationsgleichung \eqref{eq:2.4} berechnen, sondern eine Approximation davon, die sogenannte \textit{\idx{Galerkin-Approximation}}.
 
 Unter dem \textit{\idx{Galerkin-Verfahren}} verstehen wir, dass wir die Variationsgleichung
 \begin{align}\label{eq:2.8}
@@ -547,7 +547,7 @@ nur noch auf einem endlich dimensionalen Unterraum $V_h \subset H$ lösen wollen
 
 
 \begin{satz}\label{satz:2.17}
-Das "`Galerkin-Problem"' \eqref{eq:2.9} hat eine eindeutige Lösung.
+Das Galerkin-Verfahren \eqref{eq:2.9} hat eine eindeutige Lösung.
 \end{satz}
 
 \begin{proof}
@@ -559,7 +559,7 @@ Da $V_h$ ein endlich dimensionaler Unterraum von $H$ ist, wird jener von einer e
 \begin{align}\label{eq:2.10}
 	\exists! \, \bs\mu \in \R^N :  u_h(x) = \sum_{i = 1}^N \mu_i \,  \phi_i(x) \, .
 \end{align}
-Da $F(\cdot),a(u,\cdot)$ linear sind und alle $v_h \in V_h$ wie in \eqref{eq:2.10} darstellbar sind, ist \eqref{eq:2.9} äquivalent zum Problem
+Da $F(\cdot),a(u,\cdot)$ linear sind und alle $v_h \in V_h$ wie in \eqref{eq:2.10} darstellbar sind, ist das \idx{Galerkin-Verfahren} \eqref{eq:2.9} äquivalent zum Problem
 \[
 	a(u_h,\phi_i) = F(\phi_i) \quad \forall \, i = 1, \ldots,N \, ,
 \]
@@ -594,7 +594,7 @@ da $\sum \nu_i \phi_i = v_h \not = 0$ wegen $\bs \nu \not = \bs 0$. Damit ist $A
 \end{bem}
 
 
-Um eine Basis $\mcal B_h$ bzgl. $V_h$ beschreiben zu können, muss das Gebiet $\Omega\subset \R^2$ in endliche Elemente zerlegt werden. Die Basis $\mcal B_h$ und damit der Raum $V_h$ wird dann bzgl. einer Zerlegung $\mcal T_h$ beschrieben. Eine gebräuchliche Zerlegung $\mcal T_h$ kann durch Dreiecke oder auch Vierecke geschehen. Wir wollen in dieser Arbeit nur Zerlegungen durch Dreiecke betrachten, hierfür führen wir den folgenden Begriff ein (vgl. \cite{BraeFEM} Seite 58 oder \cite{StarkePDE} Seite 19).
+Um eine Basis $\mcal B_h$ bzgl. $V_h$ beschreiben zu können, muss das Gebiet $\Omega\subset \R^2$ in endliche Elemente zerlegt werden. Die Basis $\mcal B_h$ und damit der Raum $V_h$ wird dann bzgl. einer Zerlegung $\mcal T_h$ beschrieben. Eine gebräuchliche Zerlegung $\mcal T_h$ kann durch Dreiecke oder auch Vierecke geschehen. Wir wollen in der vorliegenden Arbeit nur Zerlegungen durch Dreiecke betrachten, hierfür führen wir den folgenden Begriff ein (vgl. \cite{BraeFEM} Seite 58 oder \cite{StarkePDE} Seite 19).
 
 
 \begin{defi}[\idx{Triangulierung}]\label{def:2.19}
@@ -612,7 +612,7 @@ Wir nennen eine Triangulierung \textit{konform}\index{Triangulierung!konform} od
 \begin{enumerate}[(d)]
 \item Für jede Kante $k$ eines Dreiecks $T \in \mcal T$ gilt entweder $k \subset \partial \Omega$ oder $k = \tilde k$ für eine weitere Kante $\tilde k$ eines weiteren Dreiecks $\widetilde T \in \mcal T$. 
 \end{enumerate}
-Der Radius des Umkreis eines Dreieckes $T$ wird mit $h$ bezeichnet und beschreibt die Größe eines Dreiecks. Wenn jedes Dreieck $T \in \mcal T$ höchstens einen Radius von $h$ hat, so schreiben wir $\mcal T_h$ statt $\mcal T$.
+Der Radius des Umkreises eines Dreieckes $T$ wird mit $h$ bezeichnet und beschreibt die Größe eines Dreiecks. Wenn jedes Dreieck $T \in \mcal T$ höchstens einen Radius von $h$ hat, so schreiben wir $\mcal T_h$ statt $\mcal T$.
 \end{defi}
 
 
@@ -682,7 +682,7 @@ In der Abbildung \ref{abb:2.2} ist eine quasi-uniforme zulässige Zerlegung und 
 
 
 \begin{bem}\label{bem:2.22}
-Wie man leicht sehen kann, ist jede uniforme Zerlegung auch quasi-uniform. Umgekehrt gilt dies nicht (s. Abbildung oben).
+Wie man leicht sehen kann, ist jede uniforme Zerlegung auch quasi-uniform. Umgekehrt gilt dies nicht (s. Abbildung \ref{abb:2.2}).
 
 Allerdings lassen uniforme Zerlegungen keine lokalen Verfeinerungen zu. Da dies für adaptive Verfeinerungsstrategien allerdings ausschlaggebend ist, gehen wir im Folgenden immer von einer quasi-uniformen Zerlegung $\mcal T_h$ aus.
 \end{bem}
@@ -700,7 +700,7 @@ Der Beweis ist in \cite{BraeFEM} Kapitel II, \S5, Satz 5.2 zu finden.
 \end{proof}
 
 
-Der Satz \ref{satz:2.23} rechtfertigt, dass wir für das Modellproblem \eqref{eq:2.4} auf einer Triangulierung $\mcal T_h$ einen Ansatzraum $V_h$ mit stetigen Funktionen $v \in C^0(\Omega)$ verwendet, da dann auch $v \in H^1(\Omega)$ gilt. Daher wählen wir
+Der Satz \ref{satz:2.23} rechtfertigt, dass wir für das Modellproblem \eqref{eq:2.4} auf einer Triangulierung $\mcal T_h$ einen Ansatzraum $V_h$ mit stetigen Funktionen $v \in C^0(\Omega)$ verwenden, da dann auch $v \in H^1(\Omega)$ gilt. Daher wählen wir
 \[
 	V_h \coloneqq \{v \in C^0(\Omega) \mid v|_T \in \mcal P_m \text{ für } T\in \mcal T_h, v|_{\partial \Omega} = 0\} \, ,
 \]
@@ -729,7 +729,7 @@ Sei $m \ge 0$. In einem Dreieck $T$ seien auf $m+1$ Linien $l = 1+2+\ldots+(m+1)
 \end{bem}
 
 \begin{proof}
-Der Beweis steht in \cite{BraeFEM} Kapitel II, \S 5, Bemerkung 5.4.
+Der Beweis ist in \cite{BraeFEM} Kapitel II, \S 5, Bemerkung 5.4 zu finden.
 \end{proof}
 
 
@@ -760,11 +760,11 @@ Der Beweis steht in \cite{BraeFEM} Kapitel II, \S 5, Bemerkung 5.4.
 \end{figure}
 
 
-Damit lässt sich für $V_h$ mit einem beliebigen Polynomgrad $m$ eine eindeutige \idx{nodale Basis} finden, die den Raum aufspannt. Im Weiteren wollen wir lineare Ansatzfunktionen verwenden. Wir bezeichnen, sofern nicht anders beschrieben, also im Folgenden $\mcal S_h$ mit
+Damit lässt sich für $V_h$ mit einem beliebigen Polynomgrad $m$ eine eindeutige \idx{nodale Basis} finden, die den Raum aufspannt. Im Weiteren wollen wir lineare Ansatzfunktionen verwenden. Sofern nicht anders beschrieben bezeichnen wir im Folgenden $\mcal S_h$ mit
 \[
 	\mcal S_h \coloneqq \{v \in C^0(\Omega) \mid v|_T \in \mcal P_1 \text{ für } T\in \mcal T_h, v|_{\partial \Omega} = 0\} \, ,
 \]
-also sind in diesem Raum die Eckpunkte der Dreiecke vorgegeben bzw. später im LGS gesucht. Das \idx{Galerkin-Verfahren} mit dem Ansatzraum $\mcal S_h$ wird auch \idx{Finite-Elemente-Methode} (kurz: FEM) genannt. 
+d.h.  in diesem Raum sind die Eckpunkte der Dreiecke vorgegeben bzw. später im LGS gesucht. Das \idx{Galerkin-Verfahren} mit dem Ansatzraum $\mcal S_h$ wird auch \idx{Finite-Elemente-Methode} (kurz: FEM) genannt. 
 
 Folgendes Beispiel soll zur Erläuterung der Berechnung von den Matrixeinträgen der Steifigkeitsmatrix $A$ dienen.
 
@@ -982,13 +982,13 @@ Die \idx{Galerkin-Approximation} $u_h$ ist die beste Approximation von $u$ bzgl.
 \end{satz}
 
 \begin{proof}
-Zunächst betrachten wir die exakte und approximierte Variationsgleichung \eqref{eq:2.8} und \eqref{eq:2.9}, d.h.
+Zunächst betrachten wir die exakte und approximierte Variationsgleichung \eqref{eq:2.8} und \eqref{eq:2.9}, d.h.  finde $u \in H$ und $u_h \in V_h$, so dass
 \begin{align}\label{eq:2.13}
 	a(u,v) &= F(v) \quad \ \, \forall \, v \in H \, , \\
 	\label{eq:2.14}
 	a(u_h,v_h) &= F(v_h) \quad \forall \, v_h \in V_h \, .
 \end{align}
-Da $V_h \subset H$ ist, gilt \eqref{eq:2.13} auch für alle $v_h\in V_h$. Ersetzen wir dies  in \eqref{eq:2.13} und subtrahieren \eqref{eq:2.13} und \eqref{eq:2.14}, so erhalten wir
+Da $V_h \subset H$ ist, gilt \eqref{eq:2.13} auch für alle $v_h\in V_h$. Ersetzen wir dies  in \eqref{eq:2.13} und subtrahieren \eqref{eq:2.13} und \eqref{eq:2.14} voneinander, so erhalten wir
 \begin{align}\label{eq:2.15}
 	a(u-u_h,v_h ) = 0 \quad \forall \, v_h \in V_h \, .
 \end{align}
@@ -1010,7 +1010,7 @@ Die Gleichung \eqref{eq:2.15} drückt aus, dass die Verbindung $u-u_h$ orthogona
 
 
 \begin{satz}[Céa]\label{satz:2.27}
-Der Fehler der \idx{Galerkin-Approximation} $u_h$ hat in der $H^1$-Norm die Eigenschaft
+Der Fehler der \idx{Galerkin-Approximation} $u_h$ zur exakten Lösung $u$ hat in der $H^1$-Norm die Eigenschaft
 \[
 	\norm{u-u_h}_1 \le \tilde c \inf_{v\in V_h} \norm{u-v}_1 \, .
 \]
@@ -1025,7 +1025,7 @@ Damit folgt die Behauptung mit $\tilde c :=  \sqrt{\frac c\alpha}$.
 \end{proof}
 
 
-Nun kommen wir zum zentralen Satz dieses Unterkapitels, mit dem man direkt die gewünschte Aussage folgern kann. Vergleiche hierzu auch \cite{BraeFEM} Kapitel II, \S6, Satz 6.4.
+Nun kommen wir zum zentralen Satz dieses Unterkapitels, mit dem man direkt eine a priori Fehlerschätzung folgern kann. Vergleiche hierzu auch \cite{BraeFEM} Kapitel II, \S6, Satz 6.4.
 
 \begin{theorem}[\idx{Approximationssatz für Interpolationen}]\label{theorem:2.28}
 Es sei $k \ge 2$ und $\mcal T_h$ eine quasi-uniforme Triangulierung\index{Triangulierung!quasi-uniform} von $\Omega$. Dann gilt für die Interpolation $I_h$ auf die stetigen, stückweise durch Polynome vom Grad $k-1$ gegebenen Funktionen mit einer von $\Omega, \kappa$ und $k$ abhängigen Konstanten $c$ die a priori Fehlerabschätzung
@@ -1040,7 +1040,7 @@ Für den Beweis würden wir noch weitere Ausführungen über affine Transformati
 \end{proof}
 
 
-Für $k=2$, also lineare Polynome, und $m=1$ (die Norm in $H^1$) gilt dann
+Für $k=2$, d.h. lineare Polynome, und $m=1$ (die Norm in $H^1$) gilt dann
 \begin{align}\label{eq:2.16}
 	\norm{u-I_hu}_1 \le c h \abs{u}_2
 \end{align}
@@ -1110,7 +1110,7 @@ den Raum der quadratischen Ansatzfunktionen. Daraus lässt sich dann der Raum $Z
 \end{bem}
 
 
-Wir sollen nun aber nicht die exakte (bessere) Approximation $u_h^W\in W_h$ berechnen, da dies ein zu großer Aufwand wäre, sondern schränken das sogenannte \textit{\idx{Defektproblem}} lokal auf die Erweiterung $Z_h$ ein, d.h.
+Wir wollen nun aber nicht die bessere Approximation $u_h^W\in W_h$ exakt berechnen, da dies ein zu großer Aufwand wäre, sondern schränken das sogenannte \textit{\idx{Defektproblem}} lokal auf die Erweiterung $Z_h$ ein, d.h.
 \begin{align}\label{eq:2.19}
 	a(u_h^W,z_h) = F(z_h) \quad \forall \, z_h \in Z_h \, ,
 \end{align}
@@ -1122,15 +1122,15 @@ Man kann zeigen, dass für die Lösung $e_h$ aus \eqref{eq:2.20} unter der Bedin
 
 Damit lässt sich $a(e_h,e_h)$ in die lokalen Anteile $\eta_T$ aufteilen, so dass
 \[
-	\sum_{T\in \mcal T_h} a_T(e_h,e_h) = a(e_h,e_h) \, .
+	 a(e_h,e_h) = \sum_{T\in \mcal T_h} a_T(e_h,e_h) \, .
 \]
-Daher verwenden wir als adaptive Strategie: Verfeinere alle Dreiecke $T\in \mcal T_h$, deren lokaler Fehleranteil größer gleich dem skalierten Gesamtfehler sind, also
+Daher verwenden wir als adaptive Strategie: Verfeinere alle Dreiecke $T\in \mcal T_h$, deren lokaler Fehleranteil größer gleich dem skalierten Gesamtfehler ist, also
 \[
 	\eta_T \ge \sigma \(\sum_{T\in \mcal T_h} \eta_T^2\)^{\frac 12} ,
 \]
 wobei $\sigma \in (0,1)$ ist. Wählen wir $\sigma$ sehr klein, so werden viele Dreiecke verfeinert, da auch kleinere lokale Fehleranteile die Ungleichung erfüllen. Umgekehrt gilt für ein großes $\sigma$, dass man viele Adaptionsschritte benötigt, um einen hinreichend kleinen Fehler zu erhalten, da nur wenige Dreiecke pro Verfeinerungsschritt ausgewählt werden.
 
-Die Idee der Hierarchie bzgl. der Räume wollen wir in Kapitel \ref{kap:4}  auf Variationsprobleme unter Nebenbedingung anwenden, um einen a posteriori Schätzer herzuleiten.
+Wie die  Hierarchie bzgl. der Räume geschickt gewählt werden kann, wollen wir in Kapitel \ref{kap:4}  genauer beschreiben und auf Variationsprobleme unter Nebenbedingung anwenden, um einen a posteriori Schätzer herzuleiten.
 
 
 \subsection{Verfeinerung des Netzes}
@@ -1198,7 +1198,7 @@ Matlab verwendet diese Verfeinerungsstrategien in der Methode \textit{refinemesh
 \label{kap:2.5}
 
 
-Um in Kapitel \ref{kap:3.2} Kontaktprobleme bzgl. der Mechanik beschreiben zu können, wollen wir in diesem Kapitel eine kurze Einführung in die Kontinuumsmechanik geben.
+Um in Kapitel \ref{kap:3.2} Kontaktprobleme bzgl. der Mechanik beschreiben zu können, wollen wir in diesem Kapitel kurz die in der vorliegenden Arbeit verwendeten Konzepte der Kontinuumsmechanik einführen.
 
 \begin{defi}[\idx{Kontinuum}]
 Ein \textit{Kontinuum} ist eine Teilmenge $\mathscr{B}\subset \R^3$, dessen  Punkte stetig verteilt sind. Den Punkten werden gewisse Materialeigenschaften zugewiesen.
@@ -1212,7 +1212,7 @@ Wir wollen Vektoren oder vektorwertige (bzw. tensorwertige) Funktionen durch fet
 \subsection{Kinematik}
 \label{kap:2.5.1}
 
-Um die Kinematik für ein \idx{Kontinuum} zu beschreiben, betrachten wir dieses in zeitlich abhängigen Zuständen. Dabei unterscheiden wir zwischen den \textit{materiellen Punkten}\index{materielle Punkte} des Kontinuums, die mit $\bs X = (X_1,X_2,X_3)$ beschrieben werden, und den \textit{räumlichen Punkten}\index{räumliche Punkte} $\bs x = (x_1,x_2,x_3)$.
+Um die Kinematik für ein \idx{Kontinuum} zu beschreiben, betrachten wir dieses in zeitlich voneinander abhängigen Zuständen. Dabei unterscheiden wir zwischen den \textit{materiellen Punkten}\index{materielle Punkte} des Kontinuums, die mit $\bs X = (X_1,X_2,X_3)$ beschrieben werden, und den \textit{räumlichen Punkten}\index{räumliche Punkte} $\bs x = (x_1,x_2,x_3)$.
 
 \begin{defi}[\idx{Konfiguration}]
 Eine zu jedem Zeitpunkt $t$ differenzierbare und stetige Zuordnung $\bs x = \varphi(\bs X, t)$ nennen wir \textit{Konfiguration}. Die Konfiguration zum Zeitpunkt $t = t_0$ nennen wir \textit{Ausgang-} oder \textit{\idx{Referenzkonfiguration}}\index{Ausgangskonfiguration}\index{Konfiguration!Ausgangs-}\index{Konfiguration!Referenz-}, die Konfiguration zum aktuellen Zeitpunkt $t$ \textit{\idx{aktuelle Konfiguration}} oder \textit{\idx{Momentankonfiguration}}\index{Konfiguration!aktuelle}\index{Konfiguration!Momentan-}.
@@ -1226,11 +1226,11 @@ Eine zu jedem Zeitpunkt $t$ differenzierbare und stetige Zuordnung $\bs x = \var
 	\psccurve(-2,0)(0,0.3)(-0.6,2.3)(-2.2,1.2)
 	\psdot(-1,0.6)
 	\rput(-1.3,0.5){$\bs X$}
-	\rput(-0.6,1.8){$\mscr B$}
+	\rput(-0.6,1.8){$\mscr B_0$}
 	
 	% Momentankonfiguration:
 	\psccurve(3,1)(5,0.5)(6.4,2)(5.4,3)(4,2)
-	\rput(6,2){$\mscr B$}
+	\rput(6,2){$\mscr B_t$}
 	\psdot(4,1)
 	\rput(4.2,0.9){$\bs x$}
 	
@@ -1252,7 +1252,7 @@ Eine zu jedem Zeitpunkt $t$ differenzierbare und stetige Zuordnung $\bs x = \var
 
 
 \begin{bem}
-Wir können der Einfachheit halber zu einem Startzeitpunkt $t = t_0$ die materiellen Punkte durch die räumlichen Koordinaten der Ausgangskonfiguration $\bs X = \bs x(t_0)$ beschreiben. So liegt der Körper $\mscr B$ aus Abbildung \ref{abb:2.7} im selben Koordinatensystem.
+Wir können der Einfachheit halber zu einem Startzeitpunkt $t = t_0$ die materiellen Punkte durch die räumlichen Koordinaten der Ausgangskonfiguration $\bs X = \bs x(t_0)$ beschreiben. So liegt der Körper $\mscr B$ aus Abbildung \ref{abb:2.7} im selben Koordinatensystem wie die aktuelle Konfiguration $\mscr B_t$ des Körpers.
 \end{bem}
 
 
@@ -1309,7 +1309,7 @@ Damit ergibt sich beispielsweise für den Green-Lagrange'schen Verzerrungstensor
 	& = \frac 12 (\bs 1 + \bs H^T + \bs H +\bs H^T \bs H - \bs 1) = \frac 12(\bs H^T+\bs H+\bs H^T\bs H) \, .
 \end{aligned}
 \end{align}
-Wenn wir von kleinen Deformationen ausgehen, so ist es sinnvoll für die spätere numerische Berechnung, die nichtlinearen Verzerrungsgrößen (wie in \eqref{eq:2.26})  zu linearisieren. Dies können wir mithilfe von Taylor und der \idx{Gâteaux-Ableitung} \eqref{eq:A.1} bewerkstelligen. Für eine vektor- oder tensorwertige Funktion $\bs A$ gilt dann
+Wenn wir von kleinen Deformationen ausgehen, so ist es sinnvoll für die spätere numerische Berechnung die nichtlinearen Verzerrungsgrößen (wie in \eqref{eq:2.26})  zu linearisieren. Dies können wir mithilfe von Taylor und der \idx{Gâteaux-Ableitung} \eqref{eq:A.1} bestimmen. Für eine vektor- oder tensorwertige Funktion $\bs A$ gilt dann
 \begin{align}\label{eq:2.27}
 	\operatorname{lin}(\bs A)_{\bs x,\bs u} = \bs A(\bs x) + \frac d{ d\eps} (\bs A(\bs x + \eps \bs u))\bigg|_{\eps = 0} \, .
 \end{align}
@@ -1322,7 +1322,7 @@ Wenden wir also \eqref{eq:2.27} auf den Green-Lagrange'schen Verzerrungstensor\i
 	& = \frac 12 (\bs H^T + \bs H + 2\eps \bs H^T\bs H)\bigg|_{\eps=0} = \frac 12(\bs H^T+ \bs H) \eqqcolon \bs \eps \, .
 \end{align*} 
 
-Wir wollen der Einfachheit halber in dieser Arbeit von kleinen Deformationen ausgehen, dann gilt $\bs H \approx \bs h = \nabla \bs u$. Damit werden wir also immer den linearisierten Verzerrungstensor
+Wir wollen der Einfachheit halber in dieser Arbeit von kleinen Deformationen ausgehen. Dann gilt $\bs H \approx \bs h = \nabla \bs u$, somit werden wir im Weiteren den linearisierten Verzerrungstensor
 \begin{align}\label{eq:2.28}
 	\bs \eps = \frac 1 2 (\nabla^T \bs u + \nabla \bs u)
 \end{align}
@@ -1332,7 +1332,7 @@ verwenden.
 \subsection{Kinetik}
 \label{kap:2.5.2}
 
-Da wir von kleinen Deformationen ausgehen, betrachten wir den \textit{\idx{Cauchy-Spannungstensor}} $\bs\sigma$, der die aktuelle Kraft bzgl. der Querschnittsfläche in der Momentankonfiguration setzt. Wie in \cite{WriggersContact} Kapitel 3.2.2 beschrieben, gilt das \textit{Cauchy-Theorem}, das besagt, dass die Spannung $\bs t$ auf einer Schnittfläche eines beliebigen Schnittes im Körper $\mscr B$ gleich der Spannung $\bs\sigma$ in Normaleinrichtung $\bs n$ ist, d.h.
+Da wir von kleinen Deformationen ausgehen, betrachten wir den \textit{\idx{Cauchy-Spannungstensor}} $\bs\sigma$, der die aktuelle Kraft bzgl. der Querschnittsfläche in der Momentankonfiguration setzt. Wie in \cite{WriggersContact} Kapitel 3.2.2 beschrieben, gilt das \textit{Cauchy-Theorem}, das besagt, dass die Spannung $\bs t$ auf einer Schnittfläche eines beliebigen Schnittes im Körper $\mscr B$ gleich der Spannung $\bs\sigma$ in Normalenrichtung $\bs n$ ist, d.h.
 \begin{align}\label{eq:2.29}
 	\bs t = \bs \sigma \cdot \bs n \, .
 \end{align}
@@ -1350,7 +1350,7 @@ Die Gleichung \eqref{eq:2.31} muss nach dem Schnittprinzip auf jeder Teilmenge $
 \begin{align}\label{eq:2.32}
 	\div \bs \sigma + \bar{\bs b} = \bs 0 \text{ auf } \Omega \, .
 \end{align}
-Wir wollen in der Arbeit von einem konstanten Wärmefeld ausgehen, sodass wir thermodynamische Prozesse vernachlässigen können.
+Wir wollen in dieser Arbeit von einem konstanten Wärmefeld ausgehen, sodass wir thermodynamische Prozesse vernachlässigen können.
 
 \subsection{Konstitutive Gleichungen und Prinzipien}
 \label{kap:2.5.3}
