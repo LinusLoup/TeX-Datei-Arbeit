@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.14159265-2.6-1.40.15 (TeX Live 2014) (preloaded format=latex 2014.9.25)  3 DEC 2014 21:55
+This is pdfTeX, Version 3.14159265-2.6-1.40.15 (TeX Live 2014) (preloaded format=latex 2014.9.25)  4 DEC 2014 09:37
 entering extended mode
  restricted \write18 enabled.
  file:line:error style messages enabled.
@@ -2465,13 +2465,13 @@ Package Fancyhdr Warning: \headheight is too small (12.0pt):
  This may cause the page layout to be inconsistent, however.
 
 Package babel Info: Redefining ngerman shorthand "|
-(babel)             in language  on input line 437.
+(babel)             in language  on input line 435.
 Package babel Info: Redefining ngerman shorthand "~
-(babel)             in language  on input line 437.
+(babel)             in language  on input line 435.
 Package babel Info: Redefining ngerman shorthand "|
-(babel)             in language  on input line 437.
+(babel)             in language  on input line 435.
 Package babel Info: Redefining ngerman shorthand "~
-(babel)             in language  on input line 437.
+(babel)             in language  on input line 435.
 [51]
 
 Package Fancyhdr Warning: \headheight is too small (12.0pt): 
@@ -2606,13 +2606,13 @@ Package Fancyhdr Warning: \headheight is too small (12.0pt):
  This may cause the page layout to be inconsistent, however.
 
 Package babel Info: Redefining ngerman shorthand "|
-(babel)             in language  on input line 811.
+(babel)             in language  on input line 806.
 Package babel Info: Redefining ngerman shorthand "~
-(babel)             in language  on input line 811.
+(babel)             in language  on input line 806.
 Package babel Info: Redefining ngerman shorthand "|
-(babel)             in language  on input line 811.
+(babel)             in language  on input line 806.
 Package babel Info: Redefining ngerman shorthand "~
-(babel)             in language  on input line 811.
+(babel)             in language  on input line 806.
 [59]
 Overfull \hbox (1.60007pt too wide) in paragraph at lines 850--850
 []\OT1/cmr/bx/n/12 Variationsformulierung des Signorini-Kontaktproblems 
@@ -2629,13 +2629,13 @@ Package Fancyhdr Warning: \headheight is too small (12.0pt):
  This may cause the page layout to be inconsistent, however.
 
 Package babel Info: Redefining ngerman shorthand "|
-(babel)             in language  on input line 863.
+(babel)             in language  on input line 861.
 Package babel Info: Redefining ngerman shorthand "~
-(babel)             in language  on input line 863.
+(babel)             in language  on input line 861.
 Package babel Info: Redefining ngerman shorthand "|
-(babel)             in language  on input line 863.
+(babel)             in language  on input line 861.
 Package babel Info: Redefining ngerman shorthand "~
-(babel)             in language  on input line 863.
+(babel)             in language  on input line 861.
 [60]
 
 LaTeX Font Warning: Command \scriptsize invalid in math mode on input line 891.
@@ -2738,6 +2738,12 @@ Package babel Info: Redefining ngerman shorthand "|
 Package babel Info: Redefining ngerman shorthand "~
 (babel)             in language  on input line 971.
 [63]
+Overfull \hbox (2.80862pt too wide) in paragraph at lines 978--979
+[]\OT1/cmr/m/n/10.95 Wie schon erw[]ahnt, gilt auch bei die-ser Va-ria-ti-ons-u
+n-glei-chung die []Aquiva-
+ []
+
+
 Overfull \hbox (11.94633pt too wide) in paragraph at lines 1002--1004
 \OT1/cmr/m/n/10.95 Wegen des Rei-bungs-funk-tio-nals $\OML/cmm/m/it/10.95 j$ \O
 T1/cmr/m/n/10.95 ist [] nicht mehr []G^ateaux-differenzierbar.
@@ -5358,4 +5364,4 @@ Here is how much of TeX's memory you used:
  1141 hyphenation exceptions out of 8191
  53i,22n,92p,10378b,2482s stack positions out of 5000i,500n,10000p,200000b,80000s
 
-Output written on Arbeit.dvi (189 pages, 2345072 bytes).
+Output written on Arbeit.dvi (189 pages, 2346012 bytes).
