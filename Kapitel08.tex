@@ -78,6 +78,10 @@ wobei
 \end{enumerate}
 \end{satz}
 
+\begin{proof}
+Der Beweis ist unter anderem in \cite{Walker} zu finden.
+\end{proof}
+
 \begin{bem}\label{bem:A.6}
 \begin{enumerate}[(a)]
 \item Die Norm auf $H^m(\Omega)$ ergibt sich analog zur Norm des allgemeinen Sobolev-Raumes durch das Skalarprodukt, d.h. $\norm{u}_m: = \norm u_{H^m(\Omega)} := \norm u_{W^m_2}$.
@@ -108,6 +112,9 @@ Die Funktionen $u \in H^m_0(\Omega)$ können als die Funktionen $u \in H^m(\Omeg
   Die Restriktion $[u\mapsto u\rvert_{\partial\Omega}]$ lässt sich also eindeutig stetig zum Spuroperator $\gamma_0\in\L(W_p^1(\Omega),L_p(\partial\Omega))$ fortsetzen.
 \end{theorem}
 
+\begin{proof}
+Der Beweis ist unter anderem in \cite{Walker} aufgeführt.
+\end{proof}
 
 \section{Optimalitätskriterien}
 \label{anhang:A.2}
@@ -175,7 +182,7 @@ Es sei $m\in \N, 1\leq p < \infty, 1 = \frac 1 p + \frac 1 {p'}$.
 \label{bem:A.13}
 Sei $1\leq p < \infty, m \in \N$, dann ist:
 \begin{enumerate}[(a)]
-\item Ist $u_j \ra u$ in $W^m_p(\Omega)$, dann folgt $u_j \rightharpoonup u$ in $W^m_p(\Omega)$, d.h. "`starke Konvergenz ist stärker als schwache Konvergenz"'.
+\item Wenn $u_j \ra u$ in $W^m_p(\Omega)$, dann folgt $u_j \rightharpoonup u$ in $W^m_p(\Omega)$, d.h. "`starke Konvergenz ist stärker als schwache Konvergenz"'.
 \begin{proof}
 $\fa \, v \in L_{p'}(\Omega), \abs \alpha \leq m$ gilt
 \[
@@ -230,7 +237,7 @@ Dies folgt aus dem Darstellungssatz von Riesz (Satz \ref{satz:2.15}).
 \section{Quadratische Programmierung}
 \label{anhang:B.1}
 
-Um im folgenden die Idee des Algorithmus zu verstehen, führen wir zunächst grundlegende Begriffe ein. Ein quadratisches Problem mit Gleichungs- und Ungleichungsnebenbedingungen ist von der Form
+Um im Folgenden die Idee des Algorithmus erläutern zu können, führen wir zunächst grundlegende Begriffe ein. Ein quadratisches Problem (kurz: QP) mit Gleichungs- und Ungleichungsnebenbedingungen ist von der Form
 \begin{align}\label{eq:QP}
 \begin{aligned}
 	\min_{\bs x} & \quad q(\bs x) = \frac 1 2 \bs x^T G\bs x + \bs x^T \bs c \\
@@ -240,13 +247,13 @@ Um im folgenden die Idee des Algorithmus zu verstehen, führen wir zunächst gru
 \end{align}
 wobei $\mcal E$ und $ \mcal I$ die Indexmengen der Gleichungs- und Ungleichungsnebenbedingungen darstellen und $\bs c,\bs x,\bs a_i \in \R^n, b_i \in \R, i \in \mcal E \cup \mcal I$, sowie $G$ eine symmetrische $(n\times n)$-Matrix ist, welche die Hesse-Matrix des Problems darstellt. Damit ist die Hesse-Matrix konstant und daher das Problem konvex, wenn $G$ positiv semidefinit ist. (Ist $G$ positiv definit, so nennen wir das Problem strikt konvex. Wenn $G$ indefinit ist, ist \eqref{eq:QP} "`nicht konvex"'.)
 
-Da sonst das quadratische Problem (und damit der Active-Set Algorithmus) zu kompliziert wird, betrachten wir hier nur den konvexen Fall. Für diesen Fall können wir leicht zeigen, dass eine Lösung $\bs x^*$, die die Bedingungen 1. Ordnung erfüllt, auch globale Lösung des Problems ist (s. Theorem \ref{A.1}). Anschaulich kann es im indefiniten Fall mehrere optimale Punkte geben, die voneinander getrennt liegen, d.h. die Menge der optimalen Punkte ist nicht zusammenhängend, wodurch das Auffinden des globalen Minimums erschwert wird.
+Da sonst das quadratische Problem (und damit der Active-Set Algorithmus) zu kompliziert wird, betrachten wir hier nur den konvexen Fall. Für diesen Fall können wir leicht zeigen, dass eine Lösung $\bs x^*$, die die Bedingungen 1. Ordnung erfüllt, auch globale Lösung des Problems ist (s. Theorem \ref{theorem:B.1}). Anschaulich kann es im indefiniten Fall mehrere optimale Punkte geben, die voneinander getrennt liegen, d.h. die Menge der optimalen Punkte ist nicht zusammenhängend, wodurch das Auffinden des globalen Minimums erschwert wird.
 
 Die notwendigen Bedingungen 1. Ordnung sind die KKT-Bedingungen und können hier angewendet werden, da die Restriktionen und die Zielfunktion stetig differenzierbar sind. Die Lagrangefunktion $\mcal L$ für das quadratische Problem ist
 \begin{align}
 	\mcal L(\bs x,\bs\lambda) = \frac 1 2 \bs x^T G \bs x + \bs x^T \bs c- \sum_{i \in \mcal I \cup \mcal E} \lambda_i (\bs a_i^T \bs x-b_i) \, .
 \end{align}
-Damit ergeben sich –  vgl. \cite{NocWri}, Theorem 12.1 – mit der Menge der aktiven Nebenbedingungen $\mcal A(\bs x^*) = \{i\in \mcal E \cup \mcal I : \bs a_i^T \bs x^* = b_i\}$ die KKT-Bedingungen
+Damit ergeben sich (vgl. \cite{NocWri}, Theorem 12.1) mit der Menge der aktiven Nebenbedingungen $\mcal A(\bs x^*) = \{i\in \mcal E \cup \mcal I : \bs a_i^T \bs x^* = b_i\}$ die KKT-Bedingungen
 \begin{align}\label{eq:KKT}
 \begin{aligned}
 	\nabla_{\bs x} \mcal L(\bs x^*,\bs \lambda^*) & = G\bs x^*+\bs c-\sum_{i \in \mcal A(\bs x^*)} \lambda^*_i \bs a_i  = 0 \, , \\
@@ -295,7 +302,7 @@ Wir betrachten nun den $k$-ten Schritt mit der Approximierten $\bs x_k$ und dem 
 	& = \frac 1 2 \bs x^T_k G \bs x_k + \underbrace{\bs x_k^T G \bs p}_{\text{da $G$ symm.}} + \frac 1 2 \bs p^T G\bs p +\bs x_k^T \bs c +\bs p^T \bs c \\
 	& = \frac 1 2\bs p^T G \bs p +\bs  g_k^T \bs p + \rho_k \, ,
 \end{align*}
-wobei $\bs g_k = G\bs x_k+\bs c$ und $\rho_k = \frac 1 2 \bs x_k^T G \bs x_k + \bs x_k^T \bs c$. Da wir den Parameter $\bs p$ so wählen wollen, so dass $q(\bs x_{k+1})$ minimal wird, ist der Term $\rho_k$ bzgl. des Problems konstant und  kann somit für die Lösung jenes weggelassen werden. Da weiterhin auch $\bs x_{k+1}$ die aktiven Nebenbedingungen $\mcal W_k$ erfüllen soll, gilt
+wobei $\bs g_k = G\bs x_k+\bs c$ und $\rho_k = \frac 1 2 \bs x_k^T G \bs x_k + \bs x_k^T \bs c$. Da wir den Parameter $\bs p$ so wählen wollen, dass $q(\bs x_{k+1})$ minimal wird, ist der Term $\rho_k$ bzgl. des Problems konstant und  kann somit für die Lösung jenes weggelassen werden. Da weiterhin auch $\bs x_{k+1}$ die aktiven Nebenbedingungen $\mcal W_k$ erfüllen soll, gilt
 \[
 	\bs a_i^T \bs p =\bs a_i^T (\bs x_{k+1} - \bs x_k) = \underbrace{\bs a_i^T\bs x_{k+1}}_{=b_i} - \underbrace{\bs a_i^T \bs x_k}_{=b_i} = 0 \quad \forall \, i \in \mcal W_k \, .
 \]
@@ -306,7 +313,7 @@ Zusammengefasst müssen wir also im $k$-ten Schritt das Teilproblem
 	\text{s.t.} & \quad \bs a_i^T\bs p = 0 \, , \quad \forall i \in \mcal W_k 
 \end{aligned}
 \end{align}
-lösen. Die Lösung im $k$-ten Schritt von \eqref{eq:subprob} bezeichnen wir mit $\bs p_k$. Umgekehrt gilt damit, analog zur obigen Rechnung, natürlich auch, dass für alle $i \in \mcal W_k$ die Restriktion aktiv bleibt für $\bs x_k + \alpha \bs p_k$ mit beliebigem $\alpha$. Da $G$ positiv definit ist, kann \eqref{eq:subprob} nun – wie schon bei \eqref{eq:active} erwähnt – mit Schur-Komplement-Methode oder Nullraum-Methode gelöst werden.
+lösen. Die Lösung im $k$-ten Schritt von \eqref{eq:subprob} bezeichnen wir mit $\bs p_k$. Umgekehrt gilt damit analog zur obigen Rechnung natürlich auch, dass für alle $i \in \mcal W_k$ die Restriktion aktiv bleibt für $\bs x_k + \alpha \bs p_k$ mit beliebigem $\alpha$. Da $G$ positiv definit ist, kann \eqref{eq:subprob} nun – wie schon bei \eqref{eq:active} erwähnt – mit Schur-Komplement-Methode oder Nullraum-Methode gelöst werden.
 
 Wie wir schon wissen, ist die neue Iterierte $\bs x_{k+1} = \bs x_k + \bs p_k$ bzgl. $\mcal W_k$ immer noch zulässig. Nun müssen wir jedoch feststellen, ob diese Iterierte auch alle übrigen Restriktionen mit $i\not\in \mcal W_k$ erfüllt. Ist dies der Fall, so setzen wir $\bs x_{k+1} = \bs x_k +\bs p_k$, ansonsten suchen wir das größtmögliche $\alpha_k \in [0,1]$, so dass
 \[
@@ -314,13 +321,13 @@ Wie wir schon wissen, ist die neue Iterierte $\bs x_{k+1} = \bs x_k + \bs p_k$ b
 \] 
 zulässig bleibt. Hierfür betrachten wir zwei Fälle.
 
-\underline{Fall 1:} Gilt für ein $i \not \in \mcal W_k$, dass $\bs a_i^T \bs p_k \ge 0$ ist, so folgt
+\textit{Fall 1:} Gilt für ein $i \not \in \mcal W_k$, dass $\bs a_i^T \bs p_k \ge 0$ ist, so folgt
 \[
 	\bs a_i^T (\bs x_k + \alpha_k \bs p_k) =\bs a_i^T \bs x_k + \underbrace{\alpha_k \bs a_i^T\bs p_k}_{\ge 0} \ge \bs a_i^T \bs x_k \ge b_i \, ,
 \]
 da $\alpha_k \ge 0$, d.h. für diese Nebenbedingungen müssen wir für die Wahl von $\alpha_k$ nichts beachten.
 
-\underline{Fall 2:} Existiert ein $i \not \in \mcal W_k$, für das $\bs a_i^T\bs p_k < 0$ ist, so gilt
+\textit{Fall 2:} Existiert ein $i \not \in \mcal W_k$, für das $\bs a_i^T\bs p_k < 0$ ist, so gilt
 \begin{align}\label{eq:alpha}
 \notag	& \bs a_i^T (\bs x_k + \alpha_k \bs p_k) \ge b_i \\
 \notag	\Llra \quad &\bs a_i^T \bs x_k + \alpha_k \bs a_i^T\bs p_k \ge b_i \\
@@ -332,13 +339,13 @@ Damit folgt mit \eqref{eq:alpha} und den vorherigen Überlegungen, dass zusammen
 \begin{align}\label{eq:alpha_k}
 	\alpha_k = \min\left\{ 1,\min_{i \not\in \mcal W_k, \bs a_i^T\bs p_k < 0}  \frac{b_i -\bs a_i^T\bs x_k }{\bs a_i^T \bs p_k}  \right\}
 \end{align}
-gilt. Eine Restriktion $i \not \in \mcal W_k$, für die das Minimum für $\alpha_k$ angenommen wird, nennen wir \textit{blocking constraint}; diese muss nicht eindeutig sein, da wir beispielsweise anschaulich auch von einer Ecke geblockt werden können. Ist $\alpha_k = 1$, so werden alle Restriktion außerhalb vom {working set} mit dem Schritt $\bs x_{k+1} =\bs x_k + \bs p_k$ erfüllt, d.h. es gibt keine {blocking constraint}. Gibt es eine Nebenbedingung $j \not\in \mcal W_k$, die aktiv ist, obwohl sie nicht zum working set gehört, so gilt
+gilt. Eine Restriktion $i \not \in \mcal W_k$, für die das Minimum für $\alpha_k$ angenommen wird, nennen wir \textit{Blocking Constraint}; diese muss nicht eindeutig sein, da wir beispielsweise anschaulich auch von einer Ecke geblockt werden können. Ist $\alpha_k = 1$,  werden alle Restriktion außerhalb vom {working set} mit dem Schritt $\bs x_{k+1} =\bs x_k + \bs p_k$ erfüllt, d.h. es gibt keine {Blocking Constraint}. Gibt es eine Nebenbedingung $j \not\in \mcal W_k$, die aktiv ist, obwohl sie nicht zum working set gehört, so gilt
 \begin{align*}
 	\alpha_k & = \min\left\{ 1,\min_{i \not\in \mcal W_k, \bs a_i^T\bs p_k < 0}  \frac{b_i -\bs a_i^T\bs x_k }{\bs a_i^T\bs p_k}  \right\}  \\
 	& = \min\left\{ 1, \frac{b_j - {\bs a_j^T \bs x_k}}{\bs a_j^T\bs p_k}  \right\}  \\
 	&  = \min \left\{1,\frac{b_j-b_j}{\bs a_j^T\bs p_k}\right\} = 0 \, .
 \end{align*}
-Es sei $j \not \in \mcal W_k$ nun ein Index einer {blocking constraint}. Dann ist
+Es sei $j \not \in \mcal W_k$ nun ein Index einer {Blocking Constraint}. Dann ist
 \[
 	\bs x_{k+1} =\bs x_k + \alpha_k \bs p_k = \bs x_k + \frac{b_j - {\bs a_j^T \bs x_k}}{\bs a_j^T\bs p_k}\bs p_k \, .
 \]
@@ -347,7 +354,7 @@ Setzen wir $\bs x_{k+1}$ in die $j$-te Restriktion ein, so erhalten wir
 	\bs a_j^T\bs x_{k+1} & = \bs a_j^T \( \bs x_k +  \frac{b_j - \bs a_j^T\bs x_k}{\bs a_j^T\bs p_k}\bs p_k  \) = \bs a_j^T\bs x_k + \frac{b_j - {\bs a_j^T\bs x_k}}{\cancel{\bs a_j^T\bs p_k}} \cdot \cancel{\bs a_j^T\bs p_k} \\
 	& =\bs a_j^T\bs x_k + b_j -\bs a_j^T\bs x_k = b_j \, ,
 \end{align*}
-d.h. die {blocking constraint} ist für die neue Iterierte $\bs x_{k+1}$ nach Konstruktion aktiv. Daher setzen wir als neues {working set} $\mcal W_{k+1} = \mcal W_k \cup \{ j\}$.
+d.h. die {Blocking Constraint} ist für die neue Iterierte $\bs x_{k+1}$ nach Konstruktion aktiv. Daher setzen wir als neues {working set} $\mcal W_{k+1} = \mcal W_k \cup \{ j\}$.
 
 Das oben beschriebene Vorgehen wiederholen wir so lange, bis wir das {working set} $\hat {\mcal W}$ mit dem Minimum des quadratischen Problems $\hat{\bs x}$ gefunden haben. Dies ist leicht zu erkennen, da wir \eqref{eq:QP} auf $\mcal W_k$ nicht weiter minimieren können, sobald es keinen Schritt $p$ gibt, in dessen Richtung wir $q$ verringern können, d.h. wenn $\bs p = \bs 0$ die Lösung für das Teilproblem \eqref{eq:subprob} ist.  Dann ist der optimale Punkt $\hat{\bs x}$ bzgl. des {working sets} $\hat{\mcal W}\subset \mcal A(\hat{\bs x})$ gefunden.
 
@@ -373,7 +380,7 @@ mit $\hat{\bs g} = \bs c + G\hat{\bs x}, \bs h = A\hat{\bs x}+\bs b$ und $\bs p=
 \end{align*}
 wobei $A$ die Gradienten $\bs a_i^T$ der aktiven Restriktionen $\hat{\mcal W}$ zeilenweise  enthält. Damit werden die ersten beiden KKT-Bedingungen aus \eqref{eq:KKT} erfüllt. Da die Schrittlänge $\alpha_k$ mit \eqref{eq:alpha} so gewählt ist, dass die übrigen Restriktionen erfüllt bleiben, gilt auch die dritte Bedingung aus \eqref{eq:KKT}. Es bleibt zu überprüfen, ob die Lagrange-Multiplikatoren $\hat\lambda_i \ge 0$ sind.
 
-Gilt $\hat\lambda_i \ge 0$ für alle $i \in \hat{\mcal W} \cap \mcal I$, so sind alle KKT-Bedingungen erfüllt und damit $\bs x^* = \hat{\bs x}$. Existiert allerdings ein $j \in \hat{\mcal W} \cap \mcal I$, so dass $\hat \lambda_j < 0$ ist, so können wir den Wert von $q$ noch weiter verringern, indem wir die $j$-te Restriktion wegfallen lassen (vlg. \cite{NocWri}, Kapitel 12.3). Dies zeigt das folgende Theorem.
+Gilt $\hat\lambda_i \ge 0$ für alle $i \in \hat{\mcal W} \cap \mcal I$, so sind alle KKT-Bedingungen erfüllt und damit ist $\bs x^* = \hat{\bs x}$. Existiert allerdings ein $j \in \hat{\mcal W} \cap \mcal I$, so dass $\hat \lambda_j < 0$ ist, so können wir den Wert von $q$ noch weiter verringern, indem wir die $j$-te Restriktion wegfallen lassen (vlg. \cite{NocWri}, Kapitel 12.3). Dies zeigt das folgende Theorem.
 
 \begin{theorem}
 Der Punkt $\hat{\bs x}$ erfülle die notwendigen Bedingungen 1. Ordnung für das Teilproblem \textnormal{\eqref{eq:subprob}} auf $\hat{\mcal W}$. Weiter seien die Gradienten $\bs a_i, i \in \hat{\mcal W}$, linear unabhängig $($LICQ$)$ und es gebe einen Index $j \in \mcal W$ mit $\hat \lambda_j<0$. Es sei $\bs p$ die Lösung vom Teilproblem \textnormal{\eqref{eq:subprob}} ohne die Restriktion $j$, d.h.
@@ -384,9 +391,9 @@ Der Punkt $\hat{\bs x}$ erfülle die notwendigen Bedingungen 1. Ordnung für das
 Dann ist $p$ eine zulässige Richtung für die Nebenbedingung $j$, d.h. $\bs a_j^T \bs p \ge 0$. Weiterhin gilt sogar $\bs a_j^T\bs p > 0$ und $p$ ist eine Abstiegsrichtung für $q$, wenn $\bs p$ die hinreichenden Bedingungen 2. Ordnung erfüllt.
 \end{theorem}
 
-Da wir zeigen können, dass der erzielte Abstieg für $q$ durch das Weglassen einer Nebenbedingung mit negativem Lagrange-Multiplikator $\lambda_i$ proportional zu $\abs{\lambda_i}$ ist, eliminieren wir gerade die Restriktion mit kleinstem Langrange-Multiplikator. Es kann allerdings sein, dass der folgende zu berechnende Schritt $\bs p$ aufgrund einer {blocking constraint} kurz ist, wodurch nicht garantiert ist, dass $q$ den größtmöglichen Abstieg erfährt.
+Da wir zeigen können, dass der erzielte Abstieg für $q$ durch das Weglassen einer Nebenbedingung mit negativem Lagrange-Multiplikator $\lambda_i$ proportional zu $\abs{\lambda_i}$ ist, eliminieren wir gerade die Restriktion mit kleinstem Langrange-Multiplikator. Es kann allerdings sein, dass der folgende zu berechnende Schritt $\bs p$ aufgrund einer {Blocking Constraint} kurz ist, wodurch nicht garantiert ist, dass $q$ den größtmöglichen Abstieg erfährt.
 
-%Wie oben beschrieben fordern wir, dass die Gradienten im {working set} $\mcal W_k$ linear unabhängig sind (LICQ-Bedingung). Betrachten wir nun unsere Strategie in der Active-Set-Methode, in das {working set} Restriktionen hinzuzufügen oder welche aus diesem zu eliminieren, sieht man leicht, dass die Elimination von Nebenbedingungen die lineare Abhängigkeit der Gradienten im working set nicht hervorrufen kann. Man kann zudem zeigen, dass eine {blocking constraint} immer linear unabhängig ist zu den schon bestehenden aktiven Nebenbedingungen. Damit kann auch das Hinzufügen die lineare Unabhängigkeit nicht beeinflussen.
+%Wie oben beschrieben fordern wir, dass die Gradienten im {working set} $\mcal W_k$ linear unabhängig sind (LICQ-Bedingung). Betrachten wir nun unsere Strategie in der Active-Set-Methode, in das {working set} Restriktionen hinzuzufügen oder welche aus diesem zu eliminieren, sieht man leicht, dass die Elimination von Nebenbedingungen die lineare Abhängigkeit der Gradienten im working set nicht hervorrufen kann. Man kann zudem zeigen, dass eine {Blocking Constraint} immer linear unabhängig ist zu den schon bestehenden aktiven Nebenbedingungen. Damit kann auch das Hinzufügen die lineare Unabhängigkeit nicht beeinflussen.
 %
 %Das Eliminieren und Hinzufügen von Nebenbedingungen führt dazu, dass der in Kapitel 3 aufgerührte Algorithmus eine natürliche untere Schranke erhält. Wenn wir beispielsweise eine Lösung $x^*$ eines Problems haben, in der $m$ der Ungleichungs-Restriktionen aktiv sind, in unserer Startnäherung $x_0$ allerdings keine Ungleichungs-Restriktion, so benötigen wir mindestens $m$ Schritte, um von $x_0$ zu $x^*$ zu gelangen, da wir in jedem Schritt genau eine Nebenbedingung hinzufügen oder eliminieren.
 
@@ -412,8 +419,8 @@ Gegeben sei ein zulässiger Startpunkt $\bs x_0$ für \eqref{eq:QP} und definier
 \Else \quad ($\bs p_k \not= \bs 0$)
 \State Berechne $\alpha_k$ mit \eqref{eq:alpha_k};
 \State $\bs x_{k+1} \la  \bs x_k + \alpha_k\bs p_k$;
-\If {$\alpha_k < 1$ ({blocking constraint} existiert)}
-\State Bestimme  blocking constraint $j$ und setze $\mcal W_{k+1} \la \mcal W_k \cup \{j\}$
+\If {$\alpha_k < 1$ ({Blocking Constraint} existiert)}
+\State Bestimme  Blocking Constraint $j$ und setze $\mcal W_{k+1} \la \mcal W_k \cup \{j\}$
 \Else
 \State $\mcal W_{k+1} \la \mcal W_k$
 \EndIf
@@ -498,7 +505,7 @@ Wir können leicht nachrechnen, dass das Kroneckerdelta folgende Eigenschaften h
 \begin{align*}
 	\delta_{ij} \delta_{jk} = \delta_{ik} \, , \quad \delta_{ij}\delta_{jk}\delta_{kl} = \delta_{il} \, .
 \end{align*}
-Mit diesen Eigenschaften können wir beispielsweise 4- oder 6-stufige Einheitstensoren\idx{Einheitstensor} definieren.
+Mit diesen Eigenschaften können wir beispielsweise 4- oder 6-stufige Einheitstensoren\index{Einheitstensor} definieren.
 \end{bem}
 
 \begin{defi}[Skalarprodukte]\label{def:C.8}
@@ -541,10 +548,10 @@ Die \textit{Divergenz} einer skalar-, vektor- oder  tensorwertige Funktionen ist
 Der Gradient vergrößert also die Stufe eines Tensors, während die Divergenz diese verringert.
 \end{bem*}
 
-Für den Gradienten und die Divergenz gelten einige Produktregeln bzgl. tensorwertigen Funktionen (von 0. bis 2. Stufe). Folgende werden wir davon benötigen.
+Für den Gradienten und die Divergenz gelten eine Reihe von Produktregeln bzgl. tensorwertigen Funktionen (von 0. bis 2. Stufe). Folgende werden wir davon benötigen.
 
 \begin{satz}[\idx{Produktregel}n]\label{satz:C.11}
-Es seien $\phi(\bs x)$ eine skalarwertiges, $\bs a(\bs x)$ eine vekorwertiges und $\bs T(\bs x)$ ein tensorwertiges $($2. Stufe$)$ Tensorfeld. Dann gelten für die Divergenz folgende Produktregeln.
+Es seien $\phi(\bs x)$ ein skalarwertiges, $\bs a(\bs x)$ ein vekorwertiges und $\bs T(\bs x)$ ein tensorwertiges $($2. Stufe$)$ Tensorfeld. Dann gelten für die Divergenz folgende Produktregeln.
 \begin{align}\label{eq:C.1}
 	\div (\phi \cdot \bs a ) &= \grad \phi \cdot \bs a + \phi \cdot \div \bs a \\
 	\label{eq:C.2}
