@@ -1,7 +1,7 @@
 \newchapter{Implementierung des Fehlerschätzers in Matlab}
 \label{kap:5}
 
-In diesem Kapitel wollen wir uns einen kurzen Überblick über den Quellcode für das programmierte Hindernis- bzw. Kontaktproblem verschaffen. Während wir an dieser Stelle einige wichtige Funktionen detailiert betrachten werden, können wir im Anhang \ref{anhang:D} den Matlab-Quellcode komplett einsehen.
+In diesem Kapitel wollen wir uns einen kurzen Überblick über den Quellcode für das programmierte Hindernis- bzw. Kontaktproblem verschaffen. Während wir an dieser Stelle einige wichtige Funktionen detailiert betrachten werden, kann  im Anhang \ref{anhang:D} der Matlab-Quellcode komplett eingesehen werden.
 
 In die Implementierung sind neben \cite{ZouVee} unter anderem auch Resultate aus \cite{MorNoc}, \cite{BarCar}, \cite{BraeFEM} und \cite{EPS} eingeflossen.
 
@@ -15,7 +15,7 @@ In die Implementierung sind neben \cite{ZouVee} unter anderem auch Resultate aus
 In der Datei {\ttfamily start_example*.m} werden die grundlegenden Daten für das betrachtete Beispiel festgelegt, wie beispielsweise
 \begin{itemize}
 \item die Geometriedaten für das Gitter und die Dirichlet-Randbedingungen,
-\item die exakte Lösung des Funktionasl $J(u)$,
+\item die exakte Lösung des Funktionals $J(u)$,
 \item die Lastfunktion $f$ und
 \item die initiale Triangulierung $\mcal T_0$.
 \end{itemize}
@@ -158,7 +158,7 @@ Um das lokale Defektproblem \eqref{eq:4.9} zu lösen, ist nicht nur das Aufstell
 	\label{eq:5.6}
 	& = \lambda \, \bs w_1 + \mu \, \bs w_2 
 \end{align}
-gilt, wobei $\bs w_i,i = 1,2$ Vektoren sind, deren Einträge gerade die lokalen Anteile an dem $i$-ten Summanden des Integranden bzgl. der quadratischen Ansatzfunktionen enthalten, analog zu den Matrizen $S_k$. Wenn wir also eine Lösung $u(x,y) = \alpha x+\beta y + \gamma$ auf $T$ gegeben haben, der Gradient $\nabla u(x,y) = (\alpha,\beta)$ noch auf $\widetilde T$ zu transformieren. Mit der affine Transformation \eqref{eq:5.1} lässt sich leicht nachrechnen, dass dann
+gilt, wobei $\bs w_i,i = 1,2,$ Vektoren sind, deren Einträge gerade die lokalen Anteile an dem $i$-ten Summanden des Integranden bzgl. der quadratischen Ansatzfunktionen enthalten, analog zu den Matrizen $S_k$. Wenn wir also eine Lösung $u_{\mcal S}(x,y) = \alpha x+\beta y + \gamma$ auf $T$ gegeben haben, ist der Gradient $\nabla u_{\mcal S}(x,y) = (\alpha,\beta)$ noch auf $\widetilde T$ zu transformieren. Mit der affinen Transformation \eqref{eq:5.1} lässt sich leicht nachrechnen, dass dann
 \[
 	\nabla \tilde u_{\mcal S} (\xi,\eta) = (\alpha\, (x_2-x_1)+\beta \, (y_2-y_1), \alpha \, (x_3-x_1) + \beta \, (y_3-y_1)) \eqqcolon (\tilde \alpha, \tilde \beta)
 \]
@@ -203,9 +203,9 @@ Die globalen Steifigkeitsmatrizen erzeugen wir dann durch \idx{Assemblierung}, d
 
 \subsubsection{Quadratur auf einem Dreieck}
 
-Das Skalarprodukt $(f,v)_T = \int_T fv \, dx$ muss allerdings auf den einzelnen Dreiecken $T$ ausgewertet werden. Dies kann leider nur durch direkte Integration geschehen, weil die Last $f$ auf den Elementen variabel sein kann und daher nicht allgemein auf das Referenzdreieck transformierbar ist, so dass wir einen lokalen Vektor erstellen können, der nur noch assembliert\index{Assemblierung} werden muss. 
+Das Skalarprodukt $(f,v)_T = \int_T fv \, dx$ muss allerdings auf den einzelnen Dreiecken $T$ ausgewertet werden. Dies kann leider nur durch direkte Integration geschehen, weil die Last $f$ auf den Elementen variabel sein kann und daher nicht allgemein auf das Referenzdreieck transformierbar ist, so dass wir keinen lokalen Vektor erstellen können, der nur noch assembliert\index{Assemblierung} werden muss. 
 
-Für die zweidimensionale Integration sind in Matlab beispielsweise die Funktionen {\ttfamily integral2} und {\ttfamily quad2d} implementiert. Um jedoch die Laufzeit des Codes zu verbessern, werden wir direkt eine Gauß-Quadratur\index{Quadratur!Gauß} über dem Referenzdreieck $\widetilde T$ verwenden. Eine mögliche Wahl (mit dem dazugehörigen Exaktheitsgrad) ist beispielsweise in \cite{Quad} wiederzufinden. Implementiert sind davon die \textit{Seitenmitten-Regel}\index{Quadratur!Seitenmitten-Regel} und die \textit{7-Punkte-Formel}\index{Quadratur!7-Punkte-Formel}, wobei wir aufgrund der hohen Genauigkeit beim Aufrufen des Progammcodes vorwiegend letztere verwenden. Die lokalen Stützstellen $(\xi_k,\eta_k)$ und Gewichte $w_k$ für die 7-Punkte-Formel sind auch in \cite{BraeFEM} Kapitel II, Tabelle 5 zu finden und lauten wie folgt (s. Abbildung \ref{abb:5.1} für die ungefähre Lage der Stützstellen).
+Für die zweidimensionale Integration sind in Matlab beispielsweise die Funktionen {\ttfamily integral2} und {\ttfamily quad2d} implementiert. Um jedoch die Laufzeit des Codes zu verbessern, werden wir direkt eine Gauß-Quadratur\index{Quadratur!Gauß} über dem Referenzdreieck $\widetilde T$ verwenden. Eine mögliche Wahl (mit dem dazugehörigen Exaktheitsgrad) ist unter anderem in \cite{Quad} wiederzufinden. Implementiert sind davon die \textit{Seitenmitten-Regel}\index{Quadratur!Seitenmitten-Regel} und die \textit{7-Punkte-Formel}\index{Quadratur!7-Punkte-Formel}, wobei wir  beim Aufrufen des Progammcodes vorwiegend letztere verwenden, um exaktere Ergebnisse zu erhalten. Die lokalen Stützstellen $(\xi_k,\eta_k)$ und Gewichte $w_k$ für die 7-Punkte-Formel sind auch in \cite{BraeFEM} Kapitel II, Tabelle 5 zu finden und lauten wie folgt (s. Abbildung \ref{abb:5.1} für die ungefähre Lage der Stützstellen).
 
 \begin{table}[htpb]
 \centering
@@ -262,19 +262,19 @@ Die benötigten Gewichte und Stützstellen für die Quadraturformel über einem 
 		\rput(2.15,2.18){\scriptsize$7$}
 	\end{pspicture}
 \end{center}
-\caption{Ungefähre Lage der Stützstellen in einem allgemeinen Dreieck für die Gauß-Quadratur\index{Quadratur!Gauß}\label{abb:5.1}}
+\caption{Veranschaulichung der Lage der Stützstellen in einem allgemeinen Dreieck für die Gauß-Quadratur\index{Quadratur!Gauß}\label{abb:5.1}}
 \end{figure}
 
 
 
 \subsubsection{Lösung der quadratischen Programme}\index{quadratisches Programm}
 
-Wie wir in Anhang \ref{anhang:B} beschrieben können wir die konvexen quadratischen Programme, die sich durch Hindernis- oder Kontaktproblem erzeugen, mit dem \idx{Active-Set-Algorithmus} lösen. Dieser ist unter anderem in der Matlab-Funktion {\ttfamily quadprog} hinterlegt. Allerdings ist der Active-Set-Algorithmus mit steigender Dimension schnell sehr langsam. Das Funktionen-Paket {\ttfamily quadprog} beinhaltet jedoch auch die \textit{\idx{Innere-Punkte-Methode}} (kurz: IPM), welche für große Systeme wesentlich schneller ist als die Active-Set-Methode. Daher verwenden wir die IPM zur Lösung der quadratischen Programme. Außerdem verwenden wir dazu \textit{Sparse}-Matrizen und die Option \textit{large-scale}, um die Auswertung zu beschleunigen.
+Wie  in Anhang \ref{anhang:B} beschrieben, können wir die konvexen quadratischen Programme, die sich durch Hindernis- oder Kontaktproblem erzeugen, mit dem \idx{Active-Set-Algorithmus} lösen. Dieser ist unter anderem in der Matlab-Funk-tion {\ttfamily quadprog} hinterlegt. Allerdings ist der Active-Set-Algorithmus mit steigender Dimension schnell sehr langsam. Das Funktionen-Paket {\ttfamily quadprog} beinhaltet jedoch auch die \textit{\idx{Innere-Punkte-Methode}} (kurz: IPM), welche für große Systeme wesentlich schneller ist als die Active-Set-Methode. Daher verwenden wir die IPM zur Lösung der quadratischen Programme. Außerdem verwenden wir dazu \textit{Sparse}-Matrizen und die Option \textit{large-scale}, um die Auswertung zu beschleunigen.
 
 
 \subsubsection{Berechnung des Normalenflußes}
 
-Mit der Datei {\ttfamily normal_flux.m} berechnen wir für jede Kante aus der überge-benen Kantenmenge $E_p$ den Normalenfluß $j_E$. Hierfür werden zunächst für jede Kante $E \in E_p$ die Indizes der anliegenden Dreiecke berechnet (dies geschieht mit der Funktion {\ttfamily neighbourhood.m}). Dabei gibt der Parameter {\ttfamily flag} an, ob eine Kante nur einen oder zwei Nachbarn besitzt, d.h. ob Randkante ist oder innen liegt. Durch die Indizes der anliegenden Dreiecke lassen sich die Eckpunkte und damit die Gradienten von $u_{\mcal S}$ auf $T_1$ und $T_2$ sowie der Normalenvektor $\bs n$, der immer von $T_1$ nach $T_2$ zeigen soll, berechnen. Da diese Eigenschaft durch die gewählte Erzeugung des Normalenvektors im Code  nicht immer erfüllt sein muss, wird überprüft, ob der berechnete Vektor $\bs n$ mit einer der übrigen Kanten aus $T_1$ einen Winkel $\alpha \in (0,\frac \pi2)$ einschließt. Sollte dies der Fall sein, so drehen wir den Vektor $\bs n$ um, ansonsten beschreibt er schon die gewünschte Richtung. Danach werden die durch das Skalarprodukt $\nabla u_{\mcal S}|_{T_i} \cdot \bs n$ berechneten Richtungsableitungen noch voneinander abgezogen, um $j_E$ zu erhalten.
+Mit der Funktion {\ttfamily normal_flux.m} berechnen wir für jede Kante aus der übergebenen Kantenmenge $E_p$ den Normalenfluß $j_E$. Hierfür werden  für jede Kante $E \in E_p$ die Indizes der anliegenden Dreiecke berechnet (dies geschieht mit der Funktion {\ttfamily neighbourhood.m}). Dabei gibt der Parameter {\ttfamily flag} an, ob eine Kante nur einen oder zwei Nachbarn besitzt, d.h. sie ob Randkante ist oder innen liegt. Durch die Indizes der anliegenden Dreiecke lassen sich die Eckpunkte und damit die Gradienten von $u_{\mcal S}$ auf $T_1$ und $T_2$ sowie der Normalenvektor $\bs n$, der immer von $T_1$ nach $T_2$ zeigen soll, berechnen. Da diese Eigenschaft durch die gewählte Erzeugung des Normalenvektors im Code  nicht immer erfüllt sein muss, wird überprüft, ob der berechnete Vektor $\bs n$ mit einer der übrigen Kanten aus $T_1$ einen Winkel $\alpha \in (0,\frac \pi2)$ einschließt. Sollte dies der Fall sein, so drehen wir den Vektor $\bs n$ um, ansonsten beschreibt er schon die gewünschte Richtung. Danach werden die durch das Skalarprodukt $\nabla (u_{\mcal S}|_{T_i}) \cdot \bs n$ berechneten Richtungsableitungen noch voneinander abgezogen, um $j_E$ zu erhalten.
 
 
 
@@ -282,11 +282,11 @@ Mit der Datei {\ttfamily normal_flux.m} berechnen wir für jede Kante aus der ü
 
 Um die Knotenmengen $\mcal N^0$ und $\mcal N^+$ zu berechnen, müssen wir zunächst die inneren Knoten $\mcal N\cap \Omega$ bestimmen. Dies kann man sehr leicht durch die Adjazenzmatrix $H \in \{0,1\}^{m\times n}$, die mit der Funktion {\ttfamily assemb} berechnet werden kann und durch den Matrixeintrag 1 angibt welcher der $n$ Knoten einer der $m$ Randknoten ist, bestimmen. Dafür berechnen wir eine Vergleichsmatrix, die überprüft, welcher der Einträge in $H$ gleich Null ist, und bilden dann spaltenweise das Produkt. Die Einträge, die in dem erzeugten Vektor, ungleich Null sind, können keine Randpunkte sein.
 
-Die inneren Kontakt- und Nichtkontaktknoten lassen sich dann leicht durch Überprüfen der Bedingungen berechnen, bzw. die Nichtkontaktknoten lassen sich auch einfach als Komplement zu den Kontaktknoten bilden. Bei der Berechnung der Kontaktknotenindizes ist zu beachten, dass wegen der Approximationsfehler eine obere Fehlerschranke $\eps \approx 0$ verwendet wird. Dieses Vorgehen ist in {\ttfamily N0.m} und {\ttfamily Nplus.m} verwendet.
+Die inneren Kontakt- und Nichtkontaktknoten lassen sich dann leicht durch Überprüfen der Bedingungen berechnen, bzw. die Nichtkontaktknoten lassen sich auch einfach als Komplement zu den Kontaktknoten bilden. Bei der Berechnung der Kontaktknotenindizes ist zu beachten, dass wegen der Approximationsfehler eine obere Fehlerschranke $\eps \approx 0$ verwendet wird. Dieses Vorgehen wird in {\ttfamily N0.m} und {\ttfamily Nplus.m} verwendet.
 
-Analog kann man auch die Menge der Knoten $\mcal N^{++}$ (s. {\ttfamily Nplusplus.m}) leicht implementieren, indem wir einfach die Bedingung aus der Menge mit den mitgegebenen Daten überprüfen.
+Analog kann man auch die Menge der Knoten $\mcal N^{++}$ (s. {\ttfamily Nplusplus.m})  implementieren, indem wir  die Bedingung aus der Definition mit den mitgegebenen Daten überprüfen.
 
-Dies ist für der Menge der isolierten Kontaktknoten\index{isolierte Kontaktknoten} $\mcal N^{0+}$ und der Kontaktnoten mit vollständigem Kontakt $\mcal N^{0-}$ nicht mehr so einfach möglich. Die nun beschriebenen Ideen sind gemeinsam in der Datei {\ttfamily N0plusminus.m} angewendet. Da wir in Matlab keine kompletten Funktionen miteinander vergleichen können (s. Bedingung $u_{\mcal S} = \psi$ auf ganz $\omega_p$), transformieren wir die Dreiecke $T$ wieder auf das Referenzdreieck und vergleichen einzelne Funktionswerte bzgl. eines möglichst engmaschigem Gitter auf diesem. Hierbei laufen wir in einer Schleife über alle Dreiecke $T \subset \omega_p$ und berechnen auf jedem Dreieck $u_{\mcal S}-\psi$ auf dem betrachteten Gitter. Um nun zu überprüfen, ob $p$ ein isolierter Kontaktknoten ist, müssen wir aus den berechneten Funktionswerten die der Eckpunkte eliminieren, was in Zeile 52-60 geschieht. Sollte nun ein Funktionswert kleiner oder gleich Null sein, so kann $p$ kein isolierter Kontaktknoten mehr sein und wir setzen daher {\ttfamily flag_plus}$=1$, womit wir später diese Entscheidung fällen, wenn wir aus der Schleife über alle Dreiecke $T$ kommen. Sollten nun aber alle Funktionswerte an den Eckpunkten von $\psi$ und $u_{\mcal S}$ übereinstimmen, so gilt wegen der Linearität der beiden Funktionen die Gleichheit und weiter $f\le 0$ an den betrachteten Gitterpunkten, so erhöhen wir den Parameter {\ttfamily flag_minus} um Eins, mit dem wir  damit später entscheiden können, ob die Bedingung auch auf allen Dreiecken von $\omega_p$ gilt. Es fehlt also nur noch die Überprüfung, ob {\ttfamily flag_plus}$\ =0 \ (\Ra p \in \mcal N^{0+})$ bzw. {\ttfamily flag_minus}$\ =\abs{\omega_p}$ und $j_E \le 0$ für alle $E \in\mcal E_p \ (\Ra p \in \mcal N^{0-})$ ist.
+Dies ist für die Menge der isolierten Kontaktknoten\index{isolierte Kontaktknoten} $\mcal N^{0+}$ und der Kontaktnoten mit vollständigem Kontakt $\mcal N^{0-}$ nicht mehr so einfach möglich. Die nun beschriebenen Ideen sind gemeinsam in der Datei {\ttfamily N0plusminus.m} angewendet. Da wir in Matlab keine kompletten Funktionen miteinander vergleichen können (s. Bedingung $u_{\mcal S} = \psi$ auf ganz $\omega_p$), transformieren wir die Dreiecke $T$ wieder auf das Referenzdreieck und vergleichen einzelne Funktionswerte bzgl. eines möglichst engmaschigen Gitters auf diesem. Hierbei laufen wir in einer Schleife über alle Dreiecke $T \subset \omega_p$ und berechnen auf jedem Dreieck die Funktionswerte von $u_{\mcal S}-\psi$ auf dem betrachteten Gitter. Um nun zu überprüfen, ob $p$ ein isolierter Kontaktknoten ist, müssen wir aus den berechneten Funktionswerten die der Eckpunkte eliminieren, was in Zeile 52-60 geschieht. Sollte nun ein Funktionswert kleiner oder gleich Null sein, so kann $p$ kein isolierter Kontaktknoten mehr sein und wir setzen daher {\ttfamily flag_plus}$=1$, womit wir später diese Entscheidung fällen, wenn wir aus der Schleife über alle Dreiecke $T$ kommen. Sollten nun aber alle Funktionswerte an den Eckpunkten von $\psi$ und $u_{\mcal S}$ übereinstimmen, so gilt wegen der Linearität der beiden Funktionen die Gleichheit und weiter $f\le 0$ an den betrachteten Gitterpunkten, so erhöhen wir den Parameter {\ttfamily flag_minus} um Eins, mit dem wir  damit später entscheiden können, ob die Bedingung auch auf allen Dreiecken von $\omega_p$ gilt. Es fehlt also nur noch die Überprüfung, ob {\ttfamily flag_plus}$\ =0 \ (\Ra p \in \mcal N^{0+})$ bzw. {\ttfamily flag_minus}$\ =\abs{\omega_p}$ und $j_E \le 0$ für alle $E \in\mcal E_p \ (\Ra p \in \mcal N^{0-})$ ist.
 
 
 \subsubsection{Oszillationsterme}
@@ -300,18 +300,23 @@ In der Datei {\ttfamily eval_rho_p.m} werden die lokalen Anteile $\rho_p (\eps_{
 \[
 	\int_E j_E \eps_{\mcal V}(x_E) \, \phi_E \phi_p \, ds = j_E \eps_{\mcal V}(x_E) \int_E \phi_E \phi_p \, ds
 \]
-über alle Kanten $E \in \mcal E$ mittels eindimensionaler \index{Quadratur!Gauß} bestimmt werden können, wobei wir auch hier das Integral auf das Referenzintervall $[-1,1]$ transformieren. Die Quadratur selbst ist danach leicht durchzuführen, weil $\phi_p$ auf einer Kante $E$ identisch zu einer ansteigenden oder abfallenden Gerade und $\phi_E$ gleich einer nach unten geöffneten Parabel ist, die auf dem Anfangs- und Endpunkt ihre Nullstellen hat. Daher lassen sich die Werte
+über alle Kanten $E \in \mcal E$ mittels eindimensionaler Quadratur\index{Quadratur!Gauß} bestimmt werden können, wobei wir auch hier das Integral auf das Referenzintervall $[-1,1]$ transformieren. Die Quadratur selbst ist danach leicht durchzuführen, weil $\phi_p$ auf einer Kante $E$ identisch zu einer ansteigenden oder abfallenden Gerade und $\phi_E$ gleich einer nach unten geöffneten Parabel ist, die auf dem Anfangs- und Endpunkt ihre Nullstellen hat. Daher lassen sich die Werte
 \[
 	\int_{-1}^1  \phi_E(x(\xi),y(\xi))  \, \phi_p(x(\xi),y(\xi)) \, d\xi
 \]
-unabhängig von $E$ bestimmen und müssen später nur noch mit der Funktionaldeterminante $$J=\frac{\abs E}2$$ multipliziert werden.
+unabhängig von $E$ bestimmen und müssen später nur noch mit der Funktionaldeterminante $J=\frac{\abs E}2$ multipliziert werden.
 
 
 \subsubsection{Berechnung des zu verfeinernden Dreiecksindizes}
 
-Im Quellcode {\ttfamily find_triangle_refinement.m} werden die Indizes der zu verfeinernden Dreiecke berechnet. Dies geschieht dadurch, dass wir so viele der größten Anteile vom Fehlerindikator $\rho_{\mcal S}$ heraussuchen, bis jene größer als ein skalierter Wert des Indikators ist. Dasselbe Vorgehen verwenden wir dann noch für die \idx{Oszillationsterme}. Für die damit erhaltenen Punktindizes berechnen wir mit {\ttfamily neighbourhood} die anliegenden Dreiecke und übergeben diese für die Verfeinerung.
+Im Quellcode {\ttfamily find_triangle_refinement.m} werden die Indizes der zu verfeinernden Dreiecke berechnet. Dies geschieht dadurch, dass wir so lange die  größten Anteile vom Fehlerindikator $\rho_{\mcal S}$ heraussuchen, bis jene größer als ein skalierter Wert des Indikators sind. Dasselbe Vorgehen verwenden wir dann noch für die \idx{Oszillationsterme}. Für die damit erhaltenen Punktindizes berechnen wir mit {\ttfamily neighbourhood} die anliegenden Dreiecke und übergeben diese für die Verfeinerung.
 
 Sollten wir ein symmetrisches Problem vorliegen haben, dann ist es von Vorteil dieses auch symmetrisch bzgl. der Netzverfeinerung bzw. der Lösung zu halten. In diesem Fall sind auch die Fehleranteile im hierarchischen Fehlerschätzer $-\mcal I_{\mcal Q}(\eps_{\mcal V})$ bzw. Fehlerindikator $\rho_{\mcal S}$ symmetrisch angeordnet. Hierfür können wir den Wert {\ttfamily option} auf {\ttfamily 'symmetric'} setzen. Dies bewirkt, dass bei der Auswahl eines Fehleranteiles alle weiteren Punkte mit demselben Anteil direkt mit gewählt werden. Damit kann es zu einer stärkeren Netzverfeinerung kommen, das erzeugte Gitter bleibt jedoch symmetrisch und damit auch die dadurch berechnete \idx{Galerkin-Lösung}.
+
+
+
+
+
 
 
 
@@ -335,11 +340,11 @@ Da wir nun zwei verschiedene Lasten erhalten, was den Lastvektor der rechten Sei
 \item {\ttfamily adaptive_refinement_solution.m}.
 \end{itemize}
 
-Zu den Änderungen gibt es noch zwei neue Dateien: {\ttfamily quad_edge.m} und {\ttfamily boundary_disjunction.m}. Erstere arbeitet analog zu {\ttfamily quad_tri.m} und gibt einfach die Stützstellen und Gewichte für die Gauß-Quadratur über eine Kante mit den dazu gegebenen Eckpunkten wieder zurück. Die Funktion {\ttfamily boundary_disjunction.m} berechnet für die übergebenen Randpunkte drei disjunkte Teilmengen von Randpunkten, die mit den Dirichlet-, Neumann und Kontaktrandpunkten übereinstimmen.
+Zu den Änderungen gibt es noch zwei neue Dateien: {\ttfamily quad_edge.m} und {\ttfamily boundary_disjunction.m}. Erstere arbeitet analog zu {\ttfamily quad_tri.m} und gibt einfach die Stützstellen und Gewichte für die Gauß-Quadratur über eine Kante mit den dazu gegebenen Eckpunkten wieder zurück. Der Quellcode {\ttfamily boundary_disjunction.m} berechnet für die übergebenen Randpunkte drei disjunkte Teilmengen von Randpunkten, die mit den Dirichlet-, Neumann und Kontaktrandpunkten übereinstimmen.
 
 \subsubsection{Lokale Steifigkeitsmatrizen und Assemblierung}
 
-Die Assemblierung der lokalen Matrizen bzw. Vektoren ist nur leicht verändert. Da wir in dem Kontaktproblem ein Verschiebungsfeld berechnen, werden die Matrizen und Vektoren doppelt so groß als im Hindernisproblem. Um weiterhin eine Struktur zu behalten, werden x- und y-Verschiebung blockweise in den Verschiebungsvektor hintereinander geschrieben. Dies führt dazu, dass bei der Assemblierung der Steifigkeitsmatrix $A$ auch ($2\times 2$)-Matrixblöcke assembliert werden. Analog ist das Vorgehen für den Lastvektor blockweise durchzuführen. Als Änderung zum Hindernisproblem erhalten wir hier jedoch auch eine Last, die auf bestimmten Randpunkten (Neumann-Rand) existiert. Diese wird mithilfe von {\ttfamily quad_edge.m} durch direkte Integration über die jeweiligen Randkanten in den Lastvektor in die passenden Komponenten eingepflegt.
+Die Assemblierung der lokalen Matrizen bzw. Vektoren ist nur leicht verän-dert. Da wir in dem Kontaktproblem ein Verschiebungsfeld berechnen, werden die Matrizen und Vektoren doppelt so groß als im Hindernisproblem. Um weiterhin eine Struktur zu behalten, werden x- und y-Verschiebung blockweise in den Verschiebungsvektor hintereinander geschrieben. Dies führt dazu, dass die Steifigkeitsmatrix $A$ aus ($2\times 2$)-Blockmatrizen assembliert wird. Analog ist das Vorgehen für den Lastvektor blockweise durchzuführen. Als Änderung zum Hindernisproblem erhalten wir hier jedoch auch eine Last, die auf bestimmten Randpunkten (Neumann-Rand) existiert. Diese wird mithilfe von {\ttfamily quad_edge.m} durch direkte Integration über die jeweiligen Randkanten in den Lastvektor in die passenden Komponenten eingepflegt.
 
 Die Berechnung der lokalen Steifigkeitsmatrizen wird analog zu \eqref{eq:5.3} hergeleitet. Wir rechnen nach, dass bzgl. des Referenzdreiecks $\widetilde T$ gilt:
 \begin{align}\notag
@@ -380,7 +385,7 @@ Mit dieser Basis und den übrigen Resultaten lässt sich aus \eqref{eq:5.9} die 
 					-d-i & -c-j & d & c+d & i & j
 				\end{pmatrix}
 \]
-bestimmen. Analog zu der linearen Basis können wir auch eine Basis aus quadratischen Bubble-Funktionen erstellen. Da die Berechnung der der lokalen Steifigkeitsmatrix in diesem Fall sehr aufwendig ist und wir für die Bilinearform $a_{\mscr Q}$ nur die Hauptdiagonale der Matrix benötigen, bestimmen wir diese analog zu $S$ als
+bestimmen. Analog zu der linearen Basis können wir auch eine Basis aus quadratischen Bubble-Funktionen erstellen. Da die Berechnung der  lokalen Steifigkeitsmatrix in diesem Fall sehr aufwendig ist und wir für die Bilinearform $a_{\mscr Q}$ nur die Hauptdiagonale der Matrix benötigen, bestimmen wir diese analog zu $S$ als
 \[
 	\bar S =\frac 4{3J} \operatorname{diag} (a+b+f, c+g+j, a+b+f, c+g+j, a+b+f, c+g+j) \, .
 \]
@@ -411,7 +416,7 @@ gilt. Durch Einsetzen der Basisfunktionen in $a_T(\bs u_{\mscr S},\bs v)$ ergebe
 
 \subsubsection{Berechnung der lokalen Anteile von $\rho_{\mscr S}$}
 
-Für die Berechnung der lokalen Anteile von $\rho_{\mscr S}(\bs\eps_{\mscr V})$ verwenden wir die Gleichung \eqref{eq:4.91}. Diese ist analog zum Hindernisproblem definiert, nur dass in den Integralen Skalarprodukte, also mehrere Summanden, vorhanden sind über die integriert werden müssen. Der grundlegende Aufbau des Quellcodes bleibt also gleich. 
+Für die Berechnung der lokalen Anteile von $\rho_{\mscr S}(\bs\eps_{\mscr V})$ verwenden wir die Gleichung \eqref{eq:4.91}. Diese ist analog zum Hindernisproblem definiert, nur dass in den Integralen Skalarprodukte, und somit mehrere Summanden, vorhanden sind über die integriert werden müssen. Der grundlegende Aufbau des Quellcodes bleibt also gleich. 
 
 In Punkten, die auf dem \idx{Neumann-Rand} liegen, müssen wir noch die Anteile aus dem Randintegral im Vektor der lokalen Anteile von $\rho_{\mscr S}(\bs\eps_{\mscr V})$ hinzufügen. 
 
@@ -419,18 +424,18 @@ In Punkten, die auf dem \idx{Neumann-Rand} liegen, müssen wir noch die Anteile 
 
 \subsubsection{Berechnung des Normalenspannungsflußes}
 
-Der \idx{Normalenspanungsfluß} $\bs j_E$, der zwischen den Gleichungen \eqref{eq:4.89} und \eqref{eq:4.90} definiert ist, ist analog zum Normalenfluss definiert. Da allerdings hier die Spannung für $\bs u_{\mscr S}$ berechnet werden muss, werden der Funktion {\ttfamily normal_flux.m} zusätzlich die \idx{Lamé-Konstanten} $\lambda$ und $\mu$ übergeben. Diese fließen im Quellcode in die Beziehung $\bs\sigma = \mcal C:\bs \eps = 2\mu \bs \eps + \lambda \,  (\tr \bs \eps)  \bs I$ ein. Der sonstige Aufbau der Datei bleibt gleich und wir nutzen aus, dass wir mit {\ttfamily gradu.m} die Gradienten für die erste und zweite Komponente des Verschiebungsfeldes $\bs u$ getrennt berechnen können.
+Der \idx{Normalenspanungsfluß} $\bs j_E$, der zwischen den Gleichungen \eqref{eq:4.89} und \eqref{eq:4.90} definiert ist, ist analog zum Normalenfluß definiert. Da allerdings hier die Spannung für $\bs u_{\mscr S}$ berechnet werden muss, werden der Funktion {\ttfamily normal_flux.m} zusätzlich die \idx{Lamé-Konstanten} $\lambda$ und $\mu$ übergeben. Diese fließen im Quellcode in die Beziehung $\bs\sigma = \mcal C:\bs \eps = 2\mu \bs \eps + \lambda \,  (\tr \bs \eps)  \bs I$ ein. Der sonstige Aufbau der Datei bleibt gleich und wir nutzen aus, dass wir mit {\ttfamily gradu.m} die Gradienten für die erste und zweite Komponente des Verschiebungsfeldes $\bs u$ getrennt berechnen können.
 
 
 
 \subsubsection{Besonderheiten in {\ttfamily adaptive_refinement_solution.m}}
 
-Auch hier muss der grundlegende Aufbau der Quellcodes nicht verändert werden, allerdings müssen ein paar Zusätze eingefügt werden. Diese beziehen sich vor allem auf die Tatsache, dass die Nebenbedingung bzgl. des Hindernisses nicht mehr auf ganz $\Omega$ gilt, sondern noch auf einem Teil des Randes, dem Kontaktrand $\Gamma_c$. Daher berechnen wir uns zunächst die Indizes für die Randpunkte, die auf dem Kontaktrand liegen und bestimmen alle notwendigen Größen zur Lösung der Variationsungleichung bzgl. dieser Punkte. Also wird das Hindernis (hier die \idx{Gap-Funktion}) beispielsweise nur an den Kontaktrandpunkten ausgewertet. Weiter müssen wir für diese Punkte auch die Matrix $B$ aus Kapitel \ref{kap:3.2.3} aufstellen. Da wir der Einfachheit halber für $\bs n$ die Vektoren $(0,\pm 1)^T$ verwendet haben (je nach Lage des Knotens), erhalten wir für $B$ eine $(m\times n)$-Matrix ($m = \abs{\mcal N_{\Gamma_c}}, n = \abs{\mcal N}$), die in jeder Zeile nur einen Eintrag ungleich Null, nämlich gleich $\pm 1$ hat. Dieser befindet sich gerade in der $2k$-ten Spalte, wenn der dazugehörige Randpunkt den Index $k$ hat. (Analoges Vorgehen ist für die Nebenbedingung des lokalen Defektproblems notwendig.)
+Auch hier muss der grundlegende Aufbau des Quellcodes nicht verändert werden, allerdings müssen ein paar Zusätze eingefügt werden. Diese beziehen sich vor allem auf die Tatsache, dass die Nebenbedingung bzgl. des Hindernisses nicht mehr auf ganz $\Omega$ gilt, sondern noch auf einem Teil des Randes, dem Kontaktrand $\Gamma_c$. Daher berechnen wir uns zunächst die Indizes für die Randpunkte, die auf dem Kontaktrand liegen und bestimmen alle notwendigen Größen zur Lösung der Variationsungleichung bzgl. dieser Punkte. Also wird das Hindernis (hier die \idx{Gap-Funktion}) beispielsweise nur an den Kontaktrandpunkten ausgewertet. Weiter müssen wir für diese Punkte auch die Matrix $B$ aus Kapitel \ref{kap:3.2.3} aufstellen. Da wir der Einfachheit halber für $\bs n$ die Vektoren $(0,\pm 1)^T$ verwendet haben (je nach Lage des Knotens), erhalten wir für $B$ eine $(m\times n)$-Matrix ($m = \abs{\mcal N_{\Gamma_c}}, n = \abs{\mcal N}$), die in jeder Zeile nur einen Eintrag ungleich Null hat. Dieser Eintrag ist $\pm 1$ hat. Dieser befindet sich gerade in der $2k$-ten Spalte, wenn der dazugehörige Randpunkt den Index $k$ hat. (Analoges Vorgehen ist für die Nebenbedingung des lokalen Defektproblems notwendig.)
 
 
 \subsubsection{Erweiterung der vorhandenen Implementierung}
 
-In der Implementierung fehlt die Verwendung der Oszillationsterme. Wenn diese noch eingearbeitet werden, kann man analog zum Algorithmus \ref{alg:4.1} den Schritt 9 auf das Kontaktproblem übertragen und damit erreichen, dass sich mit Sicherheit in jedem Verfeinerungsschritt die Oszillationen verringern.
+In der Implementierung fehlt die Verwendung der Oszillationsterme. Wenn diese noch eingearbeitet werden, kann man analog zum Algorithmus \ref{alg:4.1} den Schritt 9 auf das Kontaktproblem übertragen. Damit wird erreicht, dass sich mit Sicherheit in jedem Verfeinerungsschritt die Oszillationen verringern.
 
 
 

@@ -1,13 +1,16 @@
 \select@language {ngerman}
 \addvspace {10\p@ }
 \addvspace {10\p@ }
-\contentsline {table}{\numberline {2.1}{\ignorespaces Ableitungen der nodalen Basisfunktion $\phi _5$.\relax }}{29}{table.caption.13}
+\contentsline {table}{\numberline {2.1}{\ignorespaces Ableitungen der nodalen Basisfunktion $\phi _5$.\relax }}{31}{table.caption.13}
 \addvspace {10\p@ }
 \addvspace {10\p@ }
 \addvspace {10\p@ }
-\contentsline {table}{\numberline {5.1}{\ignorespaces St\IeC {\"u}tzstellen $(\xi _k,\eta _k)$ und Gewichte $w_k$ f\IeC {\"u}r die Gau\IeC {\ss }-Quadratur \IeC {\"u}ber das Referenzdreieck $\setbox \z@ \hbox {\frozen@everymath \@emptytoks \mathsurround \z@ $\textstyle T$}\mathaccent "0365{T}$\relax }}{113}{table.caption.38}
+\contentsline {table}{\numberline {5.1}{\ignorespaces St\IeC {\"u}tzstellen $(\xi _k,\eta _k)$ und Gewichte $w_k$ f\IeC {\"u}r die Gau\IeC {\ss }-Quadratur \IeC {\"u}ber das Referenzdreieck $\setbox \z@ \hbox {\frozen@everymath \@emptytoks \mathsurround \z@ $\textstyle T$}\mathaccent "0365{T}$\relax }}{115}{table.caption.37}
 \addvspace {10\p@ }
-\contentsline {table}{\numberline {6.1}{\ignorespaces Vergleich von adaptiver und uniformer Verfeinerung f\IeC {\"u}r Beispiel \ref {bsp:6.1}}}{125}{table.caption.54}
+\contentsline {table}{\numberline {6.1}{\ignorespaces Vergleich von adaptiver und uniformer Verfeinerung f\IeC {\"u}r Beispiel \ref {bsp:6.1}}}{127}{table.caption.53}
+\contentsline {table}{\numberline {6.2}{\ignorespaces Vergleich von adaptiver und uniformer Verfeinerung f\IeC {\"u}r Beispiel \ref {bsp:6.2}}}{129}{table.caption.55}
+\contentsline {table}{\numberline {6.3}{\ignorespaces Vergleich von adaptiver und uniformer Verfeinerung f\IeC {\"u}r Beispiel \ref {bsp:6.3}}}{131}{table.caption.62}
+\contentsline {table}{\numberline {6.4}{\ignorespaces Vergleich von adaptiver und uniformer Verfeinerung f\IeC {\"u}r Beispiel \ref {bsp:6.4}}}{136}{table.caption.64}
 \addvspace {10\p@ }
 \addvspace {10\p@ }
 \addvspace {10\p@ }

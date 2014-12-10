@@ -1,0 +1,73 @@
+This is BibTeX, Version 0.99d (TeX Live 2014)
+Capacity: max_strings=35307, hash_size=35307, hash_prime=30011
+The top-level auxiliary file: Arbeit.aux
+The style file: alphadin.bst
+Reallocated singl_function (elt_size=4) to 100 items from 50.
+Reallocated singl_function (elt_size=4) to 100 items from 50.
+Reallocated wiz_functions (elt_size=4) to 6000 items from 3000.
+Reallocated singl_function (elt_size=4) to 100 items from 50.
+Reallocated singl_function (elt_size=4) to 100 items from 50.
+Database file #1: Arbeit.bib
+Warning--empty number in BarCar
+Warning--empty note in BarCar
+Warning--empty number in BraeLook
+Warning--empty note in BraeLook
+Warning--empty number in Page
+Warning--empty note in Page
+Warning--empty edition in Quad
+Warning--empty address in Quad
+Warning--empty year in Quad
+Warning--empty number in StarkePDE
+Warning--empty note in StarkePDE
+Warning--empty number in StarkeVar
+Warning--empty note in StarkeVar
+Warning--empty number in EPSContact
+Warning--empty note in EPSContact
+Warning--empty number in EPS
+Warning--empty note in EPS
+Warning--empty number in Walker
+Warning--empty note in Walker
+Warning--empty number in WriggersFEMSkript
+Warning--empty note in WriggersFEMSkript
+You've used 40 entries,
+            4793 wiz_defined-function locations,
+            1124 strings with 10621 characters,
+and the built_in function-call counts, 20804 in all, are:
+= -- 2036
+> -- 579
+< -- 434
++ -- 516
+- -- 187
+* -- 1322
+:= -- 3544
+add.period$ -- 52
+call.type$ -- 40
+change.case$ -- 189
+chr.to.int$ -- 39
+cite$ -- 61
+duplicate$ -- 689
+empty$ -- 1748
+format.name$ -- 385
+if$ -- 4275
+int.to.chr$ -- 2
+int.to.str$ -- 0
+missing$ -- 150
+newline$ -- 232
+num.names$ -- 120
+pop$ -- 307
+preamble$ -- 1
+purify$ -- 269
+quote$ -- 0
+skip$ -- 1154
+stack$ -- 0
+substring$ -- 1109
+swap$ -- 128
+text.length$ -- 105
+text.prefix$ -- 23
+top$ -- 0
+type$ -- 351
+warning$ -- 21
+while$ -- 180
+width$ -- 41
+write$ -- 515
+(There were 21 warnings)

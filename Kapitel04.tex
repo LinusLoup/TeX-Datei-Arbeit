@@ -5,12 +5,12 @@
 Die adaptive Netzverfeinerung (s. Kapitel \ref{kap:2.4}) ist gerade auch bei Hindernis- und Kontaktproblemen von großem Vorteil. Wie wir in Kapitel \ref{kap:3} gesehen haben, führt die Lösung von solchen Problemen auf quadratische Programme, die wir mit zeitaufwändigen Verfahren lösen müssen. An dieser Stelle sei bemerkt, dass man Variationsungleichungen auch mit anderen Verfahren – häufig üblich ist z.B. die \textit{\idx{Penalty-Methode}} – lösen kann, die jedoch nicht weniger aufwendig sind.
 
 
-Um nun eine adaptive Verfeinerungsstrategie herleiten zu können, müssen wir zunächst einen geeigneten Fehlerschätzer für unser Modellproblem \eqref{eq:3.1} erhalten. Dabei ist "`geeignet"' in dem Sinne zu verstehen, dass der Schätzer unseren echten Fehler nach oben und unten beschränkt. Weiter wollen wir mit dem Fehler a posteriori nach jedem Verfeinerungsschritt den Fehler in der nächsten Verfeinerung abschätzen. Mit diesen Fragestellungen werden wir uns in diesem Kapitel beschäftigen und einen ersten adaptiven Algorithmus sowie die Übertragung auf Kontaktprobleme zeigen.
+Um nun eine adaptive Verfeinerungsstrategie herleiten zu können, müs-sen wir zunächst einen geeigneten Fehlerschätzer für unser Modellproblem \eqref{eq:3.1} erhalten. Dabei ist "`geeignet"' in dem Sinne zu verstehen, dass der Schätzer den exakten Fehler nach oben und unten beschränkt. Weiter wollen wir mit dem Fehlerschätzer a posteriori nach jedem Verfeinerungsschritt den Fehler in der nächsten Verfeinerung abschätzen. Mit diesen Fragestellungen werden wir uns im vorliegenden Kapitel beschäftigen und einen ersten adaptiven Algorithmus, sowie die Übertragung auf Kontaktprobleme zeigen.
 
 
 Es sei bemerkt, dass man als a posteriori Fehlerschätzer für Hindernisprobleme in der Literatur häufig residuale Schätzer wiederfinden kann. Wir wollen uns jedoch hier mit einem hierarchischen Fehlerschätzer beschäftigen, dessen grundlegende Idee auch schon in Kapitel \ref{kap:2.4.1} dargestellt wurde.
 
-Dieses Kapitel basiert größtenteils auf \cite{ZouVee}.
+Dieses Kapitel basiert in weiten Teilen auf den Ausführungen, die in \cite{ZouVee} einzusehen sind.
 
 
 
@@ -22,11 +22,11 @@ Bevor wir uns detailliert der Herleitung eines hierarchischen a posteriori Fehle
 
 
 \begin{vor}\label{vor:4.1}
-Das Hindernis  wird durch eine stückweise lineare stetige Funktion $\psi$ beschrieben.
+Das Hindernis  wird durch eine stückweise lineare, stetige Funktion $\psi$ beschrieben.
 \end{vor}
 
 
-Für nichtstetige oder auch glatte Hindernisse sind analoge Aussagen beweisbar, die jedoch schwerer zu zeigen sind. Für einen residualen Schätzer kann man das Vorgehen für glatte Hindernisse auch in \cite{Page} finden.
+Für nichtstetige oder auch glatte Hindernisse sind analoge Aussagen beweisbar, die jedoch allgemeineres Vorgehen erfordern und damit  schwieriger zu zeigen sind. Für einen residualen Schätzer kann man das Vorgehen für glatte Hindernisse auch in \cite{Page} finden.
 
 
 
@@ -42,7 +42,7 @@ Es sei $\mcal B_h$ eine nodale Basis bzgl. einer quasi-uniformen Triangulierung 
 \[
 	K_h  = \{v_h \in \mcal S_h \mid v_h (p) \ge \psi(p) \, \forall \, p \in \mcal N \cap \Omega\} \, , 
 \]
-wobei $\mcal N$ wieder die Menge der Knoten von $\mcal T_h$ darstellt. Wir betrachten nun wieder die diskrete Variationsungleichung \eqref{eq:3.12}: Finde $u_h \in K_h$ mit
+wobei $\mcal N$ wieder die Menge der Knoten von $\mcal T_h$ darstellt. Wir betrachten nun  die diskrete Variationsungleichung \eqref{eq:3.12}: Finde $u_h \in K_h$ mit
 \[
 	a(u_h,v_h-u_h) \ge (f,v_h-u_h) \quad \forall \, v_h \in K_h
 \]
@@ -87,9 +87,9 @@ und damit gilt $J(u_h)-J(u) \ge \frac 1 2\norm{u_h-u}_E^2$, d.h. eine obere Schr
 
 
 \begin{notation}
-Um im Folgenden den hierarchischen Split leichter beschreiben zu können, schreiben wir für die Galerkin-Lösung $u_h$ die Notation $u_{\mcal S}$, um auszudrücken, dass diese im linearen Ansatzraum $\mcal S_h$ liegt. Analog sind die im Weiteren übrigen verwendeten Indizes zu verstehen.
+Um im Folgenden den hierarchischen Split leichter beschreiben zu können, schreiben wir für die Galerkin-Lösung $u_h$ die Notation $u_{\mcal S}$, um auszudrücken, dass diese im linearen Ansatzraum $\mcal S_h$ liegt. Analog sind die übrigen, verwendeten Indizes zu verstehen.
 
-Zudem werden wir die für die Energienorm die Notation
+Zudem werden wir  für die Energienorm die Notation
 \[
 	a(v,v)^{\frac 12} = \norm{v}
 \]
@@ -105,7 +105,7 @@ Zur Herleitung des hierarchischen Fehlerschätzers führen wir die Fehlerfunktio
 
 \begin{bem}\label{bem:4.3}
 \begin{enumerate}[(a)]
-\item Die Linearform $\rho_{\mcal S}$ stellt das Residuum der Variationsgleichung (d.h. ohne Hindernis) dar.
+\item Die Linearform $\rho_{\mcal S}$ stellt das Residuum der Variationsgleichung (d.h. wenn kein Hindernis vorliegt) dar.
 \item Nach dem Darstellungssatz von Riesz existiert ein $v^* \in H^1_0(\Omega)$, so dass
 \[
 	(v^*,v) = \rho_{\mcal S} (v) \quad\forall \, v \in H^1_0(\Omega)
@@ -179,7 +179,7 @@ Als Erweiterung von $\mcal S_h$ betrachten wir einen Raum $\mcal Q_h$ mit $\mcal
 \[
 	\mcal Q_h \coloneqq \{v \in C^0(\Omega) \mid v|_T \in \mcal P_2 \text{ für } T\in \mcal T_h, v|_{\partial\Omega} = 0\}
 \]
-ist, d.h. der Raum der stückweise quadratischen Funktionen über einer quasi-uniformen Zerlegung $\mcal T_h$. Damit definieren wir $\mcal N_{\mcal Q} \coloneqq \mcal N \cup \{x_E \mid E \in \mcal E\}$, wobei $x_E$ den Mittelpunkt der Kante $E$ bezeichne und $\mcal E$ somit die Menge aller Kanten ist. Daraus ergibt sich $\mcal A$ über $\mcal Q_h$ diskret als
+ist, d.h. der Raum der stückweise quadratischen Funktionen über einer quasi-uniformen Zerlegung $\mcal T_h$. Damit definieren wir $\mcal N_{\mcal Q} \coloneqq \mcal N \cup \{x_E \mid E \in \mcal E\}$, wobei $\mcal E$ somit die Menge aller Kanten ist und $x_E$ den Mittelpunkt einer Kante $E$ bezeichnet.  Daraus ergibt sich $\mcal A$ über $\mcal Q_h$ diskret als
 \begin{align}\label{eq:4.4}
 	\mcal A_{\mcal Q} \coloneqq \{v \in \mcal Q_h \mid v(p) \ge \psi(p)-u_{\mcal S}(p) \, \forall \, p \in \mcal N_{\mcal Q} \cap \Omega\} 
 \end{align}
@@ -220,7 +220,7 @@ Im Allgemeinen gilt hierbei nicht $\mcal A_{\mcal Q} \subset \mcal A$. So kann m
 \end{bem}
 
 
-Als hierarchischen Split des Raumes $\mcal Q_h$ verwenden wir $\mcal Q_h = \mcal S_h + \mcal V_h$, wobei $\mcal V_h \coloneqq \{\phi_E \mid E \in \mcal E\}$ der Raum der quadratischen \textit{Bubble-Funktionen}\index{Bubble-Funktion} ist, wobei solch eine Bubble-Funktion $\phi_E$ bzgl. der Eck- und Kantenmittelpunkte eines Dreiecks definiert ist durch
+Als hierarchischen Split des Raumes $\mcal Q_h$ verwenden wir $\mcal Q_h = \mcal S_h + \mcal V_h$, wobei $\mcal V_h \coloneqq \{\phi_E \mid E \in \mcal E\}$ der Raum der quadratischen \textit{Bubble-Funktionen}\index{Bubble-Funktion} ist, die  bzgl. der Eck- und Kantenmittelpunkte eines Dreiecks definiert sind durch
 \[
 	\phi_E (p) = \delta_{x_E,p} = \begin{cases}
 								1, & p = x_E \\
@@ -253,7 +253,7 @@ als Linearkombination aus den Funktionen beschrieben werden kann ($\phi_1$ bis $
 \[
 	\mcal Q_h = \operatorname{span} \{\phi_1,\ldots,\phi_6\} \, .
 \]
-Aus der linearen Unabhängigkeit folgt damit auch $\mcal S_h \cap \mcal V_h = \{0\}$ gilt und damit die Behauptung.
+Aus der linearen Unabhängigkeit folgt somit auch $\mcal S_h \cap \mcal V_h = \{0\}$  und daraus die Behauptung.
 \end{proof}
 
 Satz \ref{satz:4.7} erlaubt es uns also, jedes Element $v_{\mcal Q} \in \mcal Q_h$  als $v_{\mcal Q} = v_{\mcal S} + v_{\mcal V}$ mit $v_{\mcal S} \in \mcal S_h, v_{\mcal V}\in \mcal V_h$ schreiben zu können. Aus diesem Grund führen wir folgende Bilinearform ein:
@@ -285,7 +285,7 @@ Deshalb führen wir die approximierte Energie
 \begin{align}\label{eq:4.6}
 	\mcal I_{\mcal Q} (v) \coloneqq \frac 1 2 a_{\mcal Q}(v,v)-\rho_{\mcal S}(v) \, , \quad v \in \mcal Q_h 
 \end{align}
-ein, das damit verbundene Defektproblem ist allerdings noch durch die Nebenbedingung aus $\mcal A_{\mcal Q}$ mit $\mcal S_h$ gekoppelt und daher noch nicht alleine auf die Raumerweiterung $\mcal V_h$ bezogen. Als Abhilfe ignorieren wir einfach die linearen Beiträge in $\mcal A_{\mcal Q}$ und führen eine echte Teilmenge 
+ein. Das damit verbundene Defektproblem ist allerdings noch durch die Nebenbedingung aus $\mcal A_{\mcal Q}$ mit $\mcal S_h$ gekoppelt und daher noch nicht alleine auf die Raumerweiterung $\mcal V_h$ bezogen. Als Abhilfe ignorieren wir einfach die linearen Beiträge in $\mcal A_{\mcal Q}$ und führen eine echte Teilmenge 
 \begin{align}\label{eq:4.7}
 	\mcal A_{\mcal V} \coloneqq \{v \in \mcal V_h \mid v(x_E) \ge \psi(x_E)-u_{\mcal S}(x_E) \, \forall \, E \in \mcal E\}
 \end{align}
@@ -312,11 +312,11 @@ Das Energiefunktional $\mcal I_{\mcal Q}$ ist konvex.
 \end{lemma}
 
 \begin{proof}
-Da $a$ eine stetige koerzive Bilinearform, werden aufgrund der Konstruktion von $a_{\mcal Q}$ diese Eigenschaften auch auf $a_{\mcal Q}$ übertragen. Weiterhin ist leicht zu überprüfen, dass $\rho_{\mcal S}$ eine stetige Linearform ist. Dann folgt aus Lemma \ref{lem:2.10} direkt die Behauptung.
+Da $a$ eine stetige, koerzive Bilinearform ist, werden aufgrund der Konstruktion von $a_{\mcal Q}$ diese Eigenschaften auch auf $a_{\mcal Q}$ übertragen. Weiterhin ist leicht zu überprüfen, dass $\rho_{\mcal S}$ eine stetige Linearform ist. Dann folgt aus Lemma \ref{lem:2.10} direkt die Behauptung.
 \end{proof}
 
 
-Das lokale diskrete Defektproblem \eqref{eq:4.9} ist sogar exakt lösbar. Die Lösung des Problems gibt uns der nächste Satz.
+Das lokale diskrete Defektproblem \eqref{eq:4.9} ist sogar exakt lösbar. Die Lö-sung des Problems gibt uns der nächste Satz.
 
 
 \begin{satz}\label{satz:4.11}
@@ -359,12 +359,12 @@ wobei $\bs v = [\eps_{\mcal V}(x_{E_i})]_{1\le i \le M}, D = \operatorname{diag}
 \end{subequations}
 Es sei $k \in \{1,\ldots,M\}$ beliebig.
 
-\underline{Fall 1:} Gilt $\lambda_k = 0$, so folgt aus \eqref{eq:4.13a}
+\textit{Fall 1:} Gilt $\lambda_k = 0$, so folgt aus \eqref{eq:4.13a}
 \[
 	\eps_{\mcal V} (x_{E_k}) = v_k = \frac {g_k}{a(\phi_{E_k},\phi_{E_k})} = \frac 1{\norm{\phi_{E_k}}^2} ((f,\phi_{E_k})-a(u_{\mcal S},\phi_{E_k})) \, .
 \]
 
-\underline{Fall 2:} Gilt $\lambda_k \not= 0$, dann folgt wegen \eqref{eq:4.13d}
+\textit{Fall 2:} Gilt $\lambda_k \not= 0$, dann folgt wegen \eqref{eq:4.13d}
 \[
 	\eps_{\mcal V} (x_{E_k}) =v_k = (\bs \psi - \bs u_{\mcal S})_k = \psi(x_{E_k}) - u_{\mcal S}(x_{E_k})\, .
 \]
@@ -390,12 +390,12 @@ betrachten und zeigen, dass dieser äquivalent zum Fehler im Funktional $J(u_{\m
 \begin{notation}
 \begin{enumerate}[(a)]
 \item Wir schreiben im Folgenden "`$\lesssim$"' statt "`$\le C$"', wenn die Konstante $C$ nur von der Quasi-Uniformität von $\mcal T_h$ abhängt.
-\item Weiter schreiben wir "`$A \approx B$"' für "`$A\lesssim B$"' und "`$B \lesssim A$"'.
+\item Weiter schreiben wir "`$A \approx B$"' für: "`$A\lesssim B$"' $\wedge$ "`$B \lesssim A$"'.
 \end{enumerate}
 \end{notation}
 
 
-Um die lokalen Anteile des Fehlerschätzers herzuleiten, zeigen wir zunächst ein paar Eigenschaften der Fehlerfunktion $e = u-u_{\mcal S}$.
+Um die lokalen Anteile des Fehlerschätzers herzuleiten, zeigen wir zu-nächst einige Eigenschaften der Fehlerfunktion $e = u-u_{\mcal S}$.
 
 
 
@@ -415,11 +415,11 @@ da $a$ koerziv ist. Dann gilt weiter
 \begin{align*}
 	-\mcal I(e) & = - \frac 12 a(e,e) + \rho_{\mcal S} (e) \\
 	& = -\frac 1 2 a(u-u_{\mcal S},e) + \rho_{\mcal S} (e) \\
-	& = -\frac 1 2 a(u,e) \underbrace{\frac 1 2 a(u_{\mcal S},e)-\frac 1 2(f,e)}_{=-\frac 12 \rho_{\mcal S}(e)} + \frac 1 2 (f,e)+\rho_{\mcal S}(e) \\
+	& = -\frac 1 2 a(u,e) +\underbrace{\frac 1 2 a(u_{\mcal S},e)-\frac 1 2(f,e)}_{=-\frac 12 \rho_{\mcal S}(e)} + \frac 1 2 (f,e)+\rho_{\mcal S}(e) \\
 	& = -\frac 12 (\underbrace{a(u,u-u_{\mcal S})-(f,u-u_{\mcal S})}_{\le 0}) + \frac 1 2\rho_{\mcal S}(e) \ge \frac 1 2\rho_{\mcal S}(e) \, .
 \end{align*}
 
-Es bleibt also die erste Ungleichung von \eqref{eq:4.14} zu zeigen. Wir rechnen nach, dass
+Es bleibt somit die erste Ungleichung von \eqref{eq:4.14} zu zeigen. Wir rechnen nach, dass
 \begin{align*}
 	\frac 1 2 \rho_{\mcal S} (e) &= \frac 1 2 (f,e)-\frac 1 2a(u_{\mcal S},e) \\
 	& = \frac 1 2 (\underbrace{(f,u-u_{\mcal S}) - a(u,u-u_{\mcal S})}_{\ge 0} + a(u-u_{\mcal S},e)) \\
@@ -461,7 +461,7 @@ wobei im vorletzten Schritt die 1. Green'sche Formel angewendet wurde und $\bs n
 
 Betrachten wir zwei beliebige Dreiecke $T_1,T_2$ wie in Abbildung \ref{abb:4.2}, wobei $\bs n$ hierbei die Einheitsnormale, die von $T_1$ nach $T_2$ zeigt, bezeichnet, so können wir die Summe aus \eqref{eq:4.17} bzgl. der Menge der Kanten $\mcal E$ darstellen, da der Rand $\partial T = E_1 \cup E_2 \cup E_3$ für jedes $T$ disjunkt in seine Kantenstücke aufgeteilt werden kann.
 
-Dabei sei $E$ nun die Kante, die $T_1$ und $T_2$ zugleich enthalten, d.h. $\bs n$ steht rechtwinklig auf $E$. Dann gilt, dass die Richtungsableitung $\partial_{\bs n} u_{\mcal S}|_{T_2}$ negativ ist bzgl. \eqref{eq:4.17} wegen der negativen Orientierung von $\bs n$ bzgl. $T_2$.
+Dabei sei $E$ nun die Kante, die $T_1$ und $T_2$ zugleich enthalten, d.h. $\bs n$ steht rechtwinklig auf $E$. Dann gilt, dass die Richtungsableitung $\partial_{\bs n} u_{\mcal S}|_{T_2}$ wegen der negativen Orientierung von $\bs n$ bzgl. $T_2$ negativ ist in \eqref{eq:4.17}.
 
 \begin{figure}[h]
   \begin{center}
@@ -500,7 +500,7 @@ Da für die nodalen Basisfunktionen $\{\phi_p \mid p \in \mcal N\cap \Omega\}$ v
 \[
 	\sum_{p \in \mcal N} \phi_p = 1 \text{ auf ganz } \Omega \, ,
 \]
-lässt sich $\rho_{\mcal S}$ wie folgt in lokale Anteile aufteilen können:
+lässt sich $\rho_{\mcal S}$ wie folgt in lokale Anteile aufteilen:
 \begin{align}\label{eq:4.19}
 	\rho_p(v) \coloneqq \rho_{\mcal S} (v \phi_p) \, , \quad v \in H^1(\Omega) , p \in \mcal N \, .
 \end{align}
@@ -600,7 +600,7 @@ Im unbeschränkten Fall gilt $\rho_{\mcal S} = 0 \Lra e = 0$, denn zu $\rho_{\mc
 \]
 äquivalent. Da $e\in \mcal V$ ist, folgt wegen der \idx{Galerkin-Orthogonalität}, dass $e=0$ sein muss. Die Umkehrung gilt offensichtlich auch.
 
-Wie wir schon weiter oben beschrieben haben, gilt die Galerkin-Orthogo-nalität\index{Galerkin-Orthogonalität} bei Variationsungleichungen gilt  im Allgemeinen nicht. Aber aus Lemma \ref{lem:4.12} folgt allgemeiner, falls $\rho_{\mcal S} (v) \le 0$ für alle $v \in \mcal A$ gilt,
+Wie wir schon weiter oben beschrieben haben, gilt die Galerkin-Orthogo-nalität\index{Galerkin-Orthogonalität} bei Variationsungleichungen  im Allgemeinen nicht. Aber aus Lemma \ref{lem:4.12} folgt allgemeiner, falls $\rho_{\mcal S} (v) \le 0$ für alle $v \in \mcal A$ gilt,
 \[
 	\frac 12 \norm{e}^2 \le \rho_{\mcal S}(e) \le 0\,  \lra\,  \norm e = 0 \, \lra\, e = 0 \, ,
 \]
@@ -632,15 +632,14 @@ Wir definieren die Mengen von  \textit{inneren Kontaktknoten}\index{Kontaktknote
 
 
 \begin{bem}\label{bem:4.17}
-Die Bedingungen \eqref{eq:4.21} können wir auch auf den lokalen Anteil $\rho_p$ übertragen, damit ergibt sich für alle $p \in \mcal N \cap \Omega$
+Die Bedingungen \eqref{eq:4.21} können wir auch auf den lokalen Anteil $\rho_p$ übertragen, da $\rho_p (1) = \rho_{\mcal S} (\phi_p)$ ist. Daraus ergibt sich für alle $p \in \mcal N \cap \Omega$
 \begin{subequations}\label{eq:4.22}
 \begin{align}\label{eq:4.22a}
 	\rho_p(1) &  \le 0\, ,  \\
 	\label{eq:4.22b}
-	u_{\mcal S} (p) > \psi (p) \, & \lra \, \rho_p(1) =0 \, ,
+	u_{\mcal S} (p) > \psi (p) \, & \lra \, \rho_p(1) =0 \, .
 \end{align}
 \end{subequations}
-denn $\rho_p (1) = \rho_{\mcal S} (\phi_p)$.
 \end{bem}
 
 
@@ -657,7 +656,7 @@ In Kapitel \ref{kap:4.1.4} werden wir zeigen, dass $-\mcal I_{\mcal Q} (\eps_{\m
 
 Wie wir später auch in den numerischen Beispielen sehen werden, bringt eine Verkleinerung der Oszillation auch eine Verringerung des Fehlers mit sich. Daher ist es von Interesse die Oszillationsterme einfach berechnen zu können und auch mit in die adaptive Verfeinerung einzubeziehen.
 
-Wir werden zwei Arten von Oszillationen betrachten und daher die Gesamtoszillation in diese Anteile aufteilen.
+Wir werden zwei Arten von Oszillationen betrachten und daher die Gesamtoszillation in zwei Anteile aufteilen.
 \begin{align}\label{eq:4.24}
 	\osc (u_{\mcal S}, \psi, f) \coloneqq \(\osc_1(u_{\mcal S},\psi)^2+\osc_2(u_{\mcal S},\psi,f)^2\)^{\frac 12}
 \end{align}
@@ -668,7 +667,7 @@ In \cite{ZouVee} werden die \idx{Oszillationsterme} \eqref{eq:4.24} durch
 \[
 	\osc (u_{\mcal S}, \psi, f) = \osc_1(u_{\mcal S},\psi)+\osc_2(u_{\mcal S},\psi,f)
 \]
-eingeführt. Wir wählen hier absichtlich eine leicht veränderte Darstellung, da diese für die spätere Implementierung bzgl. der lokalen Anteile der Oszillationen von Vorteil ist. Außerdem ist in vielen Fällen die Menge  $\mcal N^{0+}$ (s.u.) nach wenigen Verfeinerungsschritten leer, sodass $\osc (u_{\mcal S},\psi,f) = \osc_2(u_{\mcal S},\psi,f)$ in beiden beschriebenen Fällen gilt.
+eingeführt. Wir wählen in der vorliegenden Arbeit eine leicht veränderte Darstellung, da diese für die spätere Implementierung bzgl. der lokalen Anteile der Oszillationen von Vorteil ist. Außerdem ist in vielen Fällen die Menge  $\mcal N^{0+}$ (s.u.) nach wenigen Verfeinerungsschritten leer, sodass $\osc (u_{\mcal S},\psi,f) = \osc_2(u_{\mcal S},\psi,f)$ in beiden beschriebenen Fällen gilt.
 
 Im unbeschränkten Fall ist die Oszillation nur von $f$ abhängig (vgl. \cite{MorNoc}) und daher wird dabei von "`Daten-Oszillation"' gesprochen.
 \end{bem}
@@ -678,7 +677,7 @@ Der Oszillationsterm $\osc_1 (u_{\mcal S},\psi)$ ist ein Maß für die \idx{Oszi
 \begin{align*}
 	\osc_1(u_{\mcal S},\psi) \coloneqq \(\sum_{p \in \mcal N^{0+}} \norm{\nabla (\psi - u_{\mcal S})}_{0,\omega_p}^2\)^{\frac 12} ,
 \end{align*}
-wobei $\mcal N^{0+} \coloneqq \{p \in \mcal N^0 \mid u_{\mcal S} > \psi \text{ in }\omega_p \setminus \{p\}\}$ ist, also die Menge der \textit{isolierten Kontaktknoten}\index{isolierte Kontaktknoten}, d.h. $u_{\mcal S}$ ist auf der Menge $\omega_p$ nur im Punkt $p$ mit $\psi$ in Kontakt. Anschaulich stellt $\osc_1 (u_{\mcal S},\psi)$ deshalb ein Maß für die Hindernisoszillation dar, weil wegen der Linearität von $u_{\mcal S} ,\psi$ folgt, dass eine größere Differenz zwischen $\psi$ und $u_{\mcal S}$ auch einen größeren Gradienten $\nabla (\psi-u_{\mcal S})$ impliziert und damit auch eine größere Oszillation $\osc_1(u_{\mcal S},\psi)$.
+wobei $\mcal N^{0+} \coloneqq \{p \in \mcal N^0 \mid u_{\mcal S} > \psi \text{ in }\omega_p \setminus \{p\}\}$ ist, also die Menge der \textit{isolierten Kontaktknoten}\index{isolierte Kontaktknoten}, d.h. $u_{\mcal S}$ ist auf der Menge $\omega_p$ nur im Punkt $p$ mit $\psi$ in Kontakt. Anschaulich stellt $\osc_1 (u_{\mcal S},\psi)$ deshalb ein Maß für die Hindernisoszillation dar, weil aufgrund der Linearität von $u_{\mcal S} $ und $\psi$ folgt, dass eine größere Differenz zwischen $\psi$ und $u_{\mcal S}$ auch einen größeren Gradienten $\nabla (\psi-u_{\mcal S})$ impliziert und damit auch eine größere Oszillation $\osc_1(u_{\mcal S},\psi)$.
 
 Das kontinuierliche Gegenstück zu $\mcal N^{0+}$ ist die Menge der \textit{isolierten Kontaktpunkte} $x_c$, die aufgrund von $u-\psi >0$ für alle $x \in \mcal U(x_c, \eps) \subset \Omega$ mit $u(x_c) = \psi(x_c)$ alle strikten Minima $x_c \in \Omega$ von $u-\psi$ enthält. Daraus folgt, dass $(\nabla u -\nabla \psi) = 0$ ist für alle isolierten Kontaktpunkte, wenn $u, \psi$ hinreichend glatt sind.
 
@@ -688,8 +687,6 @@ Verfeinerung bestehen bleibt, ein für die exakte Lösung $u$ korrespondierender
 	\bigcup_{p \in \mcal N^{0+}} \omega_p \xrightarrow[h\ra 0]{} \tilde p \, .
 \end{align*}
 Sind $u$ und $\psi$ also hinreichend glatt, so verschwindet der Oszillationsterm $\osc_1(u_{\mcal S},\psi)$ für $h\ra 0$.
-
-% damit gilt $\osc_1$ hat wenigstens den Grad vom Fehler $e$ (warum?)
 
 
 Der Oszillationsterm $\osc_2(u_{\mcal S}, \psi, f)$ ist auf zwei Mengen definiert:
@@ -723,13 +720,13 @@ Mit den Mengen \eqref{eq:4.25} und \eqref{eq:4.26} ist der Oszillationsterm $\os
 \begin{align*}
 	\osc_2(u_{\mcal S},\psi, f) \coloneqq \(\sum_{p \in \mcal N^{++}} h_p^2\, \norm{f-\bar f_p}_{0,\omega_p}^2 + \sum_{p \in \mcal N\setminus (\mcal N^{0-}\cup \mcal N^{++})} h_p^2 \, \norm f_{0,\omega_p}^2 \)^{\frac 12}, 
 \end{align*}
-wobei $h_p \coloneqq \max_{E\in \mcal E_p} \abs E$ für jedes $p \in \mcal N$ ist, $h_p$ ist ein Maß für den Durchmesser von $\omega_p$, und $\bar f_p$ den Mittelwert von $f$ über $\omega_p$ bezeichne, also
+wobei $h_p \coloneqq \max_{E\in \mcal E_p} \abs E$ für jedes $p \in \mcal N$ ein Maß für den Durchmesser von $\omega_p$ ist, und $\bar f_p$ den Mittelwert von $f$ über $\omega_p$ bezeichnet, also
 \begin{align*}
 	\bar f _p = \frac 1{\abs{\omega_p}} \int_{\omega_p} f \, dx \, .
 \end{align*}
 Anschaulich kann man die Summanden der ersten Summe als Varianz der Last $f$ auf $\omega_p$ interpretieren. Da wir in der Variationsrechnung ein gemitteltes Problem betrachten, ist die erste Summe also ein Maß dafür, auf welchen Teilen von $\Omega$ die wirkliche Last $f$ um einen gemittelten Wert oszilliert. Dies impliziert bei starker Oszillation anschaulich, dass eine Verfeinerung in solchen Gebieten, die Lösung genauer machen würde.
 
-In der Menge $\mcal N\setminus (\mcal N^{0-}\cup \mcal N^{++})$ sind die inneren Knoten, die keinen vollen Kontakt $u_{\mcal S} = \psi$ auf $\omega_p$ haben und für die die Lösung $\eps_{\mcal V}$ des lokalen Defektproblems keinen Kontakt mit der Nebenbedingung von $\mcal A_{\mcal V}$ hat. Man beachte also, dass in $\mcal N\setminus (\mcal N^{0-}\cup \mcal N^{++})$ nur die Kontaktknoten fehlen, die vollen  Kontakt haben, und die Nichtkontaktknoten, für die $\eps_{\mcal V}$ in Kontakt mit dem Hindernis aus $\mcal A_{\mcal V}$ stehen. Diese Menge beschreibt gerade die Randpunkte am Hindernis und $\osc_2 (u_{\mcal S},\psi,f)$ enthält nur Anteile aus Knoten ohne vollen Kontakt, da für diese die Varianz bzgl. des Lastvektors $f$ irrelevant wäre, denn hier würde nach Verfeinerung immer noch voller Kontakt herrschen.
+In der Menge $\mcal N\setminus (\mcal N^{0-}\cup \mcal N^{++})$ sind die inneren Knoten, die keinen vollen Kontakt $u_{\mcal S} = \psi$ auf $\omega_p$ haben und für die die Lösung $\eps_{\mcal V}$ des lokalen Defektproblems keinen Kontakt mit der Nebenbedingung von $\mcal A_{\mcal V}$ hat. Man beachte also, dass in $\mcal N\setminus (\mcal N^{0-}\cup \mcal N^{++})$ nur die Kontaktknoten fehlen, die vollen  Kontakt haben, und die Nichtkontaktknoten, für die $\eps_{\mcal V}$ in Kontakt mit dem Hindernis aus $\mcal A_{\mcal V}$ stehen. Diese Menge beschreibt gerade die Randpunkte am Hindernis und $\osc_2 (u_{\mcal S},\psi,f)$ enthält nur Anteile aus Knoten ohne vollen Kontakt, da für die Knoten mit vollem Kontakt die Varianz bzgl. des Lastvektors $f$ irrelevant wäre, denn hier würde nach Verfeinerung immer noch voller Kontakt herrschen.
 
 
 \begin{bem*}
@@ -745,7 +742,7 @@ Also erhalten wir für den Oszillationsterm $\osc_2(u_{\mcal S},\psi,f)$ die For
 \begin{align*}
 	\osc_2(u_{\mcal S},\psi, f) = \(\sum_{p \in \mcal N\cap \Omega} h_p^2 \norm{f-\bar f_p}_{0,\omega_p}^2 + \sum_{p \in \mcal N \cap \partial \Omega} h_p^2 \norm f_{0,\omega_p}^2 \)^{\frac 12} ,
 \end{align*}
-was der Daten-Oszillation aus dem unbeschränkten Fall entspricht. Damit ist der zweite Oszillationsterm aus \eqref{eq:4.24} also eine Verallgemeinerung des unbeschränkten Falles. Wenn also der Teil ohne Kontakt  bekannt wäre, dann wäre der beschränkte Fall auf dieser Menge von Knoten äquivalent zu einem unbeschränkten \idx{Dirichtlet-Problem}.
+was der Daten-Oszillation aus dem unbeschränkten Fall entspricht. Damit ist der zweite Oszillationsterm aus \eqref{eq:4.24} eine Verallgemeinerung des unbeschränkten Falles. Wenn also der Teil ohne Kontakt  bekannt wäre, dann wäre der beschränkte Fall auf dieser Menge von Knoten äquivalent zu einem unbeschränkten \idx{Dirichtlet-Problem}.
 
 
 
@@ -756,13 +753,13 @@ was der Daten-Oszillation aus dem unbeschränkten Fall entspricht. Damit ist der
 \subsection{Zuverlässigkeit des Fehlerschätzers}
 \label{kap:4.1.4}
 
-Wir werden in diesem Kapitel eine obere Schranke für den Fehler im Energiefunktional $-\mcal I(e)$, die vom hierarchischen Fehlerschätzer $-\mcal I_{\mcal Q}(\eps_{\mcal V})$ abhängt, herleiten. Hierfür sind zunächst Eigenschaften für die Interpolation von $e$ auf $\eps_{\mcal V}$ notwendig.
+Wir werden in diesem Kapitel eine obere Schranke für den Fehler im Energiefunktional $-\mcal I(e)$ herleiten, die vom hierarchischen Fehlerschätzer $-\mcal I_{\mcal Q}(\eps_{\mcal V})$ abhängt. Hierfür sind zunächst Eigenschaften für die Interpolation von $e$ auf $\eps_{\mcal V}$ notwendig.
 
 Die Reduktion des Fehlers $e = u-u_{\mcal S} \in H^1_0(\Omega)$ auf den approximierten Fehler $\eps_{\mcal V}\in \mcal V$ erhalten wir durch lokale Projektionen für jedes $p \in \mcal N$ mit
 \begin{align*}
 	\pi_p: H^1(\Omega) \ra \mcal Q_p = \Span \{ \phi_p\} \cup \mcal V_p \, , \quad \mcal V_p = \Span\{\phi_E \mid E \in \mcal E_p\} \, .
 \end{align*}
-Die lokalen Projektionen $\pi_p$ sind für jedes $v \in H^1(\Omega)$ aus Dimensionsgründen ($\dim (\mcal Q_p) = p+1$) eindeutig bestimmt durch
+Die lokalen Projektionen $\pi_p$ sind für jedes $v \in H^1(\Omega)$ aus Dimensionsgründen ($\dim (\mcal Q_p) = \abs{\mcal E_p}+1$) eindeutig bestimmt durch
 \begin{align}\label{eq:4.32}
 	\int_E \pi_p v \, ds = \int_E v \, ds \quad \forall \, E \in \mcal E_p \text{ und } \begin{cases}
 														\int_{\omega_p} \pi_p v \, dx = \int_{\omega_p}  v \, dx  &,  p \in \mcal N^{++} \\
@@ -792,13 +789,13 @@ die Beziehungen
 \end{subequations}
 wobei
 \begin{align*}
-	c_p(v) = \int_{\omega_p} v \, dx - \sum_{E\in \mcal E_p} \(\int_E v \, ds\) \(\int_{\omega_p} \phi_E \, dx\)\(\int_E \phi_E \, ds\)^{-1}
+	c_p(v) = \int_{\omega_p} v \, dx - \sum_{E\in \mcal E_p} \(\int_E v \, ds\) \(\int_{\omega_p} \phi_E \, dx\)\(\int_E \phi_E \, ds\)^{-1}.
 \end{align*}
 Insbesondere gilt $c_p(\phi_p) = -\frac 16\, \abs{\omega_p}$.
 \end{lemma}
 
 \begin{proof}
-Für eine bessere Übersicht im Beweis werden wir die Differentialformen $dx$ und $ds$ weg. Es sei $v \in H^1(\Omega)$ beliebig. Dann gilt für jede Kante $E \in \mcal E_p$ mit
+Für eine bessere Übersicht im Beweis werden wir die Differentialformen $dx$ und $ds$ weglassen. Es sei $v \in H^1(\Omega)$ beliebig. Dann gilt für jede Kante $E \in \mcal E_p$ mit
 \[
 	\pi_p v = \alpha_p(v) \phi_p + \alpha_E (v) \phi_E \in \mcal Q_p 
 \]
@@ -824,11 +821,11 @@ Nach dem Umformen nach $\alpha_p(v)$ ergibt sich dann
 \]
 mit dem oben definierten $c_p(\cdot)$.
 
-Es bleibt also zu zeigen, dass $c_p(\phi_p) = -\frac 1 6 \, \abs{\omega_p}$. Hierfür betrachten wir die einzelnen Summanden von $c_p(\phi_p)$. Zunächst berechnet das Integral von $\phi_p$ über $\omega_p$ das Volumen der von $\phi_p$ erzeugten Pyramide mit Grundfläche $\abs{\omega_p}$, d.h.
+Es bleibt also zu zeigen, dass $c_p(\phi_p) = -\frac 1 6 \, \abs{\omega_p}$. Hierfür betrachten wir die einzelnen Summanden von $c_p(\phi_p)$. Zunächst wird durch das Integral von $\phi_p$ über $\omega_p$ das Volumen der von $\phi_p$ erzeugten Pyramide mit Grundfläche $\abs{\omega_p}$ berechnet, d.h.
 \begin{align}\label{eq:4.35}
 	\int_{\omega_p} \phi_p = \frac 13 \, \abs{\omega_p} \, .
 \end{align}
-Weiter ist $\phi_p$ auf jeder Kante $E \in \mcal E_p$ eine von 1 zu 0 abfallende Gerade und damit ist das Integral über $E$ gerade der Flächeninhalt vom darüber liegenden Dreieck, also
+Weiter ist $\phi_p$ auf jeder Kante $E \in \mcal E_p$ eine von 1 zu 0 abfallende Gerade und damit ist das Integral über $E$ der Flächeninhalt vom darüber liegenden Dreieck, also
 \begin{align}\label{eq:4.36}
 	\int_E \phi_p = \frac 1 2 \, \abs E \, .
 \end{align}
@@ -840,7 +837,8 @@ und mit einer affinen Transformation $s: [-1,1]\ra [a,b] = E, s(\xi) = \frac{b-a
 \begin{align}\label{eq:4.37}
 	\int_E \phi_E = \frac{b-a}2 \int_{-1}^1 \hat\phi_E = \frac 12 \, \abs{E} \cdot \frac 43 = \frac 23 \, \abs E\, .
 \end{align}
-Der letzte Fall ist komplizierter zu beschreiben. Zunächst sei erwähnt, dass $\supp (\phi_E) = T_i \cup T_j, T_i,T_j \subset \omega_p, i\not=j$ gilt, $\phi_E$ also nur auf zwei Dreiecken, die in $\omega_p$ enthalten sind, ungleich Null ist. Damit wird für jede Kante $E \in \mcal E_p$ über jedes Dreieck $T \subset \omega_p$ genau zweimal integriert.
+
+Der letzte Fall ist komplizierter zu beschreiben. Zunächst sei erwähnt, dass $\supp (\phi_E) = T_i \cup T_j$ mit $T_i,T_j \subset \omega_p, i\not=j,$ gilt. Es ist $\phi_E$ also nur auf zwei Dreiecken, die in $\omega_p$ enthalten sind, ungleich Null. Damit wird für jede Kante $E \in \mcal E_p$ über jedes Dreieck $T \subset \omega_p$ genau zweimal integriert.
 
 Auf dem Referenzelement 
 \[	
@@ -912,7 +910,7 @@ Die Abschätzung \eqref{eq:my4.40} folgt direkt aus den Abschätzungen von \eqre
 der lokalen Projektion und vorheriger Anwendung der Dreiecksungleichung auf die Norm $\norm{\pi_p v}_{0,\omega_p}$.
 
 
-Es sei $P \not\in \mcal N^{++}$. Dann gilt wegen \eqref{eq:4.33a} $\alpha_p(v) = 0$ und damit mit \eqref{eq:4.33b}
+Es sei $P \not\in \mcal N^{++}$. Dann gilt wegen \eqref{eq:4.33a} $\alpha_p(v) = 0$ und somit mit\eqref{eq:4.33b}
 \[
 	\alpha_E(v) = \(\int_E v \, ds\) \(\int_E\phi_E \, ds\)^{-1} .
 \]
@@ -920,7 +918,7 @@ Da $\psi$ wegen Voraussetzung \ref{vor:4.1} stückweise linear ist, gilt dies au
 \[
 	\int_E (\psi-u_{\mcal S}) \, ds = \abs E \, (\psi(x_E) -u_{\mcal S}(x_E)) \, .
 \]
-Wie wir im Beweis von Lemma \ref{lem:4.19} nachgerechnet haben, gilt $\int_E \phi_E \, ds = \frac 23 \abs E$ und dann ist unter der Voraussetzung von \eqref{eq:my4.41}
+Wie wir im Beweis von Lemma \ref{lem:4.19} nachgerechnet haben, gilt $\int_E \phi_E \, ds = \frac 23 \abs E$ und es ist unter der Voraussetzung von \eqref{eq:my4.41}
 \begin{align*}
 	\psi(x_E) -u_{\mcal S}(x_E) &= \frac 3 2\abs E^{-1} \int_E (\psi-u_{\mcal S}) \, ds \\
 	& \lesssim \(\int_E \phi_E \, ds\)^{-1} \(\int_E v \, ds\) \\
@@ -945,7 +943,7 @@ Die Idee des Beweises beruht auf Gleichung \eqref{eq:4.20}; damit können wir de
 \begin{align}\label{eq:4.40}
 	\rho_{\mcal S} (e) = \sum_{p \in \mcal N} \rho_p (e) \, .
 \end{align}
-Hierbei ist die Abschätzung der lokalen Anteile $\rho_p(e)$ abhängig von einer Anwendung der Poincaré-Friedrichungleichung (Satz \ref{satz:2.13}), die auf die \textit{verallgemeinerte \idx{Poincaré-Friedrich-Ungleichung}}\index{Ungleichungen!Poincaré}\index{\idx{Poincaré-Friedrich-Ungleichung}!verallgemeinerte} (folgt direkt aus Satz \ref{satz:2.13} mit $\tilde v = v-c$ eingesetzt)
+Hierbei ist die Abschätzung der lokalen Anteile $\rho_p(e)$ abhängig von einer Anwendung der Poincaré-Friedrich-Ungleichung (Satz \ref{satz:2.13}), die auf die \textit{verallgemeinerte \idx{Poincaré-Friedrich-Ungleichung}}\index{Ungleichungen!Poincaré}\index{\idx{Poincaré-Friedrich-Ungleichung}!verallgemeinerte} (folgt direkt aus Satz \ref{satz:2.13} mit $\tilde v = v-c$ eingesetzt)
 \begin{align}\label{eq:4.41}
 	\norm{v-c}_{0,\omega_p} \lesssim h_p \norm{\nabla v}_{0,\omega_p}
 \end{align}
@@ -963,7 +961,7 @@ Wir wollen im Folgenden die in \eqref{eq:4.42} aufgeführten Fälle chronologisc
 \begin{align}\label{eq:4.46}
 	\rho_p(e) \lesssim \(\sum_{E\in \mcal E^+_p} \abs{\rho_E} + h_p \norm{f-\bar f_p}_{0,\omega_p} \) \norm {\nabla e}_{0,\omega_p}
 \end{align}
-gilt, wobei $\mcal E^+_p = \{E \in \mcal E_p \mid \rho_E \ge -d_E\}$. Da $p \in \mcal N^{++}$ ist, gilt für alle $E\in \mcal E_p$ die Ungleichung $\rho_E \ge -d_E$ ist, d.h. $\mcal E^+_P = \mcal E_p$. Wir setzen
+gilt, wobei $\mcal E^+_p = \{E \in \mcal E_p \mid \rho_E \ge -d_E\}$. Da $p \in \mcal N^{++}$ ist, gilt für alle $E\in \mcal E_p$ die Ungleichung $\rho_E \ge -d_E$, d.h. $\mcal E^+_P = \mcal E_p$. Wir setzen
 \[
 	w = (e-c)\phi_p \, , \quad c = \frac 1{\abs{\omega_p}} \int_{\omega_p} e\, dx \, .
 \]
@@ -1016,7 +1014,7 @@ Analog folgt mit Anwendung von \eqref{eq:my4.40} und \eqref{eq:4.48}, dass gilt:
 \begin{align}\label{eq:4.51}
 \begin{aligned}
 	\norm{w-\pi_p w}_{0,\omega_p} &\! \;\!\!\stackrel{\scriptsize \triangle \not=} \le \norm w_{0,\omega_p} + \norm{\pi_p w}_{0,\omega_p} \\
-	& \lesssim h_p\norm{\nabla e}_{0,\omega_p}+\norm w_{0,\omega_p} + h_p \norm{\nabla e}_{0,\omega_p} \lesssim h_p \norm{\nabla e}_{0,\omega_p}
+	& \lesssim h_p\norm{\nabla e}_{0,\omega_p}+\norm w_{0,\omega_p} + h_p \norm{\nabla e}_{0,\omega_p} \lesssim h_p \norm{\nabla e}_{0,\omega_p} \, .
 \end{aligned}
 \end{align}
 Setzen wir \eqref{eq:4.49} bis \eqref{eq:4.51} in \eqref{eq:4.47}, so folgt nach Ausklammern von $\norm{\nabla e}_{0,\omega_p}$ die Behauptung \eqref{eq:4.46} mit $\mcal E_p = \mcal E_p^+$.
@@ -1151,7 +1149,7 @@ Aus \eqref{eq:4.66} folgt
 \end{align}
 wobei im letzten Schritt eine \textit{skalierte} Version der \index{Poincaré-Friedrich-Ungleichung}Poincaré-Friedrich-Unglei-chung
 \footnote{Anschaulich können wir uns dies folgendermaßen vorstellen: Da $\psi-u_{\mcal S}$ linear und am Punkt $p$ gleich ist, ist der Gradient $\nabla (\psi-u_{\mcal S})=\text{const.}$ Damit kann man mit dieser Konstanten als Höhe mit dem Mittelwertsatz der Integralrechnung die beiden Normen gegenseitig abschätzen, wobei diese Ungleichung abhängig von einer Konstanten $c$ ist, die wiederum nur von der Form von $\omega_p$ bzw. $E$ abhängt.}
- verwendet wurde, die darauf basiert, dass $(\psi-u_{\mcal S})(p) = 0$ und $\psi-u_{\mcal S}$ linear ist wegen Voraussetzung \ref{vor:4.1}. Wegen $\psi-u_{\mcal S} \le w$ folgt auch, dass
+ verwendet wurde, die darauf basiert, dass $(\psi-u_{\mcal S})(p) = 0$ und $\psi-u_{\mcal S}$ wegen Voraussetzung \ref{vor:4.1} linear ist. Wegen $\psi-u_{\mcal S} \le w$ folgt auch, dass
 \begin{align}\label{eq:4.68}
 	\norm w_{0,\omega_p} \le \norm{\psi-u_{\mcal S}}_{0,\omega_p} \lesssim h_p \norm{\nabla (\psi-u_{\mcal S})}_{0,\omega_p} \, ,
 \end{align}
@@ -1210,7 +1208,7 @@ wobei wir als letztes die Ungleichung von Young mit einem $\eps > 0$ verwendet h
 \[
 	\mcal E^0 = \bigcup_{p \in \mcal N}\mcal E^0_p \, , \quad \mcal E^+ = \bigcup_{p \in \mcal N} \mcal E_p^+ \, .
 \] 
-Wählen wir $\eps \le C$, so ergibt sich nach leichtem Umstellen der Ungleichung
+Wählen wir $\eps \le C$, so ergibt sich nach Umstellen der Ungleichung
 \begin{align*}
 	  c(\eps) \rho_{\mcal S}(e) & \le \frac \eps2 \(\sum_{E\in \mcal E^+} \abs{\rho_E}^2+\osc_2(u_{\mcal S},\psi,f)^2\) \\
 	& \ \ \  + \frac 1{2\eps} \osc_1(u_{\mcal S},f)^2 + \sum_{E\in \mcal E^0} d_E \, \abs{\rho_E} \\
@@ -1246,7 +1244,7 @@ und damit folgt die Behauptung.
 \end{proof}
 
 
-An der Abschätzung \eqref{eq:4.72} können wir sehen, dass es sinnvoll ist, nicht nur den hierarchischen Fehlerschätzer $-\mcal I_{\mcal Q}(\eps_{\mcal V})$ von einem Verfeinerungsschritt zum nächsten zu verringern, sondern auch zu fordern, dass  die \idx{Oszillationsterme} $\osc (u_{\mcal S},\psi,f)$ kleiner werden. Daher wollen wir in unserem Algorithmus später für einen adaptiven Verfeinerungsschritt diese Forderung mit verwenden, dass die \idx{Oszillationsterme} aus \eqref{eq:4.24} verringert werden.
+An der Abschätzung \eqref{eq:4.72} können wir sehen, dass es sinnvoll ist, nicht nur den hierarchischen Fehlerschätzer $-\mcal I_{\mcal Q}(\eps_{\mcal V})$ von einem Verfeinerungsschritt zum nächsten zu verringern, sondern auch zu fordern, dass  die \idx{Oszillationsterme} $\osc (u_{\mcal S},\psi,f)$ kleiner werden. Daher wollen wir in unserem Algorithmus später für einen adaptiven Verfeinerungsschritt die Forderung verwenden, dass die \idx{Oszillationsterme} aus \eqref{eq:4.24} verringert werden.
 
 
 
@@ -1272,7 +1270,7 @@ Nach Wurzel ziehen und Verwendung der Dreiecksungleichung folgt die Behauptung.
 Wir wollen noch ein Resultat liefern, was die Forderung an die Verringerung der \idx{Oszillationsterme} in jedem Verfeinerungsschritt begründet. Hierbei handelt es sich um ein analoges Resultat zu Lemma 3.8 aus \cite{MorNoc}.
 
 \begin{lemma}\label{lem:4.24}
-Es sei $0 < \gamma < 1$ ein Parameter, der die Reduktion der Größe des Dreiecks bei Verfeinerung wiedergibt. Weiter sei $0 < \hat \theta < 1$ gegeben und eine Menge an Punkten $\hat{\mcal N}\subset \mcal N$, die die zu verfeinernden Dreiecke anzeigen, gegeben, so dass
+Es sei $0 < \gamma < 1$ ein Parameter, der die Reduktion der Größe des Dreiecks bei Verfeinerung darstellt. Weiter sei $0 < \hat \theta < 1$ gegeben und eine Menge an Punkten $\hat{\mcal N}\subset \mcal N$, die die zu verfeinernden Dreiecke anzeigen, gegeben, so dass
 \[
 	\osc(u_{\mcal S},\psi,f,\hat{\mcal N}) \ge \hat\theta \osc (u_{\mcal S},\psi,f,\mcal N) \, .
 \]
@@ -1310,7 +1308,7 @@ Es sei nun $\hat{\mcal T_H^i}, i = 1,2$ die zu verfeinernde Menge an gröberen E
 	& \!\! \! \stackrel{\scriptsize\text{"`}+0\text{"'}}= \underbrace{ (\gamma^2-1)}_{\le 0} \, \underbrace{\widetilde{\osc}_2(u_{\mcal S},\psi,f,\hat{\mcal T}_H)^2}_{\ge 0}  + \widetilde \osc_2(u_{\mcal S},\psi,f,\mcal T_H)^2 \\
 	& \le \tilde \alpha \, \widetilde \osc_2(u_{\mcal S},\psi,f,\mcal T_H)^2 \, .
 \end{align*}
-Eine analoge Aussage ergibt sich auch für $\widetilde\osc_1(u_{\mcal S},\psi,\mcal T_h)$. Wegen der Äquiva-lenz der Darstellung von $\widetilde\osc_1, \widetilde\osc_2$ zu den Oszillationstermen \eqref{eq:4.24}, folgt die Behauptung \eqref{eq:my4.70}.\hfill $\square$
+Eine analoge Aussage ergibt sich auch für $\widetilde\osc_1(u_{\mcal S},\psi,\mcal T_h)$. Wegen der Äquiva-lenz der Darstellung von $\widetilde\osc_1$ und $\widetilde\osc_2$ zu den Oszillationstermen \eqref{eq:4.24}, folgt die Behauptung \eqref{eq:my4.70}.\hfill $\square$
 \end{proofsketch}
 
 
@@ -1341,7 +1339,7 @@ Zunächst folgt mit \eqref{eq:4.16}
 	& = \sum_{E\in \mcal E} \eps_{\mcal V} (x_E) \rho_{\mcal S}(\phi_E)
 	= \sum_{E \in \mcal E} \eta_E \, \abs {\rho_E}  \label{eq:my4.32}
 \end{align}
-mit $\eta_E = \abs{\eps_{\mcal V}(x_E)} \cdot \norm{\phi_E}$ und $\rho_E = \frac {\rho_{\mcal S}(\phi_E)}{\norm{\phi_E}}$, wobei man zeigen kann, dass $\sign (\eps_{\mcal V}(x_E)) = \sign (\rho_{\mcal S} (\phi_E))$ gilt. Weiter sollte man erwähnen, dass \eqref{eq:my4.32} äquivalent ist zu \cite{SiebVee} Gleichung (2.16).
+mit $\eta_E = \abs{\eps_{\mcal V}(x_E)} \cdot \norm{\phi_E}$ und $\rho_E = \frac {\rho_{\mcal S}(\phi_E)}{\norm{\phi_E}}$, wobei man zeigen kann, dass $\sign (\eps_{\mcal V}(x_E)) = \sign (\rho_{\mcal S} (\phi_E))$ gilt. Weiter sei angemerkt, dass \eqref{eq:my4.32} äquiva-lent ist zu \cite{SiebVee} Gleichung (2.16).
 
 Das weitere Vorgehen ist ähnlich zum Beweis von Theorem 3.2 aus \cite{SiebVee}. Es sei
 \[
@@ -1393,7 +1391,7 @@ Zusammen mit \eqref{eq:my4.32} folgt dann die Behauptung.
 
 
 
-
+\newpage
 
 \section{Ein adaptiver Algorithmus}
 \label{kap:4.2}
@@ -1402,7 +1400,7 @@ Mit den Resultaten aus Kapitel \ref{kap:4.1} können wir nun einen implementierb
 
 Mittels Theorem \ref{theorem:4.22} bildet der hierarchische a posteriori Fehlerschätzer $-\mcal I_{\mcal Q}(\eps_{\mcal V})$ eine obere Schranke für den exakten Fehler $J(u_{\mcal S})-J(u)$ (und wegen Theorem \ref{theorem:4.25} auch eine untere), d.h. dass die Verringerung unseres Schätzers auch eine Verkleinerung des Fehlers mit sich führt. Aufgrund von Korollar \ref{kor:4.13} ist außerdem der Fehlerschätzer $-\mcal I_{\mcal Q}(\eps_{\mcal V})$ äquivalent zum Fehlerindikator $\rho_{\mcal S} (\eps_{\mcal V})$, den wir durch Lemma \ref{lem:4.14} in seine lokalen Anteile bzgl. der einzelnen Knoten aufteilen können. %Daher werden wir diesen im Algorithmus zur Verringerung des Fehlerschätzers verwenden.
 
-Zuletzt bleibt noch aus, dass auch die \idx{Oszillationsterme} in der oberen Schranke von Theorem \ref{theorem:4.22} enthalten sind. Diese sollten sich also in einem Verfeinerungsschritt nicht vergrößern. Diese Forderung können wir mittels Lemma \ref{lem:4.24} (durch möglicherweise weitere Verfeinerung) erfüllen.
+Zuletzt bleibt noch aus, dass auch die \idx{Oszillationsterme} in der oberen Schranke von Theorem \ref{theorem:4.22} enthalten sind. Diese sollten sich also in einem Verfeinerungsschritt nicht vergrößern. Diese Forderung können wir mit Lemma \ref{lem:4.24} (durch möglicherweise weitere Verfeinerung) erfüllen.
 
 %Insgesamt ergibt sich damit folgender adaptiver Algorithmus.
 
@@ -1464,7 +1462,7 @@ Es sei $e_{\mcal Q}$ Lösung von Problem \eqref{eq:4.5} bzw. $u_{\mcal Q}$ Lösu
 	 = & (f,e_{\mcal Q})-a(u_{\mcal S},e_{\mcal Q})+a(u_{\mcal S},u_{\mcal Q})-\frac 12 a(u_{\mcal S},u_{\mcal S})-(f,u_{\mcal Q})- J(u) \\
 	 = & \underbrace{\frac 1 2 a(u_{\mcal S},u_{\mcal S}) - (f,u_{\mcal S})}_{=J(u_{\mcal S})} - J(u) = J(u_{\mcal S})-J(u) \, .
 \end{align*}
-Damit folgt, wenn \eqref{eq:4.80} gilt,
+Unter der Voraussetzung, dass \eqref{eq:4.80} gilt, folgt somit
 \begin{align*}
 	J(u_{\mcal S})-J(u) &= -\mcal I (e_{\mcal Q}) + (J(u_{\mcal Q})-J(u)) \\
 	& \le -\mcal I(e_{\mcal Q}) + \alpha (J(u_{\mcal S})-J(u))
@@ -1594,7 +1592,7 @@ Wir wollen der Einfachheit halber auch wieder statt $\bs u_h$ die Notation $\bs 
 
 Betrachten wir wieder die exakte Fehlerfunktion $\bs e = \bs u-\bs u_{\mscr S}$ und das Funktional 
 \[
-	\mscr I (\bs v) = \frac 12 a(\bs v,\bs v) - \rho_{\mscr S} (\bs v) \text{ mit } \rho_{\mscr S} (\bs v) = a(\bs u_{\mscr S},\bs v)-F(\bs v) \, , 
+	\mscr I (\bs v) = \frac 12 a(\bs v,\bs v) - \rho_{\mscr S} (\bs v) \text{ mit } \rho_{\mscr S} (\bs v) = F(\bs v)-a(\bs u_{\mscr S},\bs v) \, , 
 \]
 so gelten für das Funktional $\mscr I$ wegen der Linearität von $F$ die Aussagen von Satz \ref{satz:4.4} und Korollar \ref{kor:4.5} bzgl. der Menge
 \[
@@ -1650,7 +1648,7 @@ wenn $\mcal C$ ein konstanter Tensor ist. Damit lässt sich der Fehlerindikator 
 	\label{eq:4.89}
 	& \!\!\!\! \stackrel[\scriptsize \eqref{eq:4.88}]{\scriptsize\eqref{eq:C.3a}}= F(\bs v) - \sum_{T \in \mcal T_h} \int_{\partial T} \bs v \cdot \bs \sigma(\bs u_{\mscr S}) \cdot \bs n \, d\Gamma  \, .
 \end{align}
-Jetzt lässt sich \eqref{eq:4.89} analog zu der Gleichung \eqref{eq:4.18} auch als Summe über die Kanten $E\in \mcal E$ beschreiben. Wenn wir $\bs n$ wieder als die Einheitsnormale bezeichnen, die von einem gegebenen Dreieck $T_1$ in das Dreieck $T_2$ zeigt, dann lässt sich der \textit{Nomalenspannungsfluss} über $E$ berechnen als
+Jetzt lässt sich \eqref{eq:4.89} analog zu der Gleichung \eqref{eq:4.18} auch als Summe über die Kanten $E\in \mcal E$ beschreiben. Wenn wir $\bs n$ wieder als die Einheitsnormale bezeichnen, die von einem gegebenen Dreieck $T_1$ in das Dreieck $T_2$ zeigt, dann lässt sich der \textit{Nomalenspannungsfluß} über $E$ berechnen als
 \[
 	\bs j_E \coloneqq \bs\sigma(\bs u_{\mscr S}|_{T_2}) \cdot \bs n - \bs\sigma(\bs u_{\mscr S}|_{T_1})\cdot \bs n \, .
 \]
@@ -1664,11 +1662,14 @@ Um nun den lokalen Anteil von $\rho_{\mscr S}$ bzgl. eines Punktes $p \in \mcal 
 \end{align}
 Wegen der der Zerlegung der Eins durch $\phi_p$ können wir die Aussagen von Lemma \ref{lem:4.14} und Korollar \ref{kor:4.15} direkt übertragen, wir erhalten also
 \begin{align}\label{eq:4.92}
-	\rho_p (\bs v) = \int_{\omega_p} \bs b \cdot \bs v \, \phi_p \, d\Omega + \int_{\scriptsize\parbox{1cm}{$E \subset \Gamma_\sigma$ \\ $E \in \mcal E_p$}} \bs t \cdot \bs v\, \phi_p \, d\Gamma + \sum_{E \in \mcal E_p} \int_E \bs v \cdot \bs j_E\, \phi_p \, d\Gamma \, ,
+	\rho_p (\bs v) = \int_{\omega_p} \bs b \cdot \bs v \, \phi_p \, d\Omega  + \sum_{E \in \mcal E_p} \(\int_{E \subset \Gamma_\sigma} \bs t \cdot \bs v\, \phi_p \, d\Gamma + \int_E \bs v \cdot \bs j_E\, \phi_p \, d\Gamma \)\, ,
 \end{align}
-wobei $\omega_p$ und $\mcal E_p$ wie oben definiert sind.
+wobei $\omega_p$ und $\mcal E_p$ wie oben definiert sind, und 
+\[
+	\rho_{\mscr S} = \sum_{p\in \mcal N} \rho_p \, .
+\]
 
-HIER FEHLT NOCH DIE IDEE DER LOKALEN ANTEILE
+%HIER FEHLT NOCH DIE IDEE DER LOKALEN ANTEILE
 
 Für die Übertragung der Oszillationsterme betrachten wir wieder zwei Teilmengen der Knotenmenge $\mcal N$.
 
@@ -1680,7 +1681,7 @@ Wir definieren die Menge der \textit{\idx{Kontaktknoten}} $\mscr N^0$ und die Me
 wobei $(u_{\mscr S})_n = \bs u_{\mscr S} \cdot \bs n$ ist. 
 \end{defi}
 
-Es sei hier angemerkt, dass nun nicht mehr die inneren Knoten betrachtet werden wie in Definition \ref{def:4.16}, sondern alle Knoten aus $\mcal N$, da diejenigen Knoten, die in Kontakt stehen können, in den von uns betrachteten Problemen immer auf dem Rand des Gebietes $\Omega$ liegen.
+Es sei hier angemerkt, dass nun nicht mehr die inneren Knoten $\mcal N \cup \Omega$ betrachtet werden wie in Definition \ref{def:4.16}, sondern alle Knoten aus $\mcal N$, da diejenigen Knoten, die in Kontakt stehen können, in den von uns betrachteten Problemen immer auf dem Rand des Gebietes $\Omega$ liegen.
 
 
 \subsubsection{Oszillationsterme}
@@ -1705,11 +1706,11 @@ Dann lässt sich der zweite Oszillationsterm beschreiben durch
 wobei $\norm{\bs f}_{0,\omega_p}^2 = \int_{\omega_p} \abs{\bs f}^2 \, d\Omega$ und $\bar{\bs b}_p$ analog zu $\bar f_p$ der Mittelwert von $\bs b$ über $\omega_p$ ist (komponentenweise integriert).
 
 
-\subsubsection{Zuverlässigkeit des Fehlerschätzers}
-
-Als letztes wollen wir uns noch mit der Übertragung der oberen Schranke auf den Fehlerschätzer $-\mscr I_{\mscr Q}(\bs \eps_{\mscr V})$ beschäftigen, in der die hierfür definierten Oszillationen wieder eine Rolle spielen werden.
-
-Zunächst lassen sich die Resultate für die lokalen Projektionen aus Lemma \ref{lem:4.19} und \ref{lem:4.20} vollständig übernehmen, da wir hier die komponentenweise Betrachtung der Basis aus dem Raum $\mcal Q_h$ verwenden können und somit für die Resultate der einzelnen Komponenten auf den neuen Raum $\mscr Q_h$ übertragen können.
+%\subsubsection{Zuverlässigkeit des Fehlerschätzers}
+%
+%Als letztes wollen wir uns noch mit der Übertragung der oberen Schranke auf den Fehlerschätzer $-\mscr I_{\mscr Q}(\bs \eps_{\mscr V})$ beschäftigen, in der die hierfür definierten Oszillationen wieder eine Rolle spielen werden.
+%
+%Zunächst lassen sich die Resultate für die lokalen Projektionen aus Lemma \ref{lem:4.19} und \ref{lem:4.20} vollständig übernehmen, da wir hier die komponentenweise Betrachtung der Basis aus dem Raum $\mcal Q_h$ verwenden können und somit für die Resultate der einzelnen Komponenten auf den neuen Raum $\mscr Q_h$ übertragen können.
 
 
 

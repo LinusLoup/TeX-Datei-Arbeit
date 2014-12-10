@@ -167,14 +167,15 @@
 \begin{titlepage} 
 
 \begin{flushright}
- \includegraphics[width=6.75cm]{Abbildungen/luh_logo.ps}\\
- {\large Fakultät für Mathematik und Physik \\
+%\includegraphics[width=6.75cm]{Abbildungen/luh_logo.ps}\\
+ {\Large Leibniz Universität Hannover \\
+ \large Fakultät für Mathematik und Physik \\
 Institut für Angewandte Mathematik} \\
 \end{flushright}
 
 \centering 
 
-\vspace{2cm}
+\vspace{3.8cm}
 
 \Large
  Diplomarbeit\\[2cm]\huge 
@@ -215,24 +216,41 @@ Zweitprüfer: Prof. Dr. Peter Wriggers
 
 %Abbildungsverzeichnis
 \listoffigures
-\addcontentsline{toc}{chapter}{Abbildungsverzeichnis}
+%\addcontentsline{toc}{chapter}{Abbildungsverzeichnis}
+\addtocontents{toc}{\protect\contentsline{chapter}{%
+\protect\numberline{Abbildungsverzeichnis}}{vi}{\@currentHref}}
+
+\thispagestyle{fancy}{
+	\fancyhead[LO,RE]{}
+	\fancyhead[LE,RO]{\sl Abbildungsverzeichnis}
+	%\renewcommand{\headrulewidth}{0.4pt}
+	\renewcommand{\headheight}{14pt}
+	\renewcommand{\footrulewidth}{0.4pt}
+	\cfoot{\thepage}
+}
 
 % Tabellenverzeichnis
 \listoftables
-\addcontentsline{toc}{chapter}{Tabellenverzeichnis}
+%\addcontentsline{toc}{chapter}{Tabellenverzeichnis}
+\addtocontents{toc}{\protect\contentsline{chapter}{%
+\protect\numberline{Tabellenverzeichnis}}{viii}{\@currentHref}}
 
 % Algorithmenverzeichnis
 \listofalgorithms
-\addcontentsline{toc}{chapter}{Algorithmenverzeichnis}
+%\addcontentsline{toc}{chapter}{Algorithmenverzeichnis}
+\addtocontents{toc}{\protect\contentsline{chapter}{%
+\protect\numberline{Algorithmenverzeichnis}}{ix}{\@currentHref}}
 
 % Quellcodeverzeichnis
 \lstlistoflistings
-\addcontentsline{toc}{chapter}{Quellcodeverzeichnis}
+%\addcontentsline{toc}{chapter}{Quellcodeverzeichnis}
+\addtocontents{toc}{\protect\contentsline{chapter}{%
+\protect\numberline{Quellcodeverzeichnis}}{x}{\@currentHref}}
 
 \mainmatter
 
 
-\setcounter{page}{10}
+\setcounter{page}{11}
 
 %\setcounter{page}{\thecountersave}
 
@@ -244,7 +262,6 @@ Zweitprüfer: Prof. Dr. Peter Wriggers
 	\renewcommand{\footrulewidth}{0.4pt}
 	\cfoot{\thepage}
 }
-
 
 \input{Kapitel01}
 \input{Kapitel02}

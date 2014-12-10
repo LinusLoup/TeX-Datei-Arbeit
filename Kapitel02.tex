@@ -674,7 +674,7 @@ enthält, wobei $h := \max_{T \in \mcal T_h} h_T$ ist.
 	\psdot[dotstyle=o, dotsize=4pt](2,1)
 \end{pspicture}
 \end{center}
-\caption{Zulässige und unzulässige Triangulierung (mit hängendem Knoten)\label{abb:2.2}}
+\caption[Zulässige und unzulässige Triangulierung]{Zulässige und unzulässige Triangulierung (mit hängendem Knoten)\label{abb:2.2}}
 \end{figure}
 
 
@@ -770,7 +770,7 @@ Folgendes Beispiel soll zur Erläuterung der Berechnung von den Matrixeinträgen
 
 
 \begin{bsp}\label{bsp:2.26}
-Wir betrachten das Variationsproblem \eqref{eq:2.9} auf $\Omega = [-1,1]^2$ mit $\mcal S_h$ wie oben eingeführt als den Raum der linearen Ansatzfunktionen auf einer Zerlegung $\mcal T_h$ aus 8 \textit{\idx{Courant-Element}en}, wie in Abbildung \ref{abb:2.4} zu sehen ist, wobei wir auf die rechte Seite $F(v_h)$ zunächst noch nicht genauer eingehen möchten.
+Wir betrachten das Variationsproblem \eqref{eq:2.9} auf dem Gebiet $\Omega = [-1,1]^2$ mit $\mcal S_h$ wie oben eingeführt als den Raum der linearen Ansatzfunktionen auf einer Zerlegung $\mcal T_h$ aus 8 \textit{\idx{Courant-Element}en}, wie in Abbildung \ref{abb:2.4} zu sehen ist, wobei wir auf die rechte Seite $F(v_h)$ zunächst noch nicht genauer eingehen möchten.
 
 
 \begin{figure}[h]
@@ -1048,7 +1048,7 @@ für $u \in H^2(\Omega)$.
 
 
 \begin{kor}\label{kor:2.31}
-Für lineare $C^0$-Elemente gilt bzgl. der Galerkin-Approximation $u_h$ die a priori Fehlerschätzung für unser Modellproblem \eqref{eq:DP}
+Für lineare $C^0$-Elemente gilt für die Galerkin-Approxima-tion $u_h$ die a priori Fehlerschätzung für unser Modellproblem \eqref{eq:DP}
 \[
 	\norm{u-u_h}_1 \le \tilde c h \abs{u}_2 \, .
 \]
@@ -1102,7 +1102,7 @@ wobei bzgl. der Obermenge $W_h$ die Lösung $u_h^W$ genauer ist als $u_h$, d.h. 
 mit einer Konstanten $0\le \beta < 1$ erfüllt.
 
 \begin{bem}
-Da wir zur Berechnung unser \idx{Galerkin-Approximation} den Raum $V_h = \mcal S_h$ der linearen Ansatzfunktionen verwenden werden, wählen wir später als Hierarchie
+Da wir zur Berechnung der \idx{Galerkin-Approximation} den Raum $V_h = \mcal S_h$ der linearen Ansatzfunktionen verwenden werden, wählen wir später als Hierarchie
 \[
 	W_h = \mcal Q_h \coloneqq \{v \in C^0(\Omega) \mid v|_T \in \mcal P_2 \text{ für } T \in \mcal T_h, v|_{\partial\Omega} = 0\} \, ,
 \]
@@ -1172,7 +1172,7 @@ Auf der Grundlage des a posteriori Schätzers müssen die ausgewählten Dreiecke
 
 Bei der regulären Verfeinerung werden die drei Mittelpunkte der Kanten eines  Dreiecks miteinander verbunden. Der Vorteil dabei ist, dass die Winkel der entstandenen Dreiecke identisch zu den vorherigen Winkeln sind. Damit bleibt das Verhältnis zwischen dem Radius des Um- zum Innenkreises $\frac{h_T}{\rho_T}$, was den Parameter für die Quasi-Uniformität angibt, gleich.
 
-Beim regulären Verfeinern können allerdings in anliegenden Dreiecken, die bzgl. des a posteriori Fehlerschätzers nicht verfeinert werden müssen, hängende Knoten (vgl. Abbildung \ref{abb:2.2}) entstehen, wodurch eine nichtzulässige Triangulierung entstehen würde. Um die hängenden Knoten zu eliminieren, kann die Verfeinerungsmethode (ii) und (iii) verwendet werden.
+Beim regulären Verfeinern können allerdings in anliegenden Dreiecken, die bzgl. des a posteriori Fehlerschätzers nicht verfeinert werden müssen, hängende Knoten (vgl. Abbildung \ref{abb:2.2}) entstehen, wodurch eine nichtzuläs-sige Triangulierung entstehen würde. Um die hängenden Knoten zu eliminieren, kann die Verfeinerungsmethode (ii) und (iii) verwendet werden.
 
 Bei der grünen Verfeinerung\index{Verfeinerung!grün} wird der Mittelpunkt genau einer Kante mit dem gegenüberliegendem Eckpunkt verbunden.
 

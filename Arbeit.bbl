@@ -92,6 +92,11 @@
 \newblock 9. Auflage.
 \newblock Springer, 1980
 
+\bibitem[HJ99]{HanJoh}
+\textsc{Hansbo}, P. ; \textsc{Johnson}, C.:
+\newblock Adaptive Finite Element Methods For Elastic Contact Problems.
+\newblock {In: }\emph{Grid Generation and Adaptive Algorithms}  (1999)
+
 \bibitem[HK92]{HoppeKorn}
 \textsc{Hoppe}, R. ; \textsc{Kornhuber}, R.:
 \newblock Adaptive Multilevel-Methods for Obstacle Problems.
