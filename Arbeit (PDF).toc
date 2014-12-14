@@ -1,0 +1,82 @@
+\select@language {ngerman}
+\contentsline {chapter}{\numberline {Abbildungsverzeichnis}}{vi}{\spacefactor \@m currentHref}
+\contentsline {chapter}{\numberline {Tabellenverzeichnis}}{viii}{\spacefactor \@m currentHref}
+\contentsline {chapter}{\numberline {Algorithmenverzeichnis}}{ix}{\spacefactor \@m currentHref}
+\contentsline {chapter}{\numberline {Quellcodeverzeichnis}}{x}{\spacefactor \@m currentHref}
+\contentsline {chapter}{\numberline {1}Einleitung}{11}{chapter.1}
+\contentsline {chapter}{\numberline {2}Grundlagen}{15}{chapter.2}
+\contentsline {section}{\numberline {2.1}Hilbertr\IeC {\"a}ume}{15}{section.2.1}
+\contentsline {section}{\numberline {2.2}Variationsformulierung}{17}{section.2.2}
+\contentsline {section}{\numberline {2.3}Finite Elemente Methode}{26}{section.2.3}
+\contentsline {subsection}{\numberline {2.3.1}A priori Fehlerabsch\IeC {\"a}tzung}{33}{subsection.2.3.1}
+\contentsline {section}{\numberline {2.4}Adaptive Verfeinerungsstrategien}{36}{section.2.4}
+\contentsline {subsection}{\numberline {2.4.1}A posteriori Fehlersch\IeC {\"a}tzer}{36}{subsection.2.4.1}
+\contentsline {subsection}{\numberline {2.4.2}Verfeinerung des Netzes}{37}{subsection.2.4.2}
+\contentsline {section}{\numberline {2.5}Einf\IeC {\"u}hrung in die Strukturmechanik}{39}{section.2.5}
+\contentsline {subsection}{\numberline {2.5.1}Kinematik}{39}{subsection.2.5.1}
+\contentsline {subsection}{\numberline {2.5.2}Kinetik}{42}{subsection.2.5.2}
+\contentsline {subsection}{\numberline {2.5.3}Konstitutive Gleichungen und Prinzipien}{43}{subsection.2.5.3}
+\contentsline {chapter}{\numberline {3}Variationsungleichungen}{45}{chapter.3}
+\contentsline {section}{\numberline {3.1}Ein Hindernisproblem}{45}{section.3.1}
+\contentsline {subsection}{\numberline {3.1.1}Variationsformulierung f\IeC {\"u}r das Hindernisproblem}{46}{subsection.3.1.1}
+\contentsline {subsection}{\numberline {3.1.2}Existenz und Eindeutigkeit der L\IeC {\"o}sung}{49}{subsection.3.1.2}
+\contentsline {subsection}{\numberline {3.1.3}L\IeC {\"o}sung des Hindernisproblems mittels FEM}{51}{subsection.3.1.3}
+\contentsline {section}{\numberline {3.2}Kontaktprobleme}{58}{section.3.2}
+\contentsline {subsection}{\numberline {3.2.1}Mathematische Modellierung eines Kontaktproblems}{58}{subsection.3.2.1}
+\contentsline {subsubsection}{Kontaktkinematik}{59}{section*.20}
+\contentsline {subsubsection}{Bilanzgleichungen, materialunabh\IeC {\"a}ngige Gleichungen}{61}{section*.22}
+\contentsline {subsubsection}{Konstitutive Gleichungen}{61}{section*.23}
+\contentsline {subsection}{\numberline {3.2.2}Variationsformulierung des Signorini-Kontaktproblems}{62}{subsection.3.2.2}
+\contentsline {subsection}{\numberline {3.2.3}L\IeC {\"o}sung des Kontaktproblems mittels FEM}{67}{subsection.3.2.3}
+\contentsline {chapter}{\numberline {4}Ein hierarchischer Fehlersch\IeC {\"a}tzer f\IeC {\"u}r Hindernisprobleme}{69}{chapter.4}
+\contentsline {section}{\numberline {4.1}Herleitung von einem hierarchischen a posteriori Fehlersch\IeC {\"a}tzer}{70}{section.4.1}
+\contentsline {subsection}{\numberline {4.1.1}Diskretisierung des Defektproblems}{70}{subsection.4.1.1}
+\contentsline {subsection}{\numberline {4.1.2}Lokaler Anteil des Fehlersch\IeC {\"a}tzers}{77}{subsection.4.1.2}
+\contentsline {subsection}{\numberline {4.1.3}Oszillationsterme}{82}{subsection.4.1.3}
+\contentsline {subsection}{\numberline {4.1.4}Zuverl\IeC {\"a}ssigkeit des Fehlersch\IeC {\"a}tzers}{85}{subsection.4.1.4}
+\contentsline {subsection}{\numberline {4.1.5}Effizienz des Fehlersch\IeC {\"a}tzers}{100}{subsection.4.1.5}
+\contentsline {section}{\numberline {4.2}Ein adaptiver Algorithmus}{103}{section.4.2}
+\contentsline {section}{\numberline {4.3}Erf\IeC {\"u}llung einer Saturationseigenschaft}{104}{section.4.3}
+\contentsline {section}{\numberline {4.4}\IeC {\"U}bertragung des Fehlersch\IeC {\"a}tzers auf Kontaktprobleme}{107}{section.4.4}
+\contentsline {subsubsection}{Diskretisierung des lokalen Defektproblems}{107}{section*.31}
+\contentsline {subsubsection}{Lokaler Anteil des Fehlersch\IeC {\"a}tzers}{108}{section*.32}
+\contentsline {subsubsection}{Oszillationsterme}{110}{section*.33}
+\contentsline {chapter}{\numberline {5}Implementierung des Fehlersch\IeC {\"a}tzers in Matlab}{111}{chapter.5}
+\contentsline {section}{\numberline {5.1}Implementierung eines Hindernisproblems}{111}{section.5.1}
+\contentsline {subsubsection}{Grundlegender Aufbau des Programms}{111}{section*.34}
+\contentsline {subsubsection}{Lokale Steifigkeitsmatrix und Assemblierung}{112}{section*.35}
+\contentsline {subsubsection}{Quadratur auf einem Dreieck}{115}{section*.36}
+\contentsline {subsubsection}{L\IeC {\"o}sung der quadratischen Programme}{116}{section*.39}
+\contentsline {subsubsection}{Berechnung des Normalenflu\IeC {\ss }es}{117}{section*.40}
+\contentsline {subsubsection}{Berechnung der einzelnen Knotenmengen}{117}{section*.41}
+\contentsline {subsubsection}{Oszillationsterme}{118}{section*.42}
+\contentsline {subsubsection}{Bestimmung der lokalen Anteile des Fehlerindikators $\rho _{\mathcal S}(\varepsilon _{\mathcal V})$}{118}{section*.43}
+\contentsline {subsubsection}{Berechnung des zu verfeinernden Dreiecksindizes}{119}{section*.44}
+\contentsline {section}{\numberline {5.2}Implementierung eines Kontaktproblems}{119}{section.5.2}
+\contentsline {subsubsection}{Grundlegende \IeC {\"A}nderungen in der Implementierung bzgl. des Hindernisproblems}{119}{section*.45}
+\contentsline {subsubsection}{Lokale Steifigkeitsmatrizen und Assemblierung}{120}{section*.46}
+\contentsline {subsubsection}{Berechnung der lokalen Anteile von $\rho _{\EuScript S}$}{122}{section*.47}
+\contentsline {subsubsection}{Berechnung des Normalenspannungsflu\IeC {\ss }es}{122}{section*.48}
+\contentsline {subsubsection}{Besonderheiten in {\ttfamily adaptive_refinement_solution.m}}{122}{section*.49}
+\contentsline {subsubsection}{Erweiterung der vorhandenen Implementierung}{123}{section*.50}
+\contentsline {chapter}{\numberline {6}Validierung}{124}{chapter.6}
+\contentsline {section}{\numberline {6.1}Numerische Beispiele zum Hindernisproblem}{124}{section.6.1}
+\contentsline {section}{\numberline {6.2}Numerisches Beispiel zum Kontaktproblem}{134}{section.6.2}
+\contentsline {chapter}{\numberline {7}Zusammenfassung und Ausblick}{138}{chapter.7}
+\contentsline {chapter}{Literaturverzeichnis}{140}{chapter.7}
+\contentsline {chapter}{\numberline {A}Funktionalanalysis}{144}{appendix.A}
+\contentsline {section}{\numberline {A.1}Sobolev-R\IeC {\"a}ume}{144}{section.A.1}
+\contentsline {section}{\numberline {A.2}Optimalit\IeC {\"a}tskriterien}{146}{section.A.2}
+\contentsline {section}{\numberline {A.3}Konvergenzbegriffe}{147}{section.A.3}
+\contentsline {chapter}{\numberline {B}Optimierung}{149}{appendix.B}
+\contentsline {section}{\numberline {B.1}Quadratische Programmierung}{149}{section.B.1}
+\contentsline {section}{\numberline {B.2}Active Set-Methode f\IeC {\"u}r konvexe QPs}{150}{section.B.2}
+\contentsline {section}{\numberline {B.3}Algorithmus}{154}{section.B.3}
+\contentsline {chapter}{\numberline {C}Tensorrechnung}{155}{appendix.C}
+\contentsline {section}{\numberline {C.1}Tensoralgebra}{155}{section.C.1}
+\contentsline {section}{\numberline {C.2}Tensoranalysis}{157}{section.C.2}
+\contentsline {chapter}{\numberline {D}Quellcode}{159}{appendix.D}
+\contentsline {section}{\numberline {D.1}Implementierung des Fehlersch\IeC {\"a}tzers f\IeC {\"u}r das Hindernisproblem}{159}{section.D.1}
+\contentsline {section}{\numberline {D.2}Implementierung des Fehlersch\IeC {\"a}tzers f\IeC {\"u}r das Kontaktproblem}{183}{section.D.2}
+\contentsline {chapter}{Index}{197}{lstnumber.D.28.95}
+\contentsline {chapter}{Selbstst\IeC {\"a}ndigkeitserkl\IeC {\"a}rung}{200}{appendix*.69}

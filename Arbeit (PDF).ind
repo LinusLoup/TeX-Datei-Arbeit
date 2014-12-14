@@ -1,0 +1,253 @@
+\begin{theindex}
+
+  \item (quasi-) uniforme Zerlegung, \hyperpage{28}
+  \item \idx{Poincar\IeC {\'e}-Friedrich-Ungleichung}
+    \subitem verallgemeinerte, \hyperpage{90}
+  \item 1. Green'sche Formel, \hyperpage{18}, \hyperpage{154}
+
+  \indexspace
+
+  \item a posteriori Fehlersch\IeC {\"a}tzer, \hyperpage{36}
+  \item Active-Set-Algorithmus, \hyperpage{68}, \hyperpage{116}
+  \item adaptive Verfeinerungsstrategie, \hyperpage{11}
+  \item aktuelle Konfiguration, \hyperpage{39}
+  \item Approximationssatz, \hyperpage{16}
+  \item Approximationssatz f\IeC {\"u}r Interpolationen, \hyperpage{35}
+  \item Assemblierung, \hyperpage{33}, \hyperpage{112}, \hyperpage{115}
+  \item Ausgangskonfiguration, \hyperpage{39}, \hyperpage{58}, 
+		\hyperpage{60}
+
+  \indexspace
+
+  \item Betrachtungsweise
+    \subitem Euler'sche, \hyperpage{40}
+    \subitem Lagrange'sche, \hyperpage{40}
+    \subitem materielle, \hyperpage{40}
+    \subitem r\IeC {\"a}umliche, \hyperpage{40}
+  \item Bilinearform
+    \subitem elliptisch, \hyperpage{19}
+    \subitem koerziv, \hyperpage{19}
+    \subitem stetig, \hyperpage{19}
+  \item Bubble-Funktion, \hyperpage{73}, \hyperpage{108}
+
+  \indexspace
+
+  \item Cauchy-Folge, \hyperpage{15}
+  \item Cauchy-Green-Tensor
+    \subitem rechter, \hyperpage{41}
+  \item Cauchy-Schwar'sche Ungleichung, \hyperpage{88}
+  \item Cauchy-Schwarz'sche Ungleichung, \hyperpage{15}, \hyperpage{23}
+  \item Cauchy-Spannungstensor, \hyperpage{42}
+  \item Cauchy-Theorem, \hyperpage{61}
+  \item Coulomb-Reibung, \hyperpage{62}
+  \item Courant-Element, \hyperpage{31}
+
+  \indexspace
+
+  \item Defektproblem, \hyperpage{37}, \hyperpage{72}
+    \subitem lokales, \hyperpage{75}
+  \item Deformationsgradient, \hyperpage{40}
+    \subitem materiell, \hyperpage{41}
+    \subitem r\IeC {\"a}umlich, \hyperpage{41}
+  \item Dirichlet-Problem, \hyperpage{17, 18}
+    \subitem homogenes, \hyperpage{18, 19}, \hyperpage{47}
+  \item Dirichtlet-Problem, \hyperpage{85}
+  \item Divergenz, \hyperpage{153}
+  \item Dualraum, \hyperpage{151}
+  \item dyadisches Produkt, \hyperpage{151}
+
+  \indexspace
+
+  \item ebener Verzerrungszustand, \hyperpage{43}
+  \item Einheitstensor, \hyperpage{152}
+  \item Einstein'sche Summenkonvention, \hyperpage{64}, \hyperpage{152}
+  \item Elastizit\IeC {\"a}tsmodul, \hyperpage{43}
+  \item Energie-Norm, \hyperpage{33, 34}
+
+  \indexspace
+
+  \item Fehlerindikator, \hyperpage{78, 79}, \hyperpage{89}
+  \item Finite-Elemente-Methode, \hyperpage{11}, \hyperpage{30}, 
+		\hyperpage{67}
+  \item Fixpunktsatz von Brouwer, \hyperpage{51}
+  \item Funktionaldeterminante, \hyperpage{112}
+
+  \indexspace
+
+  \item G\IeC {\^a}teaux-Ableitung, \hyperpage{41}, \hyperpage{142}
+    \subitem rechtsseitig, \hyperpage{142}
+  \item G\IeC {\^a}teaux-differenzierbar, \hyperpage{66}, 
+		\hyperpage{73}, \hyperpage{142, 143}
+  \item Galerkin-Approximation, \hyperpage{12}, \hyperpage{26}, 
+		\hyperpage{34}, \hyperpage{36}
+  \item Galerkin-L\IeC {\"o}sung, \hyperpage{119}
+  \item Galerkin-Orthogonalit\IeC {\"a}t, \hyperpage{34}, 
+		\hyperpage{80, 81}
+  \item Galerkin-Verfahren, \hyperpage{11}, \hyperpage{26, 27}, 
+		\hyperpage{30}
+  \item Gap-Funktion, \hyperpage{13}, \hyperpage{60}, \hyperpage{119}, 
+		\hyperpage{123}, \hyperpage{136}
+  \item global-local node ordering, \hyperpage{33}
+  \item Gradient, \hyperpage{153}
+
+  \indexspace
+
+  \item h\IeC {\"a}ngender Knoten, \hyperpage{29}
+  \item Hertz'sche Kontaktproblem, \hyperpage{119}
+  \item Hertz'sches Kontaktproblem, \hyperpage{134}
+  \item Hilbertraum, \hyperpage{15}
+  \item Hindernisproblem, \hyperpage{58}
+  \item homogenes Dirichlet-Problem, \hyperpage{19}
+  \item Hooke'sche Gesetz, \hyperpage{134}
+  \item Hooke'sche-Gesetz, \hyperpage{62}
+  \item Hooke'sches Materialmodell, \hyperpage{43}
+
+  \indexspace
+
+  \item Innere-Punkte-Methode, \hyperpage{116}
+  \item Integralsatz
+    \subitem Gau\IeC {\ss }, \hyperpage{153}
+    \subitem Green, \hyperpage{154}
+  \item isolierte Kontaktknoten, \hyperpage{82}, \hyperpage{117}
+  \item isoparametrisches Element, \hyperpage{18}
+
+  \indexspace
+
+  \item Kettenregel, \hyperpage{112}
+  \item Komplementarit\IeC {\"a}tsbedingung, \hyperpage{61}
+  \item Konfiguration, \hyperpage{39}
+    \subitem aktuelle, \hyperpage{39}
+    \subitem Ausgangs-, \hyperpage{39}
+    \subitem Momentan-, \hyperpage{39}
+    \subitem Referenz-, \hyperpage{39}
+  \item Kontaktknoten, \hyperpage{81}, \hyperpage{110}
+  \item Kontaktproblem, \hyperpage{58}, \hyperpage{108}
+  \item Kontaktrand, \hyperpage{61}
+  \item Kontinuum, \hyperpage{39}
+  \item Korn'sche Ungleichung, \hyperpage{65}
+  \item kritische Richtung, \hyperpage{59}
+  \item kritischer Punkt, \hyperpage{60}
+  \item Kroneckerdelta, \hyperpage{152}
+
+  \indexspace
+
+  \item Lagrange-Basis, \hyperpage{30}
+  \item Lam\IeC {\'e}-Konstanten, \hyperpage{43}, \hyperpage{119}, 
+		\hyperpage{122}, \hyperpage{134}
+  \item Lax-Milgram, \hyperpage{21}, \hyperpage{23, 24}, \hyperpage{45}
+  \item Lebesgue-Raum, \hyperpage{140}
+  \item lineares Komplementarit\IeC {\"a}tsproblem, \hyperpage{52}
+  \item lokale Steifigkeitsmatrix, \hyperpage{32}
+
+  \indexspace
+
+  \item Master, \hyperpage{59}
+  \item materielle Punkte, \hyperpage{39}
+  \item Matlab
+    \subitem refinemesh, \hyperpage{38}
+  \item Momentankonfiguration, \hyperpage{39}, \hyperpage{60}
+
+  \indexspace
+
+  \item Neumann-Rand, \hyperpage{61}, \hyperpage{122}
+  \item Nichtdurchdringungsbedingung, \hyperpage{60}
+  \item Nichtkontaktknoten, \hyperpage{81}, \hyperpage{110}
+  \item nodale Basis, \hyperpage{30}
+  \item nodale Basisfunktion, \hyperpage{30}
+  \item Normalenspanungsflu\IeC {\ss }, \hyperpage{122}
+
+  \indexspace
+
+  \item orthogonales~Komplement, \hyperpage{17}
+  \item Oszillation, \hyperpage{82}
+  \item Oszillationsterme, \hyperpage{82}, \hyperpage{84}, 
+		\hyperpage{98, 99}, \hyperpage{103, 104}, 
+		\hyperpage{118, 119}
+
+  \indexspace
+
+  \item Penalty-Methode, \hyperpage{69}
+  \item Poincar\IeC {\'e}-Friedrich-Ungleichung, \hyperpage{23}, 
+		\hyperpage{90, 91}, \hyperpage{93}, \hyperpage{95, 96}
+  \item Polarkoordinaten, \hyperpage{124}
+  \item Produktregel, \hyperpage{153}
+  \item Projektionen, \hyperpage{16}
+
+  \indexspace
+
+  \item quadratisches Programm, \hyperpage{53}, \hyperpage{116}
+  \item Quadratur
+    \subitem 7-Punkte-Formel, \hyperpage{115}
+    \subitem Gau\IeC {\ss }, \hyperpage{115, 116}, \hyperpage{118}
+    \subitem Seitenmitten-Regel, \hyperpage{115}
+
+  \indexspace
+
+  \item r\IeC {\"a}umliche Punkte, \hyperpage{39}
+  \item Randbedingungen
+    \subitem Dirichlet, \hyperpage{58}, \hyperpage{63}, \hyperpage{124}
+    \subitem Kontakt, \hyperpage{58}
+    \subitem Neumann, \hyperpage{58}, \hyperpage{61}
+  \item Raum der Testfunktionen, \hyperpage{140}
+  \item Referenzkonfiguration, \hyperpage{39}
+  \item reflexiver Raum, \hyperpage{144}
+  \item Reibungsfunktional, \hyperpage{66}
+  \item Riesz'scher Darstellungssatz, \hyperpage{24}
+
+  \indexspace
+
+  \item Saturationseigenschaft, \hyperpage{36}, \hyperpage{104}
+  \item Satz von Gau\IeC {\ss }, \hyperpage{42}, \hyperpage{63}
+  \item Schubmodul, \hyperpage{43}
+  \item schwache Ableitung, \hyperpage{140}
+  \item schwache L\IeC {\"o}sung, \hyperpage{19}
+  \item Signorini-Kontakt, \hyperpage{13}, \hyperpage{58}, 
+		\hyperpage{61--63}
+  \item Skalarprodukt, \hyperpage{152}
+    \subitem doppelt verj\IeC {\"u}ngend, \hyperpage{152}
+    \subitem einfach verj\IeC {\"u}ngend, \hyperpage{152}
+  \item Slave, \hyperpage{59}
+  \item Sobolev-Raum, \hyperpage{15}, \hyperpage{140}
+  \item Spannung, \hyperpage{58}, \hyperpage{61}
+  \item Spannungsrand, \hyperpage{58}
+  \item Spline-Interpolation, \hyperpage{57}
+  \item Spursatz, \hyperpage{88}, \hyperpage{142}
+  \item starkes Problem, \hyperpage{19}
+  \item Steifigkeitsmatrix, \hyperpage{27}
+
+  \indexspace
+
+  \item Tensor, \hyperpage{151}
+  \item Tensorprodukt, \hyperpage{151, 152}
+  \item Tresca-Reibung, \hyperpage{62}, \hyperpage{66}
+  \item Triangulierung, \hyperpage{28}
+    \subitem konform, \hyperpage{28}, \hyperpage{37}
+    \subitem quasi-uniform, \hyperpage{28}, \hyperpage{35}
+    \subitem uniform, \hyperpage{29}
+    \subitem zul\IeC {\"a}ssig, \hyperpage{28}
+
+  \indexspace
+
+  \item Ungleichungen
+    \subitem Poincar\IeC {\'e}, \hyperpage{90}
+
+  \indexspace
+
+  \item Variationsgleichung, \hyperpage{18}
+  \item Verfeinerung
+    \subitem blau, \hyperpage{38}
+    \subitem gr\IeC {\"u}n, \hyperpage{38}
+    \subitem regul\IeC {\"a}r, \hyperpage{38}
+    \subitem rot, \hyperpage{38}
+  \item Verschiebung, \hyperpage{41}
+  \item Verschiebungsgradient
+    \subitem materiell, \hyperpage{41}
+    \subitem r\IeC {\"a}umlich, \hyperpage{41}
+  \item Verschiebungsrand, \hyperpage{58}
+  \item Verzerrung, \hyperpage{58}
+  \item Verzerrungstensor
+    \subitem Green-Lagrange, \hyperpage{41, 42}
+  \item virtuelle Verschiebung, \hyperpage{63}
+  \item Voigt-Notation, \hyperpage{43}
+
+\end{theindex}
